@@ -1,0 +1,92 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%                                                                                     %
+% Short Sectioned Assignment LaTeX Template Version 1.0 (5/5/12)                      %
+% This template has been downloaded from: http://www.LaTeXTemplates.com               %
+%                                                                                     %
+% Original author:  Frits Wenneker (http://www.howtotex.com)                          %
+%                                                                                     %
+% Modified by: Fco Javier Sueza Rodríguez (fjsueza@correo.ugr.es)                     %
+%                                                                                     %
+% Changes:                                                                            %
+%			- Custom Chapters, Sections and Subsections (titlesec package)            %
+%           - Document type scrbook (oneside)                                         %
+%           - Use babel-lang-spanish package and marvosym                             %
+%           - Use Time New Roman (mathptmx), Helvetic and Courier fonts               %
+%                                                                                     %
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)        %
+%                                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+%-----------------------------------------------%
+%	              Packages                      %
+%-----------------------------------------------%
+
+\documentclass[paper=a4, fontsize=11pt, oneside]{scrbook} 
+
+% ---- Text Input/Output ----- %
+
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.5cm,rmargin=2.5cm}
+
+% ---- Language ----- %
+
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{marvosym}  
+
+% ---- Another packages ---- %
+
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{graphics,graphicx, float} 
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+
+%--------------------------------------------------------------------%
+%                      Customizing Document                          %
+%--------------------------------------------------------------------%
+
+
+% ----------- Custom Chapters, Sections and Subsections -------------- %
+
+\titleformat{\chapter}[display] 
+			{\bfseries\Huge} 
+			{Tema \ \thechapter} {0.5ex} 
+			{\vspace{1ex}\centering}
+			
+\titleformat{\section}[hang]
+			{\bfseries\Large}
+			{\thesection}{0.5em}{}
+			
+\titleformat{\subsection}[hang]
+			{\bfseries\large}
+			{\thesubsection}{0.5em}{}
+					
+% ------------------- Custom heaaders and footers ------------------- %
+ 
+\pagestyle{fancyplain}
+
+\fancyhead[]{} 
+\fancyfoot[L]{} 
+\fancyfoot[C]{} 
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+% --------- Numbering equations, figures and tables ----------------- %
+
+%\numberwithin{equation}{section} % Number equations within sections 
+%\numberwithin{figure}{section} % Number figures within sections 
+%\numberwithin{table}{section} % Number tables within sections 
+
+% ------------------------ New Commands ----------------------------- %
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command 
