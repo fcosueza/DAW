@@ -30,6 +30,7 @@
 \usepackage{mathptmx}
 \usepackage[scaled=.92]{helvet}
 \usepackage{courier}
+\usepackage[indent=12pt]{parskip}
 
 \usepackage{geometry}
 \geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.6cm,rmargin=2.6cm}
@@ -45,7 +46,10 @@
 \usepackage{graphics,graphicx} 
 \usepackage{titlesec}
 \usepackage{fancyhdr}
+\usepackage{url}
 
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
 
 %--------------------------------------------------------------------%
 %                      Customizing Document                          %
@@ -66,6 +70,10 @@
 \titleformat{\subsection}[hang]
 			{\bfseries\large}
 			{\thesubsection}{0.5em}{}
+			
+\titleformat{\subsubsection}[hang]
+			{\bfseries\large}
+			{\thesubsubsection}{0.5em}{}
 					
 % ------------------- Custom heaaders and footers ------------------- %
  
