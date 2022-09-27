@@ -1,4 +1,4 @@
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 %                                                                                     %
 % Short Sectioned Assignment LaTeX Template Version 1.0 (5/5/12)                      %
 % This template has been downloaded from: http://www.LaTeXTemplates.com               %
@@ -21,11 +21,11 @@
 %	              Packages                  %
 %-----------------------------------------------%
 
-\documentclass[paper=a4, fontsize=11pt, oneside]{scrbook} 
+\documentclass[paper=a4, fontsize=11pt, oneside]{scrbook}
 
 % ---- Text Input/Output ----- %
 
-\usepackage[T1]{fontenc} 
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{mathptmx}
 \usepackage[scaled=.92]{helvet}
@@ -38,14 +38,15 @@
 % ---- Language ----- %
 
 \usepackage[spanish]{babel}
-\usepackage{marvosym}  
+\usepackage{marvosym}
 
 % ---- Another packages ---- %
 
 \usepackage{amsmath,amsfonts,amsthm}
-\usepackage{graphics,graphicx} 
+\usepackage{graphics,graphicx}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
+\usepackage{tcolorbox}
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -63,31 +64,31 @@
 
 % ----------- Custom Chapters, Sections and Subsections -------------- %
 
-\titleformat{\chapter}[display] 
-			{\bfseries\Huge} 
-			{Tema \ \thechapter} {0.5ex} 
+\titleformat{\chapter}[display]
+			{\bfseries\Huge}
+			{Tema \ \thechapter} {0.5ex}
 			{\vspace{1ex}\centering}
-			
+
 \titleformat{\section}[hang]
 			{\bfseries\Large}
 			{\thesection}{0.5em}{}
-			
+
 \titleformat{\subsection}[hang]
 			{\bfseries\large}
 			{\thesubsection}{0.5em}{}
-			
+
 \titleformat{\subsubsection}[hang]
 			{\bfseries\large}
 			{\thesubsubsection}{0.5em}{}
-					
+
 % ------------------- Custom heaaders and footers ------------------- %
- 
+
 \pagestyle{fancyplain}
 
-\fancyhead[]{} 
-\fancyfoot[L]{} 
-\fancyfoot[C]{} 
-\fancyfoot[R]{\thepage} 
+\fancyhead[]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
 
 \renewcommand{\headrulewidth}{0pt} % Remove header underlines
 \renewcommand{\footrulewidth}{0pt} % Remove footer underlines
@@ -96,10 +97,10 @@
 
 % --------- Numbering equations, figures and tables ----------------- %
 
-\numberwithin{equation}{section} % Number equations within sections 
-\numberwithin{figure}{section} % Number figures within sections 
-\numberwithin{table}{section} % Number tables within sections 
+\numberwithin{equation}{section} % Number equations within sections
+\numberwithin{figure}{section} % Number figures within sections
+\numberwithin{table}{section} % Number tables within sections
 
 % ------------------------ New Commands ----------------------------- %
 
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command 
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command
