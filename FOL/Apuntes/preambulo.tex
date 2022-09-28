@@ -8,9 +8,10 @@
 % Modified by: Fco Javier Sueza Rodríguez (fcosueza@disroot.org)                      %
 %                                                                                     %
 % Changes:                                                                            %
-%	    - Custom Chapters, Sections and Subsections (titlesec package)            %
+%	    - Custom Chapters, Sections and Subsections (titlesec package)                %
 %           - Document type scrbook (oneside)                                         %
 %           - Use babel-lang-spanish package and marvosym                             %
+%           - Use hyperref, enumitem, tcolorbox and glossaries packages               %
 %           - Use Time New Roman (mathptmx), Helvetic and Courier fonts               %
 %                                                                                     %
 % License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)        %
@@ -48,14 +49,8 @@
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \usepackage{hyperref}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=black,
-	urlcolor=magenta
-}
-
-\setcounter{secnumdepth}{5}
-\setcounter{tocdepth}{5}
+\usepackage{enumitem}
+\usepackage{glossaries}
 
 %--------------------------------------------------------------------%
 %                      Customizing Document                          %
@@ -80,6 +75,12 @@
 \titleformat{\subsubsection}[hang]
 			{\bfseries\large}
 			{\thesubsubsection}{0.5em}{}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=magenta
+}
 
 % ------------------- Custom heaaders and footers ------------------- %
 
