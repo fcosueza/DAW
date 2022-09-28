@@ -19,6 +19,9 @@
 %                                     DOCUMENTO
 %----------------------------------------------------------------------------------------
 
+\makeglossaries
+\loadglsentries{glossary}
+
 \begin{document}
 
 \maketitle
@@ -177,7 +180,7 @@ Para acceder a un Grado Superior es necesario cumplir alguna de los siguientes r
 
 Para más información sobre los requisitos de acceso, cupos y equivalencias, se puede consultar la pagina de la \href{https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza/quiero-formarme/ensenanzas/fp-grado-superior/requisitos}{Consejería de Educación} de la Junta de Andalucía.
 
-Es conveniente reseñar que dado el nivel superior de estudios, el nivel {\bfseries actitudinal}, {\bfseries procedimental} y {\bfseries conceptual} requerido corresponderá con ello, y todo el proceso de enseñanza de ve influenciado por esta característica.
+Es conveniente reseñar que dado el nivel superior de estudios, el nivel {\bfseries \gls{actitudinal}}, {\bfseries procedimental} y {\bfseries conceptual} requerido corresponderá con ello, y todo el proceso de enseñanza de ve influenciado por esta característica.
 
 
 
@@ -188,11 +191,14 @@ Es conveniente reseñar que dado el nivel superior de estudios, el nivel {\bfser
 
 
 
+% Glossary
 
+\glsaddall
+\printglossaries
 
+% Bibliography
 
-
-
+\newpage
 \bibliography{citas}
 \bibliographystyle{unsrt}
 
