@@ -77,7 +77,28 @@ El primer modelo de arquitectura de hardware con programa almacenado fue propues
     \caption{Arquitectura John Von Neuman}
 \end{figure}
 
+Esta relación software-hardware la podemos analizar desde dos puntos de vista diferentes:
 
+\begin{enumerate}[label={\alph*}]
+    \item {\bfseries Desde el punto de vista del sistema operativo}: el sistema operativo es el encargado de coordinar
+    el funcionamiento del ordenador, actuando entre este y las aplicaciones que están corriendo en ese momento, gestionando los diferentes recursos hardware que requieren estas aplicaciones (CPU, RAM, interrupciones, dispositivos de E/S..).
+    \item {\bfseries Desde el punto de vista de las aplicaciones}: una aplicación solo es un conjunto de programas, escritos en algún lenguaje de programación. Hay multitud de lenguajes de programación, con la característica de que todos están escritos en un idioma que el ser humano puede entender. El hardware por otro lado solo es capaz de interpretar señales eléctricas que se traducen en secuencias de 0 y 1 (código binario). Para que estás aplicaciones puedan ejecutarse en el hardware debe darse un proceso de "traducción" que veremos mas adelante.
+\end{enumerate}
+
+\section{Desarrollo de Software}
+Entendemos por {\bfseries \gls{Desarrollo de Software}} todo el proceso desde que se concibe la idea hasta que el programa está implementado y funcionando en el ordenador. Aunque en principio pueda parecer una tarea simple, consta de una series de pasos de obligado cumplimiento, pues solo así podemos garantizar que las aplicaciones creadas son eficientes, seguras, fiables y responden a las necesidades de los usuarios finales.
+
+Como veremos más adelante en la unidad, esta serie de pasos se le suele denominar {\bfseries Etapas} en el desarrollo de software. Según el orden y la forma en la que se llevan a cabo estas etapas hablaremos de diferentes ciclos de vida del software. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{etapas-desarrollo.png}
+    \caption{Etapas del Desarrollo de Software}
+\end{figure}
+
+Cabe destacar que la construcción de software es un proceso muy complejo y que requiere de una gran coordinación y disciplina del grupo de trabajo que lo desarrolle.
+
+\subsection{Ciclos de Vida del Software}
 
 
 
