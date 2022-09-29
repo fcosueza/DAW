@@ -1,0 +1,107 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+\normalfont \normalsize
+\textsc{{\bfseries Curso 2022-2023} \\ Ciclo Superior de Desarrollo de Aplicaciones Web \\ IES Aguadulce} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm]
+\huge Entornos de Desarrollo \\
+\horrule{0.5pt} \\[0.4cm]
+}
+
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\makeglossaries
+\loadglsentries{glossary.tex}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\listoffigures
+
+%\listoftables
+
+\newpage
+
+\chapter{Desarrollo de Software}
+En esta unidad vamos a realizar una introducción al concepto de software, así como a los diferentes tipos de software que podemos encontrar y al proceso de desarrollo de éste. También hablaremos de los lenguajes de programación, en que consiste y que características tiene. Por último, veremos que son los entornos de desarrollo, cuales su función y su evolución histórica.
+
+\section{Software y Tipos de Software}
+Un ordenador se compone de dos partes bien diferenciadas, el {\bfseries hardware} y el {\bfseries software}.
+
+El {\bfseries hardware}, {\bfseries equipo} o {\bfseries soporte físico} en informática se refiere a las partes físicas, tangibles de un sistema informático, sus componentes eléctricos, electrónicos y electromecánicos. Los cables, así como los muebles o cajas de todo tipo también se incluyen dentro de esta categoría. \cite{wiki01}
+
+Por otro lado, el {\bfseries software} es el conjunto de componentes lógicos que hace posible la realización de tareas específicas \cite{wiki02}. Dicho de otra forma, es el conjunto de programas informáticos que actúa sobre el hardware para ejecutar lo que el usuario desee.
+
+Según su funcionalidad, podemos diferencias tres tipos principales de software:
+
+\begin{itemize}
+    \item {\bfseries Sistema Operativo}: conjunto de programas de un sistema informático que gestiona los recursos hardware y provee servicios a las aplicaciones informáticas para su funcionamiento. Ejemplos de sistemas operativos son: \gls{Microsoft Windows}, \gls{Linux}, \gls{macOS}...
+    \item {\bfseries Software de Programación}: conjunto de herramientas y utilidades que permiten a los programadores desarrollar programas informáticos.
+    \item {\bfseries Aplicaciones Informáticas}: programas o conjunto de programas que tienen una aplicación concreta. Algunos ejemplos de aplicaciones informáticas son los procesadores de texto, reproductores multimedia, juegos...
+\end{itemize}
+
+Aunque estos son los tipos principales de software, podemos ampliar esta clasificación incluyendo los siguientes tipos, los cuales son, en mayor medida, subdivisiones de las aplicaciones informáticas \cite{tipos}:
+
+\begin{itemize}
+    \item {\bfseries Software de Tiempo Real}: son aquellos programas que se usan en sistemas de tiempo real y que reaccionan con el entorno físico respondiendo a los estímulos del éste en un tiempo limitado. Ejemplos de este software son los sistemas de control de procesos, aplicaciones de robótica,..
+    \item {\bfseries Software de Gestión}: son programas que utilizan grandes cantidades de información almacenadas en bases de datos para ayudar a la administración y toma de decisiones. Un ejemplo de estos sistemas son los {\bfseries \gls{ERP}}.
+    \item {\bfseries Software Científico o de Ingeniería}: software que se encarga de realizar complejos cálculos numéricos de todo tipo, siendo la corrección y exactitud en estos cálculos uno de los requisitos básicos. También incluye los sistemas de diseño, ingeniería y fabricación asistida por ordenador (CAD, CAE y CAM), simuladores gráficos,..
+    \item {\bfseries Software Empotrado}: software que por norma general va instalado en memorias ROM y sirve para controlar productos y sistemas de los mercados industriales. Se aplica a todo tipo de productos como neveras, reproductores de vídeo, misiles, sistemas de control de automóviles,...
+    \item {\bfseries Software de Inteligencia Artificial}: software que basándose en el uso de lenguajes declarativos, sistemas expertos y redes neuronales, para simular comportamientos humanos como el aprendizaje, razonamiento y la resolución de problemas para la realización de forma fiable y rápida operaciones que para el ser humano son tediosas o incluso inabordables. Ejemplos de estas aplicaciones son las aplicaciones de \textit{machine learning}, chatbots,...
+\end{itemize}
+
+En este tema, nos centraremos en las {\bfseries aplicaciones informáticas}, como se desarrollan y cuales son las fases de este desarrollo. También veremos el {\bfseries ciclo de vida de una aplicación informática} y los diferentes tipos de {\bfseries lenguajes de programación} y sus características.
+
+\section{Relación Hardware-Software}
+Como hemos comentado en el punto anterior, un sistemas informático se compone de hardware y software. Existe una relación indisoluble entre estos dos componentes ya que se necesita que estén instalados y configurados correctamente para que el ordenador funcione.
+
+El primer modelo de arquitectura de hardware con programa almacenado fue propuesto por {\bfseries John Von Neumman} en 1946. A continuación se muestra una imagen con las diferentes partes de esta arquitectura:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.38]{von-neumman.png}
+    \caption{Arquitectura John Von Neuman}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Glossary
+
+\glsaddall
+\printglossaries
+
+% Bibliography
+
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{citas}
+\bibliographystyle{unsrt}
+
+\end{document}
