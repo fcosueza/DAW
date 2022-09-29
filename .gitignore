@@ -29,6 +29,12 @@
 **/Apuntes/*-blx.bib
 **/Apuntes/*.run.xml
 
+## Glossary auxiliary files:
+**/Apuntes/*.glg
+**/Apuntes/*.glo
+**/Apuntes/*.gls
+**/Apuntes/*.ist
+
 ## Build tool auxiliary files:
 **/Apuntes/*.fdb_latexmk
 **/Apuntes/*.synctex
