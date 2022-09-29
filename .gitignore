@@ -20,7 +20,6 @@
 **/Apuntes/*.dvi
 **/Apuntes/*.xdv
 **/Apuntes/*-converted-to.*
-**/Apuntes/
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 **/Apuntes/*.bbl
