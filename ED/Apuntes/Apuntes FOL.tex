@@ -82,7 +82,7 @@ Esta relación software-hardware la podemos analizar desde dos puntos de vista d
 \begin{enumerate}[label={\alph*}]
     \item {\bfseries Desde el punto de vista del sistema operativo}: el sistema operativo es el encargado de coordinar
     el funcionamiento del ordenador, actuando entre este y las aplicaciones que están corriendo en ese momento, gestionando los diferentes recursos hardware que requieren estas aplicaciones (CPU, RAM, interrupciones, dispositivos de E/S..).
-    \item {\bfseries Desde el punto de vista de las aplicaciones}: una aplicación solo es un conjunto de programas, escritos en algún lenguaje de programación. Hay multitud de lenguajes de programación, con la característica de que todos están escritos en un idioma que el ser humano puede entender. El hardware por otro lado solo es capaz de interpretar señales eléctricas que se traducen en secuencias de 0 y 1 (código binario). Para que estás aplicaciones puedan ejecutarse en el hardware debe darse un proceso de "traducción" que veremos mas adelante.
+    \item {\bfseries Desde el punto de vista de las aplicaciones}: una aplicación solo es un conjunto de programas  escritos en algún lenguaje de programación. Hay multitud de lenguajes de programación, con la característica de que todos están escritos en un idioma que el ser humano puede entender. El hardware por otro lado solo es capaz de interpretar señales eléctricas que se traducen en secuencias de 0 y 1 (código binario). Para que estás aplicaciones puedan ejecutarse en el hardware debe darse un proceso de "traducción" que veremos mas adelante.
 \end{enumerate}
 
 \section{Desarrollo de Software}
@@ -99,13 +99,23 @@ Como veremos más adelante en la unidad, esta serie de pasos se le suele denomin
 Cabe destacar que la construcción de software es un proceso muy complejo y que requiere de una gran coordinación y disciplina del grupo de trabajo que lo desarrolle.
 
 \subsection{Ciclos de Vida del Software}
+Ya hemos visto que para crear software debemos seguir un número de pasos conocidos como ciclo de vida del software. Más adelante en esta unidad veremos en que consiste cada paso mas detalladamente. Por ahora, vamos a centrarnos en ver los diferentes ciclos de vida del software que existen atendiendo a como se desarrollan dichos pasos.
 
+Aunque podemos encontrar diferentes clasificaciones sobre los distintos tipos de ciclos de vida del software los mas conocidos y utilizados son los siguientes:
 
+\begin{enumerate}
+    \item {\bfseries Modelo en Cascada}: es el modelo de vida clásico del software. Actualmente es prácticamente imposible de utilizar, salvo para desarrollos muy pequeños, ya que es necesario conocer todos los requisitos con antelación y las etapas pasan de una a otra sin retorno, presuponiendo que no ha habido errores en la etapa anterior.
+    \item {\bfseries Modelo en Cascada con Realimentación}: es uno de los modelos más utilizados. Proviene del modelo anterior, pero se introduce una realimentación entre etapas, permitiendo que podamos volver hacia atrás en cualquier momento para corregir, depurar o modificar algún aspecto. Es el modelo perfecto si el proyecto es es rígido (pocos cambios y poco evolutivo) y los requisitos están claros. No obstante, si se prevén muchos cambios durante el desarrollo no es el modelo más idóneo.
+    \item {\bfseries Modelos Evolutivos}: son los modelos más modernos y tienen en cuenta el aspecto cambiante y evolutivo del software. Dentro de este modulo podemos encontrar dos variantes:
+    \begin{enumerate}[label*=\arabic*.]
+        \item {\bfseries Modelo Iterativo Incremental}: ésta basado en el modelo en cascada con realimentación, donde las fases se repiten y refinan, propagando su mejora a las fases siguientes. El proyecto se realiza en pequeñas porciones ({\bfseries incrementa}) en sucesivas iteraciones ({\bfseries sprints}) al final de las cuales se ve lo que se ha desarrollado, pudiendo hacer correcciones o modificaciones antes de la siguiente iteración o incluso añadir nuevos requerimientos ({\bfseries adaptativo}). Cada sprint debe proporcional un resultado completo preparado para entregárselo al clientes.
+        \item {\bfseries Modelo en Espiral}: es una combinación del modelo anterior con el modelo en cascada. En éste, el software se va construyendo repetidamente en forma de versiones que son cada vez mejores, debido a que se va incrementando la funcionalidad. Es un modelo muy complejo.
+    \end{enumerate}
+\end{enumerate}
 
+En la actualidad, la {metodologías de desarrollo ágil}, enmarcadas dentro de los modelos evolutivos, están en auge, y metodologías como {\bfseries \href{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)}{Scrum}}, {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas}{TDD}} o {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento}{BDD}}, así como metodologías híbridas basadas en estas, se están convirtiendo en el estándar de la industria. \cite{batool01}
 
-
-
-
+\subsection{Herramientas de Apoyo al Desarrollo De Software}
 
 
 
