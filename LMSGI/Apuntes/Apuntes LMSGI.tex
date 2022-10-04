@@ -88,6 +88,27 @@ En los años 60, \textbf{IBM} encargo a \textbf{Charles F. Goldfarb} la construc
 
 Así fue como se creó \textbf{\gls{GML}}, un formato que permitía describir los documentos de tal forma que el resultado fuese independiente de la plataforma o la aplicación utilizada. Este formato evolucionó hasta que en 1986 se creó el estándar \textbf{ISO 8879} donde se especificaba el formato \textbf{\gls{SGML}}, un lenguaje muy complejo y que requería de unas herramientas de software caras, por lo que su uso quedó relegado a grandes aplicaciones industriales.
 
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+      \scriptsize
+      \begin{verbatim}
+<email>
+    <remitente>
+        <nombre>Peter</nombre>
+        <apellido>Pan</apellido>
+    </remitente>
+    <destinatario>
+        <direccion>campanilla@paisdenuncajamas.com</direccion>
+    </destinatario>
+    <asunto>Paseo</asunto>
+    <mensaje>¿Te apetece dar una vuelta?</mensaje>
+</email>
+      \end{verbatim}
+    \end{tcolorbox}
+\caption{Documento SGML simple}
+\end{figure}
+
 \subsection{La Popularización: HTML}
 
 En 1990, \href{https://es.wikipedia.org/wiki/Tim_Berners-Lee}{\textbf{Tim Berners-Lee}} creó el World Wide Web y conociendo SGML, se encontró con la necesidad de compatibilizar, enlazar y organizar gran cantidad de documentos procedentes de diversos sistemas. Como solución, a partir de la sintaxis de SGML, creó un lenguaje de descripción de documentos llamado \textbf{\gls{HTML}}, combinando dos estándares ya existentes:
@@ -97,9 +118,26 @@ En 1990, \href{https://es.wikipedia.org/wiki/Tim_Berners-Lee}{\textbf{Tim Berner
     \item \textbf{SGML}: lenguaje que permite dar estructura al texto aplicando diferentes formatos.
 \end{itemize}
 
-\textbf{HTML} es una \textbf{versión simplificada de SGML}, ya que solo utiliza las instrucciones absolutamente necesarias. Gracias a su simplicidad, tuvo un éxito rotundo en la World Wide Web, convirtiéndose rápidamente en el \textbf{estándar general} para la \textbf{creación de páginas web}.
+\textbf{HTML} es una \textbf{versión simplificada de SGML}, ya que solo utiliza las instrucciones absolutamente necesarias. Gracias a su simplicidad, tuvo un éxito rotundo en la World Wide Web, convirtiéndose rápidamente en el \textbf{estándar general} para la \textbf{creación de páginas web}. Actualmente, HTML es el tipo de documento más utilizado en el mundo.
 
-Actualmente, HTML es el tipo de documento más utilizado en el mundo, gracias en parte a su sencillez, ya cualquier persona puede escribir documentos en este lenguaje sin tener prácticamente conocimientos de informática.
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ejemplo1</title>
+    </head>
+    <body>
+        <p>Párrafo de ejemplo</p>
+    </body>
+</html>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento HTML simple}
+\end{figure}
 
 \subsection{La Madurez: XML}
 Uno de los problemas que surgió con HTML es que la cantidad de documentos escritos en este lenguaje creció exponencialmente, muchos de los cuales no se ceñían a ningún estándar generando bastante caos. Como respuesta es ese problema, el \textbf{\gls{W3C}} estableció en 1998 el estándar internacional \textbf{\gls{XML}}, un lenguaje de marcas puramente estructural, que \textbf{no incluye información sobre el diseño}, y permite la creación de etiquetas adaptadas a las necesidades, convirtiéndose con rapidez en el estándar para intercambio de datos en la web.
@@ -122,12 +160,11 @@ En realizad XML es un \textbf{conjunto de estándares} relacionados entre sí y 
     \item \textbf{XML Schemas}: permiten definir restricciones que se aplicarán a un documento XML. Actualmente las mas utilizadas son \textbf{DTD}.
 \end{itemize}
 
-A continuación se muestra un ejemplo de un documentos XML.
 
-
-\begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-    \scriptsize
-    \begin{verbatim}
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+      \scriptsize
+      \begin{verbatim}
 <?xml version="1.0" encoding="UTF-8xºx"?>
 <!DOCTYPE biblioteca>
 
@@ -144,16 +181,95 @@ A continuación se muestra un ejemplo de un documentos XML.
         </prestamos>
      </ejemplar>
 </biblioteca>
-    \end{verbatim}
-\end{tcolorbox}
+      \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML simple}
+\end{figure}
 
-Si publicáramos este código en un navegador, el resultado sería el que se muestra en la siguiente figura, capturado en un navegador Firefox.
+\subsection{Comparación XML y SGML}
+Aunque XML esta basado en SGML, estos tienen muchas diferencias. A continuación se muestra una tabla con las principales diferencias de estos dos lenguajes de marcas.
+
+ \begin{table}[h]
+     \centering
+    {\renewcommand{\arraystretch}{1.5}
+        \begin{tabular}[c]{ |l|l| }
+            \hline
+            \multicolumn{1}{|c|}{\textbf{XML}} & \multicolumn{1}{|c|}{\textbf{SGML}} \\ \hline
+            Su uso es sencillo & Su uso es my complejo \\ \hline
+            Trabaja con documentos bien formados & Solo Trabaja con documentos válidos \\ \hline
+            Desarrollo de aplicaciones a bajo coste & Aplicaciones para procesarlo costosas \\ \hline
+            Muy utilizado en informática y otras áreas & Se utiliza en sectores muy específicos\\ \hline
+            Compatibilidad e integración con HTML & No hay compatibilidad con HTML \\ \hline
+            Formateo y estilos fáciles de aplicar & Formateo y estilo relativamente complejos \\ \hline
+    \end{tabular}}
+ \end{table}
+
+Como vemos en esta tabla, SGML es un un lenguaje mas complejo y costoso que XML, además de imponer mas restricciones, haciéndolo un lenguaje menos flexible que XML y mas orientado a sectores concretos. Para obtener más información sobre XML, podemos consultar el \href{https://www.w3.org/TR/REC-xml/}{Estándar XML} publicado por la W3C.
+
+\subsection{Comparación XML y HTML}
+Aunque tanto XML como HTML se crearon a partir de SGML y su sintaxis es similar, son lenguajes diferentes con propósitos diferentes, como podemos ver en la siguiente tabla.
+
+ \begin{table}[h]
+    \centering
+    {\renewcommand{\arraystretch}{1.5}
+        \begin{tabular}[c]{ |l|l| }
+            \hline
+            \multicolumn{1}{|c|}{\textbf{XML}} & \multicolumn{1}{|c|}{\textbf{HTML}} \\ \hline
+            Es un perfil de SGML & Es una aplicación de SGML \\ \hline
+            Permite definir conjuntos de etiquetas & Aplica un conjunto limitado de etiquetas \\ \hline
+            Modelo de hiperenlaces complejo & Modelo de hiperenlaces simple \\ \hline
+            Navegador como plataforma de desarrollo & Navegador como visor de páginas \\ \hline
+            Compatibilidad e integración con HTML & No hay compatibilidad con HTML \\ \hline
+            Fin de las etiquetas propietarias & Problema de la no compatibilidad en navegadores \\ \hline
+    \end{tabular}}
+\end{table}
+
+\section{Etiquetas, Elementos y Atributos}
+Los lenguajes de marcas usan una serie de etiquetas intercaladas en un documento sin formato, las cuales serán posteriormente por el interprete del lenguaje.
+
+Existen tres términos ampliamente utilizados en los lenguajes de marcas:
+
+\begin{itemize}
+    \item \textbf{Etiquetas}: una etiqueta, también llamada \textbf{tag}, es un pequeño bloque de código que se escribe encerrado entre los símbolos \textbf{menor que} (\textbf{<}) y \textbf{mayor que} (\textbf{>}). Normalmente se utilizan \textbf{dos etiquetas}, una de \textbf{inicio} y otra de \textbf{fin}, para indicar que el efecto que queríamos conseguir ha finalizado, con la única diferencia que a la etiqueta de fin se le añade el carácter \textbf{/} antes del nombre.
+    \item \textbf{Elemento}: representan estructuras mediante las que se organiza el contenido del documento, o acciones que se desencadenan cuando el navegador lo interpreta. Está \textbf{compuesto} de la \textbf{etiqueta de apertura}, la \textbf{etiqueta de cierre} y el \textbf{contenido entre ambas}.
+    \item \textbf{Atributo}: es un par \textbf{nombre-valor}, que se encuentra al inicio de un elemento e indican diferentes propiedades asociadas a ese elemento
+\end{itemize}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.3]{ejemplo-xml.png}
-    \caption{Ejemplo de XML en el navegador}
+    \includegraphics[scale=0.50]{elemento-HTML.png}
+    \caption{Partes de un elemento HTML}
 \end{figure}
+
+\section{Herramientas de Edición}
+Para trabajar con XML es necesario, por un lado, editar los documentos, y por otro procesarlos. Por ello, necesitaremos dos tipos de herramientas para trabajar con él, estas son:
+
+\begin{itemize}
+    \item \textbf{Editores XML}
+
+    Una característica de los lenguajes de marcas es que se basan en la utilización de ficheros de \textbf{\gls{texto plano}}, por lo que basta con usar cualquier editor de texto para construir un documento XML.
+
+    Aunque podemos usar cualquier editor, cuando elaboramos documentos XML complejos es conveniente usar
+    algún software de edición XML. Estos nos ayudan a crear estructuras y etiquetas de los elementos usados en XML, resaltan las etiquetas para diferenciarlas más cómodamente y ademas incluyen ayudas para la creación de otros elementos como DTD, hojas de estilo CSS o XLS,.. El W3C ha desarrollado un editor HTML, XHTML, CSS y XML gratuito llamado Amaya, pero existen otros muchos gratuitos como: Notepad++, VSCode, Sublime Text, Netbeans,..etc
+
+    \item \textbf{Procesadores XML}
+
+    Para interpretar un documento XML puede usarse cualquier navegador. Los procesadores XML permiten visualizar los documentos XML y acceder a su contenido y estructura. Un \textbf{procesador} es un conjunto de módulos de software entre los que se encuentra un \textbf{parser}, que comprueba que el documento cumple las normas establecidas para que pueda abrirse. Estás normas pueden corresponderse a las necesarias para trabajar con documentos de tipo válido o solo exigir que el documento este bien formado. A los primeros se le conocen como \textbf{procesadores validadores} y a los segundos como \textbf{procesadores no validadores}.
+
+    Para publicar documentos XML en internet se usan \textbf{procesadores XSLT}, que permiten generar archivos HTML a partir de XML.
+
+    Puesto que XML se usa para el intercambio de archivos entre aplicaciones, hay que recurrir a motores independientes como <<XML para Java>> de IBM, JAXP de Sun, etc
+\end{itemize}
+
+\section{XML}
+\textbf{XML}, que significa \textit{eXtensible Markup Language}, es un lenguaje que permite definir lenguajes de marcas desarrollado por el W3C y utilizado para almacenar datos de forma legible. Proviene del lenguaje SGML y permite definir la gramática de lenguajes específicos para estructurar documentos. \cite{xml}
+
+Su importancia radica en que permite \textbf{compartir datos} entre diferentes equipos y aplicaciones de forma \textbf{segura}, \textbf{fiable} y \textbf{sencilla}. El hecho de que diferentes equipos y aplicaciones puedan leer y generar archivos en este formato lo convierte en una herramienta muy útil para el envío de información a través de la Web.
+
+
+
+
+
 
 
 % Glossary
