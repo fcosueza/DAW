@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+  <catalogo>
+    <libros>
+      <libro>
+        <titulo>Neuromante</titulo>
+        <autor>William Gibson</autor>
+        <anio>1984</anio>
+      </libro>
+    </libros>
+    <enciclopedias>
+      <enciclopedia></enciclopedia>
+    </enciclopedias>
+  </catalogo>
+</biblioteca>
