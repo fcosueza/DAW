@@ -42,3 +42,6 @@
 **/Apuntes/*.synctex.gz
 **/Apuntes/*.synctex.gz(busy)
 **/Apuntes/*.pdfsync
+
+## VSCode Folder
+.vscode/*
