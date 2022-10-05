@@ -306,7 +306,176 @@ Los documentos XML también pueden \textbf{contener comentarios}, que son interp
 Los XML están \textbf{formados} por dos partes, \textbf{el prólogo} y \textbf{el ejemplar}, los cuales veremos a continuación.
 
 \subsection{El Prólogo}
+El prólogo es la primera parte que nos encontramos en cualquier documento XML y siempre debe preceder al ejemplar del documento. Éste se divide en dos partes, la \textbf{declaración XML} y la \textbf{declaración de la codificación} empleada, los cuales explicamos a continuación.
 
+\begin{enumerate}
+    \item\textbf{La declaración XML}: es la primera linea del documento, de no ser así, se genera un error que impide que el documento sea procesado. En caso de que sea opcional, se permite el procesamiento de documentos HTML y SGML como si fueran documentos XML, si es obligatoria, estos deberán incluir la declaración de la versión XML. Esta declaración permite indicar de forma explicita que el documento es de tipo XML.
+
+    El prologó puede tener \textbf{tres funciones}:
+
+    \begin{enumerate}
+        \item \textbf{Declaración de la versión} utilizada de XML:
+        \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+             \begin{verbatim}               <?xml version= “1.0”?>\end{verbatim}
+         \end{tcolorbox}
+
+         \item \textbf{Declaración de la codificación empleada}:
+         \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+          \begin{verbatim}     <?xml version= “1.0” encoding=”iso-8859-1” ?>\end{verbatim}
+        \end{tcolorbox}
+
+         En este caso se usa el código código iso-8859-1 (Latin-1) que permite el uso de tildes o caracteres como la <<ñ>>. Otro de los códigos a tener en cuenta es \textbf{\gls{UTF-8}} (\textbf{\gls{unicode}}). Esta codificación soporta más caracteres que iso-8859-1 y permite que estos se visualicen correctamente en más sistemas. Es la \textbf{codificación estándar} recomendada para todos los documentos y la usaremos siempre, salvo que por algún motivo no pueda ser empleada.
+
+         Para consultar más información sobre codificación de caracteres en sistemas informáticos y cuales son los más empleados podemos visitar  \href{https://en.wikipedia.org/wiki/Character_encoding}{página de Wikipedia} sobre codificación de caracteres.
+
+         \item \textbf{Declaración de autonomía del documento}:
+
+         Indica si el documento necesita de otro para su interpretación. Para declararlo, hay que definir el prólogo completo:
+         \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+             \small
+             \begin{verbatim}<?xml version= “1.0” encoding=”iso-8859-1” standalone=”yes” ?>\end{verbatim}
+         \end{tcolorbox}
+
+         La opción \textit{standalone} indica al procesador XML si un documento es independiente (\textit{standalone="yes"}), o si depende de un documento externo, como declaraciones de marcas externas o una DTD externa (\textit{standalone="no"}). Por defecto el documento se considera independiente.
+    \end{enumerate}
+
+    \item \textbf{La declaración del tipo de documento}:
+
+    Esta declaración define el tipo de documento que estamos creando para que sea procesado correctamente. Toda declaración de tipo de documento comienza con la cadena:
+
+    \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+        \begin{verbatim}                 <!DOCTYPE Nombre_tipo ...>\end{verbatim}
+    \end{tcolorbox}
+\end{enumerate}
+
+\subsection{El Ejemplar}
+Es la parte más importante de un documento XML ya que contiene los \textbf{datos reales} del documento. Es el \textbf{elemento raíz} de un documento XML y este se nombrará igual que la declaración del tipo de documento (\textit{!DOCTYPE}). Suele estar compuesto de \textbf{elementos anidados}.
+
+En el siguiente ejemplo, el ejemplar es el elemento \textit{<libro>}, que a su vez esta compuesto de los elementos \textit{<titulo>}, \textit{<autoria>}, \textit{<editorial>}, \textit{<isbn>}, \textit{<edicion>} y \textit{<paginas>}.
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+      <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+      <!DOCTYPE libro>
+
+      <libro>
+        <titulo>XML práctico</titulo>
+        <autoria>
+            <autor>Sebastien Lecomte</autor>
+            <autor>Thierry Boulanger</autor>
+        </autoria>
+        <editorial>Ediciones Eni</editorial>
+        <isbn>978-2-7460-4958-1</isbn>
+        <edicion>1</edicion>
+        <paginas>347</paginas>
+      </libro>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Ejemplo del \textit{ejemplar} en un documento XML}
+\end{figure}
+
+Es recomendable \textbf{establecer un criterio} y mantenerlo durante todo el documento, por ejemplo, que las etiquetas vayan escritas \textbf{siempre en minúsculas}.
+
+Por otro lado, es conveniente anidar los elementos para una visualización óptima del documento, esto se hará \textbf{indentando} o \textbf{tabulando} el código. A continuación se muestran dos figuras, una sin indentación (errónea) y otra con indentación (correcta).
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+        <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+        <!DOCTYPE libro>
+
+        <libro>
+        <titulo>XML práctico</titulo>
+        <autoria>
+        <autor>Sebastien Lecomte</autor>
+        <autor>Thierry Boulanger</autor>
+        </autoria>
+        <editorial>Ediciones Eni</editorial>
+        <isbn>978-2-7460-4958-1</isbn>
+        </libro>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Código XML sin indentación (incorrecto)}
+\end{figure}
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+        <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+        <!DOCTYPE libro>
+
+        <libro>
+            <titulo>XML práctico</titulo>
+            <autoria>
+                <autor>Sebastien Lecomte</autor>
+                <autor>Thierry Boulanger</autor>
+            </autoria>
+            <editorial>Ediciones Eni</editorial>
+            <isbn>978-2-7460-4958-1</isbn>
+        </libro>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Código XML con indentación (correcto)}
+\end{figure}
+
+Como podemos observar, en la segunda figura se reconoce más fácilmente la estructura del documento y se facilita la lectura de este.
+
+Por último, es recomendable \textbf{anidar grupos de datos relacionados}, como se ha hecho en el ejemplo anterior con los elementos \textit{<autor>} dentro del elemento \textit{<autoria}, ya que el documento que \textbf{mas limpio} y \textbf{ordenado}.
+
+\subsubsection{Elementos}
+\textbf{Todos los datos} de un documento XML deben \textbf{pertenecer} a un \textbf{elemento del mismo}.
+
+Los elementos son los diferentes \textbf{bloques de información} que permiten definir la \textbf{estructura} del documento XML. Estos está delimitados por una \textbf{etiqueta de apertura} y una \textbf{etiqueta de cierre}. Pueden estar \textbf{compuestos} por \textbf{otros elementos}.
+
+Los \textbf{nombres} de las etiquetas deben ser \textbf{autodescriptivos}, es decir, que ilustren su contenido. Por ejemplo, si estamos con datos relativo a un libro, una etiqueta no debería ser \textit{<caracteristicas>}, ya que es demasiado ambiguo, deberíamos utilizar nombres como \textit{<titulo>}, \textit{<isbn}, etc...
+
+La \textbf{formación de elementos} debe cumplir ciertas \textbf{normas} para que queden bien definidos y que el documento XML al que pertenecen pueda ser procesado sin generar ningún error fatal. Estas normas son las siguientes:
+
+\begin{itemize}
+    \item En todo documento XML debe existir \textbf{un documento raíz} y \textbf{solo uno}.
+    \item \textbf{Todos} los elementos tienen una \textbf{etiqueta de inicio} y \textbf{otra de cierre}. En caso de que en el documento existan \textbf{elementos vacíos}, se pueden sustituir las etiquetas de apertura y cierre por una de elemento vacío. Esta se construye como una etiqueta de inicio pero añadiendo \textbf{/}, es decir, \textit{<elemento/>} en vez de \textit{<elemento>}. Esta considerada una etiqueta de apertura y cierre.
+    \item Al anidar hay que tener en cuenta que \textbf{no puede cerrarse} ningún\textbf{ elemento} que \textbf{contenga otro elemento} que aún \textbf{no se haya cerrado}.
+    \item Los \textbf{nombres} de las \textbf{etiquetas de apertura y cierre} deben ser \textbf{idénticos}, respetando las mayúsculas y minúsculas. Pueden ser cualquier cadena alfanumérica que no contenga espacios ni tildes, y que no comience por dos puntos (\textbf{:}), ni por la cadena \textbf{xml}.
+    \item El contenido de los elementos \textbf{no puede contener} la cadena <<\textbf{\textit{]]>}}>>, por compatibilidad con SGML. Además, no se pueden utilizar los caracteres \textbf{mayor que} (\textbf{>}), \textbf{menor que} (\textbf{<}), \textbf{ampersand} (\textbf{\&}), \textbf{dobles comillas} (\textbf{"}) y \textbf{apostrofe} (\textbf{`}).
+
+    En caso de tener que utilizar alguno de estos caracteres, se deben sustituir por las siguientes cadenas:
+
+    \begin{table}[ht]
+        \centering
+        {\renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{ |l|l| }
+                \hline
+                \multicolumn{1}{|c|}{\textbf{Caracteres}} & \multicolumn{1}{|c|}{\textbf{Cadena}} \\ \hline
+                \multicolumn{1}{|c|}{>} & \multicolumn{1}{|c|}{\&gt;} \\ \hline
+                \multicolumn{1}{|c|}{<} & \multicolumn{1}{|c|}{<\&lt;} \\ \hline
+                \multicolumn{1}{|c|}{\&} & \multicolumn{1}{|c|}{\&amp;} \\ \hline
+        \end{tabular}}
+         \quad
+        {\renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{ |l|l| }
+                \hline
+                \multicolumn{1}{|c|}{\textbf{Caracteres}} & \multicolumn{1}{|c|}{\textbf{Cadena}} \\ \hline
+                \multicolumn{1}{|c|}{"} & \multicolumn{1}{|c|}{\&quot;} \\ \hline
+                \multicolumn{1}{|c|}{'} & \multicolumn{1}{|c|}{\&apos;} \\ \hline
+                \multicolumn{1}{|c}{}& \\ \hline
+        \end{tabular}}
+     \end{table}
+
+     \item Para \textbf{utilizar caracteres especiales}, como £, ©, ®,... hay que usar las expresiones \textit{\textbf{\&\#D;}} o \textit{\textbf{\&\#H;}}, donde D y H se corresponden con el número decimal o hexadecimal, respectivamente, correspondiente al carácter que se quiere representar en código \textbf{UNICODE}.
+
+     En los siguientes enlaces puedes consultar tanto los códigos ASCII y su equivalente en HTML, como el código correspondiente a cada carácter en UNICODE.
+
+     \begin{itemize}
+         \item ASCII - \url{https://www.asciitable.com/}
+         \item UTF-8 - \url{https://www.charset.org/utf-8}
+     \end{itemize}
+\end{itemize}
+
+\subsubsection{Atributos}
 
 
 
