@@ -7,9 +7,23 @@
                 <autor>William Gibson</autor>
                 <anio>1984</anio>
             </libro>
+            <libro>
+                <titulo>1984</titulo>
+                <autor>George Orwell</autor>
+                <anio>1947</anio>
+            </libro>
         </libros>
         <enciclopedias>
-            <enciclopedia></enciclopedia>
+            <enciclopedia>
+                <titulo>Enciclopedia Larousse</titulo>
+                <editorial>Larousse Editorial</editorial>
+                <tematica>General</tematica>
+            </enciclopedia>
+            <enciclopedia>
+                <titulo>Enciclopedia Espasa</titulo>
+                <editorial>Editorial Espasa</editorial>
+                <tematica>General</tematica>
+            </enciclopedia>
         </enciclopedias>
     </catalogo>
 </biblioteca>
