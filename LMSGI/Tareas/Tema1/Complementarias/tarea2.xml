@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<restaurante>
+  <informacion>
+    <nombre>Casa Manolo</nombre>
+    <direccion>Calle Alhambra, número 11, Aguadulce, Almería</direccion>
+    <telefono>600101010.</telefono>
+  </informacion>
+  <reservas></reservas>
+</restaurante>
