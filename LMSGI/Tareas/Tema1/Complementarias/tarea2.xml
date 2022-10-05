@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <restaurante>
-  <informacion>
-    <nombre>Casa Manolo</nombre>
-    <direccion>Calle Alhambra, número 11, Aguadulce, Almería</direccion>
-    <telefono>600101010.</telefono>
-  </informacion>
-  <reservas></reservas>
+    <informacion>
+        <nombre>Casa Manolo</nombre>
+        <direccion>Calle Alhambra, número 11, Aguadulce, Almería</direccion>
+        <telefono>600101010.</telefono>
+    </informacion>
+    <reservas>
+        <reserva>
+            <mesa>5</mesa>
+            <lugar>terraza</lugar>
+            <fecha>27/10/2021</fecha>
+            <hora>14:00</hora>
+            <comensales>5</comensales>
+            <contacto>
+                <nombre>Paco López</nombre>
+                <telefono>600404040</telefono>
+            </contacto>
+        </reserva>
+        <reserva>
+            <mesa>5</mesa>
+            <lugar />
+            <fecha>20/10/2021</fecha>
+            <hora>14:30</hora>
+            <comensales>7</comensales>
+            <contacto>
+                <nombre>María Fernández</nombre>
+                <telefono>600808080</telefono>
+            </contacto>
+        </reserva>
+        <reserva>
+            <mesa>10</mesa>
+            <lugar>salón</lugar>
+            <fecha>12/11/2021</fecha>
+            <hora>21:00</hora>
+            <comensales>2</comensales>
+            <contacto>
+                <nombre>José Romero</nombre>
+                <telefono>614203040</telefono>
+            </contacto>
+        </reserva>
+    </reservas>
 </restaurante>
