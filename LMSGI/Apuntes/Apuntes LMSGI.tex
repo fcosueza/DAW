@@ -478,7 +478,7 @@ La \textbf{formación de elementos} debe cumplir ciertas \textbf{normas} para qu
 \subsubsection{Atributos}
 Las etiquetas pueden tener \textbf{atributos}, que \textbf{permiten definir propiedades} a los elementos de un documento. Los atributos, a diferencia de los elementos, no puede organizarse en ninguna jerarquía	o estructura de árbol, no pueden contener ningún otro elemento, no pueden contener valores múltiples y no reflejan ninguna estructura lógica. En definitiva, los atributos \textbf{no se podrán extender fácilmente} en futuros cambios.
 
-Un elemento puede tener varios atributos, pero ninguno de estos puede estar vacío. Los atributos se codifican de la siguiente forma:
+Un elemento puede tener varios atributos, pero ninguno de estos puede estar vacío, además todos los atributos dentro de un elemento \textbf{deben ser únicos}. Los atributos se codifican de la siguiente forma:
 
 \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
     \begin{verbatim}        <etiqueta atributo="valor_atributo"></etiqueta>\end{verbatim}
@@ -559,9 +559,132 @@ Antes de poder usar el espacio de nombres hay que declararlo, es decir, asociar 
 Si queremos consultar más información acerca de los espacios de nombres, podemos consultar el estándar en la \href{https://www.w3.org/TR/REC-xml-names/}{recomendación en XML de la W3C}.
 
 \section{Sistemas de Gestión Empresarial}
+Lo primero que debemos de entender antes de meternos de lleno en los sistemas de gestión empresarial es como fluye el flujo de información en una empresa, es decir, conocer sus recursos empresariales y gestionarlos eficientemente. Estos flujos de información son los siguientes:
 
+\begin{itemize}
+    \item Entre los empleados de la empresa.
+    \item Entre los empleados y la empresa.
+    \item Entre la empresa con sus clientes y proveedores.
+\end{itemize}
 
+Estos \textbf{flujos de información} se puede clasificar en dos tipos:
 
+\begin{itemize}
+    \item Informales y no estructurados.
+    \item Formales y estructurados, que se centran en información de procesos críticos de la empresa.
+\end{itemize}
+
+Para facilitar estos flujos de información es conveniente tener instalado un \textbf{Sistema de Información}, que facilite el conocimiento propio de la empresa para mejorar la \textbf{planificación}, la \textbf{gestión} y el \textbf{control}.
+
+Un \textbf{Sistema de Información} se define como un conjunto organizado, de elementos relacionados, orientados  al tratamiento y administración de la información. Esta compuesto por elementos físicos, humanos y por un conjunto de normas y protocolos.
+
+La utilización de sistema de información ofrece \textbf{ventajas competitivas} a las empresas, mejorando su eficiencia, calidad del producto o mejorando los servicios ofrecidos a los clientes. También ayudan, entre otras cosas, a la captación de clientes.
+
+La automatización de los flujos de información cambió sustancialmente con el surgimiento de los \textbf{\gls{ERP}} y los \textbf{\gls{CRM}}, en los que se integran las diferentes aplicaciones que soportan los procesos de la empresa.
+
+\subsection{ERP}
+En una empresa, salvo que esta sea muy pequeña, es necesario usar algún sistema automatizado de gestión para controlar todos los recursos empresariales y procesos. Aquí es donde entran en juego los ERP.
+
+Un \textbf{ERP} es un \textbf{sistema de gestión de la información} que se caracteriza por ser \textbf{una aplicación} donde hay \textbf{varias partes integradas} y se \textbf{especializa en manejar} todos los \textbf{datos relevantes} para la continuidad de la empresa. Estas partes gestionan diferentes procesos, por ejemplo producción, ventas, compras, pedidos, nóminas, etc...
+
+Un \textbf{CRM} es un tipo de ERP que se centra en la \textbf{relación con los clientes} que tiene una empresa, es decir, información de contacto orientada a ventas.
+
+Los \textbf{objetivos principales} de un ERP son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Optimizar} los procesos empresariales.
+    \item \textbf{Acceder} a la información de forma confiables y precisa.
+    \item \textbf{Permitir} compartir información entre los componentes de la organización.
+    \item \textbf{Eliminar} los datos y operaciones innecesarias.
+\end{itemize}
+
+Las \textbf{características} que diferencia a los ERPs de otras aplicaciones, es que deben ser \textbf{sistemas integrales}, \textbf{modulares} y \textbf{adaptables}. Sus principales características son:
+
+\begin{itemize}
+    \item Ser un programa con \textbf{acceso de una base de datos}.
+    \item Sus \textbf{componentes interactúan} entre sí.
+    \item Las \textbf{datos} deben ser \textbf{consistentes}, \textbf{completos}.
+\end{itemize}
+
+Suelen ser \textbf{sistemas complejos} de implantar ya que necesitan un desarrollo personalizado para las necesidades de la empresa a partir del paquete básico. Estas adaptaciones, suelen estar a cargo de \textbf{consultorías}.
+
+Las \textbf{consultorías} en materia de \textbf{ERP} suelen ser de dos tipos:
+
+\begin{itemize}
+    \item \textbf{Consultoría de negocios}: estudia los procesos de negocio de la compañía y personaliza el ERP para ajustarlo a las necesidades de la organización.
+    \item \textbf{Consultoría técnica}: estudia los recursos tecnológicos existente.
+\end{itemize}
+
+En la actualidad, la mayoría de sistemas ERP poseen \textbf{interfaz web} que mejora la accesibilidad al sistema desde prácticamente cualquier lugar y dispositivo.
+
+\subsubsection{Características}
+Las características que distinguen a un sistema de gestión empresarial son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Integración}: un sistema ERP \textbf{integra todos los procesos de la empresa}, considerándolos como un serie de áreas que se relacionan entre sí para conseguir una mayor eficiencia, reduciendo tiempo y costes.
+    \item \textbf{Modularidad}: \textbf{cada módulo} de un sistema ERP se corresponde con un \textbf{área funcional} de la empresa. Gracias a una \textbf{base de datos centralizada}, todos los módulos pueden compartir información entre sí, facilitando la adaptabilidad, personalización e integración. Cada módulo suele usar un software específico para su funcionalidad.
+    \item \textbf{Adaptabilidad}: aunque las dos características anteriores facilitan la adaptabilidad del ERP a los requisitos de la empresa, a veces se utiliza una solución más genérica, para abaratar costes, y se modifican algunos procesos para adaptarlos al sistema ERP.
+\end{itemize}
+
+Gracias a la modularidad y la capacidad de integración de las funcionalidades, los ERPs se pueden adaptar fácilmente a las necesidades de cada empresa. Los diferentes módulos se interconectan entre sí de forma que una única herramienta ERP puede adaptarse a diferentes empresas cambiando el conjunto de módulos activos y sus relaciones.
+
+Los \textbf{módulos principales} que forman un ERP son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Ventas/Marketing}: interfaz pública que interactúa con los clientes, pedidos, estrategias de ventas, precios, promociones, publicidad, etc..
+    \item \textbf{Finanzas}: es la base de cada ERP, donde se almacenan las transacciones facilitando las auditorías.
+    \item \textbf{Inventario/Logística}: controla el stock y los flujos de entrada y salida.
+    \item \textbf{Recursos Humanos}: gestión de personal, nómina, productividad, incentivos, etc..
+    \item \textbf{Producción}: en núcleo que se encarga de los movimientos físicos del producto, planificación de materiales, etc..
+\end{itemize}
+
+Estos módulos son considerados los básicos, pero se pueden añadir muchos más como proyectos, planificación de ventas, configuración de productos a medida, etc..
+
+No todos los \textbf{trabajadores} accederán al ERP de la misma forma, ya que cada grupo tiene su \textbf{rol}, que será supervisado por un administrador, por lo que dependiendo de este rol el trabajador tendrá unos u otros módulos habilitados.
+
+Mención especial requieren los \textbf{CRM} (Customer Relationship Management), que surgen como consecuencia de la aplicación especifica de los ERP a las interacciones con los clientes. Están centrados en mantener, crear y potencias las relaciones con clientes sirviendo de apoyo a las políticas de marketing de la empresa.
+
+En la actualidad los sistemas globales de CRM se pueden dividir en:
+
+\begin{itemize}
+    \item \textbf{Aplicaciones} electrónicas para los \textbf{canales de distribución} de la empresa.
+    \item Centros de \textbf{atención telefónica}.
+    \item \textbf{Autoservicio} para los clientes.
+    \item \textbf{Gestión} electrónica de las \textbf{actividades} que afecten a los clientes.
+    \item \textbf{Ventas}.
+\end{itemize}
+
+Entres sus \textbf{principales características} se encuentran la facilidad de \textbf{toma de decisiones} en \textbf{tiempo real}, \textbf{incremento de la rentabilidad} del clientes gracias a que se obtiene información muy útil a través de datos complejos, por ejemplo, identificando a los clientes que compran o que no están interesados y actuar en consecuencia.
+
+\subsubsection{Ventajas e Inconvenientes}
+Contar con un \textbf{sistema ERP personalizado}, permite a la empresa tener integradas diferentes utilidades que facilitan la gestión de la información. Aunque estos sistemas ofrecen muchas ventajas para una empresa, también tiene sus inconvenientes, como podemos ver en la siguiente lista.
+
+\begin{itemize}
+    \item \textbf{Ventajas}
+    \begin{itemize}
+        \item \textbf{Aumento} de la \textbf{información} que tiene la empresa sobre sus \textbf{potenciales clientes}. Los ERP que incluyen CRM aportan beneficios relacionados con la gestión de clientes de la empresa. Algunos incluyen control de calidad de los productos, permitiendo enfocar la oferta en las necesidades y deseos de los clientes, con la consecuente mejora de la satisfacción de estos.
+        \item \textbf{Aumento} de las \textbf{ventas}.
+        \item Permiten \textbf{resolver problemas} relacionados con el \textbf{tratamiento de la información} derivado del uso de sistemas anteriores.
+        \item \textbf{Aumenta} la \textbf{eficiencia operativa}.
+        \item \textbf{Facilitan} el \textbf{acceso de la información} y constituyen una mejora en las herramientas de tratamiento de la misma.
+        \item \textbf{Reducción} de \textbf{costes empresariales}, especialmente los relacionados con las operaciones de las tecnologías de la información y comunicaciones.
+        \item Permiten mayor \textbf{facilidad de configuración} de los sistemas de la empresa.
+        \item Mejoran el \textbf{entorno de integración} de todas sus acciones.
+    \end{itemize}
+    \item \textbf{Inconvenientes}
+    \begin{itemize}
+        \item El ERP ha de ser usado y realizado por \textbf{personal capacitado}.
+        \item La \textbf{instalación} del ERP es \textbf{muy costosa}.
+        \item Los ERP son vistos como \textbf{sistemas muy rígidos} y difíciles de adaptar al modo de trabajo de las empresas.
+        \item Son sistemas que sufren de problemas de \textbf{cuello de botella}, es decir, todos los usuarios se pueden ver afectados por la ineficiencia en uno de los departamentos.
+        \item Altos \textbf{coste de modificación} de un ERP ya implantado.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{ERP de Software Libre}
+Dentro de los ERP de software libre encontramos una gran variedad de aplicaciones para la gestión empresarial. Entre ellas podemos destacar \href{http://www.openbravo.com/es/}{Openbravo}, que es una iniciativa de origen español y \textbf{OpenERP}, actualmente conocido como \href{https://www.odoo.com/es_ES}{Odoo}, de origen belga y que se carateriza por tener una gran cantidad de módulos.
+
+\textbf{Openbravo} es una aplicación de código abierto de planificación de recursos empresariales
 
 
 
