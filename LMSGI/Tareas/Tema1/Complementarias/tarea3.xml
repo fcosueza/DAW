@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<biblioteca>
+    <informacion>
+        <nombre>Biblioteca Francisco Villaespesa</nombre>
+        <direccion> Calle Alhambra, 11, Aguadulce, Almería</direccion>
+        <codigo_postal>04720</codigo_postal>
+    </informacion>
+    <catalogo>
+        <libros>
+            <libro ejemplares="10">
+                <titulo>Neuromant</titulo>
+                <autor>
+                    <nombre>William Gibson</nombre>
+                    <fecha_nacimiento>17/03/1948</fecha_nacimiento>
+                </autor>
+                <anio>1984</anio>
+            </libro>
+            <libro ejemplares="3">
+                <titulo>1984</titulo>
+                <autor>
+                    <nombre>George Orwell</nombre>
+                    <fecha_nacimiento>25/06/1903</fecha_nacimiento>
+                </autor>
+                <anio>1947</anio>
+            </libro>
+        </libros>
+        <enciclopedias>
+            <enciclopedia idioma="francés">
+                <titulo>Enciclopedia Larousse</titulo>
+                <editorial>Larousse Editorial</editorial>
+                <tematica>General</tematica>
+            </enciclopedia>
+            <enciclopedia idioma="español">
+                <titulo>Enciclopedia Espasa</titulo>
+                <editorial>Editorial Espasa</editorial>
+                <tematica>General</tematica>
+            </enciclopedia>
+        </enciclopedias>
+    </catalogo>
+</biblioteca>
