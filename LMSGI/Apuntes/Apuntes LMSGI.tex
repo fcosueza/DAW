@@ -508,6 +508,61 @@ Por norma general, intentaremos \textbf{evitar el uso} de atributos o procurar \
 
 Lo que si es recomendable es que \textbf{una vez elegido un estilo}, mantenerlo dentro de todo el documento XML, teniendo en cuenta que los \textbf{nombres de los atributos} tienen que cumplir las \textbf{mismas normas} que los \textbf{elementos}, y no pueden contener el carácter menor que ``<''.
 
+\section{Documentos XML bien formados}
+Los documentos XML deben de estar \textbf{bien formados}, es decir, ser documentos \textbf{válidos}.
+
+Los \textbf{documentos bien formados} son aquellos que cumplen las reglas sintácticas de creación de documentos XML ya mencionados en los puntos anteriores, como por ejemplo, que usan caracteres válidos para la creación de nombres de etiquetas o atributos, que las etiquetas estén cerradas correctamente, etc...
+
+Los \textbf{documentos válidos} son aquellos que, ademas de estar bien formados, cumplen los requisitos de una definición de estructura (DTD, Schema,..), que veremos en la siguientes unidad.
+
+Por lo tanto, para que un documento esté bien formado, debe \textbf{verificar} las \textbf{reglas sintácticas} que define la recomendación de la W3C para el \textbf{estándar XML}. Estas normas básicas se pueden resumir en las siguientes:
+
+\begin{itemize}
+    \item El documento ha de tener \textbf{definido} una \textbf{declaración XML} en el prólogo:
+
+    \begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+        \begin{verbatim}  <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\end{verbatim}
+    \end{tcolorbox}
+
+    Hay que tener en cuenta que aunque es posible omitir el prólogo, hay navegadores que nos pueden devolver un error al procesar el documento, por lo que siempre hay que incluirlo para evitar problemas. En caso de omitirlo, los valores por defecto son los mostrados encima de este párrafo.
+
+    \item Existe un \textbf{único elemento raíz} por cada documento: es un solo elemento en el que todos los demás contenidos y elementos se encuentran anidados.
+    \item Los elementos se organizan entre sí en un \textbf{estructura jerárquica} y \textbf{no se permite} el \textbf{solapamiento} de éstos.
+    \item Hay que \textbf{cumplir reglas sintácticas} a la hora de definir el nombre de elementos y atributos. Estas normas se pueden resumir en:
+    \begin{itemize}
+        \item El \textbf{nombre de elementos} puede contener como \textbf{primer carácter} los siguientes: \textit{[A-Z]},  \textit{[a-z]} y \textit{``\_''}. Para el resto de caracteres, ademas de estos, se pueden emplear: \textit{[0-9]}, \textit{``-''} y \textit{``.''}.
+        \item Las \textbf{etiquetas de apertura y cierre} deben ser \textbf{idénticas}, teniendo en cuenta que XML es sensible a mayúsculas y minúsculas.
+        \item Los \textbf{valores de los atributos} se escribirán siempre entre \textbf{comillas dobles o simples}. Si quisiéramos usar alguno de estos caracteres dentro del nombre usaríamos \&quot; (") y \&apos; ('). También hay que tener en cuenta que hay nombres reservados para el uso del lenguaje.
+        \item \textbf{Los comentarios} en XML se escriben así: \textit{ <!-- Comentario -->}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Espacios de Nombres}
+Los \textbf{espacios de nombres} permiten definir la pertenencia de los elementos y nombres a un contexto de vocabulario XML. De esta forma se resuelven las ambigüedades que se pueden producir al juntar dos documentos donde os autores han usado nombres similares para diferentes elementos.
+
+Los espacios de nombres, también conocidos como \textbf{XML namespaces}, permiten dar nombre único a un elemento, indexándolo según un nombre de vocabulario adecuado. Además, están asociados a una \textbf{\gls{URI}}.
+
+En el documento, las etiquetas ambiguas se sustituyen por otras con el nombre precedido de un \textbf{prefijo}, que determina el contexto al que pertenece dicho nombre:
+
+\begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+    \begin{verbatim}       <prefijo:nombre_etiqueta></prefijo:nombre_etiqueta>\end{verbatim}
+\end{tcolorbox}
+
+Esta etiqueta de denomina \textbf{nombre cualificado}. Al definir el prefijo hay que tener en cuenta que no se pueden usar espacios ni caracteres especiales y que no puede comenzar por un dígito.
+
+Antes de poder usar el espacio de nombres hay que declararlo, es decir, asociar un índice con la URI asignada al espacio de nombres, mediante un atributo \textbf{xmlns}. Esto se hace entre el prólogo y el ejemplar y tiene la siguientes sintaxis:
+
+\begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+    \begin{verbatim}   <conexion>://<direccionservidor>/<apartado1>/<apartado2>/...\end{verbatim}
+\end{tcolorbox}
+
+Si queremos consultar más información acerca de los espacios de nombres, podemos consultar el estándar en la \href{https://www.w3.org/TR/REC-xml-names/}{recomendación en XML de la W3C}.
+
+\section{Sistemas de Gestión Empresarial}
+
+
+
+
 
 
 
