@@ -476,6 +476,38 @@ La \textbf{formación de elementos} debe cumplir ciertas \textbf{normas} para qu
 \end{itemize}
 
 \subsubsection{Atributos}
+Las etiquetas pueden tener \textbf{atributos}, que \textbf{permiten definir propiedades} a los elementos de un documento. Los atributos, a diferencia de los elementos, no puede organizarse en ninguna jerarquía	o estructura de árbol, no pueden contener ningún otro elemento, no pueden contener valores múltiples y no reflejan ninguna estructura lógica. En definitiva, los atributos \textbf{no se podrán extender fácilmente} en futuros cambios.
+
+Un elemento puede tener varios atributos, pero ninguno de estos puede estar vacío. Los atributos se codifican de la siguiente forma:
+
+\begin{tcolorbox}[sharp corners, colback=yellow!40, colframe=white!20]
+    \begin{verbatim}        <etiqueta atributo="valor_atributo"></etiqueta>\end{verbatim}
+\end{tcolorbox}
+
+No debe usarse un atributo para almacenar información susceptible de ser dividida, sino para proporcionar información adicional sobre el elemento. A continuación vamos a ver un ejemplo de la utilización de atributos en un documento XML.
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+       <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+       <centro_educativo>
+           <alumno sexo="Varón" fecha_nacimiento="05/06/1990">
+               <nombre>Pablo</nombre>
+               <apellido>Pérez</apellido>
+               <telefono tipo="Móvil">666666666</telefono>
+               <direccion tipo="Calle">Policar, 34</direccion>
+           </alumno>
+        </centro_educativo>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Uso de atributos en documentos XML}
+\end{figure}
+
+Por norma general, intentaremos \textbf{evitar el uso} de atributos o procurar \textbf{no abusar de ellos}. Normalmente \textbf{los usaremos} para \textbf{metadatos} o información que no sea relevante para los datos. Se puede ver como una manera de incorporar características o propiedades a los elementos, como en el siguientes ejemplo: \textit{<perro raza=``Pastor''>Lolo</perro>}. También se suelen para especificar unidades de medida y similares: \textit{altura unidad\_altura=``cm''>178</altura>}. Hay que destacar que toda la información que se almacena en atributos se podría almacenar igualmente en elementos.
+
+Lo que si es recomendable es que \textbf{una vez elegido un estilo}, mantenerlo dentro de todo el documento XML, teniendo en cuenta que los \textbf{nombres de los atributos} tienen que cumplir las \textbf{mismas normas} que los \textbf{elementos}, y no pueden contener el carácter menor que ``<''.
+
 
 
 
