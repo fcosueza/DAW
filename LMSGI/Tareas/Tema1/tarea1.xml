@@ -17,7 +17,7 @@
             <jornada unidad="horas">4</jornada>
             <vehiculo matricula="4563JIO">
                 <capacidad unidad="kg">1200</capacidad>
-                <kilometros unidad="km">50000</kilometros>
+                <kilometraje unidad="km">50000</kilometraje>
             </vehiculo>
         </repartidor>
         <paquetes>
@@ -56,7 +56,7 @@
                         <provincia>Granada</provincia>
                     </direccion>
                     <indicaciones>Entrega de 14 a 18</indicaciones>
-                    <observaciones>Si no se encuentra en el domilicio dejar en el piso 2A</observaciones>
+                    <observaciones>Si esta ausente, dejar en piso 2A</observaciones>
                 </destinatario>
             </paquete>
             <paquete codigo="285A362578HL00050">
