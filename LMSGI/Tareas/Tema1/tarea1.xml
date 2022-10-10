@@ -59,6 +59,25 @@
                     <observaciones>Si no se encuentra en el domilicio dejar en el piso 2A</observaciones>
                 </destinatario>
             </paquete>
+            <paquete codigo="285A362578HL00050">
+                <intentos>0</intentos>
+                <peso unidad="kg">17</peso>
+                <destinatario>
+                    <nombre_y_apellidos>Pablo Ramirez Rubio</nombre_y_apellidos>
+                    <identificacion tipo="NIF">18256948I</identificacion>
+                    <telefono>+34650678954</telefono>
+                    <direccion>
+                        <calle>Calle San Juan de Dios</calle>
+                        <numero>9</numero>
+                        <piso />
+                        <cp>20007</cp>
+                        <localidad>Gojar</localidad>
+                        <provincia>Granada</provincia>
+                    </direccion>
+                    <indicaciones>Entrega a cualquier hora</indicaciones>
+                    <observaciones>El número de la casa es complicado de ver</observaciones>
+                </destinatario>
+            </paquete>
         </paquetes>
     </reparto>
 </repartos>
