@@ -713,7 +713,49 @@ A continuación se muestran algunos enlaces de interese sobre estos ERPs:
 \end{itemize}
 
 \subsubsection{Instalación}
+Para realizar la instalación de paquete de gestión empresarial, primero tenemos que definir \textbf{cuales} son las \textbf{necesidades que debe cubrir} el software y buscar aquel que se ajuste mejor.
 
+En general, las \textbf{tareas} implicadas en la \textbf{instalación e implantación} de un ERP son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Diseño de la instalación}: antes de iniciar la instalación deberá hacerse una análisis de cuales son las necesidades de la empresa y como las resuelve el ERP.
+    \item \textbf{Instalación de equipos servidores y clientes}: será necesario revisar y actualizar el hardware de la empresa para que cumpla los requisitos el ERP.
+    \item \textbf{Instalación del software}: instalación del ERP y del software que este necesite para su correcto funcionamiento.
+    \item \textbf{Adaptación y migración del programa}: una vez instalado, será necesario configurarlo y adaptarlo a la empresa del cliente.
+    \item \textbf{Migración de datos}: este proceso es de gran importancia ya que los datos son vitales para el correcto funcionamiento de la empresa. En ocasiones, si no hay forma de automatizar el proceso, deberá hacerse de forma manual.
+    \item \textbf{Realización de pruebas}: la instalación del nuevo software puede conllevar un tiempo de transición en el que convivirá con el anterior software de gestión de la empresa. Durante este periodo de tiempo de deberán realizar pruebas para comprobar que el ERP funciona correctamente y los resultados son satisfactorios.
+    \item \textbf{Documentación del sistema}: en esta fase se deben elaborar los manuales y documentos necesarios y ponerlos a disposición de la organización mediante los medios de difusión interna de los que disponga, como correo electrónico, tablón de anuncios, etc..
+    \item \textbf{Formación de usuarios}: por último hay que formar a los usuarios en la utilización del ERP, empezando por los responsables de proyecto y siguiendo por los usuarios finales.
+\end{itemize}
+
+En la mayoría de los casos el sistema ERP correrán en una plataforma \textbf{cliente-servidor}, pero también pueden correr en un \textbf{servidor Web} o utilizar \textbf{tecnologías \gls{SaaS}}.
+
+Independientemente del sistema operativo que tengamos instalado en nuestra empresa o que decidamos usar para implementar nuestro ERP, tenemos que \textbf{tener en cuenta} lo siguientes:
+
+\begin{itemize}
+    \item Tener un \textbf{servidor} donde instalaremos nuestros ERP.
+    \item Instalar nuestra \textbf{base de datos} y conectarla con nuestro ERP.
+    \item Instalar los \textbf{módulos necesarios ERP} que hayamos decidido adquirir.
+    \item \textbf{Configurar} los diferentes \textbf{clientes} para que accedan al servidor y puedan realizar peticiones al ERP.
+\end{itemize}
+
+Hay que tener en cuenta que es \textbf{imprescindible} tener una \textbf{base de datos} instalada en nuestra empresa, ya que el sistema ERP se basa en la utilización de una base de datos para realizar los informes y las consultar. Así mismo, si decidimos incorporar el ERP a la \textbf{intranet} de la empresa será necesario disponer de un \textbf{servidor web} con soporte para el lenguaje de script en el que se haya programado la aplicación.
+
+Los \textbf{tipos de instalación} de un sistema ERP/CRM dependerá de la plataforma con la que vayamos a trabajar con él. Los mas habituales son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Instalación en máquina virtual}: la aplicaciones y programas necesarios se proporcionarán en una máquina virtual lista para su utilización. Esta opción \textbf{no es apta} para entornos de \textbf{producción}, sino que se suele usar para probar el ERP.
+    \item \textbf{Instalación de paquetes en entorno gráfico}: en este caso la instalación se hace mediante el entorno gráfico del sistema operativo, usando asistentes que instalan y resuelven las dependencias de los paquetes. Aunque esta opción se puede usar en producción. los \textbf{paquetes} pueden \textbf{no estar actualizados} a la última versión.
+    \item \textbf{Instalación personalizada}: si queremos instalar la versión mas reciente de la aplicación podemos descargarnos los paquetes desde la pagina web que los contenga y instalarlos de forma manual mediante comandos. Esta opción permite un mayor control sobre los paquetes que se instalan aunque también es mas compleja de llevar a cabo.
+    \item \textbf{No instalar y acceder a la aplicación online}: algunos ERP nos permiten usar el software sin necesidad de instalarlo, accediendo a ir mediante internet conectándonos a un servidor que tiene todos los datos y programas de aplicación. Esta es la opción utilizada por los proveedores de ERP que ofrecen el servicio SaaS.
+\end{itemize}
+
+En \textbf{Odoo} podemos realizar diferentes tipos de instalaciones, desde paquetes, donde no tendremos que hacer prácticamente nada, hasta instalaciones paso a paso donde tendremos que instalar y configurar cada componente. Desde la \textbf{versión 8.0}, el \textbf{servicio de acceso} de \textbf{cliente de escritorio} no existe, y su acceso se \textbf{realiza} a través de un \textbf{cliente web}. Esta es la forma de acceso a la mayoría de los ERP actualmente.
+
+\subsubsection{Personalización}
+Los sistemas ERP actuales permiten la incorporación de diferentes módulos predefinidos que facilitan la personalización de la aplicación.
+
+Un \textbf{módulo} es una aplicación que se crea para realizar una determinada función. Existen unos \textbf{módulos básicos} que se pueden cargar durante la instalación y otros que pueden instalarse posteriormente. La \textbf{integración} de estos módulos pueden realizarse durante la instalación del sistema o posteriormente durante su \textbf{ampliación}.
 
 
 
