@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<repartos>
+    <reparto>
+        <repartidor>
+            <nombre_y_apellidos>Octavio Velvet Márquez</nombre_y_apellidos>
+            <telefono>698340091</telefono>
+            <jornada unidad="horas">8</jornada>
+            <vehiculo matricula="6392KDV">
+                <capacidad unidad="kg">3200</capacidad>
+                <kilometraje unidad="km">324695</kilometraje>
+            </vehiculo>
+        </repartidor>
+        <repartidor>
+            <nombre_y_apellidos></nombre_y_apellidos>
+            <telefono></telefono>
+            <jornada unidad="horas"></jornada>
+            <vehiculo matricula="">
+                <capacidad></capacidad>
+                <kilometros unidad="km"></kilometros>
+            </vehiculo>
+        </repartidor>
+        <paquetes>
+            <paquete codigo="285A362578HL04002">
+                <intentos>1</intentos>
+                <peso unidad="kg">7,5</peso>
+                <destinatario>
+                    <nombre_y_apellidos>Alfredo Justo Peralta</nombre_y_apellidos>
+                    <identificacion tipo="NIF">75732547X</identificacion>
+                    <telefono>+34691075998</telefono>
+                    <direccion>Calle Antón Gutiérrez, 49 Bajo, 14900, Lucena, Córdoba</direccion>
+                    <indicaciones>Entrega de 9 a 11</indicaciones>
+                    <observaciones>EL cliente ha llamado varias veces</observaciones>
+                </destinatario>
+            </paquete>
+            <paquete codigo="">
+                <intentos></intentos>
+                <peso unidad="kg"></peso>
+                <destinatario>
+                    <nombre_y_apellidos></nombre_y_apellidos>
+                    <nif></nif>
+                    <telefono></telefono>
+                    <direccion></direccion>
+                    <indicaciones></indicaciones>
+                    <observaciones></observaciones>
+                </destinatario>
+            </paquete>
+            <paquete codigo="">
+                <intentos></intentos>
+                <peso unidad="kg"></peso>
+                <destinatario>
+                    <nombre_y_apellidos></nombre_y_apellidos>
+                    <nif></nif>
+                    <telefono></telefono>
+                    <direccion></direccion>
+                    <indicaciones></indicaciones>
+                    <observaciones></observaciones>
+                </destinatario>
+            </paquete>
+        </paquetes>
+    </reparto>
+</repartos>
