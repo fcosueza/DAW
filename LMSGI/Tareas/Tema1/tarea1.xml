@@ -12,12 +12,12 @@
             </vehiculo>
         </repartidor>
         <repartidor>
-            <nombre_y_apellidos></nombre_y_apellidos>
-            <telefono></telefono>
-            <jornada unidad="horas"></jornada>
-            <vehiculo matricula="">
-                <capacidad></capacidad>
-                <kilometros unidad="km"></kilometros>
+            <nombre_y_apellidos>Manuel López Rubio</nombre_y_apellidos>
+            <telefono>600234234</telefono>
+            <jornada unidad="horas">4</jornada>
+            <vehiculo matricula="4563JIO">
+                <capacidad unidad="kg">1200</capacidad>
+                <kilometros unidad="km">50000</kilometros>
             </vehiculo>
         </repartidor>
         <paquetes>
@@ -28,33 +28,35 @@
                     <nombre_y_apellidos>Alfredo Justo Peralta</nombre_y_apellidos>
                     <identificacion tipo="NIF">75732547X</identificacion>
                     <telefono>+34691075998</telefono>
-                    <direccion>Calle Antón Gutiérrez, 49 Bajo, 14900, Lucena, Córdoba</direccion>
+                    <direccion>
+                        <calle>Calle Antón Gutiérrez</calle>
+                        <numero>49</numero>
+                        <piso>Bajo</piso>
+                        <cp>14900</cp>
+                        <localidad>Lucena</localidad>
+                        <provincia>Córdoba</provincia>
+                    </direccion>
                     <indicaciones>Entrega de 9 a 11</indicaciones>
                     <observaciones>EL cliente ha llamado varias veces</observaciones>
                 </destinatario>
             </paquete>
-            <paquete codigo="">
-                <intentos></intentos>
-                <peso unidad="kg"></peso>
+            <paquete codigo="285A362578HL06123">
+                <intentos>3</intentos>
+                <peso unidad="gr">500</peso>
                 <destinatario>
-                    <nombre_y_apellidos></nombre_y_apellidos>
-                    <nif></nif>
-                    <telefono></telefono>
-                    <direccion></direccion>
-                    <indicaciones></indicaciones>
-                    <observaciones></observaciones>
-                </destinatario>
-            </paquete>
-            <paquete codigo="">
-                <intentos></intentos>
-                <peso unidad="kg"></peso>
-                <destinatario>
-                    <nombre_y_apellidos></nombre_y_apellidos>
-                    <nif></nif>
-                    <telefono></telefono>
-                    <direccion></direccion>
-                    <indicaciones></indicaciones>
-                    <observaciones></observaciones>
+                    <nombre_y_apellidos>Jorge Martínez Varela</nombre_y_apellidos>
+                    <identificacion tipo="NIF">24245678W</identificacion>
+                    <telefono>+34630101010</telefono>
+                    <direccion>
+                        <calle>Calle Badajoz</calle>
+                        <numero>6</numero>
+                        <piso>4 A</piso>
+                        <cp>18006</cp>
+                        <localidad>Granada</localidad>
+                        <provincia>Granada</provincia>
+                    </direccion>
+                    <indicaciones>Entrega de 14 a 18</indicaciones>
+                    <observaciones>Si no se encuentra en el domilicio dejar en el piso 2A</observaciones>
                 </destinatario>
             </paquete>
         </paquetes>
