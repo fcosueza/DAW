@@ -1,0 +1,80 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%                                                                                     %
+% Short Sectioned Assignment LaTeX Template Version 1.0 (5/5/12)                      %
+% This template has been downloaded from: http://www.LaTeXTemplates.com               %
+%                                                                                     %
+% Original author:  Frits Wenneker (http://www.howtotex.com)                          %
+%                                                                                     %
+% Modified by: Fco Javier Sueza Rodríguez (fcosueza@disroot.org)                      %
+%                                                                                     %
+% Changes:                                                                            %
+%	    - Custom Chapters, Sections and Subsections (titlesec package)                %
+%           - Document type scrbook (oneside)                                         %
+%           - Use babel-lang-spanish package and marvosym                             %
+%           - Use hyperref, enumitem, tcolorbox and glossaries packages               %
+%           - Use Time New Roman (mathptmx), Helvetic and Courier fonts               %
+%                                                                                     %
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)        %
+%                                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+%-----------------------------------------------%
+%	              Packages                  %
+%-----------------------------------------------%
+
+\documentclass{report}
+
+% ---- Text Input/Output ----- %
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+\usepackage[indent=12pt]{parskip}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.6cm,rmargin=2.6cm}
+
+% ---- Language ----- %
+
+\usepackage[spanish]{babel}
+\usepackage{marvosym}
+
+% ---- Another packages ---- %
+
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{graphics,graphicx}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+%--------------------------------------------------------------------%
+%                      Customizing Document                          %
+%--------------------------------------------------------------------%
+
+
+% --------------------- Packages Configuration --------------------- %
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=magenta
+}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\graphicspath{{./images/}}
+
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+% --------- Numbering equations, figures and tables ----------------- %
+
+\numberwithin{equation}{section} % Number equations within sections
+\numberwithin{figure}{section} % Number figures within sections
+\numberwithin{table}{section} % Number tables within sections
+
+% ------------------------ New Commands ----------------------------- %
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command
