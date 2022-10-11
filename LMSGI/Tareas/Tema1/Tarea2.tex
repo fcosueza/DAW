@@ -42,10 +42,10 @@ En este ejercicio se va a realizar la instalación de un sistema ERP, en concret
 \end{enumerate}
 
 \section{Instalación de Odoo}
-En primer lugar vamos a instalar Odoo. Nosotros hemos elegido realizar una instalación mediante \textbf{máquina virtual} usando \textbf{VirtualBox}. La instalación de la máquina virtual no entra dentro de este documento, así que supondremos que ya está instalada. También tenemos la alternativa de usar la interface web, pero no se recomienda ya que nos perderemos parte del proceso de instalación.
+En primer lugar vamos a instalar Odoo. Nosotros hemos elegido realizar una instalación mediante \textbf{máquina virtual} usando \textbf{VirtualBox}, aunque también se podría hacer una instalación local o usar la prueba online que ofrece Odoo en su web. La instalación de la máquina virtual no la vamos a ver en este documento, por lo que se presupondrá que ya esta instalada.
 
 \subsection{Descarga de la imagen de Odoo}
-En primer lugar vamos a descargarnos la imagen de Odoo, la cual podemos encontrar en el siguiente enlace \url{https://bitnami.com/stack/odoo/virtual-machine}, donde encontraremos un archivo con extensión ``\textbf{\textit{.ova}}'' que deberemos descargarnos.
+Primero vamos a descargarnos la imagen de Odoo, la cual podemos encontrar en la \href{https://bitnami.com/stack/odoo/virtual-machine}{página web de Bitnami}, donde encontraremos un archivo con extensión ``\textbf{\textit{.ova}}'' que deberemos descargarnos.
 
 \begin{figure}[h]
     \centering
@@ -55,36 +55,54 @@ En primer lugar vamos a descargarnos la imagen de Odoo, la cual podemos encontra
 
 
 \subsection{Instalación de la imagen en VirtualBox}
-Una vez que tengamos descargada la imagen, ya podemos proceder a su instalación en VirtualBox. Para ello abrimos la aplicación y seleccionamos la opción \textit{\textbf{Import}} como se muestra en la siguiente captura.
+Una vez que tengamos la imagen descargada, tendremos que cargarla en VirtualBox. Para ello, abrimos la aplicaciones y pulsamos el botón importar.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.25]{vb-import.png}
-    \caption{Pantalla principal de VirtualBox}
+    \caption{Pantalla principal de VB}
 \end{figure}
 
-A continuación, cargamos la imagen que nos acabamos de descargar, y pulsamos en Next para continuar con el proceso de instalación. Deberemos seleccionar la imagen que tenemos descargada en nuestro disco duro y continuar. Se nos mostrará una página con la información de la imagen de Odoo y tras pulsar de nuevo en \textbf{\textit{Import}}, nuestra imagen quedará carga en la máquina virtual.
+A continuación nos saldrá una pantalla donde deberemos seleccionar la imagen que nos hemos descargado y pulsar en siguiente. Una vez seleccionada la imagen, nos mostrará información sobre está, como el tipo de SO, la RAM que utilizará, etc.. Para continuar, deberemos \textbf{pulsar en Importar} de nuevo y la imagen se empezará a cargar en VirtualBox.
+
+Una vez cargada la imagen, ya esta lista para su uso. En la izquierda, tendremos una lista con todas las maquinas virtuales disponibles, en nuestro caso, solo aparece la de Odoo. A la derecha se nos muestra información sobre la máquina virtual seleccionada. Para iniciar la imagen, pulsamos en \textbf{Iniciar}, y comenzará la ejecución de la imagen que hemos descargado.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.25]{vb-image-loaded.png}
-    \caption{Imagen de Odoo cargada en VirtualBox}
+    \includegraphics[scale=0.25]{vb-import.png}
+    \caption{Información de imagen en Virtual Box}
 \end{figure}
 
-Después de esto, ya tendremos la imagen lista para usar en VirtualBox y podremos comenzar a utilizar Odoo. Cabe destacar que esta imagen ya trae Odoo instalado y configurado, ya que esta pensado para probar el sistema y ver si se adapta a nuestra necesidades. Si realizáramos una instalación local, requeriríamos más pasos, como la instalación de paquetes de de bases de datos y demás. Podemos encontrar más información sobre los diferentes tipos de instalaciones en la \href{https://www.odoo.com/documentation/15.0/administration/install/install.html}{Documentación oficial de Odoo}.
 
 \subsection{Accediendo a Odoo}
-Una vez que tenemos la imagen cargada en VB, deberemos inicial, para lo que pulsaremos el botón \textbf{\textbf{Start}} o haremos doble click sobre la imagen de Odoo que se nos muestra en la lista de la izquierda. Esto iniciara una nueva ventana donde se nos mostrará información muy útil sobre la instalación y la máquina virtual.
+Cuando hayamos iniciado la imagen de Odoo, nos aparecerá una terminal con información muy importante. Por un lado, nos mostrará la \textbf{dirección del servidor} de Odoo, que nos servirá para acceder a la aplicación desde un navegador. Por otro lado, nos mostrará los credenciales por defecto, \textbf{usuario} y \textbf{contraseña}, que nos servirán para hacer login por primera vez.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.25]{vb-image-main.png}
-    \caption{Pantalla principal de la imagen Odoo en VB}
+    \includegraphics[scale=0.25]{odoo-image-run.png}
+    \caption{Terminal inicial de la imagen de Odoo}
 \end{figure}
 
-En esta pantalla se nos muestra diferente información que nos va a ser útil. La más importante es la\textbf{ dirección web} del servidor, en este caso es \textbf{\textit{http://192.168.1.168}}, con la que podremos acceder a Odoo desde un navegador instalado en nuestro PC. Y por otro lado, nos muestra los \textbf{credenciales por defecto} de Odoo, en este caso son \textbf{usuario}: \textit{user@example.com} y \textbf{contraseña}: \textit{9z1p7ysXWkxl}. Además de esta información se nos muestra el usuario y contraseña del sistema operativo, aunque ahora mismo no lo necesitamos para nada.
+En nuestro caso, la dirección del servidor es \textbf{\textit{http://192.168.1.169}}, mientras que el usuario es \textbf{\textit{user@example.com}} y la contraseña \textbf{\textit{64HBtbt9Iznm}}.
 
-Con esta información, vamos a abrir un navegado, introducir la dirección web facilitada y los credenciales, para así poder acceder a Odoo.
+Con estos datos, abrimos un navegador, no importa cual sea, he introducimos la dirección del servidor en la barra de direcciones. Lo que nos mostrará la pantalla inicial de inicio de sesión de Odoo. A continuación introducimos el usuario y la contraseña proporcionados y pulsamos en \textbf{Log in}.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{login-odoo.png}
+    \caption{Pantalla de inicio de sesión de Odoo}
+\end{figure}
+
+\subsection{Configuración Inicial de Odoo}
+Después de haber iniciado sesión, nos parecerá la pantalla principal de Odoo. Aquí se nos muestran todos los\textbf{ módulos disponibles} para instalar. A la izquierda, podemos \textbf{seleccionar una categoría} y que nos muestre solo los módulos que pertenecen a dicha categoría. Como podemos ver arriba a la derecha, podemos ver que ya se ha creado un \textbf{usuario por defecto}, llamado \textbf{Administrator} y arriba a la izquierda tenemos un \textbf{menú desplegable}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{main-odoo.png}
+    \caption{Pantalla principal de Odoo}
+\end{figure}
+
 
 % Bibliography
 
