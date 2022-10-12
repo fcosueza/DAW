@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 09:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1028,28 +1028,97 @@ Package pdftex.def Info: ./images/odoo-comp-01.png  used on input line 177.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./images/odoo-comp-01.png> <./images/odoo-comp-02.png>] [8] (./Tarea2.bbl
+[7 <./images/odoo-comp-01.png> <./images/odoo-comp-02.png>]
+<./images/crear-usuario-01.png, id=87, 1445.4pt x 813.0375pt>
+File: ./images/crear-usuario-01.png Graphic file (type png)
+<use ./images/crear-usuario-01.png>
+Package pdftex.def Info: ./images/crear-usuario-01.png  used on input line 190.
+
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [8 <./images/crear-usuario-01.png>]
+<./images/crear-usuario-02.png, id=97, 1445.4pt x 813.0375pt>
+File: ./images/crear-usuario-02.png Graphic file (type png)
+<use ./images/crear-usuario-02.png>
+Package pdftex.def Info: ./images/crear-usuario-02.png  used on input line 202.
+
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/crear-usuario-03.png, id=98, 1445.4pt x 813.0375pt>
+File: ./images/crear-usuario-03.png Graphic file (type png)
+<use ./images/crear-usuario-03.png>
+Package pdftex.def Info: ./images/crear-usuario-03.png  used on input line 211.
+
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [9 <./images/crear-usuario-02.png> <./images/crear-usuario-03.png>]
+<./images/install-modulo.png, id=106, 1445.4pt x 813.0375pt>
+File: ./images/install-modulo.png Graphic file (type png)
+<use ./images/install-modulo.png>
+Package pdftex.def Info: ./images/install-modulo.png  used on input line 223.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/app-discuss.png, id=107, 1445.4pt x 813.0375pt>
+File: ./images/app-discuss.png Graphic file (type png)
+<use ./images/app-discuss.png>
+Package pdftex.def Info: ./images/app-discuss.png  used on input line 231.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [10 <./images/install-modulo.png (PNG copy)> <./images/app-discuss.png (PNG co
+py)>]
+<./images/app-inv-menu.png, id=115, 1445.4pt x 813.0375pt>
+File: ./images/app-inv-menu.png Graphic file (type png)
+<use ./images/app-inv-menu.png>
+Package pdftex.def Info: ./images/app-inv-menu.png  used on input line 241.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/app-inv.png, id=116, 1445.4pt x 813.0375pt>
+File: ./images/app-inv.png Graphic file (type png)
+<use ./images/app-inv.png>
+Package pdftex.def Info: ./images/app-inv.png  used on input line 251.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [11 <./images/app-inv-menu.png (PNG copy)> <./images/app-inv.png (PNG copy)>]
+<./images/app-inv-prod-if.png, id=124, 1445.4pt x 813.0375pt>
+File: ./images/app-inv-prod-if.png Graphic file (type png)
+<use ./images/app-inv-prod-if.png>
+Package pdftex.def Info: ./images/app-inv-prod-if.png  used on input line 261.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/create-product-01.png, id=125, 1445.4pt x 813.0375pt>
+File: ./images/create-product-01.png Graphic file (type png)
+<use ./images/create-product-01.png>
+Package pdftex.def Info: ./images/create-product-01.png  used on input line 271
+.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [12 <./images/app-inv-prod-if.png (PNG copy)> <./images/create-product-01.png 
+(PNG copy)>]
+<./images/create-product-02.png, id=132, 1445.4pt x 813.0375pt>
+File: ./images/create-product-02.png Graphic file (type png)
+<use ./images/create-product-02.png>
+Package pdftex.def Info: ./images/create-product-02.png  used on input line 281
+.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/lista-paquetes.png, id=133, 1445.4pt x 813.0375pt>
+File: ./images/lista-paquetes.png Graphic file (type png)
+<use ./images/lista-paquetes.png>
+Package pdftex.def Info: ./images/lista-paquetes.png  used on input line 289.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+ [13 <./images/create-product-02.png (PNG copy)> <./images/lista-paquetes.png (
+PNG copy)>] (./Tarea2.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
-) [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+) [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
  (./Tarea2.aux
 LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
 Package rerunfilecheck Info: File `Tarea2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21759 strings out of 483121
- 411938 string characters out of 5964354
+ 21851 strings out of 483121
+ 413970 string characters out of 5964354
  780300 words of memory out of 5000000
- 36313 multiletter control sequences out of 15000+600000
+ 36372 multiletter control sequences out of 15000+600000
  571803 words of font info for 76 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  66i,7n,83p,10133b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1058,10 +1127,10 @@ e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb>
-Output written on Tarea2.pdf (9 pages, 2400168 bytes).
+Output written on Tarea2.pdf (14 pages, 4779501 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

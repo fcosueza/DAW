@@ -172,7 +172,7 @@ Los pasos a seguir para añadir estos datos son los siguientes:
 
     \item Se nos mostrará una pantalla con donde podremos editar los diferentes datos de nuestra compañía. Una vez que hayamos completado el formulario, pulsamos el botón \textbf{Save} y los datos se habrán actualizado.
 
-        \begin{figure}[h]
+    \begin{figure}[h]
         \centering
         \includegraphics[scale=0.25]{odoo-comp-01.png}
         \caption{Formulario datos de la compañía}
@@ -180,6 +180,126 @@ Los pasos a seguir para añadir estos datos son los siguientes:
 \end{enumerate}
 
 \section{Creación de Usuarios}
+Para crear usuario primero debemos abrir la página de usuarios que se muestra en la Figura \ref{odoo-users}. Una vez ahí, deberemos seguir los siguientes pasos.
+
+\begin{enumerate}
+    \item En primer lugar debemos pulsa el botón \textbf{Create}, que se encuentra en la esquina superior izquierda.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.25]{crear-usuario-01.png}
+        \caption{Botón crear de la pagina de usuarios}
+    \end{figure}
+
+    \item Una vez que haya pulsado el botón, se nos mostrara una página para introducir los datos del usuario. Por un lado tenemos un formulario donde podemos introducir el nombre del usuario y su email.
+
+    En la parte de abajo tenemos dos pestañas. En la de \textbf{Access Rights} podemos asignar permisos de acceso o configuración al usuario, mientras que en la de \textbf{Preferences} podemos cambiar algunas opciones como el idioma, zona horaria o la firma del email.
+
+    Después de introducir la información del usuario, pulsamos en el botón \textbf{Save} y el usuario quedará almacenado.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.25]{crear-usuario-02.png}
+        \caption{Creación de usuario}
+    \end{figure}
+\end{enumerate}
+
+Para esta sección, se han creado dos usuario usando este procedimiento y asignándoles diferentes opciones. En la siguiente captura se pueden ver los dos usuarios creados junto con el usuario Administrator por defecto.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{crear-usuario-03.png}
+    \caption{Lista de usuario con los dos nuevos creados}
+\end{figure}
+
+\section{Instalación de Módulos y Generación de Informes}
+En esta sección vamos a instalar un nuevo módulo, en concreto el \textbf{módulo Inventario}. Vamos a crear 3 paquetes con este módulo y a generar un informe, el cual exportaremos en una hoja de cálculo.
+
+\subsection{Instalación del Módulo Inventario}
+En primer paso será instalar el módulo requerido. Este se hace de forma muy simple, solo tenemos que pulsar el botón \textbf{Install} en el módulo que deseamos instalar, desde la página principal de Odoo. El módulo de instalará de forma automática. En nuestro caso el módulo es \textbf{Invetory}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{install-modulo.png}
+    \caption{Instalación de modulo Inventario (Inventory)}
+\end{figure}
+
+Después de pulsar el botón \textbf{Install}, pasarán dos cosas. Por un lado, el módulo quedará instalado y podremos acceder a el desde el menú desplegable. Por otro, al ser el primer módulo que instalamos, se nos instalará la app \textbf{Discuss}, usada para comunicaciones internas y se nos abrirá automáticamente un chat con un mensaje de bienvenida.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{app-discuss.png}
+    \caption{Mensaje de bienvenida del bot Odoo en la app Discuss}
+\end{figure}
+
+\subsection{Creación de Productos}
+Ahora vamos a crear tres paquetes en el módulo inventario. En primer lugar seleccionamos la opción \textbf{Inventory} desde el menú desplegable, arriba a la izquierda, como ya hiciéramos anteriormente para acceder a la configuración. Para ello, seguiremos estos pasos.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{app-inv-menu.png}
+    \caption{Selección del módulo Inventario en el menú}
+\end{figure}
+
+Tras seleccionar la opción, se nos mostrará la \textbf{vista general} del módulo. En ella podemos ver en la parte central los \textbf{Ingresos} (Receips), \textbf{Ordenes de Envío} (Delivery Orders) y las \textbf{Devoluciones} (Returns). En la parte superior podemos ver un menú con diferentes opciones del módulo, como \textbf{Operations}, \textbf{Products}, \textbf{Reporting} y \textbf{Configuration}.
+
+Para este punto, solo nos interesa el menú \textbf{Products}, así que los desplegamos y pulsamos en la opción \textbf{Products}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{app-inv.png}
+    \caption{Interfaz del módulo Inventory y menú Products}
+\end{figure}
+
+\vspace{3ex}
+
+Después de seleccionar la opción \textbf{Products} se nos mostrara una página con los productos que tenemos creados. En nuestro caso, nos comunica que no se han encontrado productos, ya que no hemos creado ninguno. Para crear un producto nuevo, pulsamos en el botón \textbf{Create} arriba a la derecha.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{app-inv-prod-if.png}
+    \caption{Interfaz del módulo Products}
+\end{figure}
+
+Se nos desplegará un ficha donde podemos rellenar el nombre del paquete y diferentes datos. Arriba a la derecha tenemos opciones para \textbf{imprimir una etiqueta} del producto, \textbf{actualizar la cantidad en stock} o \textbf{reponer el stock} de producto. En la parte central tenemos una ficha, donde podemos introducir el \textbf{nombre} del producto y 2 pestañas donde podremos incorporar diferente información.
+
+En la pestaña \textbf{General Information}, podemos determinar el \textbf{tipo de producto}, \textbf{precio de venta}, \textbf{coste}, \textbf{referencia interna} y \textbf{notas internas entre otros}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{create-product-01.png}
+    \caption{Interfaz de creación de productos - Pestaña Información General}
+\end{figure}
+
+Por otra lado tenemos la pestaña \textbf{Inventory}, donde meteremos información relativa al paquete y \textbf{su almacenamiento}, así como el \textbf{responsable de logística} del paquete, \textbf{peso} y \textbf{volumen}. También podremos añadir descripciones tanto para la recepción como el envío del producto.
+
+Una vez introducidos todos los datos deseados, pulsamos el botón \textbf{Save} en la esquina superior izquierda y el producto se habrá creado.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{create-product-02.png}
+    \caption{Interfaz de creación de productos - Pestaña Inventory}
+\end{figure}
+
+Siguiendo este proceso, hemos creado tres productos para nuestra empresa de reparto, \textbf{Paquete Grande}, \textbf{Paquete Mediano} y \textbf{Paquete Pequeño}, como podemos ver en la siguientes captura.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{lista-paquetes.png}
+    \caption{Lista de productos creados}
+\end{figure}
+
+\subsection{Creación de Informe}
+
+
+
+
+
+
+
+
+
 
 
 
