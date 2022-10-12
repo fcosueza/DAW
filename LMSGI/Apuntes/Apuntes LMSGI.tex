@@ -778,6 +778,59 @@ En los siguientes enlaces, podemos consultar los diferentes módulos que tiene l
     \item Módulos de Openbravo - \url{https://www.openbravo.com/es/soluciones}
 \end{itemize}
 
+\subsubsection{Seguridad: Planificación, Usuarios y Roles}
+En primer lugar, para \textbf{aumentar la seguridad} de nuestro ERP, debemos analizar los tipos de riesgos a los que está sometido. Estos se pueden clasificar en \textbf{dos tipos}:
+
+\begin{itemize}
+    \item \textbf{Riesgos Físicos}: cuando ocurre un fallo en un componente electrónico de nuestro sistema. Pueden fallar principalmente por agresiones externas, como altas temperaturas, incendios, inundaciones,etc...
+    \item \textbf{Riesgos Lógicos}: sucede cuando no hay una política adecuada en los sistemas informáticos y se producen accesos no autorizados, bugs, errores en el sistema operativo o en el software, intrusiones externas, etc...
+\end{itemize}
+
+Para mitigar estos riesgos, los sistemas ERP implementan una serie de \textbf{medidas de seguridad} que se basan en los siguientes aspectos:
+
+\begin{itemize}
+    \item \textbf{Niveles de acceso configurables para los usuarios según su rol}: en función de las tareas que deba realizar un usuario, éste debe contar con una serie de políticas que le permitan acceder a los datos que necesita, quedando otros datos reservados para usuarios con un nivel de toma de decisiones mas elevado.
+    \item \textbf{Auditoría de cada transacción}: se controla cada envío de datos, lo que garantiza las operaciones realizadas.
+    \item \textbf{Soporte para la conexión segura con https}: para garantizar la comunicación segura entre los clientes y el servidor se usa una conexión segura. Especialmente durante el proceso de autenticación de los usuarios.
+\end{itemize}
+
+Uno de los puntos más importantes es la \textbf{buena asignación de roles}, ya que esto permite que los usuarios solo puedan acceder a los datos que necesitan dejando, restringiendo su acceso a datos más sensibles solo disponibles a usuarios con mayores privilegios. Esta asignación se realiza mediante un \textbf{usuario administrador}.
+
+Los paquetes básicos de ERP y módulos suelen tener varios \textbf{usuarios disponibles}:
+
+\begin{itemize}
+    \item \textbf{Administrador}: es el usuario con \textbf{mayores privilegios}, tanto en el acceso a datos como en la gestión del sistema (creación de usuarios, instalación de módulos,...)
+    \item \textbf{Usuario Normal}: usuario que no tiene privilegios de gestión pero si tiene acceso a \textbf{toda la información} almacenada.
+    \item \textbf{Usuario Grupo}: se crean para recibir correo entrante para distribución.
+    \item \textbf{Usuario de Portal}: permite a los usuarios \textbf{acceder a los portales} creados en el entorno pero \textbf{no a la aplicación}.
+\end{itemize}
+
+Hay aplicaciones en las que los usuarios no pueden borrarse directamente, sino que hay que hacerlo desde la base de datos.
+
+Además de los diferentes usuarios, es necesario conocer las características de los \textbf{roles} que hay definidos para los usuarios de una aplicación. Estos roles definen \textbf{ciertos privilegios} a la hora de realizar \textbf{tares específicas}.
+
+Las \textbf{características} de los \textbf{roles} son las siguientes:
+
+\begin{itemize}
+    \item Un \textbf{rol} es un \textbf{grupo particular de privilegios}.
+    \item El rol solo \textbf{tiene validez} si esta \textbf{asignado a un usuario}.
+    \item Un \textbf{usuario} puede tener asignados \textbf{varios roles}, en este caso prevalece el más restrictivo.
+    \item Los \textbf{cambios} realizados en los roles no son \textbf{efectivos} hasta que no se \textbf{inicia sesión} de nuevo.
+    \item Si un rol \textbf{niega el acceso} a un módulo, se pierde la opción de ver cualquier subpanel perteneciente a éste.
+\end{itemize}
+
+
+\section{Enlaces de Interés}
+En esta última sección solo vamos a incluir unos enlaces para completar y aclarar algunos de los conceptos que hemos visto en esta unidad, así como para expandir un poco el contenido.
+
+\begin{itemize}
+    \item Introducción a XML - \url{https://youtu.be/bCd2xaQrTAo}
+    \item Mi primer documento XML - \url{https://youtu.be/LljEw3Std1Y}
+    \item Documentos XML bien formados - \url{https://youtu.be/s1RgyhO9F2I}
+    \item Introducción a XML Namespaces - \url{https://youtu.be/YGFcD3-WO6c}
+    \item Resumen teórico y práctico . \url{https://youtu.be/YGFcD3-WO6c}
+\end{itemize}
+
 
 % Glossary
 
