@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  13 OCT 2022 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -931,16 +931,12 @@ File: ./images/descarga-odoo.png Graphic file (type png)
 <use ./images/descarga-odoo.png>
 Package pdftex.def Info: ./images/descarga-odoo.png  used on input line 52.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 <./images/vb-import.png, id=9, 1445.4pt x 813.0375pt>
 File: ./images/vb-import.png Graphic file (type png)
 <use ./images/vb-import.png>
 Package pdftex.def Info: ./images/vb-import.png  used on input line 62.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-[1
+ [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -948,32 +944,19 @@ File: ./images/vb-import.png Graphic file (type png)
 <use ./images/vb-import.png>
 Package pdftex.def Info: ./images/vb-import.png  used on input line 72.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2 <./images/descarga-odoo.png (PNG copy)> <./images/vb-import.png (PNG copy)>]
+ [2 <./images/descarga-odoo.png (PNG copy)> <./images/vb-import.png (PNG copy)>
+]
 <./images/odoo-image-run.png, id=34, 1445.4pt x 813.0375pt>
 File: ./images/odoo-image-run.png Graphic file (type png)
 <use ./images/odoo-image-run.png>
 Package pdftex.def Info: ./images/odoo-image-run.png  used on input line 82.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-Overfull \hbox (48.96205pt too wide) in paragraph at lines 86--87
-[]\T1/ptm/m/n/10.95 En nues-tro ca-so, la di-rec-ción del ser-vi-dor es \T1/ptm
-/b/it/10.95 http://192.168.1.169\T1/ptm/m/n/10.95 , mien-tras que el usua-rio e
-s \T1/ptm/b/it/10.95 user@example.com
- []
-
 <./images/login-odoo.png, id=35, 1445.4pt x 813.0375pt>
 File: ./images/login-odoo.png Graphic file (type png)
 <use ./images/login-odoo.png>
 Package pdftex.def Info: ./images/login-odoo.png  used on input line 93.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3 <./images/odoo-image-run.png (PNG copy)>]
+ [3 <./images/odoo-image-run.png (PNG copy)>]
 <./images/main-odoo.png, id=43, 1445.4pt x 813.0375pt>
 File: ./images/main-odoo.png Graphic file (type png)
 <use ./images/main-odoo.png>
@@ -984,11 +967,7 @@ File: ./images/change-pass-01.png Graphic file (type png)
 <use ./images/change-pass-01.png>
 Package pdftex.def Info: ./images/change-pass-01.png  used on input line 113.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4 <./images/login-odoo.png (PNG copy)> <./images/main-odoo.png>]
+ [4 <./images/login-odoo.png (PNG copy)> <./images/main-odoo.png>]
 <./images/change-pass-02.png, id=53, 1445.4pt x 813.0375pt>
 File: ./images/change-pass-02.png Graphic file (type png)
 <use ./images/change-pass-02.png>
@@ -997,140 +976,67 @@ Package pdftex.def Info: ./images/change-pass-02.png  used on input line 121.
 <./images/change-pass-03.png, id=54, 1445.4pt x 813.0375pt>
 File: ./images/change-pass-03.png Graphic file (type png)
 <use ./images/change-pass-03.png>
-Package pdftex.def Info: ./images/change-pass-03.png  used on input line 134.
+Package pdftex.def Info: ./images/change-pass-03.png  used on input line 133.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5 <./images/change-pass-01.png> <./images/change-pass-02.png>]
+ [5 <./images/change-pass-01.png> <./images/change-pass-02.png>]
 <./images/change-pass-04.png, id=63, 1445.4pt x 813.0375pt>
 File: ./images/change-pass-04.png Graphic file (type png)
 <use ./images/change-pass-04.png>
 Package pdftex.def Info: ./images/change-pass-04.png  used on input line 142.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
+<./images/ficha-usuario.png, id=65, 1445.4pt x 813.0375pt>
+File: ./images/ficha-usuario.png Graphic file (type png)
+<use ./images/ficha-usuario.png>
+Package pdftex.def Info: ./images/ficha-usuario.png  used on input line 156.
+(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
  [6 <./images/change-pass-03.png> <./images/change-pass-04.png>]
-<./images/odoo-comp-01.png, id=73, 1445.4pt x 813.0375pt>
-File: ./images/odoo-comp-01.png Graphic file (type png)
-<use ./images/odoo-comp-01.png>
-Package pdftex.def Info: ./images/odoo-comp-01.png  used on input line 159.
+<./images/ficha-usuario-preferences.png, id=74, 1445.4pt x 813.0375pt>
+File: ./images/ficha-usuario-preferences.png Graphic file (type png)
+<use ./images/ficha-usuario-preferences.png>
+Package pdftex.def Info: ./images/ficha-usuario-preferences.png  used on input 
+line 164.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/odoo-comp-02.png, id=74, 1445.4pt x 813.0375pt>
-File: ./images/odoo-comp-02.png Graphic file (type png)
-<use ./images/odoo-comp-02.png>
-Package pdftex.def Info: ./images/odoo-comp-02.png  used on input line 169.
+<./images/language-switch.png, id=75, 1445.4pt x 813.0375pt>
+File: ./images/language-switch.png Graphic file (type png)
+<use ./images/language-switch.png>
+Package pdftex.def Info: ./images/language-switch.png  used on input line 173.
 (pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-File: ./images/odoo-comp-01.png Graphic file (type png)
-<use ./images/odoo-comp-01.png>
-Package pdftex.def Info: ./images/odoo-comp-01.png  used on input line 177.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7 <./images/odoo-comp-01.png> <./images/odoo-comp-02.png>]
-<./images/crear-usuario-01.png, id=87, 1445.4pt x 813.0375pt>
-File: ./images/crear-usuario-01.png Graphic file (type png)
-<use ./images/crear-usuario-01.png>
-Package pdftex.def Info: ./images/crear-usuario-01.png  used on input line 190.
-
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [8 <./images/crear-usuario-01.png>]
-<./images/crear-usuario-02.png, id=97, 1445.4pt x 813.0375pt>
-File: ./images/crear-usuario-02.png Graphic file (type png)
-<use ./images/crear-usuario-02.png>
-Package pdftex.def Info: ./images/crear-usuario-02.png  used on input line 202.
-
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/crear-usuario-03.png, id=98, 1445.4pt x 813.0375pt>
-File: ./images/crear-usuario-03.png Graphic file (type png)
-<use ./images/crear-usuario-03.png>
-Package pdftex.def Info: ./images/crear-usuario-03.png  used on input line 211.
-
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [9 <./images/crear-usuario-02.png> <./images/crear-usuario-03.png>]
-<./images/install-modulo.png, id=106, 1445.4pt x 813.0375pt>
-File: ./images/install-modulo.png Graphic file (type png)
-<use ./images/install-modulo.png>
-Package pdftex.def Info: ./images/install-modulo.png  used on input line 223.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/app-discuss.png, id=107, 1445.4pt x 813.0375pt>
-File: ./images/app-discuss.png Graphic file (type png)
-<use ./images/app-discuss.png>
-Package pdftex.def Info: ./images/app-discuss.png  used on input line 231.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [10 <./images/install-modulo.png (PNG copy)> <./images/app-discuss.png (PNG co
-py)>]
-<./images/app-inv-menu.png, id=115, 1445.4pt x 813.0375pt>
-File: ./images/app-inv-menu.png Graphic file (type png)
-<use ./images/app-inv-menu.png>
-Package pdftex.def Info: ./images/app-inv-menu.png  used on input line 241.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/app-inv.png, id=116, 1445.4pt x 813.0375pt>
-File: ./images/app-inv.png Graphic file (type png)
-<use ./images/app-inv.png>
-Package pdftex.def Info: ./images/app-inv.png  used on input line 251.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [11 <./images/app-inv-menu.png (PNG copy)> <./images/app-inv.png (PNG copy)>]
-<./images/app-inv-prod-if.png, id=124, 1445.4pt x 813.0375pt>
-File: ./images/app-inv-prod-if.png Graphic file (type png)
-<use ./images/app-inv-prod-if.png>
-Package pdftex.def Info: ./images/app-inv-prod-if.png  used on input line 261.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/create-product-01.png, id=125, 1445.4pt x 813.0375pt>
-File: ./images/create-product-01.png Graphic file (type png)
-<use ./images/create-product-01.png>
-Package pdftex.def Info: ./images/create-product-01.png  used on input line 271
-.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [12 <./images/app-inv-prod-if.png (PNG copy)> <./images/create-product-01.png 
-(PNG copy)>]
-<./images/create-product-02.png, id=132, 1445.4pt x 813.0375pt>
-File: ./images/create-product-02.png Graphic file (type png)
-<use ./images/create-product-02.png>
-Package pdftex.def Info: ./images/create-product-02.png  used on input line 281
-.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
-<./images/lista-paquetes.png, id=133, 1445.4pt x 813.0375pt>
-File: ./images/lista-paquetes.png Graphic file (type png)
-<use ./images/lista-paquetes.png>
-Package pdftex.def Info: ./images/lista-paquetes.png  used on input line 289.
-(pdftex.def)             Requested size: 361.34912pt x 203.25888pt.
- [13 <./images/create-product-02.png (PNG copy)> <./images/lista-paquetes.png (
-PNG copy)>] (./Tarea2.bbl
+ [7 <./images/ficha-usuario.png> <./images/ficha-usuario-preferences.png>] [8 <
+./images/language-switch.png>]
+(./Tarea2.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
-) [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
+) [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 205.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 205.
  (./Tarea2.aux
 LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 205.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 205.
 Package rerunfilecheck Info: File `Tarea2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21851 strings out of 483121
- 413970 string characters out of 5964354
+ 21765 strings out of 483121
+ 412192 string characters out of 5964354
  780300 words of memory out of 5000000
- 36372 multiletter control sequences out of 15000+600000
+ 36319 multiletter control sequences out of 15000+600000
  571803 words of font info for 76 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 66i,7n,83p,10133b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,7n,83p,10133b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb>
-Output written on Tarea2.pdf (14 pages, 4779501 bytes).
+Output written on Tarea2.pdf (9 pages, 2656299 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 66 named destinations out of 1000 (max. 500000)
- 219 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -47,7 +47,7 @@ En primer lugar vamos a instalar Odoo. Nosotros hemos elegido realizar una insta
 \subsection{Descarga de la imagen de Odoo}
 Primero vamos a descargarnos la imagen de Odoo, la cual podemos encontrar en la \href{https://bitnami.com/stack/odoo/virtual-machine}{página web de Bitnami}, donde encontraremos un archivo con extensión ``\textbf{\textit{.ova}}'' que deberemos descargarnos.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{descarga-odoo.png}
     \caption{Página de Bitnami con la imagen de Odoo}
@@ -57,7 +57,7 @@ Primero vamos a descargarnos la imagen de Odoo, la cual podemos encontrar en la 
 \subsection{Instalación de la imagen en VirtualBox}
 Una vez que tengamos la imagen descargada, tendremos que cargarla en VirtualBox. Para ello, abrimos la aplicaciones y pulsamos el botón importar.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{vb-import.png}
     \caption{Pantalla principal de VB}
@@ -67,7 +67,7 @@ A continuación nos saldrá una pantalla donde deberemos seleccionar la imagen q
 
 Una vez cargada la imagen, ya esta lista para su uso. En la izquierda, tendremos una lista con todas las maquinas virtuales disponibles, en nuestro caso, solo aparece la de Odoo. A la derecha se nos muestra información sobre la máquina virtual seleccionada. Para iniciar la imagen, pulsamos en \textbf{Iniciar}, y comenzará la ejecución de la imagen que hemos descargado.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{vb-import.png}
     \caption{Información de imagen en Virtual Box}
@@ -77,38 +77,38 @@ Una vez cargada la imagen, ya esta lista para su uso. En la izquierda, tendremos
 \subsection{Accediendo a Odoo}
 Cuando hayamos iniciado la imagen de Odoo, nos aparecerá una terminal con información muy importante. Por un lado, nos mostrará la \textbf{dirección del servidor} de Odoo, que nos servirá para acceder a la aplicación desde un navegador. Por otro lado, nos mostrará los credenciales por defecto, \textbf{usuario} y \textbf{contraseña}, que nos servirán para hacer login por primera vez.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{odoo-image-run.png}
     \caption{Terminal inicial de la imagen de Odoo}
 \end{figure}
 
-En nuestro caso, la dirección del servidor es \textbf{\textit{http://192.168.1.169}}, mientras que el usuario es \textbf{\textit{user@example.com}} y la contraseña \textbf{\textit{64HBtbt9Iznm}}.
+En nuestro caso, la dirección del servidor es \textbf{\textit{http://192.168.1.170}}, mientras que el usuario de acceso a Odoo es t\textbf{\textit{user@example.com}} y la contraseña \textbf{\textit{81vpsDAmYiPs}}.
 
-Con estos datos, abrimos un navegador, no importa cual sea, he introducimos la dirección del servidor en la barra de direcciones. Lo que nos mostrará la pantalla inicial de inicio de sesión de Odoo. A continuación introducimos el usuario y la contraseña proporcionados y pulsamos en \textbf{Log in}.
+Con estos datos, abrimos un navegador, no importa cual sea, e introducimos la dirección del servidor en la barra de direcciones. Lo que nos mostrará la pantalla inicial de inicio de sesión de Odoo. A continuación introducimos el usuario y la contraseña proporcionados y pulsamos en \textbf{Log in}.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{login-odoo.png}
     \caption{Pantalla de inicio de sesión de Odoo}
 \end{figure}
 
-\subsection{Cambio de contraseña}
+\subsection{Cambio de Contraseña e Idioma}
 Después de haber iniciado sesión, nos parecerá la pantalla principal de Odoo. Aquí se nos muestran todos los\textbf{ módulos disponibles} para instalar. A la izquierda, podemos \textbf{seleccionar una categoría} y que nos muestre solo los módulos que pertenecen a dicha categoría. Como podemos ver arriba a la derecha, podemos ver que ya se ha creado un \textbf{usuario por defecto}, llamado \textbf{Administrator} y arriba a la izquierda tenemos un \textbf{menú desplegable}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{main-odoo.png}
     \caption{Pantalla principal de Odoo}
 \end{figure}
 
-Lo primero que deberíamos hacer, es cambiar la contraseña de administrador por la que nosotros queramos. Es conveniente, como en cualquier otra aplicación, utilizar una contraseña fuerte, que sea larga y que alterne números, letra en minúscula y mayúscula, etc..
+Lo primero que deberíamos hacer, es cambiar la \textbf{contraseña de administrador} por la que nosotros queramos. Es conveniente, como en cualquier otra aplicación, utilizar una contraseña fuerte, que sea larga y que alterne números, letra en minúscula y mayúscula, etc..
 
 \begin{enumerate}
     \item Abrimos el menú desplegable, que se encuentra arriba a la derecha, y pulsamos en la opción \textbf{Settings}, que nos abrirá por defecto la pantalla \textbf{Users}.
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[scale=0.25]{change-pass-01.png}
         \caption{Opción Setting del menú desplegable}
@@ -116,183 +116,73 @@ Lo primero que deberíamos hacer, es cambiar la contraseña de administrador por
 
     \item En la siguientes pantalla, se nos mostrará la lista de usuarios, en nuestra caso solo tenemos al usuario \textbf{Admnistrator}, seleccionamos este usuario.
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[scale=0.25]{change-pass-02.png}
         \caption{Pantalla de gestión de usuarios de Odoo}
-        \label{odoo-users}
     \end{figure}
 
-    \item Una vez hayamos seleccionado el usuario nos mostrará una pagina con un ficha de éste. Se nos mostrará información del usuario, como su correo, el nombre, una foto, en caso de que la tenga, y en la parte inferior los derechos de acceso (Access Rights), las preferencias (preferences) y la configuración de seguridad de la cuenta (Account Security).
+    \item Una vez hayamos seleccionado el usuario nos mostrará una pagina con un ficha de éste. Se nos mostrará información del usuario, como su correo, el nombre, una foto, en caso de que la tenga, y en la parte inferior los derechos de acceso (Access Rights), las preferencias (Preferences) y la configuración de seguridad de la cuenta (Account Security).
 
     Como a nosotros solo nos interesa, cambiar la contraseña, vamos a desplegar el \textbf{menú Action}, que se encuentra en la parte superior, y seleccionar la opción \textbf{Change Password}.
 
     \vspace{8ex}
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[scale=0.25]{change-pass-03.png}
         \caption{Pantalla con ficha de usuario}
+        \label{fig:user}
     \end{figure}
 
     \item A continuación aparecerá una pantalla donde se nos mostrará el usuario y al lado un una entrada de formulario para introducir la nueva contraseña. La introducimos, pulsamos el botón \textbf{Change Password} y se habrá completado el proceso. Tras el cambio, no redirigirá a la pantalla de Log In.
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[scale=0.25]{change-pass-04.png}
         \caption{Pantalla de cambio de contraseña}
     \end{figure}
 \end{enumerate}
 
-Ya hemos hecho el cambio de contraseña. En la siguiente sección sección veremos como añadir información al sistema y crear nuevos usuarios.
-
-\subsection{Añadiendo Datos de la Empresa}
-El último paso para acabar la configuración inicial es añadir los datos de la empresa. En nuestro caso, vamos a rellenarlos con la empresa ficticia \textbf{Llegaya}, añadiendo \textbf{nombre}, \textbf{dirección}, \textbf{teléfono}, \textbf{lema de la empresa}, \textbf{sitio web}, \textbf{NIF} y \textbf{email}.
-
-Los pasos a seguir para añadir estos datos son los siguientes:
+Una vez cambiada la contraseña, vamos a \textbf{cambiar el idioma} y ponerlo en español. Para ello, vamos a seguir los siguientes pasos.
 
 \begin{enumerate}
-    \item Partiendo desde la pantalla que se muestra en la Figura \textbf{\ref{odoo-users}}, desplegamos el menú \textbf{Users and Companies} y seleccionamos la opción \textbf{Companies}.
+    \item Desde la pagina donde nos aparece la ficha de usuario, como en la Figura \ref{fig:user}, pulsamos en el botón \textbf{Edit} que se encuentra en la parte superior izquierda. Una vez pulsado ahí, pulsamos en la pestaña \textbf{Preferences}, que nos encontramos en el centro debajo del \textbf{email} del usuario.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.25]{odoo-comp-01.png}
-        \caption{Selección menú compañías}
-    \end{figure}
+    \vspace{10ex}
 
-    \item A continuación se nos mostrará una pantalla similar a la anterior, pero en vez de con una lista de usuarios, con una lista de compañías. En nuestro caso solo figurará la compañía por defecto \textbf{My Company}. La seleccionamos como hicimos con los usuarios en la sección anterior.
+   \begin{figure}[ht]
+       \centering
+       \includegraphics[scale=0.25]{ficha-usuario.png}
+       \caption{Ficha de usuario y botón Edit}
+   \end{figure}
 
-    \item Una vez seleccionada, se nos mostrará una ficha, similar a la de los usuarios, pero con datos de la compañía. Para editarla, pulsamos el botón \textbf{Edit} que se encuentra arriba a la izquierda.
+   \item Dentro de la pestaña \textbf{Preferences}, debemos pulsar en el \textbf{icono} en los aparece a la derecha del menú desplegable de la opción \textbf{Language}.
 
-     \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.25]{odoo-comp-02.png}
-        \caption{Ficha de compañía}
-    \end{figure}
+   \begin{figure}[ht]
+       \centering
+       \includegraphics[scale=0.25]{ficha-usuario-preferences.png}
+       \caption{Ficha de usuario, pestaña Preferences}
+   \end{figure}
 
-    \item Se nos mostrará una pantalla con donde podremos editar los diferentes datos de nuestra compañía. Una vez que hayamos completado el formulario, pulsamos el botón \textbf{Save} y los datos se habrán actualizado.
+   \item Nos saldrá una lista de idiomas, debemos buscar la opción \textbf{Spanish}, marcar la casilla que nos encontraremos a su izquierda y pulsar en \textbf{Activate}, que se encuentra en la misma fila a la derecha. Una vez que hayamos pulsado, se nos abrirá una ventana emergente. Ahí deberemos pulsar en la opción\textbf{Add} y posteriormente en la opción \textbf{Switch to spanish/español \& Close}.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.25]{odoo-comp-01.png}
-        \caption{Formulario datos de la compañía}
-    \end{figure}
+    \vspace{15ex}
+   \begin{figure}[ht]
+       \centering
+       \includegraphics[scale=0.25]{language-switch.png}
+       \caption{Cambio de lenguaje a español}
+       \label{fig:lang}
+   \end{figure}
 \end{enumerate}
 
-\section{Creación de Usuarios}
-Para crear usuario primero debemos abrir la página de usuarios que se muestra en la Figura \ref{odoo-users}. Una vez ahí, deberemos seguir los siguientes pasos.
+Después de este último paso, habremos cambiado con éxito el idioma del usuario \textbf{Administrator}, que por ahora va a ser el que usemos, a español. Si queremos cambiar el idioma de la aplicación completa a castellano.
 
-\begin{enumerate}
-    \item En primer lugar debemos pulsa el botón \textbf{Create}, que se encuentra en la esquina superior izquierda.
+\section{Añadiendo Datos y Usuarios}
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.25]{crear-usuario-01.png}
-        \caption{Botón crear de la pagina de usuarios}
-    \end{figure}
+En este punto vamos a añadir los datos de nuestra empresa ficticia Llegaya S.L, y posteriormente crearemos dos usuarios.
 
-    \item Una vez que haya pulsado el botón, se nos mostrara una página para introducir los datos del usuario. Por un lado tenemos un formulario donde podemos introducir el nombre del usuario y su email.
-
-    En la parte de abajo tenemos dos pestañas. En la de \textbf{Access Rights} podemos asignar permisos de acceso o configuración al usuario, mientras que en la de \textbf{Preferences} podemos cambiar algunas opciones como el idioma, zona horaria o la firma del email.
-
-    Después de introducir la información del usuario, pulsamos en el botón \textbf{Save} y el usuario quedará almacenado.
-
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.25]{crear-usuario-02.png}
-        \caption{Creación de usuario}
-    \end{figure}
-\end{enumerate}
-
-Para esta sección, se han creado dos usuario usando este procedimiento y asignándoles diferentes opciones. En la siguiente captura se pueden ver los dos usuarios creados junto con el usuario Administrator por defecto.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{crear-usuario-03.png}
-    \caption{Lista de usuario con los dos nuevos creados}
-\end{figure}
-
-\section{Instalación de Módulos y Generación de Informes}
-En esta sección vamos a instalar un nuevo módulo, en concreto el \textbf{módulo Inventario}. Vamos a crear 3 paquetes con este módulo y a generar un informe, el cual exportaremos en una hoja de cálculo.
-
-\subsection{Instalación del Módulo Inventario}
-En primer paso será instalar el módulo requerido. Este se hace de forma muy simple, solo tenemos que pulsar el botón \textbf{Install} en el módulo que deseamos instalar, desde la página principal de Odoo. El módulo de instalará de forma automática. En nuestro caso el módulo es \textbf{Invetory}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{install-modulo.png}
-    \caption{Instalación de modulo Inventario (Inventory)}
-\end{figure}
-
-Después de pulsar el botón \textbf{Install}, pasarán dos cosas. Por un lado, el módulo quedará instalado y podremos acceder a el desde el menú desplegable. Por otro, al ser el primer módulo que instalamos, se nos instalará la app \textbf{Discuss}, usada para comunicaciones internas y se nos abrirá automáticamente un chat con un mensaje de bienvenida.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{app-discuss.png}
-    \caption{Mensaje de bienvenida del bot Odoo en la app Discuss}
-\end{figure}
-
-\subsection{Creación de Productos}
-Ahora vamos a crear tres paquetes en el módulo inventario. En primer lugar seleccionamos la opción \textbf{Inventory} desde el menú desplegable, arriba a la izquierda, como ya hiciéramos anteriormente para acceder a la configuración. Para ello, seguiremos estos pasos.
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{app-inv-menu.png}
-    \caption{Selección del módulo Inventario en el menú}
-\end{figure}
-
-Tras seleccionar la opción, se nos mostrará la \textbf{vista general} del módulo. En ella podemos ver en la parte central los \textbf{Ingresos} (Receips), \textbf{Ordenes de Envío} (Delivery Orders) y las \textbf{Devoluciones} (Returns). En la parte superior podemos ver un menú con diferentes opciones del módulo, como \textbf{Operations}, \textbf{Products}, \textbf{Reporting} y \textbf{Configuration}.
-
-Para este punto, solo nos interesa el menú \textbf{Products}, así que los desplegamos y pulsamos en la opción \textbf{Products}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{app-inv.png}
-    \caption{Interfaz del módulo Inventory y menú Products}
-\end{figure}
-
-\vspace{3ex}
-
-Después de seleccionar la opción \textbf{Products} se nos mostrara una página con los productos que tenemos creados. En nuestro caso, nos comunica que no se han encontrado productos, ya que no hemos creado ninguno. Para crear un producto nuevo, pulsamos en el botón \textbf{Create} arriba a la derecha.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{app-inv-prod-if.png}
-    \caption{Interfaz del módulo Products}
-\end{figure}
-
-Se nos desplegará un ficha donde podemos rellenar el nombre del paquete y diferentes datos. Arriba a la derecha tenemos opciones para \textbf{imprimir una etiqueta} del producto, \textbf{actualizar la cantidad en stock} o \textbf{reponer el stock} de producto. En la parte central tenemos una ficha, donde podemos introducir el \textbf{nombre} del producto y 2 pestañas donde podremos incorporar diferente información.
-
-En la pestaña \textbf{General Information}, podemos determinar el \textbf{tipo de producto}, \textbf{precio de venta}, \textbf{coste}, \textbf{referencia interna} y \textbf{notas internas entre otros}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{create-product-01.png}
-    \caption{Interfaz de creación de productos - Pestaña Información General}
-\end{figure}
-
-Por otra lado tenemos la pestaña \textbf{Inventory}, donde meteremos información relativa al paquete y \textbf{su almacenamiento}, así como el \textbf{responsable de logística} del paquete, \textbf{peso} y \textbf{volumen}. También podremos añadir descripciones tanto para la recepción como el envío del producto.
-
-Una vez introducidos todos los datos deseados, pulsamos el botón \textbf{Save} en la esquina superior izquierda y el producto se habrá creado.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{create-product-02.png}
-    \caption{Interfaz de creación de productos - Pestaña Inventory}
-\end{figure}
-
-Siguiendo este proceso, hemos creado tres productos para nuestra empresa de reparto, \textbf{Paquete Grande}, \textbf{Paquete Mediano} y \textbf{Paquete Pequeño}, como podemos ver en la siguientes captura.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.25]{lista-paquetes.png}
-    \caption{Lista de productos creados}
-\end{figure}
-
-\subsection{Creación de Informe}
-
-
+\subsection{Datos de la Empresa}
 
 
 
