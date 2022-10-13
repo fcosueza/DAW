@@ -95,7 +95,7 @@ Con estos datos, abrimos un navegador, no importa cual sea, e introducimos la di
 \end{figure}
 
 \subsection{Cambio de Contraseña e Idioma}
-Después de haber iniciado sesión, nos parecerá la pantalla principal de Odoo. Aquí se nos muestran todos los\textbf{ módulos disponibles} para instalar. A la izquierda, podemos \textbf{seleccionar una categoría} y que nos muestre solo los módulos que pertenecen a dicha categoría. Como podemos ver arriba a la derecha, podemos ver que ya se ha creado un \textbf{usuario por defecto}, llamado \textbf{Administrator} y arriba a la izquierda tenemos un \textbf{menú desplegable}.
+Después de haber iniciado sesión, nos parecerá la pantalla principal de Odoo. Aquí se nos muestran todos los\textbf{ módulos disponibles} para instalar. A la izquierda, podemos \textbf{seleccionar una categoría} y que nos muestre solo los módulos que pertenecen a dicha categoría. Como podemos ver arriba a la derecha, ya se ha creado un \textbf{usuario por defecto}, llamado \textbf{Administrator} y arriba a la izquierda tenemos un \textbf{menú desplegable}.
 
 \begin{figure}[ht]
     \centering
@@ -120,6 +120,7 @@ Lo primero que deberíamos hacer, es cambiar la \textbf{contraseña de administr
         \centering
         \includegraphics[scale=0.25]{change-pass-02.png}
         \caption{Pantalla de gestión de usuarios de Odoo}
+        \label{fig:user}
     \end{figure}
 
     \item Una vez hayamos seleccionado el usuario nos mostrará una pagina con un ficha de éste. Se nos mostrará información del usuario, como su correo, el nombre, una foto, en caso de que la tenga, y en la parte inferior los derechos de acceso (Access Rights), las preferencias (Preferences) y la configuración de seguridad de la cuenta (Account Security).
@@ -132,7 +133,6 @@ Lo primero que deberíamos hacer, es cambiar la \textbf{contraseña de administr
         \centering
         \includegraphics[scale=0.25]{change-pass-03.png}
         \caption{Pantalla con ficha de usuario}
-        \label{fig:user}
     \end{figure}
 
     \item A continuación aparecerá una pantalla donde se nos mostrará el usuario y al lado un una entrada de formulario para introducir la nueva contraseña. La introducimos, pulsamos el botón \textbf{Change Password} y se habrá completado el proceso. Tras el cambio, no redirigirá a la pantalla de Log In.
@@ -165,7 +165,7 @@ Una vez cambiada la contraseña, vamos a \textbf{cambiar el idioma} y ponerlo en
        \caption{Ficha de usuario, pestaña Preferences}
    \end{figure}
 
-   \item Nos saldrá una lista de idiomas, debemos buscar la opción \textbf{Spanish}, marcar la casilla que nos encontraremos a su izquierda y pulsar en \textbf{Activate}, que se encuentra en la misma fila a la derecha. Una vez que hayamos pulsado, se nos abrirá una ventana emergente. Ahí deberemos pulsar en la opción\textbf{Add} y posteriormente en la opción \textbf{Switch to spanish/español \& Close}.
+   \item Nos saldrá una lista de idiomas, debemos buscar la opción \textbf{Spanish}, marcar la casilla que nos encontraremos a su izquierda y pulsar en \textbf{Activate}, que se encuentra en la misma fila a la derecha. Una vez que hayamos pulsado, se nos abrirá una ventana emergente. Ahí deberemos pulsar en la opción \textbf{Add} y posteriormente en la opción \textbf{Switch to spanish/español \& Close}.
 
     \vspace{15ex}
    \begin{figure}[ht]
@@ -176,13 +176,146 @@ Una vez cambiada la contraseña, vamos a \textbf{cambiar el idioma} y ponerlo en
    \end{figure}
 \end{enumerate}
 
-Después de este último paso, habremos cambiado con éxito el idioma del usuario \textbf{Administrator}, que por ahora va a ser el que usemos, a español. Si queremos cambiar el idioma de la aplicación completa a castellano.
+\section{Datos de la Empresa y Creación Usuarios}
 
-\section{Añadiendo Datos y Usuarios}
-
-En este punto vamos a añadir los datos de nuestra empresa ficticia Llegaya S.L, y posteriormente crearemos dos usuarios.
+En este punto vamos a añadir los datos de nuestra empresa ficticia \textit{Llegaya S.L}, y posteriormente crearemos dos usuarios.
 
 \subsection{Datos de la Empresa}
+Primero vamos ha añadir los datos de nuestra empresa. Para ello, vamos a seguir los siguientes pasos.
+
+\begin{enumerate}
+    \item Desde la lista de usuarios (Figura \ref{fig:user}), abrimos el menú \textbf{Usuario y Compañías}y  pulsamos en la opción \textbf{Compañías}. Seleccionamos \textbf{My Company} en la lista de compañías que se nos mostrará.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{companias.png}
+        \caption{Lista de compañías añadidas en la aplicación}
+    \end{figure}
+
+    \vspace{5ex}
+
+   \item Después de seleccionar la compañía, nos aparecerá una ficha con los datos de \textbf{My Company}, que es la que viene creada por defecto. Pulsamos en el botón \textbf{Editar}, arriba a la izquierda, y se desbloquearán los campos para poder cambiarlos con los datos que queramos. En nuestro caso, los de la compañía ficticia \textbf{Llegaya S.L}.
+
+   \begin{figure}[ht]
+       \centering
+       \includegraphics[scale=0.25]{companias-ficha.png}
+       \caption{Ficha de la empresa editada}
+   \end{figure}
+
+   \item Por último pulsamos en \textbf{Guardar} y ya se habrán actualizado los datos de la compañía con los nuestros. En el caso de que queramos crear una empresa en vez de modificarla, solo deberemos pulsar en \textbf{Crear}, siendo el procedimiento el mismo.
+
+   \begin{figure}[ht]
+       \centering
+       \includegraphics[scale=0.25]{compania-actualizada.png}
+       \caption{Datos de la compañía actualizados}
+   \end{figure}
+\end{enumerate}
+
+\subsection{Creación de Usuario}
+A continuación, vamos a añadir dos usuarios al sistema, a parte del que ya viene por defecto. Para ello vamos a seguir los siguientes pasos.
+
+\begin{enumerate}
+    \item Desde la página que nos muestra la lista de usuarios, Figura \ref{fig:user}, pulsamos en el botón \textbf{Crear} en la parte superior izquierda.
+
+     \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{usuarios-crear.png}
+        \caption{Crear Usuario Nuevo}
+    \end{figure}
+
+    \item A continuación se nos mostrará una ficha de usuario que podemos editar. Introducimos el nombre y el correo de nuestro usuario. En la parte de abajo tenemos dos pestañas, en \textbf{Permisos de Usuario} podemos atribuirle permisos de administración al usuario, mientras que en \textbf{Preferencias} podremos cambiar opciones como la \textbf{zona horaria}, \textbf{idioma} o la \textbf{firma de correo electrónico}. Una vez introducidos los datos, pulsamos en Guardar y el usuario se habrá creado.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{usuario-crear-datos.png}
+        \caption{Introducción de datos de usuario nuevo}
+    \end{figure}
+\end{enumerate}
+
+Se han creado dos usuarios, uno con los datos del alumno (los míos) y otro con los datos del profesor, siguiendo el procedimiento descrito, como se puede ver en la siguiente captura.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{usuarios-creados.png}
+    \caption{Lista con los usuarios creados}
+\end{figure}
+
+\section{Instalación de Módulos y Generación de Informes}
+En esta sección vamos a instalar un módulo de Odoo, en concreto el módulo \textbf{Inventario}, para posteriormente \textbf{crear tres paquetes} diferentes y generar un informe de los paquetes creados.
+
+\subsection{Instalación de Módulo Inventario}
+La instalación de módulos se realiza de forma muy sencilla. Desde la página principal de Odoo, donde se muestran todas las aplicaciones, solo tenemos que pulsar en el botón \textbf{Instalar} del módulo que queramos y el proceso de hará de forma automática.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{instalar-modulo.png}
+    \caption{Instalación de módulo Inventario}
+\end{figure}
+
+Una vez hayamos instalado el módulo, y siendo este el primero que instalamos, se habrá añadido automáticamente el \textbf{módulo Conversaciones}, que se usa para comunicaciones internas y para obtener ayuda a través de un Bot de Chat, \textbf{Odoobot}. Además, ya podremos acceder desde el menú desplegable tanto al módulo Inventario como a Conversaciones.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{odoobot.png}
+    \caption{Odoobot en el módulo Conversaciones}
+\end{figure}
+
+\subsection{Creación de Productos}
+Una vez instalado el módulo Inventario, podemos seleccionarlo desde el menú desplegable. Se nos mostrará la página con información general del módulo, donde podemos ver las \textbf{Recepciones}, \textbf{Expediciones} y \textbf{Devoluciones} (Returns) de los productos que tenemos en el inventario. Ahora mismo se muestra vacío, ya que no tenemos ningún producto almacenado.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{inventario-info.png}
+    \caption{Página principal del módulo Inventario}
+\end{figure}
+
+Para crear los paquetes diferentes que se nos piden, deberemos añadir 3 productos con una cantidad de 1 cada uno. Para hacerlo, debemos seguir los siguientes pasos.
+
+\vspace{5ex}
+
+\begin{enumerate}
+    \item En primer lugar, pulsamos en la barra superior, en el menú \textbf{Productos} y seleccionamos la opción \textbf{Productos}. Esto nos llevará a una página donde se mostrarán todos los productos almacenados. Ahora mismo vacía.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{inventario-productos.png}
+        \caption{Apartado Productos del modulo Inventario}
+    \end{figure}
+
+    \item A continuación pulsamos el botón \textbf{Crear}, arriba a la izquierda, y se nos mostrará una ficha editable con diferente información que debemos rellenar sobre nuestro producto, como el \textbf{nombre}, \textbf{precio de venta}, \textbf{coste}, etc.. Si pulsamos en la pestaña \textbf{Inventario} podremos añadir mas información como el \textbf{responsable de su almacenamiento}, \textbf{peso}, \textbf{volumen}, etc..
+
+    Arriba a la derecha, también tenemos varias opciones, como \textbf{Imprimir etiquetas}, \textbf{Actualizar cantidad} y \textbf{Reabastecer}. Nosotros en primer lugar vamos a meter los datos de nuestro producto, en este caso, \textbf{Paquete Grande}.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{inventario-paquete.png}
+        \caption{Formulario de creación de Producto}
+    \end{figure}
+
+    \vspace{5ex}
+
+    \item Una vez introducidos los datos vamos a actualizar la cantidad de tenemos en stock, en nuestro caso, uno. Para ello pulsamos en la opción \textbf{Actualizar cantidad} e introducimos la cantidad deseada y pulsamos en \textbf{Aplicar} para actualizar la información sobre el producto.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{inventario-paquete-cantidad.png}
+        \caption{Actualización cantidad de producto}
+    \end{figure}
+
+    \item Por último, pulsamos en \textbf{Guardar} y nuestro producto se habrá creado correctamente. Ya podemos visualizarlo en la página principal de Productos.
+\end{enumerate}
+
+Se han creado tres paquetes diferentes, \textbf{Paquete Grande}, \textbf{Paquete Mediano} y \textbf{Paquete Pequeño}, cada uno con unas características diferentes. En la pagina principal de productos podemos ver todos los paquetes añadidos.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{inventario-paquetes-lista.png}
+    \caption{Lista de productos creados}
+\end{figure}
+
+\vspace{8ex}
+
+\subsection{Generación de Informe de Productos en Stock}
 
 
 
