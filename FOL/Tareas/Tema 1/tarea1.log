@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  21 OCT 2022 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.20)  21 OCT 2022 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -973,20 +973,20 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 6.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
  (./tarea1.aux
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
 Package rerunfilecheck Info: File `tarea1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21863 strings out of 483121
- 412452 string characters out of 5964354
+ 21865 strings out of 483121
+ 412466 string characters out of 5964354
  784163 words of memory out of 5000000
  36426 multiletter control sequences out of 15000+600000
  569656 words of font info for 76 fonts, out of 8000000 for 9000
@@ -997,10 +997,10 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb>
-Output written on tarea1.pdf (5 pages, 464521 bytes).
+Output written on tarea1.pdf (5 pages, 465579 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
