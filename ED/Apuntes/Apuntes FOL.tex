@@ -203,11 +203,234 @@ Las principales características de estos lenguajes de son las siguientes:
     \end{itemize}
 \end{itemize}
 
+\subsection{Concepto y Características}
+Como ya hemos dicho, un \textbf{lenguaje de programación} es un lenguaje formal que le proporciona a una persona, en este caso el programador, la capacidad de escribir una serie de \textbf{instrucciones} o secuencia de órdenes en forma de algoritmo con el fin de controlar el comportamiento ĺógico o físico de un sistema informático, de manera que se pueden obtener diferentes formas de dato o realizar tareas. \cite{lenguaje}
 
+Un lenguaje de programación esta compuesto por:
+\begin{itemize}
+    \item \textbf{Alfabeto}: conjunto de símbolos permitidos.
+    \item \textbf{Sintaxis}: normas de construcción para los símbolos del lenguaje.
+    \item \textbf{Semántica}: significado de las construcciones para realizar acciones válidas.
+\end{itemize}
 
+Los lenguajes de programación se pueden clasificar de varias formas en base de distintas características:
 
+\begin{itemize}
+    \item \textbf{Según lo cercano que este al lenguaje humano}:
+    \begin{itemize}
+        \item \textbf{Lenguajes de Alto Nivel}: son lenguajes que por su esencia, son mas cercanos al razonamiento humano.
+        \item \textbf{Lenguajes de Bajo Nivel}: estos lenguajes están mas próximos al lenguaje que entiende el computador. Los principales son: \textbf{Ensamblador} y \textbf{Lenguaje Máquina}.
+    \end{itemize}
+    \item \textbf{Según la Técnica de Programación}:
+    \begin{itemize}
+        \item \textbf{Lenguajes de Programación Estructurados}: usan la técnica de programación estructurada. Ejemplos son Pascal, C, etc...
+        \item \textbf{Lenguajes de Programación Orientada a Objetos}: usan las técnica de programación orientada a objetos. Ejemplos son Java, Ruby, Ada, C++, etc...
+        \item \textbf{Lenguajes de Programación Funcional}: basan su técnica en el uso de verdaderas funciones matemáticas. Ejemplos son Haskell, Elixir, etc...
+        \item \textbf{Lenguajes de Programación Visual}: basados en las técnicas anteriores, permiten programar gráficamente, generando automáticamente el código correspondiente. Ejemplos son Visual Basic.Net, Borland, etc..
+    \end{itemize}
+\end{itemize}
 
+A pesar de la cantidad de lenguajes de programación que existen, Python, C, Java, C++, C\#, Visual Basic y Javascript, concentran alrededor del 60\% del interés de la comunidad mundial de programadores \cite{tiobe}, aunque en última instancia, la \textbf{elección del lenguaje de programación} para un proyecto dependerá de las características del problema a resolver.
 
+\subsection{Lenguajes de Programación Estructurados}
+Los lenguajes estructurados fueron los primeros lenguajes de alto nivel que surgieron, y a partir de ellos, se evolucionó a los diferentes tipos de lenguajes que tenemos hoy en día.
+
+La \textbf{programación estructurada} se define como la técnica para escribir lenguajes de programación que solo permite el uso de tres estructuras de control:
+
+\begin{itemize}
+    \item Sentencias secuencias.
+    \item Sentencias selectivas (condicionales).
+    \item Sentencias iterativas (bucles).
+\end{itemize}
+
+Los lenguajes de programación que se basan en este estilo de programación se conocen como \textbf{lenguajes de programación estructurados}.
+
+La programación estructurada fue un gran éxito debido a su sencillez a la hora de construir y leer programas. Aunque como todo, tiene sus ventajas e inconvenientes, que son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Ventajas}:
+    \begin{itemize}
+        \item Los programas son fáciles de leer, sencillos y rápidos.
+        \item El mantenimiento de los programas se simplifica.
+        \item La estructura del programa es sencilla y clara
+    \end{itemize}
+    \item \textbf{Inconvenientes}:
+    \begin{itemize}
+        \item Todo el programa se concentra en un único bloque, si el código crece mucho se hace complejo de manejar.
+        \item No permite la reutilización de código, ya que todo el programa va en el mismo bloque.
+    \end{itemize}
+\end{itemize}
+
+Debido a estos inconvenientes, la \textbf{programación estructurada} evolucionó hacia la \textbf{programación modular}, que divide el programa en trozos de código llamados módulos, con una funcionalidad concreta, y que permiten su reutilización en otras aplicaciones.
+
+Algunos de los lenguajes estructurados mas usados son C, FORTRAN, Pascal, etc...
+
+\subsection{Lenguajes de Programación Orientados a Objetos}
+Los \textbf{lenguajes de programación orientados a objetos} tratan los programas, no como un conjunto de instrucciones secuenciales, sino como un \textbf{conjunto de objetos} independientes, que interactúan entre sí, y que son altamente reutilizables en otras aplicaciones.
+
+Su \textbf{principal desventaja} es que no es un paradigma de programación tan intuitivo como la programación estructurada. A pesar de ello, alrededor del 55\% del software que se produce emplea esta técnica. Esto es debido principalmente a que el código es \textbf{muy reutilizable} y a la facilidad de \textbf{depuración}.
+
+Las principales \textbf{características} de estos lenguajes son:
+
+\begin{itemize}
+    \item Los objetos del programa tendrán una serie de atributos que los diferencias unos de otros.
+    \item Se definen clases como una colección de objetos con características similares.
+    \item Mediante los llamados métodos, los objetos se comunican con otros produciendo un cambio de estado.
+    \item Los objetos son unidades independientes e indivisibles que forma la base de este paradigma de programación.
+\end{itemize}
+
+Algunos de los lenguajes orientados a objetos más utilizados son C++, Java, Ruby, Delphi, etc..
+
+\section{Fases del Desarrollo de Software}
+Como hemos visto en puntos anteriores, podemos elegir entre diferentes modelos de desarrollo de software, pero independientemente de cual elijamos, siempre hay un número de etapas que debemos seguir. Estas etapas son las siguientes:
+
+\begin{enumerate}
+    \item \textbf{Análisis de Requisitos}: en esta etapa se especifican los requisitos funcionales y no funcionales del sistema.
+    \item \textbf{Diseño}: se divide el sistema en partes y se determina la función de cada una.
+    \item \textbf{Codificación}: se elige un lenguaje de programación y se codifican los programas.
+    \item \textbf{Pruebas}: se prueban los programas para detectar errores y depurarlos.
+    \item \textbf{Documentación}: se documentan y guarda información de todas las etapas.
+    \item \textbf{Explotación}: instalamos, configuramos y ejecutamos la aplicación en los equipos del clientes.
+    \item \textbf{Mantenimiento}: se mantiene el contacto con el cliente para actualizar o modificar la aplicación.
+\end{enumerate}
+
+En los siguientes puntos vamos a ver estas etapas con más detalle.
+
+\subsection{Análisis}
+Es la primera fase del proyecto y una de las de mayor importancia, ya que todo lo demás dependerá de lo bien detallada que este esta fase. También es una de las más complicadas, ya que no esta automatizada y dependerá en gran medida del análisis que hagamos del problema a resolver.
+
+En esta fase se especifican los requisitos funcionales y no funcionales de la aplicación. Estos \textbf{requisitos} consisten en:
+
+\begin{enumerate}
+    \item \textbf{Requisitos funcionales}: estos requisitos especifican que tendrá que realizar la aplicación, que respuesta dará ante todas las entradas, como se comportará en situaciones inesperadas, etc...
+    \item \textbf{Requisitos no funcionales}: estos especifican requisitos como el tiempo de respuesta, legislación aplicable, etc...
+\end{enumerate}
+
+Es de vital importancia una \textbf{buena comunicación} entre el \textbf{analista} y el \textbf{cliente} para que los requisitos se puedan especificar con el máximo detalle y adecuados a los deseos del cliente.
+
+La culminación de esta fase es un \textbf{documento ERS} (Especificación de Requisitos del Sistema) donde deben quedar especificado lo siguiente:
+
+\begin{itemize}
+    \item La planificación de las reuniones que van a tener lugar.
+    \item Relación de los objetivos del cliente y el sistema.
+    \item Relación de los objetivos funcionales y no funcionales del sistema.
+    \item Relación de objetivos prioritarios y temporalización.
+    \item Reconocimiento de requisitos mal planteados, etc...
+\end{itemize}
+
+Una vez realizado este documento y con los requisitos especificados y detallados, pasaremos a la siguiente fase, la fase de diseño.
+
+\subsection{Diseño}
+En esta segunda fase, el sistema debe dividirse en diferentes partes y establecer que relación habrá entre ellas. Decidir exactamente que hará cada parte. En definitiva, debemos crear un modelo funcional-estructural de los requerimientos del sistema global, para poder dividirlo y afrontarlo por separado.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{sistema-partes.png}
+    \caption{División de la aplicación en partes}
+\end{figure}
+
+Además, en esta etapa se deben tomar decisiones que van a afectar el desarrollo del software, como:
+
+\begin{itemize}
+    \item Entidades y relaciones de la base de datos.
+    \item Selección del lenguaje de programación que se va a utilizar.
+    \item Selección del SGBD.
+    \item Definición de diagrama de clases.
+    \item Definición de diagrama de colaboración.
+    \item Definición del diagrama de paso de mensajes.
+\end{itemize}
+
+\subsection{Codficación}
+En esta fase, con el lenguajes de programación elegido, codificar toda la información anterior y llevarla a código fuente. Esta tarea la realiza el \textbf{programador} y tiene que cumplir con todos los requisitos y restricciones impuestos en la fase de análisis y diseño de la aplicación.
+
+Ademas, el \textbf{código} deberá cumplir con las siguientes \textbf{características}:
+\begin{itemize}
+    \item \textbf{Modularidad}: que este divido en trozos pequeños funcionales.
+    \item \textbf{Corrección}: que haga lo que se pide realmente.
+    \item \textbf{Fácil de leer}: que sea fácil de leer y comprender para facilitar su desarrollo y mantenimiento.
+    \item \textbf{Eficiencia}: que haga un buen uso de los recursos.
+    \item \textbf{Portabilidad}: que se pueda ejecutar en cualquier equipo.
+\end{itemize}
+
+El código pasará por un número de fases desde su implementación hasta que se pueda ejecutar. Estas fases son las siguientes:
+
+\begin{enumerate}
+    \item \textbf{Código Fuente}: es el código escrito por los programadores usando algún edito o IDE. Se escribe usando algún lenguaje de programación de alto nivel y contiene el conjunto de instrucciones necesaria.
+    \item \textbf{Código Objeto}: es el código binario resultado de compilar el código fuente. La \textbf{compilación} es la traducción de una sola vez del programa y se realiza utilizando un compilador. La \textbf{traducción} es la interpretación y ejecución simultánea de un programa línea a línea.
+    \item \textbf{Código Ejecutable}: es el resultado de enlazar el código objeto con ciertas \textbf{\gls{rutina}} y \textbf{\gls{biblioteca}} necesarias. El sistema operativo se encarga de cargar el programa en la memoria RAM y proceder a ejecutarlo.
+\end{enumerate}
+
+En los siguiente punto vamos a profundizar un poco más en los diferentes estados y fases en los que se encuentra el código en esta etapa.
+
+\subsubsection{Código Fuente}
+
+El código fuente es el conjunto de instrucciones que la computadora debe realizar, escritas por un programador en algún lenguaje de programación. Este conjunto de instrucciones no es directamente interpretable por la máquina, sino que deberá de pasar por un proceso de traducción para que pueda ser ejecutado.
+
+Una parte importante de esta fase es la \textbf{elaboración de un algoritmo}, que definimos como un conjunto de pasos a seguir para obtener la solución a un problema. El algoritmo los diseñamos en pseudocódigo, y con el la codificación a un lenguaje de programación determinado será más rápida y directa.
+
+Para obtener el código fuente de una aplicación se deben seguir estos pasos:
+\begin{enumerate}
+    \item Se debe partir de la etapa anterior de análisis y diseño.
+    \item Se diseñara un algoritmo que simbolice los pasos a seguir para solucionar el problema.
+    \item Se elegirá un lenguaje de algo nivel apropiado para las características del software que se quiere codificar.
+    \item Se procederá a codificación del algoritmo diseñado.
+\end{enumerate}
+
+La culminación de este proceso es la obtención de un documento con todos los \textbf{módulos}, \textbf{funciones}, \textbf{bibliotecas} y \textbf{procedimientos} necesarios para codificar la aplicación. Puesto que el código es inteligible por la máquina habrá que traducirlo, obteniendo así un código equivalente pero ya entendible por el ordenador.
+
+También hay que tener en cuenta, en este punto, bajo que \textbf{licencia} vamos a crear el código, siendo las dos más comunes:
+
+\begin{itemize}
+    \item \textbf{Licencias de Código Fuente Abierto}: son licencias que permiten que cualquier usuario o programador pueda estudiar el código, modificarlo y reutilizarlo.
+    \item \textbf{Licencias de Código Fuente Cerrado}: estas licencias no dan permisos para editar ni modificar el código fuente.
+\end{itemize}
+
+\subsubsection{Código Objeto}
+El código objeto es un código intermedio, traducido a unos y ceros, pero que aún no puede ser ejecutado directamente. Consiste en \textbf{bytecode} que esta distribuido en varios archivos, según la cantidad de módulos de software que compongan la aplicación. Este código se \textbf{debe generar} cuando el \textbf{código fuente} este \textbf{libre de errores} sintácticos y semánticos.
+
+El proceso de transformación del código fuente a código puede realizarse de \textbf{dos formas}:
+\begin{itemize}
+    \item \textbf{Compilación}: el proceso de traducción se realiza sobre todo el programa de una vez. El software que realiza esta operación se llama \textbf{compilador}.
+    \item \textbf{Traducción}: el proceso de traducción del código fuente se realiza línea y línea y se ejecuta simultáneamente. No existe código objeto intermedio. El software utilizado se denomina  \textbf{intérprete}. El proceso de traducción es más lento que el de compilación.
+\end{itemize}
+
+\subsubsection{Ejecutable}
+El código ejecutable es el que obtenemos al enlazar el código objeto con las librerías y rutinas necesarias, resultando un único archivo que puede ser directamente ejecutado por la computadora. Este archivo es ejecutado y controlado por el sistema operativo.
+
+Para obtener un solo archivo ejecutable habrá que enlazar todos los archivos de código objeto mediante una aplicación denominada \textbf{linker} (enlazador) y obtener así un único archivo que ya si es ejecutable directamente por la computadora.
+
+En la siguiente figura vemos el proceso completo para generar archivos ejecutables.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.45]{codigo-ejecutable.png}
+    \caption{Generación de código ejecutable}
+\end{figure}
+
+\subsection{Pruebas}
+Una vez obtenido el software, la siguiente fase del ciclo de vida es la realización de pruebas. Normalmente, estás se realizan sobre un conjunto de datos de prueba, que consiste en un conjunto de datos límite  a los que la aplicación es sometida.
+
+La \textbf{realización de pruebas} es una fase \textbf{imprescindible} para asegurar la \textbf{validación} y \textbf{verificación} del software desarrollado y podemos clasificarlas en dos tipos:
+
+\begin{itemize}
+    \item \textbf{Pruebas Unitarias}: consiste en probar una a una las diferentes partes del software y comprobar su funcionamiento de forma individual. Un ejemplo de librerías para realizar este tipo de pruebas es \textbf{JUnit} para el lenguaje Java o \textbf{Jest} para Javascript.
+    \item \textbf{Pruebas de Integración}: se realiza una vez que se han realizado las pruebas unitarias y consistirán en probar el funcionamiento del sistema completo, con todas sus partes interrelacionadas.
+\end{itemize}
+
+La prueba final, también conocida como \textbf{Beta Test} se realizará sobre el entorno de producción del cliente.
+
+\subsection{Documentación}
+Para proporcionar toda la información posible sobre el uso del software, tanto a los usuarios como a otros desarrolladores, es necesario crear la \textbf{documentación} de la aplicación.
+
+Debemos ir documentando cada fase del proyecto, ademas, para ir pasando de una otra de forma clara y definida. Una correcta documentación facilitará la reutilización de parte del software para futuros proyectos así como el mantenimiento y su utilización por otros desarrolladores. En la siguiente figura se muestra una tabla con los diferentes tipos de documentación que se pueden generar.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{tipos-documentacion.png}
+    \caption{Tipos de documentación en el desarrollo de software}
+\end{figure}
+
+\subsection{Explotación}
 
 % Glossary
 
