@@ -113,7 +113,7 @@ Aunque podemos encontrar diferentes clasificaciones sobre los distintos tipos de
     \end{enumerate}
 \end{enumerate}
 
-En la actualidad, la {metodologías de desarrollo ágil}, enmarcadas dentro de los modelos evolutivos, están en auge, y metodologías como {\bfseries \href{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)}{Scrum}}, {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas}{TDD}} o {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento}{BDD}}, así como metodologías híbridas basadas en estas, se están convirtiendo en el estándar de la industria. \cite{batool01}
+En la actualidad, la {metodologías de desarrollo ágil}, enmarcadas dentro de los modelos evolutivos, están en auge, y metodologías como {\bfseries \href{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)}{Scrum}}, {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas}{TDD}} o {\bfseries \href{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento}{BDD}}, así como metodologías híbridas basadas en estas, se están convirtiendo en el estándar de la industria. \cite{batool01}.
 
 \subsection{Herramientas de Apoyo al Desarrollo De Software}
 En la práctica, vamos a contar con un conjunto de herramientas que nos van a facilitar llevar a cabo las diferentes etapas del ciclo de vida de desarrollo, automatizando las tareas, ganando con ello fiabilidad y tiempo, y permitiéndonos centrarnos en los requerimientos del sistema y el análisis del mismo.
@@ -340,7 +340,7 @@ Además, en esta etapa se deben tomar decisiones que van a afectar el desarrollo
     \item Definición del diagrama de paso de mensajes.
 \end{itemize}
 
-\subsection{Codficación}
+\subsection{Codificación}
 En esta fase, con el lenguajes de programación elegido, codificar toda la información anterior y llevarla a código fuente. Esta tarea la realiza el \textbf{programador} y tiene que cumplir con todos los requisitos y restricciones impuestos en la fase de análisis y diseño de la aplicación.
 
 Ademas, el \textbf{código} deberá cumplir con las siguientes \textbf{características}:
@@ -360,7 +360,7 @@ El código pasará por un número de fases desde su implementación hasta que se
     \item \textbf{Código Ejecutable}: es el resultado de enlazar el código objeto con ciertas \textbf{\gls{rutina}} y \textbf{\gls{biblioteca}} necesarias. El sistema operativo se encarga de cargar el programa en la memoria RAM y proceder a ejecutarlo.
 \end{enumerate}
 
-En los siguiente punto vamos a profundizar un poco más en los diferentes estados y fases en los que se encuentra el código en esta etapa.
+En el \textbf{anexo A.2} también podemos consultar información sobre las máquinas virtuales, que son empleadas en esta etapa del desarrollo con diferentes propósitos.
 
 \subsubsection{Código Fuente}
 
@@ -457,8 +457,265 @@ Los tipos de cambios que se pueden realizar en una aplicación son los siguiente
     \item \textbf{Correctivos}: son los que se realizan para la corrección de errores.
 \end{itemize}
 
+Si quieres ampliar información sobre las fases de desarrollo, en \href{http://profayadira.yolasite.com/resources/Roles_desarrollo_software.pdf}{este documento} se detallan los diferentes roles que podemos encontrar en el proceso de desarrollo y que funciones tienen dentro de este, así como sus interacciones.
+
 \section{Entornos de Desarrollo}
 En esta sección vamos a hablar de los entornos de desarrollo, herramientas que nos en la fase de codificación a la hora de programar nuestras aplicaciones.
+
+En muchas ocasiones, las personas que empiezan a programar lo hacen usando un \textbf{editor simple}, un \textbf{compilador} y un \textbf{depurador}. Pero la mayoría de gente acaba usando un algún entorno de desarrollo integrado o IDE (Integrated Development Environment) para crear las aplicaciones.
+
+Un \textbf{entorno de desarrollo integrado} (IDE), es un tipo de software compuesto por un conjuntos de herramientas que nos facilitan el proceso de programación. Estas herramientas suelen ser:
+
+\begin{itemize}
+    \item \textbf{Editor} de código de programación.
+    \item \textbf{Compilador}.
+    \item \textbf{Intérprete}.
+    \item \textbf{Depurador}.
+    \item \textbf{Constructor de interfaz} gráfico.
+\end{itemize}
+
+Los primeros IDEs nacieron a principios de los años 70, pero fue en la década de los 90 cuando se popularizaron. Su objetivo principal es ganar fiabilidad y tiempo en los proyectos de software, proporcionando una serie de componentes bajo una misma interfaz gráfica, con la consiguiente comodidad, aumento de eficiencia y reducción del tiempo de codificación.
+
+En un primer momento los IDEs estaban enfocados en un lenguaje de programación concreto, pero actualmente suelen soportar diferentes lenguajes de programación, algunos de forma predeterminada y otros mediante la instalación de plugins. Algunos ejemplos son Eclipse, Netbeans, VS Code, Intellij Idea, etc..
+
+En este tema nos vamos a centrar en la instalación de \textbf{Netbeans} en Ubuntu y veremos como se configurar y se generan ejecutables, haciendo uso de sus componentes y herramientas.
+
+\subsection{Evolución Histórica}
+En la época de utilización de las \textbf{\gls{tarjetas perforadas}} como sistema de almacenamiento los \textbf{Entornos de Desarrollo Integrado} sencillamente no tenían sentido. Los programas estaban escritos con \textbf{diagramas de flujo} y entraban al sistema a través de estas tarjetas para posteriormente compilarse.
+
+El primer lenguaje de programación que utilizó un IDE fue BASIC, que fue el primero en abandonar las tarjetas perforadas. Este primer IDE estaba basado exclusivamente en la consola de comandos. Sin embargo, el uso que hacía de la gestión de archivos, compilación y depuración era totalmente compatible con la definición de IDE actual.
+
+A nivel popular, el primer IDE puede considerarse que fue el IDE \textbf{Maestro}. Nació a principios de los años 70 y fue instalado por unos 22.000 programadores en todo el mundo, liderando este campo durante los años 70s y 80s.
+
+El uso de los IDEs se popularizó en los años 90 y hoy en día contamos con una infinidad de IDEs, tanto de licencia libre como propietaria.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.60]{tipos-de-IDE.png}
+    \caption{Tipos de IDE actuales}
+\end{figure}
+
+\subsection{Funciones de un Entorno de Desarrollo}
+En los puntos anteriores ya hemos visto los componente que tiene un IDE, como editor de textos, compilador, depurador, etc... En este punto vamos a ver sus funciones de estos componentes, que se podrían resumir en las siguientes:
+
+\begin{itemize}
+    \item \textbf{Editor de código}: resaltado y coloreado de la sintaxis.
+    \item \textbf{Autocompletado} de código, atributos, métodos, clases, etc...
+    \item Identificación automática de código.
+    \item Herramientas de \textbf{concepción visual} para crear y manipular componentes visuales.
+    \item \textbf{Asistentes} y utilidades de gestión y \textbf{generación de código}.
+    \item Archivos fuentes en unas carpetas y compilación en otras. (estructuración del código)
+    \item \textbf{Compilación} de proyectos complejos en \textbf{un solo paso}.
+    \item \textbf{Control de versiones}: tener un único almacén de archivos compartido por todos los desarrolladores de un proyectos con mecanismos de seguimiento de cambios, recuperación a un estado anterior, etc...
+    \item Soporte \textbf{cambios} de varios usuarios de forma \textbf{simultánea}.
+    \item \textbf{Generación de documentación} automática.
+    \item \textbf{Detección} de errores de \textbf{sintaxis} en tiempo real.
+    \item \textbf{Refactorización de código}: cambios menores en el código que aumentan la legibilidad sin alterar la funcionalidad.
+    \item \textbf{Indentación} automática del código para aumentar la legibilidad.
+    \item \textbf{Depuración}: seguimiento de variables, puntos de ruptura y mensajes de error del intérprete.
+    \item Instalación de \textbf{plugins} y módulos que expanden la funcionalidad del IDE.
+    \item \textbf{Administración} de las \textbf{interfaces de usuario}.
+    \item \textbf{Administración} de las \textbf{cuentas de usuario}.
+\end{itemize}
+
+Como podemos ver en esta larga lista, los IDEs tiene un montón de funcionalidades que nos va a facilitar el proceso de codificación en muchos aspectos. Hoy en día es imprescindible su utilización para mejorar la productividad y centrarlos en la programación, dejando al IDE a cargo de otros aspectos más ``secundarios''.
+
+\subsection{Estructura de un Entorno de Desarrollo}
+Como ya hemos comentado, un IDE esta formado por un conjunto de componentes software que determinan sus funciones. Los componente principales que podemos encontrar en un IDE, son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Editor de Textos}: resalta y colorea la sintaxis, tiene funciones para autocompletar el código, ayuda y listado de funciones y parámetros, inserción automática de paréntesis o corchetes, tabulaciones y espacios, etc...
+    \item \textbf{Compilador/Intérprete}: detección de errores de sintaxis en tiempo real y funciones para la refactoriación.
+    \item \textbf{Depurador}: botón de ejecución y traza, puntos de ruptura y seguimiento de variables. Opción de depurar en servidores remotos.
+    \item \textbf{Generador automático de herramientas}: para la generación y manipulación de componentes visuales y todo un arsenal de asisten y utilidades de gestión y generación de código.
+    \item \textbf{Interfaz Gráfica}: es la interfaz principal del IDE y nos permite usar todas las funcionalidades y utilizar diferentes lenguajes de programación en un mismo IDE, permitiendo el acceso a innumerables bibliotecas y plugins, aumentado las opciones de nuestro programa.
+\end{itemize}
+
+\subsection{Entornos Integrados Libres y Propietarios}
+Según la licencia que usen los entornos de desarrollo, podemos encontrarnos entornos de desarrollo \textbf{libres} y entornos de desarrollo \textbf{propietarios}. La elección de la licencia del IDE en un proyecto es de vital importancia.
+
+\begin{itemize}
+    \item \textbf{Entornos de Desarrollo Libres}
+
+    Son aquellos que usan licencias open source, que permiten que el código del IDE este disponible para cualquier persona. Pueden ser gratuitos. En la siguiente figura se muestran los mas utilizados, aunque falta alguna opción como \textbf{Visual Studio Code} (no confundir con Microsoft Visual Studio, que es la opción propietaria de MS).
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.60]{ide-libres.png}
+        \caption{IDEs con licencia libre}
+    \end{figure}
+
+    \item \textbf{Entornos de Desarrollo Propietarios}
+
+    Son aquellos cuya licencia es propietaria, por lo tanto el código fuente no estará disponible para los usuarios. Se necesita pagar por su uso. En la siguiente figura se muestran algunos ejemplos.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.60]{ide-prop.png}
+        \caption{Entornos de desarrollo propietarios}
+    \end{figure}
+\end{itemize}
+
+La elección del entorno de desarrollo así como de su licencia deberá ajustarse al lenguaje de programación que vamos a usar, así como a los requisitos del proyecto.
+
+\section{Conclusiones}
+En este tema hemos visto el ciclo de vida de software y la importancia que tiene en el desarrollo de aplicaciones de forma metódica. Algunas etapas tienen más importancia que otras, por ejemplo, si la primera etapa, \textbf{análisis}, no se realiza de forma meticulosa, puede lastrar el resto de etapas y perjudicar el proceso de desarrollo. Por ello, es de suma importancia dedicarle el tiempo necesario a cada etapa. Aunque hay diferentes metodologías de desarrollo, todos tienen las mismas etapas.En la actualidad se están imponiendo \textbf{metodologías de desarrollo ágil}.
+
+Si queremos obtener más información, podemos consultar \href{https://www.itmplatform.com/es/blog/ciclos-de-vida-clasico-iterativo-y-agil/}{este enlace}, donde se nos hace un resumen de las principales metodologías de desarrollo actuales.
+
+Por otro lado hemos visto que es un entorno de desarrollo integrado y como su utilización nos facilita enormemente la programación. La elección que se haga de un entorno u otro dependerá de las preferencias de cada uno, aunque también de los requisitos del proyecto y del lenguaje de programación que vayamos a utilizar. Lo que está claro es que son una herramienta indispensable para cualquier programador.
+
+% Apéndice
+\appendix
+
+% Change appendix display options
+\titleformat{\chapter}{\bfseries\Huge}{\thechapter.} {1ex}{}
+
+\chapter{Anexos Tema 1}
+
+\section{Secuencias de Control en Programación Estructurada}
+En este punto vamos a hacer un breve repaso de las sentencias básicas de control en los lenguajes de programación estructurados.
+
+\begin{itemize}
+    \item \textbf{Sentencias Secuenciales}
+
+    Son aquellas sentencias que se ejecutan una detrás de otra.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+            printf (“declaración de variables”);
+            int numero_entero;
+            espacio=espacio_inicio + veloc*tiempo;
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Sentencias secuenciales en C}
+    \end{figure}
+
+     \item \textbf{Sentencias Selectivas} (Condicionales)
+
+     Son aquellas sentencias en las que se evalúa una condición, ejecutándose una serie de instrucción en el caso de que la condición sea verdadera y otras en el caso de que sea falsa.
+     Si estructura es la siguiente:
+
+     \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+              if (condición) then
+                instrucciones a ejecutar si es verdadera
+              else
+                instrucciones a ejecutar si es falsa
+             \end{verbatim}
+         \end{tcolorbox}
+         \caption{Estructura sentencia condicional if}
+     \end{figure}
+
+     En la siguiente figura podemos ver un ejemplo básico en el lenguaje de programación C.
+
+     \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+             if (a >= b)
+                c = a - b;
+             else
+                c = a + b;
+             \end{verbatim}
+         \end{tcolorbox}
+         \caption{Sentencia if en el lenguaje C}
+     \end{figure}
+
+     \item \textbf{Sentencias Repetitivas} (iteraciones o bucles)
+
+     Un bucle es una serie de acciones que se ejecutan mientras que se cumpla una condición. Su estructura básica es la siguiente.
+
+     \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+             // Bucle whle ... do
+
+             while (condición)
+                instrucciones a repetir
+             done
+
+             // Bucle for
+
+             for (condición_inicial; incremento; condición_de_parada)
+                instrucciones a repetir
+             \end{verbatim}
+         \end{tcolorbox}
+         \caption{Documento SGML simple}
+     \end{figure}
+
+     En la siguiente figura vemos un ejemplo de un while...do en C, en este lenguaje, la palabra done se omite.
+
+     \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+             int num;
+             num = 0;
+
+             while (num<=10) {
+                printf("Repetición numero %d", num);
+                num = num + 1;
+             };
+             \end{verbatim}
+         \end{tcolorbox}
+         \caption{Documento SGML simple}
+     \end{figure}
+
+\end{itemize}
+
+\section{Máquinas Virtuales}
+Una máquina virtual es un tipo de software que separa el funcionamiento del ordenador de los componente hardware. Esta capa de software desempeña un papel muy importante en el funcionamiento de los lenguajes de programación, tanto compilados como interpretados.
+
+Con el uso de máquinas virtuales podremos desarrollar y ejecutar código en cualquier equipo, independientemente de las características concretas de los componente físicos de este, garantizando la \textbf{portabilidad} de las aplicaciones.
+
+Las \textbf{funciones} principales de una máquina virtual son las siguientes:
+
+\begin{itemize}
+    \item Conseguir que las aplicaciones sean portables.
+    \item Reservar memoria para los objetos que se crean y liberar la memoria no utilizada.
+    \item Comunicarse con el sistema donde se instala la aplicación (host) para el control de los recursos hardware implicados en el proceso.
+    \item Cumplimento de las normas de seguridad de las aplicaciones.
+\end{itemize}
+
+Las principales \textbf{características} de estás, son las siguientes:
+
+\begin{itemize}
+    \item La máquina virtual \textbf{aísla la aplicación} de los detalles físicos en del equipo en cuestión. Cuando el código se compila se obtiene \textbf{bytecode}. La máquina virtual funciona como una capa de software de bajo nivel y actual de puente entre el bytecode de la aplicación y los dispositivos físicos del sistema.
+    \item La máquina virtual \textbf{verifica} todo el bytecode antes de ejecutarlo.
+    \item También se encarga de \textbf{proteger} las \textbf{direcciones de memoria}.
+\end{itemize}
+
+\subsection{Frameworks}
+Un \textbf{framework} es una estructura de ayuda al programador, en base a la cual podemos desarrollar proyectos sin partir desde cero. Se trata de una plataforma de software donde están definidos bibliotecas, programas de soporte, lenguaje interpretado, etc...
+
+Con el uso de frameworks podemos pasar más tiempo analizando los requisitos del sistema y las especificaciones técnicas de nuestra aplicación, ya que la tarea laboriosa de los detalles de programación queda bastante resuelta. Pero como todo, tiene sus ventajas e inconvenientes.
+
+\begin{itemize}
+    \item \textbf{Ventajas} de usar un framework:
+    \begin{itemize}
+        \item \textbf{Desarrollo rápido} de software.
+        \item \textbf{Reutilización} de partes de código para otras aplicaciones.
+        \item \textbf{Diseño uniforme} del software.
+        \item \textbf{Portabilidad} de las aplicaciones de un computador a otro, ya que los bytecode que se generan podrán ser ejecutados en cualquier sobre cualquier máquina virtual.
+    \end{itemize}
+
+    \item \textbf{Inconvenientes} de usar un frameworks:
+    \begin{itemize}
+        \item \textbf{Gran dependencia} del código respecto al framework utilizado.
+        \item La instalación y configuración del framework en nuestro equipo \textbf{consume} bastantes \textbf{recursos} del sistema.
+    \end{itemize}
+\end{itemize}
+
+
+
+
 % Glossary
 
 \glsaddall
