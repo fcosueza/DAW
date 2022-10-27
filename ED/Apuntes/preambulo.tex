@@ -22,7 +22,7 @@
 %	              Packages                  %
 %-----------------------------------------------%
 
-\documentclass[paper=a4, fontsize=11pt, oneside]{scrbook}
+\documentclass[paper=a4, fontsize=11pt, listof=flat, oneside]{scrbook}
 
 % ---- Text Input/Output ----- %
 
@@ -32,9 +32,8 @@
 \usepackage[scaled=.92]{helvet}
 \usepackage{courier}
 \usepackage[indent=12pt]{parskip}
-
 \usepackage{geometry}
-\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.6cm,rmargin=2.6cm}
+
 
 % ---- Language ----- %
 
@@ -76,16 +75,30 @@
 			{\bfseries\large}
 			{\thesubsubsection}{0.5em}{}
 
+
+
+% Configure href links color
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     urlcolor=magenta
 }
 
+% Add glossary to toc
 \glstoctrue
+
+% Set deep of sections and tocs
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
+
+% Set path to images
 \graphicspath{{./images/}}
+
+% Set margins in geometry package
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.6cm,rmargin=2.6cm}
+
+
+
 
 % ------------------- Custom heaaders and footers ------------------- %
 
