@@ -43,7 +43,69 @@ El sistema debe permitir a los usuarios buscar y consultar la información sobre
 Nuestro cliente no sabe si añadirá algo más adelante porque es la primera vez que va a trabajar con un sistema así, pero lo que sí tiene claro es que quiere ir viendo como va quedando la web, por lo que le proponemos ir mostrándole el proyecto conforme se vaya desarrollando cada una de las funcionalidades de la aplicación y está conforme con ello.
 
 \section{Solución}
-Teniendo en cuenta el caso práctico
+Teniendo en cuenta el caso práctico definido en el punto anterior, responde a las siguientes preguntas:
+
+\begin{enumerate}
+    \item Indica qué tipo de lenguaje se tendría que utilizar en este caso concreto atendiendo al proceso de traducción del código.
+
+    \textbf{Respuesta}:
+
+     En este caso, sería necesario un \textbf{lenguaje de programación interpretado}, que son los lenguajes que pueden procesar los navegadores. Más en concreto, este lenguaje sería Javascript.
+
+    \item ¿Qué tipo de código intervendría en este desarrollo? Justifica la respuesta.
+
+    \textbf{Respuesta}:
+
+    En este caso el código que podríamos encontrar en la aplicación sería \textbf{código fuente} y \textbf{código ejecutable}. No podríamos encontrar código objeto ya que nos lenguajes interpretados no lo generan, siendo la conversión entre código fuente y ejecutable directa y realizada línea por línea.
+
+    \item ¿Qué tipo de software deberíamos utilizar si necesitáramos separar el funcionamiento del ordenador de los componentes hardware instalados? Pon un ejemplo de este tipo de software (aunque no fuese el caso concreto del supuesto práctico descrito anteriormente).
+
+    \textbf{Respuesta}:
+
+    El software que necesitaríamos usar es una \textbf{máquina virtual}, que son las aplicaciones que crean una capa de abstracción entre los componentes de la computadora y el software. Un ejemplo sería un entorno de ejecución, como el de Java, que nos permite ejecutar una aplicación en cualquier sistema.
+
+    \item Indica el tipo de recursos hardware que necesitará nuestra aplicación durante su ejecución.44
+
+    \textbf{Respuesta}:
+
+    Los recursos hardware que necesitaría usar nuestra aplicación son los siguientes:
+    \begin{itemize}
+        \item \textbf{CPU}: para procesar todas las instrucciones de nuestra aplicación.
+        \item \textbf{Memoria RAM}: para ir almacenando las instrucciones que se tiene que ejecutar.
+        \item \textbf{Interfaces de Entrada/Salida}: para permitir la introducción de datos y su la lectura de los resultados.
+        \item \textbf{Tarjeta Gráfica}: para representa la información en pantalla, tanto la interface de la aplicación como para reproducir las películas.
+        \item \textbf{Tarjeta de Sonido}: especialmente para la reproducción de las películas.
+        \item \textbf{Tarjetas de Red}: ya sea ethernet o wifi para realizar la conexión con la base de datos, la pasarela de pago,...
+        \item \textbf{Almacenamiento interno}: para almacenar información sobre las películas.
+    \end{itemize}
+
+     \item Explica cómo sería el proceso de traducción de nuestro código fuente en este caso concreto.
+
+     \textbf{Respuesta}:
+
+     En nuestro caso el proceso de traducción sería el siguiente:
+     \begin{itemize}
+         \item \textbf{Codificación}: escribiríamos el código en un archivo archivo de código fuente en el lenguaje seleccionado, en este caso, Javascript.
+         \item \textbf{Interpretación}: el interprete de Javacript, incluido en todos los navegadores web, traducirá linea por linea el código fuente en código ejecutable.
+         \item \textbf{Ejecución}: el código fuente ya traducido se iría ejecutando, línea por línea.
+     \end{itemize}
+
+     \item ¿En qué fase del ciclo de vida se realizarían las Beta Test?
+
+     \textbf{Respuesta}:
+
+     Las Beta Test se realizan en la \textbf{fase de explotación}, ya que este tipo de prueba necesita que el software este ya instalado y configurado en el sistema del cliente.
+
+     \item ¿Qué herramientas necesitaríamos usar nosotros como desarrolladores para desarrollar el proyecto solicitado?
+
+     \textbf{Respuesta}:
+
+     La principal herramienta que necesitaríamos seria un \textbf{entorno de desarrollo} (IDE), ya que nos facilitaría enormemente el proceso de desarrollo, por ejemplo, \textbf{VSCode}. También necesitaríamos \textbf{diferentes navegadores}, en concreto los que se nos pide Edge, Firefox, Chrome y Safari, para comprobar que la aplicación funciona correctamente en ellos. En el caso de que no tengamos instalados todos los sistemas operativos necesarios para ejecutar estos navegadoras, deberíamos usar una \textbf{máquina virtual}, para poder instalarlos y probarlos.
+
+     Deberíamos usar diferentes \textbf{librerías o frameworks} para la ejecución de los diferentes \textbf{tipos de pruebas}, en este caso, podríamos usar \textbf{Jest} para la realización de \textbf{pruebas unitarias} y \textbf{Cypress} para realizar la \textbf{pruebas de integración}.
+
+     Por último, pero no menos importante, un \textbf{sistema de control de versiones}, para facilitarnos el proceso de desarrollo, por ejemplo, \textbf{Git} y su plataforma web \textbf{Github}.
+\end{enumerate}
 % Bibliography
 
 %\newpage
