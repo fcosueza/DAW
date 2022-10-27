@@ -728,7 +728,22 @@ Algunos ejemplos de frameworks son:
 \subsection{Entornos de Ejecución}
 Un entorno de ejecución es un servicio de una máquina virtual que sirve como base de software para la ejecución de aplicaciones. En ocasiones pertenece al propio sistema operativo, pero se puede instalar de forma independiente que funcionará por debajo del programa. Se denomina \textbf{runtime} al tiempo que tarda un programa en ejecutarse en la computadora.
 
-Durante la ejecución un entorno se encargará de:
+El \textbf{funcionamiento} de un entorno de ejecución se puede resumir en:
+
+\begin{itemize}
+    \item El \textbf{entorno de ejecución} esta formado por \textbf{la máquina virtual} y las \textbf{API's} (bibliotecas de la clase estándar, necesarias para que la aplicación pueda ser ejecutada). Estos dos componentes se suelen distribuir conjuntamente, ya que necesitan ser compatibles entre sí.
+    \item El entorno actúa como \textbf{intermediario} entre el \textbf{código fuente} y el \textbf{sistema operativo}.
+    \item Si lo que queremos es desarrollar nuevas aplicaciones, nos es suficiente con un entorno de ejecución.
+    \item Para desarrollar aplicaciones necesitamos algo más, un \textbf{entorno de desarrollo}.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{entorno-ejecucion.png}
+    \caption{Entorno de Ejecución}
+\end{figure}
+
+El entorno de desarrollo, realizará varias funciones durante la ejecución de la aplicación, sus principales funciones durante la \textbf{ejecución} son las siguientes:
 
 \begin{itemize}
     \item Configurar la memoria principal disponible del sistema
@@ -736,6 +751,23 @@ Durante la ejecución un entorno se encargará de:
     \item Depurar los programas: comprobar la existencia de errores semánticos del lenguaje.
 \end{itemize}
 
+\subsection{Java Runtime Environment}
+El \textbf{Java Runtime Environment} o \textbf{JRE} es un conjunto de utilidades que permiten la ejecución de aplicaciones Java. Un usuario solo necesita el JRE para ejecutar aplicaciones en Java.\cite{wiki03}
+
+Los \textbf{componentes} principales de JRE son:
+
+\begin{itemize}
+    \item La \textbf{Máquina Virtual Java}, que es el componente que interpreta el código de la aplicación escrito en Java.
+    \item Bibliotecas de clase estándar que implementan la \textbf{API de Java}.
+    \item Las dos anteriores, JVM y API, deben ser consistentes entre ellas.
+\end{itemize}
+
+Para instalar JRE, lo primero que debemos hacer es descargarlo. Java es software libre, por lo que podemos descargarlo de forma libre y gratuita. Una vez descargado, solo habrá que seguir los pasos del asistente de instalación. En los siguientes enlaces, podemos ver una guía de instalación detallada:
+
+\begin{itemize}
+    \item \href{https://www.java.com/es/download/help/linux_install.html}{Guía de Instalación de Java en Linux}
+    \item \href{https://www.java.com/es/download/help/windows_manual_download.html}{Guía de Instalación de Java en Windows}
+\end{itemize}
 
 
 
