@@ -80,8 +80,45 @@ Como los ficheros suelen ser muy grandes, solo se puede llevar parte de ellos a 
 Normalmente en cada operación de lectura/escritura se transfieren varios registros de un fichero, es decir, un bloque suele contener varios registros lógicos. Al número de registros que entran en un bloque se le llama \textbf{factor de blocaje}, y a la operación de agrupar varios registros en un mismo bloque se conoce como \textbf{bloque de registros}.
 
 \subsection{Tipos de Ficheros}
+Según la función que vaya a desempeñar un fichero, estos pueden ser clasificados de varias maneras:
 
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Ficheros Permanentes}: contiene información relevante para una aplicación. Es decir, los datos necesarios para el funcionamiento de ésta. Tiene un período de permanencia en el sistema amplio. Se subdividen en:
+    \begin{itemize}
+        \item \textbf{Ficheros Maestros}: contiene el estado actual de los datos que pueden modificarse desde la aplicación. Es la parte central de aplicación, su núcleo.
+        \item \textbf{Ficheros Constantes}: son aquellos que incluyen datos fijos de la aplicación. No suelen ser modificados y se accede a ellos para la realización de consultar.
+        \item \textbf{Ficheros Históricos}: contiene datos que fueron considerados como actuales en un período o situación anterior. Se utilizan para la reconstrucción de situaciones o estados concretos.
+    \end{itemize}
 
+    \item \textbf{Ficheros Temporales}: se utilizan para almacenar datos que son útiles para un parte de la aplicación. Son generados a partir de datos de ficheros permanentes y tienen un período corto de existencia. Estos pueden ser:
+    \begin{itemize}
+        \item \textbf{Ficheros Intermedios}: almacenan resultados de una aplicación que serán usados por otra.
+        \item \textbf{Ficheros de Maniobras}: almacenan datos de una aplicación que no pueden ser mantenidos en memoria por falta de espacio.
+        \item \textbf{Ficheros de Resultados}: almacenan datos que van a ser transferidos a un dispositivo de salida.
+    \end{itemize}
+\end{enumerate}
+
+En la siguiente figura podemos ver un esquema con esta clasificación.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{ficheros-tipos.png}
+    \caption{Clasificación de ficheros según su función}
+\end{figure}
+
+\subsection{Los Soportes de la Información}
+Los ficheros se almacenan en soportes de información manejados por periféricos del ordenador, que permiten leer y grabar datos en el soporte. Los soportes más utilizados son las \textbf{cintas magnéticas} y los \textbf{discos} (magnéticos, ópticos o magneto-ópticos).
+
+Al principio se usaban tambores de cinta magnética, similares en tamaño a un disco de vinilo, funcionaban de manera similar a los antiguos casetes, pero al tener un tamaño mucho más grande permitían almacenar mucha mas información, permitiendo el acceso a esta de forma secuencia.
+
+Posteriormente los medios de almacenamiento fueron evolucionando a la par que el hardware, en concreto con la aparición de los disquetes y el disco duro. Estos dispositivos ya permitían el acceso aleatorio a los datos.
+
+Por lo tanto, podemos distinguir dos tipos de dispositivos de almacenamiento de datos:
+
+\begin{itemize}
+    \item \textbf{Soportes de Acceso Directo a Datos}: son los más empleados y el acceso a datos se hacer de forma directa, pudiendo colocarlos en la posición que más nos interese.
+    \item \textbf{Soporte de Acceso Secuencial}: se suele usar en copias de seguridad y si deseamos leer un dato que esta a mitad de la cinta, tendremos que leer todo lo que hay hasta llegar a esa posición.
+\end{itemize}
 
 % Glossary
 
