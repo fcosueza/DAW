@@ -120,6 +120,99 @@ Por lo tanto, podemos distinguir dos tipos de dispositivos de almacenamiento de 
     \item \textbf{Soporte de Acceso Secuencial}: se suele usar en copias de seguridad y si deseamos leer un dato que esta a mitad de la cinta, tendremos que leer todo lo que hay hasta llegar a esa posición.
 \end{itemize}
 
+Si quieres aprender más sobre las características de cintas y discos, puedes consultar los enlaces siguientes:
+
+\begin{itemize}
+    \item \href{https://es.wikipedia.org/wiki/Cinta_magn\%C3\%A9tica_de_almacenamiento_de_datos}{Cintas magnéticas de almacenamiento de datos}
+    \item \href{https://es.wikipedia.org/wiki/Disco_magn\%C3\%A9tico}{Discos magnéticos} y \href{https://es.wikipedia.org/wiki/Disco_\%C3\%B3ptico}{Discos ópticos}
+\end{itemize}
+
+\subsection{Métodos de Acceso}
+A medida que la tecnología ha ido evolucionando, el acceso a la información ha ido variando mucho. Los objetivos de fundamentales de estas variaciones son los siguientes:
+
+\begin{itemize}
+    \item Proporcionar acceso rápido a los registros.
+    \item Conseguir economizar el almacenamiento.
+    \item Facilitar la actualización de los registros.
+    \item Permitir que la estructura refleje la organización real de la información.
+\end{itemize}
+
+Los ficheros se pueden clasificar según como se organiza en la memoria principal, o dicho de otra forma, los métodos de acceso al fichero, que podemos ver en la siguiente figura.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.40]{ficheros-acceso.png}
+    \caption{Tipos de ficheros por método de acceso}
+\end{figure}
+
+Las organizaciones secuencia, de acceso aleatorio o directo e indexado, son las mas comunes. En esta sección vamos a explicar las características de cada uno de los métodos de acceso a ficheros.
+
+\subsubsection{Ficheros Secuenciales}
+Un \textbf{fichero secuencial} se caracteriza porque sus registros están almacenados de forma continua, de forma que la única manera de acceder a él, es leyendo un registros detrás de otro hasta el final. En los ficheros secuenciales hay una marca que indica el final del fichero, suele denominarse \textbf{EOF} (End Of File). Así, para detectar el final de fichero solo es necesario encontrar esta marca.
+
+Este tipo de fichero puede usar dispositivos de almacenamiento de acceso secuencial, como cintas magnéticas, aunque también se utilizan en los CD de audio y DVD de vídeo, en los que la música y las imágenes se almacenan en un espiral continua.
+
+Los registros almacenados se identifican por medio de la información ubicada en uno de sus campos, que se denomina \textbf{clave} o \textbf{llave}. Si se ordena un archivo secuencial por su clave es más rápido realizar operaciones sobre el.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.32]{fichero-secuencial.png}
+    \caption{Estructura de un fichero secuencial}
+\end{figure}
+
+Algunas características de este tipo de ficheros son las siguientes:
+
+\begin{itemize}
+    \item La \textbf{lectura} siempre se realiza \textbf{hacia adelante}.
+    \item Son ficheros \textbf{monousuario}, no permiten el acceso simultáneo de varios usuarios.
+    \item Tiene una \textbf{estructura rígida de campos}. Todos los registros deben aparecer en orden, es decir, la posición de los campos en el registros siempre debe ser la misma.
+    \item El \textbf{modo de apertura} del fichero, condiciona la lectura o escritura.
+    \item \textbf{Aprovechan al máximo} el soporte de \textbf{almacenamiento}, no dejando huecos vacíos.
+    \item Se pueden \textbf{grabar} en \textbf{cualquier tipo} de \textbf{soporte}, tanto secuenciales como direccionales.
+    \item Todos los \textbf{lenguajes de programación} contiene instrucciones para \textbf{trabajar} con este tipo de ficheros.
+    \item \textbf{No} se pueden \textbf{insertar registros} en los que están \textbf{ya grabados}.
+\end{itemize}
+
+\subsubsection{Ficheros de Acceso Directo}
+En este tipo de archivos se puede acceder a un registro indicando la posición relativa del registros dentro del archivo, o a través de una \textbf{clave} que forma parte del registro como un \textbf{campo} más. Estos archivos deben almacenarse en dispositivos de memoria masiva con acceso directo como los discos magnéticos.
+
+Cada uno de los registros se guarda en una posición física, que dependerá del espacio disponible en memoria masiva, por lo que la distribución es aleatoria dentro del soporte de almacenamiento. Para acceder a la posición física del registros se utiliza una posición o índice, de forma que no es necesario recorrer todo el fichero para encontrar un determinado registros.
+
+ Esta \textbf{dirección física} se obtendrá tras la aplicación de una \textbf{transformación} específica a la \textbf{clave}. Según como sea esta transformación, existen tres modos de acceso diferente, como podemos ver en la siguiente figura.
+
+\begin{figure}[ht]
+     \centering
+     \includegraphics[scale=0.32]{fichero-accesodirecto.png}
+     \caption{Modos de acceso a un registro en archivos de acceso directo}
+ \end{figure}
+
+El método más rápidos es el \textbf{acceso directo}, donde la clave coincide con la dirección física del registro, teniendo ésta que ser una posición valida dentro del rango de direcciones físicas.
+
+La \textbf{medida de posicionamiento} básico del puntero en el fichero es el \textbf{byte}, dependiendo del tipo de codificación de caracteres que empleemos (\textbf{\gls{Unicode}}, \textbf{\gls{ANSI}}), se usarán 1 o 2 bytes por carácter respectivamente. Teniendo esto en cuenta, el puntero avanza de 1 en 1 o de 2 en 2 bytes para poder leer o escribir cada carácter.
+
+Otras \textbf{características} de este tipo de ficheros son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Posicionamiento inmediato}.
+    \item \textbf{Registros} de \textbf{longitud fija}.
+    \item \textbf{Apertura} del fichero en \textbf{modo mixto}, para lectura y escritura.
+    \item Permiten \textbf{múltiples usuarios} al mismo tiempo.
+    \item Los \textbf{registros se borran} colocando un cero en la posición que ocupan.
+    \item Permiten la utilización de \textbf{algoritmos de compactación} de huecos.
+    \item Los archivos se \textbf{crean} con un \textbf{tamaño definido}, es decir, con un máximo de registros definidos durante su creación.
+    \item Esta organización solo es posible en \textbf{soportes direccionales}.
+    \item Se \textbf{usan} cuando el \textbf{acceso a datos} de un registro se hace siempre empleando la \textbf{misma clave} y la \textbf{velocidad de acceso} al registro es lo que más importa.
+    \item Permiten la \textbf{actualización de registros} en el mismo fichero, sin necesidad de copiarlo.
+    \item Permiten realizar \textbf{procesos de actualización} en \textbf{tiempo real}.
+\end{itemize}
+
+\subsubsection{Ficheros Indexados}
+Se basan en el uso de \textbf{indices}, que permiten el acceso a un registros sin tener leer el fichero entero. Estos indices son similares a los de los libros, si nos interesa leer un capítulo podemos recurrir al indice donde se nos dice en que página comienza y acaba dicho capítulo.
+
+Por lo tanto, deberá existir una \textbf{zona de registros} en los que se encuentren los datos del archivo y una \textbf{zona de índices}, que contiene la tabla con las claves de los registros y las posiciones donde se encuentran. La tabla de índices esta ordenada por campos clave.
+
+La tabla de índices será cargada en la memoria principal para realizar en ella la búsqueda de la fila correspondiente a la clave del registros a encontrar, proporcionando así la dirección donde se encuentra el registro. Una vez localizada la dirección, solo es necesario acceder el dispositivo de almacenamiento y colocarlos en la dirección indicada.
+
 % Glossary
 
 \glsaddall
