@@ -3,45 +3,45 @@
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
-**/Apuntes/*.aux
-**/Apuntes/*.lof
-**/Apuntes/*.log
-**/Apuntes/*.lot
-**/Apuntes/*.fls
-**/Apuntes/*.out
-**/Apuntes/*.toc
-**/Apuntes/*.fmt
-**/Apuntes/*.fot
-**/Apuntes/*.cb
-**/Apuntes/*.cb2
-**/Apuntes/.*.lb
+*-aux
+*.lof
+*.log
+*.lot
+.fls
+.out
+*.toc
+*.fmt
+.fot
+*.cb
+*.cb2
+*.lb
 
 ## Intermediate documents:
-**/Apuntes/*.dvi
-**/Apuntes/*.xdv
-**/Apuntes/*-converted-to.*
+*.dvi
+*.xdv
+*-converted-to.*
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
-**/Apuntes/*.bbl
-**/Apuntes/*.bcf
-**/Apuntes/*.blg
-**/Apuntes/*-blx.aux
-**/Apuntes/*-blx.bib
-**/Apuntes/*.run.xml
+*.bbl
+*.bcf
+**.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
 
 ## Glossary auxiliary files:
-**/Apuntes/*.glg
-**/Apuntes/*.glo
-**/Apuntes/*.gls
-**/Apuntes/*.ist
+*.glg
+*.glo
+*.gls
+*.ist
 
 ## Build tool auxiliary files:
-**/Apuntes/*.fdb_latexmk
-**/Apuntes/*.synctex
-**/Apuntes/*.synctex(busy)
-**/Apuntes/*.synctex.gz
-**/Apuntes/*.synctex.gz(busy)
-**/Apuntes/*.pdfsync
+*.fdb_latexmk
+*.synctex
+/*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
 
 ## VSCode Folder
 .vscode/

@@ -127,7 +127,7 @@ Si quieres aprender más sobre las características de cintas y discos, puedes c
     \item \href{https://es.wikipedia.org/wiki/Disco_magn\%C3\%A9tico}{Discos magnéticos} y \href{https://es.wikipedia.org/wiki/Disco_\%C3\%B3ptico}{Discos ópticos}
 \end{itemize}
 
-\subsection{Métodos de Acceso}
+\subsection{Métodos de Acceso a Ficheros}
 A medida que la tecnología ha ido evolucionando, el acceso a la información ha ido variando mucho. Los objetivos de fundamentales de estas variaciones son los siguientes:
 
 \begin{itemize}
@@ -212,6 +212,39 @@ Se basan en el uso de \textbf{indices}, que permiten el acceso a un registros si
 Por lo tanto, deberá existir una \textbf{zona de registros} en los que se encuentren los datos del archivo y una \textbf{zona de índices}, que contiene la tabla con las claves de los registros y las posiciones donde se encuentran. La tabla de índices esta ordenada por campos clave.
 
 La tabla de índices será cargada en la memoria principal para realizar en ella la búsqueda de la fila correspondiente a la clave del registros a encontrar, proporcionando así la dirección donde se encuentra el registro. Una vez localizada la dirección, solo es necesario acceder el dispositivo de almacenamiento y colocarlos en la dirección indicada.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{fichero-indexado.png}
+    \caption{Ficheros indexados}
+\end{figure}
+
+Las características mas relevantes de los ficheros indexados son las siguientes:
+\begin{itemize}
+    \item El diseño de registros tiene que tener un campo o campos, que permita identificar cada registro de forma única, es decir, no puede haber 2 registros que tengan la misma información en él. A este campo se le llama \textbf{campo clave} y es el que va a servir de índice. Un mismo fichero puede tener varios campos clave, pero al menos uno de ellos \textbf{no puede tener valores duplicados} y se llama \textbf{clave principal}. A las restantes se les llama \textbf{claves alternativas}.
+    \item Permite usar el modo de \textbf{acceso secuencial} y el modo de \textbf{acceso directo} para leer la información que guardan sus registros.
+    \item Para acceder a estos ficheros usando el modo de \textbf{acceso directo}, se hace conociendo el \textbf{contenido} del \textbf{campo clave} que queremos localizar. Con esta información el sistema operativo puede consultar el índice y conocer la posición dentro del fichero.
+    \item Para acceder a este tipo de ficheros usando el m\textbf{modo secuencial}, los registros son \textbf{leídos} por el contenido del \textbf{campo clave}, independientemente del orden en el que fueron grabados, ya que el acceso se hace a través del índice, que para hacer más fácil la búsqueda de registros, permanece siempre ordenado por campos clave.
+    \item Solamente puede \textbf{almacenarse} en un \textbf{medio direccionable}, ya que sino no podría usar el modo de acceso directo.
+\end{itemize}
+
+\subsubsection{Otros Tipos de Organización}
+Además de los tipos de organización de ficheros que ya hemos visto, existen otros como los \textbf{ficheros secuenciales indexados} o los \textbf{ficheros de acceso calculado}, los cuales pasamos a describir a continuación.
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Ficheros Secuenciales Indexados}:
+
+    También llamados parcialmente indexados, al igual que los ficheros indexados existe una \textbf{zona de índices} y otra \textbf{zona de registros de datos}, pero esta última se encuentra \textbf{dividida} en \textbf{segmentos} ordenados.
+
+    En la zona de índices, cada fila hace referencia a cada uno de los segmento. La clave corresponde al último registros del segmento y el índice al registro inicial. Una vez que se accede al primer registro del segmento, dentro de él se localiza (de forma secuencial) el registro buscado.
+
+    Las principales características de este tipo de ficheros son:
+    \begin{itemize}
+        \item Permite el \textbf{acceso secuencial}. Esto es muy interesante cuando la tasa de accesos es alta. En el acceso secuencial ademas los registros se leen ordenados por el campo clave.
+        \item Permite el \textbf{acceso directo a registros}. Realmente \textbf{emula} este tipo de acceso, empleando para ello las tablas de índices. Primero busca la clave en el área de índices y luego va a leer al área de datos en al dirección que indica la tabla.
+        \item Se pueden \textbf{actualizar} los \textbf{registros} en el \textbf{mismo fichero}, sin necesidad de crear uno nuevo de copia en el proceso de actualización.
+    \end{itemize}
+\end{enumerate}
 
 % Glossary
 
