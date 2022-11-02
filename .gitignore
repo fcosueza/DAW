@@ -3,15 +3,15 @@
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
-*-aux
+*.aux
 *.lof
 *.log
 *.lot
-.fls
-.out
+*.fls
+*.out
 *.toc
 *.fmt
-.fot
+*.fot
 *.cb
 *.cb2
 *.lb
