@@ -243,6 +243,7 @@ Además de los tipos de organización de ficheros que ya hemos visto, existen ot
         \item Permite el \textbf{acceso secuencial}. Esto es muy interesante cuando la tasa de accesos es alta. En el acceso secuencial ademas los registros se leen ordenados por el campo clave.
         \item Permite el \textbf{acceso directo a registros}. Realmente \textbf{emula} este tipo de acceso, empleando para ello las tablas de índices. Primero busca la clave en el área de índices y luego va a leer al área de datos en al dirección que indica la tabla.
         \item Se pueden \textbf{actualizar} los \textbf{registros} en el \textbf{mismo fichero}, sin necesidad de crear uno nuevo de copia en el proceso de actualización.
+        \item Ocupa \textbf{más espacio} que los \textbf{ficheros secuenciales}, debido al uso del área de índices.
     \end{itemize}
 \end{enumerate}
 
