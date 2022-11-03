@@ -367,7 +367,46 @@ Respecto a los \textbf{campos} en los que se\textbf{ usan la bases de datos} y l
 Como vemos, prácticamente en cualquier campo en el que se necesite recopilar, almacenar y gestionar información se utilizan las bases de datos.
 
 \subsection{Ubicación de la Información}
+Las bases de datos pueden tener un tamaño muy pequeño o ser muy voluminosas, pero independientemente de esto todas se almacenan en discos duros y otros dispositivos de almacenamiento a los que se puede acceder a través de un ordenador. Una base de datos pequeña pueden existir en un archivo pequeño dentro de un disco duro, mientras que una gran base de datos puede necesitar decenas de servidores en diferentes localizaciones.
 
+En esta sección, vamos a ver los tipos de dispositivos y tecnologías de almacenamiento mas utilizados para el despliegue de bases de datos. En la siguiente lista, se detallan estos dispositivos:
+
+\begin{itemize}
+    \item \item \textbf{Disco SATA}: es una interfaz de transferencia de datos entre la placa base y algunos dispositivos de almacenamiento como discos duros, lectores o grabadores de CD/DVD, unidades de estado solido u otros dispositivos. La interfaz SATA proporciona mayores velocidades, cables de conexión mas largos, mejor aprovechamiento cuando hay varios dispositivos conectados y capacidad de conectar unidades sin necesidad de apagar el ordenador. La primera generación tenía una tasa de transferencia de 150 MB/s, denominada \textbf{SATA 150 MB/s} o \textbf{Serial-ATA-150}. Actualmente se comercializan dispositivos \textbf{SATA II}, con velocidades de transferencia de 300 MB/s y \textbf{SATA III}, con velocidades de 600 MB/s.
+
+    \item \textbf{Discos SCSI}: son interfaces preparadas para discos de gran capacidad de almacenamiento y gran velocidad de rotación. Se presentan bajo tres especificaciones: \textbf{Standard SCSI}, \textbf{Fast SCSI} y \textbf{Fast-Wide SCSI}. Su velocidad de acceso puede llegar a los 7 ms y la velocidad de transmisión de información secuencia a 5 MB/s, 10 MB/s y 20 MB/s para las versiones Standard, Fast y Fast-Wide respectivamente. Un controlador puede manejar hasta 7 discos duros SCSI.
+
+    \item \textbf{RAID}: acronimo de \textbf{Redundant Array of Independent Disks}, es un contenedor de almacenamiento redundante. Se basa en montar varios discos duros para que trabajen conjuntamente obteniendo mejoras en el almacenamiento, la velocidad, la disponibilidad y la seguridad de la información. Según las características que queramos reforzar se usará una u otra configuración RAID.
+
+    \item \textbf{Sistemas NAS}: es el acrónimo de \textbf{Network Attached Storage}. Estos sistemas de almacenamiento permiten compartir el almacenamiento de un computador (servidor), con ordenadores personales o servidores clientes a través de la red, haciendo uso de un sistema operativo optimizado para dar acceso a los datos a través de protocolos de comunicación específicos. Suelen ser dispositivos de almacenamiento de gran capacidad, varios TeraBytes, generalmente superiores a los discos duros externos y que están conectados con la red.
+
+    \item \textbf{SAN}: acrónimo de \textbf{Storage Area Network}. Se trata de una red concebida, arrays de discos y librerías de soporte. La arquitectura de este tipo de sistema permite que los recursos de almacenamiento estén disponibles para varios servidores en una red de área local o amplia. Debido a que la información almacenada no reside en directamente en ninguno de los equipos de la red, se optimiza el poder de procesamiento para aplicaciones comerciales y la capacidad de almacenamiento se puede proporcionar al servidor que más lo necesite.
+\end{itemize}
+
+Aunque no se mencionen en esta lista, en los últimos años la tendencia es usar \textbf{bases de datos en la nube}, que permiten la utilización de bases de datos desarrolladas, implementadas y a las que se accede en un entorno de nube, como una nube privada, pública o híbrida. \cite{cloud01} En la \href{https://www.oracle.com/es/database/what-is-a-cloud-database/}{página de Oracle} puedes encontrar información más detallada sobre este tipo de bases de datos.
+
+\section{Modelos de Bases de Datos}
+La clasificación tradicional de las bases de datos establece tres modelos de bases de datos: \textbf{jerárquico}, \textbf{en red} y \textbf{relacional}. En la actualidad el modelo de datos mas empleado es el relacional, aunque hay que tener en cuenta que dos de sus variantes, \textbf{bases de datos distribuidas} y \textbf{orientadas a objetos} son las más empleadas.
+
+En esta sección, vamos a analizar estos modelos de bases de datos así como algunos otros aquí no mencionados.
+
+\subsection{Modelo Jerárquico}
+Cuando IBM creó su Sistema Administrado de la Información o IMS, se establecieron las bases para que la gran mayoría de sistemas de gestión de información de los años 70 utilizaran un modelo jerárquico. También recibe el nombre de modelo árbol, ya que utiliza una estructura de árbol invertido para el almacenamiento de los datos.
+
+En el \textbf{modelo jerárquico}, la información se organiza con un jerarquía en el que se establece una relación entre las entidades \textbf{padre/hijo}. De tal forma que existen nodos que contienen atributos o campos y que se relacionan con sus nodos hijos, pudiendo tener cada nodo \textbf{varios hijos}, pero un nodo solo puede tener \textbf{un nodo padre}.
+
+Los \textbf{datos} de este modelo se \textbf{almacenan} en estructuras lógicas llamadas \textbf{segmentos}. Los segmentos se relacionan entre sí usando \textbf{arcos}. Visualmente, este modelo se puede representar como un árbol invertido, estando en la parte superior los padres y en la inferior los hijos.
+
+Hoy en día, debido a sus limitaciones, este modelo esta en desuso. En la siguiente figura podemos ver un ejemplo de estructura jerárquica.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.40]{bd-jerarquico.png}
+    \caption{Modelo Jerárquico de Bases de Datos}
+\end{figure}
+
+\subsection{Modelo en Red}
+El modelo de datos en red aparece a mediados de los 60 como respuesta a las limitaciones del modelo jerárquico en cuanto a la representación de relaciones más complejas.
 
 % Glossary
 
