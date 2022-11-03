@@ -406,7 +406,111 @@ Hoy en día, debido a sus limitaciones, este modelo esta en desuso. En la siguie
 \end{figure}
 
 \subsection{Modelo en Red}
-El modelo de datos en red aparece a mediados de los 60 como respuesta a las limitaciones del modelo jerárquico en cuanto a la representación de relaciones más complejas.
+El modelo de datos en red aparece a mediados de los 60 como respuesta a las limitaciones del modelo jerárquico en cuanto a la representación de relaciones más complejas. Podemos considerar a \textbf{IDS} (Integrated Data Storage) de Bachman como el primer sistema de bases de datos en red. Más adelante, se intento crear un modelo de red por parte de \textbf{\gls{CODASY}}, siendo un modelo que tuvo un gran aceptación a principios de los 70.
+
+El \textbf{modelo en red} organiza la información en \textbf{registros}, también llamados nodos, y \textbf{enlaces}. En los registros se almacenan los datos, mientras que los enlaces permiten relacionar los datos. Las bases de datos en red son parecidas a las jerárquicas, salvo que en éstas un nodo puede tener \textbf{más de un padre}.
+
+En este modelo se puede representar prácticamente cualquier relación de datos, pero su manejo se hace muy complicado. Al no tener que duplicar la información  se ahora en espacio de almacenamiento. El sistema de gestión de la información mas extendido es \textbf{\gls{IDMS}}.
+
+En la siguiente figura podemos ver un ejemplo de este tipo de modelo de bases de datos.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{bd-enred.png}
+    \caption{Modelo en Red de Bases de Datos}
+\end{figure}
+
+\subsection{Modelo Relacional}
+Este modelo es posterior a los dos anteriores y fue desarrollado por Codd en 1970. Hoy en día, este tipo de base de datos es la más utilizada.
+
+El \textbf{modelo relacional} es percibida por los usuarios como un conjunto de tablas. Esta percepción es solo a nivel lógico, ya que a nivel físico puede estar implementada mediante diferentes estructuras de almacenamiento. Es modelo utiliza \textbf{tablas bidimensionales} (relaciones) para la representación lógica de los datos y las relaciones entre ellos. Cada relación (tabla) posee un nombre único y contiene un conjunto de columnas.
+
+Cada tabla estará compuesta de los siguientes elementos:
+
+\begin{itemize}
+    \item \textbf{Registro/Entidad/Tupla}: es el nombre que recibe cada fila.
+    \item \textbf{Campo/Atributo}: es el nombre que recibe cada columna.
+    \item \textbf{Clave}: es el atributo o conjunto de estos que identifica de forma única a cada tupla.
+\end{itemize}
+
+Al conjunto de valores que puede tomar un atributo se le conoce como \textbf{dominio}. Ademas, las tablas deben cumplir un conjunto de \textbf{requisitos} para que se consideren correctas, que son los siguientes:
+
+\begin{itemize}
+    \item Todos los registros son del mismo tipo
+    \item La tabla solo puede tener un tipo de registro.
+    \item No existen campos o atributos repetidos.
+    \item No existen registros duplicados.
+    \item No existe orden de almacenamiento de los registros.
+    \item Cada registro o tupla debe estar identificada por una clave formada por uno o varios atributos.
+\end{itemize}
+
+En la siguiente imagen puedes ver como se relacionan las tuplas y atributos en una base de datos con el modelo relacional.
+
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{bd-relacional.png}
+    \caption{Modelo Relacional de Bases de Datos}
+\end{figure}
+
+El lenguaje mas habitual para construir consultas en este tipo de bases de datos es \textbf{SQL} (Structured Query Language), un estándar implementado por los principales motores o sistemas de gestión de bases de datos.
+
+Durante su diseño, una base de datos relacional para por un proceso que se conoce como \textbf{normalización}, que consiste en definir las reglas que determinan las dependencias entre los datos. Si definimos esta dependencia en una base de datos de la forma mas sencilla posible, conseguiremos que la cantidad de espacio necesaria para almacenar los datos sea la menor posible y la facilidad para actualizar la relación sea la mayor posible. Es decir, optimizaremos su funcionamiento.
+
+\subsection{Modelo Orientado a Objetos}
+El \textbf{modelo orientado a objetos} define una base de datos en términos de \textbf{objetos}, sus \textbf{propiedades} y sus \textbf{operaciones}. Los objetos con las misma estructura y comportamiento pertenecen a una misma \textbf{clase}, y las clases se organizan en jerarquías. Las operaciones de cada clase se especifican en términos de procedimientos predefinidos denominados \textbf{métodos}. Algunos sistemas existentes en el mercado, basados en el modelo relacional, han sufrido evoluciones incorporando conceptos de la programación orientada a objetos. A estos modelos se les conoce como \textbf{modelos objeto-relacionales}.
+
+El objetivo de este modelo es cubrir las limitaciones del modelo relacional. Gracias a este modelo se incorporan ventajas como la herencia entre tablas, los tipos definidos por el usuario, disparadores almacenables en la base de datos (triggers), soporte multimedia, etc..
+
+En la siguiente imagen, podemos ver un ejemplo del modelo orientado a objetos.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.40]{bd-oo.png}
+    \caption{Modelo Orientado a Objetos de Bases de Datos}
+\end{figure}
+
+Los conceptos más importantes del paradigma de objetos que incorpora el modelo orientado a objetos son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Encapsulación}: propiedad que permite ocultar la información al resto de objetos impidiendo así el acceso incorrecto o conflictos.
+    \item \textbf{Herencia}: propiedad a través de la cual objetos heredan comportamientos dentro de la jerarquía de clases.
+    \item \textbf{Polimorfismo}: propiedad de una operación mediante la cual puede ser aplicada a diferentes tipos de objetos.
+\end{itemize}
+
+Desde la aparición de la programación orientados a objetos (OOP) se empezó a pensar en bases de datos adaptadas a estos lenguajes. Este modelo es considerado como el fundamento de las bases de datos de tercera generación, siendo considerara las bases de datos en red como la primera y las relacionales como la segunda generación. Aunque no ha reemplazado a estas últimas, si es el tipo de base de datos que más esta creciendo en los últimos años.
+
+\subsection{Modelo NoSQL}
+Las \textbf{bases de datos NoSQL} son bases de datos que no cumplen con el esquema entidad-relación. Tampoco utilizan una estructura de datos de datos en forma de tabla donde se van almacenando los datos, sino que el para el almacenamiento se usan otros formatos como clave-valor, mapeo de columnas, graos, etc...
+
+Esta forma de almacenar los datos tiene ciertas \textbf{ventajas} respecto a los modelos relacionales, las cuales son las siguientes:
+
+\begin{itemize}
+    \item Se pueden \textbf{ejecutar} en máquinas con \textbf{pocos recursos}, no requieren apenas computación.
+    \item \textbf{Escalabilidad horizontal}: para mejorar el rendimiento de estos sistemas simplemente se consigue añadiendo mas nodos, con la única operación de indicar al sistema cuales son los nodos que están disponibles.
+    \item Puede manejar \textbf{gran cantidad de datos}, debido a que usan una \textbf{estructura distribuida} en muchos casos mediante \textbf{tablas Hash}.
+    \item \textbf{No generan cuellos de botella}: el principal problema de los sistema SQL es que necesitan transcribir cada sentencia para poder ser ejecutada, lo que constituye a un punto de entrada común, que ante muchas peticiones puede ralentizar el sistema.
+\end{itemize}
+
+Después de ver las principales ventajas que tiene el uso de este modelo, en la siguiente lista vemos las principales \textbf{diferencias} que nos podemos encontrar entre las bases de datos \textbf{NoSQL} y los sistemas \textbf{SQL} son las siguientes:
+
+\begin{itemize}
+    \item \textbf{No utilizan SQL} como lenguaje de consulta. La mayoría de bases de datos NoSQL evitan usar este lenguaje o, como mucho, lo usan como apoyo.
+    \item \textbf{No utilizan} estructuras fijas como \textbf{tablas} para el almacenamiento de datos. Permiten hacer uso de otros sistemas de almacenamiento de información como clave-valor, objetos o grafos.
+    \item \textbf{No} suelen permitir \textbf{operaciones JOIN}. Al disponer de un volumen de datos tan extremadamente grande cuando la operación no es la búsqueda de una clave, la sobrecarga puede llegar a ser muy costosa. La solución en este caso sería desnormalizar los datos, o bien realizar el JOIN mediante software en la capa de aplicación.
+    \item \textbf{Arquitectura distribuida}: las bases de datos relacionales suelen estar centralizas en una misma máquina o bien en una estructura master-slave, sin embargo en los casos NoSQL la información puede estar compartida por varias máquinas mediante mecanismos de tablas Hash distribuidos.
+\end{itemize}
+
+Como hemos comentado, este modelo de bases de datos no usa tablas para almacenar datos, sino que se emplean otros tipos de almacenamiento que no suelen usar en bases de datos relacionales. Así, dependiendo del \textbf{tipo de almacenamiento} que se use en una base de datos NoSQL, estas puede pueden clasificarse en:
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Bases de datos clave-valor}: es el modelo de bases de datos NoSQL más popular, además de ser el más sencillo en cuanto a funcionalidad. En este tipo de sistemas, cada elemento está identificado por una \textbf{llave única}, lo que permite la recuperación de información de una forma muy rápida. Información que habitualmente esta almacenada como un \textbf{objeto binario} (BLOB). Se caracterizan por ser \textbf{muy eficientes} tanto para las \textbf{lecturas} y las \textbf{escrituras}. Algunos ejemplos de estas bases de datos son Cassandra, BigTable o HBase.
+
+    \item \textbf{Bases de datos documentales}: estas bases de datos almacenan la información como un documento, por norma general con una estructura simple como \textbf{JSON} o \textbf{XML} y donde se utiliza una \textbf{clave única} para cada registro. Es tipo permite, ademas de realizar búsquedas por clave-valor, realizar consultar más avanzadas sobre el contenido del documento. Son las bases de datos NoSQL \textbf{más versátiles}. Se pueden utilizar en muchos tipos de proyectos, incluso en muchos que tradicionalmente usarían bases de datos relacionales. Algunas de las mas utilizadas son MongoDB o CouchDB.
+
+    \item \textbf{Bases de datos en grafo}:
+\end{enumerate}
+
+
 
 % Glossary
 
