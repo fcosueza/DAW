@@ -244,8 +244,130 @@ Además de los tipos de organización de ficheros que ya hemos visto, existen ot
         \item Permite el \textbf{acceso directo a registros}. Realmente \textbf{emula} este tipo de acceso, empleando para ello las tablas de índices. Primero busca la clave en el área de índices y luego va a leer al área de datos en al dirección que indica la tabla.
         \item Se pueden \textbf{actualizar} los \textbf{registros} en el \textbf{mismo fichero}, sin necesidad de crear uno nuevo de copia en el proceso de actualización.
         \item Ocupa \textbf{más espacio} que los \textbf{ficheros secuenciales}, debido al uso del área de índices.
+        \item Solo se pueden utilizar \textbf{soportes direccionales}.
+        \item Obliga a una \textbf{inversión económica mayor}, por la necesidad de \textbf{programas}, y a veces, \textbf{hardware más sofisticado}.
     \end{itemize}
+
+    \item \textbf{Ficheros de Acceso Calculado o Hash}:
+
+    Cuando usamos ficheros indexados es necesario siempre consultar una tabla para obtener la dirección de almacenamiento a partir de la clave. La técnica de acceso calculado o \textbf{hash}, permite accesos más rápidos, ya que en vez de consultar una tabla utiliza una \textbf{función matemática} (función de hashing) conocida, que a partir de la clave genera la dirección conocida de cada registro. Si la clave el alfanumérica deberá previamente ser transformada en un número.
+
+    El mayor problema que ofrece esta aproximación es que a partir de diferentes claves se puedan obtener la misma dirección de almacenamiento al aplicar la función. A este problema se le denomina \textbf{colisión}, y las claves que generan la misma dirección se denominan \textbf{sinónimos}. Para resolver este problema se aplican diferentes métodos, como tener un bloque de excedentes o zona de sinónimos, o crear un archivo de sinónimos, etc...
+
+    Para llevar a cabo la transformación se existen multitud de métodos, aunque los mas empleados son:
+
+    \begin{itemize}
+        \item \textbf{Módulo}: la dirección será igual al resto de la división entera entre la clave y el número de registros.
+        \item \textbf{Extracción}: la dirección será igual a una parte de las cifras que se extraen de la clave.
+    \end{itemize}
+
+    Una buena función hash, será aquella que produzca el menor número de colisiones. En este caso hay que buscar una función, a poder ser \textbf{\gls{biunivoca}}, que relaciones los posibles valores de la clave con el conjunto de números correlativos de la dirección. Esta función consistirá en realizar una serie de cálculos matemáticos con el valor de la clave hasta obtener un número entre 1 y n, siendo n el número de direcciones que tiene el fichero.
 \end{enumerate}
+
+\subsection{Parámetros de Utilización}
+En función del uso que se le vaya a dar al fichero, serán convenientes unos u otros métodos de organización. Mediante la utilización de \textbf{parámetros de referencia} podemos determinar el uso de un fichero. Estos parámetros son:
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Capacidad o Volumen}: es el espacio, en caracteres, que ocupa el fichero. La capacidad podrá calcularse multiplicando el número de registros por el tamaño medio de cada registro.
+    \item \textbf{Actividad}: permite conocer la cantidad de consultar y modificaciones que se realizan en un fichero. Para poder especificar la actividad hay que tener en cuenta:
+    \begin{itemize}
+        \item \textbf{Tasa de Consulta o Modificación}: que es el número de registros consultar o modificados en cada tratamiento del fichero, respecto al número total de registros contenidos en él.
+        \item \textbf{Frecuencia de Consulta o Modificación}: número de veces que se accede a un fichero para realizar una consulta o modificación en un tiempo predeterminado.
+    \end{itemize}
+
+    \textbf{Volatilidad}: mide la cantidad de inserciones y borrados que se efectúan en un fichero. Para determinar la volatilidad es necesario saber:
+    \begin{itemize}
+        \item \textbf{Tasa de Renovación}: es el tanto por ciento de registros renovados en cada tratamiento del fichero respecto del número de registros totales.
+        \item \textbf{Frecuencia de Renovación}: es el número de veces que se accede al fichero para renovarlo durante un período de tiempo determinado.
+    \end{itemize}
+
+    \item \textbf{Crecimiento}: es la variación de la capacidad del fichero y se mide con la tasa de crecimiento, que es el porcentaje de registros en los que aumenta el fichero en cada tratamiento.
+\end{enumerate}
+
+Teniendo en cuenta estos valores, podremos hacernos una idea de cual es el método de organización que mejor se adapta a nuestra necesidades y cual es el que deberemos usar en nuestros ficheros.
+
+\newpage
+
+\section{Bases de Datos}
+Como hemos visto en la sección anterior, los fichero permiten organizar y memorizar conjuntos de datos de un mismo tipo con una determinada estructura, siendo un medio para almacenar la información o resultados de una aplicación. El problema es que si las aplicaciones, al ser diseñadas, dependen directamente de sus archivos, se pierde independencia y surgen serios inconvenientes: como información duplicada, incoherencia de datos, etc...
+
+Aquí es donde aparece el concepto de base de datos. Una \textbf{base de datos} permitirá reunir toda la información relacionada en un único sistema de almacenamiento, pudiendo cualquier aplicación utilizarla de forma independiente y ofreciendo una mejora en el tratamiento de la información.
+
+La gestión de las bases de datos a experimentado gran cantidad de cambios, partiendo de aplicaciones especializadas hasta pasar a convertirse en el núcleo de los entornos informáticos modernos. Con la llegada de internet en los 90, el número de usuario de bases de datos creció exponencialmente, y aunque muchos no sean conscientes de ello, las usan a diario.
+
+Así, conocer los sistemas de gestión de bases de datos, sus conceptos fundamentales, el diseño, lenguajes e implementación de estas, es imprescindible para cualquiera que se este formando en el campo de la informática.
+
+\subsection{Conceptos Básicos}
+Una \textbf{base de datos} es una colección de datos relacionados lógicamente entre sí, con una definición y descripción comunes y que están estructurados de una determinada manera. Es un conjunto de datos que representa entidades y sus relaciones, almacenados con la mínima redundancia y posibilitando el acceso a ellos eficientemente por parte de varias aplicaciones.
+
+Las bases de datos no contienen solo los datos de la organización, sino que también almacenan una descripción de dichos datos. Esta descripción es lo que se denomina \textbf{metadatos}, se almacenan en un \textbf{diccionario de datos} o \textbf{catálogo} y es lo que permite la \textbf{independencia de datos} lógico-física.
+
+Una base de datos, constará de los siguientes \textbf{elementos}:
+\begin{itemize}
+    \item \textbf{Entidades}: objeto real o abstracto, con características diferenciadas de otros, del que se almacena información en la base de datos. En una base de datos de una clínica veterinaria, diferentes entidades podrían ser: ejemplar, doctor, consulta, etc...
+    \item \textbf{Atributos}: son los datos que se almacenan en la entidad. Cualquier propiedad o característica puede ser un atributo de una entidad. Continuando con el ejemplo, podrían ser atributos: raza, color, nombre, número de identificación, etc...
+    \item \textbf{Registros}: es donde se almacena la información de cada entidad. Es un conjunto de atributos que contienen los datos que pertenecen a una misma repetición de identidad. En nuestro ejemplo un registros podría ser: Podenco, blanco, 121932911, etc...
+    \item \textbf{Campos}: donde se almacenan los atributos de cada registro. Teniendo en cuento el ejemplo anterior, un campo podría ser Podenco.
+\end{itemize}
+
+El uso de bases de datos ofrece muchas \textbf{ventajas}, entre las que podemos encontrar las siguientes:
+
+\begin{itemize}
+    \item \textbf{Acceso Múltiple}: diversos usuarios y aplicaciones podrán acceder a la base de datos sin que existan problemas en el acceso o los datos.
+    \item \textbf{Utilización Múltiple}: cada uno de los usuarios o aplicaciones podrá tener una visión única de la base de la estructura de la base de datos, accediendo solo a la parte que le corresponde.
+    \item \textbf{Flexibilidad}: la forma de acceso de la información puede ser establecida de diferentes maneras, ofreciendo tiempos de respuesta muy reducidos.
+    \item \textbf{Confidencialidad y Seguridad}: el control de acceso de los datos podrá ser establecido para que los usuarios y aplicaciones puedan acceder a unos datos y a otros no, impidiendo a los usuarios no autorizados el uso de la base de datos.
+    \item \textbf{Protección Contra Fallos}: en casos de fallos en la información, existen mecanismos bien definidos que permiten la recuperación de los datos de forma fiable.
+    \item \textbf{Independencia Física}: un cambio en el soporte físico, por ejemplo un disco duro, no afectaría a los datos o las aplicaciones que acceden a estos.
+    \item \textbf{Independencia Lógica}: los datos realizados en la base de datos no afectan a las aplicaciones que acceden a ella.
+    \item \textbf{Redundancia}: los datos se almacenan, por lo general, una única vez, aunque si fuera necesario podríamos repetir la información de manera controlada.
+    \item \textbf{Interfaz de Alto Nivel}: mediante la utilización de lenguajes de alto nivel puede utilizarse la base de datos de forma sencilla y cómoda.
+    \item \textbf{Consulta Directa}: existe una herramienta para poder acceder a los datos de forma interactiva.
+\end{itemize}
+
+\subsection{Uso de las Bases de Datos}
+Ya sabemos en que consiste una base de datos, ahora veremos que usuarios son los que la utilizan y en que campos se utilizan éstas.
+
+Existen principalmente cuatro \textbf{tipos de personas} que pueden hacer uso de las bases de datos y cada uno de ellos hace un uso diferente de éstas. Estas personas son:
+
+\begin{itemize}
+    \item \textbf{El Administrador}
+
+    Es la persona encargada de la creación o implementación física de la base de datos. Es quien escoge los tipos de ficheros, los índices que se deben crear, la ubicación de estos, etc... En general, es quien toma las decisiones del funcionamiento físico del almacenamiento de la información. Además, establecerá la política de seguridad y acceso para garantizar el menos número de problemas.
+
+    \item \textbf{Los Diseñadores}
+
+    Son los encargados de diseñar como será la base de datos. Llevarán a cabo la identificación de los datos, sus relaciones, sus restricciones, etc... Para ello, han de conocer a fondo los datos y procesos que deben representarse en la base de datos. Si estamos hablando de una empresa, deberán conocer la reglas de negocio de esta. Para obtener un buen resultado, el diseñador deberá implicar a todos los usuarios de la base de datos lo antes posible en el proceso.
+
+    \item \textbf{Los Programadores de Aplicaciones}
+
+    Una vez diseñada y construida la base de datos, los programadores se encargarán de implementar los programas de aplicación que servirán a los usuarios finales. Estos programas permitirán la posibilidad de realizar inserciones, actualizaciones o eliminaciones de datos. Para desarrollar estas aplicaciones se utilizan lenguajes de tercera o cuarta generación, como C, FORTRAN, Smalltalk, Ada, Java, etc...
+
+    \newpage
+
+    \item \textbf{Los Usuarios Finales}
+
+    Son los clientes finales de la base de datos. Al diseñar, implementar y mantener la base de datos se busca cumplir con los requisitos establecidos por el cliente para la gestión de su información.
+\end{itemize}
+
+
+Respecto a los \textbf{campos} en los que se\textbf{ usan la bases de datos} y los usos que se les dan son innumerables, aunque en la siguiente lista tienes algunos ejemplos:
+
+\begin{itemize}
+    \item Banca: información de clientes, cuentas, transacciones, ...
+    \item Líneas Aéreas: información de clientes, vuelos, horarios, ...
+    \item Universidades: información de alumnos, asignaturas, profesores, horarios,...
+    \item Telecomunicaciones: guardar registros de llamadas realizadas, generar facturas mensuales, mantener saldo de las tarjetas telefónicas y almacenar información sobre las redes.
+    \item Medicina: información hospitalaria, biomedicina, genética, ...
+    \item Legislación: normativas, registros, etc...
+    \item Organismos Públicos: registros de los ciudadanos, certificados, etc...
+    \item Justicia y Seguridad: delincuentes, casos, sentencias, investigaciones...
+\end{itemize}
+
+Como vemos, prácticamente en cualquier campo en el que se necesite recopilar, almacenar y gestionar información se utilizan las bases de datos.
+
+\subsection{Ubicación de la Información}
+
 
 % Glossary
 
