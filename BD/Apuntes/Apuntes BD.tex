@@ -510,7 +510,64 @@ Como hemos comentado, este modelo de bases de datos no usa tablas para almacenar
     \item \textbf{Bases de datos en grafo}: en este tipo de bases de datos, la información se presenta como nodos en un grafo y sus relaciones como aristas, de manera que se puede hacer uso de la teoría de grafos para recorrerla. Este tipo de bases de datos ofrece una navegación más eficiente que las bases de datos relacionales. Algunos ejemplos de estas bases de datos son Neo4j, InfoGrid o Virtuoso.
 \end{enumerate}
 
+Como vemos, hay diferentes clases de bases de datos NoSQL, cada una con sus características propias, con sus ventajas e inconveniente. Dependiendo de nuestras necesidades, podemos elegir una u otra, pero en la actualidad hay unas pocas \textbf{bases de datos NoSQL} que son las \textbf{más usada} y que son las siguientes:
 
+\begin{itemize}
+    \item \textbf{Cassandra}: se trata de una base de datos creada por \textbf{Apache} y que esta basada en el modelo \textbf{clave-valor}. Dispone de un lenguaje propio para realizar la consultas, \textbf{CQL} (Cassandra Query Language). Cassandra esta desarrollada en Java, por lo que puede correr en cualquier sistema que tenga una JVM.
+
+    \item \textbf{Redis}: se trata de una base de datos tipo \textbf{calve-valor}. Se puede imaginar como un array gigante en memoria para almacenar datos, los cuales pueden ser cadenas, hashes, conjuntos de datos o listas.
+
+    \item \textbf{Mongo DB}: se trata de una base de datos \textbf{orientada a documentos} de \textbf{esquema libre}, es decir, cada entrada puede tener un esquema de datos diferente que nada tenga que ver con el resto de registros almacenados. Es bastante rápida a la hora de ejecutar sus operaciones ya que esta desarrollada en C++. Es una de las bases NoSQL favoritas de los desarrolladores.
+
+    \item \textbf{CouchDB}: se trata de un sistema desarrollado por \textbf{Apache} y que funciona sobre sistemas \textbf{Linux} y \textbf{OSX}, pero no sobre Windows. Utiliza Javascript como principal lenguaje de interacción. Permite la creación de \textbf{vistas}, un mecanismo para crear combinaciones para retornar valores de varios documentos, es decir, CouchDB permite operaciones \textbf{JOIN} típicas de las bases de datos relacionales.
+\end{itemize}
+
+Como vemos hay mucha variedad de bases de datos NoSQL, si quieres ampliar información puedes consultar este blog sobre \href{http://basesdedatosnosql.blogspot.com/}{Bases de Datos NoSQL} o este artículo sobre las \href{https://www.ondho.com/claves-para-elegir-tu-base-de-datos-nosql/}{claves para elegir tu BD NoSQL}.
+
+
+\subsection{Otros Modelos}
+Además de las bases de datos que ya hemos visto, existen otros modelos, que aunque no vamos a ver con tanta profundidad, son dignos de mención. Estos modelos, que en algunos casos son un evolución de los ya vistos, son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Modelo Objeto-Relacional}
+
+    Las bases de datos que pertenecen a este modelo, son un híbrido entre el modelo de bases de datos relacional y el orientado a objetos. El principal inconveniente de las bases de datos orientadas a objetos es el coste de la conversión de las bases de datos relacionales a estas.
+
+    En una \textbf{base de datos objeto-relacional} (BDOR) siempre se busca obtener lo mejor del modelo relacional, incorporando las mejoras ofrecidas por la orientación a objetos. En este modelo se siguen almacenando tuplas, aunque la estructura de las tuplas no esta restringida sino que las relaciones pueden ser definidas en función de otras,  que es lo que denominamos herencia directa.
+
+    El estándar en el que se basa este modelo es el \textbf{\gls{SQL99}}. Este estándar ofrece la posibilidad de añadir a las bases de datos relacionales procedimientos almacenados de usuarios, triggers, tipos definidos por el usuario, consultar recursivas, bases de datos \textbf{\gls{OLAP}}, etc...
+
+    También permite añadir funciones que tengan código en algún lenguaje de programación como SQL, Java, C, etc...
+
+    La mayoría de bases de datos relacionales clásicas de gran tamaño, como Oracle, SQL Server, etc.., son objeto-relacionales.
+
+
+    \item \textbf{Modelo de Bases de Datos Deductiva}
+
+    Es modelo de bases de datos almacena la información y permite hacer deducciones a través de \textbf{inferencias}. Es decir, se derivan nuevas informaciones a partir de las que se han introducido explícitamente en la base de datos por parte del usuario.
+
+    Las \textbf{bases de datos deductivas} son también llamadas bases de datos lógicas, al basarse en lógica matemática. Surgieron para contrarrestar las limitaciones del modelo relacional para las respuesta a consultas recursivas y la deducción de relaciones indirectas entre los datos almacenados.
+
+    \item \textbf{Modelo de Bases de Datos Multidimensionales}
+
+    Son bases de datos ideadas para desarrollar aplicaciones muy concretas. Básicamente almacena sus datos con varias dimensiones, es decir que en vez de un valor, encontramos varios dependiendo de los ejes definidos o una base de datos de estructura basada en dimensiones orientada a consultas complejas y alto rendimiento. En una base de datos multidimensionales, la información se representa como matrices multidimensionales, cuadros de múltiples entradas o funciones de varias variables sobre conjuntos finitos. Cada una de estas matrices se denomina cubo. Eso facilita el manejo de grandes cantidades de datos dentro de las empresas, dándole a esto una amplia aplicación dentro de varias áreas y diferentes campos del conocimiento humano.
+
+    \item \textbf{Modelo de Bases de Datos Transaccionales}
+
+    Son bases de datos caracterizadas por su velocidad para gestionar el intercambio de información, se utiliza sobre todo en sistemas bancarios, análisis de calidad y datos de producción industrial. Son bases de datos muy fiables, ya que en ellas cada una de las operaciones de inserción, actualizado o borrado se realizan completamente o se descartan.
+\end{itemize}
+
+\subsection{Tipos de Bases de Datos}
+Como hemos visto, según el modelo de datos las bases de datos se pueden clasificar en diferentes tipos. Pero este no es la única clasificación de bases de datos que existe. Atendiendo a diferentes características y criterios se pueden realizar diferentes clasificaciones que vamos a ver en esta sección.
+
+\subsubsection{Bases de Datos Según su Contenido}
+Las bases de datos se pueden clasificar según el tipo de contenido que albergan, en este caso las bases de datos pueden ser:
+
+\begin{itemize}
+    \item \textbf{Bases de datos con información actual}: contienen información muy concreta y actualizada, normalmente, de tipo numérico: estadísticas, series históricas, resultados de encuestas, convocatorias de becas, ofertas de empleo, etc...
+
+    \item \textbf{Directorios}: recogen datos sobre personas o instituciones especializadas en una actividad o materia concreta. Hay directorios de profesionales, de investigadores, de centros de investigación,
+\end{itemize}
 
 
 
