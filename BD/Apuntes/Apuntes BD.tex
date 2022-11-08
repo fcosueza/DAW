@@ -557,17 +557,110 @@ Además de las bases de datos que ya hemos visto, existen otros modelos, que aun
     Son bases de datos caracterizadas por su velocidad para gestionar el intercambio de información, se utiliza sobre todo en sistemas bancarios, análisis de calidad y datos de producción industrial. Son bases de datos muy fiables, ya que en ellas cada una de las operaciones de inserción, actualizado o borrado se realizan completamente o se descartan.
 \end{itemize}
 
-\subsection{Tipos de Bases de Datos}
-Como hemos visto, según el modelo de datos las bases de datos se pueden clasificar en diferentes tipos. Pero este no es la única clasificación de bases de datos que existe. Atendiendo a diferentes características y criterios se pueden realizar diferentes clasificaciones que vamos a ver en esta sección.
+\section{Tipos de Bases de Datos}
+Como hemos visto, según el modelo de datos las bases de datos se pueden clasificar en diferentes tipos. Pero este no es la única clasificación de bases de datos que existe. Atendiendo a diferentes características y criterios, las bases de datos se pueden clasificar en los siguientes tipos:
 
-\subsubsection{Bases de Datos Según su Contenido}
-Las bases de datos se pueden clasificar según el tipo de contenido que albergan, en este caso las bases de datos pueden ser:
 
-\begin{itemize}
-    \item \textbf{Bases de datos con información actual}: contienen información muy concreta y actualizada, normalmente, de tipo numérico: estadísticas, series históricas, resultados de encuestas, convocatorias de becas, ofertas de empleo, etc...
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Bases de datos según su contenido}
 
-    \item \textbf{Directorios}: recogen datos sobre personas o instituciones especializadas en una actividad o materia concreta. Hay directorios de profesionales, de investigadores, de centros de investigación,
-\end{itemize}
+    Las bases de datos se pueden clasificar según el tipo de contenido que albergan, en este caso las bases de datos pueden ser:
+
+    \begin{itemize}
+         \item \textbf{Bases de datos con información actual}: contienen información muy concreta y actualizada, normalmente, de tipo numérico: estadísticas, series históricas, resultados de encuestas, convocatorias de becas, ofertas de empleo, etc...
+
+         \item \textbf{Directorios}: recogen datos sobre personas o instituciones especializadas en una actividad o materia concreta. Hay directorios de profesionales, de investigadores, de centros de investigación, de bibliotecas, etc...
+
+          \item \textbf{Bases de datos documentales}: en este tipo, cada registro se corresponde con un documento, sea este de cualquier tipo: publicación impresa, documento audiovisual, gráfico, etc... Dependiendo de si incluye o no 	el contenido completo de los documentos que describen, podemos tener:
+            \begin{itemize}
+                \item \textbf{Bases de datos de texto completo}: constituidas por los propios documentos en formato electrónico, por un volcado completo de los datos.
+
+                \item \textbf{Archivos electrónicos e imágenes}: constituidas por referencias que permiten el enlace directo con la imagen del documento original, sea este un documento iconográfico o un documento impreso digitalizado en forma de imagen.
+
+               \item \textbf{Bases de datos referenciales}: sus elementos no contienen el texto original, sino tan sólo información fundamental para describir y permitir la localización de los documentos impresos, sonoros, iconográficos, audiovisuales o electrónicos. En este sistema de información solo se pueden obtener referencias sobre documentos que habrá que localizar en otro servicio.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Bases de datos según su uso}
+
+    Las bases de datos también se puede clasificar según el número de usuario que la usen. Así, una base de datos puede ser:
+
+    \begin{itemize}
+        \item \textbf{Base de datos individual}: es una base de datos utilizada, básicamente, por una sola persona. El sistema administrador de base de datos y los datos son controlados por el mismo usuario. Puede estar almacenada en la unidad de disco duro del usuario o en el servidor de archivos de una red de área local. Por ejemplo, un gerente podría tener una base de datos para el control de sus vendedores y su desempeño.
+
+        \item \textbf{Bases de datos compartida}: son bases de datos con múltiples usuarios y que probablemente pertenezcan a la misma organización, como la base de datos de una compañía. Se encuentra alojada en una computadora potente y bajo el control de un profesional en el área, el administrador de bases de datos. Los usuarios tienen acceso a la base de datos mediante una red de área local o área extensa.
+
+        \item \textbf{Bases de datos de acceso público}: son bases de datos accesibles por cualquier persona. Puede no ser necesario pagar un canon para hacer uso de los datos contenidos en ellas.
+
+        \item \textbf{Bases de datos propietarias o bancos de datos}: se tratan de bases de datos de gran tamaño y desarrolladas por una organización para contener información sobre temas especializados o de carácter particular. El público general puede tener acceso a estas bases de datos a veces de forma gratuita y otras pagando una cuota. Pueden ofrecer información que va desde negocios, economía, inversión, técnica y científica hasta servicios de entretenimiento.
+    \end{itemize}
+
+    \item \textbf{Bases de datos según la variabilidad de la información}
+
+    La variabilidad de la información, es decir, si la información almacenada es estática o dinámica, es otro criterio por el que podemos clasificar las bases de datos. Siendo estas:
+
+    \begin{itemize}
+        \item \textbf{Bases de datos estáticas}: son bases de datos de sólo lectura. Se utilizan para el almacenamiento de datos históricos que pueden ser analizados y utilizados para el estudio del comportamiento de un conjunto de datos a través del tiempo. Permite realizar proyecciones y toma de decisiones.
+
+        \item \textbf{Bases de datos dinámicas}: son bases de datos donde la información almacenada se modifica con el tiempo, permitiendo operaciones como actualización y adición de datos, además de operaciones fundamentales de consulta.
+    \end{itemize}
+
+    \item \textbf{Bases de datos según la localización de la información}
+
+    Las bases de datos se pueden clasificar también según como tienen distribuida su información, pudiendo ser:
+
+    \begin{itemize}
+    \item \textbf{Bases de datos centralizadas}: son bases de datos ubicada en un único lugar, un único computador. Pueden ser sistemas monousuario que se ejecutan en un ordenador o sistemas de bases de datos de alto rendimiento que se ejecutan en grandes sistemas. Este tipo de organización facilita el mantenimiento, sin embargo, hace que la información almacenada en dicha base de datos sea más vulnerable a fallos y limita su acceso. Este tipo de bases de datos puede ofrecer dentro de la arquitectura Cliente/Servidor dos configuraciones:
+
+    \begin{itemize}
+        \item \textbf{Basada en el anfitrión}: ocurre cuando la máquina cliente y servidor son la misma. Los usuarios se conectarán directamente a la máquina donde se encuentra la base de datos.
+
+        \item \textbf{Basa en cliente/servidor}: ocurre cuando la base de datos reside en una máquina servidor y los usuarios acceden a la base de datos desde su máquina cliente a través de la red.
+    \end{itemize}
+
+    \item \textbf{Bases de datos distribuidas}: una base de datos distribuida consiste en un sistema de bases de datos formado por diferentes bases de datos situadas en diferentes espacios físicos o lógicos y conectadas mediante redes. Los usuarios utilizan estas bases de datos mediante una variedad de redes de comunicación. Un ejemplo, sería una empresa con diferentes centros regionales, cada uno con su base de datos, pero donde los gerentes pueden acceder a estas como si fuera una única base de datos.
+    \end{itemize}
+
+    \item \textbf{Bases de datos según el órgano productos}
+
+    También se pueden clasificar las bases de datos según quien sea el productos de la información alojada en ésta. Podemos encontrar los siguientes tipos:
+
+    \begin{itemize}
+       \item \textbf{Bases de datos de organismos públicos y de la administración}: las bibliotecas y centros de documentación de los ministerios, instituciones públicas, universidades y organismos de investigación públicos, entre otros, generan gran cantidad de información. Estos sistemas pueden ser:
+
+       \begin{itemize}
+          \item Bases de datos de acceso público, sean gratuitas o no.
+          \item Bases de datos de uso interno, con información de acceso restringido.
+       \end{itemize}
+
+       \item \textbf{Bases de datos de instituciones sin ánimos de lucro}: fundaciones, asociaciones, sindicatos y organizaciones no gubernamentales elaboran frecuentemente sus propios sistemas de información especializados.
+
+       \item \textbf{Bases de datos de entidades privadas o comerciales}: los centros de documentación, bibliotecas y archivos pueden elaborar diferentes tipos de sistemas de información:
+       \begin{itemize}
+           \item Bases de datos de uso interno para facilitar la circulación de la información dentro de la empresa.
+           \item Bases de datos de uso interno que ocasionalmente ofrecen servicios hacia el exterior.
+           \item Bases de datos comerciales, diseñadas específicamente para ser usadas por usuarios externos.
+       \end{itemize}
+
+    \item \textbf{Bases de datos realizadas por cooperación en red}: se trata de sistema de información cuya elaboración es compartida por diversas instituciones, bases de datos internacionales que se elaboran a través de este sistema de trabajo, con diversos centros nacionales responsables de la información perteneciente a cada país.
+    \end{itemize}
+
+    \newpage
+
+    \item \textbf{Bases de datos según su modo de acceso}
+
+    Otra forma de clasificar las bases de datos es atendiendo al modo en el que se accede a ellas, como puede ser:
+
+    \begin{itemize}
+       \item \textbf{Bases de datos de acceso local}: pasa consultar es necesario acudir al organismo productor, a su biblioteca o archivo. Pueden ser consultadas en monopuesto en varios puntos de la red local.
+
+        \item \textbf{Bases de datos en CD-ROM}: pueden adquirirse por compra o suscripción bien directamente por un particular o por una biblioteca o centro de documentación que permita su consulta a sus usuarios. En algunas instituciones se instalan diferentes CD-ROMs en una red local para permitir su consulta desde cualquier ordenador conectado a dicha red.
+
+        \item \textbf{Bases de datos en línea}:
+    \end{itemize}
+\end{enumerate}
+
+
 
 
 
