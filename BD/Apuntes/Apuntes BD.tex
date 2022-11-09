@@ -691,8 +691,152 @@ Como hemos visto, según el modelo de datos las bases de datos se pueden clasifi
 \end{enumerate}
 
 \section{Sistemas Gestores de Bases de Datos}
-Para poder tratar la información contenida en las bases de datos se utilizan sistemas gestores de bases de datos, o SGBD, también llamados DBMS (DataBase Management System), que ofrece un conjunto de aplicacione que permiten acceder y gestionar dichos datos.
+Para poder tratar la información contenida en las bases de datos se utilizan sistemas gestores de bases de datos, o SGBD, también llamados DBMS (DataBase Management System), que ofrece un conjunto de aplicaciones que permiten acceder y gestionar dichos datos.
 
+Un \textbf{Sistema Gestos de Bases de Datos}, es el conjunto coordinado de programas, procedimientos, lenguajes, etc.., que suministra, tantos a los usuarios no informáticos como a los analistas programadores, o al administrador,  los medios necesarios para describir y manipular los datos contenidos en una base de datos, manteniendo su integridad, confidencialidad y seguridad.
+
+El SGBD permite a los usuarios la creación y mantenimiento de una base de datos, facilitando la definición construcción y manipulación de la información contenida en éstas. La \textbf{definición} de una base de datos consistirá en especificar los tipos de datos, las estructuras y las restricciones que los datos han de cumplir a la hora de almacenarse en dicha base de datos. Por otro lado, la \textbf{construcción} una base de datos será el proceso de almacenamiento de datos concreto en un medio o soporte de almacenamiento que esté supervisado por el SGBD. Finalmente, la \textbf{manipulación} de la base de datos incluirá la posibilidad de realización de consultas para recuperar documentación específica, la actualización de datos y la generación de informes a partir de su contenido.
+
+El uso de un SGBD ofrece muchas suscripción \textbf{ventajas} a la hora de gestionar una base de datos, algunas de ellas son las siguientes:
+
+\begin{itemize}
+    \item Proporcionar al usuario una \textbf{visión abstracta} de los \textbf{datos}, ocultando la complejidad relacionada con como se almacenan dichos datos.
+
+    \item Ofrecen \textbf{independencia física}, es decir, la visión que tiene el usuario de la información y la manipulación de los datos almacenados en la base de datos, es independiente de como estén almacenados físicamente.
+
+    \item Disminuye la \textbf{\gls{redundancia}} y la \textbf{\gls{inconsistencia}} de datos.
+
+    \item Asegura la \textbf{\gls{integridad}} de los datos.
+
+    \item \textbf{Facilitan} el \textbf{acceso a datos}, aportando rapidez y evitando la perdida de datos.
+
+    \item \textbf{Aumenta} la \textbf{seguridad} y \textbf{privacidad} de los datos.
+
+    \item Mejoran la \textbf{eficiencia}.
+
+    \item Permite compartir datos y \textbf{accesos concurrentes}.
+
+    \item Facilita el \textbf{intercambio de datos} entre \textbf{diferentes sistemas}.
+
+    \item Incorpora mecanismos de \textbf{copia de seguridad} y \textbf{recuperación} de datos para restablecer la información en caso de fallo.
+\end{itemize}
+
+El SGBD interacciona con otros elementos software del sistema, en concreto con el sistema operativo. Los datos almacenados de forma estructurada en la base de datos son usados por otras aplicaciones, será el SGBD quien ofrecerá una serie de facilidades a éstas para el acceso y manipulación de la información, basándose en métodos y funciones propias del sistema operativo.
+
+\subsection{Funciones de SGBD}
+Un SGBD realiza tres funciones principales, como es la descripción, manipulación y utilización de los datos. A continuación se detalla cada una de estas funciones.
+
+\begin{enumerate}
+    \item \textbf{Descripción}
+
+    Permite al diseñador de base de datos crear las estructuras adecuadas para integrar los datos. Esta función es la que permite definir las tres estructuras de la base de datos: \textbf{Estructura interna}, \textbf{Estructura conceptual} y \textbf{Estructura externa}.
+
+    Esta función se lleva a cabo mediante el \textbf{lenguaje de descripción de datos} o \textbf{DDL}. Mediante este lenguaje, se definen la estructuras de datos, relaciones entre estos y las restricciones que deben cumplir.
+
+    Se especificarán las características de los datos a cada uno de los tres niveles:
+
+    \begin{itemize}
+        \item \textbf{A nivel interno} (estructura interna), se ha de indicar el espacio de disco reservado para la base de datos, la longitud de los campos, su modo de presentación, etc...
+
+        \item \textbf{A nivel conceptual} (estructura conceptual), se proporcionan herramientas para la definición de identidades y su identificación, atributos de las mismas, interrelación entre ellas, restricciones de integridad, etc.., es decir, el esquema de la base de datos.
+
+        \item \textbf{A nivel externo} (estructura externa), se deben definir la vistas de los diferentes usuarios  través del lenguaje para la definición de estructuras externas. Además el SGBD se encargará de la transformación de las estructuras externas orientadas al usuario a las estructura conceptuales y de la relación de esta con la estructura física.
+    \end{itemize}
+
+    \item \textbf{Manipulación}
+
+    Permite a los usuarios de la base de datos buscar, modificar, añadir o suprimir los datos de la misma, siempre de acuerdo con las normas de seguridad dictadas por el administrador. Se llevará a cabo mediante un \textbf{lenguaje de manipulación de datos} o \textbf{DML} que facilita los instrumento necesarios para la realización de estas tareas.
+
+    También se encarga de definir \textbf{la vista externa} de todos lo usuarios de la base de datos o vistas parciales que cada usuario tiene de los datos definidos con el DDL.
+
+    Por manipulación podemos entender:
+
+    \begin{itemize}
+        \item La recuperación de información almacenada en la base de datos, conocida como \textbf{consulta}.
+        \item La \textbf{inserción} de nueva información.
+        \item El \textbf{borrado} de información almacenada.
+        \item La \textbf{modificación} de la información de la base de datos.
+    \end{itemize}
+
+
+    \item \textbf{Control}
+
+    Permite al administrador de la base de datos establecer mecanismos de protección de las diferentes visiones de los datos asociadas a cada usuario, proporcionando elementos de creación y modificación de dichos usuarios. Adicionalmente incorpora sistema de creación de copias de seguridad, carga de ficheros, auditoría, protección contra ataques, configuración del sistema, etc...
+
+    El lenguaje que implementa esta función es el \textbf{lenguaje de control de datos} o \textbf{DCL}.
+\end{enumerate}
+
+Para de desarrollar todas estas funciones, usaremos el \textbf{Lenguaje Estructurado de Consultas} o \textbf{SQL} (Structured Query Language). Este lenguaje proporciona sentencias para la realización de operaciones DDl, DML, y DLC.
+
+SQL fue publicado por ANSI en 1986 y ha ido evolucionando a lo largo del tiempo. Además, los SGBD suelen proporcionar otras herramientas que complementan a estos lenguajes como generadores de formularios, informes, interfaces gráficas, generadores de aplicaciones, etc...
+
+\subsection{Componente de un SGBD}
+Un SGBD es un paquete de software complejo que ha de proporcionar servicios relacionados con el almacenamiento y la explotación de los datos de forma eficiente. Para realizar esto, incluyendo las funciones vistas en el punto anterior, cuenta con un conjunto de componentes, que son los siguientes:
+
+\begin{enumerate}
+    \item \textbf{Lenguajes de la base de datos}
+
+    Cualquier SGBD ofrece la posibilidad de usar lenguajes e interfaces adecuadas para los diferentes usuarios. A través de los lenguajes se pueden especificar los datos que componen la base de datos, su estructura, relaciones, reglas de integridad, control de acceso, características físicas y vistas externas de los usuarios.
+
+    Los lenguajes del SGBD son:
+
+    \begin{itemize}
+        \item Lenguaje de Definición de Datos (\textbf{DDL})
+        \item Lenguaje de Manejo de Datos (\textbf{DML})
+        \item Lenguaje de Control de Datos (\textbf{DCL})
+    \end{itemize}
+
+    \item \textbf{Diccionario de Datos}
+
+    Descripción de los datos almacenados. Se trata de información útil para los programadores de aplicaciones. Contiene la información lógica de las estructuras que almacenan los datos, su nombre, descripción, contenido y organización. En una base de datos relacional, el diccionario de datos aportará información sobre:
+
+    \begin{itemize}
+        \item Estructura lógica y física de la BD.
+        \item Definición de tablas, vistas, índices, disparadores, procedimientos, funciones, etc...
+        \item Cantidad de espacio asignado y utilizado por los elementos de la BD.
+        \item Descripción de las restricciones de integridad.
+        \item Información sobre los permisos asociados a cada perfil de usuario.
+        \item Auditoría de acceso a datos, utilización, etc...
+    \end{itemize}
+
+    \item \textbf{El Gestor de Base de Datos}
+
+    Es la parte del software encargada de garantizar el correcto, íntegro, seguro y eficiente acceso y almacenamiento de los datos. Es componente es el encargado de proporcionar una interfaz entre los datos almacenados y los programas de aplicación que los manejan. Es un intermediario, entre el usuario y los datos. También es el encargado de garantizar la seguridad, privacidad e integridad de los datos, controlando los accesos concurrentes e interactuando con el sistema operativo.
+
+    \item \textbf{Usuarios de la Base de Datos}
+
+    En un SGBD existen diferentes tipos de usuarios, cada uno de ellos con una serie de permisos sobre los objetos de la base de datos. Generalmente, existirán los siguientes usuarios:
+
+    \begin{itemize}
+        \item El \textbf{administrador} de la base de datos o \textbf{Database Administrator} (DBA), que será la persona o conjunto de ellas encargadas de la administración de la base de datos. Tiene el control centralizado de la base de datos y es el responsable de su buen funcionamiento. Se encarga de autorizar el acceso a la base de datos, de coordinar y vigilar su utilización y de adquirir los recursos software y hardware necesarios.
+
+        \item Los \textbf{usuarios} de la base de datos, que serán de diferentes tipos y con diferentes necesidades sobre los datos, así como con diferentes accesos y privilegios. Podemos hacer la siguiente clasificación:
+
+        \begin{itemize}
+            \item Diseñadores
+            \item Operadores y personal de mantenimiento.
+            \item Analistas y programadores de aplicaciones.
+            \item Usuarios finales: casuales, simples, avanzados y autónomos.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Herramientas de la Base de Datos}
+
+    Son un conjunto de aplicaciones que permiten al administrador la gestión de la base de datos, de los usuarios y permisos, generadores de formularios, informes, interfaces gráficas, etc...
+\end{enumerate}
+
+\subsection{Arquitectura de un SGBD}
+Un SGBD tiene una arquitectura que simplifica a los diferentes usuarios de la base de datos su labor. El objetivo fundamental es separar los programas de aplicación de la base de datos física.
+
+Encontrar un estándar para estar arquitectura no es una tarea sencilla, aunque los tres estándares más importantes en el campo de las bases de datos son \textbf{ANSI/SPARC/X3}, \textbf{CODASYL} y \textbf{ODMG}, este último solo para bases de datos orientadas a objetos. Tanto ANSI (EEUU) como ISO (internacional), son el referente en cuanto a estandarización de bases de datos, conformando un único modelo de bases de datos.
+
+La arquitectura propuesta proporciona tres niveles de abstracción: \textbf{nivel físico}, \textbf{nivel lógico o conceptual} y \textbf{nivel externo o visión del usuario}. La características de cada uno de estos niveles son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Nivel físico}: En este nivel se describen la estructura física de la base de datos a través de un esquema interno encargado de detallar el sistema de la base de datos y sus métodos de acceso. Es el nivel más cercado al almacenamiento físico. A través del esquema físico se indica, entre otras cosas, los archivos que contienen la información, su organización, los métodos de acceso a registros, los tipos de registros, la longitud, etc...
+
+    \item \textbf{Nivel lógico}: En este nivel se describe la estructura completa de la base de datos a través de un esquema que detalla entidades, atributos, relaciones, operaciones de los usuarios y restricciones. Los detalles del almacenamiento se ocultan, permitiendo una abstracción a más nivel.
+\end{itemize}
 
 
 % Glossary
