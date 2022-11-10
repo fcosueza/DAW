@@ -836,7 +836,156 @@ La arquitectura propuesta proporciona tres niveles de abstracción: \textbf{nive
     \item \textbf{Nivel físico}: En este nivel se describen la estructura física de la base de datos a través de un esquema interno encargado de detallar el sistema de la base de datos y sus métodos de acceso. Es el nivel más cercado al almacenamiento físico. A través del esquema físico se indica, entre otras cosas, los archivos que contienen la información, su organización, los métodos de acceso a registros, los tipos de registros, la longitud, etc...
 
     \item \textbf{Nivel lógico}: En este nivel se describe la estructura completa de la base de datos a través de un esquema que detalla entidades, atributos, relaciones, operaciones de los usuarios y restricciones. Los detalles del almacenamiento se ocultan, permitiendo una abstracción a más nivel.
+
+    \item \textbf{Nivel externo}: En este nivel se describen las diferentes vistas que los usuarios tendrán de la base de datos. Cada grupo de usuarios verá sólo la parte de la base de datos que le interesa, ocultando el resto.
 \end{itemize}
+
+Para una base de datos, existirá solo un esquema interno, uno lógico y podrían existir varios esquemas externos definidos para uno o varios grupos de usuarios.
+
+Gracias a esta arquitectura se consigue \textbf{independencia de datos} a dos niveles:
+\begin{itemize}
+    \item \textbf{Independencia Lógica}: podemos modificar el esquema conceptual sin alterar los esquemas externos ni los programas de aplicación.
+
+    \item \textbf{Independencia Física}: podemos modificar el esquema interno sin alterar el esquema lógico ni los externos. Es decir, se puede cambiar el sistema de almacenamiento, reorganizar ficheros, añadir nuevos, etc.., si que esto afecte al resto de esquemas.
+\end{itemize}
+
+Esta arquitectura, como hemos visto, tiene muchas ventajas, siendo la empleada en la mayoría de SGBD. En la siguiente figura tenemos un esquema para poder visualizar de forma más gráfica esta arquitectura.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.40]{arquitectura-SGBD.png}
+    \caption{Arquitectura de SGBD}
+\end{figure}
+
+\subsection{Tipos de SGBD}
+Una vez que hemos visto las funciones y los componentes de un SGBD, vamos a ver los tipos que podemos encontrarnos atendiendo a diferentes criterios en la siguiente clasificación:
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Modelo Lógico}: este es el primer criterio que nos solemos encontrar. Actualmente, el modelo lógico más empleado es el \textbf{relacional}. Los modelos de red y jerárquicos han quedado obsoletos, pero si hay otros modelos que podemos encontrar como el objeto-relacional. Incluyendo todos los modelos, tenemos:
+    \begin{itemize}
+        \item Modelo Jerárquico.
+        \item Modelo en Red.
+        \item Modelo Relacional.
+        \item Modelo Orientado a Objetos.
+    \end{itemize}
+
+    En la sección 1.4, puede encontrar más información sobre los diferentes modelos y sus características.
+
+    \item \textbf{Número de Usuarios}: también podemos clasificar un SGBD por el número de usuarios al que prestan servicio, pudiendo ser éstos:
+
+    \begin{itemize}
+        \item \textbf{Monousuario}: solo atienden a un usuario a la vez y su principal uso en es ordenadores personales.
+
+        \item \textbf{Multiusuario}: atienden a varios usuarios a la vez y entre estos se encuentran la mayoría de SGBD.
+    \end{itemize}
+
+    \item \textbf{Distribución de la Base de Datos}: el tercer criterio es el número de sitios en los que esta distribuida la base de datos. Así un SGBD puede ser:
+
+    \begin{itemize}
+        \item \textbf{Centralizado}: sus datos se almacenan en un solo computador. Los SGBD centralizados pueden atender a varios usuario, pero la base de datos y el propio sistema de gestión se encuentran alojados en un único computador.
+
+        \item \textbf{Distribuidos} (Homogéneos, Heterogéneos): la base de datos real y el propio SGBD pueden estar distribuidos en varios computadores conectados por red. Dentro de los sistemas distribuidos podemos encontrar dos tipos:
+
+        \begin{itemize}
+            \item \textbf{Homogéneos}: utilizan el mismo SGBD en varios computadores diferentes.
+
+            \item \textbf{Heterogéneos}: una tendencia es crear software para acceder a varias bases de datos autónomas preexistentes almacenadas en sistemas distribuidos heterogéneos. Esta da lugar a SGBD federados o \textbf{sistemas multibase de datos}, en los que los SGBD participantes tienen cierto grado de autonomía.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Coste del SGBD}: otro criterio de clasificación es el coste del paquete de software, estando en rangos desde los 0 a los 100.000 euros. Mientras que los sistemas más económicos monousuario para microcomputadoras pueden costar entre 0 y 3.000 euros, los paquetes más completos pueden llegar a los 100.000 euros.
+
+    \item \textbf{Propósito}: el último criterio de clasificación es el propósito que tiene el SGBD, es decir, si es de propósito general o específico, siendo estos:
+
+    \begin{itemize}
+        \item \textbf{Propósito general}: estos sistemas puede ser utilizado para el tratamiento de cualquier tipo de base de datos.
+
+        \item \textbf{Propósito específico}: cuando el rendimiento es esencial se puede diseñar y construir un software de propósito especial para una aplicación específica, y este sistema solo servirá para esa aplicación. Por ejemplo, muchos sistemas de reserva de líneas aéreas son de propósito especial y pertenecen a la categoría de \textbf{sistemas de procesamiento de transacciones en línea}, que deben atender un gran número de transacciones concurrentes sin imponer excesivos retrasos.
+    \end{itemize}
+\end{enumerate}
+
+Como vemos, hay muchos tipos de SGBD, ya dependerá de nuestras necesidades y de las restricciones del problema que queremos solventar cual es la elección más adecuada.
+
+\section{SGBD Comerciales}
+La elección de un SGBD es una decisión muy importante a la hora de desarrollar proyectos. A veces el sistema más avanzado, el ``mejor'' según los entendidos, puede no ser el más adecuado para el tipo de proyectos que estemos desarrollando. Hemos de tener en cuenta que volumen de carga puede soportar la base de datos, que sistema operativo utilizaremos como soporte, cual es el presupuesto, etc...
+
+Actualmente en el mercado de software existen una gran variedad de SGBD comerciales. En la siguiente figura, mostramos los mas utilizados y cuales son sus características.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{sgdb-comerciales.png}
+    \caption{SGBD comerciales}
+\end{figure}
+
+Aunque estos son los más importantes, podemos encontrar otros ampliamente usados como DBASE, ACCESS, INTERBASE y FOXPRO.
+
+\section{SGBD Libres}
+La alternativa a los SGBD comerciales la tenemos en los SGBD de código abierto o libres, también llamados \textbf{Open Source}. Son sistemas distribuidos y desarrollador libremente. En la siguiente figura se muestran los más importantes así como sus principales características.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{sgdb-libres.png}
+    \caption{SGBD libres}
+\end{figure}
+
+Cabe también mencionar \textbf{MariaDB}, por la relevancia y uso que esta adquiriendo en aplicaciones web en los últimos años.
+
+\section{Bases de Datos Centralizadas}
+Un \textbf{sistema de bases de datos centralizado} es aquel en el que el SGBD esta implantado en una sola plataforma u ordenador desde donde se gestiona directamente, de forma centralizada, la totalidad de los recursos. Es la arquitectura de los centros de procesado de datos tradicionales. Se basa en tecnologías sencillas, muy experimentadas y de gran robustez.
+
+Los sistemas de los años sesenta y setenta era totalmente centralizados, como corresponde a los sistemas operativos de aquellos años, así como al hardware para el que estaban hechos: un gran ordenador para toda la empresa y una red de terminales sin memoria.
+
+Las principales \textbf{características} de los sistemas centralizados son las siguientes:
+
+\begin{itemize}
+    \item Se almacena completamente en la ubicación central, es decir, todos los componentes del sistema residen en un único sitio o computador.
+    \item No posee múltiples elementos de procesamiento o mecanismos de comunicación como en las bases de datos distribuidas.
+    \item Los componentes de la base de datos centralizada son: los datos, el software de gestión de bases de datos y los dispositivos de almacenamiento secundario.
+    \item Son sistemas en los que su seguridad puede verse comprometida fácilmente.
+\end{itemize}
+
+Estos sistemas, tiene sus ventajas e inconvenientes respecto a los sistemas distribuidos. En la siguiente tabla, puedes ver una lista con los más comunes.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{sgbd-central.png}
+    \caption{Ventajas e Inconvenientes de las bases de datos centralizadas}
+\end{figure}
+
+\section{Bases de Datos Distribuidas}
+La necesidad de integrar información de varias de fuentes y la evolución de las tecnologías de la comunicación, han producido cambios muy importantes en los sistemas de bases de datos. La respuesta a estas necesidades y evoluciones se materializa en los sistemas de bases de datos distribuidos.
+
+Dentro de el paradigma de las bases de datos distribuidas, tenemos que tener claras las siguientes definiciones:
+
+\begin{itemize}
+    \item \textbf{Base de Datos Distribuida} (\textbf{BDD}): es un conjunto de múltiples bases de datos, lógicamente relacionadas, las cuales se encuentra distribuidas entres diferentes nodos interconectados por una red de comunicaciones.
+
+    \item \textbf{Sistema de Bases de Datos Distribuida} (\textbf{SBDD}): es un sistema en el que múltiples sitios de bases de datos están ligados por un sistema de comunicaciones, de tal forma que, un usuario en cualquier sitio puede acceder a los datos en cualquier parte de la red como si los datos estuvieran almacenados en su propio sitio.
+
+    \item \textbf{Sistema Gestor de Base de Datos Distribuida} (\textbf{SGBDD}): es aquel que se encarga de manejar las BDD y proporciona un mecanismo de acceso que hace que la distribución sea transparente a los usuarios. El termino transparente se refiere a que la aplicación trabajaría, desde un punto de vista lógico, como si un solo SGBD, ejecutado en una sola máquina, administrara esos datos.
+\end{itemize}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{bd-distri.png}
+    \caption{Base de datos distribuida}
+\end{figure}
+
+Así, un SGBDD desarrollará su trabajo a través de un conjunto de nodos, que poseen un sistema de procesamiento de datos completo con un base de datos local, un sistema gestor de bases de datos e interconectados entre sí. Si estos nodos están dispersos geográficamente, se interconectarán mediante una red de área extensa o WAN (Wide Area Network), pero si se encuentran en edificios relativamente cercanos, puede estar conectados por una red de área local o LAN (Local Area Network).
+
+Este tipo de sistemas es utilizado en organizaciones con estructura descentralizada, industrias de manufactura con múltiples sedes, aplicaciones militares, líneas aéreas, servicios bancarios, etc...
+
+Al igual que las BD centralizadas, las distribuidas tiene sus ventajas e inconvenientes, que podemos ver en la siguiente figura.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{sgbd-distri.png}
+    \caption{Ventajas e Inconvenientes de las bases de datos distribuidas}
+\end{figure}
+
+\subsection{Fragmentación en Bases de Datos Distribuidas}
+Como hemos visto en el punto anterior, la información en las BDD están repartida en diferentes nodos. La forma de extraer los datos consultados se puede hacer mediante la \textbf{fragmentación} de distintas tablas pertenecientes a distintas bases de datos que se encuentran en diferentes servidores. El problema de fragmentación se refiere al particionamiento de la información para distribuir cada parte a los diferentes sitios de la red.
 
 
 % Glossary
