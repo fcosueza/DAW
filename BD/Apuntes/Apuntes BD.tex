@@ -987,7 +987,29 @@ Al igual que las BD centralizadas, las distribuidas tiene sus ventajas e inconve
 \subsection{Fragmentación en Bases de Datos Distribuidas}
 Como hemos visto en el punto anterior, la información en las BDD están repartida en diferentes nodos. La forma de extraer los datos consultados se puede hacer mediante la \textbf{fragmentación} de distintas tablas pertenecientes a distintas bases de datos que se encuentran en diferentes servidores. El problema de fragmentación se refiere al particionamiento de la información para distribuir cada parte a los diferentes sitios de la red.
 
+Hay que tener en cuenta el \textbf{grado de fragmentación} que habrá, ya que es un factor clave a la hora de ejecutar las consultas. Si no existe fragmentación, se tomarán las relaciones o tablas como unidad de fragmentación. Pero también puede fragmentarse a nivel de tupla (fila o registro) o a nivel de atributo de una tabla. No será adecuado un grado de fragmentación nulo, ni tampoco un grado de fragmentación demasiado alto. El grado de fragmentación deberá estar equilibrado y responder a las particularidades de las aplicaciones que utilicen dicha base de datos.
 
+Cuando se lleva a cabo la fragmentación, existen \textbf{tres reglas fundamentales} que se deben seguir. A saber:
+
+\begin{itemize}
+    \item \textbf{Completitud}: si una relación R se descompone en fragmentos R\textsubscript{1}, R\textsubscript{2}, ..., R\textsubscript{n}, cada elemento de datos que pueda encontrarse en R, deberá encontrarse en uno o varios fragmentos de R\textsubscript{i}.
+
+    \item \textbf{Reconstrucción}: si una relación R se descompone en fragmentos R\textsubscript{1}, R\textsubscript{2}, ..., R\textsubscript{n}, la reconstrucción de la relación a través de sus fragmentos asegura que se preservan las restricciones definidas sobre los datos.
+
+    \item \textbf{Disyunción}: si una relación R se descompone verticalmente, sus atributos primarios clave se repiten en todos sus fragmentos.
+\end{itemize}
+
+Así, cada vez que vayamos a diseñar la fragmentación de la información en una BDD, deberemos tener en cuenta estas tres reglas y asegurarnos de que nuestro diseño las cumpla.
+
+Respecto a los \textbf{tipos de fragmentación}, podemos encontrarnos con tres tipos principales:
+
+\begin{itemize}
+    \item \textbf{Fragmentación Horizontal}: este tipo de fragmentación se realiza sobre las tuplas de la relación, dividiendo la relación en subrelaciones que contienen un subconjunto de las tuplas que alberga la primera. Dentro de la fragmentación horizontal podemos encontrar la \textbf{primaria} y la \textbf{secundaria}.
+
+    \item \textbf{Fragmentación Vertical}: la fragmentación vertical se basa en los atributos de la relación para efectuar la división. Una relación R produce fragmentos  R\textsubscript{1}, R\textsubscript{2}, ..., R\textsubscript{n}, cada uno de los cuales contiene un subconjunto de atributos de R así como la clave primaria de R. El objetivo de la fragmentación es particionar una relación en un conjunto de relaciones mas pequeñas de forma que varias aplicaciones de usuario se ejecutarán sobre un fragmento. En este contexto, una fragmentación óptima es aquella que produce un esquema de fragmentación que minimiza el tiempo de ejecución de las consultas de usuario. La fragmentación vertical es más complicada que la horizontal, ya que existe un número mayor de alternativas para realizarla.
+
+    \item \textbf{Fragmentación Híbrida o Mixta}: podemos combinar ambas aproximaciones utilizando la denominada fragmentación mixta. Si tras una fragmentación horizontal se lleva a cabo una vertical, se habla de fragmentación mixta Horizontal-Vertical. Para el caso contrario, estaremos ante una fragmentación Vertical-Horizontal. Estos dos tipos de fragmentación se representan mediante arboles.
+\end{itemize}
 % Glossary
 
 \glsaddall
