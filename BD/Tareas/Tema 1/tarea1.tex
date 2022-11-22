@@ -63,17 +63,104 @@ La descripción de los dos apartados de los que consta esta actividad es la sigu
 \section{Instalación de MySQL}
 MySQL es un SGBD (Sistema Gestor de Bases de Datos) realizado bajo licencia dual (GPL/Comercial) por Oracle Corpotation y es considerada como la base de datos de código abierto más popular del mundo y una de las más populares junto a Oracle y Microsoft SQL Server, sobre todo para entornos de desarrollo web. \cite{mysql}.
 
-En esta sección, vamos a realizar la instalación y configuración de su versión libre, \textbf{MySQL Community Server 8.0.30}, en el sistema operativo Windows 10, creando posteriormente un nuevo usuario y realizando una conexión con este. Para ello, vamos a seguir los siguientes pasos:
+En esta sección, vamos a realizar la instalación y configuración de su versión libre, \textbf{MySQL Community Server 8.0.30}, en el sistema operativo Windows 10, creando posteriormente un nuevo usuario y realizando una conexión con éste. Para ello, vamos a seguir los siguientes pasos:
 
 \begin{enumerate}
-    \item En primer lugar, vamos a descargar el instalador oficial de MySQL para Windows 10. Lo podemos encontrar en la \href{https://dev.mysql.com/downloads/installer/}{web oficial de MySQL}. En la imagen de abajo, se muestra la página de descarga, resaltando la versión que deberemos descargar.
+    \item \textbf{Descarga del Instalador}
+
+    En primer lugar, vamos a descargar el instalador oficial de MySQL para Windows 10, que podemos encontrar en la \href{https://dev.mysql.com/downloads/installer/}{web oficial de MySQL}. En la imagen de abajo, se muestra la página de descarga, resaltando la versión que vamos a descargar. Pulsamos en ``\textit{Download}'' y la descarga comenzará.
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.35]{descarga-mysql.png}
+        \includegraphics[scale=0.32]{descarga-mysql.png}
         \caption{Página de descarga del instalador de MySQL}
     \end{figure}
+
+    \item \textbf{Instalación}
+
+    Una vez descargado el instalador, lo ejecutamos desde el directorio donde se haya descargado. Esto iniciará el instalador, mostrando una ventana donde nos permitirá elegir que versión de MySQL queremos instalar. Nosotros vamos a elegir la \textbf{Developer Default}, que nos instalará todas las herramientas necesarias para el desarrollo, como podemos ver en la siguiente figura. Una vez seleccionada la opción, pulsaremos en botón ``\textit{Next}''.
+
+   \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{install-mysql-1.png}
+        \caption{Pantalla inicial del Instalador de MySQL}
+    \end{figure}
+
+    Se nos puede mostrar alguna ventana indicándonos que hay dependencias sin cumplir, por ejemplo, en el caso de que no tengamos instalado el editor Visual Studio. Podemos pulsar en ``\textit{Next}'' sin problema.
+
+    A continuación se nos mostrará una pantalla con todos los componentes que se van a instalar. Pulsamos en ``\textit{Execute}'' y los componentes comenzarán a descargarse y a instalarse, como se puede observar en la siguiente figura.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{install-mysql-3.png}
+        \caption{Descarga e Instalación de componente de MySQL}
+    \end{figure}
+
+    Tras la descarga e instalación de componentes, se nos mostrarán diversas pantallas de configuración, aunque como nosotros vamos a seleccionar la configuración por defecto, solo deberemos introducir la \textbf{contraseña de root} en la pantalla que se nos solicite, dejando el resto de datos tal cuál y pulsando en el botón ``\textit{Next}'' hasta que se nos indique que la instalación se ha completado.
+
+    \item \textbf{Ejecución de Workbench y Pantalla Principal}
+
+    Después de realizar la instalación, buscaremos en el menú desplegable de Windows las aplicaciones instaladas. En concreto, vamos a ejecutar \textbf{MySQL Wokbench}, que es la interfaz gráfica oficial de MySQL. Pulsamos en esta aplicación y se nos abrirá la ventana principal. En esta pantalla principal podemos diferenciar los siguientes  elementos:
+
+    \begin{enumerate}[label=\arabic*.]
+        \item \textbf{Menu Principal}: contiene diferentes opciones como \textit{file}, \textit{edit}, \textit{view}, etc...
+        \item \textbf{Menú Lateral}: donde podemos alternar entre diferentes vistas de la aplicación.
+        \item \textbf{Enlaces}: diversos enlaces para acceder a la documentación, los foros o el blog.
+        \item \textbf{MySQL Connections}: donde se nos mostrarán las diferentes conexiones que podemos realizar con la base de datos, donde podemos ver que solo tenemos la conexión por defecto creada con el usuario root
+    \end{enumerate}
+
+    En la siguiente captura, podemos ver todos estos elementos.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{workbench-main.png}
+        \caption{Pantalla principal de MySQL Workbench}
+    \end{figure}
+
+
+    \item \textbf{Realizando la Primera Conexión}
+
+    El siguiente paso es realizar una conexión con la base de datos. Ahora mismo solo tenemos la conexión creada durante la instalación para el \textbf{usuario root}, como hemos indicado en el punto anterior. Pulsamos sobre dicha conexión en el apartado \textbf{MySQL Connections} de la pantalla principal y se nos abrirá una ventana pidiéndonos la \textbf{contraseña del usuario root}, que deberíamos haber introducido durante el proceso de instalación.
+
+    Después de haber introducido la contraseña, se realizará la conexión y se nos mostrará la página principal de la conexión, donde se nos permitirá gestionar la base de datos, realizar consultar, etc... Esta pantalla, esta compuesta de los siguientes elementos:
+
+    \begin{enumerate}[label=\arabic*.]
+        \item \textbf{Menu Principal y Barra de Herramientas}: en la parte superior nos encontramos el menú principal, con diferentes opciones y desplegables y la barra de herramientas, que nos permite realizar acciones rápidamente, como añadir tablas a la base de datos, filas a una tabla, columnas, etc...
+        \item \textbf{Menu Lateral}: este menú nos permite administrar diferentes aspectos de la base de datos, como las conexiones que se han realizado, el número de usuario y sus privilegios, el estado del sistema, etc.., así como consultar diferente información sobre la base de datos como los logs, la performance, etc...
+        \item \textbf{Pestaña de Consultas}: en esta pestaña es donde realizare las consultas a la base de datos, usando para ello, principalmente, el lenguaje SQL.
+        \item \textbf{Pestaña SQL Additions}: esta pestaña nos permite cargar diferentes herramientas que nos ayudarán a la hora de realizar las consultas, como por ejemplo, snippets para SQL.
+        \item \textbf{Pestaña de Salida}: aquí se nos mostrará la salida de las acciones realizadas.
+    \end{enumerate}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{workbench-conection-2.png}
+        \caption{Ventana emergente para realizar la conexión con la base de datos}
+    \end{figure}
+
+    \item \textbf{Creación de Usuario}
+
+    Ya que tenemos una nueva conexión activa y con privilegios de administrador vamos a crear una nuevo usuario. Para ello, pulsamos en el opción ``\textit{Users and Privileges} del menú lateral en la ventana principal de conexión. Estos nos abrirá una nueva ventana donde se nos mostrará los usuarios que hay ahora mismo creados en la base de datos.
+
+    Pulsamos en la opción ``\textit{Add Account}, que nos encontramos abajo a la izquierda, y se nos abrirá un formulario donde podremos introducir diferentes datos sobre el nuevo usuario. En nuestro caso, solo vamos a cambiar el nombre de usuario a \textbf{fcosueza} y a introducir \textbf{una contraseña}. Debemos introducir una contraseña que nos sea fácil de recordar, aunque hay que tener en cuenta en en entornos de producción esto sería un error muy grande, ya que las contraseña tienen que ser suficientemente fuertes y complejas para no comprometer la seguridad de la base de datos.
+
+    Una vez que hayamos introducido la información, pulsamos en el botón ``\textit{Apply} y nuestro usuario se habrá creado. En la siguiente figura podemos ver una captura de la pestaña de creación de usuarios.
+
+    \newpage
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{create-user.png}
+        \caption{Sección de Empleo Público del IAAP}
+        \label{fig:create}
+    \end{figure}
+
+    \item \textbf{Conexión con el Nuevo Usuario}
+
+    Una vez creado el usuario, ya solo nos queda realizar una conexión a la base de datos con éste.
 \end{enumerate}
+
+
 
 
 % Bibliography
