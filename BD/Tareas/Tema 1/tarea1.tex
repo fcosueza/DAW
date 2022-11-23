@@ -140,11 +140,11 @@ En esta sección, vamos a realizar la instalación y configuración de su versi�
 
     \item \textbf{Creación de Usuario}
 
-    Ya que tenemos una nueva conexión activa y con privilegios de administrador vamos a crear una nuevo usuario. Para ello, pulsamos en el opción ``\textit{Users and Privileges} del menú lateral en la ventana principal de conexión. Estos nos abrirá una nueva ventana donde se nos mostrará los usuarios que hay ahora mismo creados en la base de datos.
+    Ya que tenemos una nueva conexión activa y con privilegios de administrador vamos a crear una nuevo usuario. Para ello, pulsamos en el opción ``\textit{Users and Privileges}'' del menú lateral en la ventana principal de conexión. Estos nos abrirá una nueva ventana donde se nos mostrará los usuarios que hay ahora mismo creados en la base de datos.
 
-    Pulsamos en la opción ``\textit{Add Account}, que nos encontramos abajo a la izquierda, y se nos abrirá un formulario donde podremos introducir diferentes datos sobre el nuevo usuario. En nuestro caso, solo vamos a cambiar el nombre de usuario a \textbf{fcosueza} y a introducir \textbf{una contraseña}. Debemos introducir una contraseña que nos sea fácil de recordar, aunque hay que tener en cuenta en en entornos de producción esto sería un error muy grande, ya que las contraseña tienen que ser suficientemente fuertes y complejas para no comprometer la seguridad de la base de datos.
+    Pulsamos en la opción ``\textit{Add Account}'', que nos encontramos abajo a la izquierda, y se nos abrirá un formulario donde podremos introducir diferentes datos sobre el nuevo usuario. En nuestro caso, solo vamos a cambiar el \textbf{nombre de usuario} a y a introducir \textbf{una contraseña}. Debemos introducir una contraseña que nos sea fácil de recordar, aunque hay que tener en cuenta en en entornos de producción esto sería un error muy grande, ya que las contraseña tienen que ser suficientemente fuertes y complejas para no comprometer la seguridad de la base de datos.
 
-    Una vez que hayamos introducido la información, pulsamos en el botón ``\textit{Apply} y nuestro usuario se habrá creado. En la siguiente figura podemos ver una captura de la pestaña de creación de usuarios.
+    Una vez que hayamos introducido la información, pulsamos en el botón ``\textit{Apply}'' y nuestro usuario se habrá creado. En la siguiente figura podemos ver una captura de la pestaña de creación de usuarios.
 
     \newpage
 
@@ -159,10 +159,22 @@ En esta sección, vamos a realizar la instalación y configuración de su versi�
 
     Una vez creado el usuario, ya solo nos queda realizar una conexión a la base de datos con éste.
 
-    Primero, cerramos la conexión que tenemos abierta pulsando en la ``\textit{X}'' que podemos ver en la pestaña superior izquierda. Esto nos devolverá a la pantalla principal de MySQL Workbench, donde deberemos pulsar el símbolo ``\textit{+}'' que nos encontramos en el apartado de MySQL Connections, como se muestra en la siguiente captura.
+    Primero cerramos la ventana de conexión abierta y volvemos al menú principal de Workbench. En esta pantalla, pulsamos el botón ``\textit{+}'' que nos encontramos en la sección \textbf{MySQL Connections}, lo que nos abrirá un formulario para la creación de una nueva conexión.
 
+    En esta nueva ventana, solo vamos a cambiar el usuario, que deberemos introducir el que hemos creado en el paso anterior. El resto de datos, los dejaremos como están. En la siguiente captura, podemos ver el formulario de creación de una nueva conexión.
 
+   \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{newuser-conection.png}
+        \caption{Creación de una nueva conexión con la base de datos}
+    \end{figure}
+
+    Una vez introducido el nuevo usuario, si queremos, podemos comprobar que la nueva conexión es correcta, pulsando el botón ``\textit{Test Connection}''. Después pulsaremos el botón ``\textit{Ok}'' y la conexión con el nuevo usuario se habrá creado con éxito.
 \end{enumerate}
+
+\section{Instalación de OracleDB}
+
+
 
 
 
