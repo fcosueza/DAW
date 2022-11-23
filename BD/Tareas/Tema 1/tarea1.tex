@@ -173,6 +173,66 @@ En esta sección, vamos a realizar la instalación y configuración de su versi�
 \end{enumerate}
 
 \section{Instalación de OracleDB}
+Oracle Database es un sistema de gestión de base de datos de tipo objeto-relacional (ORDBMS, por el acrónimo en inglés de Object-Relational Data Base Management System), desarrollado por Oracle Corporation, la empresa estadounidense de hardware y software. Este tipo de sistema mejora la gestión de grandes bases de datos y también aumenta el nivel de seguridad. Se basa en un esquema estructurado que solo está disponible para administradores autorizados. \cite{oracle}
+
+En estas sección, vamos a realizar la instalación de la versión \textbf{Oracle Database Express 11g 2} en Windows 10. Para llevar a cabo la instalación, debemos seguir los siguientes pasos:
+
+\begin{enumerate}
+    \item \textbf{Descarga del Instalado}
+
+    Lo primero que debemos hacer es descargarnos el instalador del SGBD. En la página oficial de Oracle las versiones antiguas, en concreto la 11g, está bastante escondido y es difícil llegar a los enlaces de descarga, por lo que nosotros lo vamos de descargar desde \href{https://www.filehorse.com/es/descargar-oracle-database-express/}{este enlace en Filehorse}. Nosotros vamos a descargar la versión de 64bits. En la siguiente captura, vemos la página de descarga.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{download-oracle.png}
+        \caption{Página de Filehorse para la descarga del instalador}
+    \end{figure}
+
+    Pulsando en el botón ``\textit{Descarga Libre}'' pasaremos a una página de confirmación y podemos comenzar la descarga.
+
+    \item \textbf{Instalación}
+
+    Una vez que hemos descargado el archivo, abriremos la carpeta donde se ha almacenado. El archivo descargado es un archivo comprimido por lo que deberemos descomprimirlo para realizar la instalación correctamente.
+
+    Cuando hayamos descomprimido el archivo, entraremos en la carpeta \textbf{DISK1} creada buscaremos el archivo \textbf{setup}. Ejecutamos este archivo y el instalador se iniciará. Como podemos ver en la siguiente captura, el instalador nos dará la opción de seleccionar la versión de OracleDB que queremos instalar, en caso de que hubiera varias, nosotros vamos a seleccionar la única que hay, \textbf{Oracle Database 11g Express Editio}.
+
+    \newpage
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{install-oracle-1.png}
+        \caption{Instalador de Oracle Database}
+    \end{figure}
+
+    Una vez que hayamos seleccionado la versión, comenzará la instalación. Durante el proceso, se nos pedirá que introduzcamos una contraseña. Esta contraseña será la empleada por los usuarios por defecto, SYS y SYSTEM, de OracleDB, así que debemos de recordarla. En la siguiente captura se muestra la confirmación de la nueva contraseña.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{install-oracle-2.png}
+        \caption{Introducción de contraseña durante el proceso de instalación}
+    \end{figure}
+
+    Una vez que hayamos introducido la contraseña el proceso de instalación continuará con normalidad y nuestra base de datos quedará correctamente instalada.
+
+    \item \textbf{Inicialización de OracleDB}
+
+    Una vez realiza la instalación, se habrá creado e inicializado automáticamente una base de datos, ahora debemos acceder a ella para poder gestionarla.
+
+    Si miramos en el escritorio de Windows, veremos que se ha creado un acceso directo llamado \textbf{Get Started with Oracle}, para acceder mediante la interface web, pulsamos este icono. Hay que tener en cuenta que pueden suceder dos cosas:
+
+    \begin{itemize}
+        \item \textbf{Ejecución Normal}: tras pulsar el icono se ejecutara correctamente y nos mostrará la pantalla inicial de OracleDB.
+        \item \textbf{Error}: puede que al ejecutar el icono nos de un error del tipo ''\textit{No se puede encontrar el fichero ..."}, esto es debido a que la variable de entorno \textbf{HTTPPORT} no esta establecida, por lo que deberemos crear esa variable y asignarle el valor \textbf{8080}, tras lo que reiniciaremos el sistema. En este documento no se va a cubrir como crear variables de entorno en Windows, pero en \href{https://medium.com/@01luisrene/como-agregar-variables-de-entorno-s-o-windows-10-e7f38851f11f}{este articulo} hay un tutorial para ésto.
+    \end{itemize}
+
+    Cuando se haya ejecutado correctamente el acceso directo nos abrirá el navegador por defecto y nos mostrará la página principal de gestión de OracleDB, como podemos ver en la siguiente captura.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{oracle-main.png}
+        \caption{Interfaz web de OracleDB}
+    \end{figure}
+\end{enumerate}
 
 
 
