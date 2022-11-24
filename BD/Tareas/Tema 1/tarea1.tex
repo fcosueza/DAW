@@ -178,7 +178,7 @@ Oracle Database es un sistema de gestión de base de datos de tipo objeto-relaci
 En estas sección, vamos a realizar la instalación de la versión \textbf{Oracle Database Express 11g 2} en Windows 10. Para llevar a cabo la instalación, debemos seguir los siguientes pasos:
 
 \begin{enumerate}
-    \item \textbf{Descarga del Instalado}
+    \item \textbf{Descarga del Instalador}
 
     Lo primero que debemos hacer es descargarnos el instalador del SGBD. En la página oficial de Oracle las versiones antiguas, en concreto la 11g, está bastante escondido y es difícil llegar a los enlaces de descarga, por lo que nosotros lo vamos de descargar desde \href{https://www.filehorse.com/es/descargar-oracle-database-express/}{este enlace en Filehorse}. Nosotros vamos a descargar la versión de 64bits. En la siguiente captura, vemos la página de descarga.
 
@@ -194,7 +194,7 @@ En estas sección, vamos a realizar la instalación de la versión \textbf{Oracl
 
     Una vez que hemos descargado el archivo, abriremos la carpeta donde se ha almacenado. El archivo descargado es un archivo comprimido por lo que deberemos descomprimirlo para realizar la instalación correctamente.
 
-    Cuando hayamos descomprimido el archivo, entraremos en la carpeta \textbf{DISK1} creada buscaremos el archivo \textbf{setup}. Ejecutamos este archivo y el instalador se iniciará. Como podemos ver en la siguiente captura, el instalador nos dará la opción de seleccionar la versión de OracleDB que queremos instalar, en caso de que hubiera varias, nosotros vamos a seleccionar la única que hay, \textbf{Oracle Database 11g Express Editio}.
+    Cuando hayamos descomprimido el archivo, entraremos en la carpeta \textbf{DISK1} creada buscaremos el archivo \textbf{setup}. Ejecutamos este archivo y el instalador se iniciará. Como podemos ver en la siguiente captura, el instalador nos dará la opción de seleccionar la versión de OracleDB que queremos instalar, en caso de que hubiera varias, nosotros vamos a seleccionar la única que hay, \textbf{Oracle Database 11g Express Edition}.
 
     \newpage
 
@@ -222,7 +222,9 @@ En estas sección, vamos a realizar la instalación de la versión \textbf{Oracl
 
     \begin{itemize}
         \item \textbf{Ejecución Normal}: tras pulsar el icono se ejecutara correctamente y nos mostrará la pantalla inicial de OracleDB.
-        \item \textbf{Error}: puede que al ejecutar el icono nos de un error del tipo ''\textit{No se puede encontrar el fichero ..."}, esto es debido a que la variable de entorno \textbf{HTTPPORT} no esta establecida, por lo que deberemos crear esa variable y asignarle el valor \textbf{8080}, tras lo que reiniciaremos el sistema. En este documento no se va a cubrir como crear variables de entorno en Windows, pero en \href{https://medium.com/@01luisrene/como-agregar-variables-de-entorno-s-o-windows-10-e7f38851f11f}{este articulo} hay un tutorial para ésto.
+        \item \textbf{Error}: puede que al ejecutar el icono nos de un error del tipo ''\textit{No se puede encontrar el fichero ..."}, esto es debido a que la variable de entorno \textbf{HTTPPORT} no esta establecida, por lo que deberemos crear esa variable y asignarle el valor \textbf{8080}, tras lo que reiniciaremos el sistema. En este documento no se va a cubrir como crear variables de entorno en Windows, pero en \href{https://medium.com/@01luisrene/como-agregar-variables-de-entorno-s-o-windows-10-e7f38851f11f}{este articulo} hay un tutorial que puede ser de utilidad.
+
+        Otra opción es copiar la dirección que se nos muestra en el mensaje de error, sustituir \textbf{HTTPPORT} por \textbf{8080} y copiarla en una navegador, aunque esta solución es mas engorrosa y deberemos realizar el procedimiento cada que que queramos conectar a la base de datos. Por lo que yo recomiendo crear la variables de entorno.
     \end{itemize}
 
     Cuando se haya ejecutado correctamente el acceso directo nos abrirá el navegador por defecto y nos mostrará la página principal de gestión de OracleDB, como podemos ver en la siguiente captura.
@@ -231,6 +233,54 @@ En estas sección, vamos a realizar la instalación de la versión \textbf{Oracl
         \centering
         \includegraphics[scale=0.30]{oracle-main.png}
         \caption{Interfaz web de OracleDB}
+    \end{figure}
+
+    Como vemos en la captura, en la página principal tenemos diferentes secciones a las que podemos acceder tanto desde la barra superior como desde los enlaces que hay debajo. A la izquierda, tenemos un menú lateral con diferentes enlaces hacia la documentación de OracleDB.
+
+    \item \textbf{Inicio de Sesión como Administrador}
+
+    Desde la página principal de Oracle que hemos visto en el punto anterior, pulsamos en cualquier de los enlaces del menú. Independientemente del que pulsemos se nos mostrará un formulario para hacer \textit{login}.
+
+    Deberemos introducir el usuario por defecto que tiene OracleDb, \textbf{SYSTEM}, y como contraseña la que hayamos introducido durante el proceso de instalación. Nuestro usuario quedará autentificado y ya podremos gestionar diferentes aspectos de la base de datos, aunque en esta guía solo vamos a crear un nuevo espacio de trabajo con un usuario como veremos en el siguiente paso.
+
+    En la siguiente imagen, se muestra una captura del formulario de login para autentificar el usuario por defecto.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{oracle-login.png}
+        \caption{Formulario de login inicial de OracleDB}
+    \end{figure}
+
+    \item \textbf{Creación de Espacio de Trabajo}
+
+    Una vez que hayamos iniciado sesión, vamos a crear un nuevo espacio de trabajo con usuario asociado. Para ello, pulsamos en la opción ``\textit{Aplication Express}'' de la pantalla principal de Oracle, que nos llevará a la pantalla de creación. En esta pantalla tenemos dos secciones, una para crear un nuevo espacio de trabajo, la que vamos a usar ahora, y otra para iniciar sesión en un espacio de trabajo ya creado.
+
+    Para crear el nuevo espacio de trabajo, introducimos el nombre del espacio de trabajo y el nombre de usuario, en nuestro caso hemos usado el mismo para para simplificarlo un poco. Una vez introducido, pulsamos en ``\textit{Create Workspace} y el espacio de trabajo se creará. En la siguiente captura, vemos una imagen de la pantalla de creación de espacios de trabajo.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{oracle-newuser.png}
+        \caption{Creación de usuario y espacio de trabajo en OracleDB}
+    \end{figure}
+
+    \item \textbf{Inicio de sesión en el Espacio de Trabajo Creado}
+
+    Ya solo nos falta iniciar sesión con el nuevo usuario en el espacio de trabajo creado. Para ello, volvemos a la sección ``\textit{Aplication Express}'' del paso anterior, pero en vez de centrarnos en la sección para crear una espacio de trabajo, pulsamos en el botón ``\textit{Already have and account? Login Here}'' que se encuentra en la sección de la derecha ``\textit{Getting Started}''. Esto nos llevara a la pantalla de login de espacios de trabajo.
+
+    Introducimos el nombre de usuario y del espacio de trabajo creados en está pantalla, así como la contraseña que hayamos puesto, como se ve en la siguiente captura.
+
+     \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{login-new-user.png}
+        \caption{Inicio de sesión con el nuevo usuario}
+    \end{figure}
+
+    Una vez introducido correctamente los datos, pulsamos en el botón ``\textit{Login}'' en iniciaremos sesión, abriéndose la página principal del espacio de trabajo, como vemos en la siguiente captura.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{newuser-workspace.png}
+        \caption{Página principal del espacio de trabajo creado}
     \end{figure}
 \end{enumerate}
 
