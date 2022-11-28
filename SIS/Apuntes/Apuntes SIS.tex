@@ -65,7 +65,16 @@ Un \textbf{ordenador} se define como una máquina electrónica, con algunas part
 En el \textit{Anexo A.1}, podrás encontrar más información sobre la clasificación de los ordenadores.
 
 \section{Arquitectura Hardware: Componentes Funcionales}
-Un computador es compuesto por una seria de sistemas y subsistemas hardware, que cooperando entre sí, permiten a este llevar a cabo su función, procesando la información que recibe y emitiendo los resultados de este procesado.  Estos subsistemas consta, principalmente de tres elementos:
+Un computador esta compuesto por una seria de sistemas y subsistemas hardware, que cooperando entre sí, permiten a este llevar a cabo su función, procesando la información que recibe y emitiendo los resultados de este procesado.  En la siguiente figura vemos un esquema de estos subsistemas.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.90]{arquitectura-computador.png}
+    \caption{Subsistemas de la arquitectura de un computador}
+\end{figure}
+
+
+Como vemos en la imagen, hay tres subsistemas principales, que son los siguientes:
 
 \begin{itemize}
     \item \textbf{Unidad Central de Proceso} (CPU): es el sistemas básico más importante, encargado de coordinar a los demás subsistemas, extraer secuencialmente las instrucciones de la memoria principal para procesarlas y ejecutarlas.
@@ -73,13 +82,37 @@ Un computador es compuesto por una seria de sistemas y subsistemas hardware, que
     \item \textbf{Periféricos}: se dividen en periféricos de entrada y de salida, según la dirección del flujo de información. Ambos sistemas se encargan de la comunicación con el exterior, es decir, con el usuario u otros sistemas.
 \end{itemize}
 
-Estos subsistemas se interconectan mediante un \textbf{bus de sistema}, que consta de un conjunto de conexiones físicas encargado de transmitir la información entre los diferentes subsistemas. En la siguiente figura, podemos ver un esquema de esta arquitectura.
+Además de estos tres subsistemas, debemos de hablar de \textbf{bus de sistema}, que es el medio físico encargado de transmitir la información entre los diferentes subsistemas.
+
+En la actualidad, la arquitectura empleada es la fabricación de computadores es la \textbf{arquitectura Von Neumann}. Esta arquitectura de computadoras ésta basada en la descrita en 1945 por el matemático y físico \textbf{John Von Neumann}. En la siguiente imagen podemos ver un esquema de la arquitectura Von Neumann.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.25]{empleo-iaap.png}
-    \caption{Subsistemas de un Computador}
+    \includegraphics[scale=0.25]{von-neumann.png}
+    \caption{Arquitectura Von Neumann}
 \end{figure}
+
+Como vemos es igual a la que hemos descrito en este punto. Podemos observar como la \textbf{CPU} contiene dos unidades, la \textbf{unidad de control} y la \textbf{ALU} o \textbf{unidad Aritmético-Lógica}, las cuales veremos con más detalle en la siguiente sección.
+
+Si queremos saber más sobre esta arquitectura, lo cual recomiendo encarecidamente, podemos visitar \href{https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann}{la entrada en Wikipedia} de la arquitectura Von Neumann.
+
+\subsection{Unidad Central de Proceso o CPU}
+La \textbf{Unidad Central de Proceso} es el componente que podría definirse como el ``cerebro'' del computador, ya que es la encargada de controlar, dirigir y coordinar todas las operaciones que realiza el ordenador.
+
+Para que la CPU pueda ejecutar un \textbf{\gls{programa}} es necesario que éste se guarde en su memoria principal, desde donde se van extrayendo en secuencia cada una de sus instrucciones, analizándolas y emitiendo las órdenes necesarias al resto de componentes que deban intervenir para completar su ejecución.
+
+La CPU esta integrada en el Procesador Central o microprocesador y acompañada de una pequeña cantidad de \textbf{\gls{registros}} de memoria necesarios para su funcionamiento.
+
+Dentro del Microprocesador, y como parte integrante de la \textbf{CPU}, existen dos unidades, como ya vimos en el apartado anterior sobre la arquitectura Von Neumann. Esta unidades son:
+
+\begin{itemize}
+    \item \textbf{Unidad de Control}: se encarga de ejecutar los programas, controlando su secuencia, interpretando y ejecutando las instrucciones. Se encarga también de controlar al resto de componentes, como periféricos, memoria, etc.., según vayan necesitando las instrucciones.
+    \item \textbf{Unidad Aritmético-Lógica} o \textbf{ALU}: se encarga de realiza los cálculos matemáticos y lógicos necesarios para su funcionamiento.
+\end{itemize}
+
+La memoria principal, conocida como \textbf{RAM} (Random Access Memory), es la encargada de almacenar los datos e instrucciones de los programas que deben ejecutarse, así como toda la información que el sistema necesita para su funcionamiento. Esta constituida por un \textbf{conjunto de registros} capaces de retener información en su interior mientras el ordenador esta en funcionamiento. Cuando el ordenador se apaga, se pierde su contenido, por lo que esta memoria es de tipo \textbf{\gls{volatil}}.
+
+Los \textbf{sistemas de Entrada y Salida} son circuitos electrónicos que permiten el intercambio de información entre la CPU y los periféricos. Las unidades de entrada y salida se usan para cargar programas y datos en memoria principal desde los periféricos de entrada, y las unidades de salida para mostrar los resultados de las operaciones realizadas a través de periféricos de salida.
 
 % Glossary
 
