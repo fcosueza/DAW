@@ -96,7 +96,7 @@ Como vemos es igual a la que hemos descrito en este punto. Podemos observar como
 
 Si queremos saber más sobre esta arquitectura, lo cual recomiendo encarecidamente, podemos visitar \href{https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann}{la entrada en Wikipedia} de la arquitectura Von Neumann.
 
-\subsection{Unidad Central de Proceso o CPU}
+\subsection{Componentes Principales (CPU, RAM, E/S, ...)}
 La \textbf{Unidad Central de Proceso} es el componente que podría definirse como el ``cerebro'' del computador, ya que es la encargada de controlar, dirigir y coordinar todas las operaciones que realiza el ordenador.
 
 Para que la CPU pueda ejecutar un \textbf{\gls{programa}} es necesario que éste se guarde en su memoria principal, desde donde se van extrayendo en secuencia cada una de sus instrucciones, analizándolas y emitiendo las órdenes necesarias al resto de componentes que deban intervenir para completar su ejecución.
@@ -113,6 +113,47 @@ Dentro del Microprocesador, y como parte integrante de la \textbf{CPU}, existen 
 La memoria principal, conocida como \textbf{RAM} (Random Access Memory), es la encargada de almacenar los datos e instrucciones de los programas que deben ejecutarse, así como toda la información que el sistema necesita para su funcionamiento. Esta constituida por un \textbf{conjunto de registros} capaces de retener información en su interior mientras el ordenador esta en funcionamiento. Cuando el ordenador se apaga, se pierde su contenido, por lo que esta memoria es de tipo \textbf{\gls{volatil}}.
 
 Los \textbf{sistemas de Entrada y Salida} son circuitos electrónicos que permiten el intercambio de información entre la CPU y los periféricos. Las unidades de entrada y salida se usan para cargar programas y datos en memoria principal desde los periféricos de entrada, y las unidades de salida para mostrar los resultados de las operaciones realizadas a través de periféricos de salida.
+
+Los \textbf{buses del sistema} son el conjunto de circuitos eléctricos que conectan la CPU con el resto de componentes para comunicarse entre sí. Cada bus es un conjunto de cables de un circuito integrado que permite la transmisión de información de forma paralela. Podemos encontrar tres tipos diferentes de buses:
+
+\begin{itemize}
+    \item \textbf{Bus de Instrucciones y Datos}: se utilizan para trasladar tanto instrucciones como datos desde la memoria RAM al resto de componentes del computador y viceversa.
+    \item \textbf{Bus de Control}: bus que se encarga de trasmitir las instrucciones desde la CPU al resto de unidades y recibe de ellas señales indicando su estado.
+    \item \textbf{Bus de Direcciones}: se encarga de transmitir las direcciones de destino de los datos que se envían por el bus de datos.
+\end{itemize}
+
+En la siguiente figura, podemos ver un esquema con todos estos componentes.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.46]{buses-de-sistema.png}
+    \caption{Unidades y buses del sistema}
+\end{figure}
+
+\subsection{Periféricos y Almacenamiento Externo}
+Los \textbf{periféricos} son los dispositivos electrónicos, unidades externas, que se conectan al ordenador a través de los buses de entrada/salida, integrándose en el sistema, que pasa a controlarlos como parte de sí mismo desde el momento en el que se reconoce su conexión.
+
+Existen infinidad de periféricos, diferentes por su diseño y función. Algunos tienen como finalidad facilitar la entrada de información en el ordenador, mientras que otros facilitan su salida, otros cuya finalidad es el almacenamiento permanente de datos o los que permiten la conexión con otras máquinas y el intercambio de información. No todos ellos son imprescindibles, aunque los más normal es contar de teclado, ratón, monitor, impresora altavoces y conexión de red.
+
+Los periféricos se pueden clasificar, según su función, en los siguientes:
+
+\begin{itemize}
+    \item \textbf{Unidades de Entrada}: son aquellos periféricos que permiten introducir la información o los datos desde el exterior a la memoria principal, preparando la información para que pueda ser procesada por la máquina. Un ejemplo de estos periféricos son el teclado y el ratón.
+    \item \textbf{Unidades de Salida}: son las encargadas de sacar al exterior los datos resultantes de las operaciones realizadas, mostrando la información de forma comprensible para el usuario. Ejemplos de estas unidades son la pantalla o la impresora.
+    \item \textbf{Unidades de Entrada/Salida}: esta unidades de usan tanto para entrada como para la salida de información del sistema. Algunas de estas unidades no necesitan hacer procesos de conversión ya que manejan la información en formato binario, mientras que otras necesitan procesos de conversión para trabajar con los usuarios o para comunicarse con otro dispositivo. Algunos ejemplos son las tarjetas de red, discos duros, memorias USB, etc...
+\end{itemize}
+
+Algunos periféricos necesitan \textbf{soportes adicionales} para representar la información o almacenarla. En estos casos hay que tener en cuenta que el periférico no almacena la información, sino que es el medio utilizado para obtener o almacenar la información en su soporte. Un ejemplo de esto son los lectores de DVD o Blu-Ray.
+
+\section{Componentes Físicos de un Ordenador Actual}
+La arquitectura de un ordenador define la estructura funcional de cada una de sus partes, pero se hace necesario implementar dicha estructura mediante hardware de fabricación y comercialización actual. Dependiendo de  las características tecnológicas de los componentes empleados en su construcción (tamaño, grado de miniaturización, capacidad de procesado, ...), se ensamblarán ordenadores personales más o menos potentes, como portátiles, tablets, smartphones, consolas de juegos, etc... Pero también servidores, mainframes y superordenadores.
+
+Hay que tener en cuenta, que los distintos componentes deben seguir unos estándares de fabricación, especialmente en lo relativo a sus conexiones y \textbf{\gls{interfaces}}, para permitir su completa integración con el sistema y mantener la compatibilidad de funcionamiento entre ellos.
+
+En esta sección vamos a hacer un estudios de los diferentes elementos utilizados para el ensamblaje de un ordenador personal de sobremesa de uso general en base a componentes físicos que se fabrican y comercializan en la actualidad. Analizando en la medida de lo posible sus características de funcionamiento particulares.
+
+\subsection{Cajas de Ordenador}
+
 
 % Glossary
 
