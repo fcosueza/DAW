@@ -369,6 +369,99 @@ Además de estos elementos, las tarjetas gráficas suelen incluir diferentes \te
 Para ampliar más información sobre las tarjetas gráficas, podemos visitar su \href{https://es.wikipedia.org/wiki/Tarjeta_gr\%C3\%A1fica}{entrada en Wikipedia.}
 
 \subsection{Tarjetas de Sonido}
+Una \textbf{tarjeta de sonido} es una tarjeta de expansión que permite la entrada y salida de audio a través de sus conectores. Normalmente se inserta en una ranura \textbf{PCI}, aunque la mayoría de modelos de placa base vienen ya con una integrada. Las tarjetas de sonido incorporan conectores de tipo mini-jack que se necesitan para la conexión de equipos de sonido. Estos conectores tienen un código de colores que detallamos a continuación:
+
+\begin{itemize}
+    \item Entrada analógica para micrófono: \textbf{rosa}.
+    \item Entrada analógica ``Line-In'': \textbf{azul}.
+    \item Salida analógica estéreo para altavoces frontales: \textbf{verde}.
+    \item Salida analógica para altavoces traseros: \textbf{negro}.
+    \item Salida analógica para altavoces laterales: \textbf{plateado}.
+    \item Salida digital SPDIF: \textbf{naranja}.
+\end{itemize}
+
+Además de estas conexiones, algunas tarjetas incluyen una
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{tarjeta-sonido.jpg}
+    \caption{Imagen de una tarjeta de sonido}
+\end{figure}
+
+Las tarjetas de sonido necesitan tener varios componentes para poder procesar el sonido. Estos componentes son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Circuito CAD} (Conversor Analógico-Digital): se encarga de transformar la señal analógica del sonido en su equivalente digital.
+    \item \textbf{Circuito DAC} (Conversor Digital-Analógico): se encarga de transformar la señal digital en analógica de modo que pueda ser reproducida en unos altavoces.
+
+    Para que la tarjeta de sonido pueda grabar y reproducir sonido al mismo tiempo ambos conversores, el CAD y el DAC, deben trabajar de forma independiente, lo que se conoce como \textbf{full-duplex}.
+
+    \item \textbf{Circuito DSP} (Procesador de Señal Digital): se encarga de procesar el audio en su forma digital, realizando la compresión del audio cuando se graba y descomprimiendo cuando se reproduce. Además, por medio de algoritmos puede aplicar efectos acústicos  a los sonidos como coros, reverb, etc...
+
+    \item \textbf{Sintetizador FM} (Modulación de Frecuencia): se encarga de generar sonido en formato \textbf{\gls{MIDI}} a partir de representaciones simbólicas de sus características.
+
+    \item \textbf{Sintetizador por Tablas de Onda}: genera el sonido a partir de conjunto de muestras de sonido, de instrumentos reales, pregrabados en formato digital en una memoria ROM que incluye la propia tarjeta. El sintetizador para reproducir audio busca en las tablas que necesita en cada momento.
+
+    \item \textbf{Mezclador}: tiene como finalidad recibir múltiples entradas, combinarlas adecuadamente, y enviarlas a las salidas.
+\end{itemize}
+
+Para obtener más información sobre las tarjetas de sonido, podemos visitar la \href{https://es.wikipedia.org/wiki/Tarjeta_de_sonido}{entrada en Wikipedia} referente a éstas.
+
+\subsection{Dispositivos de Entrada}
+Son todos aquellos \textbf{periféricos} que puede utilizar el usuario para \textbf{introducir información} al ordenador. Para ello será necesario que estén conectados a éste de alguna de las formas posibles. La mayoría de conexiones utilizadas, sobre todo en dispositivos de bajo consumo, reciben la alimentación necesaria a través del mismo conector, como por ejemplo, el teclado o el ratón. En cambio, otros dispositivos, debido a su alto consumo, necesitarán tener su propia fuente de alimentación, como por ejemplo, algunos escáneres. A continuación mostramos una lista con los dispositivos de entrada más comunes que nos podemos encontrar.
+
+\begin{itemize}
+    \item \textbf{Teclado}
+
+    Es uno de los dispositivos de entrada más comunes, y casi imprescindibles, que utilizamos para \textbf{enviar información} al ordenador mediante la \textbf{pulsación de sus teclas}. Su modo de funcionamiento incluye que lo tecleado aparezca automáticamente en la pantalla, pudiendo así comprobar que se ha teclado de forma correcta.
+
+    Se conecta al ordenador mediante un conector de tipo \textbf{PS/2} (o mini-din) a su conexión exclusiva, o por medio de conector \textbf{USB}. También los hay \textbf{inalámbricos} que necesitan dos terminales con emisor y receptor, uno de ellos en el propio teclado y otro que debe estar conectado al ordenador mediante el puerto PS/2 o USB. Además, entre los inalámbricos nos encontramos a los que usan el protocolo \textbf{bluetooth}, pudiendo aprovechar los emisores ya incorporados al ordenador.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.15]{teclado.jpg}
+        \caption{Imagen de un teclado}
+    \end{figure}
+
+    \item \textbf{Ratón}
+
+    El teclado es un dispositivo que al \textbf{ser desplazado} por una superficie plana, \textbf{mueve} sobre la pantalla un \textbf{cursor} que lo representa reflejando sus movimientos.
+
+    Dependiendo del modelo, el ratón puede tener dos o más botones, incluso varias ruedas de desplazamiento, que permiten dar diversas órdenes en función del botón pulsado y del número de pulsaciones.  El cursor, que suele tener forma de flechas, se usa para \textbf{señalar diferentes objetos gráficos} en la \textbf{pantalla}.
+
+    Se conecta al ordenador mediante un puerto PS/2 o USB, aunque al igual que con los teclados, podemos encontrarlos inalámbricos.
+
+    \vspace{4ex}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.50]{raton.jpg}
+        \caption{Imagen de un ratón}
+    \end{figure}
+
+
+    \item \textbf{Joystick}
+
+    El joystick o palanca es un periférico similar al ratón en cuanto \textbf{transmite los movimientos} que realicemos con él al ordenador. Se  utiliza sobre todo en juegos para dirigir el movimiento de personajes o vehículos.
+
+    Suele conectar el ordenador mediante un puerto USB. Algunas tarjetas de sonido traen un conector específico para él.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{joystick.jpg}
+        \caption{Imagen de un joystick}
+    \end{figure}
+
+    \item \textbf{Escáner}
+
+    Se utiliza para \textbf{explorar objetos} y obtener su \textbf{representación digital}. El proceso de digitalización consiste en tomar información de cada punto de la superficie del objeto y representarlos con valores binarios para generar un duplicado digital que pueda procesador el ordenador.
+
+    Utiliza una conexión USB para conectarse al ordenador y algunos necesitan toma de corriente eléctrica para su propia alimentación. Además, podemos encontrar diferentes modelos de escáner,  como de sobremesa, de rodillo, de tambor, etc...
+\end{itemize}
+
+
+
+
 
 
 
