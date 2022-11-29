@@ -165,7 +165,7 @@ Estás cajas se fabrican siguiendo unos diseños de basados en unos \textbf{fact
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.65]{torres-ordenador.jpg}
+    \includegraphics[scale=0.45]{torres-ordenador.jpg}
     \caption{Semitorre, Minitorre y Sobremesa}
 \end{figure}
 
@@ -184,7 +184,7 @@ Independientemente del tamaño o forma que tenga que caja, hay ciertas caracter�
 
    \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.65]{caja-abierta.jpg}
+        \includegraphics[scale=0.45]{caja-abierta.jpg}
         \caption{Caja de tipo semitorre abierta}
     \end{figure}
 \end{itemize}
@@ -196,11 +196,11 @@ La fuente de alimentación suele venir preinstalada en la caja del ordenador, au
 
 Se suele presentar, como una caja pequeña, metálica, con muchas rejillas para ventilarse, de la que salen los cables con los \textbf{conectores} necesarios para alimentar los componentes del ordenador con voltajes de mas/menos \textbf{12 voltios}, \textbf{5 voltios} y más \textbf{3.3 voltios}. Los 12 voltios se suelen emplear para las unidades de almacenamiento y el ventilador, mientras que los 5 y 3.3 voltios para el resto de componentes.
 
-Existen también fuentes de alimentación modulares que permiten el acoplamiento de los cables con los conectores necesarios, pudiendo retirar los cables sobrantes innecesarios para que no estorben dentro de la caja. En la siguiente figura podemos ver una fuente de alimentación típica.
+Existen también fuentes de alimentación modulares que permiten el acoplamiento de los cables con los conectores necesarios, pudiendo retirar los cables sobrantes innecesarios para que no estorben dentro de la caja.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.45]{fuente-alimentacion.jpg}
+    \includegraphics[scale=0.35]{fuente-alimentacion.jpg}
     \caption{Fuente de Alimentación}
 \end{figure}
 
@@ -223,6 +223,126 @@ Su diseño debe cumplir con unos estándares basados en el \textbf{factor de for
     \item Las áreas donde se sitúan algunos de sus componentes, como el zócalo del procesador, las ranuras de expansión y los conectores de la parte trasera.
     \item Las conexiones eléctricas de la fuente de alimentación: cantidad de conectores, forma, posición, etc...
 \end{itemize}
+
+En la siguiente imagen podemos ver una placa base con todos sus componentes.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=1]{placa-base.jpg}
+    \caption{Placa base y sus componentes}
+\end{figure}
+
+Todos los conectores tienen conexión directa con alguno de los dos elementos principales del \textbf{chipset}, el \textbf{puente norte} o \textbf{northbridge} y el \textbf{puente sur} o \textbf{southbridge}. Se trata de dos circuitos integrados que con el tiempo han ido recogiendo en su diseño funcionalidades que antes fueron independientes. A saber:
+
+\begin{itemize}
+    \item \textbf{Northbridge}: se encarga de controlar funciones como las comunicaciones entre el procesador, la memoria y el sistema gráfico. Algunos modelos pueden incluir controladoras de vídeo, sonido y red.
+    \item \textbf{Southbridge}: se encarga del control del resto de puertos internos y externos de la placa base.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{puentes-placa.jpeg}
+    \caption{Northbridge y Southbridge en una placa base}
+\end{figure}
+
+El chipset, por lo tanto, hace que la placa base funcione como un ``sistema nervioso'', que interconecta todos sus componentes por medio de diferentes buses, permitiendo la comunicación entre ellos.
+
+La placa base también incluye un chip conocido como \textbf{\gls{BIOS}} con un software propio o \textbf{firmware}, que le permite realizar funcionalidades básicas, como reconocimiento y auto chequeo de los dispositivos instalados o gestión básica de vídeo y teclado. Es el software que se encarga del arranque del ordenador y que es independiente del sistema operativo.
+
+En el \textbf{Anexo A.2} podemos encontrar una relación detallada de todos los componentes de una placa base, y que deberíamos de conocer.
+
+\subsection{Procesadores}
+El \textbf{procesador} es la parte más importante del computador ya que controla al resto de componentes. Se trata de un microchip compuesto de millones de microcomponentes recogidos en una cápsula, normalmente cerámica, que de la que salen una serie de patillas o contactos que hay que acoplar en el zócalo de la placa base.
+
+Existen varios fabricantes de procesadores para ordenadores personales, siendo los mas potentes \textbf{AMD} e \textbf{Intel}, por ser los que más invierten en investigación y más productos sacan al mercado. En los siguientes enlaces podemos consultar los diferentes procesadores de estas compañías y su evolución.
+
+\vspace{5ex}
+
+\begin{itemize}
+    \item \textbf{Procesadores AMD} - \url{http://www.configurarequipos.com/doc1043.html}
+    \item \textbf{Procesadores Intel} - \url{http://www.configurarequipos.com/doc1051.html}
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{cpu.jpg}
+    \caption{Imagen de un procesador.}
+\end{figure}
+
+Hay diversas \textbf{características} que definen a un procesador:
+
+\begin{itemize}
+    \item \textbf{Velocidad de Cálculo}
+
+    Es la velocidad de trabajo o frecuencia del reloj que me mide en \textbf{Hertzios}, o en alguno de sus submúltiplos. Con esta medida se especifica el número de ciclos por segundo, que esta relacionado con el número de operaciones por segundo que puede llevar a cabo el procesador. Se supone que cuantos mas hertzios tenga un procesador más operaciones podrá realizar por segundo y por lo tanto será más rápido.
+
+    Hay que diferenciar entre al \textbf{velocidad interna} y la \textbf{velocidad externa} conocida como \textbf{Front Side Bus} (FSB), que es la velocidad de comunicación entre el procesador y la placa base. Esta medida es útil para comprar procesadores de un mismo fabricante, ya que ha iguales frecuencia de reloj pueden suponer diferentes velocidades de trabajo si comparamos procesadores de diferentes fabricantes.
+
+    \item \textbf{Tecnología de Fabricación}
+
+    La tecnología de fabricación, que se mide en \textbf{nanómetros}, es una medida utilizada para referirse al tamaño de los transistores que componen los procesadores. Cuanto menor sea el tamaño de los transistores, más cerca pueden colocarse unos de otros. Esto permite reducir la cantidad de energía eléctrica y por consiguiente reducir el calor generado por éstos durante el funcionamiento del microprocesador, que puede alcanzar mayores frecuencias de reloj. Actualmente se están fabricando procesadores entre 32 nm y 12 nm.
+
+    \item \textbf{Tamaño y Nivel de la Memoria Caché}
+
+    Es una memoria de gran velocidad utilizada para almacenar datos e instrucciones a los que el procesador debe de estar accediendo continuamente. La inclusión de una buena cantidad de memoria caché aumenta el rendimiento ya que permite reducir el número de accesos que se realizan a la memoria RAM, más lenta.
+
+    Suele haber varios tipos de memoria caché que se \textbf{organizan por niveles}, creando una jerarquía basada en en la proximidad al núcleo del procesador, de forma que cuanto más cerca éste, trabajará a mayor velocidad, pero será de menor tamaño. La cache puede ser:
+
+    \begin{itemize}
+        \item \textbf{Caché de primer nivel o L1}: caché que esta integrada en el núcleo del procesador y trabaja a la misma velocidad. Su capacidad varía de un procesador a otro estando entre los 64KB y los 512KB. Suele estar dividida en dos parte, una dedicada a trabajar con los datos y otra con las instrucciones.
+
+        \item \textbf{Caché de segundo nivel o L2 y tercer nivel o L3}: suelen estar también integradas en el procesador aunque no en su núcleo y sus tamaños pueden variar entre los 3 MB y los 6 MB.
+    \end{itemize}
+
+    \item \textbf{Número de Núcleos}
+
+    Otra de la características de los procesadores actuales es el \textbf{número de núcleos} que se integra en la cápsula y que pueden trabajar de forma simultánea. Como se esta haciendo difícil, o poco rentable, incrementar la velocidad de funcionamiento de los nuevos procesadores para continuar aumentando su rendimiento, los fabricantes han aprovechado el alto grado de integración conseguido en la fabricación de estos para encapsular varios núcleos dentro de un mismo procesador. Actualmente podemos encontrar procesadores con un variable número de núcleos, desde 2 núcleos a 16, o incluso más.
+
+    \item \textbf{Arquitectura}
+
+    En relación al funcionamiento, cabe destacar que otra característica de los procesadores es su \textbf{arquitectura}, la cual puede ser de \textbf{32 bits} o \textbf{64 bits}, que son los tamaños más utilizados en la actualidad. Esta medida se refiere al tamaño de los registros que contiene el procesador, y por tanto, al tamaño de las instrucciones que puede procesar éste. De este tamaño, dependerá el resto de la arquitectura del resto de componentes del procesador, ya que tendrán que trabajar con el mismo número de bits.
+\end{itemize}
+
+Hay que tener en cuenta que la elección de un procesador \textbf{condiciona la elección} de la \textbf{placa base}, ya que debe incluir un chipset acorde para que se puedan aprovechar todas las características del procesador, así como un zócalo compatible en el que pueda instalarse.
+
+Además, hay que tener en cuenta que los procesadores, durante su funcionamiento, generan una gran cantidad de calor, por lo que deberemos tener en cuenta la incorporación de algún \textbf{sistema de refrigeración} que ayude a lidiar con el este calor. Los disipadores, que suelen ser los más empleados, consisten en un elemento metálico (de aluminio o cobre), con mucha superficie de contacto con el aire, que absorba el calor del procesador disipándolo en el aire. Esta \textbf{disipación} puede ser de dos tipos:
+
+\begin{itemize}
+    \item \textbf{Disipación pasiva}: solo incluye el disipador, el elemento metálico ya mencionado.
+    \item \textbf{Disipación activa}: además del disipador, incluye un ventilador acoplado al disipador que crea un flujo de aire ayudando a disipar el calor más rápidamente.
+\end{itemize}
+
+Además, existen alternativas como por ejemplo la \textbf{refrigeración líquida}, que extrae el calor del procesador y de otros componentes aprovechando su mayor conductividad, aunque tiene el inconveniente de tener que instalar circuitos cerrados para hacer pasar el líquido por las zonas a refrigerar además de necesitar un radiador externo para que el líquido se desprenda de su calor.
+
+\subsection{Memorias RAM}
+La \textbf{memoria de acceso aleatorio} o memoria RAM (Random Access Memory) es la memoria que necesita el procesador para ejecutar los programas. En ella busca las instrucciones y datos, además de almacenar los resultados de las operaciones realizadas.
+
+Físicamente, las memorias RAM son pequeñas tarjetas de circuito impreso en la que se sueldan los chips de memoria, por una o ambas caras. Llevan en uno de sus cantos un conjunto de pines o contactos metálicos para insertarlas en los zócalos de la placa base.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{ram.jpg}
+    \caption{Módulo de memoria RAM tipo SO-DIMM}
+\end{figure}
+
+Actualmente podemos encontrar en el mercado diferentes tipos de módulos RAM, los más usados son de tipo \textbf{DDR} (Double Data Rate) o doble tasa de transferencia de datos que vienen integrados en tarjetas de memoria de tipo \textbf{DIMM} o \textbf{SO-DIMM}, usados en equipos de sobremesa y portátiles respectivamente.
+
+Dentro de los módulos DDR, podemos encontrar diferentes versiones que determinarán el número de pines que poseen y donde se encuentra la muesca que les impide su colocación de forma incorrecta. Los principales tipos son:
+
+\begin{itemize}
+    \item \textbf{DDR}: son módulos RAM que usan memorias síncronas (SDRAM), en encapsulados de tipo DIMM, y que permiten hacer \textbf{dos transferencias simultáneas} en un mismo ciclo de reloj. Tienen \textbf{184 pines} en DIMM y \textbf{200 pines} en SO-DIMM.
+
+    \item \textbf{DDR2}: trabajan al doble de frecuencia del reloj de la memoria, por lo que durante cada ciclo de reloj se realizan \textbf{cuatro trasferencias}. Tienen \textbf{240 pines} en DIMM y \textbf{200 pines} en SO-DIMM.
+
+    \item \textbf{DDR3}: pueden realizar\textbf{ ocho transferencias }de datos por cada ciclo de reloj. Tiene \textbf{240 pines} en DIMM y \textbf{204 pines} en SO-DIMM.
+
+    \item \textbf{DDR4}: no aumenta el número de transferencias de reloj, manteniéndose en 8, pero \textbf{aumenta la velocidad} incrementando la frecuencia de reloj. Además, tienen \textbf{mayor densidad} (mayor capacidad de datos) y menores requisitos de voltaje. Usan encapsulados DIMM con \textbf{288 pines} y SO-DIMM con \textbf{260 pines}.
+\end{itemize}
+
+\subsection{Tarjetas de Vídeo}
+
+
+
 % Glossary
 
 \glsaddall
