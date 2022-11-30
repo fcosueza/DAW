@@ -249,7 +249,7 @@ El chipset, por lo tanto, hace que la placa base funcione como un ``sistema nerv
 
 La placa base también incluye un chip conocido como \textbf{\gls{BIOS}} con un software propio o \textbf{firmware}, que le permite realizar funcionalidades básicas, como reconocimiento y auto chequeo de los dispositivos instalados o gestión básica de vídeo y teclado. Es el software que se encarga del arranque del ordenador y que es independiente del sistema operativo.
 
-En el \textbf{Anexo A.2} podemos encontrar una relación detallada de todos los componentes de una placa base, y que deberíamos de conocer.
+En el \textbf{Anexo A.3} podemos encontrar una relación detallada de todos los componentes de una placa base, y que deberíamos de conocer.
 
 \subsection{Procesadores}
 El \textbf{procesador} es la parte más importante del computador ya que controla al resto de componentes. Se trata de un microchip compuesto de millones de microcomponentes recogidos en una cápsula, normalmente cerámica, que de la que salen una serie de patillas o contactos que hay que acoplar en el zócalo de la placa base.
@@ -797,18 +797,253 @@ Antes de ponernos a montar el ordenador, deberemos de prepararnos para el proces
             \item La fuente de alimentación
             \item Los tornillos necesarios para fijar los componentes.
             \item Los cables del panel frontal para la conexión de los LED indicadores y los pulsadores de reinicio y apagado.
-            \item Los cables del panel frontal para la conexión de dispositivos USB y de sonido.
+            \item Los cables del panel frontal para la conexión de dispositivos USB y de sonido
+            \item Un pequeño altavoz.
+            \item Una placa que se añade por si es necesario tapar el hueco de la caja que ya viene hecho de fábrica
         \end{itemize}
+
+        \item \textbf{Placa base}, modelo G41T-R3 de la marca ELITEGROUP, con vídeo, sonido y red integrados. Es apropiada para el procesador que vamos a utilizar. Además, en la misma caja vienen embalados:
+
+        \begin{itemize}
+            \item El manual de placa base y el CD con sus drivers.
+            \item La placa base, empaquetada en una bolsa de plástico antiéstatico.
+            \item Dos cables de datos SATA, para las unidades de almacenamiento internas.
+            \item Una plaquita de metal adaptada a los huecos de los conectores externos de la placa.
+        \end{itemize}
+
+    \item \textbf{Disco duro} de tipo SATA con 250 GB de capacidad.
+    \item La unidad óptica es un \textbf{grabador/lector de DVD} con conexión SATA.
+    \item \textbf{Lector de tarjetas} de memoria flash.
+    \item \textbf{Memoria RAM}, un solo modulo DIMM de 2 GB de capacidad a 1066 MHz de tipo DDR3.
+    \item \textbf{El procesador} es un Pentium de la marca Intel modelo E6700 LGA775, totalmente compatible con el zócalo de la placa base que hemos adquirido. Empaquetado en su misma caja viene el conjunto disipador ventilador que vamos a utilizar para su refrigeración.
+    \item \textbf{Tarjeta de vídeo} para zócalo PCI Express con ventilación pasiva (con disipador pero sin ventilador) y con conexiones externas de tipo SVGA, DVI y HDMI.
+    \item \textbf{Tarjeta de red inalámbrica} de tipo PCI, para disponer de conexión Wi-Fi
+    \item \textbf{Jeringuilla de pasta térmica} para poner entre el procesador y el disipador.
+    \end{itemize}
+
+    \item \textbf{Herramientas Necesarias}
+
+    Una vez que hemos hecho un inventario del hardware que vamos a emplear para montar nuestro PC, vamos a ver si disponemos de las herramientas que necesitaremos en el proceso de ensamblado. Estas son:
+
+    \begin{itemize}
+        \item Destornillador de estrella (o Philips) para abrir y cerrar la caja y para fijar los componentes.
+        \item Un destornillador plano puede ser útil para retirar alguna placa metálica o plástica haciendo palanca.
+        \item Alicates pequeños con punta delgada para apretar los tornillos separadores.
+        \item Pinzas alargadas y finas para poder recuperar tornillos de zonas poco accesibles en caso de ser necesario.
+        \item Pulsera antiestática para evitar posibles descargas dañinas sobre los componentes.
+    \end{itemize}
+
+    \item \textbf{Precauciones y Advertencias de Seguridad}
+
+    Antes de lanzarnos a montar el ordenador, cabe tener en cuenta unas cuantas consideraciones de seguridad para no llevarnos algún susto. Las principales a tener en cuenta son:
+
+    \begin{itemize}
+        \item Las conexiones y desconexiones que se realicen sobre la placa base deben realizarse con el ordenador apagado y desconectado de la toma de corriente eléctrica. De esta forma se evitan cortocircuitos e incluso incendios. Por si acaso debe tener a mano un extintor adecuado para elementos electrónicos.
+
+        \item Para trabajar cómodamente se necesita disponer de una amplia superficie de trabajo, suficientemente iluminada, sobre la que colocar tanto los componentes como las herramientas necesarias. Procure alejar de esta zona cualquier clase de líquido y cualquier cosa que produzca electricidad estática como alfombras, moquetas, mantas, etc...
+
+        \item Debe tenerse especial cuidado en auto descargarse de nuestra posible electricidad estática a la hora de manipular componentes para evitar que esta les produzca algún tipo de daño, de no hacerlo, elementos como las memorias se podrían dañar y quedar inutilizadas. Para ello se debe tocar algún elemento metálico como la propia caja del ordenador o utilizar una pulsera antiestática.
+
+        \item Es necesario contar con un juego de herramientas adecuadas, entre las que se deben incluir una pulsera antielectricidad estática, destornilladores planos y de estrella que estén imantados, pequeños alicates, pinzas, etc...
+
+        \item Todos y cada uno de los conectores que se utilizan en la placa base y por extensión en el ordenador tienen un diseño único en su forma y en la disposición de sus contactos que les impide ser insertados erróneamente en donde no les corresponda.
+
+        \item Para trabajar con seguridad es conveniente no llevar puestos abalorios como colgantes, pulseras, relojes, anillos, etc. que puedan rozar o engancharse en algún elemento, esto es también aplicable a la ropa "suelta" tipo corbata, fular, mangas anchas, etc...
+
+        \item Algunos componentes, como placas base o tarjetas de expansión, tienen en su parte posterior los extremos de los componentes que sobresalen de las soldaduras como pequeños pinchos que pueden clavarse en la piel. Por lo que se aconseja que estas placas se manipulen cogiéndolas por los cantos.
+
+        \item Hay que poner especial cuidado para evitar que puedan producirse heridas de forma involuntaria por ejemplo al rozarse con algún componente o al cortarse con los cantos afilados de alguna chapa, o al pellizcarse mientras se inserta o extrae algún elemento o incluso si nos cae encima algún elemento pesado mientras se manipula. También hay que evitar tocar los elementos que puedan estar calientes como el procesador, o que trabajen con alto voltaje como la fuente de alimentación o el monitor.
     \end{itemize}
 \end{enumerate}
 
+Una vez que ya seguido estos pasos y recordado algunas consideraciones de seguridad estamos listos para empezar con el proceso de montaje. Para ello, en la siguiente sección, se ira explicando paso por paso que debemos hacer.
+
+\subsection{Proceso de Montaje}
 
 
 
 
 
 
+% Apéndice
+\appendix
 
+% Change appendix display options
+\titleformat{\chapter}{\bfseries\Huge}{\thechapter.}{1ex}{}
+
+\chapter{Anexos Tema 1}
+
+\section{Clasificación de Ordenadores}
+En este anexo vamos a realizar una clasificación de los ordenadores según su potencia de computación y tamaño, de mayor a menor, pudiendo diferenciar 5 tipos de computador:
+
+\begin{enumerate}
+    \item \textbf{Supercomputador o Superordenador}
+
+    Un superordenador es un ordenador extraordinariamente rápido con capacidades de proceso, cálculo, almacenamiento, etc.., muy superiores tecnológicamente comprado con el resto de ordenadores construidos en la misma época.
+
+    Físicamente son de gran tamaño y deben ser instalados en ambientes controlados para poder disipar todo el calor que generan sus componentes, lo que no impide que puedan soportar la conexión de miles de usuarios simultáneamente o realizar cálculo extremadamente complejos.
+
+    Suelen incluir varios procesadores de gran potencia que trabajan conjuntamente, en paralelo, destinados a una tarea específica. En número de procesadores, dependiente del modelo, varía entre los 16 procesadores hasta 512. Por supuesto, también cuentan con una generosa cantidad de memoria y con gran capacidad de almacenamiento. Esto les permite procesar ingentes cantidades de información en poco tiempo, pudiendo llegar a procesar miles de millones de operaciones por segundo.
+
+    Debido a su gran potencia, suelen ser utilizados para realizar simulaciones de procesos muy complejos con gran cantidad de datos, como por ejemplo, el análisis de genoma humano,la simulación de explosiones nucleares, predicciones meteorológicas o astronómicas, etc.., pero también son empleados para diseñar y simular máquinas complejas como automóviles o aviones, y para controlar el funcionamiento de las naves espaciales y satélites, entre otras cosas.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.36]{ugr-grid.jpg}
+        \caption{Supercomputador UGRgrid de la Universidad de Granada}
+    \end{figure}
+
+    \item \textbf{Mainframes}
+
+    Los mainframes son grandes ordenadores, de uso general, que disponen de varios procesadores que pueden trabajar de forma independiente entre sí, pudiendo así realizar varias tareas simultáneamente. Están preparados para realizar varios millones de operaciones por segundo. Su gran capacidad de proceso le permiten, por un lado, controlar al mismo tiempo a cientos incluso miles de usuarios y por otro lado controlar el manejo de puertos de salida y de entrada, dando soporte a cientos de dispositivos de entrada y salida, gracias a lo cual pueden contar con muchas unidades de disco que les permiten almacenar grandes cantidades de información.
+
+    Físicamente hoy en día un mainframe tiene la apariencia de una fila de archivadores,similares a los de una biblioteca, que se suelen instalar en una habitación con un control de temperatura y con doble suelo, bajo el que se alojan la gran cantidad de cables necesarios para la conexión de periféricos.
+
+    En comparación con un superodenador, un mainframe es mucho más barato y puede ejecutar simultáneamente mayor numero de programas, pero los superordenadores pueden ejecutar un solo programa mucho mas rápido.
+
+    Son utilizados en las empresas de gran tamaño, con muchas sucursales como bancos, compañías de transporte, etc...
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{mainframe.jpg}
+        \caption{Mainframe}
+    \end{figure}
+
+    \item \textbf{Minicomputadora o Miniordenador}
+    Son una versión reducida de los mainframes, con menos prestaciones de velocidad, menos memoria, menor capacidad de almacenamiento y menos número de terminales. Están orientadas a tareas específicas. Fueron ideadas para dar servicio a empresas e instituciones, de menor tamaño, que no necesitan toda la capacidad de procesamiento ni los periféricos que aporta un mainframe.
+
+    Un minicomputador es, por tanto, un sistema multiproceso y multiusuario que ofrece servicios específicos, que cuenta con capacidad de soportar hasta 200 usuarios conectados simultáneamente y que soporta un número limitado de dispositivos. Son de relativo pequeño tamaño y costo comparados con un mainframe.
+
+    Se suelen utilizar para el almacenamiento de grandes bases de datos, para el control automático en la industria y para aplicaciones multiusuario.
+
+    \vspace{5ex}
+
+    \item \textbf{Workstation o Estación de Trabajo}
+
+    Una estación de trabajo es un ordenador de gran potencia para ser usado por un solo usuario. Es parecido a un ordenador personal pero con mejores componentes, que le proporciona mayor potencia y calidad, y que normalmente se conecta a un ordenador más grande mediante una conexión de red, permitiendo a los usuarios compartir ficheros, aplicaciones y hardware, como impresoras.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.40]{workstation.jpg}
+        \caption{Estación de trabajo con 3 monitores}
+    \end{figure}
+
+    Internamente las estaciones de trabajo suelen estar basadas en otro diseño de CPU llamado RISC (Reduced Instruction Set Computer), con el que las instrucciones de procesan de forma más rápida. Suelen emplearse para aplicaciones de ingeniería, CAD (Computer Aided Design), diseño de publicidad, programación de software, etc...
+
+    \item \textbf{Ordenador Personal o PC}
+
+    Conocido como PC (Personal Computer), es un ordenador de propósito general general, de pequeño tamaño, con al menos un microprocesador, que suele disponer de ratón y teclado para introducir los datos y de un monitor para mostrar la información, además de algún dispositivo de almacenamiento en el que instalar el sistema operativo y guardar datos y programas. También admite la conexión de otros periféricos con múltiples y variadas funciones.
+
+    Son los ordenadores más accesibles para cualquier tipo de usuario, en cuanto a coste y facilidad de uso. En sus inicios solo podían trabajar en modo monousuario, pero con los avances tecnológicos ahora pueden ser usados en modo multiusuario e incluso como servidores de una red de ordenadores.
+
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{pc.jpg}
+        \caption{Ordenador Personal}
+    \end{figure}
+
+    Los PCs tuvieron su origen gracias a la creación de microprocesadores por parte de Intel, y a que IBM los incorporó en unos pequeños ordenadores que con el tiempo se estandarizaron, facilitando que otras compañías pudieran también fabricarlos y comercializarlos a precios asequibles para el gran público.
+\end{enumerate}
+
+\section{Tipos de Ordenadores Personales}
+En la actualidad hay un gran variedad de ordenadores personales, con diferentes tamaños	y prestaciones, ya que este tipo de computador se ha diversificado mucho en los últimos 20 años. Los principales tipos de ordenadores que nos podemos encontrar hoy en día son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Ordenador de Escritorio}: son uno de los tipos de ordenador personal más extendidos, salvando a los smartphones. Están diseñados y fabricados para instalarse en una ubicación estática, como un escritorio o una mesa, a diferencia de los portátiles. Son computadoras de uso doméstico que suelen estar dedicadas al entretenimiento y las tareas domesticas. Dentro de los PC, suelen ser los que tienen mas potencia y ofrecen más prestaciones.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.35]{ordenadores-escritorio.jpg}
+        \caption{Sala con varios ordenadores de escritorio}
+    \end{figure}
+
+    \item \textbf{Ordenador Portátil o Laptop}: Es un ordenador personal que puede transportarse con facilidad por ser ligero de peso y de reducido tamaño.Están equipados con una batería que les permiten sin tener que estar conectados a la red eléctrica.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{ordenador-portatil.png}
+        \caption{Ordenador Portátil}
+    \end{figure}
+
+    \item \textbf{Notebook}: es un ordenador portátil más pequeño que los laptop y que por norma general tiene menos potencia. Son más ligeros y suelen usarse para tareas que requieren poca potencia de procesado como navegar por internet.
+
+    \item \textbf{TabletPC}: se trata de un ordenador pizarra sin teclado físico, que dispone de una pantalla táctil con la que se interactúa utilizando los dedos o algún tipo de apuntador. Hay portátiles que disponen de teclado y ratón y permiten girar la pantalla para usarlos a modo de TabletPC.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.35]{tablet.jpg}
+        \caption{Tablet PC}
+    \end{figure}
+
+    \item \textbf{Portátil Convertible}: son portátiles que disponen de un teclado físico y permiten rotar la pantalla sobre una bisagra o deslizar el teclado debajo de la pantalla, colocándose como si de una pizarra se tratara y permitiendo su uso como una TabletPC.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.18]{portatil-convertible.jpg}
+        \caption{Ordenador portátil convertible}
+    \end{figure}
+
+    \item \textbf{Pocket o PDA}: es un ordenador pequeño que cabe en la palma de una mano y tiene muchas de las prestaciones de los ordenadores de escritorio, pero no todas.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.14]{pda.jpg}
+        \caption{PDA con su lápiz}
+    \end{figure}
+
+    \item \textbf{Smartphone}: es un teléfono móvil que incorpora características de un ordenador personal. Pueden tener un mini teclado, una pantalla táctil, un lápiz óptico, etc... Incluyen un acceso a Internet, servicios de correo electrónico, cámara integrada, navegador web, procesador de textos, etc... Permiten la instalación de una gran variedad de aplicaciones con las que aumentar sus funcionalidades. Actualmente, es el ordenador personal más extendido en el mundo.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.35]{smartphones.jpg}
+        \caption{Diferentes tipos de Smarthphones}
+    \end{figure}
+
+    \item \textbf{Mini PC}: es un ordenador en una barra USB. En sus pequeñas dimensiones integra un puerto HDMI, USB y microUSB (a los que se les puede conectar un disco duro externo), microSD y además disponen de conectividad interna Wi-Fi. El precio, al no incluir pantalla, suele ser más asequible que las TabletPC.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.38]{minipc.jpg}
+        \caption{MiniPC abierto}
+    \end{figure}
+\end{itemize}
+
+Todos estos ordenadores personales pueden funcionar con diferentes sistemas operativos.  Estos se dividen en dos tipos:
+
+\begin{itemize}
+    \item Sistemas operativos basados en escritorio.
+    \item Sistemas operativos pos-PC (similares a los SO de los smarthphones)
+\end{itemize}
+
+En la actualidad, los SO más populares en cada tipo son: Microsoft Windows y sistemas GNU/Linux para los basados en escritorio, e iOS de Apple y Android de Google para los pos-PC. También muchos fabricantes están probando productos como Chrome OS de Google, y otros, principalmente asiáticos, están incorporando doble sistema operativo, permitiendo operar con diferentes sistemas operativos como Android y Windows según las necesidades del usuario.
+
+\section{Principales Conectores de la Placa Base}
+En este anexo vamos a ver de forma detallada cuales son todos los conectores que incluye una placa base y cual es su utilidad, para que podamos identificarlos cuando vayamos a montar un ordenador o simplemente cuando tengamos una placa base delante.
+
+\begin{itemize}
+    \item \textbf{Zócalo del Microprocesador}
+    Es donde va insertado la CPU del ordenador. Según la forma de inserción podemos encontrarnos de varios tipos:
+
+    \begin{itemize}
+        \item \textbf{ZIF} (Zero Insertion Force): también llamados comúnmente \textbf{PGA} (Pin Grid Array), aunque este último nombre hace referencia a la disposición de los pines en el procesador. Tiene un mecanismo que permite introducir las pastillas del procesador sin hacer presión para evitar que pueda estropearse. Una palanca que gira hace que se ajusten los contactos. Para su retirada, el movimiento contrario de la palanca hace que el procesador quede suelto y sea muy fácil retirarlo.
+
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.28]{mb-zif.jpg}
+            \caption{Zócalo de tipo ZIF}
+        \end{figure}
+
+        \item \textbf{LGA} (Land Grid Array): en este caso los pines se encuentran en el propio zócalo mientas que los contactos del procesador son planos. También hay una palanca que ajusta el procesador al zócalo con ayuda de una especie de marco metálico que lo rodea manteniéndolo inmovilizado.
+
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.28]{mb-lga.JPG}
+            \caption{Zócalo de tipo LGA}
+        \end{figure}
+    \end{itemize}
+
+    Según el tipo de zócalo
+\end{itemize}
 
 
 
