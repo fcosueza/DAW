@@ -594,29 +594,28 @@ Los dispositivos de entrada/salida son aquellos que nos permiten tanto introduci
 
 Basándonos en lo que hacen con la información que maneja, podemos clasificarlos en \textbf{dispositivos que almacenan} la \textbf{información} y \textbf{dispositivos que no la almacenan}. Así, los dispositivos de entrada/salida más empleados son los siguientes:
 
-\begin{itemize}
-    \item \textbf{Dispositivos de E/S que no almacenan la información}
+\subsubsection{Dispositivos de E/S sin Almacenamiento}
 
-    Estos dispositivos se limitan a transmitir la información, ya sean hacia el ordenador por parte del usuario, desde el ordenador al usuario o entre distintos ordenadores. Los más comunes son:
+Estos dispositivos se limitan a transmitir la información, ya sean hacia el ordenador por parte del usuario, desde el ordenador al usuario o entre distintos ordenadores. Los más comunes son:
+
+\begin{itemize}
+    \item \textbf{Pantalla Táctil o Touch Screen}
+
+    Estos dispositivos son pantallas, que ya de por si son dispositivos de salida, que además incorporan un mecanismo que le permite capturar información cuando algún elemento hace contacto sobre su superficie, como un dispositivo apuntador o un dedo. Deben trabajar conjuntamente con algún software que asocie las pulsaciones con acciones concretas.
+
+    Para detectar el punto de contacto en la pantalla se suelen emplear diferentes tecnologías, siendo las más comunes:
 
     \begin{itemize}
-        \item \textbf{Pantalla Táctil o Touch Screen}
+        \item \textbf{Pantallas resistivas}: se sitúa sobre la pantalla una cuadrícula eléctrica en dos plano de modo que al ejercer presión un filamento horizontal entra en contacto con otro vertical, detectándose así el área presionada.
+        \item \textbf{Pantallas por infrarrojos}: consiste en una matriz de sensores y emisores infrarrojos horizontales y verticales. En cada eje los receptores están en el lado opuesto de los emisores, de forma que al tocar en algún punto de la pantalla el haz infrarrojo se interrumpe, permitiendo de esta forma localizar el punto presionado.
+        \item \textbf{Pantallas de pulso acústico}: utilizan cuatro transductores piezoeléctricos situados a cada lado de la pantalla que convierte la energía mecánica de contacto en una señal electrónica. Esta señal se convierte en una onda de sonido y se compara con la plantilla de sonidos que ya se tiene en cada posición de la pantalla.
+    \end{itemize}
 
-        Estos dispositivos son pantallas, que ya de por si son dispositivos de salida, que además incorporan un mecanismo que le permite capturar información cuando algún elemento hace contacto sobre su superficie, como un dispositivo apuntador o un dedo. Deben trabajar conjuntamente con algún software que asocie las pulsaciones con acciones concretas.
-
-        Para detectar el punto de contacto en la pantalla se suelen emplear diferentes tecnologías, siendo las más comunes:
-
-        \begin{itemize}
-            \item \textbf{Pantallas resistivas}: se sitúa sobre la pantalla una cuadrícula eléctrica en dos plano de modo que al ejercer presión un filamento horizontal entra en contacto con otro vertical, detectándose así el área presionada.
-            \item \textbf{Pantallas por infrarrojos}: consiste en una matriz de sensores y emisores infrarrojos horizontales y verticales. En cada eje los receptores están en el lado opuesto de los emisores, de forma que al tocar en algún punto de la pantalla el haz infrarrojo se interrumpe, permitiendo de esta forma localizar el punto presionado.
-            \item \textbf{Pantallas de pulso acústico}: utilizan cuatro transductores piezoeléctricos situados a cada lado de la pantalla que convierte la energía mecánica de contacto en una señal electrónica. Esta señal se convierte en una onda de sonido y se compara con la plantilla de sonidos que ya se tiene en cada posición de la pantalla.
-        \end{itemize}
-
-        \begin{figure}[ht]
-            \centering
-            \includegraphics[scale=0.30]{touch.jpg}
-            \caption{Pantalla de tipo Touch Screen}
-        \end{figure}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{touch.jpg}
+        \caption{Pantalla de tipo Touch Screen}
+    \end{figure}
 
     \item \textbf{Módem}
 
@@ -633,84 +632,84 @@ Basándonos en lo que hacen con la información que maneja, podemos clasificarlo
     \item \textbf{Tarjeta de Red}
 
     Las tarjetas de red, son dispositivos que permite la conexión de ordenadores mediante una red local y la conexión de estos a internet ya sea mediante ADSL o cable. Pueden ser cableadas (ethernet) o inalámbricas (Wi-Fi) y la mayoría de ordenadores de la actualidad suelen traer ya una incorporada.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.45]{tarjeta-wifi.jpg}
+    \caption{Tarjeta de red inalámbrica}
+\end{figure}
+
+\subsubsection{Dispositivos de Almacenamiento Masivo}
+
+Los dispositivos de almacenamiento son aquellos pueden almacenar la información de forma permanente sin necesidad de electricidad para mantenerla. Se les llama de \textbf{almacenamiento masivo} porque pueden guardar grandes cantidades de información. Se les conoce también como \textbf{memoria secundaria} o \textit{unidades de almacenamiento} y permiten que la información almacenada sea pueda ser utilizada cuando sea necesario y cuantas veces se precise. La información que guardan se almacena en formato binario.
+
+Algunos dispositivos se bastan de si mismos para el almacenamiento de la información, como los discos duros, mientras que otros necesitan de un soporte de información para almacenarla, como los CD-ROMs o los DVDs.
+
+El \textbf{soporte de información} es cualquier medio físico destinado a registrar la información de forma magnética, óptica o mediante cualquier otro método, siempre de forma permanente. Tienen la característica de ser intercambiables ya que pueden ser usados en cualquier otra unidad compatible de cualquier otro ordenador. Estos soporte suelen ser CD-ROMs, DVDs, cintas magnéticas, tarjetas de memoria, etc...
+
+Los soporte de información los podemos clasificar según la forma de acceso a la información en:
+\begin{itemize}
+    \item \textbf{Secuenciales}: son aquellos en los que la información se accede de forma secuencial, teniendo que recorrer todos los elementos anteriores para obtener un elemento concreto. Suelen ser las cintas DAT o cualquier otro tipo de cinta. Se suelen emplear para backups o copias de seguridad.
+    \item \textbf{Directos}: son aquellos en los que el acceso a la información se hace de forma inmediata sin tener que pasar por otra información anterior. Algunos ejemplos son discos duros, DVDs, etc...
+\end{itemize}
+
+Los principales tipos de dispositivos de almacenamiento, tanto secuencial como directos, son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Lectores de Cintas Magnéticas}
+
+    Las \textbf{cintas magnéticas} para el almacenamiento de datos vienen usando desde la segunda generación de ordenadores. Desde entonces han ido evolucionando en su forma y composición, aumentando su densidad de grabado, paralelamente a como lo han hecho las lectoras/grabadoras. Acceden a la información de \textbf{forma secuencial}.
+
+    Las unidades lectoras deben tener en su interior unos mecanismos que permitan mover la cinta por delante de su cabeza de lectura y escritura, para poder registrar o leer en ella la información de forma magnética.
+
+    Su principal ventaja es su gran capacidad, siendo hoy en día el medio más económico para realizar copias de seguridad de grandes volúmenes de información, proceso para el que su forma de acceso secuencial no es una desventaja.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.15]{cinta-magnetica.jpg}
+        \caption{Lector de cintas magnéticas}
+    \end{figure}
+
+    \item \textbf{Discos Duros}
+
+    El \textbf{disco duro} o \textbf{HD} (Hard Disk) es un dispositivo de almacenamiento de \textbf{acceso directo} que emplea un sistema de grabación magnética para almacenar los datos digitales.
+
+    Esta compuestos por uno o más discos rígidos, de aluminio o material vitrocerámico, que se recubren de una fina capa de materia magnetizable, encerrados en un caja sellada, para evitar la entrada de impurezas que puedan perjudicar su funcionamiento. \textbf{Registran la información} mediante \textbf{variaciones en el campo magnético}, de forma que un punto puede estar magnetizado en un sentido u otro, representando un 1 ó un 0.
+
+    Los \textbf{discos rígidos}, también llamados platos, están unidos por un eje a un motor que los hace girar simultáneamente a gran velocidad. En la actualidad, esta velocidad suele estar comprendida entre las 5.400 rpm y las 7.200 rpm.
+
+    Entre los platos, se colocan unos \textbf{brazos metálicos} en cuyos extremos se sitúan los cabezales. Cada cabezal tiene dos cabezas para cada disco: una de lectura y otra de escritura, que son las que graban o leen la información usando pulsos magnéticos. Mientras estos platos giran, los brazos metálicos integrados en un mecanismo llamado \textbf{peine}, pueden desplazarse de forma perpendicular al eje de los platos. Combinando ambos movimientos, el cabezal de cada plato que va situando en el extremo del peine , puede llegar a cualquier punto de la superficie sin llegar a tocarla.
+
+    Adicionalmente, los discos duros también disponen de una \textbf{parte electrónica} o de \textbf{control}, encarga de gestionar tanto el movimiento de los motores para posicionar los cabezales en el lugar adecuado, como la acción de los cabezales para que puedan escribir y leer, y por supuesto, para el control de la transferencia de información entre el propio disco duro y el computador.
+
+    La \textbf{estructura lógica} que utilizan los discos duros para almacenar la información se les fija desde fábrica mediante un formateo de bajo nivel y es la siguiente:
+
+    \begin{itemize}
+        \item A cada disco se les aplica una estructura de \textbf{pistas}, \textbf{cilindros} y \textbf{sectores}, numerados de forma que el disco acaba dividido en un número de sectores físicos del mismo tamaño. Esta numeración permite accedes a cada sector de forma independiente al resto, convirtiendo a los discos duros en dispositivos de acceso directo.
+        \item La \textbf{capacidad total} de almacenamiento de un disco se puede obtener multiplicando 521 bytes por el número de sectores, pistas y platos que tiene el disco.
+        \item Una \textbf{pista} de un disco es cada una de las circunferencias concéntricas en las que se dividen sus caras. Las pistas se numeran desde la parte exterior empezando por 0. El número de pistas variará en función de la densidad de su material magnetizable y/o de las características particulares de los cabezales de lectura/escritura.
+        \item Un \textbf{cilindro} es el conjunto de pistas ``en vertical'' sobre las que se posicionan las cabezas en un momento dado, un pista por cada cara del disco, que ocupan la misma posición. Así un disco tendrá tantos cilindros como pistas tenga cada una de sus caras.
+        \item Ya que todos los cabezales se desplazan al unísono, es mas eficiente completar cilindros que caras.
+        \item Las pistas, a su vez se dividen en sectores. Cada \textbf{sector} define la zona del disco duro en la que debe situarse el cabezal de lectura/escritura para leer o grabar la información. Además, el tamaño del sector determina la unidad mínima de información a la que pueden acceder los cabezales.
     \end{itemize}
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.45]{tarjeta-wifi.jpg}
-        \caption{Tarjeta de red inalámbrica}
+        \includegraphics[scale=0.25]{disco-duro.jpg}
+        \caption{Interior de un disco duro}
     \end{figure}
 
-    \item \textbf{Dispositivos de E/S que almacenan la información}
+    Para la conexión de los discos duros al ordenador podemos utilizar diferentes interfaces, cada una con sus características propias, ya que usan diferentes tipos de cables y conectores, pero lo más importante es que cada tipo de interfaz utiliza un controlador diferente para gestionar la transmisión de información, como el modo o la velocidad.
+    Las \textbf{interfaces} más usadas son estas:
 
-    Los dispositivos de almacenamiento son aquellos pueden almacenar la información de forma permanente sin necesidad de electricidad para mantenerla. Se les llama de \textbf{almacenamiento masivo} porque pueden guardar grandes cantidades de información. Se les conoce también como \textbf{memoria secundaria} o \textit{unidades de almacenamiento} y permiten que la información almacenada sea pueda ser utilizada cuando sea necesario y cuantas veces se precise. La información que guardan se almacena en formato binario.
-
-    Algunos dispositivos se bastan de si mismos para el almacenamiento de la información, como los discos duros, mientras que otros necesitan de un soporte de información para almacenarla, como los CD-ROMs o los DVDs.
-
-    El \textbf{soporte de información} es cualquier medio físico destinado a registrar la información de forma magnética, óptica o mediante cualquier otro método, siempre de forma permanente. Tienen la característica de ser intercambiables ya que pueden ser usados en cualquier otra unidad compatible de cualquier otro ordenador. Estos soporte suelen ser CD-ROMs, DVDs, cintas magnéticas, tarjetas de memoria, etc...
-
-    Los soporte de información los podemos clasificar según la forma de acceso a la información en:
     \begin{itemize}
-        \item \textbf{Secuenciales}: son aquellos en los que la información se accede de forma secuencial, teniendo que recorrer todos los elementos anteriores para obtener un elemento concreto. Suelen ser las cintas DAT o cualquier otro tipo de cinta. Se suelen emplear para backups o copias de seguridad.
-        \item \textbf{Directos}: son aquellos en los que el acceso a la información se hace de forma inmediata sin tener que pasar por otra información anterior. Algunos ejemplos son discos duros, DVDs, etc...
+        \item \textbf{ATA o PATA} (Parallel ATA): mas conocida como \textbf{IDE} (Integrated Device Electronics) y sus variaciones. Están quedando desfasados debido al uso cada vez mas extendido de las interfaces SATA. La \textbf{velocidad} de su mejor versión llegaba a soportar \textbf{166 MB/s}.
+
+        \item \textbf{SATA} (Serial ATA): utiliza un bus de serie para la transmisión de datos, siendo mas rápido y eficiente que el bus en paralelo de IDE. Existen tres versiones, \textbf{SATA 1, 2 y 3} con velocidades de transferencia de hasta \textbf{150}, \textbf{300} y \textbf{600 MB/s} respectivamente.
+
+        \item \textbf{SCSI}: sin interfaces preparadas para discos de gran de capacidad de almacenamiento y gran velocidad de rotación que se utilizan en \textbf{servidores} a nivel profesional. Existen tres versiones, \textbf{SCSI Estándar} (Standard SCSI), \textbf{SCSI Rápido} (Fast SCSI) y \textbf{SCSI Ancho-Rápido} (Fast-Wide SCSI), con velocidades de \textbf{5}, \textbf{10} y \textbf{20 MB/s} respectivamente. También podemos encontrar la versión \textbf{SAS} (Serial Attached SCSI), una versión nueva y más rápida que las versiones en paralelo.
     \end{itemize}
-
-    Los principales tipos de dispositivos de almacenamiento, tanto secuencial como directos, son los siguientes:
-
-    \begin{itemize}
-        \item \textbf{Lectores de Cintas Magnéticas}
-
-        Las \textbf{cintas magnéticas} para el almacenamiento de datos vienen usando desde la segunda generación de ordenadores. Desde entonces han ido evolucionando en su forma y composición, aumentando su densidad de grabado, paralelamente a como lo han hecho las lectoras/grabadoras. Acceden a la información de \textbf{forma secuencial}.
-
-        Las unidades lectoras deben tener en su interior unos mecanismos que permitan mover la cinta por delante de su cabeza de lectura y escritura, para poder registrar o leer en ella la información de forma magnética.
-
-        Su principal ventaja es su gran capacidad, siendo hoy en día el medio más económico para realizar copias de seguridad de grandes volúmenes de información, proceso para el que su forma de acceso secuencial no es una desventaja.
-
-        \begin{figure}[ht]
-            \centering
-            \includegraphics[scale=0.15]{cinta-magnetica.jpg}
-            \caption{Lector de cintas magnéticas}
-        \end{figure}
-
-     \item \textbf{Discos Duros}
-
-     El \textbf{disco duro} o \textbf{HD} (Hard Disk) es un dispositivo de almacenamiento de \textbf{acceso directo} que emplea un sistema de grabación magnética para almacenar los datos digitales.
-
-     Esta compuestos por uno o más discos rígidos, de aluminio o material vitrocerámico, que se recubren de una fina capa de materia magnetizable, encerrados en un caja sellada, para evitar la entrada de impurezas que puedan perjudicar su funcionamiento. \textbf{Registran la información} mediante \textbf{variaciones en el campo magnético}, de forma que un punto puede estar magnetizado en un sentido u otro, representando un 1 ó un 0.
-
-     Los \textbf{discos rígidos}, también llamados platos, están unidos por un eje a un motor que los hace girar simultáneamente a gran velocidad. En la actualidad, esta velocidad suele estar comprendida entre las 5.400 rpm y las 7.200 rpm.
-
-     Entre los platos, se colocan unos \textbf{brazos metálicos} en cuyos extremos se sitúan los cabezales. Cada cabezal tiene dos cabezas para cada disco: una de lectura y otra de escritura, que son las que graban o leen la información usando pulsos magnéticos. Mientras estos platos giran, los brazos metálicos integrados en un mecanismo llamado \textbf{peine}, pueden desplazarse de forma perpendicular al eje de los platos. Combinando ambos movimientos, el cabezal de cada plato que va situando en el extremo del peine , puede llegar a cualquier punto de la superficie sin llegar a tocarla.
-
-     Adicionalmente, los discos duros también disponen de una \textbf{parte electrónica} o de \textbf{control}, encarga de gestionar tanto el movimiento de los motores para posicionar los cabezales en el lugar adecuado, como la acción de los cabezales para que puedan escribir y leer, y por supuesto, para el control de la transferencia de información entre el propio disco duro y el computador.
-
-     La \textbf{estructura lógica} que utilizan los discos duros para almacenar la información se les fija desde fábrica mediante un formateo de bajo nivel y es la siguiente:
-
-     \begin{itemize}
-         \item A cada disco se les aplica una estructura de \textbf{pistas}, \textbf{cilindros} y \textbf{sectores}, numerados de forma que el disco acaba dividido en un número de sectores físicos del mismo tamaño. Esta numeración permite accedes a cada sector de forma independiente al resto, convirtiendo a los discos duros en dispositivos de acceso directo.
-         \item La \textbf{capacidad total} de almacenamiento de un disco se puede obtener multiplicando 521 bytes por el número de sectores, pistas y platos que tiene el disco.
-         \item Una \textbf{pista} de un disco es cada una de las circunferencias concéntricas en las que se dividen sus caras. Las pistas se numeran desde la parte exterior empezando por 0. El número de pistas variará en función de la densidad de su material magnetizable y/o de las características particulares de los cabezales de lectura/escritura.
-         \item Un \textbf{cilindro} es el conjunto de pistas ``en vertical'' sobre las que se posicionan las cabezas en un momento dado, un pista por cada cara del disco, que ocupan la misma posición. Así un disco tendrá tantos cilindros como pistas tenga cada una de sus caras.
-         \item Ya que todos los cabezales se desplazan al unísono, es mas eficiente completar cilindros que caras.
-         \item Las pistas, a su vez se dividen en sectores. Cada \textbf{sector} define la zona del disco duro en la que debe situarse el cabezal de lectura/escritura para leer o grabar la información. Además, el tamaño del sector determina la unidad mínima de información a la que pueden acceder los cabezales.
-     \end{itemize}
-
-     \begin{figure}[ht]
-         \centering
-         \includegraphics[scale=0.25]{disco-duro.jpg}
-         \caption{Interior de un disco duro}
-     \end{figure}
-
-      Para la conexión de los discos duros al ordenador podemos utilizar diferentes interfaces, cada una con sus características propias, ya que usan diferentes tipos de cables y conectores, pero lo más importante es que cada tipo de interfaz utiliza un controlador diferente para gestionar la transmisión de información, como el modo o la velocidad.
-      Las \textbf{interfaces} más usadas son estas:
-
-      \begin{itemize}
-          \item \textbf{ATA o PATA} (Parallel ATA): mas conocida como \textbf{IDE} (Integrated Device Electronics) y sus variaciones. Están quedando desfasados debido al uso cada vez mas extendido de las interfaces SATA. La \textbf{velocidad} de su mejor versión llegaba a soportar \textbf{166 MB/s}.
-
-          \item \textbf{SATA} (Serial ATA): utiliza un bus de serie para la transmisión de datos, siendo mas rápido y eficiente que el bus en paralelo de IDE. Existen tres versiones, \textbf{SATA 1, 2 y 3} con velocidades de transferencia de hasta \textbf{150}, \textbf{300} y \textbf{600 MB/s} respectivamente.
-
-          \item \textbf{SCSI}: sin interfaces preparadas para discos de gran de capacidad de almacenamiento y gran velocidad de rotación que se utilizan en \textbf{servidores} a nivel profesional. Existen tres versiones, \textbf{SCSI Estándar} (Standard SCSI), \textbf{SCSI Rápido} (Fast SCSI) y \textbf{SCSI Ancho-Rápido} (Fast-Wide SCSI), con velocidades de \textbf{5}, \textbf{10} y \textbf{20 MB/s} respectivamente. También podemos encontrar la versión \textbf{SAS} (Serial Attached SCSI), una versión nueva y más rápida que las versiones en paralelo.
-      \end{itemize}
 
     \item \textbf{Lectores de CD-ROM}
 
@@ -718,8 +717,8 @@ Basándonos en lo que hacen con la información que maneja, podemos clasificarlo
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.30]{grabadora-cd.jpg}
-        \caption{Grabadora de CD externa}
+        \includegraphics[scale=0.35]{grabadora-cd.jpg}
+        \caption{Grabadora de CD/DVD	 externa}
     \end{figure}
 
     Los \textbf{discos} o \textbf{CDs}, son discos rígidos de 8 a 12 cm de diámetro, con un orificio central de 15 mm de diámetro y un grosor de 1,2 mm, que pueden almacenar entre 214 MB y 700 MB de información respectivamente. Están formados por varias capas de policarbonato que recubren un finísima capa de aluminio reflectante.
@@ -733,10 +732,75 @@ Basándonos en lo que hacen con la información que maneja, podemos clasificarlo
     El \textbf{lector de disco} tiene un motor que hace rotar el disco, y otro que mueve el cabezal radialmente. Con la combinación de ambos movimientos, el láser tiene acceso a todo el disco. La velocidad de giro es controlada por un microprocesador que actúa en función de la posición del cabezal de lectura, para permitir un acceso aleatorio a los datos. Así, cuanto más cerca del borde del disco esté el cabeza de lectura, mas lento girará éste.
 
     Hay unidades \textbf{grabadoras de CD-ROM} que permiten grabar ciertos discos. En realidad, son unidades lectoras a las que se les incorpora un nuevo láser con una frecuencia diferente, que permite modificar la superficie del disco en forma de llanos y surcos para almacenar la información en binario. Los \textbf{CDs grabables} deben tener una capa de material fotosensible que puede ser modificada por una determinada frecuencia de luz para poder ser grabados. Normalmente no se puede grabar más que una vez en un mismo disco, aunque los \textbf{CD-RW}, regrabables, si lo permiten, ya que la capa sobre la que se graba la información es de un compuesto químico que al enfriarse cristaliza de forma rápida, pero que al calentarse de nuevo recupera la estructura original.
-    \end{itemize}
 
-    \textbf{Lectores de DvD}
+
+    \item \textbf{Lectores de DVD}
+
+    El \textbf{disco versátil digital} (Digital Versatil Disk) tiene una capacidad de almacenamiento y velocidades de transferencia muy superiores al los CDs, pudiendo llegar a albergar \textbf{hasta 17 GB de información} en total. Debido a esto, para que se pueda leer un DVD el láser debe tener una longitud de onda más pequeña.
+
+    El aspecto de un DVD es similar al de un CD, pero puede tener una o\textbf{dos caras para la grabación de información}, dependiendo del número de capas reflectantes tenga, cada una de un grosor de 0.6 mm. Además de doblar la superficie de grabación por tener dos caras, los surcos se graban con un tamaño mucho menor, permitiendo así que la pista de datos se estreche, y por tanto, sea mucho más larga. Todo esto implica que pueda almacenar hasta 7 veces más información que un CD normal, por lo que puede almacenar hasta 9,4 GB de información.
+
+    Otro formato de DVD permite tener 2 pistas de datos concéntricas superpuestas en un misma cara. Cada pista tiene indices de reflexión diferentes y transparencia diferentes, lo que permite que la lectora pueda acceder a ambas solo con cambiar el enfoque y la intensidad del láser, permitiendo así tener dos pistas de 8.5 GB cada una, lo que nos da un total de 17 GB de información.
+
+    Tanto los \textbf{CDs} como los \textbf{DVDs}, pueden conectarse al ordenador mediante las mismas interfaces que los discos duros, esto es: \textbf{IDE}, \textbf{SATA} y \textbf{SCSI}.
+
+    \item \textbf{Blu-Ray}
+
+    El \textbf{Blu-ray disc} o \textbf{BD} fue desarrollado para la ejecución de vídeo de altísima calidad, aunque también puede ser utilizado para el almacenamiento de datos. Es un nuevo formato de disco óptico que manteniendo las medidas del CD y el DVD, puede llegar a almacenar \textbf{hasta 100 GB} de información.
+
+    Cada capa de un disco de Blu-ray puede almacenar hasta 25 GB, y existen discos de hasta 4 capas. La mayor densidad de información se consigue gracias al uso del \textbf{láser azul}, que le da nombre al formato, que con su \textbf{longitud de onda de 405 nm}, frente a los \textbf{650 nm del láser rojo} del DVD, le permite almacenar más información por unidad de superficie.
+
+    Existen varios formatos de Blu-ray: \textbf{BD-R}, regrabable, \textbf{BD-RE}, formato reescribible y \textbf{BD-ROM}.
+
+    A diferencia del CD y DVD, solo puede conectarse al ordenador mediante una interfaz \textbf{SATA}.
+
+    \item \textbf{Tarjetas de Memoria Flash}
+
+    La flash, es un tipo de \textbf{memoria no volátil} que viene encapsulada en pequeñas tarjetas de plástico cuya capacidad y velocidad dependerá de los chips de memoria que lleve en su interior.
+
+    En un principio fueron inventadas para usarse como soporte de memoria exterior para dispositivos como teléfonos móviles y PDAs, reproductores musicales, cámaras de fotos, etc.., pero como el tiempo se han extendido su uso también como dispositivo de almacenamiento de uso general.
+
+    Existen \textbf{multitud de formatos}, debido a que los fabricantes, en función de sus intereses, crearon sus propios diseños creando sus formas, tamaños, número de conectores, capacidad, etc.., con el fin de utilizarlos en los aparatos para los que habían sido diseñados. Incluso existen adaptadores para poder usar una misma tarjeta en dispositivos con diferente formato, pero al tratarse de dispositivos de memoria digital, los \textbf{ordenadores} han tardado poco en \textbf{incorporar los lectores} adecuados para la lectura de este tipo de dispositivos.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.15]{memoria-flash.jpg}
+        \caption{Memoria flash sin la carcasa}
+    \end{figure}
+
+    Dentro de los diferentes formatos de memoria flash que existen, los más comunes son:
+
+    \begin{itemize}
+        \item CompactFlash (CF)
+        \item SmartMedia Card (SMC)
+        \item Memory Stick y Memory Stick PRO
+        \item Secure Digital (SD)
+        \item Secure Digital High Capacity (SDHC)
+        \item Pendrives y Memorias USB.
+    \end{itemize}
 \end{itemize}
+
+\section{Montaje de un Ordenador Personal}
+En esta sección vamos a realizar el ensamblado de un ordenador personal de sobremesa. Para ello deberemos seguir unos pasos que se detallarán en la segunda sección de este apartado, pero primero tendremos que hacer un inventario y comprobar que disponemos de las herramientas necesarias, así como tener claro algunas precauciones, lo que veremos en el siguiente punto.
+
+\subsection{Preparación}
+Antes de ponernos a montar el ordenador, deberemos de prepararnos para el proceso de ensamblado, lo que deberemos hacer siguiendo los siguiente pasos:
+
+\begin{enumerate}
+    \item \textbf{Inventario}
+
+    En primer lugar, vamos a hacer un repaso del hardware que tenemos para montar el ordenador, en nuestro caso, las piezas que vamos a usar son las siguientes:
+
+    \begin{itemize}
+        \item \textbf{Caja de tipo semitorre} que contiene:
+        \begin{itemize}
+            \item La fuente de alimentación
+            \item Los tornillos necesarios para fijar los componentes.
+            \item Los cables del panel frontal para la conexión de los LED indicadores y los pulsadores de reinicio y apagado.
+            \item Los cables del panel frontal para la conexión de dispositivos USB y de sonido.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
 
 
 
