@@ -5,8 +5,9 @@
 %----------------------------------------------------------------------------------------
 
 \title{
+\vspace{10ex}
 \normalfont \normalsize
-\huge \textbf{Instalación de MySQL y Oracle Database en Windows 10}
+\Huge \textbf{Tarea 1: Conociendo Mi Equipo}
 }
 \author{Francisco Javier Sueza Rodríguez}
 \date{\normalsize\today}
@@ -18,274 +19,236 @@
 
 \maketitle
 
-\vspace{2ex}
+\thispagestyle{empty}
+
+\vspace{75ex}
 
 \begin{center}
     \begin{tabular}{l l}
         \textbf{Centro}: & IES Aguadulce \\
         \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
-        \textbf{Asignatura}: & Bases de Datos\\
-        \textbf{Tema}: & Tema 1 - Almacenamiento de la Información \\
+        \textbf{Asignatura}: & Sistemas Informáticos\\
+        \textbf{Tema}: & Tema 1 -  Hardware de un Sistema Informático\\
     \end{tabular}
 \end{center}
 
-\vspace{10ex}
+\newpage
 
-\section{Descripción}
-La descripción de los dos apartados de los que consta esta actividad es la siguiente:
+%\tableofcontents
+
+%\vspace{10ex}
+
+%\listoffigures
+
+%\newpage
+
+\section{Caso Práctico}
+José Manuel quiere montar un ordenador para su hermana pequeña, principalmente para jugar a videojuegos modernos y poder realizar tareas que requieran cierta potencia de computación, como la elaboración de contenidos audiovisuales; pero José Manuel no tiene muchos conocimientos de hardware. Ada le ha sugerido que pida ayuda a Juan y a María para que le enseñen los conceptos básicos sobre hardware.
+
+José Manuel hace lo que Ada le sugiere, y Juan y María deciden empezar por enseñar a José Manuel a analizar los componentes de su propio equipo, para que vaya familiarizándose con los mismos.
+
+\section{Actividades}
+En esta sección se incluyen todas las actividades, divididas en subsecciones con su correspondiente descripción y su solución.
+
+\subsection{Actividad 1: Resumen de Hardware}
+Descarga y ejecuta el programa gratuito HWiNFO en tu equipo (se recomienda la versión "portable" ya que no requiere instalación). Una vez dentro, incluye en el documento de la tarea lo siguiente:
 
 \begin{itemize}
-    \item \textbf{Apartado 1}: Instalación de MySQL Community Server 8.0.30 (que incluye MySQL Server y MySQL Workbench)
-    \begin{enumerate}
-        \item Descarga en tu ordenador el producto MySQL Community Server 8.0.30 para el S.O que tengas instalado. Puedes encontrarlo en la página oficial de \href{https://dev.mysql.com/downloads/mysql/}{MySQL}.
-        \item Inicia, desde la ubicación donde lo hayas descargado, el instalador del producto y completa la instalación.
-        \item Ejecuta MySQL Workbench  y accede a su página principal sin lleguar a establecer ninguna conexión.
-        \item Establece una conexión con el usuario administrador 'root' y utiliza la contraseña que hayas establecido durante el proceso de instalación.
-        \item Una vez que te hayas autenticado con el usuario administrador, crea un usuario nuevo estableciendo el nombre de usuario y la contraseña. (Los demás valores de la configuración: roles, privilegios,....déjalos por defecto).
-        \item Establece una conexión con el nuevo usuario.
-    \end{enumerate}
-    \item \textbf{Apartado 2}: Instalación de Oracle Database Express Edition 11g Release 2
-    \begin{enumerate}
-        \item Descarga en tu ordenador el producto Oracle Database Express Edition 11g R2 que puedes encontrarlo en la página oficial de \href{https://www.oracle.com/database/technologies/xe-prior-release-downloads.html}{Oracle} o bien en estos enlaces:
-        \begin{itemize}
-            \item \href{https://www.filehorse.com/es/descargar-oracle-database-express/27799/}{Oracle Express Edition 11g Release (32 bits) Windows}
-            \item \href{https://www.filehorse.com/es/descargar-oracle-database-express/27798/}{Oracle Express Edition 11g Release (64 bits) Windows}
-            \item \href{https://www.tuinformaticafacil.com/descargas-gratis/bases-de-datos/herramientas-oracle/oracle-database-express-edition-11g-r2-para-linux-x64}{Oracle Express Edition 11g Release (64 bits) Linux}
-        \end{itemize}
-    \item Inicia, desde la ubicación donde lo hayas descargado, el instalador del producto y completa la instalación.
-    \item Ejecuta Oracle Database Express Edition 11g R2 y accede a su página principal a través del navegador web que desees.
-    \item Inicia sesión con el usuario administrador estándar de Oracle Express y utiliza la contraseña que hayas establecido durante el proceso de instalación.
-    \item Una vez que te hayas autenticado con el usuario administrador, crea un espacio de trabajo con su usuario correspondiente.
-    \item Entra en el espacio de trabajo con el usuario autenticado.
-    \end{enumerate}
-\end{itemize}
-
-\section{Instalación de MySQL}
-MySQL es un SGBD (Sistema Gestor de Bases de Datos) realizado bajo licencia dual (GPL/Comercial) por Oracle Corpotation y es considerada como la base de datos de código abierto más popular del mundo y una de las más populares junto a Oracle y Microsoft SQL Server, sobre todo para entornos de desarrollo web. \cite{mysql}.
-
-En esta sección, vamos a realizar la instalación y configuración de su versión libre, \textbf{MySQL Community Server 8.0.30}, en el sistema operativo Windows 10, creando posteriormente un nuevo usuario y realizando una conexión con éste. Para ello, vamos a seguir los siguientes pasos:
-
-\begin{enumerate}
-    \item \textbf{Descarga del Instalador}
-
-    En primer lugar, vamos a descargar el instalador oficial de MySQL para Windows 10, que podemos encontrar en la \href{https://dev.mysql.com/downloads/installer/}{web oficial de MySQL}. En la imagen de abajo, se muestra la página de descarga, resaltando la versión que vamos a descargar. Pulsamos en ``\textit{Download}'' y la descarga comenzará.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.32]{descarga-mysql.png}
-        \caption{Página de descarga del instalador de MySQL}
-    \end{figure}
-
-    \item \textbf{Instalación}
-
-    Una vez descargado el instalador, lo ejecutamos desde el directorio donde se haya descargado. Esto iniciará el instalador, mostrando una ventana donde nos permitirá elegir que versión de MySQL queremos instalar. Nosotros vamos a elegir la \textbf{Developer Default}, que nos instalará todas las herramientas necesarias para el desarrollo, como podemos ver en la siguiente figura. Una vez seleccionada la opción, pulsaremos en botón ``\textit{Next}''.
-
-   \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{install-mysql-1.png}
-        \caption{Pantalla inicial del Instalador de MySQL}
-    \end{figure}
-
-    Se nos puede mostrar alguna ventana indicándonos que hay dependencias sin cumplir, por ejemplo, en el caso de que no tengamos instalado el editor Visual Studio. Podemos pulsar en ``\textit{Next}'' sin problema.
-
-    A continuación se nos mostrará una pantalla con todos los componentes que se van a instalar. Pulsamos en ``\textit{Execute}'' y los componentes comenzarán a descargarse y a instalarse, como se puede observar en la siguiente figura.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{install-mysql-2.png}
-        \caption{Descarga e Instalación de componente de MySQL}
-    \end{figure}
-
-    Tras la descarga e instalación de componentes, se nos mostrarán diversas pantallas de configuración, aunque como nosotros vamos a seleccionar la configuración por defecto, solo deberemos introducir la \textbf{contraseña de root} en la pantalla que se nos solicite, dejando el resto de datos tal cuál y pulsando en el botón ``\textit{Next}'' hasta que se nos indique que la instalación se ha completado.
-
-    \item \textbf{Ejecución de Workbench y Pantalla Principal}
-
-    Después de realizar la instalación, buscaremos en el menú desplegable de Windows las aplicaciones instaladas. En concreto, vamos a ejecutar \textbf{MySQL Wokbench}, que es la interfaz gráfica oficial de MySQL. Pulsamos en esta aplicación y se nos abrirá la ventana principal. En esta pantalla principal podemos diferenciar los siguientes  elementos:
-
-    \begin{enumerate}[label=\arabic*.]
-        \item \textbf{Menu Principal}: contiene diferentes opciones como \textit{file}, \textit{edit}, \textit{view}, etc...
-        \item \textbf{Menú Lateral}: donde podemos alternar entre diferentes vistas de la aplicación.
-        \item \textbf{Enlaces}: diversos enlaces para acceder a la documentación, los foros o el blog.
-        \item \textbf{MySQL Connections}: donde se nos mostrarán las diferentes conexiones que podemos realizar con la base de datos, donde podemos ver que solo tenemos la conexión por defecto creada con el usuario root
-    \end{enumerate}
-
-    En la siguiente captura, podemos ver todos estos elementos.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{workbench-main.png}
-        \caption{Pantalla principal de MySQL Workbench}
-    \end{figure}
-
-
-    \item \textbf{Realizando la Primera Conexión}
-
-    El siguiente paso es realizar una conexión con la base de datos. Ahora mismo solo tenemos la conexión creada durante la instalación para el \textbf{usuario root}, como hemos indicado en el punto anterior. Pulsamos sobre dicha conexión en el apartado \textbf{MySQL Connections} de la pantalla principal y se nos abrirá una ventana pidiéndonos la \textbf{contraseña del usuario root}, que deberíamos haber introducido durante el proceso de instalación.
-
-    Después de haber introducido la contraseña, se realizará la conexión y se nos mostrará la página principal de la conexión, donde se nos permitirá gestionar la base de datos, realizar consultar, etc... Esta pantalla, esta compuesta de los siguientes elementos:
-
-    \begin{enumerate}[label=\arabic*.]
-        \item \textbf{Menu Principal y Barra de Herramientas}: en la parte superior nos encontramos el menú principal, con diferentes opciones y desplegables y la barra de herramientas, que nos permite realizar acciones rápidamente, como añadir tablas a la base de datos, filas a una tabla, columnas, etc...
-        \item \textbf{Menu Lateral}: este menú nos permite administrar diferentes aspectos de la base de datos, como las conexiones que se han realizado, el número de usuario y sus privilegios, el estado del sistema, etc.., así como consultar diferente información sobre la base de datos como los logs, la performance, etc...
-        \item \textbf{Pestaña de Consultas}: en esta pestaña es donde realizare las consultas a la base de datos, usando para ello, principalmente, el lenguaje SQL.
-        \item \textbf{Pestaña SQL Additions}: esta pestaña nos permite cargar diferentes herramientas que nos ayudarán a la hora de realizar las consultas, como por ejemplo, snippets para SQL.
-        \item \textbf{Pestaña de Salida}: aquí se nos mostrará la salida de las acciones realizadas.
-    \end{enumerate}
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{workbench-conection-2.png}
-        \caption{Ventana emergente para realizar la conexión con la base de datos}
-    \end{figure}
-
-    \item \textbf{Creación de Usuario}
-
-    Ya que tenemos una nueva conexión activa y con privilegios de administrador vamos a crear una nuevo usuario. Para ello, pulsamos en el opción ``\textit{Users and Privileges}'' del menú lateral en la ventana principal de conexión. Estos nos abrirá una nueva ventana donde se nos mostrará los usuarios que hay ahora mismo creados en la base de datos.
-
-    Pulsamos en la opción ``\textit{Add Account}'', que nos encontramos abajo a la izquierda, y se nos abrirá un formulario donde podremos introducir diferentes datos sobre el nuevo usuario. En nuestro caso, solo vamos a cambiar el \textbf{nombre de usuario} a y a introducir \textbf{una contraseña}. Debemos introducir una contraseña que nos sea fácil de recordar, aunque hay que tener en cuenta en en entornos de producción esto sería un error muy grande, ya que las contraseña tienen que ser suficientemente fuertes y complejas para no comprometer la seguridad de la base de datos.
-
-    Una vez que hayamos introducido la información, pulsamos en el botón ``\textit{Apply}'' y nuestro usuario se habrá creado. En la siguiente figura podemos ver una captura de la pestaña de creación de usuarios.
-
-    \newpage
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{create-user.png}
-        \caption{Sección de Empleo Público del IAAP}
-        \label{fig:create}
-    \end{figure}
-
-    \item \textbf{Conexión con el Nuevo Usuario}
-
-    Una vez creado el usuario, ya solo nos queda realizar una conexión a la base de datos con éste.
-
-    Primero cerramos la ventana de conexión abierta y volvemos al menú principal de Workbench. En esta pantalla, pulsamos el botón ``\textit{+}'' que nos encontramos en la sección \textbf{MySQL Connections}, lo que nos abrirá un formulario para la creación de una nueva conexión.
-
-    En esta nueva ventana, solo vamos a cambiar el usuario, que deberemos introducir el que hemos creado en el paso anterior. El resto de datos, los dejaremos como están. En la siguiente captura, podemos ver el formulario de creación de una nueva conexión.
-
-   \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{newuser-conection.png}
-        \caption{Creación de una nueva conexión con la base de datos}
-    \end{figure}
-
-    Una vez introducido el nuevo usuario, si queremos, podemos comprobar que la nueva conexión es correcta, pulsando el botón ``\textit{Test Connection}''. Después pulsaremos el botón ``\textit{Ok}'' y la conexión con el nuevo usuario se habrá creado con éxito.
-\end{enumerate}
-
-\section{Instalación de OracleDB}
-Oracle Database es un sistema de gestión de base de datos de tipo objeto-relacional (ORDBMS, por el acrónimo en inglés de Object-Relational Data Base Management System), desarrollado por Oracle Corporation, la empresa estadounidense de hardware y software. Este tipo de sistema mejora la gestión de grandes bases de datos y también aumenta el nivel de seguridad. Se basa en un esquema estructurado que solo está disponible para administradores autorizados. \cite{oracle}
-
-En estas sección, vamos a realizar la instalación de la versión \textbf{Oracle Database Express 11g 2} en Windows 10. Para llevar a cabo la instalación, debemos seguir los siguientes pasos:
-
-\begin{enumerate}
-    \item \textbf{Descarga del Instalador}
-
-    Lo primero que debemos hacer es descargarnos el instalador del SGBD. En la página oficial de Oracle las versiones antiguas, en concreto la 11g, está bastante escondido y es difícil llegar a los enlaces de descarga, por lo que nosotros lo vamos de descargar desde \href{https://www.filehorse.com/es/descargar-oracle-database-express/}{este enlace en Filehorse}. Nosotros vamos a descargar la versión de 64bits. En la siguiente captura, vemos la página de descarga.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{download-oracle.png}
-        \caption{Página de Filehorse para la descarga del instalador}
-    \end{figure}
-
-    Pulsando en el botón ``\textit{Descarga Libre}'' pasaremos a una página de confirmación y podemos comenzar la descarga.
-
-    \item \textbf{Instalación}
-
-    Una vez que hemos descargado el archivo, abriremos la carpeta donde se ha almacenado. El archivo descargado es un archivo comprimido por lo que deberemos descomprimirlo para realizar la instalación correctamente.
-
-    Cuando hayamos descomprimido el archivo, entraremos en la carpeta \textbf{DISK1} creada buscaremos el archivo \textbf{setup}. Ejecutamos este archivo y el instalador se iniciará. Como podemos ver en la siguiente captura, el instalador nos dará la opción de seleccionar la versión de OracleDB que queremos instalar, en caso de que hubiera varias, nosotros vamos a seleccionar la única que hay, \textbf{Oracle Database 11g Express Edition}.
-
-    \newpage
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{install-oracle-1.png}
-        \caption{Instalador de Oracle Database}
-    \end{figure}
-
-    Una vez que hayamos seleccionado la versión, comenzará la instalación. Durante el proceso, se nos pedirá que introduzcamos una contraseña. Esta contraseña será la empleada por los usuarios por defecto, SYS y SYSTEM, de OracleDB, así que debemos de recordarla. En la siguiente captura se muestra la confirmación de la nueva contraseña.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{install-oracle-2.png}
-        \caption{Introducción de contraseña durante el proceso de instalación}
-    \end{figure}
-
-    Una vez que hayamos introducido la contraseña el proceso de instalación continuará con normalidad y nuestra base de datos quedará correctamente instalada.
-
-    \item \textbf{Inicialización de OracleDB}
-
-    Una vez realiza la instalación, se habrá creado e inicializado automáticamente una base de datos, ahora debemos acceder a ella para poder gestionarla.
-
-    Si miramos en el escritorio de Windows, veremos que se ha creado un acceso directo llamado \textbf{Get Started with Oracle}, para acceder mediante la interface web, pulsamos este icono. Hay que tener en cuenta que pueden suceder dos cosas:
+    \item Una captura de la ventana "resumen del sistema" (consultar el ejemplo de solución en caso de duda), donde se resumen las principales características del equipo. En esta captura señala de manera clara (un recuadro, un subrayado, etc.) los siguientes datos:
 
     \begin{itemize}
-        \item \textbf{Ejecución Normal}: tras pulsar el icono se ejecutara correctamente y nos mostrará la pantalla inicial de OracleDB.
-        \item \textbf{Error}: puede que al ejecutar el icono nos de un error del tipo ''\textit{No se puede encontrar el fichero ..."}, esto es debido a que la variable de entorno \textbf{HTTPPORT} no esta establecida, por lo que deberemos crear esa variable y asignarle el valor \textbf{8080}, tras lo que reiniciaremos el sistema. En este documento no se va a cubrir como crear variables de entorno en Windows, pero en \href{https://medium.com/@01luisrene/como-agregar-variables-de-entorno-s-o-windows-10-e7f38851f11f}{este articulo} hay un tutorial que puede ser de utilidad.
-
-        Otra opción es copiar la dirección que se nos muestra en el mensaje de error, sustituir \textbf{HTTPPORT} por \textbf{8080} y copiarla en una navegador, aunque esta solución es mas engorrosa y deberemos realizar el procedimiento cada que que queramos conectar a la base de datos. Por lo que yo recomiendo crear la variables de entorno.
+        \item El modelo de la placa base y su chipset.
+        \item El modelo de la CPU.
+        \item El modelo de la GPU.
+        \item Tipo, cantidad y velocidad de la memoria RAM.
+        \item Las opciones de virtualización de la CPU. Esto aparece en el apartado "características", con el nombre "VMX" o "VT-x" si tu procesador Intel, o "AMD-V" o "SVM" si tu procesador es AMD. En caso de que dicha opción aparezca en rojo en lugar de verde, debes entrar en la BIOS/UEFI de tu equipo y habilitar las opciones de virtualización de tu procesador (esta opción puede tener distintos nombres según la placa base). Esto es necesario de cara a futuras tareas.
     \end{itemize}
 
-    Cuando se haya ejecutado correctamente el acceso directo nos abrirá el navegador por defecto y nos mostrará la página principal de gestión de OracleDB, como podemos ver en la siguiente captura.
+    \item A continuación, copia y pega el texto generado en el "resumen para portapapeles" (Reporte > Resumen para portapapeles).
+\end{itemize}
+
+Si usas un sistema operativo GNU/Linux puedes utilizar otros programas como "hardinfo" o "CPU-X". En el caso de equipos Mac puedes usar "menú Apple > Acerca de este Mac". En estos casos intenta recopilar la información básica de: CPU, placa base, chipset, memoria RAM, gráficos, unidades de almacenamiento, sonido, red y sistema operativo (una línea por cada componente).
+
+\subsubsection{Solución}
+Se ha usado el software \textbf{HWiNFO} para obtener la información sobre el hardware. El model del ordenador es un portátil \textbf{HP-15s-eq0003ns}. En la siguiente figura, se muestra la captura de pantalla pedida con la información sobre el hardware.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.54]{info-sistema.png}
+    \caption{Información hardware de HWiNFO}
+\end{figure}
+
+A continuación vemos el informe generado por HWiNfo usando la opción ``\textbf{Resumen para portapapeles}''.
+
+\begin{figure}[ht]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+\begin{center}
+    \begin{tabular}{p{6em} p{31em}}
+        Computer:   &  HP HP Laptop 15s-eq0xxx \\
+        CPU:        &  AMD Ryzen 5 3500U (Picasso, PCO-B1) 2100 MHz (21.00x100.0) @ 1834 MHz (18.38x99.8) \\
+        Motherboard:&  HP 86FD  \\
+        BIOS:       &  F.61, 03/25/2022 \\
+        Chipset:    &  AMD Promontory/Bixby FCH \\
+        Memory:     &  8192 MBytes @ 1197 MHz, 17-17-17-39 - 8192 MB PC25600 DDR4 SDRAM - Micro 4ATF1G64HZ-3G2E1 \\
+        Graphics:   &  AMD Radeon Vega 8 (Picasso) [Hewlett-Packard] AMD Radeon Vega, 2048 MB DDR4 SDRAM \\
+        Drive:      &  SAMSUNG MZVLB512HBJQ-000H1, 500.1 GB, NVMe \\
+        Sound:      &  ATI/AMD Display HD Audio Controller \\
+        Sound:      &  AMD Zen - Audio Processor - HD Audio Controller \\
+        Network:    &  RealTek Semiconductor, Device ID: C821 \\
+        OS:         &  Microsoft Windows 10 Home (x64) Build 18363.1316 (1909/November 2019 Update) \\
+    \end{tabular}
+\end{center}
+    \end{tcolorbox}
+    \caption{Reporte para portapapeles de HWiNFO}
+\end{figure}
+
+\subsection{Actvidad 2}
+Utilizando como base la información que has obtenido en la actividad 1, busca la siguiente información detallada, bien en las páginas web oficiales de los fabricantes o utilizando software gratuito como HWiNFO, CPU-Z, GPU-Z, etc.:
+
+\begin{itemize}
+    \item De la CPU:
+    \begin{itemize}
+        \item Fabricante.
+        \item Modelo.
+        \item Fecha de salida al mercado.
+        \item Número de núcleos y subprocesos (cores/threads)
+        \item Velocidad base en GHz, si la tiene
+        \item Velocidad turbo o boost en GHz, si la tiene.
+        \item Tamaño de caché.
+        \item Tamaño del proceso de fabricación (litografía) en "nm".
+        \item  TDP en vatios.
+    \end{itemize}
+    \item Del adaptador gráfico:
+    \begin{itemize}
+        \item Indica si es una iGPU (GPU integrada en el procesador o chipset) o una GPU dedicada (tarjeta gráfica no integrada). Si tu equipo tiene ambos, elige la GPU dedicada.
+        \item Fabricante del chip gráfico (Nvidia, AMD, Intel).
+        \item Chip gráfico de la tarjeta (mirar ejemplo de solución).
+        \item Modelo exacto.
+        \item Cantidad y tipo de memoria VRAM (RAM de vídeo).
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Solución}
+
+En primer lugar se va a mostrar la información relativa al procesador, en este caso un \textbf{Ryzen 5 3500U}, en la siguiente tabla. La información ha sido obtenida de la página oficial de AMD. \cite{amd01}:
+
+\begin{figure}[ht]
+    \centering
+
+    \setlength{\tabcolsep}{10pt}
+    \renewcommand{\arraystretch}{1.5}
+
+    \begin{tabular}{| p{10em} | p{15em} |}
+        \hline
+        \textbf{Fabricante}       &  AMD \\ \hline
+        \textbf{Modelo}           &  AMD Ryzen 5 3500U ("Picasso") \\ \hline
+        \textbf{Nucleos}          &  4 \\ \hline
+        \textbf{Threads}          & 8 \\ \hline
+        \textbf{Velocidad Base}   &  2.1GHz \\  \hline
+        \textbf{Velocidad Turbo}  &  3.7GHz  \\ \hline
+        \textbf{Cache L1}  		  & 384KB  \\ \hline
+        \textbf{Cache L2} 	      & 2MB  \\ \hline
+        \textbf{Cache L3}  	      & 4MB  \\ \hline
+        \textbf{Litografía}	      & 12nm   \\  \hline
+        \textbf{TDP Defecto}      & 15W \\ \hline
+        \textbf{TDP Configurable} & 12-35W \\
+        \hline
+    \end{tabular}
+    \caption{Información de la CPU}
+\end{figure}
+
+A continuación se muestra la información referida a la GPU, una gráfica integrada \textbf{AMD Radeon Vega 8}. La información ha sido obtenida con la aplicación \textbf{HWiNfo}.
+
+\begin{figure}[ht]
+
+    \vspace{3ex}
+    \centering
+
+    \setlength{\tabcolsep}{10pt}
+    \renewcommand{\arraystretch}{1.5}
+
+    \begin{tabular}{| p{10em} | p{20em} |}
+        \hline
+        \textbf{Tipo de GPU}  &  GPU integrado \\ \hline
+        \textbf{Fabricante}   &  AMD \\ \hline
+        \textbf{Chip Gráfico} &  AMD Radeon Vega\\ \hline
+        \textbf{Modelo}       &  AMD Radeon Vega 8 (Picasso) \\ \hline
+        \textbf{VRAM}         &  2 GB DDR4 SDRAM (Memoria Compartida) \\
+        \hline
+    \end{tabular}
+    \caption{Información de la GPU}
+\end{figure}
+
+\subsection{Actividad 3}
+Para esta actividad vas a usar tu propia placa base y su manual como referencia. Si no lo tienes en papel, es fácil descargarse el manual de tu placa base conociendo el modelo exacto (lo hemos conocido en la ``Actividad 1''), buscándolo en Internet y accediendo al apartado de ``soporte'' o ``descargas'' de la web oficial del producto. En dicho manual encontrarás imágenes en las que se detalla dónde se sitúan todos los componentes de la placa base.
+
+Si tu equipo es portátil o es un equipo pre-ensamblado es posible que acceder a un manual similar sea difícil o imposible. En ese caso, utiliza la siguiente placa base para la actividad: ``MSI MAG Z590 Tomahawk WIFI''.
+
+\begin{itemize}
+    \item \textbf{Primero:} Incluye una captura de la portada del manual o la página del mismo en la que se muestre el modelo de la placa base, para comprobar que es el manual correcto. Recuerda que en la captura se debe mostrar tu usuario de la plataforma (sin ser un collage)
+
+    \item \textbf{Segundo:} Sobre una fotografía superior de la placa base (se puede descargar en el apartado de ``galería'' de su página web, pero debe ser una fotografía y no el diagrama que se incluye en el manual), localiza y señala los siguientes componentes usando los números que se indican:
+    \begin{itemize}
+        \item Conectores de alimentación:
+        \begin{itemize}
+            \item (1) ATX 20+4 pines.
+            \item (2) ATX 12V para alimentación de la CPU .
+        \end{itemize}
+        \item (3) Zócalo de la CPU (indica el nombre exacto del zócalo).
+        \item (4) Conector de ventilador/refrigeración de la CPU .
+        \item (5) Ranuras de memoria RAM (indica el tipo de RAM: DDR3, DDR4...).
+        \item (6) Chipset (indica el nombre exacto del chipset).
+        \item Almacenamiento
+        \begin{itemize}
+            \item (7) Puertos SATA.
+            \item (8) Ranuras M.2 (si las tiene).
+        \end{itemize}
+        \item (9) Ranuras de expansión (indicando el tipo: PCI, PCIe x1, PCIe x16, etc.).
+        \item (10) Batería de la CMOS (pila de botón CR2032).
+        \item (11) Conectores internos del panel frontal (botones de encendido, reset y leds frontales).
+        \item (12) Cabeceras internas para USB 2.x o 3.x frontales.
+        \item (13) Cabecera interna para el audio frontal.
+        \item Tras la fotografía, incluye una tabla con tantas filas como números y tres columnas en la que indiques: número, nombre del componente, función del mismo.
+    \end{itemize}
+
+    \item \textbf{Tercero:} Sobre una fotografía del panel trasero de la placa base, señala con letras (A, B, C...) cada uno de los puertos/elementos traseros (se pueden agrupar los que sean exactamente iguales y con las mismas características).
+    \begin{itemize}
+        \item
+        Tras la fotografía incluye una tabla con tantas filas como letras y tres columnas en la que indiques: letra, nombre del elemento, función del mismo.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Solución}
+Para esta actividad se va a usar la placa base ``\textbf{MSI MAG Z590 Tomahawk WIFI}'', ya que aunque sabemos que el modelo de la placa base del portátil es una \textbf{HP 86FD}, es muy complicado encontrar el manual, y más aún acceder a ella para poder fotografiarla, por lo que se empleará la placa base que proporciona el enunciado de la actividad como modelo.
+
+\begin{enumerate}
+    \item \textbf{Manual}: en primer lugar vamos a mostrar una imagen del manual de la placa base donde aparezca el modelo, para asegurarnos de que es el correcto. El manual se ha descargado desde la página de soporte de MSI. \cite{msi01}
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.30]{oracle-main.png}
-        \caption{Interfaz web de OracleDB}
+        \includegraphics[scale=0.40]{manual-placa.png}
+        \caption{Manual placa base MSI MAG Z590 Tomahawk}
     \end{figure}
 
-    Como vemos en la captura, en la página principal tenemos diferentes secciones a las que podemos acceder tanto desde la barra superior como desde los enlaces que hay debajo. A la izquierda, tenemos un menú lateral con diferentes enlaces hacia la documentación de OracleDB.
-
-    \item \textbf{Inicio de Sesión como Administrador}
-
-    Desde la página principal de Oracle que hemos visto en el punto anterior, pulsamos en cualquier de los enlaces del menú. Independientemente del que pulsemos se nos mostrará un formulario para hacer \textit{login}.
-
-    Deberemos introducir el usuario por defecto que tiene OracleDb, \textbf{SYSTEM}, y como contraseña la que hayamos introducido durante el proceso de instalación. Nuestro usuario quedará autentificado y ya podremos gestionar diferentes aspectos de la base de datos, aunque en esta guía solo vamos a crear un nuevo espacio de trabajo con un usuario como veremos en el siguiente paso.
-
-    En la siguiente imagen, se muestra una captura del formulario de login para autentificar el usuario por defecto.
+    \item \textbf{Componentes Placa Base}: a continuación se muestra la imagen superior de la placa base y se indican cada uno de los componentes que se solicitan. La imagen ha sido descargada de la sección ``Galería'' de la página correspondiente a la placa base en la página oficial de MSI. \cite{msi02}
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.25]{oracle-login.png}
-        \caption{Formulario de login inicial de OracleDB}
+        \includegraphics[scale=0.32]{placa-base-tomahawk.png}
+        \caption{Vista superior de placa base y conectores}
     \end{figure}
 
-    \item \textbf{Creación de Espacio de Trabajo}
-
-    Una vez que hayamos iniciado sesión, vamos a crear un nuevo espacio de trabajo con usuario asociado. Para ello, pulsamos en la opción ``\textit{Aplication Express}'' de la pantalla principal de Oracle, que nos llevará a la pantalla de creación. En esta pantalla tenemos dos secciones, una para crear un nuevo espacio de trabajo, la que vamos a usar ahora, y otra para iniciar sesión en un espacio de trabajo ya creado.
-
-    Para crear el nuevo espacio de trabajo, introducimos el nombre del espacio de trabajo y el nombre de usuario, en nuestro caso hemos usado el mismo para para simplificarlo un poco. Una vez introducido, pulsamos en ``\textit{Create Workspace} y el espacio de trabajo se creará. En la siguiente captura, vemos una imagen de la pantalla de creación de espacios de trabajo.
+    A continuación se muestra la tabla con todos los componentes señalados en la figura anterior, incluyendo su modelo y función.
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.30]{oracle-newuser.png}
-        \caption{Creación de usuario y espacio de trabajo en OracleDB}
+        \includegraphics[scale=0.32]{tabla-specs.png}
+        \caption{Tabla con las especificaciones de los conectores}
     \end{figure}
 
-    \item \textbf{Inicio de sesión en el Espacio de Trabajo Creado}
+    \item \textbf{Panel trasero de la Placa}: por último, mostramos el panel trasero de la placa base, al cual podremos acceder, una vez montada, desde la parte trasera de la caja. Se indican los diferentes tipos de conectores que tiene agrupándolos según su funcionalidad.
 
-    Ya solo nos falta iniciar sesión con el nuevo usuario en el espacio de trabajo creado. Para ello, volvemos a la sección ``\textit{Aplication Express}'' del paso anterior, pero en vez de centrarnos en la sección para crear una espacio de trabajo, pulsamos en el botón ``\textit{Already have and account? Login Here}'' que se encuentra en la sección de la derecha ``\textit{Getting Started}''. Esto nos llevara a la pantalla de login de espacios de trabajo.
-
-    Introducimos el nombre de usuario y del espacio de trabajo creados en está pantalla, así como la contraseña que hayamos puesto, como se ve en la siguiente captura.
-
-     \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{login-new-user.png}
-        \caption{Inicio de sesión con el nuevo usuario}
-    \end{figure}
-
-    Una vez introducido correctamente los datos, pulsamos en el botón ``\textit{Login}'' en iniciaremos sesión, abriéndose la página principal del espacio de trabajo, como vemos en la siguiente captura.
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[scale=0.30]{newuser-workspace.png}
-        \caption{Página principal del espacio de trabajo creado}
-    \end{figure}
 \end{enumerate}
-
-
-
 
 
 
