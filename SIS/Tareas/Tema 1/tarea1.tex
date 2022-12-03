@@ -34,13 +34,17 @@
 
 \newpage
 
-%\tableofcontents
+\tableofcontents
 
-%\vspace{10ex}
+\vspace{15ex}
 
-%\listoffigures
+\hrule
 
-%\newpage
+\vspace{10ex}
+
+\listoffigures
+
+\newpage
 
 \section{Caso Práctico}
 José Manuel quiere montar un ordenador para su hermana pequeña, principalmente para jugar a videojuegos modernos y poder realizar tareas que requieran cierta potencia de computación, como la elaboración de contenidos audiovisuales; pero José Manuel no tiene muchos conocimientos de hardware. Ada le ha sugerido que pida ayuda a Juan y a María para que le enseñen los conceptos básicos sobre hardware.
@@ -70,7 +74,7 @@ Descarga y ejecuta el programa gratuito HWiNFO en tu equipo (se recomienda la v
 Si usas un sistema operativo GNU/Linux puedes utilizar otros programas como "hardinfo" o "CPU-X". En el caso de equipos Mac puedes usar "menú Apple > Acerca de este Mac". En estos casos intenta recopilar la información básica de: CPU, placa base, chipset, memoria RAM, gráficos, unidades de almacenamiento, sonido, red y sistema operativo (una línea por cada componente).
 
 \subsubsection{Solución}
-Se ha usado el software \textbf{HWiNFO} para obtener la información sobre el hardware. El model del ordenador es un portátil \textbf{HP-15s-eq0003ns}. En la siguiente figura, se muestra la captura de pantalla pedida con la información sobre el hardware.
+Se ha usado el software \textbf{HWiNFO} para obtener la información sobre el hardware. El modelo del ordenador es un portátil \textbf{HP-15s-eq0003ns}. En la siguiente figura, se muestra la captura de pantalla pedida con la información sobre el hardware.
 
 \begin{figure}[ht]
     \centering
@@ -102,7 +106,7 @@ A continuación vemos el informe generado por HWiNfo usando la opción ``\textbf
     \caption{Reporte para portapapeles de HWiNFO}
 \end{figure}
 
-\subsection{Actvidad 2}
+\subsection{Actvidad 2: Características de la CPU y la GPU}
 Utilizando como base la información que has obtenido en la actividad 1, busca la siguiente información detallada, bien en las páginas web oficiales de los fabricantes o utilizando software gratuito como HWiNFO, CPU-Z, GPU-Z, etc.:
 
 \begin{itemize}
@@ -179,7 +183,7 @@ A continuación se muestra la información referida a la GPU, una gráfica integ
     \caption{Información de la GPU}
 \end{figure}
 
-\subsection{Actividad 3}
+\subsection{Actividad 3: Características de la Placa Base}
 Para esta actividad vas a usar tu propia placa base y su manual como referencia. Si no lo tienes en papel, es fácil descargarse el manual de tu placa base conociendo el modelo exacto (lo hemos conocido en la ``Actividad 1''), buscándolo en Internet y accediendo al apartado de ``soporte'' o ``descargas'' de la web oficial del producto. En dicho manual encontrarás imágenes en las que se detalla dónde se sitúan todos los componentes de la placa base.
 
 Si tu equipo es portátil o es un equipo pre-ensamblado es posible que acceder a un manual similar sea difícil o imposible. En ese caso, utiliza la siguiente placa base para la actividad: ``MSI MAG Z590 Tomahawk WIFI''.
@@ -248,9 +252,196 @@ Para esta actividad se va a usar la placa base ``\textbf{MSI MAG Z590 Tomahawk W
 
     \item \textbf{Panel trasero de la Placa}: por último, mostramos el panel trasero de la placa base, al cual podremos acceder, una vez montada, desde la parte trasera de la caja. Se indican los diferentes tipos de conectores que tiene agrupándolos según su funcionalidad.
 
+    \vspace{4em}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.22]{panel-trasero-placa.png}
+        \caption{Parte trasera de la placa base}
+    \end{figure}
+
+    A continuación, se muestra la tabla explicando como se llama cada conexión y cual es su utilidad.
+
+    \begin{figure}[ht]
+
+        \vspace{3ex}
+        \centering
+
+        \setlength{\tabcolsep}{10pt}
+        \renewcommand{\arraystretch}{1.4}
+
+        \begin{tabular}{| m{4em} | m{13em} | m{16em} |}
+            \hline
+            \textbf{Letra}  & \textbf{Nombre} & \textbf{Función} \\ \hline
+            \centering A &  Puertos de Audio & Conexiones de entrada/salida para dispositivos de audio \\ \hline
+            \centering B &  Salida S/PDIF  & Conexión de salida para audio digital \\ \hline
+            \centering C &  Conectores de antena Wi-Fi & Sirven para conectar una antena Wi-Fi \\ \hline
+            \centering D &  Puerto Ethernet & Puerto de entrada/salida ethernet para conectar el ordenador a una red local o a internet \\ \hline
+            \centering E &  USB 3.2 Gen 2 & Conexión de dispositivos mediante USB, velocidad de hasta 10Gb/s \\ \hline
+            \centering F &  USB 3.2 Gen 2x2 & Conexión de dispositivos mediante USB, velocidad de hasta 20Gb/s \\ \hline
+            \centering G &  USB 3.2 Gen 1 & Conexión de dispositivos mediante USB, velocidad de hasta 5Gb/s \\ \hline
+            \centering H &  USB 2.0 Tipo A & Conexión de dispositivos mediante USB y conector de tipo A \\ \hline
+            \centering I &  Botón Flash BIOS & Se utiliza para actualizar la BIOS \\ \hline
+            \centering J &  HDMI & Salida HDMI para conectar un monitor \\ \hline
+            \centering K &  Display Port & Salida para conectar un monitor \\
+            \hline
+        \end{tabular}
+        \caption{Tabla de conectores de la placa base}
+    \end{figure}
 \end{enumerate}
 
+\subsection{Actividad 4: Preguntas Sobre la Placa Base}
+Utilizando la misma placa base que usaste para la actividad 3, contesta a las siguientes preguntas. Cada contestación debe ser escrita, e ir acompañada de una imagen que muestre el apartado del manual del que se ha obtenido la información (recuerda que las capturas deben mostrar tu usuario de la plataforma, sin ser un collage):
 
+\begin{enumerate}
+    \item ¿Qué procesadores soporta?
+    \item ¿Cuál es su factor de forma y qué dimensiones exactas tiene?
+    \item ¿Qué puertos/ranuras dispone para dispositivos de almacenamiento?
+    \item Puertos USB: Indica cuántos tiene, si son traseros o disponibles mediante cabeceras internas, y di de qué versión son (USB 2.0, USB 3.0, USB 3.2 gen2, etc.).
+    \item ¿Cuántas ranuras de memoria tiene y qué tipo de memoria acepta? Indica tipo (DDR3, DDR4, DDR5...) y máxima memoria soportada.
+    \item ¿Incorpora firmware de tipo BIOS ``clásica'' o UEFI? ¿Qué es UEFI y en qué se diferencia de las BIOS clásicas?
+    \item Busca el diagrama de bloques (``block diagram'') en el manual de la placa base (si tu manual no lo incorpora, búscalo para la placa base ``MSI MAG Z590 Tomahawk WIFI'' en su manual en inglés, ya que la versión multi-idioma del manual no lo incluye). Hazle una captura de pantalla y coméntalo brevemente.
+    \item Busca en la web de la placa base, en el apartado de ``soporte'' o ``compatibilidad de CPU'', la lista completa de CPU compatibles con la placa base. ¿Cuál es la CPU más potente soportada por la placa base? Haz una captura de dicha página en la que se vea la que creas que es la CPU con mayor capacidad de computación soportada por la placa base. No es necesario que se vea la lista completa. (Si tienes dudas acerca del rendimiento de los procesadores puedes usar como referencia la web de pruebas de rendimiento \url{https://www.cpubenchmark.net/}).
+\end{enumerate}
+
+\subsubsection{Solución}
+En este apartado se responderán a todas las preguntas, la información se ha extraído del manual de usuario de la placa base, descargado de la página oficial de MSI, en su versión en inglés. \cite{msi03}
+\begin{enumerate}
+    \item \textbf{¿Qué procesadores soporta?}
+
+    Esta placa base tiene un \textbf{socket LGA 1200} por lo que soporta procesadores \textbf{Intel® Core™} de \textbf{10ª} y \textbf{11ª generación}, así como procesadores \textbf{Pentium® Gold} y \textbf{Celeron®}.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-procesador.png}
+        \caption{Página 16 del manual de usuario}
+    \end{figure}
+
+    \item \textbf{¿Cuál es su factor de forma y qué dimensiones exactas tiene?}
+
+    La placa base tiene un factor de forma \textbf{ATX} y sus medidas exactas son de \textbf{30.5 cm} x \textbf{24.4 cm}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-forma.png}
+        \caption{Página 20 del manual de usuario}
+    \end{figure}
+
+    \item \textbf{¿Qué puertos/ranuras dispone para dispositivos de almacenamiento?}
+
+    La placa base tiene \textbf{6 puertos SATA 6Gb/s} y \textbf{3 ranuras M.2}. Las ranuras M.2 están controladas 1 por la CPU y las otras 2 por el chipset Z590, mientras que los puertos SATA están todos controlados por el chipset.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-almacenamiento.png}
+        \caption{Página 17 del manual de usuario}
+    \end{figure}
+
+    \item \textbf{Puertos USB: Indica cuántos tiene, si son traseros o disponibles mediante cabeceras internas, y di de qué versión son (USB 2.0, USB 3.0, USB 3.2 gen2, etc.).}
+
+    La placa base dispone de los siguientes puertos USB:
+    \begin{itemize}
+        \item 1x \textbf{USB 3.2 Gen 2x2 Tipo C} (panel trasero)
+        \item 2x \textbf{USB 3.2 Gen 2}:
+        \begin{itemize}
+            \item 1x \textbf{Tipo C} (conector interno)
+            \item 1x \textbf{Tipo A} (panel trasero)
+        \end{itemize}
+        \item 6x \textbf{USB 3.2 Gen 1}:
+        \begin{itemize}
+            \item 4x \textbf{Tipo A} (panel trasero)
+            \item 2x puertos (conector interno)
+        \end{itemize}
+
+        \item 6x \textbf{USB 2.0}:
+        \begin{itemize}
+            \item 2x \textbf{Tipo A} (panel trasero)
+            \item 4x \textbf{Tipo A} (conector interno)
+        \end{itemize}
+    \end{itemize}
+
+    Esta información se ha obtenido de la página 17 del manual. En la Figura 2.12 puede verse la captura relativa a esta página, aún así se incluirá en este a apartado (de nuevo) en caso de que sea necesaria.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-almacenamiento.png}
+        \caption{Página 17 del manual de usuario}
+    \end{figure}
+
+    \item \textbf{¿Cuántas ranuras de memoria tiene y qué tipo de memoria acepta? Indica tipo (DDR3, DDR4, DDR5...) y máxima memoria soportada.}
+
+    Esta placa base tiene \textbf{4 ranuras} de memoria de tipo \textbf{DDR4} y suporta hasta \textbf{128 GB} de memoria. Soporta el \textbf{modo Dual-Channel}, memoria \textbf{non-ECC} y \textbf{Intel® Extreme Memory Profile}. Respecto a las frecuencias, depende el procesador que instalemos soporta unas u otras:
+    \begin{itemize}
+        \item \textbf{Procesadores Intel® de 10ª Generación}: 2133/2666/2933 MHz
+        \item \textbf{Procesadores Intel® de 11ª Generación}: 2133/2666/2933/3200 MHz
+    \end{itemize}
+
+    Esta información se ha obtenido de la página 16 del manual. En la Figura 2.10 puede verse la captura relativa a esta página, aún así se incluirá en este a apartado (de nuevo) en caso de que sea necesaria.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-procesador.png}
+        \caption{Página 16 del manual de usuario}
+    \end{figure}
+
+    \item \textbf{¿Incorpora firmware de tipo BIOS ``clásica'' o UEFI? ¿Qué es UEFI y en qué se diferencia de las BIOS clásicas?}
+
+    Esta placa base incorpora una \textbf{BIOS UEFI} (Unified Extensible Firmware Interface), como la mayoría de los ordenadores modernos.
+
+     Según el propio manual de la placa base, algunas de las \textbf{ventajas} de estos tipos de BIOS respecto a las clásicas son las siguientes:
+    \begin{itemize}
+        \item \textbf{Inicialización más rápida}: las BIOS UEFI pueden inicializar el sistema operativo directamente salvando el proceso de auto-testeo de la BIOS. Además elimina el tiempo para cambiar el modo CMS (Compatibility Support Mode) durante el POST de la BIOS.
+
+        \item Soporte para \textbf{particiones} de disco duro \textbf{superiores a 2 TB}.
+        \item Soporte para \textbf{más de 4 particiones primarias} con particiones de tablas GUID (GPT).
+        \item Soporte para un \textbf{número ilimitado de particiones}.
+        \item Soporta todas las capacidades de los nuevos dispositivos. Algunos pueden no tener retrocompatibilidad.
+        \item Soporta \textbf{inicialización segura}: las BIOS UEFI pueden comprobar la validez del sistema operativo para asegurarse de que no hay malware.
+    \end{itemize}
+
+    Aunque las BIOS UEFI tienen muchísimas ventajas, también tienen algunas \textbf{desventajas} que las diferencia de las BIOS clásicas, las principales son la siguientes dos:
+
+    \begin{itemize}
+        \item Estás placas base no tienen soporte para Microsoft Windows de 32-bits, solo soportan su versión de 64-bits.
+        \item Pueden general problemas con tarjetas gráficas antiguas, en cuyo caso se nos mostrará un mensaje indicándonos que no hay soporte dicha tarjeta gráfica.
+
+        En este último supuesto, lo recomendable es cambiar a una tarjeta gráfica que tenga soporte para GOP/UEFI o usar la tarjeta gráfica integrada en la CPU.
+    \end{itemize}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.30]{manual-uefi.png}
+        \caption{Página 51 del manual de usuario}
+    \end{figure}
+
+    \item  \textbf{Busca el diagrama de bloques (``block diagram'') en el manual de la placa base (si tu manual no lo incorpora, búscalo para la placa base ``MSI MAG Z590 Tomahawk WIFI'' en su manual en inglés, ya que la versión multi-idioma del manual no lo incluye). Hazle una captura de pantalla y coméntalo brevemente.}
+
+    En este apartado vamos a echarle un vistazo al diagrama de bloques de la placa base que estamos tratando. En la siguiente figura, podemos ver el diagrama, que se a obtenido del manual de usuario oficial. \cite{msi03}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.33]{diagrama-bloques.png}
+        \caption{Diagrama de bloques de la placa base}
+    \end{figure}
+
+    Una de las cosas que nos puede llamar la atención al ver el diagrama de bloques, es que no vemos el \textbf{Northbridge} ni el \textbf{Souhtbridge} por ningún lado, tampoco vemos el \textbf{FSB}, sino una canal \textbf{DMI} entre el chipset y la CPU. Esto se debe a que esta es una arquitectura \textbf{PCH} (Platform Chipset Hub). Esta es una arquitectura de chipset de un solo chip introducida por Intel en 2009 como sustituta de su anterior arquitectura, Intel Hub Architecture, que si usaba dos chips (Northbridge - Southbridge).
+
+    En esta arquitectura, algunas de las funciones del Northbrigde, como el control de la memoria RAM y alguna ranura PCIe, están integradas en la CPU, mientras que el PCH se encarga del resto de funciones, incluidas las propias del Southbridge. \cite{wiki01}
+
+    Además, se ha sustituido el FSB por un canal DMI (Direct Media Transport), que es la tecnología propietaria de Intel, que sustituye al FSB y que llevan usando desde hace años, en un principio como enlace entre el Northbridge y el Southbridge y actualmente entre el PCH y la CPU o la RAM. \cite{wiki02}
+
+     \item \textbf{Busca en la web de la placa base, en el apartado de ``soporte'' o ``compatibilidad de CPU'', la lista completa de CPU compatibles con la placa base. ¿Cuál es la CPU más potente soportada por la placa base? Haz una captura de dicha página en la que se vea la que creas que es la CPU con mayor capacidad de computación soportada por la placa base. No es necesario que se vea la lista completa. (Si tienes dudas acerca del rendimiento de los procesadores puedes usar como referencia la web de pruebas de rendimiento \url{https://www.cpubenchmark.net/})}
+
+     En este apartado hemos visitado la página de soporte de MSI para la placa base, en la sección de compatibilidad \cite{msi04}.
+
+     Aunque en la lista de CPU compatibles con la placa base nos muestra, al ordenarlos por potencia, que el más potente es el \textbf{Core i5-10600K}, tras consultar la página de benchmarks que nos sugieren en el enunciado, llegamos a la conclusión de que el procesador más potente soportado por esta placa base es el \textbf{Core i9 11900K}. En la siguiente figura se muestra una captura de la página de soporte con la CPU más potente resaltada.
+
+     \begin{figure}[ht]
+         \centering
+         \includegraphics[scale=0.27]{cpu-potente.png}
+         \caption{Página web de compatibilidad de MSI}
+     \end{figure}
+\end{enumerate}
 
 % Bibliography
 
