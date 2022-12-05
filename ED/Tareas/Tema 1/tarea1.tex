@@ -31,7 +31,7 @@
 
 \vspace{10ex}
 
-\section{Descripción}
+\section{Caso Práctico}
 Nos piden desarrollar una aplicación web que permita visualizar películas a través del navegador.
 
 Por lo tanto el cliente quiere que el software que le vamos a desarrollar esté optimizado para cualquier navegador, sobre todo Edge, Firefox, Chrome y Safari. Necesitan que la web sea responsive para que se adapte a todo tipo de dispositivos móviles y de escritorio.
@@ -46,23 +46,23 @@ Nuestro cliente no sabe si añadirá algo más adelante porque es la primera vez
 Teniendo en cuenta el caso práctico definido en el punto anterior, responde a las siguientes preguntas:
 
 \begin{enumerate}
-    \item Indica qué tipo de lenguaje se tendría que utilizar en este caso concreto atendiendo al proceso de traducción del código.
+    \item \textbf{Indica qué tipo de lenguaje se tendría que utilizar en este caso concreto atendiendo al proceso de traducción del código.}
 
     \textbf{Respuesta}:
 
-     En este caso, sería necesario un \textbf{lenguaje de programación interpretado}, que son los lenguajes que pueden procesar los navegadores. Más en concreto, este lenguaje sería Javascript.
+     En este caso, sería necesario un \textbf{lenguaje de programación interpretado}, ya que es el tipo de lenguaje que comprenden los navegadores web. En este caso, ese lenguaje debería ser \textbf{Javascript}, para la parte de Frontend, y podríamos usarlo también para la parte de Backend, junto las librerías Node y Express.
 
-    \item ¿Qué tipo de código intervendría en este desarrollo? Justifica la respuesta.
+    \item \textbf{¿Qué tipo de código intervendría en este desarrollo? Justifica la respuesta.}
 
     \textbf{Respuesta}:
 
     El código que podríamos encontrar en la aplicación sería \textbf{código fuente} y \textbf{código ejecutable}. No podríamos encontrar código objeto ya que los lenguajes interpretados no lo generan, siendo la conversión entre código fuente y ejecutable directa y realizada línea por línea.
 
-    \item ¿Qué tipo de software deberíamos utilizar si necesitáramos separar el funcionamiento del ordenador de los componentes hardware instalados? Pon un ejemplo de este tipo de software (aunque no fuese el caso concreto del supuesto práctico descrito anteriormente).
+    \item \textbf{¿Qué tipo de software deberíamos utilizar si necesitáramos separar el funcionamiento del ordenador de los componentes hardware instalados? Pon un ejemplo de este tipo de software (aunque no fuese el caso concreto del supuesto práctico descrito anteriormente).}
 
     \textbf{Respuesta}:
 
-    El software que necesitaríamos usar es una \textbf{máquina virtual}, que son las aplicaciones que crean una capa de abstracción entre los componentes de la computadora y el software. Un ejemplo sería un entorno de ejecución, como el de Java, que nos permite ejecutar una aplicación en cualquier sistema.
+    El software que necesitaríamos usar es una \textbf{máquina virtual}, que son las aplicaciones que crean una capa de abstracción entre los componentes de la computadora y el software. Un ejemplo sería un \textbf{entorno de ejecución}, como el de Java, que nos permite ejecutar una aplicación hecha en este lenguaje en cualquier sistema.
 
     \item Indica el tipo de recursos hardware que necesitará nuestra aplicación durante su ejecución.44
 
@@ -72,39 +72,56 @@ Teniendo en cuenta el caso práctico definido en el punto anterior, responde a l
     \begin{itemize}
         \item \textbf{CPU}: para procesar todas las instrucciones de nuestra aplicación.
         \item \textbf{Memoria RAM}: para ir almacenando las instrucciones que se tiene que ejecutar.
-        \item \textbf{Interfaces de Entrada/Salida}: para permitir la introducción de datos y su la lectura de los resultados.
+        \item \textbf{Interfaces de Entrada/Salida}: para permitir la introducción de datos y la lectura de los resultados.
         \item \textbf{Tarjeta Gráfica}: para representa la información en pantalla, tanto la interface de la aplicación como para reproducir las películas.
         \item \textbf{Tarjeta de Sonido}: especialmente para la reproducción de las películas.
         \item \textbf{Tarjetas de Red}: ya sea ethernet o wifi para realizar la conexión con la base de datos, la pasarela de pago,...
-        \item \textbf{Almacenamiento interno}: para almacenar información sobre las películas.
+        \item \textbf{Almacenamiento interno}: para almacenar información sobre las películas, datos en la cache, etc...
     \end{itemize}
 
-     \item Explica cómo sería el proceso de traducción de nuestro código fuente en este caso concreto.
+     \item \textbf{Explica cómo sería el proceso de traducción de nuestro código fuente en este caso concreto.}
 
      \textbf{Respuesta}:
 
      En nuestro caso el proceso de traducción sería el siguiente:
      \begin{itemize}
-         \item \textbf{Codificación}: escribiríamos el código en un archivo archivo de código fuente en el lenguaje seleccionado, en este caso, Javascript.
+         \item \textbf{Codificación}: escribiríamos el código en un archivo de código fuente en el lenguaje seleccionado, en este caso, Javascript.
          \item \textbf{Interpretación}: el interprete de Javacript, incluido en todos los navegadores web, traducirá linea por linea el código fuente en código ejecutable.
-         \item \textbf{Ejecución}: el código fuente ya traducido se iría ejecutando, línea por línea.
+         \item \textbf{Ejecución}: el código ejecutable sería ejecutado por el ordenador.
      \end{itemize}
 
-     \item ¿En qué fase del ciclo de vida se realizarían las Beta Test?
+     \item \textbf{¿En qué fase del ciclo de vida se realizarían las Beta Test?}
 
      \textbf{Respuesta}:
 
-     Las Beta Test se realizan en la \textbf{fase de explotación}, ya que este tipo de prueba necesita que el software este ya instalado y configurado en el sistema del cliente.
+     Las Beta Test se realizan en la \textbf{fase de explotación}, ya que este tipo de prueba necesita que el software este ya instalado y configurado en el sistema del cliente, además de que estás pruebas van enfocadas en probar la aplicación tal y como va a ser usada por lo usuarios finales.
 
-     \item ¿Qué herramientas necesitaríamos usar nosotros como desarrolladores para desarrollar el proyecto solicitado?
+     \item \textbf{¿Qué herramientas necesitaríamos usar nosotros como desarrolladores para desarrollar el proyecto solicitado?}
 
      \textbf{Respuesta}:
 
-     La principal herramienta que necesitaríamos seria un \textbf{entorno de desarrollo} (IDE), ya que nos facilitaría enormemente el proceso de desarrollo, por ejemplo, \textbf{VSCode}. También necesitaríamos \textbf{diferentes navegadores}, en concreto los que se nos pide Edge, Firefox, Chrome y Safari, para comprobar que la aplicación funciona correctamente en ellos. En el caso de que no tengamos instalados todos los sistemas operativos necesarios para ejecutar estos navegadoras, deberíamos usar una \textbf{máquina virtual}, para poder instalarlos y probarlos.
+     Las principales herramientas que necesitaremos serán las utilidades \textbf{CASE}, que nos facilitarán el proceso de desarrollo, haciéndolo más ágil y permitiendo el desarrollo software de más calidad, ya que favorecen la creación de aplicaciones fáciles de mantener y con componentes altamente reutilizables. Según la etapa del proceso de desarrollo, las herramientas que utilizaremos serán las siguientes:
 
-     Deberíamos usar diferentes \textbf{librerías o frameworks} para la ejecución de los diferentes \textbf{tipos de pruebas}, en este caso, podríamos usar \textbf{Jest} para la realización de \textbf{pruebas unitarias} y \textbf{Cypress} para realizar la \textbf{pruebas de integración}.
+     \begin{itemize}
+         \item \textbf{U-CASE}: estas herramientas nos ayudarán en la fase de \textbf{planificación y análisis de requisitos}. La mayoría de estas herramientas se apoyan en la creación de \textbf{diagramas UML} que nos permiten tener una visión de los requisitos del sistema más gráfica y rápida de entender. Algunos ejemplos son \textbf{Jira} o \textbf{Openproj}.
 
-     Por último, pero no menos importante, un \textbf{sistema de control de versiones}, para facilitarnos el proceso de desarrollo, por ejemplo, \textbf{Git} y su plataforma web \textbf{Github}.
+         \item \textbf{M-CASE}: estas herramientas nos ayudarán durante la etapa de \textbf{análisis y diseño}. Estás herramientas también se basan en la \textbf{creación de diagramas UML}, como diagramas de clases, de casos de uso, de entidad/relación y otros muchos. Algunos ejemplos son \textbf{ArgoUML} y \textbf{Use Case Maker}.
+
+         \item \textbf{L-CASE}: este tipo de herramientas nos facilitan el proceso de codificación en si mismo, agrupando diferentes funcionalidades bajo un mismo entorno. En este tipo de herramientas se incluye unas de la más importantes para un desarrollador, como son los \textbf{IDEs}.  Estás herramientas incluyen muchas funcionalidades útiles durante el proceso de codificación como detección de errores, autocompletado, integración automática de librerías, etc... La elección del IDE estará un poco condicionada por las preferencias del desarrollador, aunque también por el lenguaje usado y algunos otros requisitos de la aplicación. Algunos de los más empleados son \textbf{VSCode}, \textbf{Netbeans} o \textbf{IntelliJ IDEA}.
+
+         También podríamos incluir los \textbf{sistemas de control de versiones}. Una herramienta imprescindible para el desarrollo de software facilita el desarrollo colaborativo, llevando un registros de todos los cambios y permitiendo volver a versiones anteriores, entre otras cosas. Además, permiten integrar aplicaciones para la realización de \textbf{pruebas de integración}, que se ejecutarán con cada cambio que se realice en el código. El software de control de versiones más empleado en la actualidad es \textbf{Git} y su plataformas online \textbf{Github} o  \textbf{Gitlab}, pero también podemos encontrar otros como \textbf{CVS} o \textbf{Subversion}.
+     \end{itemize}
+
+    Además de estas herramientas, cabe destacar otras que aunque no necesariamente entran dentro de las categorías mencionadas deberemos usar para el desarrollo. Estas herramientas son:
+
+    \begin{itemize}
+        \item \textbf{Librerías y Frameworks}: se necesitará usar un conjunto de librerías o frameworks que nos facilitarán el desarrollo de la aplicación, centrándose en aspectos concretos de ésta. Para pa parte de Frontend se podría, por ejemplo, usar \textbf{Reactjs}, una librería enfocada en el desarrollo de la interfaz mediante componentes y que ademas de acelerar el proceso de codificación, nos permite crear componentes altamente reutilizables. Podría usarse alternativamente algún framework como \textbf{Angular}. También se deberán usar librerías que nos faciliten la realización de las pruebas, como puede ser \textbf{testing library}, para la realización de test unitarios de la interfaz o \textbf{Jest}, para testear la lógica de la aplicación.
+
+        \item \textbf{Navegadores}: necesitaremos tener como mínimo los navegadores que se solicitan en el caso práctico para comprobar que el funcionamiento de la aplicación es correcto en todos y que visualmente no hay discordancias entre un navegador u otro. En nuestro caso, tendremos que probar la aplicación Edge, Firefox, Chrome y Safari.
+
+        \item \textbf{Máquina Virtual}: ésta será solo necesaria en caso de que no tengamos acceso a todos los sistemas operativos en los que se ejecutan los diferentes navegadores, Edge (Windows) y Safafi (MacOS) principalmente. En la práctica, hay frameworks como \textbf{Selenium} que nos permiten testear una aplicación en diferentes navegadores si tener que instalar el sistema operativo en cuestión, aunque podría ser también una opción. Además dentro de este apartado podríamos incluir los containers, como \textbf{Docker}, que nos permiten agregar una alto grado de portabilidad a la aplicación.
+    \end{itemize}
+
 \end{enumerate}
 % Bibliography
 
