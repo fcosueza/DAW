@@ -1,0 +1,165 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{10ex}
+\normalfont \normalsize
+\Huge \textbf{Tarea 2: Sistemas Operativos y Software de un Sistema Informático}
+}
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{68ex}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Centro}: & IES Aguadulce \\
+        \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
+        \textbf{Asignatura}: & Sistemas Informáticos\\
+        \textbf{Tema}: & Tema 2 -  Software de un Sistema Informático\\
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\vspace{15ex}
+
+%\hrule
+
+%\vspace{10ex}
+
+%\listoffigures
+
+\newpage
+
+\section{Caso Práctico}
+\textbf{Ada}, fundadora de la empresa AguadulSoft, ha visto una oportunidad excepcional de promocionar la empresa aprovechando una exposición temporal denominada "Historia del software: Sistemas Operativos" que se va a alojar en la localidad.
+
+La empresa, a la que se le ha pedido colaboración, realizará un análisis de los distintos Sistemas Operativos así como de otros tipos de software que han surgido a lo largo de la historia.
+
+También va a averiguar qué licencias se utilizan en los sistemas operativos y distintos programas que se utilizan en la actualidad.
+
+\section{Actividades}
+
+\subsection{Actividad  1: Tipos de Aplicaciones Informáticas}
+Indica, justificando su uso, dos ejemplos de aplicaciones de propósito general y otros dos de propósito específico para cada uno de los siguientes entornos productivos:
+
+\begin{itemize}
+    \item Agencia de Viajes
+    \item Agencia de Publicidad y Marketing
+\end{itemize}
+
+\subsubsection{Solución}
+Estas dos empresas usaran tanto aplicaciones de propósito general como específico de su propio campo. En la siguiente lista se muestran dos ejemplos de cada tipo de software para cada una de las empresas.
+
+\begin{itemize}
+    \item \textbf{Agencia de Viajes}
+    \begin{itemize}
+        \item \textbf{Aplicaciones de Propósito General}
+        \begin{itemize}
+            \item \textbf{Hoja de Cálculo}: es muy probable que usen hojas de cálculo, ya que los viajes tienen muchos complementos y añadidos, y una hoja de cálculos será necesaria para calcular el precio final del paquete elegido por el cliente. Probablemente usen \textbf{Excel} o alguna alternativa libre como \textbf{Libreoffice Calc} o \textbf{Calc de Openoffice}.
+
+            \item \textbf{Herramientas de Acceso de Bases de Datos}: también deberán emplear alguna herramienta de acceso y gestión de bases de datos, para poder consultar y administrar los destinos disponibles, precios, paquetes, etc...
+        \end{itemize}
+
+    \item \textbf{Aplicaciones de Propósito Específico}
+    \begin{itemize}
+        \item \textbf{Aplicaciones Ad-hoc Especializadas}: para la gestión de la agencia de viajes, los clientes, billetes, comunicación con terceros (hoteles, guías turísticos,..) se utilizará algún \textbf{CRM} especializado, como por ejemplo \textbf{CRM Travel}.
+
+        \item \textbf{Herramientas de Administración de Bases de Datos}: además de un CRM, se deberá usar una bases de datos y herramientas para su administración, ya que este tipo de aplicaciones necesitan una base de datos como soporte. Así, podrá centralizarse toda la información de la empresa y permitirle al CRM hacer una gestión adecuada de toda esta información. Una de estás aplicaciones podría ser \textbf{OracleDB}, una de las más empleadas a nivel mundial, o \textbf{MySQL}, otra de la más usadas también.
+    \end{itemize}
+
+    \vspace{5ex}
+    \end{itemize}
+
+    \item \textbf{Agencia de Publicidad y Marketing}
+    \begin{itemize}
+        \item \textbf{Aplicaciones de Propósito General}
+        \begin{itemize}
+            \item \textbf{Generador de Presentación}: una herramienta necesaria para exponer información será un generador de presentación, bien para presentar la estrategia de una nueva campaña y sus elementos claves o para presentar datos relativos a una campaña ya realizar, entre otras cosas. Podrían usar \textbf{Microsoft Powerpoint}, por ejemplo.
+
+            \item \textbf{Herramientas para la Comunicación}: seguramente también usen herramientas para la comunicación rápida y directa entre los diferentes departamentos, ya que el trabajo de esta empresa debe estar bien coordinado entre los diferentes equipos que conformen un mismo proyecto. Este software podría ser \textbf{Slack}, uno de los más usados.
+        \end{itemize}
+
+        \item \textbf{Aplicaciones de Propósito Específico}
+        \begin{itemize}
+            \item \textbf{Herramientas de Diseño Gráfico y Maquetación}: esta herramienta será básica para el diseño de campañas publicitarias, especialmente aquellas pensadas para cartelería o cualquier medio impreso. Uno de los más usados es \textbf{Adobe Photoshop}, aunque también podrían usar alternativas como libres como \textbf{Gimp} o \textbf{Inkscape}, o incluso usar la herramienta colaborativa \textbf{Figma}, cuyo uso se esta expandiendo recientemente.
+
+            \item \textbf{Herramientas de Análisis de Datos}: la empresa necesitará diferentes herramientas de análisis de datos para conocer el impacto de las campañas, punto clave para saber si han tenido éxito o no. Esto requiere de herramientas que sean capaces de procesar grandes cantidades de datos, conocidas como \textbf{Big Data}. Una de las empleadas es \textbf{HubSpot}, especializada en el análisis de datos de marketing.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Actividad 2: Licencias de Software}
+Indica para cada una de las siguientes aplicaciones, el tipo de licencia que utiliza, intentando dar en términos generales si se trata de una licencia de software con código abierto, con código cerrado o de dominio público (sin licencia), y de manera específica la licencia exacta que utiliza.
+
+Por ejemplo: El programa de edición de gráficos vectoriales llamado Inkscape, usa una licencia GPLv3+, que es una licencia de software con código abierto, no permisiva, de tipo copyleft fuerte (software libre).
+
+Las aplicaciones son las siguientes:
+
+\begin{itemize}
+    \item Microsoft Office 2021.
+    \item Google Chrome.
+    \item VLC Media Player.
+    \item Avast Free Antivirus.
+    \item Adobe Acrobat Pro.
+\end{itemize}
+
+\subsubsection{Solución}
+En esta actividad vamos a indicar bajo que licencia están desarrolladas diferentes aplicaciones, especificando si la licencia es libre y propietaria, así como sus principales características.
+
+\begin{itemize}
+    \item \textbf{Microsoft Office 2021}: esta suite ofimática se encuentra bajo la licencia \textbf{Microsoft CLUF}, una \textbf{licencia propietaria} de tipo \textbf{EULA}, que no permite distribución del software ni incluye su código fuente, además, solo permite su uso para un único usuario. \cite{mscluf01}
+
+    \item \textbf{Google Chrome}: este navegador se encuentra bajo los \textbf{Términos de Servicio Adicionales de Chrome y Chrome OS} \cite{wiki01}, que establece una \textbf{licencia propiertaria freeware} para los binarios de Google Chrome, que permite su uso de forma gratuita y por tiempo ilimitado.
+
+     En cambio, este navegador esta basado en \textbf{Chromium} \cite{chrome01}, por lo que la mayoría de sus componentes software están bajo la licencia \textbf{3-clause BSD}, una licencia de \textbf{código abierto} de tipo \textbf{permisiva} \cite{wiki02}, que garantiza el uso y distribución del software y su código fuente.
+
+     \item \textbf{VLC Media Player}: este reproductor de vídeo esta bajo una \textbf{licencia de código abierto}, en concreto, esta licencia es la \textbf{GPLv2.1+} \cite{vcl01}, una licencia de tipo \textbf{copyleft fuerte} que garantiza la distribución tanto del software como de su código fuente siempre cuando se conserve la licencia en los productos derivados.
+
+     \item \textbf{Avast Free Antivirus}: la versión gratuita de \textbf{Avast Antivirus} usa una \textbf{licencia propietaria}, la \textbf{Avast EULA}, de tipo \textbf{freeware} y \textbf{EULA}. Su uso es gratuito por tiempo ilimitado para un solo usuario, prohibiendo explícitamente su uso para uso comercial o su uso por parte de cualquier compañía o entidad gubernamental. \cite{avas1}
+
+     \item \textbf{Adobe Acrobat Pro}: los productos de Adobe se rigen por la licencia \textbf{Adobe EULA}, una \textbf{licencia propietaria} de tipo \textbf{EULA}. La licencia tiene dos modalidades, una \textbf{freeware} y otra \textbf{comercial}. En este caso, la versión \textbf{Pro} de Adobe Acrobat usa la modalidad \textbf{comercial}. \cite{adobe1}
+\end{itemize}
+
+\subsection{Actividad 3:  Sistemas operativos: Última versión, requisitos hardware,...}
+Realiza la siguiente tabla añadiendo una fila por sistema operativo con la última versión existente de:
+
+\begin{itemize}
+    \item Windows 11 (canal de disponibilidad general).
+    \item Ubuntu Desktop LTS (última versión con soporte de larga duración).
+    \item iOS (para iOS, en lugar de "requisitos hardware", incluye una lista con los dispositivos que soportan la última versión).
+    \item iOS (para iOS, en lugar de "requisitos hardware", incluye una lista con los dispositivos que soportan la última versión).
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.55]{tabla-so.png}
+    \caption{Tabla para rellenar sobre SOs}
+\end{figure}
+
+\subsubsection{Solución}
+En este punto vamos a ver información básica sobre los diferentes sistemas operativos más extendidos en la actualidad. En la siguiente figura se muestra una tabla con toda la información pedida. Como apunte, en la sección de requisitos hardware se incluirán los requisitos mínimos.
+
+
+% Bibliography
+
+\newpage
+\bibliography{citas}
+\bibliographystyle{unsrt}
+
+\end{document}
