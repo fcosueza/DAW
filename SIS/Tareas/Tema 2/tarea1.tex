@@ -201,11 +201,78 @@ En este punto vamos a explicar diferentes arquitecturas de Kernel, explicando un
     Estos tipos de kernel son \textbf{similares} a los \textbf{microkernel}, con la diferencia de que \textbf{incluyen más funcionalidades} dentro de \textbf{núcleo} para mejorar el rendimiento de éste, combinando, por así decirlo, las arquitecturas monolítica y microkernel. La idea es tener una estructura similar a un microkernel, pero implementando esa estructura de forma monolítica, así, no tienen los beneficios de tener los servicios del SO en el espacio de usuario, pero tampoco tienen la sobrecarga en el paso de mensajes que esto puede ocasionar, siendo en este aspecto más similar a un kernel monolítico. \cite{wiki05}
 
     El ejemplo más conocido de este tipo de kernel son los sistemas \textbf{Microsoft Windows}, que desde la versión \textbf{Windows NT} se lleva empleando en todos sus sistemas operativos, incluido la ultima versión, \textbf{Windows 11}. También hay otros sistemas que emplean este tipo de arquitectura, como \textbf{BeOS}, \textbf{Netware} o \textbf{ReactOS}.
-
-
 \end{itemize}
 
+\subsection{Actividad 5: Gestión de Procesos}
+Sabemos las siguientes características sobre un sistema operativo:
 
+\begin{enumerate}
+    \item Utiliza el algoritmo de planificación de procesos SJF (el trabajo más corto primero), el cual es un algoritmo no apropiativo.
+    \item Necesita ejecutar una serie de procesos, cuyos instantes de llegada y tiempos que tardan en ejecutarse se representan en la siguiente tabla:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.45]{tabla-procesos-orden.png}
+        \caption{Tabla de procesos: tiempos de ejecución y llegada}
+    \end{figure}
+
+    \item Los procesos se ejecutan en un sistema operativo ideal, es decir, en el que el sistema operativo no consume recursos de CPU.
+    \item Comenzamos a estudiar el sistema desde que entran nuestros procesos al sistema y considerando la Unidad de Tiempo 0 (UT0),
+    \item En la siguiente tabla se pueden apreciar los procesos que se ejecutan en estas condiciones desde la Unidad de Tiempo 0 (UT0) a la Unidad de Tiempo 1 (UT1).
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.40]{tabla-procesos-gestor.png}
+        \caption{Tabla de gestión de los procesos}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.45]{tabla-procesos-leyenda.png}
+        \caption{Leyenda de la tabla de gestión de procesos}
+    \end{figure}
+\end{enumerate}
+
+Respetando todas las restricciones dadas en el enunciado:
+
+\begin{enumerate}
+    \item Completa la tabla anterior para las unidades de tiempo de la 2 a la 19, estableciendo el proceso que se ejecutará en cada unidad de tiempo e indicando los instantes de llegada de cada proceso. Utiliza la nomenclatura y/o simbología que aparece en la leyenda.
+    \item Razona tu respuesta especificando el estado en el que se encuentra cada uno de los procesos para las unidades de tiempo de la 2 a la 8.
+\end{enumerate}
+
+\textbf{Nota:} En el apartado "3.2.- Planificación apropiativa y no apropiativa" de la unidad tienes vídeos con ejemplos resueltos de los principales algoritmos de planificación estudiados.
+
+\subsubsection{Solución}
+
+Hay que tener en cuenta que se esta usando una algoritmo \textbf{SJF} (Short Job First), por lo que los procesos con menos tiempo de ejecución tendrán más prioridad que los que tengan más. Además, es un algoritmo \textbf{no apropiativo}, por lo que una vez que un proceso está ocupando la CPU el sistema operativo no podrá bloquearlo. Teniendo esto en cuenta, vamos a responder a los dos apartados que se nos piden.
+
+\begin{enumerate}
+    \item En primer lugar, vamos a mostrar la tabla de ejecución de los procesos. La nomenclatura es la que se especifica en el enunciado por lo que no se va a repetir aquí.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{tabla-procesos-solu.png}
+        \caption{Tabla de ejecución de procesos resuelta.}
+    \end{figure}
+
+    \item Los resultados obtenidos en la tabla se deben, como ya hemos comentado, a que se esta usando un algoritmo SJF, por lo que si en un momento dado hay varios procesos a la espera, siempre tendrá prioridad el que tenga menos ciclos de computación. Ademas, una vez que este proceso ocupa la CPU, no hay forma de bloquearlo, ya que el algoritmos es de tipo \textbf{no apropiativo}. Vamos a analizar con más detalle los momentos de ejecución entre el punto 2 y el 8, incluidos.
+
+    \begin{itemize}
+        \item \textbf{Momento 2}: en este momento de la ejecución, tenemos al proceso \textbf{A ejecutándose}, ya que llego en la unidad de tiempo 1, cuando no había ningún proceso más y comenzó a ejecutarse. El proceso \textbf{B} está en \textbf{espera}, ya que llego en el momento 2 cuando ya se estaba ejecutando el proceso A y al ser un algoritmo no apropiativo, el proceso A no se puede bloquear.
+
+        \item \textbf{Momento 3}: en este punto sigue \textbf{ejecutándose} el proceso \textbf{A}, que se encuentra en su último ciclo de computación, y el proceso \textbf{B} sigue en \textbf{espera}, pero además, acaba de entrar el proceso \textbf{C}, que tendrá que ponerse a la espera.
+
+        \item \textbf{Momento 4}: ahora el proceso \textbf{A} ha finalizado y teníamos 2 procesos a la espera, el \textbf{B} y el \textbf{C}. Como estamos usando el algoritmo SJF, se ejecutará el proceso con menos ciclos de computación, por lo que el proceso \textbf{C}, con \textbf{5 ciclos de computación}, tendrá prioridad sobre \textbf{B}, que tiene \textbf{8 ciclos}. Así que el proceso \textbf{C} comenzará su \textbf{ejecución} mientras \textbf{B} sigue a la \textbf{espera}.
+
+        \item \textbf{Momento 5}: el proceso \textbf{C} sigue en \textbf{ejecución}, mientras que el proceso \textbf{B} sigue a la espera y el proceso que acabo de entrar, el \textbf{D}, entrará en \textbf{espera} también.
+
+        \item \textbf{Momento 6}: aquí no ha cambiado nada, seguimos teniendo el mismo estado que en el punto anterior. El único cambio sería que el proceso en ejecución, el \textbf{C}, va por el 3 ciclo de computación.
+
+        \item \textbf{Momento 7}: misma situación que en el punto anterior, ningún cambio salvo un un ciclo más de computación para el proceso \textbf{C}.
+
+        \item \textbf{Momento 8}: en este punto, el proceso \textbf{C} está en su último ciclo de computación. Tenemos a los procesos \textbf{B} y \textbf{D} en espera, además acaba de entrar el proceso \textbf{E}, que pasará a estar a la espera también.  Como ya es el último ciclo de computación de \textbf{C}, habrá que seleccionar el proceso que se ejecutará a continuación. Tenemos 3 procesos a la espera, proceso \textbf{B} con 8 ciclos de computación, el proceso \textbf{D} con 2 ciclos de computación y el proceso que acaba de llegar, el \textbf{E} con 1 ciclo de computación. Como el proceso con menos tiempo de computación es el que tiene prioridad, en el \textbf{siguiente ciclo} se \textbf{ejecutará} el proceso \textbf{E}.
+    \end{itemize}
+\end{enumerate}
 % Bibliography
 
 \newpage
