@@ -273,6 +273,112 @@ Hay que tener en cuenta que se esta usando una algoritmo \textbf{SJF} (Short Job
         \item \textbf{Momento 8}: en este punto, el proceso \textbf{C} está en su último ciclo de computación. Tenemos a los procesos \textbf{B} y \textbf{D} en espera, además acaba de entrar el proceso \textbf{E}, que pasará a estar a la espera también.  Como ya es el último ciclo de computación de \textbf{C}, habrá que seleccionar el proceso que se ejecutará a continuación. Tenemos 3 procesos a la espera, proceso \textbf{B} con 8 ciclos de computación, el proceso \textbf{D} con 2 ciclos de computación y el proceso que acaba de llegar, el \textbf{E} con 1 ciclo de computación. Como el proceso con menos tiempo de computación es el que tiene prioridad, en el \textbf{siguiente ciclo} se \textbf{ejecutará} el proceso \textbf{E}.
     \end{itemize}
 \end{enumerate}
+
+\subsection{Actividad 6: Gestión de Memoria}
+Supón un sistema en el que la gestión de memoria se realiza siguiendo un esquema de asignación de particiones variables en el que no es posible realizar compactación de memoria (no se pueden mover de sitio los procesos una vez hayan sido ubicados en memoria). La capacidad de la memoria es de 4000 KB, de los cuales 500 se encuentran ocupados por el sistema operativo, y el resto está disponible para ubicar los procesos que se ejecuten. La situación de partida, la podemos ver en la Figura 2.7.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.50]{ram-inicial.png}
+    \caption{Imagen de la situación inicial de la memoria}
+\end{figure}
+
+Se van produciendo las siguientes llegadas y salidas de procesos, por orden, que requieren la asignación o liberación de trozos de memoria:
+
+\begin{enumerate}
+    \item Inicialmente solo está cargado el sistema operativo, sin ningún otro proceso (situación de partida).
+    \item Llega un proceso A de 1200 KB de tamaño y se intenta cargar en memoria.
+    \item Llega un proceso B de 500 KB de tamaño y se intenta cargar en memoria.
+    \item Llega un proceso C de 1000 KB de tamaño y se intenta cargar en memoria.
+    \item Llega un proceso D de 400 KB de tamaño y se intenta cargar en memoria.
+    \item El proceso B termina su ejecución y se libera el espacio que estaba ocupando en memoria.
+    \item Llega un proceso E de 600 KB de tamaño y se intenta cargar en memoria.
+\end{enumerate}
+
+Realiza lo siguiente:
+
+\begin{enumerate}[label=(\alph*)]
+    \item Si consideramos que el dibujo de arriba se corresponde con el punto 1 de la lista anterior, incluye dos dibujos más en los que se muestre cómo se encontraría la memoria después de los instantes 5 (tras llegar D y cargarse en memoria) y 6 (tras terminar B y liberarse su espacio).
+    \item Explica qué ocurre en el punto 7, cuando llega E e intenta cargarse en memoria. Comenta si ocurre algún tipo de fragmentación y, en caso afirmativo, qué tipo de fragmentación sería.
+\end{enumerate}
+
+\subsubsection{Solución}
+En este punto vamos a ver como se gestionaría la memoria en un sistema operativo con esquema de asignación de particiones variables en el que no es posible la compactación, que como veremos a continuación, provocara la fragmentación de la memoria.
+
+\begin{enumerate}[label=(\alph*)]
+    \item En primer lugar, vamos a ver como quedaría la memoria en los instantes 5 y 6. El espacio en gris representa la memoria libre, y como podemos ver, tras el paso 6, quedan dos espacios de memoria libres de 400 y 500 KB.
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{ram-final.png}
+        \caption{Estado de la memoria en los pasos 5 y 6}
+    \end{figure}
+    \item Al entrar un proceso \textbf{E} de \textbf{600 KB}, no podría cargarse en memoria, ya que los espacios libres, como he comentado en el punto anterior, son de \textbf{400 KB} y \textbf{500 KB}. Esto provocaría un estado de \textbf{fragmentación externa} en la memoria, ya que la memoria externa a las particiones no es lo suficientemente grande como para alojar al nuevo proceso, por lo que en es punto, y hasta que algún proceso liberara memoria, no se podría usar.
+\end{enumerate}
+
+\subsection{Actividad 7: Estructura de Directorios y Rutas}
+Considera las siguientes estructuras de directorios para un equipo con SO Windows 10 (A) y uno con SO Lubuntu 22.04 (B):
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{estructura-directorios.png}
+    \caption{Estructuras de directorios para Windows y Lubuntu}
+\end{figure}
+
+Para el equipo con Windows (A), escribe las siguientes rutas:
+
+\begin{itemize}
+    \item Una ruta absoluta al directorio "Fuentes".
+    \item Una ruta relativa al directorio "Rufus", considerando que el directorio de trabajo/activo actual sea "Imágenes".
+    \item \textbf{NOTA:} Las rutas en Windows no son sensibles a mayúsculas y minúsculas.
+\end{itemize}
+
+Para el equipo con Linux (B), escribe las siguientes rutas:
+
+\begin{itemize}
+    \item Una ruta absoluta al directorio "Downloads".
+    \item Una ruta relativa al directorio "Pictures", considerando que el directorio de trabajo/activo actual sea "media".
+    \item \textbf{NOTA:} Las rutas en Linux sí son sensibles a mayúsculas y minúsculas.
+\end{itemize}
+
+\subsubsection{Solución}
+
+\begin{enumerate}[label=(\alph*).]
+    \item Rutas para \textbf{Windows}
+    \begin{itemize}
+        \item \textbf{Ruta Absoluta} a ``Fuentes'':
+        \begin{figure}[h]
+                \begin{verbatim}
+        C:\Usuarios\Cristóbal\Descargas\Fuentes\
+                \end{verbatim}
+        \end{figure}
+
+         \item \textbf{Ruta Relativa} a ``Rufus'' desde el directorio ``Imágenes'':
+            \begin{figure}[h]
+                \begin{verbatim}
+        ..\Usuarios\Cristóbal\Descargas\Programas\Rufus\
+                \end{verbatim}
+            \end{figure}
+    \end{itemize}
+
+    \item Rutas para \textbf{Lubuntu}:
+    \begin{itemize}
+        \item \textbf{Ruta Absoluta} a ``Downloads'':
+        \begin{figure}[h]
+            \begin{verbatim}
+        /home/lubuntu/Downloads/
+            \end{verbatim}
+        \end{figure}
+
+        \item \textbf{Ruta Relativa} a ``Pictures'' desde el directorio ``media'':
+        \begin{figure}[H]
+            \begin{verbatim}
+        ../home/lubuntu/Pictures
+            \end{verbatim}
+        \end{figure}
+    \end{itemize}
+\end{enumerate}
 % Bibliography
 
 \newpage
