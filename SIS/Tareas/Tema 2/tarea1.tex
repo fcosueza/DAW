@@ -153,7 +153,57 @@ Realiza la siguiente tabla añadiendo una fila por sistema operativo con la úl
 \end{figure}
 
 \subsubsection{Solución}
-En este punto vamos a ver información básica sobre los diferentes sistemas operativos más extendidos en la actualidad. En la siguiente figura se muestra una tabla con toda la información pedida. Como apunte, en la sección de requisitos hardware se incluirán los requisitos mínimos.
+En este punto vamos a ver información básica sobre los diferentes sistemas operativos más extendidos en la actualidad. En la siguiente figura se muestra una tabla con toda la información pedida.
+
+Dentro de la sección de requisitos de hardware se incluirán los requisitos mínimos, no los recomendados. El colo de la tabla también puede diferir de la que se muestra en el enunciado, pero el contenido es el solicitado.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{tabla-so-completa.png}
+    \caption{Tabla características SOs}
+\end{figure}
+
+Para el apartado de \textbf{Android}, se ha incluido el teléfono \textbf{Samsung Galaxy S21 Ultra}. Actualmente no hay móviles que salgan con Android 13, ya que esta versión es muy reciente (Agosto de 2022), pero si hay muchos que se han actualizado a esta versión desde la versión 12, este Samsung es uno de ellos.
+
+\subsection{Actividad 4: Arquitectura Interna de un Sistema Operativo}
+Explica en qué consisten las siguientes arquitecturas de sistemas operativos:
+
+\begin{itemize}
+    \item Monolítica.
+    \item Microkernel.
+    \item Híbrida.
+\end{itemize}
+
+Indica, además, un ejemplo de SO para cada arquitectura.
+
+\subsubsection{Solución}
+En este punto vamos a explicar diferentes arquitecturas de Kernel, explicando un poco sus características y poniendo un ejemplo de un sistema operativo que las use.
+
+\begin{itemize}
+    \item \textbf{Arquitectura Monolítica}
+
+    En este tipo de arquitectura \textbf{todas las funciones} se implementan \textbf{dentro del núcleo}, es decir, todos los servicios del sistema operativo se ejecutan dentro de hilo principal del Kernel. También se incluyen dentro del núcleo \textbf{todos los drivers} necesarios para que funcionen los diferentes dispositivos. Este tipo de arquitectura ha sido empleado tradicionalmente por los sistemas tipo Unix. \cite{wiki04}
+
+    Algunos desarrolladores, como Ken Thompson, mantienen que es ``más fácil de implementar'' que otras arquitecturas, como los microkernels, aunque son núcleos más difíciles de mantener, principalmente por la dependencia entre los componentes del sistema. \cite{wiki03}
+
+    Algunos ejemplos de este tipo de kernel son los sistemas \textbf{GNU/Linux}, \textbf{BSD} (FreeBSD, OpenBSD, NetBSD), y los sistemas basados en \textbf{UNIX System V}, como \textbf{Solaris} o \textbf{HP-UX}. El sistema \textbf{MS-DOS} también usaba esta arquitectura.
+
+    \item \textbf{Microkernel}
+
+    En este tipo de arquitectura, muchas de las \textbf{funcionalidades} que históricamente se implementaban dentro del kernel se mueven \textbf{fuera de éste}, en un conjunto de ``\textbf{servidores}'' que se comunican a través de un kernel con el mínimo posible de código. Estos servidores, al contrario que en otros kernel, se ejecutan en el \textbf{espacio de usuario} en vez de en el \textbf{espacio de sistema}, manteniéndose en éste solo lo imprescindible, como el \textbf{IPC} (Inter Process Comunitacion), que permite la comunicación entre los diferentes procesos. \cite{wiki03}
+
+    Esta arquitectura tiene varias \textbf{ventajas} sobre la monolítica, como que son \textbf{más fácil de mantener}, los \textbf{parches} se pueden \textbf{testear} en instancias separadas y son más rápidos de desarrollar. Pero también tiene algunos \textbf{inconvenientes}, como que los \textbf{programas necesitan más memoria} para poder ejecutarse, la \textbf{gestión de procesos} es más \textbf{compleja}, y el rendimiento es menor que en los kernel monolíticos. \cite{wiki03}
+
+    Algunos ejemplos de sistemas operativos con microkernel son \textbf{AmigaOS}, \textbf{Minix} y 	\textbf{HarmonyOS}, entre otros.
+
+    \item \textbf{Arquitectura Híbrida}
+
+    Estos tipos de kernel son \textbf{similares} a los \textbf{microkernel}, con la diferencia de que \textbf{incluyen más funcionalidades} dentro de \textbf{núcleo} para mejorar el rendimiento de éste, combinando, por así decirlo, las arquitecturas monolítica y microkernel. La idea es tener una estructura similar a un microkernel, pero implementando esa estructura de forma monolítica, así, no tienen los beneficios de tener los servicios del SO en el espacio de usuario, pero tampoco tienen la sobrecarga en el paso de mensajes que esto puede ocasionar, siendo en este aspecto más similar a un kernel monolítico. \cite{wiki05}
+
+    El ejemplo más conocido de este tipo de kernel son los sistemas \textbf{Microsoft Windows}, que desde la versión \textbf{Windows NT} se lleva empleando en todos sus sistemas operativos, incluido la ultima versión, \textbf{Windows 11}. También hay otros sistemas que emplean este tipo de arquitectura, como \textbf{BeOS}, \textbf{Netware} o \textbf{ReactOS}.
+
+
+\end{itemize}
 
 
 % Bibliography
