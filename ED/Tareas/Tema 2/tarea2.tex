@@ -36,11 +36,9 @@
 
 \tableofcontents
 
-\vspace{15ex}
+\newpage
 
-\hrule
-
-\vspace{10ex}
+\vspace{2.5ex}
 
 \listoffigures
 
@@ -174,6 +172,196 @@ En este punto vamos a crear un nuevo proyecto en Netbeans y realizar algunas con
        \caption{Cambio del color y resaltado de los mensajes de Warning}
     \end{figure}
 \end{enumerate}
+
+\subsection{Actividad 3}
+\subsubsection{Enunciado}
+Instala los plugin NB Java Decompiler de forma off-line y Explore Location in OS de forma on-line.
+
+Capturas solicitadas: 4 (dos por cada plugin)
+\begin{itemize}
+    \item Una captura que muestre el plugin NB Java Decompiler se está instalando de forma off-line desde el IDE.
+    \item Una captura que muestre que el plugin NB Java Decompiler ha finalizado la instalación correctamente.
+    \item Una captura que muestre que el plugin Explore Location in OS se está instalando de forma on-line desde el IDE.
+    Una captura que muestre que el plugin Explore Location in OS ha finalizado la instalación correctamente.
+\end{itemize}
+
+\subsubsection{Solución}
+En esta actividad vamos a instalar dos plugins de Netbeans. El primero será \textbf{NB Java Decompiler}, que instalaremos de forma \textbf{off-line} y en segundo lugar instalaremos \textbf{Explore Location OS}, que instalaremos de forma \textbf{on-line}.
+
+\begin{itemize}
+    \item Para instalar de forma \textbf{off-line} un plugin de Netbeans debemos descargarlo nosotros manualmente y después cargarlo desde el IDE. Nosotros hemos descargado \textbf{NB Java Decompile} desde la \href{https://plugins.netbeans.apache.org/catalogue/?id=80}{página oficial de plugins de Netbeans}. Una vez descargado, pulsamos en el menú \textit{``Tools''} y ahí en la opción \textit{``Plugins''}.
+
+    En la ventana que se nos abrirá debemos seleccionar la pestaña \textit{``Downloaded''}, que nos permitirá cargar e instalarlo, como se puede ver en las siguientes capturas. Una vez instalado, el plugin desaparecerá de esa pestaña y aparecerá en la pestaña \textit{``Ìnstalled''}.
+
+    Es posible que durante el proceso de instalación se nos muestre una \textbf{ventana con una advertencia}, si por lo que sea algún plugin aparece como no firmado. En principio si el plugin está descargado desde un sitio oficial, como es el caso, no deberíamos preocuparnos. Podemos cerrar la ventana y continuar con el proceso de instalación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.32]{netbeans-plugins-1.png}
+        \caption{NB Java Decompile instalándose de forma off-line}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.32]{netbeans-plugins-2.png}
+        \caption{Instalación de NB Java Decompile completada}
+    \end{figure}
+
+    \item En segundo lugar instalaremos \textbf{Explorer Location OS} de forma on-line. En este caso, solo necesitamos acceder a la pestaña \textit{``Avaible Plugins}, en la pantalla de gestión de los plugins, buscarlo e instalarlo. Al igual que antes, puede aparecernos una ventana con un aviso sobre la firma del plugin, pero si los estamos descargando de los repositorios oficiales no deberemos preocuparnos.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.32]{netbeans-plugins-3.png}
+        \caption{Explorer Location OS instalándose on-line}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.32]{netbeans-plugins-4.png}
+        \caption{Instalación de NB Explorer Location OS completada}
+    \end{figure}
+\end{itemize}
+
+\subsection{Actividad 4}
+\subsubsection{Enunciado}
+Actualiza el IDE y muestra la captura de pantalla de actualización o del mensaje de que no hay nada que actualizar.
+
+Capturas solicitadas: 1
+
+\subsubsection{Solución}
+Ahora vamos a actualizar el IDE. Para ello, deberemos pulsar en el menú \textit{``Help''} y dentro de este en la opción \textit{``Check Updates''}. En el caso de que haya alguna actualización, se nos mostrará y podremos instalarla. En nuestro caso no había ninguna por lo que no ha sido necesario, como muestra la siguiente figura.
+
+   \begin{figure}[H]
+       \centering
+        \includegraphics[scale=0.32]{netbeans-update.png}
+        \caption{Pantalla de actualización de Netbeans}
+    \end{figure}
+
+\subsection{Actividad 5}
+\subsubsection{Enunciado}
+Desactiva el plugin Explore Location in OS y desintala el plugin NB Java Decompiler
+
+Capturas solicitadas: 2
+\begin{itemize}
+    \item Captura de la ventana de plugins en la pestaña Installed, mostrando Explore Location in OS desactivado.
+    \item Captura de la ventana de plugins en la pestaña Downloaded.
+\end{itemize}
+
+\subsubsection{Solución}
+En esta actividad vamos a \textbf{desinstalar} uno de los plugins instalados en la actividad 3, en concreto vamos a desinstalar \textbf{NB Java Decompiler}, y vamos a \textbf{desactivar} el otro, \textbf{Explorer Location OS}.
+
+Para llevar esto a cabo tenemos que pulsar en la pestaña \textit{`Ìnstalled''} de la ventana de gestión de plugins. Es probable, que de primeras no nos aparezcan, y en su lugar aparezcan los dos instalados bajo la opción \textbf{User Installed Plugins}. Si este fuera el caso, solo debemos marcar la casilla de la parte superior derecha llamada \textit{``Show Details''} y se nos mostrarán todos los plugins instalados de forma individual.
+
+Una vez hecho esto, solo debemos desinstalar o deshabilitar el plugin que queramos. En caso de que el plugin desinstalado sea un plugin que hemos instalado de forma off-line volverá a aparecer en la pestaña \textit{``Downloaded''}, en caso de que lo hayamos instalado de forma on-line, podremos verlo deshabilitado en la misma pestaña \textit{`Ìnstalled''}. A continuación se muestran dos capturas con estas dos posibilidades.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.32]{netbeans-plugins-uninstall.png}
+    \caption{Plugin NB Java Decompiler desinstalado}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.32]{netbeans-plugins-deactivate.png}
+    \caption{Plugin Explorer Location in OS deshabilitado}
+\end{figure}
+
+\subsection{Actividad 6}
+\subsubsection{Enunciado}
+Escribe en la zona de edición de Netbeans el siguiente código Java:
+
+\begin{itemize}
+    \item \textbf{NOTA}: para que el código haya podido entrar en una misma página se han debido eliminar algunos comentarios y algunos espacios. Así mismo, las líneas más largas de código se han dividido en 2 líneas,en concreto algunas sentencias que incluyen System.out, aunque esto no debería causar ningún problema a la hora de copiar el código.
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \tiny
+        \begin{verbatim}
+package calculadora;
+
+/** @author IES Aguadulce */
+
+public class Calculadora {
+    public static void main(String[] args) {
+        int opcion = 0;
+
+        Scanner sc;
+        sc = new Scanner(System.in);
+        int operando1, operando2;
+
+        do{
+            //Menú de consola
+            System.out.println("\n");
+            System.out.println("CALCULADORA DE NÚMEROS REALES:");
+            System.out.println("1. Suma");
+            System.out.println("2. Resta");
+            System.out.println("3. Multiplicación");
+            System.out.println("4. División");
+            System.out.println("5. Resto");
+            System.out.println("0. Salir");
+            System.out.print("Introduzca una opción: ");
+
+            opcion = Integer.parseInt(sc.nextLine());
+            System.out.println();
+
+            if (opcion>5 || opcion<0){
+                System.out.println(Valor no válido. Introduzca un valor válido.);
+            }
+            else if (opcion = 0)
+                System.out.println("Hasta pronto!!!"\n);
+
+            else{
+                System.out.print("Introduzca el primer operando: ");
+                operando1 = Float.parseFloat(sc.nextLine());
+                System.out.println();
+
+                System.out.print("Introduzca el segundo operando: ");
+                operando2 = Float.parseFloat(sc.nextLine());
+                System.out.println();
+
+                switch(opcion){
+                    case 1:
+                    System.out.println(
+                    "La suma de  +operando1+ " y "+operando2 +" es " (operando1 + operando2));
+                    break;
+                    case 2:
+                    System.out.println("La resta de " + operando1 + " y "+ operando2
+                        + " es " (operando1 - operando2));
+                    break;
+                    case 3:
+                    System.out.println("La multiplicación de  +operando1+  y "+operando2+" es "
+                        + (operando1 * operando2));
+                    break;
+                    case 4:
+                    System.out.println("La división de " +operando1+ " y "+operando2
+                        +" es " (operando1 / operando2));
+                    break;
+                    case 5:
+                    System.out.println("El resto de dividir " +operando1+ " y "+operando2
+                        +" es "+ (operando1 % operando2));
+                    break;
+                }
+            }
+        }while(opcion == 0 || opcion != 0); //Si la opción es 0 sale del programa
+
+        sc.close();//Indica que no vamos a volver a leer de teclado
+        System.out.println("Ha finalizado el programa.");
+    }
+}         \end{verbatim}
+    \end{tcolorbox}
+    \caption{Código en Java para probar los IDEs}
+\end{figure}
+
+Siguiendo las indicaciones del editor corrige los fallos que indica y ejecuta el programa.
+
+Capturas solicitadas: 2
+\begin{itemize}
+    \item Captura mostrando el proyecto con errores.
+    \item Captura mostrando la salida de la ejecución.
+\end{itemize}
+
+\subsubsection{Solución}
 
 
 
