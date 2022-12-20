@@ -954,7 +954,69 @@ Los espacios de nombres se pueden declaran usando el atributo \textbf{xmlns}, y 
 En el segundo ejemplo se usa un prefijo, que nos informa de cuál es el vocabulario a la que esta asociada la definición. En ambos casos, \textbf{URI\_namespace} hace referencia al conjunto de vocabulario del espacio de nombres.
 
 \section{Definiciones de Tipo de Documento (DTD)}
-Una \textbf{definición de tipo de documento} o \textbf{DTD}, es una descripción de estructura y sintaxis de un documento XML o SGML.
+Una \textbf{definición de tipo de documento} o \textbf{DTD}, es una descripción de estructura y sintaxis de un documento XML o SGML. Su función básica es la definición de una estructura de datos, para usar un diseño común y mantener la consistencia entre los diferentes documentos que usen el mismo DTD. De esta forma, los documentos pueden ser validados, conociendo la estructura de los elementos y la descripción que trae consigo cada documento.
+
+Así, dos o mas documentos que tengan el mismo DTD se construyen de forma similar, tienen el mismo tipo de etiquetas, en el lugar y orden que especifica el DTD.
+
+En el tema anterior se explicó cuando un documento XML estaba bien formado o era correcto, pero un documento bien formado no es necesariamente un documento válido. Para que un documento XML sea válido tiene primero que estar bien formado, y después seguir las especificaciones dictadas por la DTD.
+
+Las DTD \textbf{están formadas} por una \textbf{relación precisa} de \textbf{que elementos} pueden aparecer o no en el documento y \textbf{donde}, así como \textbf{el contenido} y los \textbf{atributos} de los mismos. Garantiza que los datos de un documento XML cumplen las restricciones que se le ha impuesto en el DTD, ya que éstas permiten:
+
+\begin{itemize}
+    \item \textbf{Especificar} la \textbf{estructura} del documento.
+    \item Reflejar una \textbf{restricción de integridad referencial} mínima utilizando ID e IDREF.
+    \item Utilizar unos pequeños mecanismos de abstracción comparables a las macro, las \textbf{entidades}.
+    \item Incluir \textbf{documentos externos}.
+\end{itemize}
+
+Aunque como vemos, DTD tiene muchas ventajas, también tiene sus \textbf{inconvenientes}, siendo los principales los siguientes:
+
+\begin{itemize}
+    \item Su sintaxis \textbf{no es XML}.
+    \item \textbf{No} soporta \textbf{espacio de nombres}.
+    \item \textbf{No define tipos} para los datos, solo hay un tipo de elementos terminales, que son los datos textuales.
+    \item\textbf{ No permite} las \textbf{secuencias no ordenadas}.
+    \item \textbf{No} es posible \textbf{formar claves} a partir de \textbf{varios atributos o elementos}.
+    \item Una vez que se define un DTD, \textbf{no} es posible \textbf{añadir más vocabularios}.
+\end{itemize}
+
+A continuación se muestra un ejemplo de un documento XML que queremos validar, y cual sería el resultado de aplicar un DTD que lo valide.
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+ <?xml version="1.0"?>
+ <pelicula>
+ <titulo>Titanic</titulo>
+ </pelicula>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML que queremos validar}
+\end{figure}
+
+Con ``\textbf{!DOCTYPE pelicula /[}'' comienza la DTD y finaliza con ``\textbf{]>}''. El nombre que aparece a continuación debe ser la raíz del documento, es decir, \textbf{pelicula}, que a su vez indica que la etiqueta \textbf{titulo} esta dentro de la etiqueta \textbf{pelicula}. En la siguiente figura vemos el DTD que deberemos crear para validar este documento.
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0"?>
+<!DOCTYPE pelicula [
+<!ELEMENT pelicula (titulo)>
+<!ELEMENT titulo (#PCDATA)>
+]>
+
+<pelicula>
+<titulo>Titanic</titulo>
+</pelicula>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{DTD para validar el documento}
+\end{figure}
+
+\subsection{Declaración de la DTD}
+
 
 
 
