@@ -849,7 +849,115 @@ Si recordamos la estructura de un documento XML que vimos en el tema anterior, e
 
         \item \textbf{Declaración del tipo de documento}: hasta ahora somo hemos dicho que esta parte se compone del nombre del ejemplar precedido de la declaración ``\textit{!DOCTYPE}'' y separado de esta al menos por un espacio y seguido de  ``\textit{>}''.
     \end{itemize}
+
+    \item \textbf{Ejemplar}: contiene los datos del documento que se quiere procesar. Es el \textbf{elemento raíz} del documento y ha de \textbf{ser único}. Esta compuesto de elementos con una estructura de árbol en la que el elemento raíz es el ejemplar y la hojas los elementos terminales, es decir, aquellos que no contienen más elementos. Los elementos, a su vez, pueden estar compuestos por atributos.
 \end{itemize}
+
+Una vez que hemos recordado la estructura básica de un documento XML, vamos a profundizar y expandir las definiciones que tenemos sobre los elementos de esta estructura y a ampliar la opciones que nos proporcionan para personalizar un documento XML.
+
+\subsection{Declaración de Tipo de Documento}
+Ya habíamos visto que esta parte nos permite establecer restricciones sobre el documento, aunque no lo habíamos profundizado en las partes que lo forman. Estas partes, se componen de los siguientes elementos:
+
+\begin{itemize}
+    \item \textbf{Declaración del tipo de documento}: comienza con el texto que indica el nombre del tipo, precedido por la cadena ``\textbf{!DOCTYPE}'' separado del nombre del tipo por al menos un espacio. El nombre del tipo debe ser idéntico al del ejemplar del documento XML en el que se ésta trabajando.
+
+    \item \textbf{Definición del tipo de documento}: permite asociar al documento una definición de tipo \textbf{DTD}, la cual se encarga de definir las cualidades del tipo. Es decir, define los tipos de elementos, atributos y notaciones que se pueden usar en el documento, así como las restricciones del documento, valores por defecto, etc.
+
+    Para formalizar todo esto, XML esta provisto de ciertas estructuras llamadas \textbf{declaraciones de marcado}, las cuales pueden ser internas o externas. En este último caso, deben declararse en un documento donde encontrar las declaraciones, además de indicar en la declaración de XML que el documento no es autónomo. Las diferencias entre este tipo de declaraciones de marcado dan lugar a dos subconjuntos, el \textbf{interno} y el \textbf{externo}. Durante el procesado de un documento XML, siempre se procesa primero el conjunto interno y después el externo, lo que permite sobrescribir declaraciones externas compartidas entre varios documentos y ajustar el DTD al documento específico.
+
+    Las principales de características de los dos subconjuntos son las siguientes:
+
+    \begin{itemize}
+        \item \textbf{Subconjunto interno}: contiene las declaraciones que pertenecen a un \textbf{único documento} y no es posible compartirlas. Se localizan dentro de unos corches que siguen a la declaración del tipo de documento.
+
+        \item \textbf{Subconjunto externo}: están localizadas en un documento con extensión \textbf{dtd} que puede situarse en el mismo directorio del documento XML. Habitualmente son declaraciones que pueden ser compartidas entre múltiples documentos XML que pertenecen al mismo tipo. En este caso, la declaración de documento autónomo ha de ser negativa, ya que es necesario el fichero con el subconjunto externo para su correcta interpretación. Esto implica que el procesado del documento se hará más lento, ya que antes de procesarlo el procesador debe obtener todas las entidades.
+
+        Para declarar el documento externo, deberá realizarse una declaración explicita de subconjunto externo que podrá realizarse de las siguientes dos formas:
+
+        \begin{itemize}
+            \item \textbf{<!DOCTYPE nombre\_ejemplar ``URI''>}
+
+            Se especifica una URI donde podrán localizarse las declaraciones.
+
+            \item \textbf{<!DOCTYPE nombre\_ejemplar PUBLIC ``id\_publico'' ``URI''>}
+
+            En este caso, también se especifica un identificador, que puede ser utilizado por el procesador para generar una URI alternativo, posiblemente basado en alguna tabla. Como se puede observar, también es necesario incluir una URI.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+Ya que hemos visto como declarar el tipo de documento, en el siguiente punto veremos con se declara la sintaxis de un documento XML.
+
+\subsection{Definición de Sintaxis de XML}
+En los documentos de lenguajes de marcas, la distribución de los elementos esta jerarquizada según un estructura de árbol, lo que implica que es posible anidarlos pero no entrelazarlos. En este caso, el orden es significativo, pero no es así para los atributos, cuyo orden no importa, aunque si cabe recordar que no puede haber dos atributos con el mismo nombre.
+
+Sabemos que los atributos no pueden tener nodos que dependan de ellos, por lo tanto solo pueden corresponder con las hojas de la estructura de árbol que jerarquiza los datos. Pero no solo los atributos pueden ser hojas de esta estructura, sino que los elementos pueden serlo también.
+
+Por lo tanto, ¿que criterios podemos utilizar para decidir si un dato debe ser representado como un elemento o un atributo? Bueno, aunque no siempre se respetan, podemos tener en cuenta los siguientes criterios:
+
+\begin{itemize}
+    \item El \textbf{dato} será \textbf{un elemento} si cumple algunas de las siguientes condiciones:
+    \begin{itemize}
+        \item Contiene otras subestructuras.
+        \item Es de tamaño considerable.
+        \item Su valor cambia frecuentemente.
+        \item Su valor va a ser mostrado a un usuario o aplicación.
+    \end{itemize}
+
+    \item  Un \textbf{dato} sera un \textbf{atributo}. si cumple:
+    \begin{itemize}
+        \item El dato es de pequeño tamaño y su valor raramente cambia, aunque hay situaciones en las que este caso se puede representar como un elemento también.
+        \item El dato solo puede tener unos cuantos valores fijos.
+        \item El dato guía el procesamiento de XML pero no se muestra.
+    \end{itemize}
+\end{itemize}
+
+A la hora de decidir si un dato debe ser representado como atributo o elemento, por tanto, podemos comprobar si cumple unas u otras características, aunque como hemos comentado, esto no debe ser tomado como una ``guía absoluta'', ya que puede haber datos que aunque cumplan características de un atributo, pueden, o deben, ser representados como un elemento, y viceversa.
+
+\subsubsection{XML Namespace}
+Como sabemos, no puede haber atributos dentro de un mismo elemento con el mismo nombre, así como no podemos nombrar dos elementos diferentes con el mismo nombre. Para eso, XML nos proporciona los \textbf{namespaces} o \textbf{espacios de nombres}.
+
+Un \textbf{espacio de nombre} se usan para proveer de nombres únicos a los elementos y atributos de XML, siendo su uso una recomendación de la W3C. \cite{namespace} En esencia, son una URI que referencia a una definición de vocabulario y nos permite:
+
+\begin{itemize}
+    \item Diferenciar entre los atributos y elementos de diferentes vocabularios y con diferente significado que comparten nombre.
+    \item Agrupar todos los elementos y atributos de una aplicación XML para que el software pueda reconocerlos con facilidad.
+\end{itemize}
+
+
+Los espacios de nombres se pueden declaran usando el atributo \textbf{xmlns}, y se pueden definir de la siguiente forma.
+
+\begin{itemize}
+    \item \textbf{xmlns:``URI\_namespace''}
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+    <nombre xmlns="https://educacionadistancia.es/EspacioNombres">Ejemplo</nombre>
+            \end{verbatim}
+        \end{tcolorbox}
+
+    \end{figure}
+
+    \item \textbf{xmlns:prefijo=``URI\_namespace''}
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<EN:nombre xmlns:EN="https://educacionadistancia.es/EspacioNombres">Ejemplo</EN:nombre>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+En el segundo ejemplo se usa un prefijo, que nos informa de cuál es el vocabulario a la que esta asociada la definición. En ambos casos, \textbf{URI\_namespace} hace referencia al conjunto de vocabulario del espacio de nombres.
+
+\section{Definiciones de Tipo de Documento (DTD)}
+Una \textbf{definición de tipo de documento} o \textbf{DTD}, es una descripción de estructura y sintaxis de un documento XML o SGML.
+
+
+
 % Glossary
 
 \glsaddall
