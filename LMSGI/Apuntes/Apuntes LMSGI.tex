@@ -831,7 +831,25 @@ En esta última sección solo vamos a incluir unos enlaces para completar y acla
     \item Resumen teórico y práctico . \url{https://youtu.be/YGFcD3-WO6c}
 \end{itemize}
 
+\chapter{Definición de Esquemas y Vocabulario XML}
 
+En este tema vamos a estudiar como establecer y definir la estructura de un documento XML. Para ello, vamos a emplear dos herramientas como son \textbf{Document Type Definition} (\textbf{DTD}) y \textbf{XML SChema Definition} (\textbf{XSD}).
+
+Tanto DTD como XSD nos permitirán definir restricciones tanto de tipos como de estructura para un documento XML. Cada uno tiene sus ventajas he inconvenientes, las cuales estudiaremos en los siguientes puntos. También veremos algunas herramientas que nos ayudarán tanto en la creación como en la validación de documentos XML, así como de los documentos escritos en DTD o XDS.
+
+\section{Documento XML: Estructura y Sintaxis}
+Hasta ahora solo hemos trabajado con documentos XML muy básicos, los cuales podemos considera incompletos ya que solo hemos declarado que tipo de documento vamos a definir, pero no que características tiene.
+
+Si recordamos la estructura de un documento XML que vimos en el tema anterior, este se compone de las siguientes partes:
+
+\begin{itemize}
+    \item \textbf{Prólogo}: informa al intérprete encargado de procesar el documento de todos aquellos datos que necesita para realizar su trabajo. Este consta de:
+    \begin{itemize}
+        \item \textbf{Definición de XML}: aquí se indica la versión de XML que se utiliza, el código de los datos a procesar y la autonomía del documento. Este ultimo dato, hasta ahora, siempre ha tenido la opción ``\textit{yes}'', ya que los documentos que hemos definido hasta ahora han sido independientes.
+
+        \item \textbf{Declaración del tipo de documento}: hasta ahora somo hemos dicho que esta parte se compone del nombre del ejemplar precedido de la declaración ``\textit{!DOCTYPE}'' y separado de esta al menos por un espacio y seguido de  ``\textit{>}''.
+    \end{itemize}
+\end{itemize}
 % Glossary
 
 \glsaddall
