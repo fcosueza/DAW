@@ -30,6 +30,8 @@
 
 \tableofcontents
 
+\newpage
+
 \listoffigures
 
 %\listoftables
@@ -934,6 +936,8 @@ Los espacios de nombres se pueden declaran usando el atributo \textbf{xmlns}, y 
         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
             \scriptsize
             \begin{verbatim}
+
+
     <nombre xmlns="https://educacionadistancia.es/EspacioNombres">Ejemplo</nombre>
             \end{verbatim}
         \end{tcolorbox}
@@ -945,6 +949,8 @@ Los espacios de nombres se pueden declaran usando el atributo \textbf{xmlns}, y 
         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
             \scriptsize
             \begin{verbatim}
+
+
 <EN:nombre xmlns:EN="https://educacionadistancia.es/EspacioNombres">Ejemplo</EN:nombre>
             \end{verbatim}
         \end{tcolorbox}
@@ -1016,9 +1022,397 @@ Con ``\textbf{!DOCTYPE pelicula /[}'' comienza la DTD y finaliza con ``\textbf{]
 \end{figure}
 
 \subsection{Declaración de la DTD}
+Existen dos formas de definir la DTD que describirá la estructura de un documento XML. Se puede incluir dentro del mismo documento o incluirlo en un documento externo e indicar su ubicación.
+
+\begin{itemize}
+    \item \textbf{DTD incrustada}: es posible incluir la DTD en el mismo documento, como hemos visto en el punto anterior. En la siguiente figura podemos ver un ejemplo.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pelicula [
+<!ELEMENT pelicula (titulo)>
+<!ELEMENT titulo (#PCDATA)>
+]>
+<pelicula>
+<titulo>Titanic</titulo>
+</pelicula>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Declaración DTD incrustada}
+    \end{figure}
+
+    Cuando se declara de esta forma, se puede proporcionar una ayuda al analizador de XML, si a través de instrucciones de proceso presentes en el código, se indica que el documento es independiente y que todo lo que necesita está contenido en el mismo. Para ello, basta con añadir el atributo \textbf{standalone=``yes''}, como puede verse a continuación:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El valor por defecto del atributo standalone es ``yes'', por lo que no sería estrictamente necesario incluirlo en este caso.
+
+    \item \textbf{DTD externa}: otra opción es separar la declaración DTD del documento XML, realizando ésta en un documento externo e indicando donde se puede encontrar este documento. En el siguiente ejemplo, cargamos un fichero externo, \textit{cine.dtd} con la declaración DTD.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Enlace a la DTD -->
+<!DOCTYPE pelicula SYSTEM "cine.dtd">
+<pelicula>
+<titulo>Titanic</titulo>
+</pelicula>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Documento SGML simple}
+    \end{figure}
+\end{itemize}
+
+Aunque las dos formas de declarar un documento DTD son igual de válidas, cabe apuntar que realizar un \textbf{declaración externa} tiene ciertas \textbf{ventajas} respecto a hacerla incrustada. Algunas de estas ventajas son estas:
+
+\begin{itemize}
+    \item Si la DTD que se va a incluir es compartida por muchos documentos XML, es preferible que se encuentre en un archivo independiente, ya que si hay que hacer algún cambio en el DTD, solo tendrá que hacerse en el archivo donde este declarado, y no en cada archivo XML.
+
+    \item La DTD puede ubicarse en un servidor web, de forma que cualquier persona con acceso a internet puede validar el documento XML que está creando, lo que garantiza que todos los documentos creados usen la última versión de la DTD. Para declarar que la DTD se encuentra en una servidor web, se puede especificar de la siguiente forma:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <!DOCTYPE cine SYSTEM "http://cine.com/filmoteca.dtd">
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Aunque sería más correcto si el archivo se pusiera de forma pública. Como se muestra en el siguiente código.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+<!DOCTYPE cine PUBLIC "filmoteca" "http://cine.com/filmoteca.dtd">
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Siendo \textbf{``filmoteca''} el nombre de la DTD.
+\end{itemize}
+
+\subsection{Declaración de Tipos de Elementos Terminales}
+
+Los \textbf{tipos de elementos terminales} son aquellos elementos que dentro de la estructura de árbol de un documento XML serían representados por la hojas.
+
+La declaración de tipos de elementos esta formada por la cadena ``\textbf{<!ELEMENT}'', separada por un espacio del nombre del elementos XML que se declara y seguido de la declaración de contenido de dicho elemento. En el caso de los elementos terminales, es decir, aquellos que no tienen más elementos anidados, esta declaración de contenido puede tomar los siguientes valores:
+
+\begin{itemize}
+    \item \textbf{EMPTY}: indica que el elemento no es un contenedor, es decir, que el elemento está vacío y no puede tener contenido. Para definir un elemento de este tipo se usa la siguiente definición:
+
+        \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+      <!ELEMENT ejemplo EMPTY>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{itemize}
+        \item XML asociado \textbf{correcto}:
+
+     \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+           \scriptsize
+           \begin{verbatim}
+
+
+       <ejemplo></ejemplo> ó <ejemplo />
+           \end{verbatim}
+       \end{tcolorbox}
+    \end{figure}
+
+    \item XML asociado \textbf{incorrecto}:
+
+     \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+       <ejemplo>Esto es un ejemplo</ejemplo> ó <ejemplo><a></a></ejemplo>
+            \end{verbatim}
+        \end{tcolorbox}
+     \end{figure}
+    \end{itemize}
+
+    \item \textbf{(\#PCDATA)}: indica que los datos son analizados en busca de etiquetas, resultando que el elemento no puede contener otros elementos, es decir, solo puede contener datos de tipo carácter, exceptuando \textbf{<}, \textbf{[}, \textbf{\&}, \textbf{]}, \textbf{>}. El elemento también podrá estar vacío. Un elemento de este tipo tendrá un definición así:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+       <!ELEMENT ejemplo (#PCDATA)>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{itemize}
+        \item XML asociado \textbf{correcto}:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+       <ejemplo>Esto es un ejemplo</ejemplo> ó <ejemplo />
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        \item XML asociado \textbf{incorrecto}:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+        <ejemplo><a></a></ejemplo>
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+    \end{itemize}
+
+    \item \textbf{ANY}: permite que el contenido de un elemento sea cualquier cosa, ya sea vacío, texto u otro elemento. \textbf{No} es \textbf{recomendable} es uso de este tipo de elemento. Para definir un elemento como ANY se usa la siguiente sentencia:
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+        <!ELEMENT ejemplo ANY>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El problema con este tipo de dato es que no pone prácticamente restricciones al elemento, pudiendo este adoptar diferentes formas lo que hace que esta declaración de tipos sea muy poco específica. Por ejemplo, si tenemos en cuenta la siguiente declaración DTD:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+       <?xml version="1.0" encoding="UTF-8"?>
+       <!DOCTYPE mascota[
+         <!ELEMENT mascota ANY>
+         <!ELEMENT nombre (#PCDATA)>
+         <!ELEMENT tipo(#PCDATA)>
+          <!ELEMENT raza(#PCDATA)>
+       ]>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Todos los elementos que vemos a continuación, serían válidos:
+
+
+        \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+        <mascota>
+        <nombre>Coco</nombre> es mi mascota.
+        Es una <tipo>chinchilla</tipo> <raza>blanca</raza>.
+        </mascota>
 
 
 
+        <mascota>
+        Coco es mi mascota.
+        Es una <tipo>chinchilla</tipo> <raza>blanca</raza>.
+        </mascota>
+
+
+         <mascota>
+        <nombre>Coco</nombre>.
+        </mascota>
+
+        <mascota/>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Por lo tanto, aunque su uso es correcto y hay determinadas situaciones en las que se debe usar, no se recomienda de forma general declarar elementos de este tipo.
+\end{itemize}
+
+\subsection{Declaración de Elementos No Terminales}
+Una vez que hemos visto como declarar los elementos terminales, es decir, la hojas del árbol de la estructura, ahora vamos a ver como declarar los elementos \textbf{no terminales}, es decir, \textbf{elementos formados} por \textbf{otros elementos}, lo que serían las \textbf{ramas} del árbol de la estructura de un documento XML.
+
+Para definir estos elementos, debemos hacer referencia a las elementos que las componen, como vemos en este ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+      <!ELEMENT A(B C)>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En este caso, se ha definido \textbf{un elemento A}, que esta \textbf{formado} por un \textbf{elemento B} seguido de un \textbf{elemento C}. Cuando un elemento aparece varias veces en un documento, también deberemos indicarlo. Para ello, se usan los siguientes operadores, que nos permiten definir la \textbf{cardinalidad} de un elemento:
+
+\begin{itemize}
+    \item \textbf{Operador opción} (\textbf{?}): este operador indica que un elemento es opcional, por lo que podrá o no aparecer en la estructura del elemento:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+      <!ELEMENT telefono (trabajo? casa)>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Operador uno-o-más} (\textbf{+}): define un componente que aparece al menos una vez. En el siguiente ejemplo se define un elemento formado por el nombre de una provincia y otro grupo, que puede aparecer una o varias veces:
+
+      \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+      <!ELEMENT provincia (nombre, (cp, ciudad)+ )>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Operador cero-o-más} (\textbf{*}): este operador permite definir un elemento que aparece cero, una o más veces. Siguiendo con el ejemplo anterior, en este caso el grupo (cp, ciudad) podría no aparecer, o hacerlo varias veces:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+       <!ELEMENT provincia (nombre, (cp, ciudad)* )>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Operador de elección} (\textbf{|}): cuando se utiliza para sustituir las comas en la declaración de grupos indica que para formar el documento XML hay que elegir entre los elementos separados por este operador. En el siguiente ejemplo, el elemento \textit{provincia} estará formado por el elemento \textit{nombre} y el elemento \textit{cp} ó el elemento \textit{ciudad}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+      <!ELEMENT provincia (nombre, (cp | ciudad) )>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Ya hemos visto como se realizan las declaraciones tanto de elementos terminales como no terminales, el siguiente paso será ver como se declaran los atributos que tienen estos elementos.
+
+\subsection{Declaración de Atributos de los Elementos}
+En esta sección vamos a ver como se declaran los atributos que lleva un elemento, independientemente de si es terminal o no terminal. Para ellos, se usa la cadena \textbf{<!ATTLIST} seguida del nombre del elemento asociado al atributo que se declara, luego el nombre del atributo seguido de su tipo y modificador.
+
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+<! ATTLIST nombre_elemento nombre_atributo tipo_del_atributo "Valor_por_defecto">
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Este elemento puede usarse para declarar una lista de atributos asociados a un elemento, o repetirse el número de veces necesario para asociar a dicho elemento esa lista de atributos, pero individualmente. Si un elemento tiene más de una atributo se puede expresar de la siguiente forma:
+
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+ <! ATTLIST nombre_elemento nombre_atributo1  tipo_del_atributo1  "Valor_por_defecto"
+                            nombre_atributo2  tipo_del_atributo2  "Valor_por_defecto"
+                            nombre_atributo3  tipo_del_atributo3  "Valor_por_defecto"
+            ........................................................................>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Al igual que los elementos, no todos los atributos son del mismo tipo. Los tipos más destacados con los que podemos definir un atributo son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Enumeración}:  con el tipo, el atributo solo podrá tomar uno de los valores especificados dentro del paréntesis, los cuales irán separados por el operador \textbf{|}. En el siguiente ejemplo, vemos que el atributo \textit{dia\_semana} solo puede tomar como valor unos de los siete días de la semana:
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+<!ATTLIST fecha dia_semana (lunes|martes|miércoles|jueves|viernes|sábado|domingo)>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{CDATA}: este tipo se usa para especificar que un atributo es una cadena de texto. En el siguiente ejemplo se define el atributo \textit{color} del elemento ejemplo como CDATA:
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<!ATTLIST ejemplo color CDATA #REQUIRED>
+
+<ejemplo color="verde" />
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+
+    \item \textbf{ID}: permite declarar que el valor del atributo debe ser único y no se puede repetir en otros elementos ni atributos. Hay que tener en cuenta que los números no son nombres válidos en XML, por tanto no son un identificado legal.  Para resolverlo, suele incluirse un prefijo en los valores y separarlo con un guión o letra, como en el siguiente ejemplo:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<!ATTLIST libro codigo ID #REQUIRED>
+
+<libro codigo="Q1">El Quijote</libro>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{IDREF}: permite hacer referencia a un identificador. En esta caso, el valor del atributo ha de corresponder con el identificador de algún elemento del documento XML.
+
+    \item \textbf{NMTOKEN}: permite definir que el valor de un atributo ha de ser solo una palabra compuesta por los caracteres permitidos en XML, es decir, letras, números y los caracteres: ``\textbf{:}'', ``\textbf{\_}'', ``\textbf{-}'' y ``\textbf{.}''.
+\end{itemize}
+
+Además de estos tipos, debemos declarar si el valor de un \textbf{atributo} es \textbf{obligatorio} o no.
 
 % Glossary
 
