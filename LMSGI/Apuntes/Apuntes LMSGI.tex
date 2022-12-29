@@ -1412,7 +1412,339 @@ Al igual que los elementos, no todos los atributos son del mismo tipo. Los tipos
     \item \textbf{NMTOKEN}: permite definir que el valor de un atributo ha de ser solo una palabra compuesta por los caracteres permitidos en XML, es decir, letras, números y los caracteres: ``\textbf{:}'', ``\textbf{\_}'', ``\textbf{-}'' y ``\textbf{.}''.
 \end{itemize}
 
-Además de estos tipos, debemos declarar si el valor de un \textbf{atributo} es \textbf{obligatorio} o no.
+Además de estos tipos, debemos declarar si el valor de un \textbf{atributo} es \textbf{obligatorio} o no. También podemos indicar cual será el valor por defecto de un atributo. Para todo ésto, se pueden emplear las siguiente cadenas:
+
+\begin{itemize}
+    \item \textbf{\#IMPLIED}: indica que el atributo sobre el que se aplica es opcional.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+ <!ATTLIST ejemplo color CDATA #IMPLIED>
+
+ <ejemplo color="verde" /> ó <ejemplo color="" />
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{\#REQUIRED}: indica que el atributo sobre el que se aplica es obligatorio.
+
+      \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <!ATTLIST ejemplo color CDATA #REQUIRED>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{itemize}
+        \item XML no válido:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+         <ejemplo color="" />
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        \item XML válido:
+
+                \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+         <ejemplo color="verde" />
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+    \end{itemize}
+
+    \item \textbf{\#FIXED}: permite definir un valor fijo para un atributo independientemente de que ese atributo se defina explícitamente en una instancia del elemento del documento XML.
+
+          \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+  <!ATTLIST ejemplo color CDATA #FIXED "verde">
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{itemize}
+        \item XML no válido:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+            <ejemplo color="rojo" />
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        \item XML válido:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+           <ejemplo color="verde" />
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+    \end{itemize}
+
+    \item \textbf{Literal}: asigna por defecto a un atributo el valor indicado entre comillas, aunque este atributo también podrá tomar otros valores.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+ <!ATTLIST ejemplo color CDATA (rojo|verde|amarillo) "verde">
+
+ <ejemplo color="verde" />
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Ya conocemos como se declaran los elementos y atributos en un DTD. En la siguiente sección veremos que también podemos declarar entidades, que nos ayudarán a la hora de crear este tipo de documentos.
+
+\subsection{Declaración de Entidades}
+Las entidades nos permite \textbf{declarar valores constantes} dentro de un documento XML. Cuando se emplean dentro de un documento XML se limitan por ``\textbf{`\&}'' y ``\textbf{;}''. Por ejemplo: \textbf{\&entidad}. El intérprete, al procesar el documento XML, sustituirá todas las apariciones de la entidad por el valor que se le haya asignado en el DTD. La entidades \textbf{no admiten recursividad}, es decir, una entidad no puede hacer referencia a sí misma.
+
+Las entidades puede ser de dos tipos, \textbf{generales} y de \textbf{parámetro}.
+
+\begin{itemize}
+    \item \textbf{Entidades Generales}: dentro de la entidades generales podemos encontrar las \textbf{internas} y las \textbf{externas}:
+    \begin{itemize}
+        \item \textbf{Internas}: son las que se declaran  en el DTD y existen algunas predefinidas que podemos ver en la siguiente tabla.
+
+            \begin{figure}[ht]
+
+            \vspace{3ex}
+            \centering
+
+            \setlength{\tabcolsep}{10pt}
+            \renewcommand{\arraystretch}{1.4}
+
+            \begin{tabular}{| c | c |}
+                \hline
+                \textbf{Entidad}  & \textbf{Carácter} \\ \hline
+                \textbf{\&lt;} &  < \\ \hline
+                \textbf{\&gt;} &  > \\ \hline
+                \textbf{\&guot;} &  " \\ \hline
+                \textbf{\&apos;} &  ' \\ \hline
+                \textbf{\&amp;} &  \& \\
+                \hline
+            \end{tabular}
+            \caption{Entidades predefinidas en XML}
+        \end{figure}
+
+        Además de las entidades predefinidas, podemos definir las nuestras propias. Para ello emplearemos  la estructura ``\textbf{<!ENTITY nombre\_entidad ``valor entidad''>}, donde:
+        \begin{itemize}
+            \item \textbf{nombre\_entidad} es el nombre que recibe la entidad.
+            \item \textbf{``valor\_entidad''} es el valor que toma dicha entidad.
+        \end{itemize}
+
+        Para hacer referencias a las entidades creadas usaremos \textbf{\&nombre\_entidad}.
+
+        En la siguiente figura se puede ver un ejemplo de la definición de entidades internas propias. En este caso se declaran las entidades \textbf{autor} y \textbf{editorial}, que posteriormente se usan en el texto dentro de los elementos del documento.
+
+        En la figura 2.2.7 podemos ver el resultado, y como el intérprete a sustituido cada ocurrencia de las entidades por sus valores en el momento de generar el documento.
+
+       \begin{figure}[H]
+           \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+               \scriptsize
+               \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libros [
+<!ELEMENT libros (libro)+>
+<!ELEMENT libro (#PCDATA)>
+
+<!ENTITY autor "Miguel de Cervantes">
+<!ENTITY editorial "Alfaguara">
+]>
+
+
+<libros>
+<libro>Don Quijote de la Mancha fue escrito por &autor;</libro>
+<libro>SIDI fue escrito por Arturo Pérez-Reverte y publicado por &editorial;</libro>
+<libro>Tiempos recios fue escrito por Mario Vargas y publicado por &editorial;</libro>
+</libros>
+               \end{verbatim}
+           \end{tcolorbox}
+           \caption{Declaración de entidades internas en DTD}
+       \end{figure}
+
+            \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.65]{dtd_entidades_internas.jpg}
+            \caption{Documento generado con entidades internas sustituidas}
+        \end{figure}
+
+     \item \textbf{Externas}: permiten establece una relación entre el documento XML y otro documento a través de la URL de este último.
+
+     \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+
+
+ <!ENTITY nombre_entidad SYSTEM "http://localhost/docsxml/fichero_entidad.xml">
+             \end{verbatim}
+         \end{tcolorbox}
+     \end{figure}
+
+     En este caso el contenido de los ficheros es analizado por lo que deben seguir la sintaxis XML. Cuando es necesario incluir ficheros binarios, se utiliza la palabra reservada \textbf{NDATA} en la definición de la entidad, para que el fichero no sea analizado, y habrá que asociar a dicha entidad una declaración de notación , tal y como veremos en la siguiente sección.
+
+     En el caso de que la entidad externa vaya a ser utilizada por varias aplicaciones, deberemos declararla de la siguiente forma:
+
+         \begin{figure}[h]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+
+
+<!ENTITY nombre_entidad PUBLIC "identificador público formal" "camino hasta la DTD (uri)">
+             \end{verbatim}
+         \end{tcolorbox}
+     \end{figure}
+     \end{itemize}
+
+    \item \textbf{Entidades de Parámetro}: al igual que la generales, éstas pueden ser \textbf{internas} y \textbf{externas}.
+
+    \begin{itemize}
+        \item \textbf{Internas}: permiten dar nombre a partes de un DTD y hacer referencias a ellas a lo largo del mismo. Son especialmente útiles cuando varios elementos del DTD comparte listas de atributos o especificaciones de contenido. Se denotan por \textbf{\%entidad}. Aquí mostramos un ejemplo de su uso.
+
+        \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+<!ENTITY % direccion "calle, numero?, ciudad, cp">
+
+<!ELEMENT almacen (%direccion;, web)>
+<!ELEMENT oficina (%direccion;, movil)>
+<!ELEMENT central (%direccion;, telefono)>
+<!ELEMENT tienda (%direccion;, fax)>
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+    \item \textbf{Externas}: permite incluir en un DTD elementos externos, lo que se aplica al dividir la definición DTD en varios documentos.
+
+            \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <!ENTITY %persona SYSTEM "persona.dtd">
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+    \end{itemize}
+\end{itemize}
+
+Como vemos, las entidades son bastante útiles a la hora de crear documentos DTD, y nos ayudan a establecer valores fijos para ciertos parámetro ó incluso a no tener que repetir código.
+
+\subsection{Declaración de Notación}
+En esta sección vamos a ver un tipo de declaración muy concreto que se aplica cuando queremos incluir un \textbf{fichero binario}. En este caso, deberemos indicar al intérprete que aplicación es la que se tiene que hacer cargo de procesar dicho fichero.
+
+Para especificar la aplicación que deberá hacerse caso de ese fichero, usamos la siguiente \textbf{notación}:
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+ <!NOTATION nombre SYSTEM aplicacion>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Por ejemplo, en el caso de que quisiéramos incluir un archivo de tipo \textbf{gif}, donde indicáramos un editor que se encargar de visualizar este tipo de imagen, lo haríamos de la siguiente forma:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+ <!NOTATION gif SYSTEM "gifEditor.exe">
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En el caso de que quisiéramos asociar una entidad externa no analiza, bastaría con declarar dicha asociación de la siguiente manera:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+ <!ENTITY dibujo SYSTEM "imagen.gif" NDATA gif>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Ya hemos visto todo lo relacionado con las declaraciones en DTD, por último, en el siguiente tema veremos las secciones condicionales y habremos concluido la parte dedicada a DTD.
+
+\subsection{Secciones Condicionales}
+Las \textbf{secciones condicionales} nos permiten incluir o ignorar partes de la declaración de un DTD. Para ellos se usan los dos siguientes tokens:
+
+\begin{itemize}
+    \item \textbf{INCLUDE}: permite que esta parte de la declaración sea visible. Su sintaxis es:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+  <![INCLUDE [Declaraciones visibles] ] >
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{IGNORE}: permite ocultar esa sección de declaraciones dentro de DTD. Su sintaxis es:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                <![IGNORE [Declaraciones visibles] ] >
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+El uso de la secciones condicionales suele \textbf{estar ligado} al uso de \textbf{entidades paramétricas}.
+
+\section{XML Schema}
+
+
+
 
 % Glossary
 
