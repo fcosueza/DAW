@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clientes [
+  <!ELEMENT clientes (cliente+)>
+
+  <!ELEMENT cliente ((dni | pasaporte), nombre, telefono+, proyecto*, provincia)>
+  <!ELEMENT dni EMPTY>
+  <!ATTLIST dni numero CDATA #REQUIRED>
+  <!ELEMENT pasaporte EMPTY>
+  <!ATTLIST pasaporte numero CDATA #REQUIRED>
+
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT telefono (#PCDATA)>
+  <!ATTLIST telefono tipo (casa | trabajo) #IMPLIED>
+
+  <!ELEMENT proyecto (#PCDATA)>
+
+  <!ELEMENT provincia (nombre_provincia, codigo_postal?)>
+  <!ELEMENT nombre_provincia (#PCDATA)>
+  <!ELEMENT codigo_postal (#PCDATA)>
+]>
+
+<clientes>
+
+  <cliente>
+    <dni numero="A10200300" />
+    <nombre>Paco</nombre>
+    <telefono tipo="trabajo">600101010</telefono>
+    <provincia>
+      <nombre_provincia>Almería</nombre_provincia>
+      <codigo_postal>04001</codigo_postal>
+    </provincia>
+  </cliente>
+
+  <cliente>
+    <pasaporte numero="B20300400" />
+    <nombre>María</nombre>
+    <telefono tipo="casa">600202020</telefono>
+    <telefono tipo="trabajo">600303030</telefono>
+    <proyecto>Alfa</proyecto>
+    <proyecto>Beta</proyecto>
+    <proyecto>Gamma</proyecto>
+    <provincia>
+      <nombre_provincia>Granada</nombre_provincia>
+    </provincia>
+  </cliente>
+
+</clientes>
