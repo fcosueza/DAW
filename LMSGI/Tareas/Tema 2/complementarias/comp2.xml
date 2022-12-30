@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE biblioteca SYSTEM "comp2.dtd">
+
+<biblioteca>
+    <libro>
+        <titulo>Neuromancer</titulo>
+        <autor>William Gibson</autor>
+    </libro>
+    <libro>
+        <titulo>El Despertar del Leviatán</titulo>
+    </libro>
+    <revista numero="67">
+        <nombre>El Juglar de Tomelloso</nombre>
+        <seccion>
+            <titulo>La Peste Negra</titulo>
+            <imagen tipo="jpg"></imagen>
+            <parrafo>La peste negra, ¿tan mala como dicen?</parrafo>
+        </seccion>
+        <seccion>
+            <titulo>Como tonificar tu piel con estiércol</titulo>
+            <parrafo>Analizamos las aplicaciones cosmeticas del estiércol</parrafo>
+        </seccion>
+        <seccion>
+            <titulo>Imagenes exclusivas del Duque de Alba saliendo de un lupanar</titulo>
+            <imagen tipo="png"></imagen>
+            <imagen tipo="png"></imagen>
+        </seccion>
+    </revista>
+    <enciclopedia>
+        <tomo indice="1" />
+    </enciclopedia>
+</biblioteca>

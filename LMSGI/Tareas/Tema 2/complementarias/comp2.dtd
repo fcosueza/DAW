@@ -1,0 +1,18 @@
+<!ELEMENT biblioteca (libro+, revista*, enciclopedia*)>
+
+<!ELEMENT libro (titulo, autor?)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
+
+<!ELEMENT revista (nombre, seccion+)>
+<!ATTLIST revista numero CDATA #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT seccion (titulo, (imagen | parrafo)*)>
+<!ELEMENT imagen (#PCDATA)>
+<!ATTLIST imagen tipo (jpg | png | svg) #REQUIRED>
+<!ELEMENT parrafo (#PCDATA)>
+
+<!ELEMENT enciclopedia (tomo+)>
+<!ELEMENT tomo EMPTY>
+<!ATTLIST tomo indice CDATA #REQUIRED>
