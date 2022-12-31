@@ -1,0 +1,38 @@
+<!-- Archivo envio.dtd (autor: Fco Javier Sueza Rodríguez) -->
+
+
+<!-- Se ha creado el elemento raiz envios para que contenga todos los envios -->
+<!ELEMENT envios (envio+)>
+<!ELEMENT envio (emisor, intento*, receptor)>
+
+<!-- Ya que debe ser único y empieza por letra se ha elegido el tipo ID -->
+<!ATTLIST envio cod ID #REQUIRED>
+
+<!-- Elemento emisor y sus descendientes -->
+<!ELEMENT emisor (identidad+, num_contrato?, ubicacion+)>
+<!ELEMENT identidad (#PCDATA)>
+<!ELEMENT num_contrato (#PCDATA)>
+<!ATTLIST num_contrato tipo (básico | avanzado | completo) #IMPLIED>
+
+<!ELEMENT ubicacion (via, poblacion, provincia?)>
+<!ELEMENT via (#PCDATA)>
+<!ELEMENT poblacion (#PCDATA)>
+<!ATTLIST poblacion cp CDATA #REQUIRED>
+<!ELEMENT provincia (#PCDATA)>
+
+<!-- No se realizan envios fuera de España, por lo que pais es un valor fijo -->
+<!ATTLIST provincia pais CDATA #FIXED "España">
+
+<!-- Elemento intento y sus descendientes -->
+<!ELEMENT intento (fecha, hora?, comentario*)>
+<!ATTLIST intento recepcionado (sí | no) "no">
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT comentario (#PCDATA)>
+
+<!-- Elemento receptor y sus descendientes -->
+<!ELEMENT receptor (nombre_completo, ubicacion)>
+<!ELEMENT nombre_completo (#PCDATA)>
+
+<!-- No se ha elegido el tipo ID porque puede haber duplicados y solo contiene números -->
+<!ATTLIST nombre_completo id CDATA #IMPLIED>
