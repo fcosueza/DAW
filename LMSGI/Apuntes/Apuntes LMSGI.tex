@@ -1110,7 +1110,7 @@ Aunque las dos formas de declarar un documento DTD son igual de válidas, cabe a
     Siendo \textbf{``filmoteca''} el nombre de la DTD.
 \end{itemize}
 
-\subsection{Declaración de Tipos de Elementos Terminales}
+\subsection{Tipos de Elementos Terminales}
 
 Los \textbf{tipos de elementos terminales} son aquellos elementos que dentro de la estructura de árbol de un documento XML serían representados por la hojas.
 
@@ -1261,7 +1261,7 @@ La declaración de tipos de elementos esta formada por la cadena ``\textbf{<!ELE
     Por lo tanto, aunque su uso es correcto y hay determinadas situaciones en las que se debe usar, no se recomienda de forma general declarar elementos de este tipo.
 \end{itemize}
 
-\subsection{Declaración de Elementos No Terminales}
+\subsection{Elementos No Terminales}
 Una vez que hemos visto como declarar los elementos terminales, es decir, la hojas del árbol de la estructura, ahora vamos a ver como declarar los elementos \textbf{no terminales}, es decir, \textbf{elementos formados} por \textbf{otros elementos}, lo que serían las \textbf{ramas} del árbol de la estructura de un documento XML.
 
 Para definir estos elementos, debemos hacer referencia a las elementos que las componen, como vemos en este ejemplo:
@@ -1335,7 +1335,7 @@ En este caso, se ha definido \textbf{un elemento A}, que esta \textbf{formado} p
 
 Ya hemos visto como se realizan las declaraciones tanto de elementos terminales como no terminales, el siguiente paso será ver como se declaran los atributos que tienen estos elementos.
 
-\subsection{Declaración de Atributos de los Elementos}
+\subsection{Atributos de los Elementos}
 En esta sección vamos a ver como se declaran los atributos que lleva un elemento, independientemente de si es terminal o no terminal. Para ellos, se usa la cadena \textbf{<!ATTLIST} seguida del nombre del elemento asociado al atributo que se declara, luego el nombre del atributo seguido de su tipo y modificador.
 
     \begin{figure}[H]
@@ -1526,7 +1526,7 @@ Además de estos tipos, debemos declarar si el valor de un \textbf{atributo} es 
 
 Ya conocemos como se declaran los elementos y atributos en un DTD. En la siguiente sección veremos que también podemos declarar entidades, que nos ayudarán a la hora de crear este tipo de documentos.
 
-\subsection{Declaración de Entidades}
+\subsection{Entidades}
 Las entidades nos permite \textbf{declarar valores constantes} dentro de un documento XML. Cuando se emplean dentro de un documento XML se limitan por ``\textbf{`\&}'' y ``\textbf{;}''. Por ejemplo: \textbf{\&entidad}. El intérprete, al procesar el documento XML, sustituirá todas las apariciones de la entidad por el valor que se le haya asignado en el DTD. La entidades \textbf{no admiten recursividad}, es decir, una entidad no puede hacer referencia a sí misma.
 
 Las entidades puede ser de dos tipos, \textbf{generales} y de \textbf{parámetro}.
@@ -1858,10 +1858,105 @@ Los \textbf{elementos} se usan para especificar las etiquetas válidas de un doc
         \item \textbf{<xs:complexType}: este elemento se usa para definir los elementos de tipo complejo entre su etiqueta de inicio y cierre. Pueden estar formados por subelementos predefinidos en XML Schema como:
 
         \begin{itemize}
-            \item
+            \item \textbf{Secuencias} (\textbf{<xs:sequence}): permite construir elementos complejos mediante la enumeración de los elementos que lo forma en orden correcto.  Si se altera dicho orden en el documento XML, éste no será valido.
+
+            \item \textbf{Alternativa} (\textbf{xs:choice}): representan alternativas, teniendo en cuenta que es la elección es exclusiva, es decir, especifica un lista concreta de elementos de los que solo puede aparecer uno.
+
+            \item \textbf{Secuencias no ordenadas} (\textbf{xs:all}): representa todos los elementos que conforman el elemento compuesto sin un orden específico. Dichos elementos podrán aparecer en cualquier orden dentro del documento XML.
+
+            \item \textbf{Contenido mixto}: se define estableciendo en atributo \textbf{mixed} de un elemento a t\textbf{true}, es decir, \textbf{<xs:complexType mixed="true">}, y permite mezclar texto con elementos hijo. Los hijos se definen con las opciones anteriores, xs:sequence, xs:choice o xs:all.
+
+            \item \textbf{Elemento vacío}: el elemento no puede contener texto ni otros subelementos, solo atributos. En el siguiente ejemplo vemos la definición de un elemento vacío y un XML válido para esa definición.
+
+             \begin{figure}[h]
+                \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                    \scriptsize
+                    \begin{verbatim}
+           <xsd:element name="asignatura">
+                <xsd:complexType>
+                    <xsd:attribute name='codigo' type='xs:integer'/>
+                </xsd:complexType>
+           </xsd:element>
+
+           <!-- XML válido -->
+
+           <asignatura codigo='MAT-1920'/>
+                    \end{verbatim}
+                \end{tcolorbox}
+            \end{figure}
+
+        \item \textbf{Referencias}: tal y como sucede en otro lenguajes, en un documento xsd podemos definir elementos de forma global y luego hacer referencias a estos desde otros elementos. Es es muy útil si a lo largo del documento se repiten determinados elementos. A continuación vemos un ejemplo del uso de referencias.
+
+        \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+           <?xml version="1.0" encoding="UTF-8"?>
+
+           <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+               <xsd:element name="Direccion">
+                   <xsd:complexType>
+                       <xsd:sequence>
+                           <xsd:element ref="via"/>
+                           <xsd:element ref="numero"/>
+                           <xsd:element ref="poblacion"/>
+                           <xsd:element ref="provincia"/>
+                           <xsd:element ref="cp"/>
+                       </xsd:sequence>
+                        </xsd:complexType>
+                 </xsd:element>
+
+                <!-- Declaración de los elementos -->
+
+                 <xsd:element name="via" type="xsd:string"/>
+                 <xsd:element name="numero" type="xsd:integer"/>
+                 <xsd:element name="poblacion" type="xsd:string"/>
+                 <xsd:element name="provincia" type="xsd:string"/>
+                 <xsd:element name="cp" type="xsd:string"/>
+            </xsd:schema>
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
         \end{itemize}
     \end{itemize}
 \end{itemize}
+
+En esta sección hemos visto como se declaran los elementos en un esquema XML Schema. Como vemos, aunque es más complejo que en DTD también nos aporta más potencia. En la siguiente sección veremos la declaración de atributos.
+
+\subsection{Atributos en XML Schema}
+El \textbf{elemento ``atributo''} permite definir los atributos de los elementos en el documento xsd para usarlos adecuadamente en el documento XML. Estos elementos solo pueden aparecer en los elementos de tipo compuesto y su declaración debe realizarse siempre al final de la definición del elemento del que es atributo, es decir, justo antes del cierre \textbf{</xs:compleType>}. A continuación vemos un ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<xsd:attribute name="nombreAtributo"
+               ref="atributoReferenciado"
+               type="tipoAtributo"
+               use="valor"
+               fixed=”valor"
+               default=”valor”/>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Definición del elemento atributo en }
+\end{figure}
+
+Los diferentes atributos de este elemento son los siguientes:
+
+\begin{itemize}
+    \item \textbf{name}: indica el nombre del atributo.
+    \item \textbf{ref}: el atributo referenciado se encuentra definido en otra parte del esquema. No puede aparecer al mismo tiempo que \textbf{name}.
+    \item \textbf{type}: indica el tipo del atributo. Tampoco puede aparecer al mismo tiempo que \textbf{ref}.
+    \item \textbf{use} (opcional): indica si la aparición del atributo es opcional (\textbf{optional}), obligatoria (\textbf{required}) o prohibida (\textbf{prohibited}). Por \textbf{defecto}, toma el valor \textbf{``optional''}.
+    \item \textbf{default} (opcional): valor que tomará el atributo por defecto al ser procesado si en el documento XML no se le asigna ningún valor. Solo se puede usar con tipos de datos \textbf{cadena de caracteres}. No puede aparecer si el atributo \textbf{fixed} esta presente.
+    \item \textbf{fixed}: valor fijo que toma que el atributo. No puede aparecer si esta presente el atributo \textbf{default}.
+\end{itemize}
+
+Como vemos la definición de atributos es muy similar a la definición de elementos, ofreciéndonos más versatilidad para de definición de estos que nos ofrece DTD. En la siguiente sección vamos a ver los tipos de datos que podemos encontrar en XML Schema, y que nos ofrecen una herramienta muy importante a la hora de definir restricciones sobre los datos que puede contener cada elemento.
+
+\subsection{Tipos de Datos}
+
+
 \glsaddall
 \printglossaries
 
