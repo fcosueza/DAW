@@ -1742,12 +1742,126 @@ Las \textbf{secciones condicionales} nos permiten incluir o ignorar partes de la
 El uso de la secciones condicionales suele \textbf{estar ligado} al uso de \textbf{entidades paramétricas}.
 
 \section{XML Schema}
+Los \textbf{DTD} nos permiten definir el \textbf{vocabulario} de un fichero XML, pero estos no permiten definir los \textbf{tipos} de datos que vamos a emplear en cada en elemento. Para ello tenemos \textbf{XML Schema}. Estos, a diferencia de DTD que usa una sintaxis similar a SGML, son documentos \textbf{XML} y también se especifican en ficheros de \textbf{texto plano} que se denominan \textbf{XSD} (XML Schema Definition).
+
+Los elementos XML que se utilizan para generar un esquema han de pertenecer al espacio de nombres de XML Schema, que es: \url{https://www.w3.org/2001/XMLSchema}. En esta especificación se usa el prefijo \textbf{<xsd:schema>}, aunque para abreviar se suele utilizar \textbf{<xs:schema>}.
+
+Las estructuras que se definen en XML Schema definen a su vez numeroso atributos para uso directo en cualquier documento. Estos se encuentra en un espacio de nombres diferente, en concreto en XML Schema Instance, que está definido en \url{https://www.w3.org/2001/XMLSchema-instance}. En esta especificación se usa el prefijo \textbf{<xsi:schema>}, aunque como en el anterior, para abreviar, se suele emplear \textbf{<xs:schema>}.
+
+De esta manera, los prefijos \textbf{<xsd:schema>}, \textbf{<xsi:schema>} y \textbf{<xs:schema} se pueden usar indistintamente para definir el esquema, teniendo en cuenta que si se usa uno de los tres, deberemos usar este en todo el documento.
+
+El ejemplar de estos ficheros es \textbf{<xs:schema}, que contiene declaraciones para todos los elementos y atributos que pueden aparecer en un documento XML asociado válido. Los elementos hijos de este ejemplar se denominan \textbf{<xs:element>}, y nos permiten crear un globalmente un elemento. Esto significa que el elemento creado puede ser el ejemplar del documento XML asociado.
+
+El elemento \textbf{<xs:schema>} puede tener algunos atributos. Un ejemplo de declaración de este elemento sería el siguiente:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8">
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           xmlns="https://www.w3schools.com"
+           elementFormDefault="qualified">
+...
+
+...
+
+</xs:schema>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Declaración del ejemplar xs:schema}
+\end{figure}
+
+En esta declaración podemos ver varios elementos los cuales vamos e explicar a continuación.
+
+\begin{itemize}
+    \item \textbf{xmlns:xs=``http://www.w3.org/2001/XMLSchema''}
+
+    Esta declaración indica que los elementos y tipos de datos usados en el esquema vienen del espacio de nombres ``http://www.w3.org/2001/XMLSchema''. También indica que los elementos y los tipos de datos que vengan de ese espacio de nombres tienen que tener el prefijo \textbf{xs:}. Este fragmento es el único \textbf{obligatorio} para que la definición sea correcta.
+
+    \item \textbf{targetNamespace=``https://www.w3schools.com''}
+
+    Indica que los elementos definidos en el esquema pertenecen al espacio de nombres, es decir, el espacio de nombres de destino. En este caso es ``https://www.w3schools.com''.
+
+    \item \textbf{xmlns=``https://www.w3schools.com''}
+
+    Indica cual es el espacio de nombres por defecto, en este caso ``https://www.w3schools.com''.
+
+    \item \textbf{elementFormDefault=``qualified''}
+
+    Indica que cualquier elemento usado en una instancia XML que haya sido declarada con este esquema debe ser identificado con el espacio de nombres. Por defecto, toma este valor.
+\end{itemize}
+
+Aunque hay mas atributos que puede contener el elemento \textbf{xs:schema}, estos son algunos de los principales.
+
+\subsection{Tipos de Elementos en XML Schema}
+Los \textbf{elementos} se usan para especificar las etiquetas válidas de un documento XML. Todos los elementos que se vayan a utilizar en el ejemplar XML deben estar declarados en el esquema. Su etiqueta es \textbf{<xs:element} y su declaración de elementos en XML Schema tiene una estructura diferente dependiendo de si son \textbf{simples} o \textbf{complejos}. A saber:
+
+\begin{itemize}
+    \item \textbf{Tipo simple}: no pueden contener otros elementos o atributos. Su estructura es la siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xsd:element name="nombreElemento"
+             ref="elementoReferenciado"
+             type="tipoDato"
+             minOccurs="valor"
+             maxOccurs="valor"
+             fixed=”valor"
+             default=”valor”/>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Donde:
+
+    \begin{itemize}
+        \item \textbf{name}: es el nombre del elemento.
+        \item \textbf{ref}: el elemento al que hace referencia esta declarado en otro lugar. No puede aparecer junto con \textbf{name}, ni si el elemento padre es \textbf{<xs:squema>}.
+        \item \textbf{type}: el tipo de dato del elemento. No puede aparecer si usamos \textbf{ref}.
+        \item \textbf{minOcurrs/maxOccurs} (opcionales): estos atributos indican el mínimo y máximo numero de ocurrencias del elemento respectivamente. El \textbf{valor por defecto} en ambos casos en \textbf{1}.
+
+        Para especificar que el elemento puede aparecer un \textbf{número indeterminado} de veces el atributo \textbf{maxOccurs} toma el valor \textbf{``unbounded''}. Para especificar que el elemento \textbf{no puede aparecer}, el atributo \textbf{minOccurs} toma el valor \textbf{0}.
+
+        Ninguno de los atributos puede aparecer si el padre del elemento es \textbf{<xs:schema>}.
+
+        \item \textbf{fixed} (opcional): especifica un valor fijo para el elemento.
+        \item \textbf{default} (opcional): especifica un valor por defecto para el elemento.
+    \end{itemize}
 
 
+    Podemos \textbf{crear nuevos elementos} ``simpleType'' a partir de uno ya existente, añadiendo condiciones a alguno de los tipos ya predefinidos en XML Schema. Para ello se utiliza el elemento \textbf{<xs:restriction}, como podemos ver en este ejemplo:
 
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xsd:simpleType name="precio">
+    <xsd:restriction base="xsd:decimal">
+        <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Uso del elemento xs:restriction}
+    \end{figure}
 
-% Glossary
+    \item \textbf{Tipo complejo}: estos elementos pueden estar compuestos por otros elementos y/o atributos. Sus elementos están definidos entre las etiquetas de inicio y final del elemento.
 
+    \begin{itemize}
+        \item \textbf{<xs:schema>}: es el ejemplo básico de elemento compuesto y contiene la definición del esquema.
+
+        \item \textbf{<xs:complexType}: este elemento se usa para definir los elementos de tipo complejo entre su etiqueta de inicio y cierre. Pueden estar formados por subelementos predefinidos en XML Schema como:
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 \glsaddall
 \printglossaries
 
