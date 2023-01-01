@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="envios">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="envio">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="emisor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="identidad" type="xs:string" />
+                    <xs:element name="num_contrato">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="tipo" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ubicacion">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="via" type="xs:string" />
+                          <xs:element name="poblacion">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="cp"
+                                    type="xs:integer"
+                                    use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="provincia">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="pais"
+                                    use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="intento" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="fecha" type="xs:string" />
+                    <xs:element name="hora" type="xs:string" />
+                    <xs:element name="comentario" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="recepcionado" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="receptor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nombre_completo">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="id" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ubicacion">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="via" type="xs:string" />
+                          <xs:element name="poblacion">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="cp"
+                                    type="xs:integer"
+                                    use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="provincia">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="pais"
+                                    use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="cod" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

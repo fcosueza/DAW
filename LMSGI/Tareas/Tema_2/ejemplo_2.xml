@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!DOCTYPE envios SYSTEM "ejemplo_2.dtd">
 
 <envios>
-
   <envio cod="NA33333">
     <emisor>
       <identidad>Empresa Martínez, SA</identidad>
@@ -32,5 +31,4 @@
       </ubicacion>
     </receptor>
   </envio>
-
 </envios>
