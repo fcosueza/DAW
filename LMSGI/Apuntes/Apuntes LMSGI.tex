@@ -1952,10 +1952,177 @@ Los diferentes atributos de este elemento son los siguientes:
     \item \textbf{fixed}: valor fijo que toma que el atributo. No puede aparecer si esta presente el atributo \textbf{default}.
 \end{itemize}
 
-Como vemos la definición de atributos es muy similar a la definición de elementos, ofreciéndonos más versatilidad para de definición de estos que nos ofrece DTD. En la siguiente sección vamos a ver los tipos de datos que podemos encontrar en XML Schema, y que nos ofrecen una herramienta muy importante a la hora de definir restricciones sobre los datos que puede contener cada elemento.
+Como vemos la definición de atributos es muy similar a la definición de elementos, ofreciéndonos más versatilidad para de definición de estos que nos ofrece DTD..
 
 \subsection{Tipos de Datos}
+En esta sección vamos a ver los \textbf{tipos de datos}, que son los valores que puede tomar el atributo \textbf{type} cuando declaramos un atributo o un elemento y que determina el tipo de dato que tendrá el elemento o atributo asociado.
 
+Los principales tipos de datos que tenemos en XML Schema son los siguientes:
+
+\begin{itemize}
+    \item \textbf{String} (\textit{xs:string}): se corresponde con una cadena de caracteres UNICODE. Puede incluir caracteres, saltos de línea y tabulaciones.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+<xs:element name="poblacion" type="xs:string"/>
+
+<poblacion>La Puebla de Vícar</poblacion>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Boolean} (\textit{xs:boolean}): representa valores lógicos, pudiendo tomar por tanto solo los valores \textbf{true} o \textbf{false}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+<xs:attibute name="cancelado" type="xs:boolean"/>
+
+<vuelo cancelado="true">LK345</vuelo>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Integer} (\textit{xs:integer}): permite representar un número entero positivo o negativo.
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+<xs:element name="precio" type="xs:integer"/>
+
+<precio>94</precio>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Positive Integer} (\textit{xs:positiveInteger}): se usa para representar un entero positivo.
+    \item \textbf{Negative Integer} (\textit{xs:negativeInteger}): se usa para representar una entero negativo.
+    \item \textbf{Decimal} (\textit{xs:decimal}): para representar un subconjunto de los números reales que pueden ser representados por un número decimal, por ejemplo, 8,79.
+
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+<xs:element name="precio" type="xs:decimal"/>
+
+<precio>8,97</precio>
+<precio>8</precio>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{DateTime} (\textit{xs:dateTime}): se emplea para representar una fecha y horas absolutas. Tiene el formato ``\textbf{YYYY-MM-DDThh:mm:ss}'' y sólo es válido si se especifican todos sus componentes.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:element name="fecha" type="xs:dateTime"/>
+
+<fecha>2020-05-20T08:20:00</fecha>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+    \item \textbf{Duration} (\textit{xs:duration}): representa una duración de tiempo expresada en meses, años, días, horas, minutos y segundos. El formato utilizado es ``\textbf{PnYnMnDTnHnMnS}''. Para indicar una duración negativa se pone el signo negativo (-) precediendo a la P.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:element name="periodo" type="xs:duration"/>
+
+<!-- Duración de 2 años, 4 meses, 3 días, 5 horas, 6 minutos y 7 segundos -->
+<periodo>P2Y4M3DT5H6M7S</periodo>
+
+<!-- Se pueden omitir los valores nulos, luego una duración de 2 años será -->
+<periodo>P2Y</periodo>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Time} (\textit{xs:time}):permite representar la hora con el formato ``\textbf{hh:mm:ss}''.
+    \item \textbf{Date}: (\textit{xs:date}): permite representar una fecha con el formato ``\textbf{YYYY-MM-DD}''.
+    \item \textbf{gYearMonth} (\textbf{xs:gYearMonth}): representa un mes de un año mediante el formato ``\textbf{YYYY-MM}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:element name="fecha" type="xs:gYearMonth"/>
+
+<fecha>2020-05</fecha>  Mayo de 2020
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{gYear} (\textit{xs:gYear}): permite representar un año  gregoriano usando el formato ``\textbf{YYYY}''.
+
+    \item \textbf{gMonthDay} (\textit{xs:gMonthDay}): permite representar un día de un mes mediante el formato ``\textbf{--MM-DD}''.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:element name="fecha" type="xs:gMonthDay"/>
+
+<!-- XML válido  -->
+<fecha>--05-19</fecha> 19 de  Mayo
+
+<!-- XML no válido -->
+<fecha>05-19</fecha>
+
+fecha>--05-32</fecha>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{gDay} (\textit{xs:gDay}): representa el \textbf{ordinal} de un día del mes mediante el formato ``\textbf{--DD}'', por ejemplo, el dia 4º del mes sería \textbf{--04}.
+    \item \textbf{gMonth} (\textit{xs:gMonth}): representa el \textbf{ordinal} del mes mediante el formato ``\textbf{--MM}''. Como en el ejemplo anterior, el mes 4º sería \textbf{--MM}.
+    \item \textbf{anyURI} (\textit{xs:anyURI}): representa una URI.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:element name="web" type="xs:anyURI"/>
+
+<!-- XML válido  -->
+<web>www.iesaguadulce.es</web>
+
+<web>www.iesaguadulce.es#texto</web>
+
+<!-- XML no válido -->
+<web>www.iesaguadulce.es#texto#texto1</web>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Language} (\textit{xs:language}): representa los identificadores de un lenguaje, tal y como están definidos en el \href{https://www.rfc-editor.org/rfc/rfc1766}{RFC 1766}.
+
+    \item \textbf{ID} (\textit{xs:ID}): permite declarar que el valor del atributo debe ser único y no puede repetirse en otros elementos. Al igual que con los DTD, el valor no puede empezar por un número, sino por un carácter.
+
+    \item \textbf{IDREF} (\textit{xs:IDREF}): permite hacer referencia a un ID de otro elemento.
+
+    \item \textbf{ENTITY} (\textit{xs:ENTITY}): permite representar una entidad, las cuales vimos en el apartado 2.2.5.
+
+    \item \textbf{NOTATION} (\textit{xs:NOTATION}): permite representar una notación, tal y como vimos en el apartado 2.2.6.
+
+    \item \textbf{NMTOKEN} (\textit{xs:NMTOKEN}): representa que el valor es una cadena compuesta solo por los valores permitidos en XML.
+\end{itemize}
+
+Además de estos tipos, hay otros tanto primitivos como derivados que acepta XML Schema, si queremos ampliar la información, podemos consultar podemos consultar la \href{https://www.w3.org/TR/xmlschema-2/}{Recomendación de la W3C} sobre los tipos de datos de XML Schema.
+
+\subsection{Facetas de los Tipos de Datos}
+Las \textbf{facetas} nos permiten aplicar restricciones sobre los tipos de datos. Estás solo pueden aplicarse sobre tipos de datos simples utilizando el elemento \textbf{xs:restriction}, que tiene el atributo \textbf{base} en el que se indica el tipo de datos sobre el que se quiere realizar la restricción.
 
 \glsaddall
 \printglossaries
