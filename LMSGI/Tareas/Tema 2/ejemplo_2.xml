@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<envios>
+
+  <envio cod="NA33333">
+    <emisor>
+      <identidad>Empresa Martínez, SA</identidad>
+      <num_contrato tipo="básico">55555</num_contrato>
+      <ubicacion>
+        <via>Calle Alhambra, 11</via>
+        <poblacion cp="04720">Aguadulce</poblacion>
+        <provincia pais="España">Almería</provincia>
+      </ubicacion>
+    </emisor>
+    <intento recepcionado="no">
+      <fecha>2022-10-20</fecha>
+      <hora>09:30:00</hora>
+      <comentario>No contesta.</comentario>
+    </intento>
+    <intento recepcionado="sí">
+      <fecha>2022-10-21</fecha>
+      <hora>12:00:00</hora>
+      <comentario>Autorizado por su hijo.</comentario>
+    </intento>
+    <receptor>
+      <nombre_completo id="20200200X">Paco López</nombre_completo>
+      <ubicacion>
+        <via>Plaza Constitución, 5</via>
+        <poblacion cp="04001">Almería</poblacion>
+        <provincia pais="España">Almería</provincia>
+      </ubicacion>
+    </receptor>
+  </envio>
+
+</envios>
