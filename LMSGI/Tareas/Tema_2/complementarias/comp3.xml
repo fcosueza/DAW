@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<usuarios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="comp3.xsd">
+
+    <usuario>
+        <identificador>root</identificador>
+        <contrasena>1234</contrasena>
+        <acceso_ssh/>
+    </usuario>
+    <usuario>
+        <identificador>newbie</identificador>
+        <contrasena>S3gur1D4A_Xtr3m4</contrasena>
+        <carpeta>home</carpeta>
+        <carpeta>system</carpeta>
+        <carpeta>temp</carpeta>
+    </usuario>
+</usuarios>

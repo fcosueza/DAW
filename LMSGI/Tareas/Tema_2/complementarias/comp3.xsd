@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Elemento vacio simple (solo para aumentar la legibilidad) -->
+
+  <xs:element name="acceso_ssh">
+    <xs:complexType />
+  </xs:element>
+
+  <!-- Elemento Principal -->
+
+  <xs:element name="usuarios">
+    <xs:complexType>
+
+      <xs:sequence>
+        <xs:element name="usuario" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+
+            <xs:sequence>
+              <xs:element name="identificador" type="xs:ID" />
+              <xs:element name="contrasena" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="acceso_ssh" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="carpeta" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
