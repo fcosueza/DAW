@@ -1952,7 +1952,7 @@ Los diferentes atributos de este elemento son los siguientes:
     \item \textbf{fixed}: valor fijo que toma que el atributo. No puede aparecer si esta presente el atributo \textbf{default}.
 \end{itemize}
 
-Como vemos la definición de atributos es muy similar a la definición de elementos, ofreciéndonos más versatilidad para de definición de estos que nos ofrece DTD..
+Cabe mencionar que podemos usar el elemento \textbf{xs:attributeGroup} para agrupar atributos, lo que nos facilitará añadirlos después como un grupo a algún tipo de datos complejo.
 
 \subsection{Tipos de Datos}
 En esta sección vamos a ver los \textbf{tipos de datos}, que son los valores que puede tomar el atributo \textbf{type} cuando declaramos un atributo o un elemento y que determina el tipo de dato que tendrá el elemento o atributo asociado.
@@ -2124,11 +2124,345 @@ Además de estos tipos, hay otros tanto primitivos como derivados que acepta XML
 \subsection{Facetas de los Tipos de Datos}
 Las \textbf{facetas} nos permiten aplicar restricciones sobre los tipos de datos. Estás solo pueden aplicarse sobre tipos de datos simples utilizando el elemento \textbf{xs:restriction}, que tiene el atributo \textbf{base} en el que se indica el tipo de datos sobre el que se quiere realizar la restricción.
 
-\glsaddall
-\printglossaries
+Las facetas se expresan como un elemento dentro de una restricción y se pueden combinar para restringir más el valor del elemento. Entre otras, nos podemos encontrar las siguientes:
 
-% Bibliography
+\begin{itemize}
+    \item \textbf{enumeration}: restringe a un determinado número de valores.
 
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="estado">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="conectado"/>
+        <xs:enumeration value="ocupado"/>
+    </xs:restriction>
+<xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{length, minlength, maxlentgh}: restringen la longitud del tipo de datos
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="estado">
+    <xs:restriction base="xs:string">
+        <xs:maxLength value="9"/>
+    </xs:restriction>
+<xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{whitespace}: define el tratamiento de los espacios en blanco. Sus opciones pueden ser: \textbf{preserver, replace} o \textbf{collapse}.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="nombre">
+    <xs:restriction base="xs:string">
+        <xs:whitespace value="preserve"/>
+    </xs:restriction>
+<xs:simpleType
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item (\textbf{maxInclusive/maxExclusive})(\textbf{minInclusive/maxInclusive}): límites superiores e inferiores del tipo de dato. Cuando son \textbf{Inclusive} el valor que se determina es parte del conjunto de valores válidos para el dato, mientras que si son \textbf{Exclusive}, el valor no pertenece al conjunto de valores válidos.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+<xs:element name="age">
+    <xs:simpleType>
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+
+    \item \textbf{totalDigits}, \textbf{fractionDigits}: número de dígitos totales y decimales de un número decimal. Si lo combinamos con el minInclusive, maxInclusive, etc.., podemos aplicar bastantes restricciones a los números de tipo decimal.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="calificaciones">
+    <xs:restriction base="xs:integer">
+        <xs:totalDigits value="2"/>
+        <xs:minExclusive value="0"/>
+        <xs:maxInclusive value="10"/>
+    </xs:restriction>
+</xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{pattern}: permiten construir patrones que han de cumplir los datos de un elemento, mediante el uso de \textbf{expresiones regulares}. En la siguiente tabla se muestran algunos de los patrones que podemos emplear a la hora de construir las expresiones regulares:
+
+        \begin{figure}[ht]
+
+        \vspace{3ex}
+        \centering
+
+        \setlength{\tabcolsep}{10pt}
+        \renewcommand{\arraystretch}{1.4}
+
+        \begin{tabular}{| c | c |}
+            \hline
+            \textbf{Patrón}  & \textbf{Significado}  \\ \hline
+            \centering \textbf{[A-Z a-z]} &  letra  \\ \hline
+            \centering \textbf{[A-Z]} &  letra mayúscula  \\ \hline
+            \centering \textbf{[a-z]} &  letra minúscula  \\ \hline
+            \centering \textbf{[0-9]} &  dígitos decimales  \\ \hline
+            \centering \textbf{\textbackslash D} &  cualquier carácter excepto dígitos  \\ \hline
+            \centering \textbf{(A)} &  cadena que coincide con A  \\ \hline
+            \centering \textbf{A | B} &  cadena que coincide con A o con B  \\ \hline
+            \centering \textbf{AB} &  concatenación de las cadenas A y B  \\ \hline
+            \centering \textbf{A?} & cero o una vez la cadena A  \\ \hline
+            \centering \textbf{A+} & una o más veces la cadena A  \\ \hline
+            \centering \textbf{A*} & cero o más veces la cadena A  \\ \hline
+            \centering \textbf{[abcd]} & alguno de los caracteres entre corchetes  \\ \hline
+            \centering \textbf{[\^abcd]} & ninguno de los caracteres que esta entre corchetes  \\             \hline
+        \end{tabular}
+        \caption{Patrones para expresiones regulares}
+    \end{figure}
+
+    Las expresiones regulares son una herramienta muy potente y nos ayudan a restringir de forma muy específica la cadena de texto que permitimos en lo datos. Si queremos obtener más información podemos consultar la \href{https://www.ibm.com/docs/en/integration-bus/10.0?topic=elements-message-sets-regular-expression-syntax}{página de IBM} sobre expresiones regulares, aunque realizando una búsqueda en internet podremos encontrar cientos de documentos sobre el tema, desde los más básicos a textos más avanzados.
+
+    A continuación se muestra un ejemplo del uso de expresiones regulares, en el que se establece un patrón que restringe el formato al de un DNI:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="dni">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{8}[A-Z]"/>
+    </xs:restriction>
+</xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Extensión de Datos Simples	}
+Como hemos comentado en el punto 2.3.1, XML Schema permite trabajar tanto con \textbf{datos simples} como con \textbf{datos complejos}, es decir, compuesto por el anidamientos de otros datos simples o compuestos.
+
+Aunque ya hemos visto como se define un datos simple, en este apartado vamos a ver las tres diferentes maneras que existen de extender un tipo de dato simple:
+
+\begin{itemize}
+    \item \textbf{Restricción}: se hace una restricción sobre un tipo de dato \textbf{XSD} ya definido y se establece el rango de valores que puede tomar. Las restricciones, como hemos visto en el punto anterior, son conocidas como \textbf{facetas}.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="edad">
+    <xs:restriction base="xsd:positiveInteger">
+        <xs:maxExclusive value="19"/>
+        <xs:minInclusive value="12"/>
+    </xs:restriction>
+</xs:simpleType >
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Unión}: consiste en combinar dos o más tipos de datos en uno único.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="LongitudInternacional">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="cm" />
+        <xs:enumeration value="m" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="LongitudSajona">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="pulgada" />
+        <xs:enumeration value="pie" />
+        </xs:restriction>
+</xs:simpleType>
+
+<!-- Unimos los dos tipos -->
+
+<xs:simpleType name="Longitud">
+    <xs:union memberTypes="LongitudInternacional  LongitudSajona">
+</xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Lista}: permite asignar a un elemento un número de valores válidos separados por espacios en blanco. Puede ser creada de forma similar a la unión con la diferencia de que solo puede contener un tipo d elemento.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:simpleType name="LongitudSajona">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="pulgada" />
+        <xs:enumeration value="pie" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="Longitud">
+    <xs:list itemType="LongitudSajona">
+</xs:simpleType>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Definción de Datos Complejos}
+Aunuqe en el punto 2.3.1 hemos visto los tipos de datos complejos, en esta sección vamos a verlos con mas detalle. Si recordamos la definición que hemos dado, los \textbf{datos de tipo complejo} son aquellos que están compuestos por otros elementos y/o atributos. Su contenido esta definido entre las etiquetas de apertura y cierre del elemento.
+
+Dentro de los tipos de datos complejos nos podemos encontrar, entre otros, los siguientes:
+
+\begin{itemize}
+    \item \textbf{xs:eschema}: contiene la definición del esquema, es el elemento de tipo complejo básico. Contiene el atributo \textbf{xmlns} (XML Namspace), que indica el espacio de nombres usado para el esquema.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</xs:schema>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{xs:complexType}: entre sus etiquetas de apertura y cierre se definen los elementos de un dato complejo. Pueden estar formados por elementos predefinidos en XML Schema, como los siguientes:
+
+    \begin{itemize}
+        \item \textbf{xs:sequence}: permite construir elementos complejos mediante la enumeración de los elementos que los forman en un orden concreto. Si se altera dicho orden en el documento XML, éste no será correcto.
+
+        \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+        <xs:element name="Direccion">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="calle" type="xs:string" />
+                    <xs:element name="poblacion" type="xs:string" />
+                    <xs:element name="provinvia" type="xs:string" />
+                    <xs:element name="codigo_postal" type="xs:int" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+
+        <!-- XML Válido -->
+
+        <Direccion>
+            <calle>Lago de Enol, nº 32</calle>
+            <poblacion>Aguadulce</poblacion>
+            <provincia>Almería</provincia>
+            <codigo_postal>04720</codigo_postal>
+        </Direccion>
+               \end{verbatim}
+           \end{tcolorbox}
+       \end{figure}
+
+       \item \textbf{xs:choice}: representa una alternativa, teniendo en cuenta que es exclusiva, es decir, especifica un lista de elementos de los cuales solo puede aparecer uno:
+
+       \begin{figure}[H]
+           \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+               \scriptsize
+               \begin{verbatim}
+      <xs:element name="FormaPago">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="paypal" type="xs:string" />
+                <xs:element name="transferencia" type="xs:string" />
+            </xs:choice>
+        </xs:complexType>
+      </xs:element>
+               \end{verbatim}
+           \end{tcolorbox}
+       \end{figure}
+
+   \item \textbf{x:all}: representa a todos los elementos que componen el elemento de tipo compuesto  en cualquier orden. A diferencia de \textbf{xs:sequence}, los elementos dentro de este tipo pueden aparecer en cualquier orden y el documento XML seguirá siendo válido.
+
+   \item \textbf{Contenido Mixto}: se hace dando valor \textbf{true} al atributo \textbf{mixed} del elemento \textbf{xs:complexType} y se usa para poder mezclar texto y otros elementos como hijos. Los elementos hijos se definen con las opciones anteriores, xs:sequence, xs:choice y xs:all.
+
+       \begin{figure}[h]
+           \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+               \scriptsize
+               \begin{verbatim}
+
+
+            <xs:complexType mixed="true">
+               \end{verbatim}
+           \end{tcolorbox}
+       \end{figure}
+
+    \item \textbf{Elemento Vacío}: define un elemento que no puede contener ni texto ni hijos, únicamente atributos.
+
+       \begin{figure}[h]
+           \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+               \scriptsize
+               \begin{verbatim}
+
+            <xs:element>
+                <xs:complexType>
+                    <xs:attribute name='codigo' type='xs:integer'/>
+                </xs:complexType>
+            </xs:element>
+               \end{verbatim}
+           \end{tcolorbox}
+       \end{figure}
+
+   \item \textbf{Elemento simple con atributo}: es un elemento simple porque no tiene otros elementos, solo datos, pero es de tipo complejo (complexType) porque tiene un atributo:
+
+       \begin{figure}[h]
+           \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+               \scriptsize
+               \begin{verbatim}
+           <xs:element name="cuota">
+               <xs:complexType>
+                   <xs:simpleContent>
+                       <xs:extension base="xs:float">
+                           <xs:attribute type="xs:string" name="moneda"/>
+                       </xs:extension>
+                   </xs:simpleContent>
+                5</xs:complexType>
+           </xs:element>
+               \end{verbatim}
+           \end{tcolorbox}
+       \end{figure}
+   \end{itemize}
+\end{itemize}
+
+Con esta sección terminamos de ver como se definen en XML Schema los tipos de datos simples y complejos, así como los atributos. Además hemos visto formas de expandir los datos simples y agrupar los datos complejos y los atributos. En la siguiente sección veremos como enlazar un esquema con el documento XML que queremos validar.
+
+\subsection{Asociación con Documentos XML}
+Una vez que tenemos creado el \textbf{fichero XSD} debemos asociarlo con un \textbf{fichero XML}. El modo de asociar un esquema a un documento XMl es mediante un espacio de nombres al ejemplar del documento, donde se indica la ruta de la localización de los ficheros de esquemas mediante su URI, precedida del prefijo \textbf{xs:}.
+
+Para que el documento XML siga las reglas no utilizaremos \textbf{<!DOCTYPE>}, sino que utilizaremos atributos especiales en el elemento raíz del documento XML.
+
+Primero, al igual que en el documento XML Schema , necesitamos definir los dos espacios de nombres, el correspondiente al documento XML (que se suele usar sin abreviatura) y el espacio de nombres de XML Schema, que suele usar el prefijo xs.
+
+Además es necesario indicar donde está el archivo XML Schema que contiene las reglas de aplicación para el documento. Esto se realiza mediante el atributo \textbf{schemaLocation}.
+
+A continuación se muestra un ejemplo:
 \newpage
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{citas}
