@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE envios SYSTEM "envio.dtd">
 
-<envios xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="envio.xsd">
+<envios>
 
     <envio cod="NA33333">
         <emisor>

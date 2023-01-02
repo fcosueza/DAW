@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:annotation>
+        <xs:documentation xml:lang ="es-es">
+            <titulo>Esquema de envíos de Llegaya S.L</titulo>
+            <autor>Francisco Javier Sueza Rodríguez</autor>
+            <notas>
+                Se ha decido declarar tanto los tipos, como los elementos complejos, a parte de la
+                estructura principal, para facilicar la legibilidad del código y su reutilización, además
+                así puede verse de forma más raṕida y simple la estructura principal del esquema.
+            </notas>
+        </xs:documentation>
+    </xs:annotation>
+
+    <!-- + + + + Estructura del esquema principal + + + + -->
+
+    <xs:element name="envios">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="envio" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="emisor" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="identidad" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                                        <xs:element ref="num_contrato" minOccurs="0" maxOccurs="1"/>
+                                        <xs:element ref="ubicacion" minOccurs="1" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="intento" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="fecha" type="xs:date" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="hora" type="xs:time" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="comentario" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                                    </xs:sequence>
+                                    <xs:attribute name="recepcionado" type="dicotomia" default="no"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="receptor" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="nombre_completo" minOccurs="1" maxOccurs="1" />
+                                        <xs:element ref="ubicacion" minOccurs="1" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+
+                        <xs:attribute name="cod" type="cod" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- + + + + Definición de tipos + + + + -->
+
+    <!-- Tipo tipo_contrato (enum) -->
+    <xs:simpleType name="tipo_contrato">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="básico" />
+            <xs:enumeration value="avanzado" />
+            <xs:enumeration value="completo" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo dicotomia -->
+    <xs:simpleType name="dicotomia">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sí" />
+            <xs:enumeration value="no" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo cod -->
+    <xs:simpleType name="cod">
+        <xs:annotation>
+            <xs:appinfo>
+                <notas>
+                    El patrón utilizado como máscara para el atributo cod es el siguiente:
+
+                    - (NA|RE|PR|LO): matchea una vez alguna de las cadenas NA, RE, PR o LO.
+                    - [0-3]: matchea un digito entre 0 y 3, ambos incluidos.
+                    - [0000-9999]{4}: matchea 4 digitos entre 0000 y 9999, ambos incluidos.
+                </notas>
+            </xs:appinfo>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(NA|RE|PR|LO)[0-3][0000-9999]{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- + + + + Definición  de elementos complejos + + + + -->
+
+    <!-- Elemento num_contrato (elemento simple con atributo) -->
+    <xs:element name="num_contrato">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:positiveInteger">
+                    <xs:attribute name="tipo" use="optional" type="tipo_contrato" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Elemento ubicacion (elemento complejo formado por una secuencia de 3 elementos) -->
+    <xs:element name="ubicacion">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="via" type="xs:string"></xs:element>
+
+                <xs:element name="poblacion">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="cp" use="required" type="xs:positiveInteger" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="provincia">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="pais" fixed="España" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Elemento nombre_completo (elemento simple con atributo )-->
+    <xs:element name="nombre_completo">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="id" use="optional" type="xs:string" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
