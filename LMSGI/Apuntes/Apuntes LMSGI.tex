@@ -2463,6 +2463,102 @@ Primero, al igual que en el documento XML Schema , necesitamos definir los dos e
 Además es necesario indicar donde está el archivo XML Schema que contiene las reglas de aplicación para el documento. Esto se realiza mediante el atributo \textbf{schemaLocation}.
 
 A continuación se muestra un ejemplo:
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<documento xmlns="http://www.iesaguadulce.es/doc" xmlns:xs="http://w3.org/2001/XMLSchema-instance"
+xs:schemaLocation="esquema.xsd">
+....
+</documento>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Enlace de documento XML con el esquema XSD}
+\end{figure}
+
+Como vemos, se indica el \textbf{espacio por defecto de nombres}, que coincide con el declarado en el documento del esquema, se indica el \textbf{espacio de nombres del esquema}, que siempre será la misma url, y se asocia este espacio de nombres con el prefijo \textbf{xs}.
+
+En el caso de que el esquema no definamos el espacio de nombres por defecto del documento, este quedaría de la siguiente forma:
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<documento xmlns:xs="http://w3.org/2001/XMLSchema-instance"
+           xs:noNamespaceSchemaLocation="esquema.xsd">
+....
+</documento>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+
+\subsection{Documentación del Esquema}
+Una vez que hemos visto como crear el esquema, vamos a ver como incorporar cierta documentación.
+
+Podemos pensar que una forma de hacerlo es añadir comentarios, el problema con esto es que los analizadores no garantizan que los comentarios no se modifiquen al procesar el documento, y por tanto, que los datos añadidos no se pierdan.
+
+En lugar de usar comentarios, XML Schema tiene definido un elemento \textbf{xs:annotation} que permite \textbf{almacenar información adicional}. Este elemento a su vez puede contener una combinación de otros dos, los cuales son:
+
+\begin{itemize}
+    \item \textbf{xs:documentation}: ademas de contener elementos de esquema pueden contener elementos XML bien estructurados. También permite determinar el idioma del documento mediante el atributo \textbf{xs:lang}.
+
+    \item \textbf{xs:appinfo}: se diferencia muy poco del elemento anterior, aunque lo que se pretendió es que xs:documentation fuera legible para los usuarios y que xs:appinfo guardase información para los programas de software. También se usa para generar una ayuda contextual para cada elemento declarado del esquema.
+\end{itemize}
+
+En la figura 2.3.6 se muestra un ejemplo de documentación de un esquema XML Schema. Como podemos ver, las anotaciones se pueden anidar dentro de los elementos, incluyendo a xs:appinfo para proporcionar información contextual de ese elemento concreto.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<xs:schema xmlns:xsi=http://www.w3.org/2001/XMLSchema>
+
+    <xs:annotation>
+        <xs:documentation xml:lang ="es-es">
+            Materiales para formación e-Learning
+            <modulo>Lenguajes de marcas y sistemas de gestión de información.<modulo>
+            <fecha_creación> 2011<fecha_creacion>
+            <autor> Nuky La Bruji</autor>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="lmsgi"  type=xs:string>
+        <xs:annotation>
+            <xs:appinfo>
+                <texto_de_ayuda>Nombre completo del tema</texto_de_ayuda>
+            <xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Ejemplo de documentación del esquema XML}
+\end{figure}
+
+\section{Herramientas de Creación y Validación}
+Al igual que hasta ahora, para crear y validad un documento XML basta con un editor de texto plano, aunque no es lo ideal. Hay herramientas que nos facilitan el trabajo permitiendo al usuario visualizar, validar y editar documentos en el lenguaje XML de forma mucho más rápida y cómoda. Algunas de estas aplicaciones son:
+
+\begin{itemize}
+    \item \textbf{Notepad++}
+    \item \textbf{Editix XML Edito}
+    \item \textbf{XML Copy Editor}
+    \item \textbf{NetBeans}
+    \item \textbf{VSCode}
+\end{itemize}
+
+También tenemos herramientas de validación online, entre las que cabe destacar:
+
+\begin{itemize}
+    \item \url{https://www.xmlvalidation.com/}
+    \item \url{xsdvalidation}
+\end{itemize}
+
+
+
 \newpage
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{citas}
