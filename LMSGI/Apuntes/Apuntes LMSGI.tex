@@ -858,7 +858,7 @@ Si recordamos la estructura de un documento XML que vimos en el tema anterior, e
 Una vez que hemos recordado la estructura básica de un documento XML, vamos a profundizar y expandir las definiciones que tenemos sobre los elementos de esta estructura y a ampliar la opciones que nos proporcionan para personalizar un documento XML.
 
 \subsection{Declaración de Tipo de Documento}
-Ya habíamos visto que esta parte nos permite establecer restricciones sobre el documento, aunque no lo habíamos profundizado en las partes que lo forman. Estas partes, se componen de los siguientes elementos:
+Ya habíamos visto que esto permite al autor definir \textbf{restricciones y características} del documento. Ahora, vamos a profundizar en las partes que lo forman.
 
 \begin{itemize}
     \item \textbf{Declaración del tipo de documento}: comienza con el texto que indica el nombre del tipo, precedido por la cadena ``\textbf{!DOCTYPE}'' separado del nombre del tipo por al menos un espacio. El nombre del tipo debe ser idéntico al del ejemplar del documento XML en el que se ésta trabajando.
@@ -1616,7 +1616,7 @@ Las entidades puede ser de dos tipos, \textbf{generales} y de \textbf{parámetro
 
      En el caso de que la entidad externa vaya a ser utilizada por varias aplicaciones, deberemos declararla de la siguiente forma:
 
-         \begin{figure}[h]
+         \begin{figure}[H]
          \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
              \scriptsize
              \begin{verbatim}
@@ -2557,10 +2557,358 @@ También tenemos herramientas de validación online, entre las que cabe destacar
     \item \url{xsdvalidation}
 \end{itemize}
 
-\section{Ejercicios Resueltos}
+\section{Ejercicio Resuelto}
+En esta sección vamos a incluir un ejercicio resuelto en el que crearemos documentos tanto, DTD como XSD, así como un documento XML que valide a estos dos documentos.
+
+\subsection{Caso Práctico}
+La empresa Reggio tiene establecimientos por toda Italia, pero su sede central está en Cesena, al igual que el almacén donde se distribuye a todos los demás establecimientos. Esta empresa distribuye alpiste para pájaros, así como otros artículos ornitológicos.
+
+Cada establecimiento tiene una tienda, así como un almacén, que pueden o no estar en la misma ubicación. Cuando se hace un pedido a la fábrica por parte de los establecimientos, éstas reciben los artículos en su almacén, y la documentación (albarán y pago) se remite a la tienda.
+
+Cada \textbf{pedido} debe tener los datos siguientes:
+
+\begin{itemize}
+    \item \textbf{Datos del establecimiento} que realiza el pedido (Nombre, dirección para envío y dirección almacén (si es la misma, sólo aparecerá una).
+    \item \textbf{Código de pedido} (Cadena de caracteres formada por: Código establecimiento (1 letra y 2 números), número pedido (4 números), un guión y Año (dos números), por ejemplo: E180021-17.
+    \item \textbf{Nombre del empleado} que realiza el pedido.
+    \item \textbf{Fecha} de pedido.
+    \item\textbf{Tipo de envío}, cuyos valores son: Normal o Urgente.
+\end{itemize}
+
+ Respecto a los \textbf{artículos} del pedido, se guardarán los siguientes datos:
+
+\begin{itemize}
+    \item \textbf{Código} del artículo (formado por tres letras y 3 números, por ejemplo: ZZZ134.
+    \item \textbf{Número} de unidades.
+    \item \textbf{Precio} por unidad.
+    \item \textbf{Observaciones}.
+\end{itemize}
 
 
 
+\subsection{Creación del DTD}
+En primer lugar vamos a crear un documento DTD con las especificaciones pedidas y un documento XML que valide estas especificaciones.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<!ELEMENT pedido (establecimiento,empleado,fecha_pedido,articulos)>
+<!ATTLIST pedido cod_pedido CDATA #REQUIRED>
+<!ATTLIST pedido tipo (normal|urgente) #REQUIRED>
+
+<!ELEMENT establecimiento (nomb_estab,direccion_envio,direccion_almacen?)>
+<!ELEMENT nomb_estab (#PCDATA)>
+<!ELEMENT direccion_envio (via,numero,localidad,provincia,cp)>
+<!ELEMENT direccion_almacen (via,numero,localidad,provincia,cp)>
+<!ELEMENT via (#PCDATA)>
+<!ELEMENT numero (#PCDATA)>
+<!ELEMENT localidad (#PCDATA)>
+<!ELEMENT provincia (#PCDATA)>
+<!ELEMENT cp (#PCDATA)>
+
+<!ELEMENT empleado (#PCDATA)>
+<!ELEMENT fecha_pedido (#PCDATA)>
+
+<!ELEMENT articulos (articulo+)>
+<!ELEMENT articulo (unidades,precio,observaciones?)>
+<!ATTLIST articulo cod_articulo CDATA #REQUIRED>
+<!ELEMENT unidades (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ATTLIST precio moneda CDATA #REQUIRED>
+<!ELEMENT observaciones (#PCDATA)>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{DTD del ejercicio propuesto}
+\end{figure}
+
+Una vez que hemos creado el DTD, deberemos crear un XML que verifique estas restricciones. En nuestro caso, podría ser el siguiente:
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedido SYSTEM "tarea04_01.dtd">
+
+<pedido cod_pedido="E180021-17" tipo="urgente">
+
+    <establecimiento>
+        <nomb_estab>Manitoba</nomb_estab>
+        <direccion_envio>
+            <via>Vittorio</via>
+            <numero>1</numero>
+            <localidad>Cesena</localidad>
+            <provincia>Cesena</provincia>
+            <cp>00400</cp>
+        </direccion_envio>
+        <direccion_almacen>
+            <via>Vittorio</via>
+            <numero>5</numero>
+            <localidad>Cesena</localidad>
+            <provincia>Cesena</provincia>
+            <cp>00400</cp>
+        </direccion_almacen>
+    </establecimiento>
+
+    <empleado>Roberto Rossini</empleado>
+    <fecha_pedido>2017-05-01</fecha_pedido>
+
+    <articulos>
+        <articulo cod_articulo="ZZZ134">
+            <unidades>1</unidades>
+            <precio moneda="EUR">1.05</precio>
+            <observaciones>Tenere lontano dalla portata dei bambini</observaciones>
+        </articulo>
+        <articulo cod_articulo="ZZZ137">
+            <unidades>2</unidades>
+            <precio moneda="EUR">3.50</precio>
+        </articulo>
+        <articulo cod_articulo="ZZZ139">
+            <unidades>5</unidades>
+            <precio moneda="EUR">5.50</precio>
+        </articulo>
+    </articulos>
+
+</pedido>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML válido para el DTD}
+\end{figure}
+
+El documento XML podría haber sido diferente, siempre que respetemos el DTD.
+
+\subsection{Creación del XML Schema}
+Una vez que hemos creado el documento DTD y el XML correspondiente vamos a crear el XML Schema. En éste, podremos establecer más restricciones que en el DTD, como hemos visto a lo largo de este tema. También el documento será más complejo de crear.
+
+En primer lugar vamos a crear el documento XSD. Como el documento es bastante largo, se ha divido en dos partes para que quepa bien en un página.
+
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<!-- Definicion del vocabulario -->
+    <xs:element name="pedido">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="establecimiento"/>
+                <xs:element ref="empleado"/>
+                <xs:element ref="fecha_pedido"/>
+                <xs:element ref="articulos"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.pedido"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="attlist.pedido">
+        <xs:attribute name="cod_pedido" type="cod_ped" use="required"/>
+        <xs:attribute name="tipo">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="normal"/>
+                    <xs:enumeration value="urgente"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:simpleType name="cod_ped">
+        <xs:restriction base="xs:string">
+            <xs:length value="10"/>
+            <xs:pattern value="[A-Za-z][0-9]{2}[0-9]{4}-[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="establecimiento">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nomb_estab"/>
+                <xs:element ref="direccion_envio"/>
+                <xs:element ref="direccion_almacen"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nomb_estab" type="xs:string" />
+    <xs:element name="direccion_envio">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="via"/>
+                <xs:element ref="numero"/>
+                <xs:element ref="localidad"/>
+                <xs:element ref="provincia"/>
+                <xs:element ref="cp"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="via" type="xs:string" />
+    <xs:element name="numero" type="xs:string" />
+    <xs:element name="localidad" type="xs:string" />
+    <xs:element name="provincia" type="xs:string" />
+    <xs:element name="cp">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:length value="5" />
+                <xs:pattern value="[0-9]{5}"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML Schema (Parte 1)}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+    <xs:element name="direccion_almacen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="via"/>
+                <xs:element ref="numero"/>
+                <xs:element ref="localidad"/>
+                <xs:element ref="provincia"/>
+                <xs:element ref="cp"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="empleado" type="xs:string" />
+    <xs:element name="fecha_pedido" type="xs:date" />
+
+    <xs:element name="articulos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="articulo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="articulo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="unidades"/>
+                <xs:element ref="precio"/>
+                <xs:element ref="observaciones" minOccurs="0" />
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.articulo"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="attlist.articulo">
+        <xs:attribute name="cod_articulo" type="cod_articulo" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:simpleType name="cod_articulo">
+        <xs:restriction base="xs:string">
+            <xs:length value="6"/>
+            <xs:pattern value="[A-Za-z]{3}[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="unidades" type="xs:positiveInteger"/>
+    <xs:element name="precio">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:decimal">
+                    <xs:attributeGroup ref="attlist.precio" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="attlist.precio">
+        <xs:attribute name="moneda" type="xs:NMTOKEN" fixed="EUR" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="observaciones" type="xs:string"/>
+</xs:schema>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML Schema (Parte 2)}
+\end{figure}
+
+Una vez creado el documento XML Schema, creamos el XML que lo valide, que es similar al visto en el punto anterior, cambiando solo el modo de enlazar el documento con el esquema.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <pedido xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+            xsi:noNamespaceSchemaLocation="reggio.xsd"
+            cod_pedido="E180021-17"
+            tipo="urgente">
+
+        <establecimiento>
+            <nomb_estab>Manitoba</nomb_estab>
+            <direccion_envio>
+                <via>Vittorio</via>
+                <numero>1</numero>
+                <localidad>Cesena</localidad>
+                <provincia>Cesena</provincia>
+                <cp>00400</cp>
+            </direccion_envio>
+            <direccion_almacen>
+                <via>Vittorio</via>
+                <numero>5</numero>
+                <localidad>Cesena</localidad>
+                <provincia>Cesena</provincia>
+                <cp>00400</cp>
+            </direccion_almacen>
+        </establecimiento>
+        <empleado>Roberto Rossini</empleado>
+        <fecha_pedido>2017-05-01</fecha_pedido>
+
+        <articulos>
+            <articulo cod_articulo="ZZZ134">
+                <unidades>1</unidades>
+                <precio moneda="EUR">1.05</precio>
+                <observaciones>Tenere lontano dalla portata dei bambini</observaciones>
+            </articulo>
+            <articulo cod_articulo="ZZZ137">
+                <unidades>2</unidades>
+                <precio moneda="EUR">3.50</precio>
+            </articulo>
+            <articulo cod_articulo="ZZZ139">
+                <unidades>5</unidades>
+                <precio moneda="EUR">5.50</precio>
+            </articulo>
+        </articulos>
+</pedido>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento XML que valida el XML Schema}
+\end{figure}
+
+\section{Documentación de Apoyo}
+En esta última sección vamos a incluir una serie de enlaces con documentación extra, incluyendo vídeos, para completar el contenido de este tema y para ver como se realizan los documentos de validación paso a paso. Los enlaces son los siguientes:
+
+\begin{itemize}
+    \item  \href{https://www.youtube.com/watch?v=1qFhBPkQqEM&ab_channel=PepeLluyot}{Ejercicio resuelto de DTD y XML Schema} - Parte 1 (Vídeo)
+    \item  \href{https://www.youtube.com/watch?v=m1dmbNjbeZA&ab_channel=PepeLluyot}{Ejercicio resuelto de DTD y XML Schema} - Parte 2 (Vídeo)
+    \item  \href{https://educacionadistancia.juntadeandalucia.es/formacionprofesional/pluginfile.php/36335/mod_scorm/content/33/ResumenDTD.pdf}{Resumen DTD} (PDF)
+    \item \href{https://www.mclibre.org/consultar/xml/ejercicios/dtd.html}{Ejercicios DTD} (Web)
+    \item \href{https://educacionadistancia.juntadeandalucia.es/formacionprofesional/pluginfile.php/36335/mod_scorm/content/33/DTD_SCHEMA.pdf}{DTD y XML Schema} (PDF)
+    \item \href{https://www.youtube.com/watch?v=JKhfLpkVh3o&ab_channel=Introducci%C3%B3naXML%28iXML%29}{Estructura XML Schema} (Vídeo)
+    \item \href{https://www.youtube.com/watch?v=EfnWCeQNTQI&ab_channel=Introducci%C3%B3naXML%28iXML%29}{Mi primer DTD} (Vídeo)
+    \item \href{https://www.youtube.com/watch?v=ryoW-B_6cGs&ab_channel=LoboTecnoKu}{DTD: Elementos} (Vídeo)
+    \item \href{https://www.youtube.com/watch?v=fPU1ex7bSgg&ab_channel=LoboTecnoKu}{Creación de DTD sencillo} - Parte 1 (Vídeo)
+    \item   \href{https://www.youtube.com/watch?v=4NB89iXyxMU&ab_channel=LoboTecnoKu}{Creación DTD sencillo} - Parte 2 (Vídeo)
+    \item \href{https://educacionadistancia.juntadeandalucia.es/formacionprofesional/pluginfile.php/36335/mod_scorm/content/33/SchemaDataTypesQR-2.pdf}{XML Schema: Data Types} (PDF)
+\end{itemize}
+
+\chapter{Utilización de Lenguajes de Marcas en Entornos Web}
+
+
+% Glossary
+
+\glsaddall
+\printglossaries
+
+% Bibliography
 
 \newpage
 \addcontentsline{toc}{chapter}{Bibliografía}
