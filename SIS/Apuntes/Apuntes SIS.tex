@@ -1098,7 +1098,7 @@ En este anexo vamos a ver de forma detallada cuales son todos los conectores que
 
     En las placas actuales podemos encontrar ranuras \textbf{PCI} y \textbf{PCI Express} de distintas velocidades. Cada una de ellas tiene sus propias características, variando en velocidad de transmisión, número de conexiones y tamaño.
 
-        \begin{figure}[ht]
+     \begin{figure}[ht]
         \centering
         \includegraphics[scale=0.45]{conectores-PCI.jpg}
         \caption{Ranura de expansión PCI}
@@ -1106,14 +1106,72 @@ En este anexo vamos a ver de forma detallada cuales son todos los conectores que
 
     Insertar una tarjeta en la ranura correspondiente es tan fácil como ejercer una ligera presión vertical para lograr que sus conectores se alojen en la ranura de expansión. A continuación, para evitar movimientos indeseados, las tarjetas van sujetas con un tornillo al chasis, mediante un tornillo situado en la placa metálica de la tarjeta, pudiendo así acceder a la nueva conexión desde el exterior del PC.
 
-    \item \textbf{Conectores para Dispositivos Internos}: aquí vamos a incluir los conectores que se incluyen en las placas base para distintos usos:
+    \item \textbf{Conectores de Dispositivos Internos}: aquí vamos a incluir los conectores que se incluyen en las placas base para distintos usos:
 
     \begin{itemize}
         \item \textbf{Conectores para dispositivos de almacenamiento}: estos conectores se usan para ampliar el almacenamiento del ordenador y suelen ser de 3 tipos diferentes:
 
         \begin{itemize}
-            \item \textbf{Conectores IDE}:
+            \item \textbf{Conectores IDE}: estos conectores se usan para conectar discos duros y lectores ópticos de almacenamiento como el DVD. Suelen venir hasta un máximo de 2 que permiten conectar 4 dispositivos, dos por cada conector.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.36]{conectores-IDE.jpg}
+                \caption{Conectores IDE}
+            \end{figure}
+
+            \item \textbf{Conectores SATA}: sirven para conectar discos duros o lectores y/o grabadoras de DVD o Blu-ray. Suelen venir por parejas, habiendo 2, 4 o 6 conectores.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.36]{conectores-SATA.jpg}
+                \caption{Conectores SATA}
+            \end{figure}
+
+            \item \textbf{Conectores SCSI}: sirven para conectar dispositivos de almacenamiento SCSI, incluidas sus nuevas versiones series \textbf{SAS}. No suelen utilizarse en equipos domésticos por su elevado precio en comparación con los anteriores.
         \end{itemize}
+
+    \item \textbf{Conectores M.2}: estas ranuras permiten la conexión de diversas tarjetas de expansión como tarjetas Wifi, Bluetooth o NFC, aunque su uso principal es la conexión de unidades de almacenamiento \textbf{SSD}. El conector M.2 puede dar soporte a los buses PCI Express 3.0, SATA3 y USB 3.0.
+
+    Cuando se usa el bus PCIe 3.0, se pueden conectar unidades SSD que alcancen velocidades bastante superiores a las alcanzadas en SSD conectados mediante el bus SATA3. Por el tamaño de estas ranuras, son especialmente comunes en portátiles.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=1.50]{conectores-M2.jpg}
+        \caption{Conectores M.2}
+    \end{figure}
+
+    \item \textbf{Conectores USB}: son conectores USB adicionales que se usan para pronlongar la conexión USB, mediante un cable, tanto a la parte trasera como a la delantera de la caja. También se usan para conectar otros dispositivos con lectores de tarjetas.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.38]{conectores-USB.jpg}
+        \caption{Conectores USB internos}
+    \end{figure}
+
+    \item \textbf{Conectores de Audio}: se usan para conectar cables que llevan la conexión hasta a los jacks del frontal de la caja.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.36]{conectores-AudioI.jpg}
+        \caption{Conectores internos de audio}
+    \end{figure}
+
+    \item \textbf{Conecto CD-IN y AUX}: son conectores de sonido proveniente  del lector de DVD o de una capturadora de televisión. Suelen estar presentes si la tarjeta de sonido esta integrada en la placa base.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.66]{conectores-CDIN.jpg}
+        \caption{Conectores CD-IN y AUX}
+    \end{figure}
+
+    \item \textbf{Conectores FAN}: son varios conectores de energía eléctrica para los ventiladores encargados de la refrigeración. Aunque solo se necesitan 2 pines, suelen incluir un tercero para la monitorización de la velocidad de giro, y con un cuarto pin se incluye la posibilidad de controlar su velocidad.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.66]{conectores-FAN.jpg}
+        \caption{Conector FAN de la CPU con 4 pines}
+    \end{figure}
     \end{itemize}
 \end{itemize}
 
