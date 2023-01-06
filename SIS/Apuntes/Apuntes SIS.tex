@@ -1042,7 +1042,79 @@ En este anexo vamos a ver de forma detallada cuales son todos los conectores que
         \end{figure}
     \end{itemize}
 
-    Según el tipo de zócalo
+    Según el número de contactos y el tipo de distribución en el conector tendríamos una variedad bastante amplia de microprocesadores. La clasificación también depende del fabricante (AMD o Intel) y de sus gamas de modelos. A continuación se muestra una tabla con los principales zócalos empleados por ambos fabricantes:
+
+        \begin{figure}[ht]
+
+        \vspace{3ex}
+        \centering
+
+        \setlength{\tabcolsep}{10pt}
+        \renewcommand{\arraystretch}{1.4}
+
+        \begin{tabular}{| l | l |}
+            \hline
+            \centering\textbf{AMD}  & \textbf{Intel}  \\ \hline
+            \centering Slot A: Duron, Athlon. &  Slot 1: Pentium II, Pentium III, Celeron. \\
+            \centering Socket A: Duron, Athlon, Athlon XP &  Socket 370: Pentium III, Celeron \\
+            \centering Socket 754: Athlon 64, Mobile Athlon 64 &  Socket 423: Pentium 4 \\
+            \centering Socket 939: Athlon 64, Athlon FX &  Socket 478: Pentium 4, Celeron. \\
+            \centering Socket 940: Opteron y Athlon 64 FX. &  Socket 775: Pentium 4, Celeron, Pentium D \\
+            \centering Socket AM2: Athlon 64, Athlon FX, Athlon X2 &  Socket 603: Xeon \\
+            \centering Socket F: Opteron. &  Socket 604: Xeon \\
+            \centering Socket AM2+: Athlon 64, Athlon FX &  Socket 771: Xeon \\
+            \centering Socket AM3: Phenom II, Athlon II &  LGA 1366: Intel Core i7, Xeon \\
+            \centering Socket AM3+: FX Vishera, FX Zambezi &  LGA 1156: Intel Core i3, i5, i7. \\
+            \centering Socket AM1: Athlon, Sempron. & LGA 2011: Core i7, Xeon E5 \\
+            \centering Socket AM4: Ryzen 7, Ryzen 5, Ryzen 3 &  LGA 1150: Haswell, Broadwell \\
+            \centering Socket TR4:  Ryzen Threadripper. &  LGA 1151: Skylake, Kaby Lake, Coffee Lake \\
+            \centering  &  LGA 2066: Skylake-X, Kaby Lake-X \\
+            \hline
+        \end{tabular}
+        \caption{Principales zócalos empleados por AMD y Intel}
+    \end{figure}
+
+    \item \textbf{Ranuras de Memoria}: Estos conectores son estrechos y alargados, de unos 13,1 centímetros. Tienen unas pestañas que sujetan las placas de memoria al ser insertadas con una ligera presión.
+
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.55]{conectores-RAM.jpg}
+        \caption{Zócalo de memoria RAM}
+    \end{figure}
+
+    Suelen tener algún resalte que obliga a colocar las memorias en su posición correcta. El número de contactos varía según el tipo de memoria soportada por el chipset de la placa base, que por supuesto debe coincidir con el número de contactos de la placa de memoria.
+
+    En la actualidad se usan los módulos de memoria DIMM con 4 variantes:
+    \begin{itemize}
+        \item DIMM de 168 pines para memorias SDRAM.
+        \item DIMM de 184 pines para memorias DDR.
+        \item DIMM de 240 pines para memorias DDR2 o DDR3.
+        \item DIMM de 288 pines para memorias DDR4.
+    \end{itemize}
+
+    El número de zócalos de memoria suele variar en cada modelo de placa, pero suelen agruparse en bancos de 2 o 4 ranuras de memoria. Si una placa contiene dos tipos diferentes de ranuras será porque soporta la instalación de dos tipos diferentes de memoria, aunque no puedan usarse ambos tipos simultáneamente.
+
+    \item \textbf{Ranuras de expansión}: Sirven para insertar en ellos tarjetas adaptadoras para conectar dispositivos periféricos, como la tarjeta de vídeo para conectar el monitor o la de sonido para conectar altavoces, etc...
+
+    En las placas actuales podemos encontrar ranuras \textbf{PCI} y \textbf{PCI Express} de distintas velocidades. Cada una de ellas tiene sus propias características, variando en velocidad de transmisión, número de conexiones y tamaño.
+
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.45]{conectores-PCI.jpg}
+        \caption{Ranura de expansión PCI}
+    \end{figure}
+
+    Insertar una tarjeta en la ranura correspondiente es tan fácil como ejercer una ligera presión vertical para lograr que sus conectores se alojen en la ranura de expansión. A continuación, para evitar movimientos indeseados, las tarjetas van sujetas con un tornillo al chasis, mediante un tornillo situado en la placa metálica de la tarjeta, pudiendo así acceder a la nueva conexión desde el exterior del PC.
+
+    \item \textbf{Conectores para Dispositivos Internos}: aquí vamos a incluir los conectores que se incluyen en las placas base para distintos usos:
+
+    \begin{itemize}
+        \item \textbf{Conectores para dispositivos de almacenamiento}: estos conectores se usan para ampliar el almacenamiento del ordenador y suelen ser de 3 tipos diferentes:
+
+        \begin{itemize}
+            \item \textbf{Conectores IDE}:
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 
