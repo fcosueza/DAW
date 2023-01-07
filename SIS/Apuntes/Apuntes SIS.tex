@@ -864,6 +864,11 @@ Una vez que ya seguido estos pasos y recordado algunas consideraciones de seguri
 
 
 
+\chapter{Software de un Sistema Informático}
+En el tema anterior vimos el hardware de un sistema informático, la parte física que hace que un ordenador pueda funcionar. En este tema vamos a ver el \textbf{software}, la \textbf{parte lógica} de un sistema informático y la encargada de que todos los componentes hardware funcionen correctamente.
+
+\section{Software de un Sistema Informático}
+Como hemos dicho, en esta unidad vamos a centrarnos en el \textbf{software de un sistema informático}. Este esta formado por \textbf{programas}, \textbf{estructuras de datos} y la \textbf{documentación} asociada. Además, este suele estar distribuido en el ordenador, periféricos y el subsistema de comunicaciones.
 
 % Apéndice
 \appendix
@@ -1017,7 +1022,7 @@ Todos estos ordenadores personales pueden funcionar con diferentes sistemas oper
 
 En la actualidad, los SO más populares en cada tipo son: Microsoft Windows y sistemas GNU/Linux para los basados en escritorio, e iOS de Apple y Android de Google para los pos-PC. También muchos fabricantes están probando productos como Chrome OS de Google, y otros, principalmente asiáticos, están incorporando doble sistema operativo, permitiendo operar con diferentes sistemas operativos como Android y Windows según las necesidades del usuario.
 
-\section{Principales Conectores de la Placa Base}
+\section{Principales Elementos de la Placa Base}
 En este anexo vamos a ver de forma detallada cuales son todos los conectores que incluye una placa base y cual es su utilidad, para que podamos identificarlos cuando vayamos a montar un ordenador o simplemente cuando tengamos una placa base delante.
 
 \begin{itemize}
@@ -1172,10 +1177,122 @@ En este anexo vamos a ver de forma detallada cuales son todos los conectores que
         \includegraphics[scale=0.66]{conectores-FAN.jpg}
         \caption{Conector FAN de la CPU con 4 pines}
     \end{figure}
+
+    \item \textbf{Conectores botones frontales}: se usan para conectar los botones de reset y encendido de la torre, así como los leds indicadores del \textbf{panel frontal} de la caja. Algunos fabricantes incluyen conectores puente que facilitan la conexión.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{conectores-Frontal.jpg}
+        \caption{Conectores del panel frontal}
+    \end{figure}
+
+    \item \textbf{Conector WOL}: si la placa tiene una tarjeta de red, por medio de este conector se puede enviar una señal para que se arranque el ordenador desde la red, sin necesidad de pulsar el botón de encendido.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.90]{conectores-WOL.jpg}
+        \caption{Conector WOL (Wake On Lan)}
+    \end{figure}
+
+    \item \textbf{Puerto de Serie}: en el se conecta un cable plano a modo de prolongación que lleva una conexión de serie de 9 pines a la parte trasera de la torre. En la placa suele indicarse como COM1.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.36]{conectores-SERIE.jpg}
+        \caption{Conector de Serie de 9 pines}
+    \end{figure}
+
+    \item \textbf{Conector IEEE 1394}: sirve, al igual que el de serie, para conectar un cable y llevar una prolongación de este tipo de conector, también conocido como Firewire, a la parte trasera de la torre.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.66]{conectores-Firewire.jpg}
+        \caption{Conector de placa tipo Firewire}
+    \end{figure}
+
+    \item \textbf{Conectores de Alimentación}: en la placa base podemos encontrar diversos conectores de energía. En ellos se insertan lo conectores apropiados que vienen con la fuente de alimentación. El conector principal es el \textbf{ATX} de 24 pines, que se ha impuesto al antiguo ATX de 20 pines. Actualmente también es necesario un conector de 4 u 8 contactos (4+4) para la alimentación del procesador.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.33]{conectores-Power.jpg}
+        \caption{Conector de energía de 24 pines}
+    \end{figure}
+
+    \item \textbf{Jumpers}: son pines que sobresalen de la placa base y pueden unirse con una pequeña pieza metálica recubierta de plástico para realizar de conexión entre ellos. Se utilizan para fijar algunos parámetros variables de la placa base. Esto también puede realizarse mediante pequeños conmutadores DIP (Dual In-line Package), que son pequeños interruptores con una palanca.
+
+    Un jumper que viene siempre instalado es el que se utiliza para borrar los parámetros de configuración que la BIOS tiene almacenados en su memoria CMOS. Hay otros conectores que se instalan si así lo decide el fabricante, como pueden ser el KBPWR (Keyboard Power) ó USBPWR (USB Power), que según como se conecten permiten la posibilidad de iniciar el ordenador pulsando una tecla del teclado o mediante una señal a través de un puerto USB.
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{conectores-Jumpers.jpg}  \hspace{2ex} \includegraphics[scale=0.75]{conectores-Jumpers2.png}
+        \caption{Jumpers KBPWR y USBPWR}
+    \end{figure}
+
+    \item \textbf{Conector de Infrarrojos}: permite la conexión de un módulo de infrarrojos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{conectores-IR.png}
+        \caption{Conector de infrarrojos}
+    \end{figure}
+
+     \item \textbf{Pila y LED}: aunque no son conectores, otros elementos internos a destacar de la placa base son el \textbf{led} de encendido de la placa, que muestra de forma visual si se ha iniciado de forma correcta y parpadeando con determinados patrones en caso de que haya algún error.
+
+     También cabe destacar la \textbf{pila} que mantiene permanentemente alimentada la CMOS de la BIOS. Cuando la pila se descarga completamente o se retira de su emplazamiento la CMOS pierde los valores almacenados.
+
+     \begin{figure}[H]
+         \centering
+         \includegraphics[scale=0.35]{conectores-LED.jpg}  \hspace{2ex} \includegraphics[scale=0.20]{conectores-Pila.jpg}
+         \caption{LED de estado y pila de la CMOS}
+     \end{figure}
     \end{itemize}
+
+    \item \textbf{Conectores para Dispositivos Externos}: son los conectores que están soldados directamente a la placa base y que asoman al exterior por la parte trasera de la torre. Para reconocerlos fácilmente y evitar confusiones están coloreados siguiendo el estándar que los identifica.
+
+    El número de conectores y su disposición varía según la placa base, aunque se sitúan por una zona bien definida. Por ello, el fabricante de cada placa base adjunta una plaquita metálica para insertar en el chasis del ordenador cuyos huecos se adaptan exactamente a los conectores de la placa.
+
+    Los principales conectores que nos podemos encontrar son los siguientes:
+
+    \begin{itemize}
+        \item \textbf{Puertos PS/2}: sirven para el teclado y el ratón y suelen venir en \textbf{color morado}.
+        \item \textbf{Puertos USB}: suelen venir en parejas, y se usan para conectar dispositivos USB. Lo normal es que haya como mínimo 4 conectores aunque pueden venir más.
+        \item \textbf{Puerto Paralelo}: sirve para conectar impresoras.
+        \item \textbf{Puerto de Serie RS232}: este puerto se esta dejando de usar y en su lugar se suele poner un conector \textbf{VGA} y/o un conector \textbf{DVI} para el monitor en caso de que la placa tenga controlador de vídeo integrado.
+        \item \textbf{Puerto de Red} (LAN): puerto para conectar un cable de red con clavija RJ45. Estará presente si la placa tiene tarjeta de red integrada.
+        \item \textbf{Conectores de audio}: normalmente hay 3 conectores de tipo minijack para el micrófono, altavoces y entrada de línea. Éstos estarán presentes si la placa base incluye in tarjeta de red integrada. Además de estos, puede incluir otros 3 conectores para altavoces adicionales, así como conectores SPDIF, de tipo RCA, para cable coaxial y/o cuadrados para cable óptico.
+        \item \textbf{Puerto IEEE 1394}: este puerto, también conocido como \textbf{Firewire}, se suele emplear para audio y vídeo digital.
+        \item \textbf{HDMI}: es una interfaz de audio y vídeo digital para conectar monitores, proyectores, TVs, etc...
+        \item \textbf{ESATA}: SATA externo para conectar dispositivos de almacenamiento como discos duros externos.
+    \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.90]{conectores-Trasera.jpg}
+        \caption{Conectores externos de la placa base}
+    \end{figure}
+
+    \item \textbf{BIOS }: un componente imprescindible de la placa base es el chip de la \textbf{BIOS}, que puede ir alojado en un zócalo propio o soldado a la placa base. Su nombre viene de las siglas del inglés \textbf{Basic Input/Output System}, y consiste en un firmware instalado en la placa base que chequea en el arranque todos los dispositivos conectados y ayuda a cargar el sistema operativo en la memoria principal para que pueda ser ejecutado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.60]{conectores-BIOS.jpg}
+        \caption{Chip de la BIOS}
+    \end{figure}
+
+    También proporciona una interfaz mediante la cual se pueden modificar algunos valores de funcionamiento de la placa base los cuales se registran en la memoria \textbf{CMOS}, una memoria de bajo consumo que se alimenta permanentemente gracias a la pila.
+
+    \item \textbf{Chipset}: el chipset se compone de dos integrantes, el puente norte y el puente sur, aunque se suelen denominar por su nombre en inglés, \textbf{Northbridge} y \textbf{Southbridge}. Se trata de dos circuitos integrados que con el tiempo han ido recogiendo funcionalidades de controladores que antes fueron independientes.
+
+    Así, el \textbf{northbridge} se encarga de funciones como la comunicación entre el procesador y la memoria principal o el sistema gráfico, incluyendo algunos modules incluso controladoras de vídeo, sonido y red. Es posible que no podamos ver este chip en la placa base ya que suele estar debajo de un disipador, que le ayuda a dispersar el calor que produce mientras trabaja.
+
+    El \textbf{southbridge} por otra lado lleva el control de los puertos internos y externos de la placa base. Éste también puede ir protegido por un disipador.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=1]{conectores-Chipset.jpg}
+        \caption{Chipset: Nortbridge y Southbridge}
+    \end{figure}
 \end{itemize}
-
-
 
 
 % Glossary
