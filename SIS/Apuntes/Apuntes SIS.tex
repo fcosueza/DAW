@@ -956,7 +956,7 @@ Los \textbf{requisitos} para que una aplicación se \textbf{ejecute correctament
 Teniendo en cuenta esto, los fabricantes de aplicaciones informáticas suelen establecer \textbf{tres niveles de requisitos} para la instalación de sus aplicaciones. Estos niveles son los siguientes:
 
 \begin{itemize}
-    \item \textbf{Especificaciones Básicas}: Son los requisitos mínimos para que la aplicación pueda ejecutarse correctamente. Suelen incluir:
+    \item \textbf{Equipo Básico}: Son los requisitos mínimos para que la aplicación pueda ejecutarse correctamente. Suelen incluir:
     \begin{itemize}
         \item Plataforma hardware
         \item Tipo de microprocesador
@@ -977,7 +977,7 @@ Teniendo en cuenta esto, los fabricantes de aplicaciones informáticas suelen es
         \caption{Requisitos mínimos Microsoft Office}
     \end{figure}
 
-    \item \textbf{Especificaciones Recomendadas}: Además de los requisitos mínimos, los fabricantes suelen especificar un \textbf{requisitos recomendados}, para conseguir un funcionamiento eficaz de la aplicación y con un rendimiento satisfactorio. Éstos suelen incluir:
+    \item \textbf{Equipo Opcional}: Además de los requisitos mínimos, los fabricantes suelen especificar un \textbf{requisitos recomendados}, para conseguir un funcionamiento eficaz de la aplicación y con un rendimiento satisfactorio. Éstos suelen incluir:
 
     \begin{itemize}
         \item Plataforma hardware recomendada
@@ -1012,6 +1012,132 @@ Por \textbf{instalación} de un programa entendemos el conjunto de pasos que nos
 
     \item \textbf{Instalación Personalizada}: permite a un usuario experto incluir o eliminar elementos de la aplicación con el fin de optimizar los recursos del sistema informático, instalando solo aquellos elementos que se van a utilizar.
 \end{itemize}
+
+Cuando se adquiere una aplicación nos encontramos con un conjunto de manuales y CD o DVD. La aplicación se encuentra normalmente en formato comprimido. El traspaso de la aplicación a nuestro ordenador, normalmente el disco duro, se realiza mediante un \textbf{programa de instalación}, que es el encargado de realizar las siguiente tareas:
+
+\begin{itemize}
+    \item \textbf{Extrae} los bloque de la aplicación, descomprimiéndolos si fuera necesario.
+    \item \textbf{Crea} una \textbf{estructura de directorios} necesaria para acomodar los archivos de la aplicación.
+    \item \textbf{Ubica} los archivos de la aplicación en la estructura creada o donde correspondan.
+    \item \textbf{Modifica} el \textbf{registro del sistema}, si esto fuera necesario.
+\end{itemize}
+
+En las versiones actuales de \textbf{Windows} disponemos de la herramienta \textbf{Microsoft Store} para la instalación de software.
+
+En \textbf{Linux} la forma más común de instalación de software es a través de repositorios oficiales mediante el uso de herramientas como \textbf{Ubuntu Software} o \textbf{Synaptic}, que es un gestor de paquetes. Estas herramientas se conectan a un repositorio, como puede ser el de la distribución Ubuntu, en
+\url{http://archive.ubuntu.com/ubuntu/}, que contiene binarios o paquetes precompilados y se encarga de realizar la instalación de la aplicación en nuestro sistema de forma automática descargando cualquier paquete del que dependa. En actualidad, además, existen paquetes universales que no depende de una distribución de Linux concreta y que se pueden gestionar con sistemas como \textbf{AppImage} o \textbf{Snap}.
+
+\subsubsection{Configuración de la Aplicación}
+Una vez que hemos realizado la instalación correctamente solo queda configurar las opciones de la aplicación, a veces también del sistema operativo y el entorno de trabajo.
+
+En la \textbf{configuración} se pueden modificar los parámetros establecidos por defecto para la aplicación. Algunas aplicaciones pueden generar algunos archivos de configuración con los datos introducidos por el usuario durante el proceso de instalación.
+
+El usuario debe realizar una última tarea antes de comenzar a utiliza la aplicación: \textbf{configurar el entorno de trabajo}. Esto consiste en definir una serie de parámetros de funcionamiento que adecuen el funcionamiento de la aplicación las exigencias del usuario. Este proceso se realizará en caso de que no sea satisfactoria la configuración por defecto de la aplicación. Entre estos \textbf{parámetros} podemos encontrar:
+
+\begin{itemize}
+    \item \textbf{Ajuste y distribución de la pantalla} (tamaño de la ventanas, colores, etc...)
+    \item \textbf{Definición de directorios de trabajo}
+\end{itemize}
+
+Como \textbf{ejemplo de configuración}, dentro de los parámetros de la aplicación de control remoto \textbf{UltraVNC}, se nos permite cambiar la contraseña de administrador, los puertos por defecto, etc... Por otro lado, algunas \textbf{aplicaciones web} requieren de la activación de cookies y la modificación de configuración de seguridad de nuestro navegador.
+
+Tras este último paso de configuración, la aplicación estará lista para empezar a funcionar correctamente.
+
+\subsection{Tipos de Licencias Software}
+En este punto vamos a ver los diferentes tipos de licencias software que nos podemos encontrar, y para comenzar, definiremos algunos \textbf{conceptos clave} para entender gran parte de lo que rodea a las \textbf{licencia software}.
+
+En primer lugar, las \textbf{licencias software} nos sirven para establecer un \textbf{contrato} entre el \textbf{autor} de una aplicación software y el \textbf{usuario}. En este contrato se define con precisión los \textbf{derechos y deberes} de ambas partes, es decir, los ``\textbf{actos de explicación legales''}.
+
+Por otra parte, entendemos como \textbf{derecho de autor} o \textbf{copyright} la \textbf{forma de protección} proporcionada por la \textbf{leyes vigentes} en la mayoría de países para los \textbf{autores de obras originales}, incluyendo obras literarias, dramáticas, musicales, artísticas e intelectuales, tanto publicadas como pendientes de publicar.
+
+Pueden existir tantas licencias software como acuerdos concretos se den entre el autor y el usuario, pero en general podemos clasificarlas en dos tipos:
+
+\begin{itemize}
+    \item Licencias de software con \textbf{código abierto}.
+    \item Licencias de software con \textbf{código cerrado}.
+\end{itemize}
+
+Un caso particular es el \textbf{software de dominio público}, que es software \textbf{sin licencia}. Este software ofrece derechos de explotación para todo el mundo. Como es lógico, este software puede utilizarse, modificarse, redistribuirse o licenciarse sin ningún tipo de limitaciones, con o sin fines de lucro. Eso ocurre cuando el autor lo ``\textbf{dona a la humanidad}'' o si los derechos de autor han expirado, en un plazo contado desde la muerte del autor, generalmente 70 años. En caso de que el autor condicione su uso bajo una licencia, por muy débil que sea, ya no podrá considerarse de dominio público.
+
+\subsubsection{Licencias de Software con Código Abierto}
+Las \textbf{licencias con código abierto} ponen a disposición del usuario el \textbf{código fuente} con el que esta construido el software. Este tipo de licencias se pueden clasificar en dos tipos:
+
+\begin{itemize}
+    \item \textbf{Licencias Permisivas} (con permisos): el software puede modificarse o dar lugar a otro nuevo (redistribuirse), sin que el resultado tenga que mantener la misma licencia del software original. Algunos ejemplos de estas licencias son Apache Software License, MIT License, BSD License, Python License, W3C Software Notice and License, etc...
+
+    \item \textbf{Licencias No Permisivas} (con restricciones): también se conocen como licencias \textbf{copyleft} y podemos encontrar principalmente de dos tipos:
+    \begin{itemize}
+        \item \textbf{Copyleft Fuerte}: el software puede modificarse o dar lugar a otro nuevo, pero el resultado deberá mantener la misma licencia que el software original. Estas licencias suelen estar unidas al concepto de \textbf{software libre}, que explicaremos a continuación. Algunos ejemplos son las licencias Common Public License, GNU General Public License, Eclipse Public License, OpenSSL License, etc...
+
+        \item \textbf{Copyleft Débil}: en este caso las modificaciones que se realicen al software adicional deberán mantener la misma licencia, pero si da lugar a un nuevo software, es si podría tener una licencia diferentes al original. Algunos ejemplos son las licencias GNU Lesser License, Mozilla Public License, Open Source License, Apple Source License, etc...
+    \end{itemize}
+\end{itemize}
+
+Dentro de estas licencias, cabe destacar las relacionadas con el \textbf{software libre}, por la relevancia y el impacto que han tenido en los últimos 30 años en el mundo de software. Este tipo de licencias proporcionan a los usuarios \textbf{cuatro libertades} básicas, que son:
+
+\begin{enumerate}
+    \item \textbf{Libertad} para \textbf{utilizar el programa} para cualquier propósito.
+    \item \textbf{Libertad} para \textbf{estudiar como funciona} y \textbf{adaptar} el software a tus necesidades. Por ello deben proporcionarse la fuentes, directa o indirectamente, pero siempre de forma fácil y asequible.
+    \item \textbf{Libertad} para \textbf{distribuir} copias exactas del programa.
+    \item \textbf{Libertad} para \textbf{modificar} el programa y \textbf{hacer públicas} dichas modificaciones.
+\end{enumerate}
+
+Todo programa que no incorpore alguna de estas libertades se considera no libre o \textbf{semilibre}. La mayor parte de las licencias de software libre surgen de la \textbf{\gls{FSF}}.
+
+El software libre suele estar disponible gratuitamente, o al precio de costo de la distribución a través de otros medios, pero no es obligatorio que sea así, por lo que \textbf{no hay que asociar software libre} a ``\textbf{software gratuito}'', ya que conservando su carácter libre puede ser distribuido de forma comercial.
+
+\subsubsection{Licencias de Software con Código Cerrado}
+Las \textbf{licencias con código cerrado} no permiten las distribución del código fuente con el que esta construido el software. A este software suele conocerse como \textbf{software propietario}.
+
+En estas licencias los propietarios limitan las posibilidades que tiene los usuarios para copiar, modificar, distribuir o ceder el software. Si no se cumple lo que hay estipulado en los términos y condiciones de la licencia estaríamos hablando de \textbf{piratería de Software}.
+
+Además, suelen ofrecer servicios de soporte técnico y actualizaciones durante el tiempo de vida del software otorgado en la licencia. Los principales ejemplos de estas licencias son:
+
+\begin{itemize}
+    \item \textbf{LICENCIAS ALUF}: en algunos países llamadas \textbf{CLUF} o \textbf{EULA}. En estas licencias el uso de software solo esta permitido para un único usuario, el comprador.
+    \item \textbf{Freeware}: se aplica a software que se distribuye gratuitamente y por tiempo indefinido. Es posible que requiera que nos registremos, pero siempre de forma gratuita. Normalmente esta permitida su distribución pero no su modificación. No suele incluir el código fuente.
+    \item \textbf{Shareware}: son licencias que permiten que el software se evalúe, aunque puede limitar el tiempo de uso o algunas de sus funcionalidades. Para disponer del producto sin limitaciones habrá que pagarlo.
+\end{itemize}
+
+Además de los tipos de licencias, hay diferentes \textbf{canales} por los que podemos \textbf{adquirir} una de estas licencias, siendo los más comunes:
+
+\begin{itemize}
+    \item \textbf{Retail}: esta es la forma habitual en la que los usuarios comprarían un software en un establecimiento. Normalmente esta dirigida a usuario que no necesitan más de cinco licencias y pueden encontrarse dos variantes:
+
+    \begin{itemize}
+        \item \textbf{Producto Completo}: no requiere una versión previa del software para su instalación.
+        \item \textbf{Actualización}: parte de una versión previa del software para la que tendremos que tener la licencia. Normalmente este tipo de licencias tienen un coste menor.
+    \end{itemize}
+
+    \item \textbf{OEM}: estas licencias, llamadas Original Equipment Manufacturer, suelen venir preinstaladas cuando se adquiere un equipo nuevo, estando prohibida explícitamente su venta si no forman parte de un todo. El software no podrá utilizarse ni tan siquiera en el caso de hacer una sustitución del equipo por otro, salvo que esta sea por motivos de garantía. Lo que si esta permitido es ceder el equipo completo a otro usuario.
+
+    \item \textbf{Licencias Por Volumen}: los fabricantes y empresas suelen tener contratos dirigidos a grandes empresas o entidades, de diferentes tamaño, que necesitan una cantidad de licencias muy superior a la de los usuarios normales. El contrato puede incluir derechos específicos, como por ejemplo, los derechos de transferencia a determinados usuarios que cumplan con unas características determinadas.
+
+    En este tipo de licencias también encontramos los tipos de \textbf{producto completo} y \textbf{actualización}. Además es común tener una opción de \textbf{downgrade} para proporcionar soporte a equipos más antiguos.
+\end{itemize}
+
+\section{El Sistema Operativo}
+El \textbf{sistema operativo} (\textbf{SO}), es un \textbf{conjunto de programas} que se encarga de \textbf{gestionar} los recursos \textbf{hardware y software} del ordenador, por lo que actual como una interfaz entre los programas de aplicación del usuario y el hardware del sistema.
+
+En esta sección veremos la evolución de los sistemas operativos, así como los distintos tipos que nos podemos encontrar según determinadas características.
+
+\subsection{Objetivos de los Sistemas Operativos}
+Como ya hemos comentado, la principal función de un SO es la de gestionar los recursos hardware y software del sistema, pero para ser más específicos, sus funciones se pueden resumir en las siguientes:
+
+\begin{itemize}
+    \item \textbf{Abstraer al usuario de la complejidad del hardware}: el sistema operativo hace que el ordenador se más fácil de utilizar.
+    \item \textbf{Eficiencia}: permite que los recursos del ordenador se utilicen de la forma más eficiente posible. Por ejemplo, \textbf{optimizando} los accesos a disco, para acelerar las operaciones de entrada/salida.
+    \item \textbf{Permitir la ejecución de programas}: cuando un usuario quiere ejecutar un programa el sistema operativo se encarga de realizar todas las operaciones necesarias para ello, tales como cargar las instrucciones en la memoria principal, iniciar dispositivos de entrada/salida y preparar otros recursos.
+    \item \textbf{Acceso a los dispositivos entrada/salida}: el sistema operativo proporciona una interfaz homogénea para los dispositivos de entrada/salida para que el usuario los pueda utilizar de forma más sencilla.
+    \item \textbf{Sistemas de Archivos}: proporciona una estructura y un conjunto de operaciones para el sistema de archivos.
+    \item \textbf{Control de acceso a los recursos}: en el caso de sistemas compartidos, proporciona protección de los recursos y los datos del usuario frente a accesos no autorizados.
+    \item \textbf{Detección y respuesta  ante errores}: el sistema operativo debe prever todas las posibles \textbf{situaciones críticas y resolverlas}, si es que se producen.
+    \item \textbf{Capacidad de adaptación}: el sistema operativo debe ser construido de manera que pueda evolucionar a medida que van surgiendo actualizaciones hardware y software.
+    \item \textbf{Gestión de las comunicaciones de red}: el sistema operativo debe permitir al usuario manejar de forma sencilla todo lo relativo a la instalación y uso de las redes de ordenadores.
+    \item \textbf{Permitir a los usuarios compartir recursos}: este aspecto esta muy relacionado con el anterior y permitiría a los usuarios compartir recursos y datos, teniendo el SO el papel de gestor de los recursos de una red.
+\end{itemize}
+
+Como vemos, las funciones de los sistemas operativos son muy variadas y una pieza clave en el funcionamiento de un ordenador, pero no siempre han tenido tantas funcionalidades. En el \textbf{Anexo \ref{app:evol}}, puedes ver con más detalle la evolución de los sistemas operativos a lo largo de la historia.
 
 
 
@@ -1447,6 +1573,41 @@ En este anexo vamos a ver de forma detallada cuales son todos los conectores que
         \caption{Chipset: Nortbridge y Southbridge}
     \end{figure}
 \end{itemize}
+
+
+\chapter{Anexos Tema 2}
+\section{Evolución Histórica de los Sistemas Operativos}
+\label{app:evol}
+El hardware y el software han evolucionado de forma paralela y conjunta en las últimas décadas, por lo que la evolución que vamos a ver los sistemas operativos está estrechamente relacionada con los avances en la arquitectura de los ordenadores que se produjo en cada generación.
+
+La evolución de los sistemas operativos y de los ordenadores se agrupa por generaciones y son la siguientes:
+
+\begin{itemize}
+    \item \textbf{1ª Generación} (\textbf{1945 - 1955})
+
+    Los primeros ordenadores estaban construidos con \textbf{tubos de vacío}. En un principio no existían sistemas operativos, se programaba directamente sobre el hardware. Los programas estaban hechos en \textbf{código máquina} y el \textbf{control} de las funciones básicas se realizaba mediante \textbf{paneles enchufables}.
+
+    Hacia finales de 1950 aparecen las \textbf{tarjetas perforadas} que sustituyen a los paneles enchufables. Las tarjetas perforadas supusieron un gran paso ya que permitían codificar instrucciones para un programa en una cartulina con puntos que podría interpretar el ordenador. La mayoría de los programas utilizaban rutinas de E/S y un programa cargador. Esto constituía, de forma muy rudimentaria, el sistema operativo.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=1]{tema_2/evol-Enchu.jpg}
+        \caption{Primeros ordenadores con paneles enchufables}
+    \end{figure}
+
+    \item \textbf{2ª Generación} (\textbf{1955 - 1965})
+
+    Esta generación de caracteriza por la aparición de los \textbf{transistores}, que permitieron la creación de ordenadores más pequeños y potentes. La programación se realizaba en \textbf{lenguaje ensamblador} o \textbf{FORTRAN} sobre tarjetas perforadas. Otro aspecto importante de esta generación es el \textbf{procesamiento por lotes}, en cual mientras el sistema operativo estaba ejecutando un proceso, este último dispone de todos los recursos hasta su finalización.
+
+    La preparación de los trabajos se realizaba mediante un lenguaje de control de trabajos conocido como \textbf{JCL}. El sistema operativo residía en memoria y tenía un programa de control que interpretaba las tarjetas de control, escritas en JCL. Dependiendo del contenido de la tarjeta de control, el sistema operativo realizaba una acción u otra. Este programa de control es un antecedente de los modernos intérpretes de comandos.
+
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{tema_2/evol-Lotes.png}
+        \caption{Procesamiento por lotes}
+    \end{figure}
+\end{itemize}
+
 
 
 % Glossary
