@@ -1139,6 +1139,145 @@ Como ya hemos comentado, la principal función de un SO es la de gestionar los r
 
 Como vemos, las funciones de los sistemas operativos son muy variadas y una pieza clave en el funcionamiento de un ordenador, pero no siempre han tenido tantas funcionalidades. En el \textbf{Anexo \ref{app:evol}}, puedes ver con más detalle la evolución de los sistemas operativos a lo largo de la historia.
 
+\subsection{Tipos de Sistema Operativo}
+En este punto vamos a clasificar los sistemas operativos según diferentes características, como su estructura interna, los servicios que ofrecen y la forma en la que se ofrecen estos servicios.
+
+\subsubsection{Tipos de SO: Estructura Interna}
+En primer lugar vamos a clasificar los sistemas operativos según su estructura interna, es decir, como se han diseñado. Hay que tener en cuenta que en la mayoría de casos estas concepciones de diseño no se implementan aisladas, sino que puede haber interrelación entre ellos.
+
+Así, según su estructura podemos encontrarnos los siguientes tipos:
+
+\begin{itemize}
+    \item \textbf{Monolítico}
+
+     En este tipo de arquitectura \textbf{todas las funciones} se implementan \textbf{dentro del núcleo}, es decir, todos los servicios del sistema operativo se ejecutan dentro de hilo principal del Kernel. También se incluyen dentro del núcleo \textbf{todos los drivers} necesarios para que funcionen los diferentes dispositivos. Este tipo de arquitectura ha sido empleado tradicionalmente por los sistemas tipo Unix. \cite{wiki02}
+
+    Algunos desarrolladores, como Ken Thompson, mantienen que es ``más fácil de implementar'' que otras arquitecturas, como los microkernels, aunque son núcleos más difíciles de mantener, principalmente por la dependencia entre los componentes del sistema. \cite{wiki01}
+
+    Algunos ejemplos de este tipo de kernel son los sistemas \textbf{GNU/Linux}, \textbf{BSD} (FreeBSD, OpenBSD, NetBSD), y los sistemas basados en \textbf{UNIX System V}, como \textbf{Solaris} o \textbf{HP-UX}. El sistema \textbf{MS-DOS} también usaba esta arquitectura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{tema_2/kernel-Mono.png}
+        \caption{Estructura de un kernel monolítico}
+    \end{figure}
+
+    \item \textbf{Jerárquico}
+
+    Conforme las necesidades de los usuarios aumentaron, los sistemas operativos fueron aumentando en complejidad y funciones. Esto llevo a que se hiciera necesaria una mayor organización del software del sistema operativo, dividiéndose en partes más pequeñas llamadas \textbf{niveles} o \textbf{capas}, diferenciadas por funciones y con una interfaz clara para interoperar los demás elementos. Cada uno de estos niveles se comunica con el nivel inmediatamente inferior y superior de tal forma que todos ellos están coordinados y consiguen el objetivo del sistema operativo. Un ejemplo de este tipo de sistemas operativos fue \textbf{MULTICS}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{tema_2/kernel-Jerar.png}
+        \caption{Estructura de un kernel jerárquico}
+    \end{figure}
+
+    \item \textbf{Microkernel}
+
+     En este tipo de arquitectura, muchas de las \textbf{funcionalidades} que históricamente se implementaban dentro del kernel se mueven \textbf{fuera de éste}, en un conjunto de ``\textbf{servidores}'' que se comunican a través de un kernel con el mínimo posible de código. Estos servidores, al contrario que en otros kernel, se ejecutan en el \textbf{espacio de usuario} en vez de en el \textbf{espacio de sistema}, manteniéndose en éste solo lo imprescindible, como el \textbf{IPC} (Inter Process Comunitacion), que permite la comunicación entre los diferentes procesos. \cite{wiki01}
+
+    Esta arquitectura tiene varias \textbf{ventajas} sobre la monolítica, como que son \textbf{más fácil de mantener}, los \textbf{parches} se pueden \textbf{testear} en instancias separadas y son más rápidos de desarrollar. Pero también tiene algunos \textbf{inconvenientes}, como que los \textbf{programas necesitan más memoria} para poder ejecutarse, la \textbf{gestión de procesos} es más \textbf{compleja}, y el rendimiento es menor que en los kernel monolíticos. \cite{wiki01}
+
+    Algunos ejemplos de sistemas operativos con microkernel son \textbf{AmigaOS}, \textbf{Minix} y 	\textbf{HarmonyOS}, entre otros.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{tema_2/kernel-Micro.png}
+        \caption{Estructura de microkernel}
+    \end{figure}
+
+    \item \textbf{Arquitectura Híbrida}
+
+    Estos tipos de kernel son \textbf{similares} a los \textbf{microkernel}, con la diferencia de que \textbf{incluyen más funcionalidades} dentro de \textbf{núcleo} para mejorar el rendimiento de éste, combinando, por así decirlo, las arquitecturas monolítica y microkernel. La idea es tener una estructura similar a un microkernel, pero implementando esa estructura de forma monolítica, así, no tienen los beneficios de tener los servicios del SO en el espacio de usuario, pero tampoco tienen la sobrecarga en el paso de mensajes que esto puede ocasionar, siendo en este aspecto más similar a un kernel monolítico. \cite{wiki05}
+
+    El ejemplo más conocido de este tipo de kernel son los sistemas \textbf{Microsoft Windows}, que desde la versión \textbf{Windows NT} se lleva empleando en todos sus sistemas operativos, incluido la ultima versión, \textbf{Windows 11}. También hay otros sistemas que emplean este tipo de arquitectura, como \textbf{BeOS}, \textbf{Netware} o \textbf{ReactOS}.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{tema_2/kernel-Hyb.jpg}
+        \caption{Arquitectura Híbrida}
+    \end{figure}
+
+    \item \textbf{Máquina Virtual}
+
+    El objetivo de las máquinas virtuales es crear una abstracción sobre el hardware del sistema de forma que se pueda presentar como diferentes máquinas, donde es posible instalar diferentes sistemas operativos. Presentan una interfaz para cada proceso, mostrando una máquina que parece idéntica a la máquina real subyacente. Algunos ejemplos de estos sistemas son \textbf{VMWare} y \textbf{VM/CMS}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{tema_2/kernel-VM.png}
+        \caption{Estructura de una máquina virtual}
+    \end{figure}
+\end{itemize}
+
+\subsubsection{Tipos de SO: Servicios Ofrecidos}
+En esta sección vamos a clasificar los SO según lo servicios que ofrecen en referencia a las siguientes categorías:
+
+\begin{itemize}
+    \item \textbf{Número de Usuarios}
+    \begin{itemize}
+        \item \textbf{Monousuario}: son aquellos que soportan a un usuario a la vez, sin importar el número de procesos o tareas que el usuario pueda ejecutar en un mismo instante de tiempo. Ejemplos de estos sistemas operativos son \textbf{MS-DOS}, \textbf{Microsoft Windows 9x}, \textbf{MacOS}, etc...
+        \item \textbf{Multiusuario}: son capaces de soportar más de un usuario al mismo tiempo, ya sea por medio de varios terminales conectados al ordenador o sesiones remotas en una red de comunicaciones. No importa el número de procesadores en la máquina ni el número de procesos que puede ejecutar cada usuario simultáneamente. Algunos ejemplos de estos SOs son \textbf{Linux}, \textbf{UNIX} y \textbf{MAC OS X}.
+    \end{itemize}
+
+    \item \textbf{Número de Procesos por Usuario}
+    \begin{itemize}
+        \item \textbf{Monotarea}: solo permiten ejecutar una tarea al mismo tiempo al usuario. Se puede dar el caso de un sistemas multiusuario y monotarea, en el cual se admiten varios usuarios al mismo tiempo pero cada uno de ellos puede ejecutar solo una tarea en un momento dado. Ejemplos de estos sistemas son \textbf{MS-DOS}, \textbf{Windows 3.x y 95}.
+        \item \textbf{Multitarea}: permiten al usuario ejecutar varias tareas al mismo tiempo. Ejemplos son \textbf{MAC OS}, \textbf{UNIX}, \textbf{Linux}, \textbf{Windows 98, 2000, Vista},...
+    \end{itemize}
+
+    \item \textbf{Número de Procesadores Soportados}
+
+    \begin{itemize}
+        \item \textbf{Monoprocesador}: son aquello capaces de manejar solo un procesador, de manera que si el ordenador tuviere más de uno, le sería inútil. \textbf{MS-DOS} y \textbf{MAC OS} son ejemplos de estos sistemas.
+        \item \textbf{Multiprocesador}: son capaces de manejar varios procesadores para distribuir su carga de trabajo, incrementando así la potencia de procesamiento. Estos sistemas trabajan de dos formas diferentes:
+        \begin{itemize}
+            \item \textbf{Simétricamente}: los procesos son enviados indistintamente a cualquier procesador disponible.
+            \item \textbf{Asimétricamente}: uno de los procesadores actúa como maestro o servidor y distribuye la carga de procesos a los demas
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Tipos de SO: Distribución}
+También podemos clasificar los SO según como están distribuidos y como ofrecen los servicios. Así, podemos encontrar los siguientes tipos de SO:
+
+\begin{itemize}
+    \item \textbf{Sistemas Operativos Centralizados}: permiten utilizar los recursos de un solo ordenador, es decir, su memoria, CPU, discos y periféricos. Se denominan así porque el ordenador de único y no necesita trabajar en paralelo con ningún otro. En estos sistemas hay un uso ocasional de la red, como para transferir ficheros o logins remotos, pero son utilidades o funcionalidades agregadas que permiten llevar a cabo el procesamiento centralizado.
+
+    Hasta que los ordenadores personales tuvieron un precio asequible y suficiente potencia, la mayoría de los sistemas utilizaban el procesamiento centralizado. Hoy en día son muy conocidos los sistemas operativos con los que contamos, como \textbf{Windows}, \textbf{Linux}, \textbf{Mac OS}, etc...
+
+    \item \textbf{Sistemas Operativos en Red}: estos sistemas tienen la capacidad de interactuar con los sistemas operativos de otros ordenadores mediante la red, con el objeto de intercambiar información, transferir archivos, etc. La clave de estos sistemas es que el usuario tiene que conocer la ubicación de los recursos en la red a los que desee acceder. Los sistemas modernos más comunes pueden considerarse de red , por ejemplo, \textbf{Novell}, \textbf{Windows}, \textbf{Linux}, etc...
+
+    \item \textbf{Sistemas Operativos Distribuidos}: son sistemas operativos donde las diferentes funciones se distribuyen entre diferentes ordenadores, logrando integrar recursos en una sola máquina virtual que a la que el usuario accede de forma transparente. En este caso, el usuario no necesita saber donde se encuentra la ubicación de los diferentes recursos, sino que los referencia por su nombre y los usa como si fueran recursos locales. Un ejemplo de estos sistemas es \textbf{MOSIX}.
+\end{itemize}
+
+\subsection{Funciones del Sistema Operativo}
+Como hemos comentado anteriormente, la función principal del sistema operativo es la gestión de los recursos del ordenador. Pero ¿cuáles son estos recursos? Los principales recursos que debe gestionar son:
+
+\begin{itemize}
+    \item \textbf{El Procesador}
+    \item \textbf{La memoria}
+    \item \textbf{Los dispositivos de Entrada/Salida}
+    \item \textbf{El sistema de archivos}
+\end{itemize}
+
+Para llevar a cabo esta tarea, existe una parte \textbf{muy importante} del sistema operativo, el \textbf{kernel} o \textbf{núcleo}.
+
+El \textbf{kernel}, por norma general, representa solo una \textbf{pequeña parte} del todo que es el sistema operativo, pero es la parte más importante. Por esta razón, el kernel reside en la \textbf{memoria principal} ya que es la parte más usada, mientras que otras se pueden cargar o descargar de la memoria según sea necesario. Para poder llevar a cabo la gestión, el kernel si divide en diferentes \textbf{niveles} que se encargan de gestionar los diferentes recursos, a saber:
+
+\begin{itemize}
+    \item \textbf{Gestión de Procesos}
+    \item \textbf{Gestión de memoria}
+    \item \textbf{Gestión de  entrada/salida (E/S)}
+    \item \textbf{Gestión del sistema de archivos}
+    \item \textbf{Mecanismos de seguridad y protección}
+\end{itemize}
+
+En las siguientes secciones, vamos a ver cada uno de estos niveles o subsistemas con más detalle.
+
+\subsection{Gestión de Procesos}
+Entre las principales tareas del sistema operativo esta la \textbf{gestión de procesos} del sistema.
+
+Un \textbf{proceso} es un programa en ejecución. Un proceso simple tendrá \textbf{un hilo de ejecución} o \textbf{subproceso}, pero en ocasiones éstos pueden dividirse en \textbf{varios subprocesos} o \textbf{hilos}. Un \textbf{hilo} es básicamente una tarea que puede ser ejecutada en paralelo con otras tareas, por lo que estos permiten a un programa realizar varias tareas simultáneamente.
 
 
 
@@ -1609,9 +1748,40 @@ La evolución de los sistemas operativos y de los ordenadores se agrupa por gene
 
     Como mejoramiento del procesamiento por lotes surgió el \textbf{procesamiento fuera de línea} (\textbf{off-line}), en el cual las operaciones de carga de datos y salida de resultados de un proceso podían realizarse de forma externa y sin afectar al tiempo de procesador dedicado a los procesos. A esto ayudo la aparición de las \textbf{cintas magnéticas} y las \textbf{impresoras de líneas}. Ejemplos de sistemas operativos de la época son \textbf{FMS} (Fortran Monitor System) y \textbf{IBSYS}.
 
-    \item \textbf{3ª Generación}
+    \item \textbf{3ª Generación} (\textbf{1965 - 1980})
 
-    La aparición de los \textbf{circuitos integrados} (\textbf{CI}) supuso una mejora sustancial, consiguiendo reducir más el tamaño de los ordenadores y una relación precio/rendimiento muy superior respecto a las generaciones anteriores.
+    La aparición de los \textbf{circuitos integrados} (\textbf{CI}) supuso una mejora sustancial, consiguiendo reducir más el tamaño de los ordenadores y una relación precio/rendimiento muy superior respecto a las generaciones anteriores. En relación con los sistemas operativos, la característica principal de esta generación fue el desarrollo de la \textbf{multiprogramación} y los \textbf{sistemas compartidos}.
+
+    \begin{figure}[ht]
+         \centering
+         \includegraphics[scale=0.75]{tema_2/evol-CI.jpg}
+         \caption{Circuito integrado}
+    \end{figure}
+
+
+    En los \textbf{sistemas multiprogramados} se cargan varios programas en memoria simultáneamente y se alterna su ejecución. Esto maximiza el uso del procesador. Además, aparecen los \textbf{sistemas de tiempo compartido} donde el tiempo del procesador se comparte entre varios usuario pudiendo ser programas interactivos. Algunos de los sistemas operativos de este tipo son \textbf{OS/360}, \textbf{CTSS}, \textbf{MULTICS} y \textbf{UNIX}.
+
+    \item \textbf{4ª Generación} (\textbf{1980 - Hoy})
+
+    En esta generación se producen grandes avances en la industria del hardware como la creación de los circuitos LSI (integrados a gran escala). También aparecen los ordenadores personales.
+
+    Algunos ejemplos de sistemas operativos de los primeros ordenadores personales son \textbf{MS-DOS}, desarrollado por Microsoft Inc, para IBM PC, y \textbf{MacOS} de Apple Computer.  Steve Jobs, fundador de Apple, aposto por la \textbf{primera interfaz gráfica} basada en ventanas, iconos, menú y ratón, a partir de una investigación realizada por Xerox. Siguiendo esta filosofía aparecería \textbf{MS-Windows}. Durante los años 90 apareció \textbf{Linux}, a partir de un núcleo desarrollado por Linus Torvalds.
+
+    Los sistemas operativos evolucionan hacia sistemas interactivos con una interfaz cada vez más amigable para los usuarios. Los sistemas Windows han ido evolucionando, con diferentes versiones tanto para escritorio como para servidores, como \textbf{Windows 3.x}, \textbf{98}, \textbf{2000}, \textbf{XP}, \textbf{Vista}, ...., al igual que los sistemas Linux, con multitud de distribuciones, entre las que podemos encontrar \textbf{Debian}, \textbf{Redhat}, \textbf{Slackware}, .., y los sistemas Mac, con sus sistemas operativos \textbf{Mac OS 8}, \textbf{OS 9}, \textbf{OS X}, .., entre otros.
+
+     \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=1]{tema_2/evol-Tux.png}
+        \caption{Logotipos de Linux y GNU}
+    \end{figure}
+
+    Un avance importante fue el desarrollo de las \textbf{redes de ordenadores} a mediados de los años 80 que ejecutan \textbf{sistemas operativos en red} y \textbf{sistemas operativos distribuidos}.
+
+    En un \textbf{sistema operativo en red} lo usuarios tienen conocimiento de la existencia de múltiples ordenadores y pueden acceder a ellos mediante la red para, por ejemplo, copiar archivos. En un \textbf{sistema distribuido} los usuarios no saben donde se están ejecutando sus programas o donde están ubicados, ya que los recursos de procesamiento, memoria y datos están distribuidos en la red de ordenadores, siendo esto transparente para el usuario.
+
+    Actualmente también existen \textbf{sistemas operativos integrados}, para una gran diversidad de dispositivos electrónicos, tales como teléfonos móviles, PDAs y otros dispositivos de comunicaciones e informática y electrodomésticos. Algunos ejemplos de estos sistemas operativos son \textbf{WindowsCE}, \textbf{Android OS} o \textbf{iOS}.
+
+    Referencia especial necesita \textbf{Android OS}, basado en Linux y que fue originalmente diseñado para teléfonos móviles, pero que hoy en día se encuentra en desarrollo su aplicación a netbooks y PCs, ademas de poder encontrarlo y multitud de dispositivos como TVs, Tablets, etc...
 \end{itemize}
 
 
