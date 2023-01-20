@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Francisco Javier Sueza Rodríguez" />
+    <meta name="description" content="Página Web de Llegará S.L" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- Enlace para la fuente Roboto de Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Llegaya, S.L</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <ul>
+          <a href="#inicio">Inicio</a>
+          <a href="#sevicio">Servicio</a>
+          <a href="#contacto">Contacto</a>
+        </ul>
+      </nav>
+      <div>
+        <img class="header__logo" src="./img/transporte.png" alt="Llegaya Logo">
+      </div>
+    </header>
+
+    <main>
+      <div class="content">
+
+        <div id="inicio">
+          <img class="inicio__banner" src="" alt="">
+          <p class="inicio__paragraph">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto deleniti obcaecati nisi corrupti reprehenderit laudantium at praesentium
+            similique distinctio, quae eos harum exercitationem alias debitis tempora illum velit odio quam.
+          </p>
+
+          <ol class="list">
+            <li class="list__element">
+              Servicios:
+              <ol type="a">
+                <li>Transporte Urgente</li>
+                <li>Transporte Ordinario</li>
+              </ol>
+            </li>
+
+            <li class="list__element">
+              Productos:
+              <ol type="a">
+                <li>Paquetes</li>
+                <li>Sobres</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+
+        <div id="servicio">
+          <h2>Servicios / Productos</h2>
+          <div class="gallery">
+            <div class="gallery__element">
+              <img class="image" src="./img/transporte.png" alt="">
+              <h4>Transporte Urgente Peninsular</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/transporte.png" alt="">
+              <h4>Transporte Urgente Territoriales</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/transporte.png" alt="">
+              <h4>Transportes Sectoriales</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/transporte.png" alt="">
+              <h4>Servicios Especiales a Medida</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/envelope.jpg" alt="">
+              <h4>Paquetes</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/envelope.jpg" alt="">
+              <h4>Sobres</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/envelope.jpg" alt="">
+              <h4>Papel de Burbujas</h4>
+            </div>
+            <div class="gallery__element">
+              <img class="image" src="./img/envelope.jpg" alt="">
+              <h4>Cajas de Cartón</h4>
+            </div>
+          </div>
+
+        </div>
+        <div id="contacto">
+          <form action="POST">
+
+            <h4>Formulario de Contacto</h4>
+            <div class="form__control">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name">
+            </div>
+            <div class="form__control">
+              <label for="email">e-mail:</label>
+              <input type="email" id="email">
+            </div>
+            <div class="form__control">
+              <label for="phone">teléfono</label>
+              <input type="tel" id="phone" pattern="[0-9]{3}[\s || -][0-9]{3}[\s || -][0-9]{3}">
+            </div>
+            <div class="form__control">
+              <label for="ciudad">ciudad:</label>
+              <input type="text" id="ciudad">
+            </div>
+            <div class="form__control">
+              <label for="comentario">Comentario:</label>
+              <textarea id="comentario" cols="30" rows="10" placeholder="Escribe aquí tu comentario...."></textarea>
+            </div>
+
+            <div class="form__control">
+
+              <fieldset>
+                <legend>Desea recibir respuesta por: </legend>
+
+                <input type="radio" id="resp_email">
+                <label for="resp_email">Email</label>
+                <input type="radio" id="resp_tel">
+                <label for="resp_tel">Telefono</label>
+              </fieldset>
+            </div>
+
+            <button>Enviar</button>
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p class="info">
+          Llegaya, SL <br>
+          Calle Castor, n 22 <br>
+          tlfono: 958 89 65 34 <br>
+          email: llegaya@gmail.com
+        </p>
+        <p class="author">
+        <p>
+          Copyright &#169; Francisco Sueza Rodríguez. Web bajo licencia creative commons
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <img src="./img/creative-common.png" alt="logo creative commons">
+          </a>
+        </p>
+        </p>
+      </div>
+    </footer>
+  </body>
+
+</html>
