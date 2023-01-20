@@ -1,4 +1,4 @@
-/*Reseteo básico de estilo para todos los elementos */
+/* Reseteo básico de estilo para todos los elementos */
 
 *,
 *::before,
@@ -8,10 +8,12 @@
   box-sizing: border-box;
 }
 
-/* Estilo básico para los elementos html y body 
+/* Estilo básico para los elementos html y body:
+
    Se establece el tamaño de fuente a 62.5% ya que esto deja
-   el tamaño de la fuente a 10px y facilita trabajar con unidades
-   relativas, como el rem. */
+   la fuente a 10px y facilita trabajar con unidades
+   relativas, como el rem. 
+*/
 
 html {
   font-size: 62.5%;
