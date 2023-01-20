@@ -209,7 +209,7 @@ Supongamos que tenemos una red correspondiente a la oficina de la empresa Aguad
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.37]{red-logica.png}
+    \includegraphics[scale=0.25]{red-logica.png}
     \caption{Diagrama de red lógico actividad 3}
 \end{figure}
 
@@ -227,7 +227,7 @@ Realiza las siguientes tareas o contesta a las preguntas que se hacen en relaci�
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.45]{tabla-red.png}
+        \includegraphics[scale=0.35]{tabla-red.png}
         \caption{Tabla elementos de red actividad 3}
     \end{figure}
 \end{enumerate}
@@ -244,8 +244,79 @@ En primer lugar vamos a \textbf{clasificar la red} según los diferentes criteri
    \item \textbf{Tipos de conexión}: estamos ante una \textbf{red mixta}, ya que nos encontramos equipos que se conectan mediante cable pero también hay posibilidad de que se conecten de forma inalámbrica.
 \end{itemize}
 
+Una vez realizado la clasificación de  la red, mostramos a continuación la tabla con la descripción de los diferentes elementos de la red.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{tabla-red3.png}
+    \caption{Tabla con elementos de la red del ejercicio 3}
+\end{figure}
 
+\subsection{Actividad 4: Diseño Lógico de una Red}
+
+\subsubsection{Enunciado}
+La nueva empresa AguadulSoft cuenta con servicios de implantación y mantenimiento de redes. Para su primer trabajo, van a diseñar e implantar la red de un pequeño centro lúdico de una población cercana. En dicho centro lúdico habrá algunos ordenadores fijos y una impresora para sus trabajadores, y algunos ordenadores fijos para los usuarios del centro. Además, habrá Wi-Fi gratuito para todos los usuarios. La conexión a Internet viene proporcionada por un ISP, que ya ha instalado un router con una conexión de fibra óptica simétrica de 600 Mbps. Este router cuenta con cuatro puertos conmutados Gigabit Ethernet, funciona también como punto de acceso inalámbrico Wi-Fi, y como servidor DHCP.
+
+La distribución de equipos del centro lúdico es la siguiente:
+
+\begin{itemize}
+    \item Recepción: 1 equipo fijo, 1 impresora local (conectada al equipo de recepción).
+    \item Despacho de administrativos: 2 equipos fijos, 1 impresora de red.
+    \item Sala de uso público: 10 equipos fijos.
+\end{itemize}
+
+La red diseñada debe cumplir con los siguientes requisitos:
+
+\begin{enumerate}
+    \item En todas las dependencias debe existir la posibilidad de conexión inalámbrica mediante Wi-Fi para que los trabajadores puedan utilizar portátiles en caso necesario y usar sus móviles. A estos dispositivos inalámbricos se les asigna configuración de red mediante DHCP. El router del ISP tiene cobertura inalámbrica suficiente para la recepción y el despacho, pero no para la sala de uso público.
+    \item La conexión de los equipos fijos y la impresora de red de las diferentes estancias se realiza por cable de red UTP categoría 6 y usando direcciones de red estáticas privadas de clase C que se asignan manualmente.
+    \item Se van a usar dos subredes:
+    \begin{enumerate}
+        \item Subred 0: Engloba a todos los equipos de recepción y administrativos.
+        \item Subred 1: Sala de uso público.
+    \end{enumerate}
+    \item Por seguridad, los equipos de la sala de uso público pertenecen a una subred distinta. En esta subred también se utilizan direcciones privadas de clase C, pero pertenecientes a una subred distinta. Debe existir algún elemento de interconexión que separe esta subred de la subred 0. Los equipos de la sala pública también deben tener conexión con el exterior. En esta subred también se debe poder acceder mediante Wi-Fi.
+    \item Todos los equipos deben tener acceso a Internet.
+    \item Las decisiones de elección de equipos de comunicación deben estar justificadas.
+\end{enumerate}
+
+\textbf{¿Qué debes hacer?}
+
+\begin{enumerate}[label=(\alph*)]
+        \item \textbf{Realiza el diseño lógico de la red} para el centro lúdico, incluyendo los elementos de interconexión que creas necesarios, el cableado, los equipos terminales (ordenadores, portátiles, impresoras...). Lee las dos ``notas'' aclaratorias más abajo para más información.
+        \item \textbf{Asigna la configuración de red de todos los dispositivos} tal como creas conveniente. Esto incluye, para todos los equipos e impresoras que lo necesiten: Dirección IP, máscara de subred, puerta de enlace por defecto y servidor DNS. También se debe indicar la configuración de routers, switches y puntos de acceso inalámbricos que intervengan en la red, si se cree necesario.
+        \item \textbf{Indica la configuración de las redes inalámbricas}. Esto incluye los SSID de las redes Wi-Fi creadas, así como los rangos de direcciones DHCP que son servidas. También se debe indicar qué equipo o equipos realizan las funciones de servidores DHCP.
+        \item \textbf{Razona las decisiones de diseño tomadas} y cómo éstas cumplen con las reglas indicadas arriba, en un texto que acompañe al diagrama.
+\end{enumerate}
+
+Para todo esto deberás realizar un diagrama lógico similar al que se muestra en la actividad 3, indicando las direcciones IP, máscaras de subred, puerta de enlace y servidor DNS de todos los interfaces que deban tenerlos. Como base para la tarea, empieza a trabajar a partir de un esquema como el siguiente, que representaría el estado de la red (sin incluir datos de configuración del router) después de la instalación por parte del ISP, con la presencia únicamente del router multifunción:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{esquema-ejercicio4.png}
+    \caption{Esquema inicial red ejercicio 4}
+\end{figure}
+
+\subsubsection{Respuesta}
+En primer lugar vamos a mostrar el esquema del diseño lógico de la red que se ha realizado, el que podemos ver en la siguiente figura:
+
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.30]{red-ejercicio4.png}
+    \caption{Esquema diseño lógico red}
+\end{figure}
+
+Ha continuación vamos a explicar varios puntos sobre el diseño de la red:
+
+\begin{itemize}
+    \item Se ha decidido emplear una \textbf{topología en estrella jerárquica} ya que creo que es la más adecuada para el caso práctico que se nos ha presentado.
+    \item Se ha usado el \textbf{router principal} con la configuración, aunque se podrían haber cambiado los DNS a los \textbf{Cloudfare}, que son bastante rápidos, en caso de que los proporcionados por la compañía dieran algún problema.
+    \item Desde el \textbf{router principal} se ha creado la \textbf{subred general}, con dirección 192.168.0, donde se incluyen, todos los equipos de recepción y el despacho de administrativos, así como un \textbf{Switch}.
+    \item El \textbf{equipo de recepción} se conecta directamente al router principal, y a este la impresora, que al ser local al equipo no necesita configuración ninguna de red.
+    \item Los \textbf{equipos de administración} se conectan mediante un \textbf{switch} que a su vez esta conectado tanto al \textbf{router principal} como al \textbf{router de la sala de uso público}. Se ha decido usar un switch ya que mantiene la velocidad de la conexión, aunque no añade ningún nivel de seguridad.
+    \item La \textbf{subred 192.168.1}, perteneciente a la \textbf{sala de uso público}, se conecta con la red principal mediante un \textbf{router}. Se ha decidido usar un router ya que no solo nos proporciona las funcionalidades de enlace entre las dos redes, sino que también nos proporciona la de \textbf{punto de acceso}, ya que se pedía que en esta sala hubiera acceso inalámbrico a la red.
+    \item En el caso del \textbf{router principal}, este proporciona accedo inalámbrico directamente tanto a recepción como al despacho de administración.
+\end{itemize}
 % Bibliography
 
 \newpage
