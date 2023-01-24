@@ -1,0 +1,111 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+    \vspace{10ex}
+    \normalfont \normalsize
+    \huge \textbf{Tarea 3: Diseño y Realización de Pruebas}
+}
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{75ex}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Centro}: & IES Aguadulce \\
+        \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
+        \textbf{Asignatura}: & Entornos de Desarrollo\\
+       \textbf{Tema}: & Tema 3 - Diseño y Realización de Pruebas\\
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\section{Enunciado}
+En el proyecto Java que se adjunta (apartado "Información de interés"), hay definida una clase de nombre \textit{Paintball}. Esta clase dispone de varios métodos, entre ellos cargar y descargar (municion). La tarea consiste en lo siguiente:
+
+\begin{enumerate}
+    \item Renombra el proyecto y la clase con tu nombre cambiando la palabra esqueleto o añadiendo \textbf{Apellido1Apellido2Nombre2223} en el caso de la clase. Deberá quedar algo así:
+
+    Paintball \textbf{Apellido1Apellido2Nombre2223}
+
+    \item Realiza una ejecución paso a paso, que verifique el correcto funcionamiento de la aplicación. Indica los valores que marca la inspección de variables tras ejecutar las instrucciones en la función main:
+
+    \textit{miPaintball.descargar(10);}
+
+    \textit{miPaintball.cargar(5);}
+
+    Copia en un documento de texto 2 capturas de pantalla en las que se visualicen el valor de las variables después de la llamada a cada método. Es decir, una en la que se visualice el valor de la variable municionCargada (en el inspector de variables) después de pasar por el método descargar y otra captura de igual modo tras pasar por el método cargar.
+
+    \item Diseña los casos de prueba que permitan verificar el método descargar con un valor límite. Copia todos los casos de prueba en el documento de texto.
+
+    \item Asimismo debes diseñar los casos de prueba necesarios para comprobar si se obtiene la salida deseada cuando se introducen valores no válidos (se debe diseñar un caso de prueba para cada tipo de valor no válido posible). Copia todos los casos de prueba en el documento de texto.
+
+    \item Ejecuta las pruebas y comenta el resultado de cada una. Copia en el documento de texto una captura con el resultado obtenido tras la ejecución de todas las pruebas. Argumenta en dicho documento el significado de la salida obtenida tras la ejecución de las pruebas y explica a qué se debe el resultado obtenido.
+\end{enumerate}
+
+\section{Solución}
+Ahora se van a responder a las diferentes cuestiones que nos plantea el enunciado en orden.
+
+\begin{enumerate}
+    \item En primer lugar, se ha renombrado la clase y el proyecto incluyendo nuestros apellidos y nombres en el formato Apellido1Apellido2Nombre2223, quedando en nuestro caso el proyecto y la clase así: Paintball\_SuezaRodriguezFranciso2223. En la siguiente figura se muestra una captura de pantalla de ambas.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{cambio-nombre.png}
+        \caption{Cambio de nombre del proyecto y la clase}
+    \end{figure}
+
+    \item En este segundo punto hemos realizado la ejecución paso a paso del programa y se han realizado dos capturas mostrando el valor de la variable \textbf{municionCargada} tras la ejecución del método \textbf{miPaintball.descargar(10)} y \textbf{miPaintball.cargar(5)}.
+
+    Para ello, solo se ha tenido que modificar en la clase Main el valor asignación de la variable x, que estaba establecido en 12 pero se nos pide que probemos con una valor de 10 el método descargar. La otra variable no ha sido necesaria, ya que esta ya establecidad en 5, que es el valor que se nos pide.
+
+    Se han establecido 2 puntos de ruptura en la clase en main, en concreto en las líneas 32 y 39, justo después de la ejecución de los métodos pedidos, para poder inspeccionar la variable municionCargada. Se han elegido estas líneas porque la expresión \textbf{catch}, justo después de la ejecución de los métodos solo se evalúa si se lanza una excepción, por lo que si la ejecución es normal, no se detendrá en un breakpoint establecido en esta línea.
+
+     \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{watch-1.png}
+        \caption{Captura de la variable municionCargada despues de miPaintball.descargar(10}
+    \end{figure}
+
+    Como vemos, el valor de la variable municionCargada despues de ejecutar el método miPaintball.descargar(10) es de \textbf{10}.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.25]{watch-2.png}
+        \caption{Captura de la variable municionCargada despues de miPaintball.cargar(5)}
+    \end{figure}
+
+    Y después de ejecutar el método miPaintball.cargar(5), el valor de la variable municionCargada es de \textbf{15}.
+
+    \item  A continuación se han diseñado los casos de prueba para el método \textbf{descargar} de la clase \textbf{Paintball}.
+
+    En este caso, vamos a testear los valores límite donde el \textbf{límite inferior} vendrá dado por el valor \textbf{0}, ya que no se pueden descargar 0 o menos municiones. El \textbf{límite superior} vendrá impuesto por la variable \textbf{municionCargada}, ya que no se puede descargar más munición de la que tenemos cargada. Así, lo parámetros válidos estarían entre los valores \textbf{1} y \textbf{municionCargada}, incluidos los dos. Por lo tanto, lo valores límite quedarián así:
+
+    \begin{itemize}
+        \item \textbf{Valores límite inferiores}: 0, 1, y 2
+        \item \textbf{Valores límite superiores}: (municionCargada - 1), municionCargada y (municionCargada + 1).
+    \end{itemize}
+
+
+\end{enumerate}
+% Bibliography
+
+\newpage
+\bibliography{citas}
+\bibliographystyle{unsrt}
+
+\end{document}
