@@ -19,7 +19,7 @@ public class Main {
         System.out.println("Capacidad de carga máxima: "+miPaintball.municionMaxima);
         try 
         {
-            x=10;
+            x=12;
             System.out.println("Descarga de "+x+" municiones");
             miPaintball.descargar(x);
         } catch (Exception e)

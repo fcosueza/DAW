@@ -12,8 +12,7 @@ import static org.junit.Assert.*;
  * @author Francisco Javier Sueza Rodríguez
  */
 
-public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
-    
+public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase { 
     public Paintball_SuezaRodriguezFrancisco2223Test(String testName) {
         super(testName);
     }
@@ -49,7 +48,8 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
         int municionMaxima = 30;
         int municionCargada = 10;
         
-        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+        Paintball_SuezaRodriguezFrancisco2223 paintball = 
+                new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
        
         try {
              paintball.descargar(municion);
@@ -78,7 +78,8 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
         int municionMaxima = 30;
         int municionCargada = 10;
         
-        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+        Paintball_SuezaRodriguezFrancisco2223 paintball = 
+                new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
        
         try {
              paintball.descargar(municion);
@@ -106,7 +107,8 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
         int municionMaxima = 30;
         int municionCargada = 10;
         
-        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+        Paintball_SuezaRodriguezFrancisco2223 paintball = 
+                new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
        
         try {
              paintball.descargar(municion);
@@ -129,13 +131,14 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
     
     @Test
     public void testDescargarCargadaMenos() throws Exception {
-        System.out.println("Test de prueba para intentar descargar 1 municiones");
+        System.out.println("Test de prueba para intentar descargar (municion cargada - 1) municiones");
        
         int municionMaxima = 30;
         int municionCargada = 10;
         int municion = municionCargada - 1;
         
-        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+        Paintball_SuezaRodriguezFrancisco2223 paintball = 
+                new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
        
         try {
              paintball.descargar(municion);
@@ -158,13 +161,14 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
     
     @Test
     public void testDescargarCargada() throws Exception {
-        System.out.println("Test de prueba para intentar descargar 1 municiones");
+        System.out.println("Test de prueba para intentar descargar \"municion cargada\" municiones");
        
         int municionMaxima = 30;
         int municionCargada = 10;
         int municion = municionCargada;
         
-        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+        Paintball_SuezaRodriguezFrancisco2223 paintball = 
+                new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
        
         try {
              paintball.descargar(municion);
@@ -185,7 +189,7 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
     
     @Test
     public void testDescargarCargadaMas() throws Exception {
-        System.out.println("Test de prueba para intentar descargar 1 municiones");
+        System.out.println("Test de prueba para intentar descargar (municion cargada + 1) municiones");
        
         int municionMaxima = 30;
         int municionCargada = 10;
@@ -195,7 +199,7 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
        
         try {
              paintball.descargar(municion);
-             fail("No se pueden descargar más municiones de las que hay.");
+             fail("No se pueden descargar más municiones de las que hay cargadas.");
              
         } catch(Exception e) {
             System.out.println(e);
@@ -203,4 +207,62 @@ public class Paintball_SuezaRodriguezFrancisco2223Test extends TestCase {
         }       
     }
     
+    /**
+     * Test para probar valores no validos fuera de los valores límite.
+     */
+    
+     /**
+     * Test para el método Descargar.  Se va a probar un valor no valido negativo.
+     * 
+     * @result El metodo no debe permitir descargar un número negativo de munición.
+     * @throws java.lang.Exception
+     */
+    
+    @Test
+    public void testNoValidoNegativo() throws Exception {
+        System.out.println("Test de prueba para intentar descargar -100 municiones.");
+       
+        int municionMaxima = 30;
+        int municionCargada = 10;
+        int municion = -500;
+        
+        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+       
+        try {
+             paintball.descargar(municion);
+             fail("No se pueden descargar un número negativo de municiones.");
+             
+        } catch(Exception e) {
+            System.out.println(e);
+            assertTrue(paintball.consultar_municion_cargada() == municionCargada);                        
+        }       
+    }
+    
+         /**
+     * Test para el método Descargar.  Se va a probar un valor no valido positivo, que sera 
+     * muy superior a la cantidad de munición cargada.
+     * 
+     * @result El metodo no debe permitir descargar un número positivo no valido.
+     * @throws java.lang.Exception
+     */
+    
+    @Test
+    public void testNoValidoPositivo() throws Exception {
+        System.out.println("Test de prueba para intentar descargar (municion cargada + 500) municiones");
+       
+        int municionMaxima = 30;
+        int municionCargada = 10;
+        int municion = municionCargada + 500;
+        
+        Paintball_SuezaRodriguezFrancisco2223 paintball = new Paintball_SuezaRodriguezFrancisco2223(municionMaxima, municionCargada);
+       
+        try {
+             paintball.descargar(municion);
+             fail("No se pueden descargar más munición de la que hay cargada");
+             
+        } catch(Exception e) {
+            System.out.println(e);
+            assertTrue(paintball.consultar_municion_cargada() == municionCargada);                        
+        }       
+    }
 }
