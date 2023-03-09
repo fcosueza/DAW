@@ -46,8 +46,92 @@
 Ada le encarga a María y a Juan que configure los equipos de la empresa AguadulSoft, según las preferencias de los usuarios y usuarias, con Windows 10 y Windows 8.1. Su objetivo es configurar en el equipo los dos sistemas operativos y realizar las configuraciones básicas del sistema.
 
 \section{Actividades}
-% Bibliography
 
+\subsection{Actividad 1: Preparación del Software de Virtualización}
+
+\subsubsection{Enunciado}
+Descarga e instala la última versión de VMware Workstation Player (recomendado) o VirtualBox que sea la adecuada para el sistema operativo que utilices en tu ordenador. Si lo tienes ya instalado en tu ordenador y no es la última versión, actualízalo. Recomendamos el uso de VMware por posibles problemas de compatibilidad en tareas posteriores del módulo.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Página de descarga del software de virtualización (en caso de actualización, mensaje que indica que hay una actualización disponible).
+    \item Inicio del proceso de instalación.
+    \item Fin del proceso de instalación (cuando nos informa que ha sido correctamente instalado), donde se debe ver la versión que se ha instalado.
+\end{itemize}
+
+\textbf{NOTA}: Si ya tienes la última versión instalada puedes volver a instalarlo, o bien mostrar la página de descarga, luego el inicio del instalador, y luego cancelar la instalación y mostrar el programa ya ejecutándose en la ventana ``Acerca de...'', donde se muestra la versión del programa.
+
+\subsubsection{Solución}
+
+\begin{enumerate}
+    \item En primer lugar hemos accedido a la \href{https://customerconnect.vmware.com/en/downloads/details?downloadGroup=WKST-PLAYER-1701&productId=1377&rPId=100675}{página de descarga} de WMWare y hemos descargado la versión 17.0.1 para Linux de 64-bits. Vamos a usar VMWare, aunque ya teníamos instalado VirtualBox para otra asignatura, para ahorrarnos problemas de compatibilidad tal y como se recomienda en la descripción de la tarea.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-download.png}
+        \caption{Página de descarga de VMWare Workstation}
+    \end{figure}
+
+    \item A continuación hemos ejecutado el script que se nos ha proporcionado y que instalará el bundle de VMWare. En la siguiente captura se puede ver el script ejecutándose en una terminal y realizando la instalación de los paquetes.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install.png}
+        \caption{Instalación de VMWare Workstation}
+    \end{figure}
+
+    \item Después de realizar la instalación desde la terminal y tras abrir por primera vez la aplicación, se nos da la opción de personalizar la instalación, aunque nosotros no hemos realizado ninguna modificación en esta. En la siguiente captura se muestra esta ventana.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install-2.png}
+        \caption{Personalización de la Instalación de VMWare}
+    \end{figure}
+
+    \item Una vez llevado a cabo estos pasos, ya tenemos realizada la instalación de VMWare en Ubuntu. En la siguiente captura, podemos ver la máquina virtual instalada y sus especificaciones, así como la del host. Aunque en este portátil tengo 8 GB de RAM, la tarjeta gráfica no tiene memoria dedicada, por lo que 2 Gb de estos 8 están reservados para ese propósito, como muestra esta ventana, aunque ya hablaremos de esto en la siguiente sección.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install-3.png}
+        \caption{Ventana de información sobre la versión instalada de VMWare}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 2}
+
+\subsection{Enunciado}
+Dentro del software de virtualización crea una MV llamada ``SI2223 InicialNombreApellido1Apellido2'' (por ejemplo, para ``José Luis Pérez Puertas'' sería ``SI2223 jlperezpuertas''), destinada a la instalación de un sistema dual con Windows 10 Education 22H2 y Windows 8.1 Professional. Ten en cuenta cuando estés creando la máquina virtual que hay que elegir como sistema operativo Windows 10 versión 64 bits, porque en caso contrario luego podrías tener algún problema durante las instalaciones de los sistemas.
+
+Para la instalación de ambos sistemas operativos deberás tener en cuenta los recursos de tu equipo. Asigna los siguientes recursos hardware a la MV y justifica los valores elegidos:
+
+\begin{itemize}
+    \item \textbf{Un único disco duro virtual con 90 GB de capacidad}, de los cuales 25 GB se destinarán a la instalación de Windows 8.1, 35 GB a la instalación de Windows 10 y los 30 GB restantes se reservarán para una tarea futura en la que instalaremos una versión de Ubuntu en esta misma MV.
+
+    \item \textbf{Memoria RAM: 2 GB al menos si tu equipo tiene 4 GB o más}, (si tienes más RAM puedes utilizar más en la MV, se recomienda usar 4 GB en la MV si tienes 8 GB o más en tu máquina anfitriona). En caso de que tu equipo tenga menos de 4 GB puedes utilizar 1 GB de RAM en la MV.
+\end{itemize}
+
+
+Si utilizas VirtualBox, tras crear la MV deberás modificar un parámetro de configuración de la misma. Entra dentro de la MV en ``Configuración > Sistema > Placa base'' y marca la opción ``Habilitar EFI''. Esto hará que la MV utilice un firmware de tipo UEFI, tal como es común en los equipos reales actuales.
+
+\textbf{Capturas}
+
+\begin{itemize}
+    \item Introducción del nombre de la máquina y elección de tipo ``Windows 10 64 bits''.
+    \item Cantidad de RAM asignada.
+    \item Tamaño de disco duro asignado.
+    \item Resumen con los datos de la máquina virtual creada en la ventana principal del programa de virtualización (en VirtualBox se debe ver en ``Sistema'' la opción ``EFI: Habilitado'').
+\end{itemize}
+
+\subsubsection{Solución}
+
+
+
+
+
+
+
+% Bibliography
 \newpage
 \bibliography{citas}
 \bibliographystyle{unsrt}
