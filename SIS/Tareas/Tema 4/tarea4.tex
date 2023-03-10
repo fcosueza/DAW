@@ -191,6 +191,8 @@ En este apartado vamos a realizar la creación y configuración de la máquina v
 \end{enumerate}
 
 \subsection{Actividad 3: Instalación de Windows 8.1 Professional}
+
+\subsubsection{Enunciado}
 Instala primero Windows 8.1 Professional en la MV, pero ten en cuenta que durante su instalación tendrás que realizar operaciones relativas al particionado del disco duro virtual para asegurar que dejas espacio disponible para las futuras instalaciones de Windows 10 y Ubuntu. Durante el particionado, crea una partición de 25 GB, y Windows creará algunas otras particiones de manera automática. Deberás describir cada una de las particiones creadas durante este proceso.
 
 Durante la instalación define un usuario local (sin cuenta de Microsoft) cuyo nombre sea la primera letra de tu nombre seguido de tus apellidos completos, por ejemplo, para \textbf{José Luis Pérez Puertas} el usuario debería ser \textbf{\textbf{jlperezpuertas}}. Respecto a la clave de este usuario ponle \textbf{admin2223}.
@@ -278,7 +280,81 @@ En este ejercicio vamos a realizar la instalación de Windows 8.1 Professional. 
     \end{figure}
 \end{enumerate}
 
+\subsection{Actividad 4: Instalación de Windows 10 Education 22H2}
 
+\subsubsection{Enunciado}
+
+Instala Windows 10 Education 22H2 en la \textbf{misma MV y mismo disco duro virtual} donde has instalado Windows 8.1. Para poder arrancar la MV desde la ISO de Windows 10 para instalarlo, deberás entrar en la EFI de la MV: En VMware, pulsando la tecla F2 repetidamente al arrancar (debes clicar dentro de la ventana de la MV primero, en cuanto se abra, o hacerlo tras reiniciar desde Windows 8) y elegir arrancar desde la unidad de CD/DVD; En VirtualBox, pulsando la tecla "esc" repetidamente al arrancarla y elegir en "Boot manager" la unidad de CD/DVD. En este breve vídeo se muestra cómo hacerlo en VirtualBox:
+
+\href{https://www.youtube.com/watch?v=PdMtyQf2tJk&ab_channel=Crist%C3%B3balMarco}{Entrar en la EFI de VirtualBox para elegir arranque desde la unidad óptica virtual (archivos ISO)}
+
+Asegúrate de que tras la instalación de Windows 10 (asígnale 35 GB) sigan quedando 30 GB disponibles en el disco duro virtual para la futura de Ubuntu. Durante la instalación define un usuario local (sin cuenta de Microsoft) cuyo nombre sea el mismo que has puesto en la instalación anterior (en el ejemplo, jlperezpuertas) y de nuevo ponle la clave admin2223. En Windows 10 Education, para la creación de un usuario local deberás elegir la opción "unirse a un dominio" cuando llegues a este punto.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Elección del archivo de instalación del sistema.
+    \item Inicio del proceso de instalación.
+    \item Introducción de la clave de activación (no muestres la clave).
+    \item Estado final del particionado antes de comenzar la copia de archivos. Se debe ver la partición en la que se va a instalar Windows 10 y el espacio libre donde se instalará Ubuntu en una futura práctica.
+    \item Creación del usuario y establecimiento de la contraseña.
+    \item Muestra de que el sistema ha sido debidamente activado con la ventana de Windows 10 correspondiente que da esta información.
+\end{itemize}
+
+\subsubsection{Solución}
+En esta actividad vamos a realizar la instalación de \textbf{Windows 10 Education 22H2}, al igual que hicimos en la actividad anterior con Windows 8.1. Para realizar la instalación, hemos seguido los siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos seleccionado la imagen ISO de Windows 10, tal y como hicimos en el ejercicio anterior, para poder iniciar la instalación.
+
+    A diferencia de con la instalación de Windows 8.1, donde solo tuvimos que seleccionar la imagen ISO para que se iniciara, en este caso hemos tenido que entrar en la UEFI  de nuestra máquina virtual para poder iniciar desde la imagen ISO. Esto es debido a que en el ejercicio anterior no teníamos ningún SO instalado en la máquina virtual y por iniciaba la imagen ISO. Ahora, ya tenemos instalado Windows 8.1, por lo que intentará iniciar por defecto este SO, así que debemos entrar en el menú UEFI para indicar que se debe iniciar desde la ``\textit{unidad óptica}''.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-1.png}
+        \caption{Selección de la ISO de Windows 10 Education 22H2}
+    \end{figure}
+
+    \item A continuación, se nos muestra la misma ventana de selección de idioma, el layout del teclado y el uso horario así como la moneda, al igual que con la instalación de Windows 8.1. Una vez seleccionados, podemos comenzar la instalación, como vemos en al siguiente figura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-2.png}
+        \caption{Inicio de instalación de Windows 10}
+    \end{figure}
+
+    \item Tras seleccionar el idioma y que se realice la copia de archivos, el sistema nos pedirá la introducción de una clave de producto, tal y como sucedía en la instalación de Windows 8.1.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-3.png}
+        \caption{Introducción de la clave de producto de Windows 10}
+    \end{figure}
+
+    \item Tras introducir la clave del producto se nos pedirá que seleccionemos donde vamos a realizar la instalación del sistema operativo. Nosotros hemos creado otra partición de 35 Gb aprox. para realizar la instalación, dejando otros 30 GB libres la la instalación de Ubuntu en practicas posteriores. Tras crear la partición, el disco duro ha quedado como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-4.png}
+        \caption{Partición del disco duro durante la instalación de Windows 10}
+    \end{figure}
+
+    \item Después del último paso, se realizará la instalación del SO, copiando los archivos necesarios para su ejecución, tras lo cual se nos pedirá que iniciemos sesión con una cuenta Microsoft, aunque en nuestro caso hemos decidido, como se explica en el enunciado, crear una cuenta local con el nombre \textbf{fjsuezarodriguez} y la contraseña \textbf{admin2223}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-5.png}
+        \caption{Creación de usuario durante la instalación de Windows 10}
+    \end{figure}
+
+    \item Por último, el sistema realizarán ciertas configuraciones, y se nos pedirá que seleccionemos algunas opciones, entre ellas, por ejemplo, la configuración de la asistente virtual Cortana. Tras esto, el sistema se habrá instalado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-6.png}
+        \caption{Windows 10 instalado correctamente}
+    \end{figure}
+\end{enumerate}
 
 
 % Bibliography
