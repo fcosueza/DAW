@@ -356,7 +356,168 @@ En esta actividad vamos a realizar la instalación de \textbf{Windows 10 Educati
     \end{figure}
 \end{enumerate}
 
+\subsection{Actividad 5: Instalación de ``drivers''}
 
+\subsubsection{Enunciado}
+Tras completar la instalación de los SSOO es importante instalar los drivers de dispositivos correspondientes a los periféricos y componentes de nuestro sistema. Esta es una tarea que normalmente no se realiza en una MV, ya que los controladores son virtualizados o heredados de la máquina anfitriona. En su lugar vas a instalar:
+
+\begin{itemize}
+    \item Las ``VMware Tools'', en el caso de que hayas utilizado VMware.
+    \item Las ``Guest Additions'', en el caso de que hayas utilizado VirtualBox.
+\end{itemize}
+
+Realiza esta instalación solamente para Windows 10.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Elección del archivo de instalación.
+    \item Inicio del proceso de instalación.
+    \item Fin del proceso de instalación (cuando nos informa que ha sido correctamente instalado).
+\end{itemize}
+
+\subsubsection{Solución}
+
+En este apartado vamos a instalar los \textbf{VMWare Tools}, ya que al tener instalado Windows 10 en una máquina virtual no requiere de la instalación de drivers. Para realizar la instalación, se han llevado a cabo los siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos descargado la última versión de VMWare Tools desde la \href{https://packages.vmware.com/tools/releases/latest/windows/x64/}{página de paquetes de VMWare Tools}, donde hemos descargado la \textbf{versión 12.2.0}, que es la última versión lanzada el 8 de Marzo de este mismo año.
+
+    Una vez descargada, debemos inicializar nuestra máquina virtual y bootear en Windows 10, para a continuación montar la imagen en el CD/DVD de la máquina virtual, seleccionando el archivo ISO que hemos descargado, como se puede ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-1.png}
+        \caption{Carga del archivo ISO de VMWare Tools}
+    \end{figure}
+
+    \item Una vez realizado esto, pulsamos en la opción ``\textit{Virtual Machine} --> \textit{Install VMWare Tools}'' de nuestra máquina virtual.
+
+    Tras pulsar en esta opción, nuestro sistema operativo invitado, Windows 10 en nuestro casi, cargará la imagen ISO que nos hemos descargado y nos preguntará si queremos realizar la instalación. Tras aceptar, se nos mostrará el instalador de VMWare Tools, y podremos comenzar con esta.
+
+    Cabe destacar, que pare realizar la instalación necesitaremos tener privilegios de administrador, si nuestro sistema es Windows 10. En algunas versiones anteriores no es necesario.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-2.png}
+        \caption{Instalación de VMWare Tools}
+    \end{figure}
+
+    \item Tras pulsar en aceptar en las ventanas que nos irá mostrando el instalador, se realizará la instalación con éxito.
+
+    Una de las primeras cosas que notaremos es que ya podemos disfrutar de nuestro sistema operativo invitado con una resolución mas adecuada a nuestro dispositivo. Además de esto, VMWare Tools no proporciona un conjunto componentes y servicios para sacarle el máximo partido a nuestro SO invitado y poder usarlo de una forma más fluida. \cite{vmware01}
+
+    En la siguiente captura podemos ver la pantalla de finalización de la instalación y como a cambiado la resolución del SO invitado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-3.png}
+        \caption{Instalación de VMWare Tools completa}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 6: Personalización de la apariencia de Windows 10}
+
+\subsubsection{Enunciado}
+
+Utilizando Windows 10, personaliza la apariencia de tu cuenta, es decir, la que creaste en la instalación:
+
+\begin{enumerate}[label=\alph*.]
+    \item Cambia el tema de escritorio (no el fondo de escritorio).
+    \item Cambia la imagen de tu cuenta de usuario.
+    \item Indica la resolución de pantalla a la que estás trabajando y dónde la cambiarías para asegurarte de que es óptima.
+\end{enumerate}
+
+\textbf{Capturas}:
+\begin{itemize}
+    \item Ventana donde se cambia el tema (indica textualmente cómo se accede a dicha ventana).
+    \item Elección de tema nuevo.
+    \item Muestra de que se ha cambiado el tema.
+    \item Ventana donde se cambia la imagen de usuario (indica textualmente cómo se accede a dicha ventana).
+    \item Elección de nueva imagen de usuario.
+    \item Muestra de que el cambio de imagen se ha hecho efectivo.
+    \item Ventana donde se modifica la resolución de pantalla (indica textualmente cómo se accede a dicha ventana).
+\end{itemize}
+
+\subsubsection{Solución}
+
+ \begin{enumerate}
+    \item En primer lugar, vamos a cambiar el \textbf{tema de escritorio}. Para ello, debemos pulsar en ``\textbf{Menu Inicio ---> Configuración}''. En la ventana que se nos abrirá, debemos seleccionar \textbf{Personalización}, lo que nos abrirá una ventana con diferentes opciones para personalizar la apariencia y otros aspectos de Windows 10. Dentro de la ventana de personalización, seleccionamos \textbf{Temas} en el menú de la izquierda y se nos mostrarán la opciones para cambiar el tema, el color, etc...
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-1.png}
+        \caption{Ventana con la opciones de personalización de temas de Windows 10}
+    \end{figure}
+
+    En esta ventana, podremos ya seleccionar el tema que queremos escoger, en nuestro caso, hemos elegido el tema \textbf{Windows 10}, como se puede ver en la siguiente captura, haciendo click en la miniatura del este tema.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-2.png}
+        \caption{Selección de tema en Windows 10}
+    \end{figure}
+
+    Una vez hecho esto, podemos cerrar la ventana de personalización y comprobar que el tema se ha cargado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-3.png}
+        \caption{Tema Windows 10 cargado correctamente}
+    \end{figure}
+
+    \item A continuación se nos pide que cambiemos la \textbf{imagen de usuario} de nuestra cuenta. Para ello, pulsamos en ``\textbf{Menu Inicio ---> Configuración}, y en la ventana que se nos abre, seleccionamos la opción \textbf{Cuentas}. En esta nueva ventana, seleccionamos la opción \textbf{Tu Información} del menú de la izquierda, aunque estará ya seleccionada por defecto.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-1.png}
+        \caption{Ventana para cambiar la imagen de tu cuenta de usuario en Windows 10}
+    \end{figure}
+
+    Aquí, bajo el apartado \textbf{Crea tu imagen}, se nos ofrecen dos opciones para cambiar. Podemos usar la cámara para tomar una fotografía, o bien cargar una imagen que tengamos en nuestro ordenador guardada. Nosotros hemos elegido esta última opción y hemos usado una imagen que nos hemos descargado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-2.png}
+        \caption{Selección nueva imagen de usuario}
+    \end{figure}
+
+    Una vez que hemos cargado nuestra imagen, el cambio se habrá realizado correctamente. Para comprobarlo, podemos ver en la parte superior de esta misma sección como nuestra imagen de usuario habrá cambiado.
+
+    También, al abrir el Menu Inicio de Windows, veremos que la imagen en miniatura que se muestra a la izquierda del menú habrá cambiado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-3.png}
+        \caption{Imagen de usuario cambiada correctamente}
+    \end{figure}
+
+    \item Por último se nos pide que cambiemos, o que por lo menos mostremos, como se puede cambiar la resolución de la pantalla. En este caso, debemos \textbf{pulsar con el botón derecho} en el escritorio y seleccionar la opción \textbf{Configuración de pantalla}.
+
+    Esto nos abrirá una venta con diferentes opciones a seleccionar en un menú a la izquierda. Deberemos seleccionar la opción \textbf{Pantalla}, aunque ya estará seleccionada por defecto. En esta ventana, en el apartado \textbf{Escala y Distribución}, tenemos un menú desplegable donde podemos seleccionar la resolución que queremos escoger.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{resolucion.png}
+        \caption{Ventana con opciones para cambiar la resolución de la pantalla en Windows 10}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 7: Creación de una segunda cuenta de usuario}
+
+\subsubsection{Enunciado}
+
+Utilizando Windows 10 crea un nuevo usuario local (sin cuenta de Microsoft) de tipo usuario estándar, llámalo Encargado y ponle la clave que estimes oportuna. A continuación cambia el tipo de esta cuenta a usuario administrador.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Ventana donde se crea el nuevo usuario (indica textualmente cómo se accede a dicha ventana).
+    \item Introducción del nombre de usuario y contraseña.
+    \item Cambio al tipo administrador.
+\end{itemize}
+
+\subsubsection{Solución}
 % Bibliography
 
 \newpage
