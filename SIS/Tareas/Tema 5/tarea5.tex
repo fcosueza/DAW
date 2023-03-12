@@ -1,0 +1,601 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{10ex}
+\normalfont \normalsize
+\Huge \textbf{Tarea 4: Instalación y Configuración de Windows (I)}
+}
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{68ex}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Centro}: & IES Aguadulce \\
+        \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
+        \textbf{Asignatura}: & Sistemas Informáticos\\
+        \textbf{Tema}: & Tema 4 -  Instalación y Configuración de Windows (I)\\
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\section{Caso Práctico}
+Ada le encarga a María y a Juan que configure los equipos de la empresa AguadulSoft, según las preferencias de los usuarios y usuarias, con Windows 10 y Windows 8.1. Su objetivo es configurar en el equipo los dos sistemas operativos y realizar las configuraciones básicas del sistema.
+
+\section{Actividades}
+
+\subsection{Actividad 1: Preparación del Software de Virtualización}
+
+\subsubsection{Enunciado}
+Descarga e instala la última versión de VMware Workstation Player (recomendado) o VirtualBox que sea la adecuada para el sistema operativo que utilices en tu ordenador. Si lo tienes ya instalado en tu ordenador y no es la última versión, actualízalo. Recomendamos el uso de VMware por posibles problemas de compatibilidad en tareas posteriores del módulo.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Página de descarga del software de virtualización (en caso de actualización, mensaje que indica que hay una actualización disponible).
+    \item Inicio del proceso de instalación.
+    \item Fin del proceso de instalación (cuando nos informa que ha sido correctamente instalado), donde se debe ver la versión que se ha instalado.
+\end{itemize}
+
+\textbf{NOTA}: Si ya tienes la última versión instalada puedes volver a instalarlo, o bien mostrar la página de descarga, luego el inicio del instalador, y luego cancelar la instalación y mostrar el programa ya ejecutándose en la ventana ``Acerca de...'', donde se muestra la versión del programa.
+
+\subsubsection{Solución}
+
+\begin{enumerate}
+    \item En primer lugar hemos accedido a la \href{https://customerconnect.vmware.com/en/downloads/details?downloadGroup=WKST-PLAYER-1701&productId=1377&rPId=100675}{página de descarga} de WMWare y hemos descargado la versión 17.0.1 para Linux de 64-bits. Vamos a usar VMWare, aunque ya teníamos instalado VirtualBox para otra asignatura, para ahorrarnos problemas de compatibilidad tal y como se recomienda en la descripción de la tarea.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-download.png}
+        \caption{Página de descarga de VMWare Workstation}
+    \end{figure}
+
+    \item A continuación hemos ejecutado el script que se nos ha proporcionado y que instalará el bundle de VMWare. En la siguiente captura se puede ver el script ejecutándose en una terminal y realizando la instalación de los paquetes.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install.png}
+        \caption{Instalación de VMWare Workstation}
+    \end{figure}
+
+    \item Después de realizar la instalación desde la terminal y tras abrir por primera vez la aplicación, se nos da la opción de personalizar la instalación, aunque nosotros no hemos realizado ninguna modificación en esta. En la siguiente captura se muestra esta ventana.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install-2.png}
+        \caption{Personalización de la Instalación de VMWare}
+    \end{figure}
+
+    \item Una vez llevado a cabo estos pasos, ya tenemos realizada la instalación de VMWare en Ubuntu. En la siguiente captura, podemos ver la máquina virtual instalada y sus especificaciones, así como la del host. Aunque en este portátil tengo 8 GB de RAM, la tarjeta gráfica no tiene memoria dedicada, por lo que 2 Gb de estos 8 están reservados para ese propósito, como muestra esta ventana, aunque ya hablaremos de esto en la siguiente sección.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-install-3.png}
+        \caption{Ventana de información sobre la versión instalada de VMWare}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 2: Creación y Configuración de la MV}
+
+\subsubsection{Enunciado}
+Dentro del software de virtualización crea una MV llamada ``SI2223 InicialNombreApellido1Apellido2'' (por ejemplo, para ``José Luis Pérez Puertas'' sería ``SI2223 jlperezpuertas''), destinada a la instalación de un sistema dual con Windows 10 Education 22H2 y Windows 8.1 Professional. Ten en cuenta cuando estés creando la máquina virtual que hay que elegir como sistema operativo Windows 10 versión 64 bits, porque en caso contrario luego podrías tener algún problema durante las instalaciones de los sistemas.
+
+Para la instalación de ambos sistemas operativos deberás tener en cuenta los recursos de tu equipo. Asigna los siguientes recursos hardware a la MV y justifica los valores elegidos:
+
+\begin{itemize}
+    \item \textbf{Un único disco duro virtual con 90 GB de capacidad}, de los cuales 25 GB se destinarán a la instalación de Windows 8.1, 35 GB a la instalación de Windows 10 y los 30 GB restantes se reservarán para una tarea futura en la que instalaremos una versión de Ubuntu en esta misma MV.
+
+    \item \textbf{Memoria RAM: 2 GB al menos si tu equipo tiene 4 GB o más}, (si tienes más RAM puedes utilizar más en la MV, se recomienda usar 4 GB en la MV si tienes 8 GB o más en tu máquina anfitriona). En caso de que tu equipo tenga menos de 4 GB puedes utilizar 1 GB de RAM en la MV.
+\end{itemize}
+
+
+Si utilizas VirtualBox, tras crear la MV deberás modificar un parámetro de configuración de la misma. Entra dentro de la MV en ``Configuración > Sistema > Placa base'' y marca la opción ``Habilitar EFI''. Esto hará que la MV utilice un firmware de tipo UEFI, tal como es común en los equipos reales actuales.
+
+\textbf{Capturas}
+
+\begin{itemize}
+    \item Introducción del nombre de la máquina y elección de tipo ``Windows 10 64 bits''.
+    \item Cantidad de RAM asignada.
+    \item Tamaño de disco duro asignado.
+    \item Resumen con los datos de la máquina virtual creada en la ventana principal del programa de virtualización (en VirtualBox se debe ver en ``Sistema'' la opción ``EFI: Habilitado'').
+\end{itemize}
+
+\subsubsection{Solución}
+En este apartado vamos a realizar la creación y configuración de la máquina virtual con las especificaciones pedidas en el enunciado. Para ello, se han llevado a cabo lo siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar hemos pulsado la opción ``\textbf{Create new virtual machine}'' que nos ha abierto un menú donde se nos da la opción de instalar directamente el sistema operativo guest, ya sea desde un cd-rom o una imagen ISO, o dejar la instalación para más tarde, que es lo que hemos elegido ya que nosotros vamos a realizar la instalación de forma manual.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-1.png}
+        \caption{Selección del modo de instalación del SO en la máquina virtual}
+    \end{figure}
+
+    \item En la siguiente pantalla se nos da la opción de seleccionar el \textbf{tipo de sistema operativo} que vamos a instalar en la máquina virtual. Nosotros hemos seleccionado ``\textit{Windows 10 x64}'', tal y como se nos pide en el enunciado, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-2.png}
+        \caption{Selección del tipo de sistema operativo en la creación de la máquina virtual}
+    \end{figure}
+
+    \item Tras pulsar en \textit{next}, se nos muestra una pantalla que nos permite \textbf{introducir el nombre de la máquina virtual} que se va a crear. En nuestro caso, el nombre que se ha introducido ha sido \textbf{SI2223 fjsuezarodriguez}, siguiendo el patrón que se nos indica en el enunciado del problema.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-3.png}
+        \caption{Introducción del nombre de la máquina virtual a crear}
+    \end{figure}
+
+    \item Una vez establecido el nombre de la máquina virtual, se nos pide que introduzcamos el \textbf{espacio de disco duro} que vamos a reservar para esta. Por defecto se reservan 60 GB, pero nosotros hemos aumentado esa cantidad a 90 GB ya que tenemos pensado instalar varios sistemas operativos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-4.png}
+        \caption{Reserva de espacio de disco duro para la máquina virtual}
+    \end{figure}
+
+    \item Tras el último paso, y después de pulsar en next, se nos muestra un \textbf{resumen con las características de la máquina virtual} que se va a crear. En nuestro caso no se nos ha pedido que cambiemos o seleccionemos la cantidad de memoria RAM que será usada para esta máquina. Por defecto, el sistema ha \textbf{reservado 2 GB de memoria RAM}, que es la cantidad de queríamos reservar.
+
+    Se va a reservar esta cantidad porque aunque el \textbf{sistema anfitrión} tiene \textbf{8 GB de memoria RAM}, tiene una \textbf{tarjeta de vídeo integrada sin memoria dedicada}, en concreto una AMD Vega 8, por lo que de estos 8 GB, 2 GB se reservan para esta tarjeta, así que \textbf{contamos con 6 GB de RAM} para el sistema. Para que no tengamos problemas y el sistema anfitrión pueda sufrir ralentizaciones, y teniendo en cuenta que con 2 GB los sistemas visitantes que vamos a instalar pueden funcionar perfectamente, vamos a elegir esta cantidad.
+
+    En la siguiente captura vemos la información mostrada en esta ventana resumiendo las características de la máquina virtual a crear.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-5.png}
+        \caption{Información sobre la máquina virtual que se va a crear}
+    \end{figure}
+
+    Aún así, si la cantidad de RAM reservada no se ajustara a lo que nosotros queremos, podemos pulsar en la opción ``\textbf{Customize Hardware}'' donde se nos abrirá una donde podemos cambiar cualquier de las características de la máquina virtual, como se ve en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-6.png}
+        \caption{Personalización de las características de la MV}
+    \end{figure}
+
+    \item Por último, mostramos la información relativa a la máquina virtual ya creada en la ventana principal de VMWare. No se nos muestra información muy detallada, pero si pulsamos en ``\textbf{Edit virtual machine settings}'', se nos abrirá una ventana con información mas detallada y que podemos también cambiar.
+
+    \textbf{NOTA}: en este punto solo se incluye la captura de la información de la máquina virtual en la página principal de VMWare. No se incluye la ventana con la información más detallada ya que es la misma que se muestra en la Figura 2.10, por lo que para no repetir capturas, solo se incluye la especificada.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-create-7.png}
+        \caption{Información de la MV creada en la ventana principal de VMWare}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 3: Instalación de Windows 8.1 Professional}
+
+\subsubsection{Enunciado}
+Instala primero Windows 8.1 Professional en la MV, pero ten en cuenta que durante su instalación tendrás que realizar operaciones relativas al particionado del disco duro virtual para asegurar que dejas espacio disponible para las futuras instalaciones de Windows 10 y Ubuntu. Durante el particionado, crea una partición de 25 GB, y Windows creará algunas otras particiones de manera automática. Deberás describir cada una de las particiones creadas durante este proceso.
+
+Durante la instalación define un usuario local (sin cuenta de Microsoft) cuyo nombre sea la primera letra de tu nombre seguido de tus apellidos completos, por ejemplo, para \textbf{José Luis Pérez Puertas} el usuario debería ser \textbf{\textbf{jlperezpuertas}}. Respecto a la clave de este usuario ponle \textbf{admin2223}.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Elección del archivo ISO de instalación del sistema.
+    \item Inicio del proceso de instalación.
+    \item Introducción de la clave de activación.
+    \item Esquema de particionado en el que se ven todas las particiones que se han creado (antes de comenzar con la copia de archivos). Recuerda acompañar esta captura con una descripción de cada una de las particiones que se hayan creado.
+    \item Creación del usuario y establecimiento de la contraseña.
+    \item Muestra de que el sistema ha sido debidamente instalado.
+\end{itemize}
+
+\subsubsection{Solución}
+En este ejercicio vamos a realizar la instalación de Windows 8.1 Professional. Para llevarla a cabo, vamos a seguir los siguientes pasos:
+
+\begin{enumerate}
+    \item Para empezar, vamos a iniciar la máquina virtual que creamos en los apartados anteriores, y desde la opción ``\textbf{Virtual Machine -> Removable Devices}'' vamos a seleccionar la imagen de Windows 8.1 Professional que hemos descargado previamente. Una vez realizado esto, deberemos reiniciar la máquina virtual y pulsar alguna tecla, como se nos indica, para inicializar la instalación de Windows.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-1.png}
+        \caption{Selección de la imagen ISO de Windows 8.1}
+    \end{figure}
+
+    \item Una vez cargada la imagen, nos aparecerá una pantalla para seleccionar el idioma de la instalación, así como la versión de Windows a instalar. Una vez seleccionada, podremos comenzar el proceso de instalación pulsando en la pantalla que se nos mostrará a continuación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-2.png}
+        \caption{Pantalla de inicio de instalación de Windows 8.1}
+    \end{figure}
+
+    Como vemos en la parte inferior izquierda, también se nos da la opción ``\textbf{Reparar el Sistema}'', en caso de que ya tengamos Windows instalado y queramos repararlo, aunque esta opción no se va a discutir en este documento.
+
+    \item Una vez inicializada la instalación, lo primero que se nos pedirá es que introduzcamos la \textbf{clave de producto} de Windows 8.1. Esta clave, sirve para activar Windows y evitar que se use el software de forma ilegal.
+
+    Podemos encontrar diferentes \textbf{licencias retail} en la página de \textbf{Microsoft Store}, siendo su precio bastante alto. En internet encontraremos \textbf{decenas de webs} donde también se puede adquirir licencias de Microsoft Windows a precios muy asequibles, pero estas \textbf{licencias son ilegales}, ya que la mayoría son \textbf{licencias de tipo OEM} que solo pueden usar los fabricantes y quedan ligadas al hardware donde se instalan, por lo que usarlas en otros dispositivos, y más aun venderlas, incumple la EULA de Microsoft, por lo que hay que tener cuidado donde adquirimos nuestra licencia, y procurar hacerlo en tiendas autorizadas.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-3.png}
+        \caption{Introducción del número de producto en Windows 8.1}
+    \end{figure}
+
+    \item Una vez introducida la clave del producto, se nos mostrará el gestor de particiones de la instalación. Aquí, podremos elegir realizar la instalación en todo el disco duro o crear particiones de éste y realizar la instalación en dichas particiones.
+
+    En nuestro caso, vamos a crear una partición de 25 GB para la instalación de Windows 8.1. Además de esta partición, el sistema creará otras con propósitos específicos. En la siguiente captura vemos como ha quedado la tabla de particiones después de crear nuestra partición.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-4.png}
+        \caption{Particionado del disco duro en la instalación de Windows 8.1}
+    \end{figure}
+
+    Como podemos ver, no solo se ha creado nuestra partición de 25 GB, si no se que han creado otras, las cuales pasamos a describir a continuación:
+
+    \begin{itemize}
+        \item \textbf{Partición 1: Recuperación}: Partición que se usa para la recuperación del sistema, en caso de que este no pueda arrancar y que permite restablecer los valores por defecto de este.
+        \item \textbf{Partición 2: Sistema}: Esta partición es donde Windows almacena los archivos relativos a la inicialización del sistema, incluyendo el boot manager y todos los archivos relativos a este.
+        \item \textbf{Partición 3: MSR}: esta partición, llamada \textbf{Microsoft Reserved}, y contiene información relativa al resto de partición, para ser empleada por aplicaciones de Microsoft.
+        \item \textbf{Partición 4: Primaria}: es la partición que hemos creado para alojar el sistema operativo y todos los datos que queramos almacenar en el.
+    \end{itemize}
+
+    \item A continuación, se realizará la \textbf{copia de archivos} y la instalación. Una vez finalizada, se nos mostrarán una serie de ventanas para realizar una configuración básica del sistema, como elegir el color de la interfaz y otra serie de configuraciones, las cual podemos elegir realizarlas de forma automática o personalizada. Nosotros las hemos realizado de forma automatizada.
+
+    Tras esta configuración, podremos introducir nuestra cuenta Microsoft para que quede ligada al sistema operativo. En nuestro caso, no vamos a usar esta opción y vamos a crear una cuenta local de usuario con los datos especificados en el enunciado, es decir, con el nombre de usuario \textbf{fjsuezarodriguez} y pa contraseña \textbf{admin2223}, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-5.png}
+        \caption{Creación de usuario local durante la instalación de Windows 8.1}
+    \end{figure}
+
+    \item Tras este último paso, el sistema realizará de forma automática la instalación de algunas aplicaciones y algunas configuraciones ´y el sistema se habrá instalado correctamente.
+
+    En la siguiente captura, se muestra Windows 8.1 funcionando correctamente en VMWare. Se muestra además la ventana con información sobre el sistema.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows8-install-6.png}
+        \caption{Windows 8.1 instalado correctamente}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 4: Instalación de Windows 10 Education 22H2}
+
+\subsubsection{Enunciado}
+
+Instala Windows 10 Education 22H2 en la \textbf{misma MV y mismo disco duro virtual} donde has instalado Windows 8.1. Para poder arrancar la MV desde la ISO de Windows 10 para instalarlo, deberás entrar en la EFI de la MV: En VMware, pulsando la tecla F2 repetidamente al arrancar (debes clicar dentro de la ventana de la MV primero, en cuanto se abra, o hacerlo tras reiniciar desde Windows 8) y elegir arrancar desde la unidad de CD/DVD; En VirtualBox, pulsando la tecla "esc" repetidamente al arrancarla y elegir en "Boot manager" la unidad de CD/DVD. En este breve vídeo se muestra cómo hacerlo en VirtualBox:
+
+\href{https://www.youtube.com/watch?v=PdMtyQf2tJk&ab_channel=Crist%C3%B3balMarco}{Entrar en la EFI de VirtualBox para elegir arranque desde la unidad óptica virtual (archivos ISO)}
+
+Asegúrate de que tras la instalación de Windows 10 (asígnale 35 GB) sigan quedando 30 GB disponibles en el disco duro virtual para la futura de Ubuntu. Durante la instalación define un usuario local (sin cuenta de Microsoft) cuyo nombre sea el mismo que has puesto en la instalación anterior (en el ejemplo, jlperezpuertas) y de nuevo ponle la clave admin2223. En Windows 10 Education, para la creación de un usuario local deberás elegir la opción "unirse a un dominio" cuando llegues a este punto.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Elección del archivo de instalación del sistema.
+    \item Inicio del proceso de instalación.
+    \item Introducción de la clave de activación (no muestres la clave).
+    \item Estado final del particionado antes de comenzar la copia de archivos. Se debe ver la partición en la que se va a instalar Windows 10 y el espacio libre donde se instalará Ubuntu en una futura práctica.
+    \item Creación del usuario y establecimiento de la contraseña.
+    \item Muestra de que el sistema ha sido debidamente activado con la ventana de Windows 10 correspondiente que da esta información.
+\end{itemize}
+
+\subsubsection{Solución}
+En esta actividad vamos a realizar la instalación de \textbf{Windows 10 Education 22H2}, al igual que hicimos en la actividad anterior con Windows 8.1. Para realizar la instalación, hemos seguido los siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos seleccionado la imagen ISO de Windows 10, tal y como hicimos en el ejercicio anterior, para poder iniciar la instalación.
+
+    A diferencia de con la instalación de Windows 8.1, donde solo tuvimos que seleccionar la imagen ISO para que se iniciara, en este caso hemos tenido que entrar en la UEFI  de nuestra máquina virtual para poder iniciar desde la imagen ISO. Esto es debido a que en el ejercicio anterior no teníamos ningún SO instalado en la máquina virtual y por iniciaba la imagen ISO. Ahora, ya tenemos instalado Windows 8.1, por lo que intentará iniciar por defecto este SO, así que debemos entrar en el menú UEFI para indicar que se debe iniciar desde la ``\textit{unidad óptica}''.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-1.png}
+        \caption{Selección de la ISO de Windows 10 Education 22H2}
+    \end{figure}
+
+    \item A continuación, se nos muestra la misma ventana de selección de idioma, el layout del teclado y el uso horario así como la moneda, al igual que con la instalación de Windows 8.1. Una vez seleccionados, podemos comenzar la instalación, como vemos en al siguiente figura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-2.png}
+        \caption{Inicio de instalación de Windows 10}
+    \end{figure}
+
+    \item Tras seleccionar el idioma y que se realice la copia de archivos, el sistema nos pedirá la introducción de una clave de producto, tal y como sucedía en la instalación de Windows 8.1.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{windows10-install-3.png}
+        \caption{Introducción de la clave de producto de Windows 10}
+    \end{figure}
+
+    \item Tras introducir la clave del producto se nos pedirá que seleccionemos donde vamos a realizar la instalación del sistema operativo. Nosotros hemos creado otra partición de 35 Gb aprox. para realizar la instalación, dejando otros 30 GB libres la la instalación de Ubuntu en practicas posteriores. Tras crear la partición, el disco duro ha quedado como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-4.png}
+        \caption{Partición del disco duro durante la instalación de Windows 10}
+    \end{figure}
+
+    \item Después del último paso, se realizará la instalación del SO, copiando los archivos necesarios para su ejecución, tras lo cual se nos pedirá que iniciemos sesión con una cuenta Microsoft, aunque en nuestro caso hemos decidido, como se explica en el enunciado, crear una cuenta local con el nombre \textbf{fjsuezarodriguez} y la contraseña \textbf{admin2223}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-5.png}
+        \caption{Creación de usuario durante la instalación de Windows 10}
+    \end{figure}
+
+    \item Por último, el sistema realizarán ciertas configuraciones, y se nos pedirá que seleccionemos algunas opciones, entre ellas, por ejemplo, la configuración de la asistente virtual Cortana. Tras esto, el sistema se habrá instalado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{windows10-install-6.png}
+        \caption{Windows 10 instalado correctamente}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 5: Instalación de ``drivers''}
+
+\subsubsection{Enunciado}
+Tras completar la instalación de los SSOO es importante instalar los drivers de dispositivos correspondientes a los periféricos y componentes de nuestro sistema. Esta es una tarea que normalmente no se realiza en una MV, ya que los controladores son virtualizados o heredados de la máquina anfitriona. En su lugar vas a instalar:
+
+\begin{itemize}
+    \item Las ``VMware Tools'', en el caso de que hayas utilizado VMware.
+    \item Las ``Guest Additions'', en el caso de que hayas utilizado VirtualBox.
+\end{itemize}
+
+Realiza esta instalación solamente para Windows 10.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Elección del archivo de instalación.
+    \item Inicio del proceso de instalación.
+    \item Fin del proceso de instalación (cuando nos informa que ha sido correctamente instalado).
+\end{itemize}
+
+\subsubsection{Solución}
+
+En este apartado vamos a instalar los \textbf{VMWare Tools}, ya que al tener instalado Windows 10 en una máquina virtual no requiere de la instalación de drivers. Para realizar la instalación, se han llevado a cabo los siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos descargado la última versión de VMWare Tools desde la \href{https://packages.vmware.com/tools/releases/latest/windows/x64/}{página de paquetes de VMWare Tools}, donde hemos descargado la \textbf{versión 12.2.0}, que es la última versión lanzada el 8 de Marzo de este mismo año.
+
+    Una vez descargada, debemos inicializar nuestra máquina virtual y bootear en Windows 10, para a continuación montar la imagen en el CD/DVD de la máquina virtual, seleccionando el archivo ISO que hemos descargado, como se puede ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-1.png}
+        \caption{Carga del archivo ISO de VMWare Tools}
+    \end{figure}
+
+    \item Una vez realizado esto, pulsamos en la opción ``\textit{Virtual Machine} --> \textit{Install VMWare Tools}'' de nuestra máquina virtual.
+
+    Tras pulsar en esta opción, nuestro sistema operativo invitado, Windows 10 en nuestro casi, cargará la imagen ISO que nos hemos descargado y nos preguntará si queremos realizar la instalación. Tras aceptar, se nos mostrará el instalador de VMWare Tools, y podremos comenzar con esta.
+
+    Cabe destacar, que pare realizar la instalación necesitaremos tener privilegios de administrador, si nuestro sistema es Windows 10. En algunas versiones anteriores no es necesario.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-2.png}
+        \caption{Instalación de VMWare Tools}
+    \end{figure}
+
+    \item Tras pulsar en aceptar en las ventanas que nos irá mostrando el instalador, se realizará la instalación con éxito.
+
+    Una de las primeras cosas que notaremos es que ya podemos disfrutar de nuestro sistema operativo invitado con una resolución mas adecuada a nuestro dispositivo. Además de esto, VMWare Tools no proporciona un conjunto componentes y servicios para sacarle el máximo partido a nuestro SO invitado y poder usarlo de una forma más fluida. \cite{vmware01}
+
+    En la siguiente captura podemos ver la pantalla de finalización de la instalación y como a cambiado la resolución del SO invitado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{vmware-tools-3.png}
+        \caption{Instalación de VMWare Tools completa}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 6: Personalización de la apariencia de Windows 10}
+
+\subsubsection{Enunciado}
+
+Utilizando Windows 10, personaliza la apariencia de tu cuenta, es decir, la que creaste en la instalación:
+
+\begin{enumerate}[label=\alph*.]
+    \item Cambia el tema de escritorio (no el fondo de escritorio).
+    \item Cambia la imagen de tu cuenta de usuario.
+    \item Indica la resolución de pantalla a la que estás trabajando y dónde la cambiarías para asegurarte de que es óptima.
+\end{enumerate}
+
+\textbf{Capturas}:
+\begin{itemize}
+    \item Ventana donde se cambia el tema (indica textualmente cómo se accede a dicha ventana).
+    \item Elección de tema nuevo.
+    \item Muestra de que se ha cambiado el tema.
+    \item Ventana donde se cambia la imagen de usuario (indica textualmente cómo se accede a dicha ventana).
+    \item Elección de nueva imagen de usuario.
+    \item Muestra de que el cambio de imagen se ha hecho efectivo.
+    \item Ventana donde se modifica la resolución de pantalla (indica textualmente cómo se accede a dicha ventana).
+\end{itemize}
+
+\subsubsection{Solución}
+
+ \begin{enumerate}
+    \item En primer lugar, vamos a cambiar el \textbf{tema de escritorio}. Para ello, debemos pulsar en ``\textbf{Menu Inicio ---> Configuración}''. En la ventana que se nos abrirá, debemos seleccionar \textbf{Personalización}, lo que nos abrirá una ventana con diferentes opciones para personalizar la apariencia y otros aspectos de Windows 10. Dentro de la ventana de personalización, seleccionamos \textbf{Temas} en el menú de la izquierda y se nos mostrarán la opciones para cambiar el tema, el color, etc...
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-1.png}
+        \caption{Ventana con la opciones de personalización de temas de Windows 10}
+    \end{figure}
+
+    En esta ventana, podremos ya seleccionar el tema que queremos escoger, en nuestro caso, hemos elegido el tema \textbf{Windows 10}, como se puede ver en la siguiente captura, haciendo click en la miniatura del este tema.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-2.png}
+        \caption{Selección de tema en Windows 10}
+    \end{figure}
+
+    Una vez hecho esto, podemos cerrar la ventana de personalización y comprobar que el tema se ha cargado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.21]{tema-3.png}
+        \caption{Tema Windows 10 cargado correctamente}
+    \end{figure}
+
+    \item A continuación se nos pide que cambiemos la \textbf{imagen de usuario} de nuestra cuenta. Para ello, pulsamos en ``\textbf{Menu Inicio ---> Configuración}, y en la ventana que se nos abre, seleccionamos la opción \textbf{Cuentas}. En esta nueva ventana, seleccionamos la opción \textbf{Tu Información} del menú de la izquierda, aunque estará ya seleccionada por defecto.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-1.png}
+        \caption{Ventana para cambiar la imagen de tu cuenta de usuario en Windows 10}
+    \end{figure}
+
+    Aquí, bajo el apartado \textbf{Crea tu imagen}, se nos ofrecen dos opciones para cambiar. Podemos usar la cámara para tomar una fotografía, o bien cargar una imagen que tengamos en nuestro ordenador guardada. Nosotros hemos elegido esta última opción y hemos usado una imagen que nos hemos descargado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-2.png}
+        \caption{Selección nueva imagen de usuario}
+    \end{figure}
+
+    Una vez que hemos cargado nuestra imagen, el cambio se habrá realizado correctamente. Para comprobarlo, podemos ver en la parte superior de esta misma sección como nuestra imagen de usuario habrá cambiado.
+
+    También, al abrir el Menu Inicio de Windows, veremos que la imagen en miniatura que se muestra a la izquierda del menú habrá cambiado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{imagen-user-3.png}
+        \caption{Imagen de usuario cambiada correctamente}
+    \end{figure}
+
+    \item Por último se nos pide que cambiemos, o que por lo menos mostremos, como se puede cambiar la resolución de la pantalla. En este caso, debemos \textbf{pulsar con el botón derecho} en el escritorio y seleccionar la opción \textbf{Configuración de pantalla}.
+
+    Esto nos abrirá una venta con diferentes opciones a seleccionar en un menú a la izquierda. Deberemos seleccionar la opción \textbf{Pantalla}, aunque ya estará seleccionada por defecto. En esta ventana, en el apartado \textbf{Escala y Distribución}, tenemos un menú desplegable donde podemos seleccionar la resolución que queremos escoger.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{resolucion.png}
+        \caption{Ventana con opciones para cambiar la resolución de la pantalla en Windows 10}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 7: Creación de una segunda cuenta de usuario}
+
+\subsubsection{Enunciado}
+
+Utilizando Windows 10 crea un nuevo usuario local (sin cuenta de Microsoft) de tipo usuario estándar, llámalo Encargado y ponle la clave que estimes oportuna. A continuación cambia el tipo de esta cuenta a usuario administrador.
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Ventana donde se crea el nuevo usuario (indica textualmente cómo se accede a dicha ventana).
+    \item Introducción del nombre de usuario y contraseña.
+    \item Cambio al tipo administrador.
+\end{itemize}
+
+\subsubsection{Solución}
+
+En este apartado vamos a crear una nueva cuenta de usuario y a cambiar su tipo de usuario estándar a administrador. Para llevarlo a cabo, hemos seguido los siguiente pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos accedido a la ventana que nos permite crear nuevos usuario. Para acceder, debemos pulsar en ``\textbf{Menu inicio ---> Configuración}, y pulsar en la opción \textbf{Cuentas} en la ventana que se nos abrirá. A continuación, pulsamos en la opción \textbf{Familia y otros usuarios} del menú de la izquierda.
+
+    Esto nos desplegará diferentes opciones, pero es en el apartado \textbf{Otros usuarios} donde tenemos la opción \textbf{Agregar otra persona a este equipo}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.22]{user-1.png}
+        \caption{Ventana Familia y otros usuario de Windows 10}
+    \end{figure}
+
+    Pulsando en la opción comentada, se nos abrirá una nueva ventana donde nos permitirá crear un nuevo usuario. Si queremos, con una cuenta de Microsoft, pero en nuestro casi vamos a crear una usuario local, para lo que tendremos que rellenar cierta información como Nombre de usuario, contraseña, etc...
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.22]{user-2.png}
+        \caption{Información sobre el usuario a crear}
+    \end{figure}
+
+    \item Una vez creado el usuario, vamos a cambiar su tipo de \textbf{Usuario estándar} a \textbf{Administrador}. Para ello, en la misma ventana en la que estábamos en el punto anterior, veremos que ya aparecer el nuevo usuario creado en el apartado \textbf{Otros usuarios}. Al pulsar sobre él, se nos abrirá una nueva ventana donde tendremos la opción de cambiar el tipo de usuario. Pulsando en esta opción, podremos cambiar al tipo Administrador como queremos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{user-3.png}
+        \caption{Cambio del tipo de usuario creado}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 8: Personalización del Gestor de Arranque}
+
+\subsubsection{Enunciado}
+Personaliza el gestor de arranque, utilizando cualquiera de los métodos vistos en la unidad (msconfig, bcdedit, EasyBCD u otro), modificando el fichero de configuración de arranque de la forma siguiente:
+
+\begin{itemize}
+    \item Cambia el nombre de la entrada de la instalación de Windows 10 por Windows 10 curso 2223.
+    \item Cambia el nombre de la entrada de la instalación de Windows 8.1, por Windows 8.1 curso 2223.
+    \item Cambia el tiempo de espera para elegir el sistema a iniciar, con tiempo de arranque automático a los 10 segundos.
+    \item Establece que arranque por defecto, si transcurrido el tiempo de espera predefinido el usuario no ha tecleado nada, la entrada Windows 8.1 curso 2223.
+\end{itemize}
+
+Una vez hecho efectivos los cambios propuestos anteriormente y tras haber realizado las capturas necesarias, vuelve a establecer que arranque por defecto la entrada Windows 10 curso 2223 (no es necesario captura de esto último).
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Introducción del nuevo nombre de las entradas, del tiempo de espera, del sistema operativo a arrancar por defecto (las capturas necesarias, según el método elegido).
+    \item Muestra de que todos los cambios anteriores han sido aplicados.
+\end{itemize}
+
+\subsubsection{Solución}
+
+En este punto vamos a modificar diferentes opciones del gestor de arranque.
+
+\begin{enumerate}
+    \item Hemos optado por la opción de usar \textbf{EasyBCD}, ya que con \textbf{msconfig}, no permite cambiar el nombre de la entrada de arranque, por lo que habría que usarlo complementándolo con \textbf{bcdedit}, así que a fin de hacer todos los cambios a la vez y con la misma aplicación, hemos optado por EasyBCD.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{boot-1.png}
+        \caption{Cambio de las opciones de arranque con EasyBCD}
+    \end{figure}
+
+    \item Para cerciorarnos de que los cambios se han realizado correctamente, hemos usado el comando \textbf{msconfig} para que nos muestre la información de las opciones de boot. Podríamos haberlo hecho también desde EasyBCD, pero se ha usado otra aplicación para asegurarnos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{boot-2.png}
+        \caption{Información de boot cambiada en msconfig}
+    \end{figure}
+\end{enumerate}
+
+% Bibliography
+
+\newpage
+\bibliography{citas}
+\bibliographystyle{unsrt}
+
+\end{document}
