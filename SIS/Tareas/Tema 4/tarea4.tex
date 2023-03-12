@@ -100,7 +100,7 @@ Descarga e instala la última versión de VMware Workstation Player (recomendado
 
 \subsection{Actividad 2: Creación y Configuración de la MV}
 
-\subsection{Enunciado}
+\subsubsection{Enunciado}
 Dentro del software de virtualización crea una MV llamada ``SI2223 InicialNombreApellido1Apellido2'' (por ejemplo, para ``José Luis Pérez Puertas'' sería ``SI2223 jlperezpuertas''), destinada a la instalación de un sistema dual con Windows 10 Education 22H2 y Windows 8.1 Professional. Ten en cuenta cuando estés creando la máquina virtual que hay que elegir como sistema operativo Windows 10 versión 64 bits, porque en caso contrario luego podrías tener algún problema durante las instalaciones de los sistemas.
 
 Para la instalación de ambos sistemas operativos deberás tener en cuenta los recursos de tu equipo. Asigna los siguientes recursos hardware a la MV y justifica los valores elegidos:
@@ -518,6 +518,80 @@ Utilizando Windows 10 crea un nuevo usuario local (sin cuenta de Microsoft) de t
 \end{itemize}
 
 \subsubsection{Solución}
+
+En este apartado vamos a crear una nueva cuenta de usuario y a cambiar su tipo de usuario estándar a administrador. Para llevarlo a cabo, hemos seguido los siguiente pasos:
+
+\begin{enumerate}
+    \item En primer lugar, hemos accedido a la ventana que nos permite crear nuevos usuario. Para acceder, debemos pulsar en ``\textbf{Menu inicio ---> Configuración}, y pulsar en la opción \textbf{Cuentas} en la ventana que se nos abrirá. A continuación, pulsamos en la opción \textbf{Familia y otros usuarios} del menú de la izquierda.
+
+    Esto nos desplegará diferentes opciones, pero es en el apartado \textbf{Otros usuarios} donde tenemos la opción \textbf{Agregar otra persona a este equipo}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.22]{user-1.png}
+        \caption{Ventana Familia y otros usuario de Windows 10}
+    \end{figure}
+
+    Pulsando en la opción comentada, se nos abrirá una nueva ventana donde nos permitirá crear un nuevo usuario. Si queremos, con una cuenta de Microsoft, pero en nuestro casi vamos a crear una usuario local, para lo que tendremos que rellenar cierta información como Nombre de usuario, contraseña, etc...
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.22]{user-2.png}
+        \caption{Información sobre el usuario a crear}
+    \end{figure}
+
+    \item Una vez creado el usuario, vamos a cambiar su tipo de \textbf{Usuario estándar} a \textbf{Administrador}. Para ello, en la misma ventana en la que estábamos en el punto anterior, veremos que ya aparecer el nuevo usuario creado en el apartado \textbf{Otros usuarios}. Al pulsar sobre él, se nos abrirá una nueva ventana donde tendremos la opción de cambiar el tipo de usuario. Pulsando en esta opción, podremos cambiar al tipo Administrador como queremos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{user-3.png}
+        \caption{Cambio del tipo de usuario creado}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 8: Personalización del Gestor de Arranque}
+
+\subsubsection{Enunciado}
+Personaliza el gestor de arranque, utilizando cualquiera de los métodos vistos en la unidad (msconfig, bcdedit, EasyBCD u otro), modificando el fichero de configuración de arranque de la forma siguiente:
+
+\begin{itemize}
+    \item Cambia el nombre de la entrada de la instalación de Windows 10 por Windows 10 curso 2223.
+    \item Cambia el nombre de la entrada de la instalación de Windows 8.1, por Windows 8.1 curso 2223.
+    \item Cambia el tiempo de espera para elegir el sistema a iniciar, con tiempo de arranque automático a los 10 segundos.
+    \item Establece que arranque por defecto, si transcurrido el tiempo de espera predefinido el usuario no ha tecleado nada, la entrada Windows 8.1 curso 2223.
+\end{itemize}
+
+Una vez hecho efectivos los cambios propuestos anteriormente y tras haber realizado las capturas necesarias, vuelve a establecer que arranque por defecto la entrada Windows 10 curso 2223 (no es necesario captura de esto último).
+
+\textbf{Capturas}:
+
+\begin{itemize}
+    \item Introducción del nuevo nombre de las entradas, del tiempo de espera, del sistema operativo a arrancar por defecto (las capturas necesarias, según el método elegido).
+    \item Muestra de que todos los cambios anteriores han sido aplicados.
+\end{itemize}
+
+\subsubsection{Solución}
+
+En este punto vamos a modificar diferentes opciones del gestor de arranque.
+
+\begin{enumerate}
+    \item Hemos optado por la opción de usar \textbf{EasyBCD}, ya que con \textbf{msconfig}, no permite cambiar el nombre de la entrada de arranque, por lo que habría que usarlo complementándolo con \textbf{bcdedit}, así que a fin de hacer todos los cambios a la vez y con la misma aplicación, hemos optado por EasyBCD.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{boot-1.png}
+        \caption{Cambio de las opciones de arranque con EasyBCD}
+    \end{figure}
+
+    \item Para cerciorarnos de que los cambios se han realizado correctamente, hemos usado el comando \textbf{msconfig} para que nos muestre la información de las opciones de boot. Podríamos haberlo hecho también desde EasyBCD, pero se ha usado otra aplicación para asegurarnos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{boot-2.png}
+        \caption{Información de boot cambiada en msconfig}
+    \end{figure}
+\end{enumerate}
+
 % Bibliography
 
 \newpage
