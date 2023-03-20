@@ -1038,6 +1038,108 @@ Respecto a los \textbf{tipos de fragmentación}, podemos encontrarnos con tres t
 
 Además de estos enlaces, podemos encontrar muchísima más información sobre los diferentes SGBD en sus correspondientes páginas oficiales, que podemos encontrar con una búsqueda rápida en cualquier buscador web, ya que la mayoría contienen una extensa documentación.
 
+\chapter{Unidad 2: Bases de Datos Relacionales - TODO}
+\chapter{Unidad 3: Implantación de Bases de Datos Relacionales - TODO}
+
+\chapter{Unidad 4: Realización de Consultas}
+En esta unidad vamos a ver como realizar consultas a una base de datos usando \textbf{SQL}. Usaremos como bases de datos para realizar la consultas \textbf{MySQL} y \textbf{Oracle}, por ello hay que tener en cuenta que, aunque hay \textbf{aspectos comunes} de SQL a ambos sistemas de gestión de bases de datos, también hay aspectos específicos, en cuyo caso se indicará explícitamente.
+
+\section{Introducción}
+
+El lenguaje \textbf{SQL} nació a partir de la publicación ``A realational model of data for large shared banks'', publicado por \textbf{Edgar Frank Codd}. IBM aprovecho el modelo propuesto por Codd para crear un lenguaje acorde al recién creado \textbf{modelo relacional}, llamándolo \textbf{SEQUEL} (Structured English Query Language). Con el tiempo, SEQUEL se convertiría en SQL (Structured Query Language). En 1979, la empresa \textbf{Relational Software} lanzaría la primera versión comercial de SQL. Esta empresa, la conocemos hoy en día como \textbf{Oracle}.
+
+En 1992, \textbf{ANSI} e \textbf{ISO} completaron la estandarización de SQL y se definieron las sentencias básicas que debía contener SQL para que fuera estándar. A este se le conocería como ANSI-SQL o SQL92.
+
+Hoy en día, SQL sigue siendo el lenguaje estándar de acceso a bases de datos relacionales. La mayoría de bases de datos cumplen con el estándar, aunque cada fabricante añade sus mejoras al lenguaje SQL.
+
+La \textbf{primera fase de trabajo} con cualquier base de datos consiste en al utilización de un lenguaje \textbf{DDL} (Data Defining Language), que nos permitirá crear la bases de datos y sus tablas, algo necesario antes de comenzar a trabajar con los datos que queremos alojar en esta. Esta fase la desarrollamos en la unidad anterior.
+
+La \textbf{siguiente fase} será manipular los datos, trabajando con sentencias \textbf{DML} (Data Management Language). Este lenguaje esta orientado a consultas y manejo de datos de los datos creados. Las principales sentencias que nos proporciona son \textbf{SELECT}, \textbf{INSERT}, \textbf{DELETE} y \textbf{UPDATE}.
+
+En esta unidad nos centraremos en las consultas, es decir, en la sentencia \textbf{SELECT}.
+
+\subsection{En Oracle}
+Las sentencias que veremos a continuación pueden ser ejecutadas desde el entorno web \textbf{Application Express} de Oracle utilizando el botón \textbf{SQL Workshop} en la página de inicio o home y eligiendo la opción \textbf{SQL Commands}.
+
+También se pueden indicar las sentencias desde el entorno \textbf{SQL*PLus} que ofrece Oracle y que puede encontrarse  en \textbf{Inicio > Todos los Programas > Oracle Database 11g Express Edition > Run SQL Command Line}, en el menú inicio de Windows.
+
+Si optas por usar esta última aplicación, el primera paso que debes realizar para poder manipular los datos de una determinada tabla, es conectarse utilizando un nombre de usuario con los permisos necesarios para acceder a ese tipo de operaciones en la tabla deseada. Utiliza para ello la orden \textbf{CONNECT} seguida del nombre de usuario. Posteriormente solicitará la contraseña de usuario correspondiente.
+
+Para ejecutar cualquier de las sentencias SQL que aprenderás en los siguiente puntos, simplemente debes\textbf{ escribirla completa} y pulsar \textbf{Intro} para que se inicie su ejecución.
+
+\subsection{MySQL}
+En el caso de \textbf{MySQL}, las sentencias que veremos a continuación pueden ser ejecutadas:
+
+\begin{itemize}
+    \item Desde cualquier \textbf{cliente gráfico} como por ejemplo \textbf{MySQL Workbench}. En este caso, redactaremos la sentencia en la ventana \textbf{SQL} y la ejecutaremos accediendo a \textbf{Query > Execute Current Statement}, o mediante el botón con un símbolo de un \textbf{rayo amarillo}.
+    \item Desde la \textbf{línea de comandos} de MySQL.
+\end{itemize}
+
+En ambos casos, lo primero que habrá que hacer es iniciar o arrancar el servidor de bases de datos MySQL, si no esta iniciado por defecto, y conectar o abrir una conexión con el servidor utilizando un nombre de usuario con los permisos necesarios para hacer este tipo de operaciones sobre la bases de datos en la que queremos trabajar.
+
+\subsection{Modelo de la Base de Datos de Ejemplo}
+Aquí vamos a exponer los diferentes diagramas de la base de datos que vamos a usar como ejemplo en este tema, tanto para Oracle como para MySQL.
+
+\begin{itemize}
+    \item \textbf{Modelo para Oracle}: en primero lugar vamos a mostrar el esquema entidad-relación de la base de datos con la que vamos a trabajar en Oracle.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{esquema-entidad-relacion.png}
+        \caption{Esquema entidad relación para la base de datos Oracle}
+    \end{figure}
+
+    El \textbf{modelo relacional} de paso de tablas resultante del anterior esquema sería el siguiente:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{esquema-paso-tablas.png}
+        \caption{Esquema de paso a tablas para Oracle}
+    \end{figure}
+
+    \item \textbf{Modelo para MySQL}: para MySQL vamos a emplear otra base de datos. En primer lugar, aquí tenemos el \textbf{grafo relacional} para el paso de tablas, en modo texto, de esta base de datos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{grafo-relacional-mysql.png}
+        \caption{Grafo relacional de la base de datos para MySQL}
+    \end{figure}
+
+    A partir de este modelo, se ha creado uno dentro de la aplicación \textbf{WorkBench}, el cual podemos ver en la siguiente imagen:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{esquema-workbench.png}
+        \caption{Esquema relacional en Workbench para MySQL}
+    \end{figure}
+\end{itemize}
+
+Además os recomendamos que consultéis el apéndice \textbf{Anexos Tema 4} donde se explica más detalladamente como crear las bases de datos, tanto en Oracle como MySQL, que vamos a emplear en esta unidad.
+
+
+% Apéndice
+\appendix
+
+% Change appendix display options
+\titleformat{\chapter}{\bfseries\Huge}{\thechapter.}{1ex}{}
+\chapter{Anexos Tema 4}
+
+\section{Creación de Tablas y Preparación de Oracle y MySQL}
+En este apéndice vamos a indicar el proceso para crear las bases de datos que vamos a usar en la unidad 4, tanto en Oracle como en MySQL.
+
+\subsection{Creación de las Tablas en Oracle}
+Para la creación de las tablas en el SGBD de Oracle debemos seguir los siguiente pasos:
+
+\begin{enumerate}
+    \item En primer lugar crearemos un espacio de trabajo o Workbench llamado \textbf{TAREA} con un usuario llamado \textbf{ANA} al que pondremos también la contraseña que queramos. Este usuario será por tanto el administrador de este espacio de trabajo y tendrá permisos para crear tablas.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.80]{creacion-oracle-1.png}
+        \caption{Creación del espacio de trabajo y el usuario}
+    \end{figure}
+\end{enumerate}
+
 % Glossary
 
 \glsaddall
