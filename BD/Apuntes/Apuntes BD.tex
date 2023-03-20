@@ -1085,7 +1085,7 @@ Aquí vamos a exponer los diferentes diagramas de la base de datos que vamos a u
 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.50]{esquema-entidad-relacion.png}
+        \includegraphics[scale=0.45]{esquema-entidad-relacion.png}
         \caption{Esquema entidad relación para la base de datos Oracle}
     \end{figure}
 
@@ -1115,6 +1115,9 @@ Aquí vamos a exponer los diferentes diagramas de la base de datos que vamos a u
 \end{itemize}
 
 Además os recomendamos que consultéis el apéndice \textbf{Anexos Tema 4} donde se explica más detalladamente como crear las bases de datos, tanto en Oracle como MySQL, que vamos a emplear en esta unidad.
+
+\section{La Sentencia SELECT}
+
 
 
 % Apéndice
@@ -1178,12 +1181,49 @@ Para la creación de las tablas en el SGBD de Oracle debemos seguir los siguient
 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.50]{creacion-oracle-5.png}
+        \includegraphics[scale=0.45]{creacion-oracle-5.png}
         \caption{Desconexión de la base de datos}
     \end{figure}
 \end{enumerate}
 
 \subsection{Creación de las Tablas en MySQL}
+Ahora vamos a ver como realizar el mismo procedimiento para crear la base de datos necesaria para este tema en MySQL.
+
+\begin{enumerate}
+    \item En primer lugar vamos a descargar el \textbf{script} para \textbf{generar las tablas} en MySQL, el cual podemos encontrar en \href{https://github.com/fcosueza/DAW/blob/main/BD/Apuntes/archivos/tema4-script-mysql.zip}{este enlace}. Una vez descargado el script, iniciamos sesión en nuestro servido MySQL. Para ello, asegúrate de tener iniciado el servidor  de bases de datos MySQL e inicia sesión como el usuario \textbf{root}, indicando su contraseña.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{creacion-mysql-1.png}
+        \caption{Inicio de sesión en el servidor MySQL}
+    \end{figure}
+
+    \item El siguiente paso es cargar el script, \textbf{bd\_proyectosx.sql}, que hemos descargado anteriormente. Para ello, pulsamos en la opción \textbf{File > Open SQL Script...} en el menú de Workbench y buscamos el archivo en nuestras carpetas. Lo seleccionamos y al pulsar \textbf{Abrir} el script aparecerá en pantalla.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.42]{creacion-mysql-2.png}
+        \caption{Carga del script en MySQL Workbench}
+    \end{figure}
+
+    \item Con el script ya cargado y en pantalla, pulsamos sobre \textbf{File > Run SQL Script} o bien en el icono de un ``\textbf{rayo amarillo}''. Una vez realizado esto, el script se ejecutara y la base de datos quedará implantada.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{creacion-mysql-3.png}
+        \caption{Ejecución del script y creación de la base de datos}
+    \end{figure}
+
+    \item Ya solo tenemos que actualiza la información en lista de la izquierda de Workbench pulsando en el \textbf{icono de las dos flechas} o pulsando con el botón derecho sobre ese menú y seleccionando \textbf{Refresh All}, para que así se nos muestre la nueva base de datos creada.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{creacion-mysql-4.png}
+        \caption{Actualización de la lista de bases de datos en Workbench}
+    \end{figure}
+\end{enumerate}
+
+Tras estos pasos, ya tendremos nuestra base de datos creada en el servidor MySQL. Si queremos podemos mostrar las bases de datos que este tiene usando la sentencia \textbf{SHOW databases}, o realizar algunas consultas genéricas, como \textbf{SELECT * from empleados}, para comprobar los diferentes elementos que tiene cada tabla.
 
 % Glossary
 
