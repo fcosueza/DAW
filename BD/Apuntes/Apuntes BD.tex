@@ -1138,7 +1138,52 @@ Para la creación de las tablas en el SGBD de Oracle debemos seguir los siguient
         \includegraphics[scale=0.80]{creacion-oracle-1.png}
         \caption{Creación del espacio de trabajo y el usuario}
     \end{figure}
+
+    \item A continuación, vamos a descargar el archivo con el \textbf{script sql} para la creación de tablas. El archivo podemos encontrarlo \href{https://github.com/fcosueza/DAW/blob/main/BD/Apu ntes/archivos/bases-datos-tema-4-oracle.zip}{este enlace}  de github, y pulsando en \textbf{download} lo descargamos.
+
+    Una vez descargado, vamos a utilizar la \textbf{línea de comandos de SQL} para ejecutar el archivo descargado. Para acceder a la línea de comandos debemos hacer lo siguiente:
+
+    \begin{enumerate}
+        \item Vamos a \textbf{Inicio > Todos los Programas > Oracle Database 11g Express Edition}.
+        \item Pulsando en \textbf{Run SQL Command Line} aparecerá la siguiente pantalla:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.50]{creacion-oracle-2.png}
+            \caption{Línea de comandos de SQL en Oracle}
+        \end{figure}
+    \end{enumerate}
+
+    \item Una vez abierta la línea de comandos de SQL, debemos ejecutar la instrucción \textbf{connect TAREA\textbackslash ANA}, que corresponde al espacio de trabajo creado anteriormente con la contraseña del usuario administrador en mayúsculas.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{creacion-oracle-3.png}
+        \caption{Conexión al espacio de trabajo creado}
+    \end{figure}
+
+    Una vez ejecutada la instrucción, si se ha realizado correctamente, se nos mostrará el mensaje \textbf{Connected}, indicándonos que se ha realizado la conexión.
+
+    \item Una vez realizada la conexión, podemos proceder a ejecutar el archivo descargado anteriormente, indicándolo del de la siguiente manera: \textbf{@ruta\_archivo/BD04\_CONT\_R07\_02.sql}, como se muestra en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{creacion-oracle-4.png}
+        \caption{Ejecución del script proporcionado}
+    \end{figure}
+
+    Si todo se ha realizado correctamente, la aplicación nos mostrará un mensaje \textbf{Table created}, por cada tabla nueva que se haya creado, así como una mensaje  \textbf{1 row created} por cada dato creado.
+
+    \item Por último, ya solo nos queda desconectar de la base de datos para poder consultar las tablas y datos creados desde la aplicación gráfica. Para ello, introducimos el comando \textbf{DISCONNECT} y pulsamos \textbf{Enter}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{creacion-oracle-5.png}
+        \caption{Desconexión de la base de datos}
+    \end{figure}
 \end{enumerate}
+
+\subsection{Creación de las Tablas en MySQL}
 
 % Glossary
 
