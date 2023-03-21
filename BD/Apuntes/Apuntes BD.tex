@@ -1277,9 +1277,7 @@ El criterio de búsqueda o condición puede ser más o menos sencillo y para cre
             \begin{verbatim}
 
 
-                SELECT nombre, apellido1, apellido2
-                FROM ASISTENTE
-                WHERE sexo = 'H';
+          SELECT nombre, apellido1, apellido2 FROM ASISTENTE WHERE sexo = 'H';
             \end{verbatim}
         \end{tcolorbox}
     \end{figure}
@@ -1292,9 +1290,7 @@ El criterio de búsqueda o condición puede ser más o menos sencillo y para cre
             \begin{verbatim}
 
 
-                SELECT nombre
-                FROM empleado
-                WHERE salario < 2000;
+                SELECT nombre FROM empleado WHERE salario < 2000;
             \end{verbatim}
         \end{tcolorbox}
     \end{figure}
@@ -1360,6 +1356,78 @@ Con esta cláusula, podemos \textbf{ordenar} la respuesta que recibimos a nuestr
     \end{verbatim}
 \end{tcolorbox}
 
+Después de cada columna de ordenación se puede incluir el \textbf{tipo de ordenación} (ascendente o descendente) utilizando las palabras reservadas \textbf{ASC} o \textbf{DESC}. Por defecto, la ordenación es de tipo ascendente.
+
+Debes saber que es posible \textbf{ordenar} por \textbf{mas de una columna}. Es más, puedes ordenar no solo por columnas sino a través de una expresión creada con columnas, una constante o funciones SQL.
+
+También se puede referenciar el campo por su número de orden en lugar de su nombre, es decir, referenciarlo por su posición en la lista de selección.
+
+\begin{itemize}
+    \item \textbf{Oracle}:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+        SELECT nombre, apellido1, apellido2,
+        FROM ASISTENTE
+        ORDER BY apellido1, apellido2, nombre;
+
+        -- O bien seleccionandolo por el número de campo
+
+        SELECT nombre, apellido1, apellido2, empresa FROM ASISTENTE ORDER BY 4;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+               SELECT nombre, cddep FROM empleado ORDER BY cddep, nombre;S
+
+               SELECT nombre, cddep, salario FROM empleado ORDER BY 3;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Hay que tener en cuenta que si colocamos un \textbf{número mayor que la cantidad de campos} de la lista de selección, aparecerá un \textbf{mensaje de error} y la consulta no se ejecutará. Además, no todos los \textbf{tipos de datos}  sirven para ordenar, solo servirán aquellos de tipo \textbf{carácter}, \textbf{número} y \textbf{fecha}.
+
+\subsection{Tipos de JOIN}
+La palabra \textbf{JOIN} significa unir, y precisamente ese es su uso en SQL. Esta sentencia se usa para \textbf{combinar filas} de distintas tablas con campos comunes entre ellas. Hay diferentes tipos de \textbf{JOIN}, los cuales podemos ver en la siguiente figura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{tipos-join.png}
+    \caption{Tipos de JOIN}
+\end{figure}
+
+A continuación vamos a explicar un poco cada tipo y a poner un ejemplo de cada uno de ellos.
+
+\begin{itemize}
+    \item \textbf{INNER JOIN}: devuelve como resultado la selección de las distintas filas que tengan columnas en ambas tablas. Por ejemplo, si tenemos dos tablas, Empleados y Departamentos, y queremos listar los departamentos al cual pertenece cada empleado, la sentencia sería la siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT de.nombre, e.nombre
+                FROM departamento de
+                INNER JOIN empleados e
+                ON de.id = e.departamento ;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+\end{itemize}
 
 % Apéndice
 \appendix
