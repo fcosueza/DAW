@@ -1117,7 +1117,248 @@ Aquí vamos a exponer los diferentes diagramas de la base de datos que vamos a u
 Además os recomendamos que consultéis el apéndice \textbf{Anexos Tema 4} donde se explica más detalladamente como crear las bases de datos, tanto en Oracle como MySQL, que vamos a emplear en esta unidad.
 
 \section{La Sentencia SELECT}
+En esta unidad, como hemos comentado, vamos a estudiar la realización de \textbf{consultas} a una bases de datos. El lenguaje SQL nos proporciona la sentencia \textbf{SELECT} para realizar dichas consultas, permitiéndonos recuperar o seleccionar datos de una o varias tablas.
 
+Esta sentencia consta de 4 partes básicas:
+
+\begin{itemize}
+    \item \textbf{Cláusula SELECT}, seguida de la descripción de lo que se desea ver, es decir, de los \textbf{nombres de la columnas} que quieres que se muestren, separados por comas simples. Esta parte es \textbf{obligatoria}.
+
+    \item \textbf{Cláusula FROM}, seguida del \textbf{nombre} de la \textbf{tabla o tablas} de las que queremos consultar las columnas, es decir, de donde quieres extraer los datos. Esta parte también es \textbf{obligatoria}.
+
+    \item \textbf{Cláusula WHERE}, seguida de un \textbf{criterio de selección} o \textbf{condición}. Esta parte es \textbf{opcional}.
+
+    \item \textbf{Cláusula ORDER BY}, seguida por un criterio de ordenación. Esta cláusula también es \textbf{opcional}.
+\end{itemize}
+
+Por lo tanto, una sentencia SELECT completa quedaría de la siguiente forma:
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \tiny
+        \begin{verbatim}
+
+ SELECT [ALL | DISTINCT] columna1, columna2, ... FROM tabla1, tabla2, ... WHERE condición1, ... ORDER BY ordenación;
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Las cláusulas \textbf{ALL} y \textbf{DISTINC} son opcionales, y su funcionalidad es la siguiente:
+
+\begin{itemize}
+    \item \textbf{ALL}: esta cláusula indica que se quieren seleccionar todas las filas, \textbf{estén o no repetidas}. Es el \textbf{valor por defecto} y no se suele especificar.
+
+    \item \textbf{DISTINC}: esta cláusula indica que las filas repetidas se deben suprimir del resultado.
+\end{itemize}
+
+En los siguientes puntos, veremos más a fondo cada una de las cláusulas que acabamos de ver.
+
+\subsection{Cláusula SELECT}
+Esta cláusula es la principal de la sentencian \textbf{SELECT}, que nos permitirá seleccionar la información que queremos obtener. Además de ser obligatoria, debemos tener en cuenta lo siguiente:
+
+\begin{itemize}
+    \item \textbf{Se pueden nombrar} a las columnas anteponiendo el nombre de la tabla de la que proceden, aunque esto es opcional, el resultado sería así: \textbf{nombretabla.nombrecolumna}.
+
+    \item Si queremos \textbf{incluir todas las columnas} podemos usar el comodín \textbf{asterisco} (*). Por ejemplo: \textbf{SELECT * FROM nombretabla}.
+
+    \item También podemos \textbf{ponerle alias a los nombres} de las columnas. Cuando se consulta una base de datos, los nombres de las columnas se usan como cabeceras de presentación. Si este resulta largo, corto o poco descriptivo, podemos usar un alias. Para ello, ponemos a continuación del nombre de la columna, el alias que le demos a esta entre comillas. Por ejemplo:
+
+    \begin{itemize}
+        \item \textbf{Oracle}:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+                     SELECT nombre "Nombre de la Sala" FROM SALA;
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+         \item \textbf{MySQL}:
+
+         \begin{figure}[H]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+
+
+                     SELECT nombre "Nombre de la Sala" FROM SALA;
+
+                     SELECT nombre as "Nombre empleado" FROM empleado;
+             \end{verbatim}
+         \end{tcolorbox}
+         \end{figure}
+    \end{itemize}
+
+    \item También podemos \textbf{sustituir} el nombre de las columnas por \textbf{\gls{constantes}}, \textbf{\gls{expresiones}} o \textbf{\gls{funciones}} SQL, como vemos en los siguientes ejemplos.
+
+    \begin{itemize}
+        \item \textbf{Oracle}:
+
+        \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+                     SELECT 4*3/100 "MiExpresión",capacidad FROM SALA;
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        \item \textbf{MySQL}:
+
+         \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+                    SELECT 4*3/100 "MiExpresión", nombre FROM empleado;
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Cláusula FROM}
+Al realizar una sentencia SELECT debemos especificar de donde vamos a extraer los datos, es decir, de que tablas vamos a recuperar la información, para ello disponemos de la cláusula \textbf{FROM}.
+
+En esta cláusula es donde se \textbf{definen} los \textbf{nombres de las tablas}. Si aparecen más de un tabla, éstas irán separadas por comas.  A este tipo de consulta se denomina \textbf{consulta combinada} o \textbf{join}. Más adelante veremos que para que este tipo de consultas puedan realizarse deberemos aplicar una condición de combinación a través de la clausula \textbf{WHERE}.
+
+En el caso de \textbf{Oracle}, también puedes añadir el nombre de usuario del \textbf{propietario} de estas tablas, indicándolo así \textbf{USUARIO.TABLA}, pudiendo así distinguir entre tablas de un usuario y otro.
+
+Tanto en \textbf{Oracle} como en \textbf{MySQL} pueden utilizarse un alias en las tablas para abreviar, en este casi, \textbf{no es necesario} encerrar el alias \textbf{entre comillas}, como en el caso de SELECT.
+
+\begin{itemize}
+    \item \textbf{Oracle}:
+
+     \begin{figure}[H]
+     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+         \scriptsize
+         \begin{verbatim}
+
+
+                            SELECT * FROM CONFERENCIA C;
+         \end{verbatim}
+     \end{tcolorbox}
+     \end{figure}
+
+     \item \textbf{MySQL}:
+
+     \begin{figure}[H]
+     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+         \scriptsize
+         \begin{verbatim}
+
+
+                             SELECT * FROM empleado e;
+         \end{verbatim}
+     \end{tcolorbox}
+     \end{figure}
+\end{itemize}
+
+\subsection{Cláusula WHERE}
+Hasta ahora hemos podido usar la sentencia SELECT para obtener todas o un subconjunto de columnas de una o varias tablas, pero esta selección afectaba a todas las filas de la tabla. Si queremos restringir esta selección a un subconjunto de filas, debemos especificar alguna condición que deban cumplir aquellos registros que queremos seleccionar. Para esto, debemos emplear la cláusula \textbf{WHERE}.
+
+A continuación de la palabra \textbf{WHERE} será donde pongamos la condición que han de cumplir las filas para salir  como resultados de dicha consulta.
+
+El criterio de búsqueda o condición puede ser más o menos sencillo y para crearlo se pueden combinar operadores de diversos tipos, funciones o expresiones más o menos complejas.
+
+\begin{itemize}
+    \item \textbf{Oracle}:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre, apellido1, apellido2
+                FROM ASISTENTE
+                WHERE sexo = 'H';
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre
+                FROM empleado
+                WHERE salario < 2000;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Cláusula HAVING}
+En el apartado anterior veíamos las funciones de \textbf{WHERE}, el problema es que si en la condición queremos incluir operadores aritméticos, como \textbf{SUM}, \textbf{MAX}, \textbf{COUNT}.., ya no sería posible utilizarlo. Aquí es cuando viene en nuestra ayuda \textbf{HAVING}.
+
+Si cuando hacemos una consulta queremos restringir la selección a un subconjunto de filas especificando una condición aritmética debemos usar la clausula \textbf{HAVING}.
+
+Por lo tanto, si queremos saber cuando debemos usar \textbf{HAVING} o \textbf{WHERE} debemos tener en cuenta esta condición, ademas de que \textbf{WHERE} se usa para operar sobre \textbf{registros individuales} mientras \textbf{HAVING} se usa para operar sobre conjuntos de registros.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si en nuestra tabla \textbf{ASISTENTE}, necesitáramos un listado de los asistentes a más de dos películas, bastaría con crear la siguiente consulta.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre, apellido1, apellido2
+                FROM ASISTENTE
+                GROUP BY nombre
+                HAVING count(peliculas) > 2;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si en nuestra tabla \textbf{empleado}, necesitáramos un listado de los empleados con un salario inferior a 200€, bastaría con crear la siguiente consultar:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre
+                FROM empleado
+                GROUP BY nombre
+                HAVING AVG(salario) < 200;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Normalmente \textbf{HAVING} suele ir acompañado de \textbf{GROUP BY}, ya que éste opera sobre los grupos que devuelve la la sentencia \textbf{GROUP BY}.
+
+\subsection{Cláusula ORDE BY}
+En la consulta del punto anterior hemos obtenido una lista de nombres y apellidos de los empleados. Sería conveniente que quedara ordenador por apellidos ya que es más práctico. Para ello, vamos a usar la cláusula \textbf{ORDER BY}.
+
+Con esta cláusula, podemos \textbf{ordenar} la respuesta que recibimos a nuestra consulta especificando un \textbf{criterio de ordenación}. Su sintaxis sería la siguiente:
+
+\begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+    \scriptsize
+    \begin{verbatim}
+
+
+      SELECT [ALL | DISTINCT] columna1, columna2, ...
+      FROM tabla1, tabla2, ...
+      WHERE condición1, condición2, ...
+      ORDER BY columna1 [ASC | DESC], columna2 [ASC | DESC], …, columnaN [ASC | DESC];
+    \end{verbatim}
+\end{tcolorbox}
 
 
 % Apéndice
