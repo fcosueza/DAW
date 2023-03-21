@@ -1422,12 +1422,69 @@ A continuación vamos a explicar un poco cada tipo y a poner un ejemplo de cada 
                 SELECT de.nombre, e.nombre
                 FROM departamento de
                 INNER JOIN empleados e
-                ON de.id = e.departamento ;
+                ON de.id = e.departamento;
             \end{verbatim}
         \end{tcolorbox}
     \end{figure}
 
+    \item \textbf{RIGHT JOIN}: devuelve como resultado todas las filas de la tabla de la derecha más las coincidencias con la tabla de la izquierda. Por ejemplo, si tenemos dos tablas, Empleados y Proyectos, vamos a listar los empleados que están asignados a algún proyecto.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+SELECT p.nombre, e.nombre FROM proyectos p RIGHT JOIN empleados e  ON p.id = e.proyecto;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{LEFT JOIN}: devuelve como resultado todas las filas de la tabla izquierda más las coincidencias con la tabla de la derecha. Por ejemplo, si tenemos dos tablas Empleados y Proyectos, vamos a listar los empleados y aparecerán los proyectos que están asignados a algún empleado:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+SELECT p.nombre, e.nombre FROM proyectos p LEFT JOIN empleados e  ON p.id = e.proyecto;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{OUTER JOIN} o \textbf{FULL OUTER JOIN}: devuelve como resultado todas las filas de la tabla de la derecha y todas las filas de la tabla de la izquierda. Aparecerá \textbf{NULL} cuando no haya una coincidencia. Por ejemplo, si tenemos dos tablas Empleados y Proyectos, vamos a listar todos los proyectos y todos los empleados:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+SELECT p.nombre, e.nombre FROM proyectos p OUTER JOIN empleados e ON p.id = e.proyecto;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    La opción \textbf{OUTER JOIN} no existe en \textbf{MySQL}, por lo que cuando queramos usar una sentencia similar deberemos usar la cláusula \textbf{UNION}, entre dos consultas de tipo \textbf{LEFT JOIN} y \textbf{RIGHT JOIN}, como se muestra a continuación.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+SELECT p.nombre, e.nombre FROM proyectos p LEFT JOIN empleados e  ON p.id = e.proyecto
+
+UNION
+
+SELECT p.nombre, e.nombre FROM proyectos p RIGHT JOIN empleados e  ON p.id = e.proyecto;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
 \end{itemize}
+
+\section{Operadores}
 
 % Apéndice
 \appendix
