@@ -1485,6 +1485,36 @@ SELECT p.nombre, e.nombre FROM proyectos p RIGHT JOIN empleados e  ON p.id = e.p
 \end{itemize}
 
 \section{Operadores}
+Como hemos visto en el punto anterior, con la cláusula \textbf{WHERE} podíamos incluir expresiones para filtrar el conjunto de datos que queríamos consultar. Para crear estas expresiones, necesitamos usar diferentes operadores de modo que se puedan comparar, utilizar la lógica o elegir en función de la suma, etc...
+
+Los \textbf{operadores} son símbolos que permiten la realización de operaciones matemáticas, lógicas, concatenar cadenas.., entre otras cosas. \textbf{Oracle} reconoce 4 tipos diferentes de operadores. A saber:
+
+\begin{enumerate}
+    \item \textbf{Relacionales} o de \textbf{comparación}.
+    \item \textbf{Aritméticos}.
+    \item De \textbf{concatenación}.
+    \item \textbf{Lógicos}.
+\end{enumerate}
+
+En los siguientes apartados vamos a ver cuales son cada uno de los operadores dentro de estas categorías, para que sirven y como se usan.
+
+\subsection{Operadores Relacionales}
+Los \textbf{operadores relacionales} nos permitirán \textbf{comparar expresiones}, que pueden ser valores concretos de campo, variables, etc...
+
+Son símbolos que se usan para comparar dos valores. Si el \textbf{resultado} de la comparación es \textbf{correcto}, la \textbf{expresión} considerada es \textbf{verdadera}, en \textbf{caso contrario}, es \textbf{falsa}.
+
+En la siguiente figura, puedes ver una tabla con todos los operadores relacionales que podemos usar en SQl y su significado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{operadores-relacionales.png}
+    \caption{Tabla de operadores relacionales}
+\end{figure}
+
+El \textbf{valor NULL} significa valor inexistente o desconocido y por tanto es tratado de forma diferente al resto de valores. Si queremos verificar que un valor es \textbf{NULL} los operadores que acabamos de ver no serán válidos. Deberemos usar el operador \textbf{IS NULL} o \textbf{IS NOT NULL} como se indica en la tabla, que nos devolverá verdadero si el valor es NULL o no respectivamente.
+
+Además, cuando se usa \textbf{ORDER BY}, los valores se NULL se muestran en primer lugar si se usa el modo ascendente o el último si se usa el descendente.
+
 
 % Apéndice
 \appendix
