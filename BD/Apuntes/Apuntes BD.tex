@@ -1546,6 +1546,184 @@ A continuación, vemos dos ejemplo del uso de operadores tanto en Oracle como My
     \end{figure}
 \end{itemize}
 
+\subsection{Operadores Aritméticos}
+Los \textbf{operadores aritméticos} son aquellos que nos permiten realizar cálculos matemáticos con valores numéricos. Con estos operadores, \textbf{es posible obtener} salidas en la cuales \textbf{una columna} sea el \textbf{resultado de un cálculo} y no un campo de una tabla
+
+En la siguiente tabla vemos los principales operadores aritméticos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{operadores-aritmeticos.png}
+    \caption{Operadores aritméticos en SQL}
+\end{figure}
+
+Ejemplo de usos de operadores aritméticos son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos obtener el precio de una conferencia aumentado en un 5\% en aquellas conferencia inferiores a 15€, podemos realizar la siguiente consulta:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT precio*1,05 FROM CONFERENCIA WHERE precio<15;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si queremos obtener el salario aumentado un 5\% de aquellos trabajadores que cobran menos de 2000€, la consulta será la siguiente:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT salario*1.05 FROM empleado WHERE salario<=2000;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Hay que tener en cuenta que que cuando una expresión se calcula sobre un valor \textbf{NULL} el resultado es el propio valor \textbf{NULL}.
+
+Además de estos operadores, en \textbf{Oracle} tenemos el operador '\textbf{||}', que nos permite \textbf{concatenar cadenas de caracteres}. Oracle puede, además, convertir automáticamente valores numéricos en cadenas de caracteres para una concatenación. En \textbf{MySQL}, en cambio, se usa la función \textbf{CONCAT(cadena1, cadena2,..)} para la concatenación de cadenas.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos mostrar juntos el primer y segundo apellido de un ponente, podemos usar la siguiente consulta:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre, apellido1 || apellido2 FROM PONENTE;
+
+
+                -- Si queremos dejar un espacio entre una apellido y otro...
+
+
+                SELECT nombre, apellido2 || " " || apellido2 FROM PONENTE;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: para obtener en una sola columna el nombre y el código de empleado, utilizamos la función CONCAT de la siguiente manera:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT CONCAT(cdemp, " ", nombre) FROM empleado;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Operadores Lógicos}
+Habrá ocasiones en las que tengamos que evaluar más de una expresión o necesitar verificar que se cumple una condición, varias o solo alguna de ellas. Para esto, tenemos los \textbf{operadores lógicos}. En la siguiente tabla, podemos ver los diferentes operadores lógicos que podemos usar en SQL:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{operadores-logicos.png}
+    \caption{Operadores lógicos en SQL}
+\end{figure}
+
+A continuación vemos dos ejemplos de uso de los operadores lógicos en Oracle y MySQL.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos obtener aquellas salas cuya capacidad esté entre 100 y 300 personas sería:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT nombre, capacidad FROM SALA WHERE capacidad>=100 AND capacidad<=300;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si queremos obtener aquellos empleados cuyo salario sera menor o igual a 2000€ o superior a 2500€.
+\end{itemize}
+
+\subsection{Precedencias}
+Con frecuencia utilizaremos la sentencia \textbf{SELECT} con expresiones muy extensas y resultará difícil saber que parte de dicha expresión se evaluará primero. Por ello, es conveniente saber el orden de precedencia de los diferentes operadores que hemos visto. Así, ésto se evaluarán con el siguiente orden:
+
+\begin{enumerate}
+    \item Se evalúa la multiplicación (\textbf{*}) y la división (\textbf{/}) al mismo nivel.
+    \item A continuación sumas (\textbf{+}) y restas (\textbf{-}).
+    \item Concatenación (\textbf{||}) (solo en \textbf{Oracle})
+    \item Todas las comparaciones (\textbf{<}, \textbf{>}, ...)
+    \item Los operadores \textbf{IS NULL}, \textbf{IS NOT NULL}, \textbf{LIKE} y \textbf{BETWEEN}.
+    \item \textbf{NOT}.
+    \item \textbf{AND}.
+    \item \textbf{OR}.
+\end{enumerate}
+
+En el caso de que queramos variar este orden, siempre podemos \textbf{usar paréntesis} para agrupar las expresiones que queremos que se evalúen en primer lugar.
+
+\section{Consultar Calculadas}
+En ocasiones es interesante realizar operaciones con algunos campos para obtener información derivada de estos.
+
+Por ejemplo, si tenemos un campo precio, nos podría interesar mostrar los precios con el IVA añadido, o si tuviéramos un campo Sueldo, podríamos mostrar este más la suma de una Paga Extra. Estos son ejemplos simples, pero podemos construir expresiones mucho más complejas. 	Para ello, haremos uso de la \textbf{creación de campos calculados}.
+
+Los \textbf{operadores aritméticos} se pueden emplear para realizar cálculos en las consultas. Estos \textbf{campos calculados} se obtiene haciendo uso de la sentencia \textbf{SELECT} poniendo a continuación la expresión que queramos. Este tipo de consultas, \textbf{no modifica los valores originales}, de las columnas de la tabla/s en la que se esta realizando dicha consulta, unicamente mostrará una nueva columna con los valores calculados. Por ejemplo:
+
+\begin{itemize}
+    \item \textbf{Oracle}: podemos crear una columna con el valor de precio + 10, como podemos ver en la siguiente consulta.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT tema, precio, precio + 10 FROM CONFERENCIA;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    También podríamos asignar un alias a la columna para que nos muestre un nuevo nombre en esta, añadiendo \textbf{AS} después de la expresión y el \textbf{nombre del alias}.
+
+        \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT tema, precio, precio + 10 AS PrecioNuevo FROM CONFERENCIA;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: ahora vamos a crear una nueva columna llamada SalarioNuevo en MySQL:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT nombre, salario, salario + 25 AS SalarioNuevo FROM empleado;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\section{Funciones}
+En casi todos los sistemas de gestiones de datos existen \textbf{funciones} que nos ayudan a crear consultas más complejas. Dichas funciones varían según el SGBD. Aquí, veremos en concreto las de \textbf{Oracle}.
+
+Las \textbf{funciones} son realmente operaciones que se realizan sobre los datos y que realizan un cálculo determinado. Para ello necesitamos uno datos de entrada, llamados \textbf{parámetros} en función de los cuales se realizarán los cálculos adecuados. Normalmente, estos parámetros se especifican entre paréntesis.
+
+Las funciones se pueden incluir en la cláusulas \textbf{SELECT}, \textbf{WHERE} y \textbf{ORDER BY}.
+
 
 % Apéndice
 \appendix
@@ -1652,112 +1830,7 @@ Ahora vamos a ver como realizar el mismo procedimiento para crear la base de dat
 
 Tras estos pasos, ya tendremos nuestra base de datos creada en el servidor MySQL. Si queremos podemos mostrar las bases de datos que este tiene usando la sentencia \textbf{SHOW databases}, o realizar algunas consultas genéricas, como \textbf{SELECT * from empleados}, para comprobar los diferentes elementos que tiene cada tabla.
 
-\subsection{Operadores Aritméticos}
-Los \textbf{operadores aritméticos} son aquellos que nos permiten realizar cálculos matemáticos con valores numéricos. Con estos operadores, \textbf{es posible obtener} salidas en la cuales \textbf{una columna} sea el \textbf{resultado de un cálculo} y no un campo de una tabla
 
-En la siguiente tabla vemos los principales operadores aritméticos.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=1]{operadores-aritmeticos.png}
-    \caption{Operadores aritméticos en SQL}
-\end{figure}
-
-Ejemplo de usos de operadores aritméticos son los siguientes:
-
-\begin{itemize}
-    \item \textbf{Oracle}: si queremos obtener el precio de una conferencia aumentado en un 5\% en aquellas conferencia inferiores a 15€, podemos realizar la siguiente consulta:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-            SELECT precio*1,05 FROM CONFERENCIA WHERE precio<15;
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-
-    \item \textbf{MySQL}: si queremos obtener el salario aumentado un 5\% de aquellos trabajadores que cobran menos de 2000€, la consulta será la siguiente:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-            SELECT salario*1.05 FROM empleado WHERE salario<=2000;
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-\end{itemize}
-
-Hay que tener en cuenta que que cuando una expresión se calcula sobre un valor \textbf{NULL} el resultado es el propio valor \textbf{NULL}.
-
-Además de estos operadores, en \textbf{Oracle} tenemos el operador '\textbf{||}', que nos permite \textbf{concatenar cadenas de caracteres}. Oracle puede, además, convertir automáticamente valores numéricos en cadenas de caracteres para una concatenación. En \textbf{MySQL}, en cambio, se usa la función \textbf{CONCAT(cadena1, cadena2,..)} para la concatenación de cadenas.
-
-\begin{itemize}
-    \item \textbf{Oracle}: si queremos mostrar juntos el primer y segundo apellido de un ponente, podemos usar la siguiente consulta:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-            SELECT nombre, apellido1 || apellido2 FROM PONENTE;
-
-
-            -- Si queremos dejar un espacio entre una apellido y otro...
-
-
-            SELECT nombre, apellido2 || " " || apellido2 FROM PONENTE;
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-
-    \item \textbf{MySQL}: para obtener en una sola columna el nombre y el código de empleado, utilizamos la función CONCAT de la siguiente manera:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-            SELECT CONCAT(cdemp, " ", nombre) FROM empleado;
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-\end{itemize}
-
-\subsection{Operadores Lógicos}
-Habrá ocasiones en las que tengamos que evaluar más de una expresión o necesitar verificar que se cumple una condición, varias o solo alguna de ellas. Para esto, tenemos los \textbf{operadores lógicos}. En la siguiente tabla, podemos ver los diferentes operadores lógicos que podemos usar en SQL:
-
-    \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.50]{operadores-logicos.png}
-    \caption{Operadores lógicos en SQL}
-\end{figure}
-
-A continuación vemos dos ejemplos de uso de los operadores lógicos en Oracle y MySQL.
-
-\begin{itemize}
-    \item \textbf{Oracle}: si queremos obtener aquellas salas cuya capacidad esté entre 100 y 300 personas sería:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-       SELECT nombre, capacidad FROM SALA WHERE capacidad>=100 AND capacidad<=300;
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-
-    \item \textbf{MySQL}: si queremos obtener aquellos empleados cuyo salario sera menor o igual a 2000€ o superior a 2500€.
-\end{itemize}
 % Glossary
 
 \glsaddall
