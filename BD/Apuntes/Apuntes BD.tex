@@ -1724,7 +1724,351 @@ Las \textbf{funciones} son realmente operaciones que se realizan sobre los datos
 
 Las funciones se pueden incluir en la cláusulas \textbf{SELECT}, \textbf{WHERE} y \textbf{ORDER BY}.
 
+Las funciones suelen tener la siguiente sintaxis:
 
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+                      NombreFunción (parámetro1, parámetro2, …)
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Las funciones \textbf{se pueden anidar} unas dentro de otras. Existen, además, una gran variedad de funciones para cada tipo de datos, siendo las principales:
+
+\begin{itemize}
+    \item Numéricas.
+    \item De cadenas de caracteres.
+    \item De manejo de fechas.
+    \item De conversión.
+    \item etc...
+\end{itemize}
+
+\subsection{Funciones Numéricas}
+Este tipo de funciones se emplean para trabajar con \textbf{campos numéricos}, permitiéndonos realizar una serie de operaciones sobre este tipo de dato. Las principales funciones de este tipo son las siguientes:
+
+\begin{itemize}
+    \item \textbf{ABS(n)}
+
+    Esta función calcula el \textbf{valor absoluto} de un número dado n.
+
+    \begin{itemize}
+        \item \textbf{Oracle}:
+
+        \begin{figure}[h]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+
+
+                SELECT ABS(-17) FROM DUAL;
+
+                -- Resultado: 17
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+         \item \textbf{MySQL}:
+
+            \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT ABS(-17);
+
+                -- Resultado: 17
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=cyan!30, colframe=white!20]
+            \normalsize
+
+        Observa que con MySQL no es necesario utilizar ninguna tabla. Basta con hacer la SELECT a la función. El resto de ejemplos expuestos funcionan igual. En MySQL los puedes probar sin poner la tabla DUAL.
+        \end{tcolorbox}
+    \end{figure}
+    \end{itemize}
+
+    \item \textbf{EXP(n)}:
+
+    Calcula el \textbf{exponencial}, es decir, exponente en base e, de un número dado n.
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT EXP(-17) FROM DUAL;
+
+                -- Resultado: 7.38
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{CEIL(n)}
+
+    Calcula el \textbf{valor entero} inmediatamente \textbf{superior o igual} a n.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT CEIL(17.4) FROM DUAL;
+
+                -- Resultado: 18
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+      \item \textbf{FLOOR(n)}
+
+      Calcula el \textbf{valor entero} inmediatamente \textbf{inferior o igual} a n.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT FLOOR(17.4) FROM DUAL;
+
+                -- Resultado: 17
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MOD(n, m)}
+
+    Calcula el \textbf{resto} resultante de \textbf{dividir n entre m}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT MOD(115, 2) FROM DUAL;
+
+                -- Resultado: 1
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{POWER(n, m)}
+
+    Calcula el valor de \textbf{elevar n} al \textbf{exponente m}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT POWER(4, 5) FROM DUAL;
+
+                -- Resultado: 1024
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{ROUND(n, decimales)}:
+
+    \textbf{Redondea} el número n al \textbf{siguiente número} con la \textbf{cantidad de decimales} indicada.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT ROUND(12.5876, 2) FROM DUAL;
+
+                -- Resultado: 12.59
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+      \item \textbf{SQRT(n)}
+
+      Calcula la \textbf{raíz cuadrada} de n.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT SQRT(25) FROM DUAL;
+
+                -- Resultado: 5
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{TRUNC(n, decimales)}:
+
+    \textbf{Trunca} el número n a la \textbf{cantidad de decimales} indicada. Si se omite el segundo argumento, se truncan todos los decimales. Si n es \textbf{negativo}, el número es truncado desde la parte entera.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT TRUNC(127.4567, 2) FROM DUAL;
+
+                -- Resultado: 127.45
+
+                SELECT TRUNC(4572.5678, -2) FROM DUAL;
+
+                -- Resultado: 4500
+
+                SELECT TRUNC(4572.5678, -1) FROM DUAL;
+
+                -- Resultado: 4570
+
+                SELECT TRUNC(4572.5678) FROM DUAL;
+
+                -- Resultado: 4572
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{SIGN(n)}
+
+    Si el parámetro n es un valor \textbf{positivo}, \textbf{devuelve 1}, si es \textbf{negativo}, \textbf{devuelve -1} y si el valor de n \textbf{es 0}, \textbf{devuelve 0}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT SIGN(-4) FROM DUAL;
+
+                -- Resultado: -1
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+    \end{itemize}
+
+
+\subsection{Funciones de Cadena de Caracteres}
+Una de las acciones más comunes que realizaremos es la manipulación de campos de tipo carácter o cadena de caracteres. Las principales funciones para este tipo de manipulación son las siguientes:
+
+\begin{itemize}
+    \item \textbf{CHR(n)}
+
+    Devuelve el carácter cuyo \textbf{valor codificado} es n.
+
+      \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT CHR(81) FROM DUAL;
+
+                -- Resultado: Q
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{ASCII(n)}
+
+    Devuelve el \textbf{valor ASCII }del carácter n.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT ASCII('O') FROM DUAL;
+
+                -- Resultado: 79
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{CONCAT(cad1, cad2)}
+
+    Devuelve la \textbf{cadena resultante} de \textbf{concatenar} las cadenas cad1 y cad2.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT CONCAT('Hola', 'Mundo') FROM DUAL;
+
+                -- Resultado: HolaMundo
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{LOWer(cad)}
+
+    Devuelve la \textbf{cadena} cad con todos los \textbf{caracteres en minúscula}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT LOWER('Hola') FROM DUAL;
+
+                -- Resultado: hola
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{UPPER(cad)}
+
+    Devuelve la \textbf{cadena} cad con todos los \textbf{caracteres en mayúscula}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT UPPER('Hola') FROM DUAL;
+
+                -- Resultado: HOLA
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{INITCAP(cad)}
+
+    Devuelve la \textbf{cadena} cad con el \textbf{primer carácter} en \textbf{mayúsculas}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                SELECT INITCAP('hola') FROM DUAL;
+
+                -- Resultado: Hola
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
 % Apéndice
 \appendix
 
