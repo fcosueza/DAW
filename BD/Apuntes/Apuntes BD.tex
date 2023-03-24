@@ -1515,6 +1515,37 @@ El \textbf{valor NULL} significa valor inexistente o desconocido y por tanto es 
 
 Además, cuando se usa \textbf{ORDER BY}, los valores se NULL se muestran en primer lugar si se usa el modo ascendente o el último si se usa el descendente.
 
+A continuación, vemos dos ejemplo del uso de operadores tanto en Oracle como MySQL.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos obtener el nombre completo de los ponentes cuyo código comienza por ESP ordenados alfabéticamente por el primer apellido seria:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+  SELECT nombre, apellido1, apellido2 FROM PONENTE WHERE codigo LIKE
+  'ESP%' ORDER BY apellido1;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si queremos obtener aquellos empleados cuyo salario es superior a 1000€ podemos crear la siguiente consulta:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+         SELECT nombre, salario FROM empleado WHERE salario > 1000;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
 
 % Apéndice
 \appendix
@@ -1621,6 +1652,112 @@ Ahora vamos a ver como realizar el mismo procedimiento para crear la base de dat
 
 Tras estos pasos, ya tendremos nuestra base de datos creada en el servidor MySQL. Si queremos podemos mostrar las bases de datos que este tiene usando la sentencia \textbf{SHOW databases}, o realizar algunas consultas genéricas, como \textbf{SELECT * from empleados}, para comprobar los diferentes elementos que tiene cada tabla.
 
+\subsection{Operadores Aritméticos}
+Los \textbf{operadores aritméticos} son aquellos que nos permiten realizar cálculos matemáticos con valores numéricos. Con estos operadores, \textbf{es posible obtener} salidas en la cuales \textbf{una columna} sea el \textbf{resultado de un cálculo} y no un campo de una tabla
+
+En la siguiente tabla vemos los principales operadores aritméticos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{operadores-aritmeticos.png}
+    \caption{Operadores aritméticos en SQL}
+\end{figure}
+
+Ejemplo de usos de operadores aritméticos son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos obtener el precio de una conferencia aumentado en un 5\% en aquellas conferencia inferiores a 15€, podemos realizar la siguiente consulta:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT precio*1,05 FROM CONFERENCIA WHERE precio<15;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si queremos obtener el salario aumentado un 5\% de aquellos trabajadores que cobran menos de 2000€, la consulta será la siguiente:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT salario*1.05 FROM empleado WHERE salario<=2000;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+Hay que tener en cuenta que que cuando una expresión se calcula sobre un valor \textbf{NULL} el resultado es el propio valor \textbf{NULL}.
+
+Además de estos operadores, en \textbf{Oracle} tenemos el operador '\textbf{||}', que nos permite \textbf{concatenar cadenas de caracteres}. Oracle puede, además, convertir automáticamente valores numéricos en cadenas de caracteres para una concatenación. En \textbf{MySQL}, en cambio, se usa la función \textbf{CONCAT(cadena1, cadena2,..)} para la concatenación de cadenas.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos mostrar juntos el primer y segundo apellido de un ponente, podemos usar la siguiente consulta:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT nombre, apellido1 || apellido2 FROM PONENTE;
+
+
+            -- Si queremos dejar un espacio entre una apellido y otro...
+
+
+            SELECT nombre, apellido2 || " " || apellido2 FROM PONENTE;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: para obtener en una sola columna el nombre y el código de empleado, utilizamos la función CONCAT de la siguiente manera:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            SELECT CONCAT(cdemp, " ", nombre) FROM empleado;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Operadores Lógicos}
+Habrá ocasiones en las que tengamos que evaluar más de una expresión o necesitar verificar que se cumple una condición, varias o solo alguna de ellas. Para esto, tenemos los \textbf{operadores lógicos}. En la siguiente tabla, podemos ver los diferentes operadores lógicos que podemos usar en SQL:
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{operadores-logicos.png}
+    \caption{Operadores lógicos en SQL}
+\end{figure}
+
+A continuación vemos dos ejemplos de uso de los operadores lógicos en Oracle y MySQL.
+
+\begin{itemize}
+    \item \textbf{Oracle}: si queremos obtener aquellas salas cuya capacidad esté entre 100 y 300 personas sería:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+       SELECT nombre, capacidad FROM SALA WHERE capacidad>=100 AND capacidad<=300;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{MySQL}: si queremos obtener aquellos empleados cuyo salario sera menor o igual a 2000€ o superior a 2500€.
+\end{itemize}
 % Glossary
 
 \glsaddall
