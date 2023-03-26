@@ -199,9 +199,10 @@ Esta tarea se ha realizado en Linux, el cual distingue entre mayúsculas y minú
             \begin{verbatim}
 
 
-        SELECT ci.fecha, ci.hora, cl.nombre, cl.apellidos, ci.numero_fisio
-        FROM cita ci, cliente cl WHERE ci.a_domicilio = "si"
-        ORDER BY ci.fecha, ci.hora ASC;
+            SELECT ci.fecha, ci.hora, ci.numero_fisio, cl.nombre, cl.apellidos
+            FROM cita ci, cliente cl
+            WHERE ci.DNI_cliente = cl.DNI AND ci.a_domicilio = "si"
+            ORDER BY ci.fecha, ci.hora ASC;
             \end{verbatim}
         \end{tcolorbox}
     \end{figure}
@@ -273,6 +274,133 @@ SELECT MAX(precio) AS ProductoMasCaro, MIN(precio) AS ProductoMasBarato FROM pro
         \centering
         \includegraphics[scale=0.25]{resultado-consulta-8.png}
         \caption{Resultado Consulta nº 8}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+SELECT DNI_cliente, numero_fisio, fecha, precio FROM cita WHERE DNI_cliente = "27256987J";
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{resultado-consulta-9.png}
+        \caption{Resultado Consulta nº 9}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+    SELECT ci.numero_fisio, DATE_FORMAT(ci.fecha, "%d/%m/%y")
+    FROM profesionales pr, cita ci
+    WHERE pr.numero_trabajador = ci.numero_fisio
+    AND ci.hora NOT BETWEEN pr.hora_inicio AND pr.hora_fin;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{resultado-consulta-10.png}
+        \caption{Resultado Consulta nº 10}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+              SELECT ci.fecha, cl.nombre, cl.apellido
+              FROM cita ci, cliente cl
+              WHERE ci.DNI_cliente = cl.DNI
+              AND ci.fecha=(SELECT MAX(fecha) FROM cita)
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.26]{resultado-consulta-11.png}
+        \caption{Resultado Consulta nº 11}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+          SELECT pr.nombre, pr.apellidos
+          FROM profesionales pr, profesor_pilates pl
+          WHERE pl.numero_trabajador_pilates = pr.numero_trabajador
+          AND pr.estado NOT IN ("Despedido", "Ausente");
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.26]{resultado-consulta-12.png}
+        \caption{Resultado Consulta nº 12}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+                SELECT pro.nombre, SUM(ve.cantidad) AS UnidadesVendidas
+                FROM productos pro, venden ve
+                WHERE pro.id = ve.id_producto
+                GROUP BY pro.nombre
+                ORDER BY UnidadesVendidas;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-13.png}
+        \caption{Resultado Consulta nº 13}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+                SELECT pro.nombre, pro.apellidos, pro.telefono
+                FROM profesionales pro, fisioterapeuta fi
+                WHERE pro.numero_trabajador = fi.numero_trabajador_fisio
+                AND (HOUR(pro.hora_fin) - HOUR(pro.hora_inicio)) < 5
+                AND pro.estado = "Trabajando";
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-14.png}
+        \caption{Resultado Consulta nº 14}
     \end{figure}
 \end{enumerate}
 
