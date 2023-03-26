@@ -108,6 +108,88 @@ Esta tarea se ha realizado en Linux, el cual distingue entre mayúsculas y minú
 
 \subsection{Apartado A}
 
+\begin{enumerate}
+    \item Solución:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+          SELECT * FROM cliente;  \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.28]{resultado-consulta-1.png}
+        \caption{Resultado Consulta nº 1}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+         SELECT nombre, stock FROM productos WHERE stock<50 ORDER BY stock ASC;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.28]{resultado-consulta-2.png}
+        \caption{Resultado Consulta nº 2}
+    \end{figure}
+
+    \item Solución:
+
+      \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+          SELECT nombre, apellidos, CONCAT(hora_inicio, " - ", hora_fin) AS horario
+          FROM profesionales
+          WHERE hora_inicio > "15:00";
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.28]{resultado-consulta-3.png}
+        \caption{Resultado Consulta nº 3}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+        SELECT * FROM cliente WHERE baja = "si" AND descuento > 40;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.28]{resultado-consulta-4.png}
+        \caption{Resultado Consulta nº 4}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Apartado B}
+
+
 
 % Bibliography
 
