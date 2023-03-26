@@ -189,6 +189,92 @@ Esta tarea se ha realizado en Linux, el cual distingue entre mayúsculas y minú
 
 \subsection{Apartado B}
 
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+        SELECT ci.fecha, ci.hora, cl.nombre, cl.apellidos, ci.numero_fisio
+        FROM cita ci, cliente cl WHERE ci.a_domicilio = "si"
+        ORDER BY ci.fecha, ci.hora ASC;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-5.png}
+        \caption{Resultado Consulta nº 5}
+    \end{figure}
+
+    \item Solución:
+
+      \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+SELECT MAX(precio) AS ProductoMasCaro, MIN(precio) AS ProductoMasBarato FROM productos;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-6.png}
+        \caption{Resultado Consulta nº 6}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+     SELECT pr.estado, COUNT(pi.numero_trabajador_pilates) AS profesores_pilates
+     FROM profesionales pr
+     LEFT JOIN profesor_pilates pi
+     ON pi.numero_trabajador_pilates = pr.numero_trabajador
+     GROUP BY pr.estado;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-7.png}
+        \caption{Resultado Consulta nº 7}
+    \end{figure}
+
+    \item Solución:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+      SELECT MONTHNAME(fecha) AS Mes, COUNT(*) AS NumeroDeCitas FROM cita
+      WHERE YEAR(fecha) = "2022"
+      GROUP BY MONTHNAME(fecha)
+      ORDER BY COUNT(*) DESC;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{resultado-consulta-8.png}
+        \caption{Resultado Consulta nº 8}
+    \end{figure}
+\end{enumerate}
 
 
 % Bibliography
