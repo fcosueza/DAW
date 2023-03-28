@@ -1,0 +1,177 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{10ex}
+\normalfont \normalsize
+\Huge \textbf{Tarea 5: Manipulación de Datos de una Base de Datos Relacional Utilizando MySQL}
+}
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{62ex}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Centro}: & IES Aguadulce \\
+        \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
+        \textbf{Asignatura}: & Bases de Datos\\
+        \textbf{Tema}: & Tema 5 - Tratamiento de Datos\\
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\section{Caso Práctico}
+
+Ana sigue trabajando con la BD anterior de la empresa CUIDA TU CUERPO. Ahora deben trabajar con la información y deben utilizar las sentencias INSERT, DELETE y UPDATE del lenguaje SQL. También utilizarán la herramienta gráfica de MySQL para realizar algunas de estas operaciones.
+
+De la misma forma que en la unidad anterior, tendrás que apoyar a Ana para realizar las sentencias y operaciones necesarias que se piden sobre la misma BD
+
+\section{Enunciado}
+Para poder acceder a información de una Base de Datos, ésta debe estar creada y debe contener registros previamente. Por tanto, lo primero que debes realizar es descargar el script que contiene las tablas y datos que encontrarás en el apartado 2.- ``Información de interés'', además de seguir todos los consejos y recomendaciones para elaborar esta tarea que en dicho apartado se explican.
+
+Lo que realmente se pide en la tarea es que ayudes a Ana redactando las sentencias SQL que ejecuten cada una de las siguientes consultas correctamente en MySQL.
+
+Debes realizar cada una de las siguientes operaciones utilizando para ello las indicaciones de cada apartado:
+
+\subsection{Apartado A}
+Utilizando la \textbf{interfaz gráfica} de \textbf{MySQL Workbench} (sin utilizar sentencias SQL), debes realizar las siguientes operaciones adjuntando al menos \textbf{DOS capturas} de pantalla de cada subapartado. En las capturas de pantalla es totalmente obligatorio disponer las ventanas de forma que se visualice tu usuario de la plataforma (foto y nombre).
+
+\begin{enumerate}
+    \item  Insertar un nuevo registro en la tabla CLIENTE con los siguientes datos:
+
+    \begin{itemize}
+        \item DNI: 88256456M
+        \item Nombre: Jacinto
+        \item Apellidos: Martín Lago
+        \item Teléfono: 658986241
+        \item Descuento: 10
+        \item Baja: No
+    \end{itemize}
+
+    \item A la única cita que tenemos el día 18-12-2022 le vamos a modificar la duración por 55 minutos, la hora a las 12:00 y el precio a 25.99. Modifica los datos en la tabla correspondiente.
+
+    \item Por políticas de la empresa, se ha decidido eliminar los Anabolizantes de nuestros productos. Hay que borrar el registro de la tabla correspondiente.
+\end{enumerate}
+
+\subsection{Apartado B}
+Utilizando \textbf{sentencias SQL} en la herramienta \textbf{MySQL Workbench}, debes realizar las siguientes operaciones indicando la sentencia que ejecutarías para realizar cada uno de los subapartados:
+
+\begin{enumerate}
+    \item Insertar los siguientes datos en la tabla CITA teniendo en cuenta que debes insertar sólo los valores necesarios en los campos correspondientes.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{tabla-enunciado.png}
+        \caption{Datos para introducir en la tabla CITA}
+    \end{figure}
+
+    \item Incrementar un 15\% el precio de todos los productos que sean vendajes (da igual el tipo de vendaje). (Debes hacerlo con una única sentencia).
+
+    \item Eliminar las citas cuyo precio sea menor de 25 y estén asignadas a fisioterapeutas que no estén trabajando actualmente. (Debes hacerlo con una única sentencia).
+
+    \item Incrementa en 5 unidades el descuento de los clientes que han tenido 3 o más citas en 2022, siempre y cuando no tengan ya un descuento superior a 60. (Debes hacerlo con una única sentencia)
+
+    \item Insertar todos los profesionales que estén en estado ‘Despedido’ en la tabla PROFESIONALES\_BAJA, incluyendo además de los campos propios de la tabla PROFESIONALES, la duración de su jornada laboral. (Debes hacerlo con una única sentencia).
+
+    \item Decrementar un año de experiencia a los profesores de pilates que han impartido menos de 3 clases en el último año. (Debes hacerlo con una única sentencia).
+
+    \item Insertar en la tabla RANKING\_PRODUCTOS por cada producto, su código, su nombre y la cantidad total pedida, siempre y cuando se hayan vendido más de 15 unidades del producto. (Debes hacerlo con una única sentencia).
+
+    \item Bloquear la tabla profesionales en modo lectura y la tabla cliente en modo escritura, seguidamente intenta actualizar el nombre del profesional con dni 56948768S por Jose. Luego, actualiza el nombre del cliente con dni 27256987J por Antonia. Muestra capturas del resultado de las distintas sentencias, explicando los resultados obtenidos.
+
+    \item Inicia una transacción. Elimina todos los profesionales que su estado sea ‘despedido’. Deshacer la transacción y comprobar que los registros no han sido eliminados.
+\end{enumerate}
+
+\section{Solución}
+En esta sección se incluyen las soluciones a los ejercicios propuestos en el enunciado anterior.
+
+\subsection{Solución: Apartado A}
+En primer lugar, vamos a usar la \textbf{interfaz gráfica} de \textbf{MySQL Workbench} para realizar la manipulación de las tablas de la base de datos creada.
+
+\begin{enumerate}
+    \item Primero hemos introducido un nuevo registro en la tabla \textbf{CLIENTE}. Desplegando el menú del schema creado, llamado \textbf{tarea5\_bd2223}, hemos pulsado en el \textbf{icono de la tabla} que nos aparece a la izquierda. Una vez ahí, hemos pulsado en el icono \textbf{Insert New Row} y rellenado los campos, pulsando posteriormente en el botón \textbf{Apply} abajo a la derecha. Como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-1.png}
+        \caption{Menu Apply de Workbench para añadir un registro}
+    \end{figure}
+
+    Una vez aplicado, la base de datos se ha actualizado y el registro a sido creado correctamente, lo que podemos comprobar cerrando la base de datos y haciendo una query \textbf{SELECT * FROM cliente;}, como vemos a continuación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-2.png}
+        \caption{Tabla cliente actualizada con el nuevo registro}
+    \end{figure}
+
+    \item En este punto hemos cambiado los valores de algunos campos en un registro. Para ello, hemos realizado el mismo procedimiento que en el punto anterior, pero en vez de pulsar en el icono para añadir una nueva fila, hemos pulsados en los campos del registro que queremos modificar y hemos cambiado sus valores, pulsando en Apply a continuación.
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-3.png}
+        \caption{Menu Apply de Workbench para modificar un registro}
+    \end{figure}
+
+    Para comprobar que el cambio se ha realizado correctamente, hemos realizado la consulta \textbf{SELECT * FROM cita WHERE fecha = "2022-12-18";}, comprobando en el resultado que el registro está modificado correctamente.
+
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-4.png}
+        \caption{Registro de la tabla cita modificado correctamente}
+    \end{figure}
+
+    \item Por último en este apartado, vamos a eliminar una registro de la tabla \textbf{productos}. En este caso, accediendo a la tabla como en los puntos anteriores, hemos seleccionado la fila que queremos borrar y pulsando con el botón derecho sobre ella, hemos elegido la opción \textbf{Delete Row(s)}. Tras lo que hemos pulsado en el botón Apply.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-5.png}
+        \caption{Menu contextual del registro con la opción Delete Row(s)}
+    \end{figure}
+
+    Hemos realizado la consulta \textbf{SELECT * FROM productos;}, y como podemos ver en la siguiente captura, el registro de \textbf{Anabolizantes} se ha eliminado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{workbench-5.png}
+        \caption{Registro de anabolizantes borrado correctamente}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Apartado B}
+
+En este apartado, vamos a realizar las modificaciones en la base de datos empleando \textbf{sentencias SQL}, en vez de mediante la interfaz gráfica.
+
+\begin{enumerate}
+    \item
+\end{enumerate}
+
+% Bibliography
+
+%\newpage
+%\bibliography{citas}
+%\bibliographystyle{unsrt}
+
+\end{document}
