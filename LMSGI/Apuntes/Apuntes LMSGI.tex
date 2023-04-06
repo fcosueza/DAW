@@ -2902,6 +2902,140 @@ En esta última sección vamos a incluir una serie de enlaces con documentación
 
 \chapter{Utilización de Lenguajes de Marcas en Entornos Web}
 
+\chapter{Utilización de Lenguajes de Marcas en la Sindicación de Contenidos}
+En este tema vamos a estudiar como podemos utilizar los lenguajes de marcas para la \textbf{sindicación de contenidos}, un método que nos permite distribuir contenidos en la Web de forma que los usuarios puedan acceder a esta información basándose solo en los contenidos de su interés.
+
+\section{Sindicación de Contenidos}
+La sindicación de contenidos, desde el punto de vista Web, permite a \textbf{un sitio Web} utilizar los \textbf{servicios o contenidos} ofertados por otra web diferente. Estos servicios, juntos con los \textbf{metadatos} que tienen asociados a ellos en el sitio original, constituyen lo que conocemos como \textbf{feeds} o \textbf{canales de contenido}.
+
+Esta redifusión suele realizarse bajo una \textbf{licencia de normas de uso}, en lugar de mediar un contrato para regular los derechos de los contenidos.
+
+En la actualidad, la \textbf{redifusión Web} consiste en ofrecer en una página contenidos desde otra fuente web, permitiendo que los usuarios obtengan actualizaciones sobre dichos contenidos. Las \textbf{fuentes} suelen codificarse en lenguaje \textbf{XML}, aunque es válido hacerlo en cualquier lenguaje que pueda transportar el protocolo http.
+
+\subsection{Características}
+Para realizar esta sindicación de contenidos deberemos conseguir que la información, almacenada por ejemplo en un fichero local de un servidor, sea mostrada a los usuarios/as que quieran leerla. En el caso de que la información se haya codificado en un documento HTML, esto se llevará a cabo actualizando dicho documento en el directorio adecuado del servidor.
+
+Actualmente es habitual el uso de un \textbf{CMS} (Content Management System), en cuyo caso los datos se encontrarán en un \textbf{repositorio} y antes de ser servidos al cliente sufren alguna transformación para pasarlos al formato adecuado.
+
+Esta \textbf{transformación} puede corresponder a alguno de los siguientes casos:
+
+\begin{itemize}
+    \item Documento XML -> Transformación XSLT -> Documento XHTML
+    \item Bases de Datos -> Script en Perl -> Documento HTML
+    \item Texto plano -> ASP -> Documento HTML
+    \item Mente del autor -> Editor de textos -> Documento HTML
+\end{itemize}
+
+Al utilizar cualquier tipo de CMS la transformación puede replicarse. Además, podemos tener mas de una entrada para la información así como \textbf{varias salidas}, pudiendo, por ejemplo, generar tanto \textbf{ficheros HTML} como \textbf{canales RSS}, tal y como se muestra en la siguiente imagen.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{html-rss.png}
+    \caption{Generación de salidas HTML o RSS}
+\end{figure}
+
+Publicar en la Web puede ser visto como un \textbf{flujo de información}. Para que una web sea \textbf{suministradora} de un canal en su cabecera \textbf{<head>} hay que incluir un \textbf{enlace} al canal de contenidos, incluyendo un elemento \textbf{<link>} con sus correspondientes atributos \textbf{rel}, \textbf{href}, \textbf{type} y \textbf{title}.
+
+Además tendremos que especificar el enlace para acceder al contenido, por lo que en algún lugar el elemento \textbf{<body>} de nuestro archivo HTML deberemos añadir un enlace usando el elemento \textbf{<a>} y completar sus atributos \textbf{href}, \textbf{type} y \textbf{rel}.
+
+A continuación mostramos un ejemplo de un archivo HTML suministrador de un canal de noticias en formato Atom y RSS:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RSS y ATOM</title>
+    <link rel="stylesheet" href="style.css">
+    <!--************************* NOTICIAS *******************************-->
+    <link rel="alternate" href="feed/canal.rss" type="application/rss+xml" title="RSS">
+    <link rel="alternate" href="feed/canal.atom" type="application/atom+xml" title="Atom">
+    <!--************************* NOTICIAS *******************************-->
+
+</head>
+
+<body>
+    <header>
+        <h1>Unidad 3: Sindicación de contenidos web.</h1>
+        <h2>Ejemplo práctico: Enlazar archivos RSS y Atom a una web</h2>
+    </header>
+
+    <main>
+        <h3>Texto de relleno</h3>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus est sit distinctio ad et culpa maiores ipsam sunt
+            dolores nihil, beatae consequuntur, illum mollitia! Veritatis, suscipit
+            sapiente! Laboriosam, mollitia dolor.Ipsa expedita exercitationem
+            voluptatum id eveniet ipsam nemo eos alias culpa hic. Non, distinctio.
+            Alias, necessitatibus deleniti ipsum ullam aliquam ex. Nam cum tempora nisi
+            adipisci vel voluptatum officiis asperiores.Dicta, nostrum optio. Facilis
+            porro odit distinctio quas, debitis doloremque maiores eveniet, temporibus
+            accusantium cum omnis quibusdam! Aperiam, debitis ipsam! Vitae dolorum beatae
+            recusandae a laudantium velit eligendi, odio natus.Facere optio voluptate ut,
+            ducimus deserunt iusto culpa. Blanditiis, rem. Reiciendis, sapiente.
+            Alias necessitatibus recusandae voluptatibus minus beatae dolorum velit vero
+            sequi voluptatum optio qui dignissimos, nemo voluptatem iste aliquid.
+        </p>
+        </main>
+
+    <footer>
+        <p>
+            <hr>
+            <!--************************* NOTICIAS *******************************-->
+            <a rel="alternate" href="feed/canal.rss" type="application/rss+xml">
+                <img src="img/valid-rss.png" alt="enlace RSS">
+            </a>
+            <a rel="alternate" href="feed/canal.atom" ype="application/atom+xml">
+                <img src="img/valid-atom.png" alt="enlace Atom">
+            </a>
+            <!--************************* NOTICIAS *******************************-->
+            <hr>
+        </p>
+    </footer>
+
+</body>
+
+</html>
+        \end{verbatim}
+    \end{tcolorbox}
+    \caption{Documento HTML con canal RSS y Atom}
+\end{figure}
+
+\subsection{Ventajas de la Redifusión de Contenidos}
+El uso de la redifusión de contenidos de otros propietarios nos puede aportar un número de ventajas, siendo las principales las siguientes:
+
+\begin{itemize}
+    \item \textbf{Aumentar el tráfico} de nuestro sitio Web.
+    \item Ayuda a que los \textbf{usuario/as visiten frecuentemente} nuestro sitio web.
+    \item Favorece el \textbf{posicionamiento} del sitio en \textbf{buscadores}.
+    \item Ayuda a \textbf{establecer relaciones} entre \textbf{diferentes sitios web} dentro de la comunidad.
+    \item Permite a \textbf{otras personas} añadir características a los \textbf{servicios del sitio web}, como por ejemplo, notificaciones de actualizaciones de contenido, mensajes instantáneos, etc.., aunque esto requiere tecnologías adicionales.
+    \item Enriquece internet impulsando la \textbf{tecnología semántica} y \textbf{fomenta la reutilización}.
+\end{itemize}
+
+\section{Ámbitos de Aplicación}
+La redifusión web no es sólo un fenómeno vinculado a los \textbf{weblogs}, aunque ha contribuido mucho a su popularización. Siempre se han sindicado contenidos y se ha compartido todo tipo de información usando documentos XML.
+
+De esta forma, podemos ofrecer contenidos propios que sean mostrados en otras web de forma integrada, lo que aumenta el valor de la página web que muestra el contenido y también nos genera a nosotros más valor, ya que normalmente la redifusión web enlaza con los contenidos originales. Además, ésta puede aplicarse a cualquier tipo de contenido, ya sea \textbf{texto}, \textbf{audio}, \textbf{vídeo} e \textbf{imágenes}.
+
+Desde el punto de vista de los \textbf{suscriptores}, la redifusión web permite, entre otras cosas, la actualización profesional. Mediante la suscripción a sitios relevantes, el usuario/a puede estar al día de temas relevantes relativos a su profesión, recibiendo noticias e información en su blog o su programa agregador de noticias.
+
+\section{Tecnologías de Creación de Canales de Contenido}
+Hay un conjunto de tecnologías que se usan para la creación de canales de contenido, o canales RSS. Los principales \textbf{estándares} utilizados son los siguientes:
+
+\begin{itemize}
+    \item \textbf{RSS} (Really Simple Syndication): este estándar forma parte de la familia de formatos XML, desarrollado para compartir información entre sitios web que se actualiza con frecuencia. Además, se usa en la conexión de sistema de mensajería instantánea, y permite la conversión de mensajes RSS en correos electrónicos o la transformación de los enlaces favoritos del navegador a RSS. Ha sido desarrollado por tres organizaciones diferentes lo que ha dado lugar a \textbf{siete formatos} diferentes:
+
+    \begin{itemize}
+        \item \textbf{RSS 0.90}: es el estándar que creo la empresa \textbf{Netscape} en 1990. Se basa en la especificación \textbf{RFD de metadatos}, con la intención de que su proyectos, My Netscape, estuviera formado por titulares de otras web.
+    \end{itemize}
+\end{itemize}
+
 
 % Glossary
 
