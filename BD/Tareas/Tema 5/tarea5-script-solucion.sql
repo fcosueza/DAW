@@ -12,4 +12,4 @@ UPDATE cliente SET descuento = descuento + 5 WHERE DNI IN (SELECT DNI_cliente FR
 
 INSERT INTO profesionales_baja SELECT numero_trabajador, DNI, especialidad, nombre, apellidos, telefono, estado, hora_inicio, hora_fin, hora_fin - hora_inicio FROM profesionales WHERE estado = "Despedido";
 
-
+UPDATE profesor_pilates SET anos_experiencia = anos_experiencia - 1 WHERE numero_trabajador_pilates IN (SELECT  numero_trabajador_pilates FROM imparte WHERE fecha > SYSDATE() - INTERVAL 1 YEAR GROUP BY numero_trabajador_pilates HAVING COUNT(numero_trabajador_pilates) < 3);

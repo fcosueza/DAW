@@ -246,7 +246,8 @@ VALUES ("00003", "73256987D", "01:00", "2023-02-02", "12:00", "40");
             \begin{verbatim}
 
 
-UPDATE productos SET precio = precio + ROUND((precio*15)/100, 2) WHERE nombre LIKE "%Vendaje%";
+            UPDATE productos SET precio = precio + ROUND((precio*15)/100, 2)
+            WHERE nombre LIKE "%Vendaje%";
             \end{verbatim}
         \end{tcolorbox}
     \end{figure}
@@ -376,6 +377,39 @@ AND precio < 25;
     \end{figure}
 
     \item En este punto vamos a decrementar la experiencia de los profesionales de pilates que haya impartido menos de 3 clases en el último año. Para ello, hemos empleado la siguiente sentencia:
+
+        \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+        UPDATE profesor_pilates SET anos_experiencia = anos_experiencia - 1
+        WHERE numero_trabajador_pilates IN
+            (SELECT  numero_trabajador_pilates
+             FROM imparte
+             WHERE fecha > SYSDATE() - INTERVAL 1 YEAR
+             GROUP BY numero_trabajador_pilates
+             HAVING COUNT(numero_trabajador_pilates) < 3);
+           \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Tras la ejecución, se han modificado correctamente dos registros, como vemos a continuación.
+
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{sql-6.1.png}
+        \caption{Reducción de los años de experiencia de los profesores de pilates}
+    \end{figure}
+
+    A continuación, hemos consultado la tabla profesor\_pilates para comprobar que se han creado los registros correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.23]{sql-6.2.png}
+        \caption{Tabla profesor\_pilates actualizada}
+    \end{figure}
 \end{enumerate}
 
 % Bibliography
