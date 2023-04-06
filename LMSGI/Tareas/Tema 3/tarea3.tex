@@ -5,8 +5,9 @@
 %----------------------------------------------------------------------------------------
 
 \title{
+\vspace{10ex}
 \normalfont \normalsize
-\huge \textbf{Actividad Tarea 4}
+\Huge \textbf{Tarea 3: Aplicación de los Lenguajes de Marcas a la Sindicación de Contenidos}
 }
 \author{Francisco Javier Sueza Rodríguez}
 \date{\normalsize\today}
@@ -18,94 +19,34 @@
 
 \maketitle
 
-\vspace{2ex}
+\thispagestyle{empty}
+
+\vspace{62ex}
 
 \begin{center}
     \begin{tabular}{l l}
         \textbf{Centro}: & IES Aguadulce \\
         \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
         \textbf{Asignatura}: & Lenguajes de Marcas y Sistemas de Gestión de la Información\\
-        \textbf{Tema}: & Tema 4 - Definición de Esquemas y Vocabulario en XML \\
+        \textbf{Tema}: & Tema 3 -  Aplicación de los Lenguajes de Marcas a la Sindicación de Contenidos\\
     \end{tabular}
 \end{center}
 
-\vspace{10ex}
+\newpage
 
-\section{Descripción}
-Se van a responde a las preguntas sobre el enlazado de los documentos XML tanto con documentos dtd como xsd, relativas a la actividad 3 de la tarea 4.
+\tableofcontents
 
-\subsection{Preguntas sobre DTD}
+\newpage
 
-\begin{itemize}
-    \item ¿Qué modificaciones tendrías que hacer en el documento XML de ejemplo y en el documento DTD realizado en la actividad 1 para enlazar ambos archivos y poder validarlos?
+\listoffigures
 
-    \textbf{Respuesta}:
+\newpage
 
-    Para enlazar el documento XML con el DTD hay que añadir la cláusula \textbf{<!DOCTYPE>}, indicando en esta el nombre del elemento principal del documento, en este caso \textbf{envios}, si el documento es local o publico, en este caso es local por lo que se le añade la cadena \textbf{SYSTEM} y por último el nombre del fichero dtd. En nuestro caso, la clausula quedaría así:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \scriptsize
-            \begin{verbatim}
-
-
-                      <!DOCTYPE envios SYSTEM "envio.dtd">
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-
-    \item ¿Cómo los validarías con un editor especializado como NetBeans, u otro que valide este tipo de documentos?
-
-    \textbf{Respuesta}:
-
-    Depende un poco del IDE que se este empleando. En el casi de Netbeans, hay que pulsar el botón \textit{validar}, en el documento XML, para que se valide con el documento DTD enlazado. En otros IDEs como VSCode la validación se realiza cada vez que se modifica el documento.
-
-    En la siguiente imagen, se muestra una validación correcta en Netbeans, es decir, que tras ejecutarse no muestra ningún error.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.25]{validacion-dtd.png}
-        \caption{Validación del XML con el DTD en Netbeans}
-    \end{figure}
-\end{itemize}
-
-\subsection{Preguntas sobre XMl Schema}
-
-\begin{itemize}
-    \item ¿Qué modificaciones tendrías que hacer en el documento XML de ejemplo y en el documento XML Schema realizado en la actividad 2 para enlazar ambos archivos y poder validarlos?
-
-    \textbf{Respuesta}:
-
-    En el caso de XML Schema, el enlace del documento XML con el esquema se realizan mediante atributos en el elemento principal del XML. En este caso, hay que añadir los atributos \textbf{xmlns:xs} en el elemento envíos, el cual establece el espacio de nombres del esquema y lo fija al prefijo \textbf{xs}. Además, hay que indicar la ruta del archivo con el esquema, en este caso, añadiendo el atributo \textbf{xs:noNamespaceSchemaLocation} al elemento envíos.
-
-    Como resultado, nuestro elemento \textbf{envíos} quedaría de la siguiente manera:
-
-    \begin{figure}[h]
-        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-            \tiny
-            \begin{verbatim}
-      <envios xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"  xs:noNamespaceSchemaLocation="envio.xsd">
-            \end{verbatim}
-        \end{tcolorbox}
-    \end{figure}
-
-    \item ¿Cómo los validarías con un editor especializado como NetBeans, u otro que valide este tipo de documentos?
-
-    \textbf{Respuesta}:
-
-    Para la validarlo se hace de forma exactamente igual que con los archivos DTD, dependiendo también del IDE que se use. En nuestro caso hemos usado también Netbeans, como se puede ver en la siguiente imagen.
-
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.25]{validacion-xsd.png}
-        \caption{Validación del XML con el XSD en Netbeans}
-    \end{figure}
-\end{itemize}
-
+\section{Caso Práctico}
 % Bibliography
 
-%\newpage
-%\bibliography{citas}
-%\bibliographystyle{unsrt}
+\newpage
+\bibliography{citas}
+\bibliographystyle{unsrt}
 
 \end{document}
