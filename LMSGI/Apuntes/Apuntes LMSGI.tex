@@ -3033,10 +3033,44 @@ Hay un conjunto de tecnologías que se usan para la creación de canales de cont
 
     \begin{itemize}
         \item \textbf{RSS 0.90}: es el estándar que creo la empresa \textbf{Netscape} en 1990. Se basa en la especificación \textbf{RFD de metadatos}, con la intención de que su proyectos, My Netscape, estuviera formado por titulares de otras web.
+
+        \item \textbf{RSS 0.91}: es la versión simplificada de RSS 0.90 que Netscape lanzó con posterioridad. Esta versión tuvo poco éxito y su desarrollo se detuvo, aunque la empresa UserLand Software decidió usar esta versión para desarrollar blogs.
+
+        \item \textbf{RSS 1.0}: creado a partir del estándar \textbf{RSS 0.90}, es más estable y permite definir una cantidad mayor de datos que el resto de versiones RSS.
+
+        \item \textbf{RSS 2.0}: la empresa UserLand Software rechazó el estándar RSS 1.0 por considerarlo complejo, y continuó con el desarrollo de RSS 0.91, publicando diferentes versiones, las cuales tenían una sintaxis incompleta y no cumplían con las normas XML. La versión 2.0 se publico para subsanar estos problemas.
+    \end{itemize}
+
+    \item \textbf{Atom}: fue publicado como un estándar por el grupod de trabajo \textbf{Atom Publishing Format and Protocol} de la \textbf{IETF} en el \textbf{RFC4287}. Se desarrollo como una alternativa a RSS, con el fin de evita la confusión creada por la existencia de estándares similares para la sindicación de contenidos, entre los que existían diferentes incompatibilidades. En lugar de sustituir estos, se creó un nuevo estándar que convive con ellos. Se caracteriza por su flexibilidad, ya que permite tener un mayor control sobre la cantidad de información que se muestra en los agregadores.
+\end{itemize}
+
+En los siguientes enlaces, puedes consultar las especificaciones de estos estándares:
+
+\begin{itemize}
+    \item \href{http://web.resource.org/rss/1.0}{RSS 1.0}
+    \item \href{https://cyber.harvard.edu/rss/rss.html}{RSS 2.0}
+    \item \href{http://tools.ietf.org/html/rfc4287}{Atom}
+\end{itemize}
+
+\section{Estructura de un Canal de Contenido}
+Para crear una canal de contenidos es necesario crear un fichero siguiendo la especificaciones de \textbf{RSS} o \textbf{Atom} que están basadas en XML. Este \textbf{fichero}, se publicará en uno de los directorios del sitio web.
+
+Los \textbf{elementos básicos} de estos ficheros son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Declaración del documento XML} y definición de la \textbf{codificación empleada} en el documento. Esta última será, preferentemente, \textbf{UTF-8}, que es la más ampliamente utilizada y una de las que permite mayor rango de caracteres.
+
+    \item \textbf{Un canal} en el que se determina el sitio web asociado a la fuente web a la que hace referencia el fichero. Este estará formado por:
+
+    \begin{itemize}
+        \item La propia \textbf{definición del canal}.
+        \item \textbf{Secciones}: cada una de estas hará referencia a la web que contiene uno de los servicios que se van a ofrecer. En un canal pueden incluirse tantas secciones como se quiera, lo que hace que una canal pueda tener un tamaño enorme si contiene un gran número de enlaces independientes.
     \end{itemize}
 \end{itemize}
 
+En un principio, \textbf{no existe} ninguna \textbf{restricción} a la cantidad de canales que se pueden ofrecer desde un servicio web.
 
+\subsection{RSS}
 % Glossary
 
 \glsaddall
