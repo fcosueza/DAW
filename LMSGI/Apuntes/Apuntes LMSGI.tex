@@ -3301,7 +3301,9 @@ En la sección anterior ya creamos una canal de contenido usando el estándar RS
 Como veremos, algunos pasos son prácticamente iguales, mientras que otros difieren tanto en los elementos como en sus atributos.
 
 \begin{enumerate}
-    \item En primero lugar, al igual que con RSS, vamos a agregar la \textbf{declaración XML} y la \textbf{codificación} que vamos emplear en el documento, que como vemos en la siguiente figura, no difiere del documento anterior.
+    \item En primer lugar creamos un documento con extensión \textbf{.atom} con nuestro editor o IDE favorito.
+
+    \item A continuación, al igual que con RSS, vamos a agregar la \textbf{declaración XML} y la \textbf{codificación} que vamos emplear en el documento, que como vemos en la siguiente figura, no difiere del documento anterior.
 
         \begin{figure}[H]
         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
@@ -3315,7 +3317,7 @@ Como veremos, algunos pasos son prácticamente iguales, mientras que otros difie
         \caption{Declaración XML en el documento Atom}
     \end{figure}
 
-    \item A continuación, vamos a definir el canal. A diferencia de RSS, con Atom definimos directamente el canal como elemento raíz empleando la etiqueta \textbf{<feed>}, a la que tendremos que añadir el estándar Atom usado, mediante el atributo \textbf{xmlns} y el lenguaje utilizado en el fichero con el atributo \textbf{xml:lang}, como podemos ver en la siguiente figura:
+    \item Lo siguiente definir el canal. A diferencia de RSS, con Atom definimos directamente el canal como elemento raíz empleando la etiqueta \textbf{<feed>}, a la que tendremos que añadir el estándar Atom usado, mediante el atributo \textbf{xmlns} y el lenguaje utilizado en el fichero con el atributo \textbf{xml:lang}, como podemos ver en la siguiente figura:
 
     \begin{figure}[h]
         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
@@ -3357,10 +3359,170 @@ Como veremos, algunos pasos son prácticamente iguales, mientras que otros difie
 
     \begin{itemize}
         \item \textbf{<category>}: Categoría del canal de noticia. Puede estar asociada a una o más categorías. Tiene un atributo obligatorio \textbf{term}.
-
         \item \textbf{<contributor>}: Datos de los contribuidores al canal de noticias. Sigue la misma estructura que \textbf{author}.
+        \item \textbf{<generator>}: Identifica el software usado para generar el canal de noticias. Tiene dos atributos opcionales \textbf{uri} y \textbf{version}.
+        \item \textbf{<icon>}: Identifica una pequeña imagen para ser usada de icono. La imagen debe ser cuadrada.
+        \item \textbf{<logo>}: Identifica una imagen como referencia del canal de noticias. La imagen debe ser el doble de ancha que de alta.
+        \item \textbf{<rights>}: Información sobre los derechos de autor. Permite el atributo \textbf{type} para indicar la codificación del texto (text, html, xhtml)
+        \item \textbf{<subtitle>}: Descripción o subtitulo para el canal de noticias.
     \end{itemize}
+
+    Nosotros hemos agregado, además de las etiquetas obligatorias, las recomendadas y algunas opcionales, como podemos ver en la siguiente figura.
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es-es">
+
+    <title type="text">Canal de noticias</title>
+    <id>http://www.noticias.com/</id>
+    <updated>2018-05-07T17:32:06Z</updated>
+
+
+    <link rel="self" type="application/atom+xml" href="feed/canal.atom" />
+    <link rel="alternate" type="text/html" href="http://www.noticias.com" />
+    <author>
+        <name>Paco López</name>
+        <email>paco@noticias.com</email>
+    </author>
+
+    <category term="novedades" />
+    <generator version="1.0">vim</generator>
+    <icon>img/icon.jpg</icon>
+    <logo>img/logo.png</logo>
+    <rights>Creative Common</rights>
+    <subtitle type="text">Noticias de actualidad.</subtitle>
+ </feed>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Elementos del canal feed en Atom}
+    \end{figure}
+
+    \item A continuación vamos a definir las secciones. En Atom, esto se lleva a cabo con el elemento \textbf{<entry>}. A diferencia del elemento \textbf{<item>} de RSS que no tenía \textbf{elementos obligatorios}, el elemento <entry> si los tiene, siendo estos similares a los del elemento <feed>, como podemos ver a continuación:
+
+    \begin{itemize}
+        \item \textbf{<title>}: Es el título del canal de noticias.
+        \item \textbf{<id>}: Identificador del canal de noticias. Habitualmente su URI.
+        \item \textbf{<updated>}: Fecha de publicación del canal de noticias. La fecha se debe escribir en el formato: CCYY-MM-DDTHH:MM:SSZ, donde T es el separador entre la fecha y la hora y Z indica que la hora hace referencia al sistema de tiempo universal, esto es la hora zulú, o la hora del meridiano de Greenwich. Ejemplo: 6 de febrero de 2010 a la 17:15 hora española tenemos que poner: 2010-02-06T16:15:00Z
+    \end{itemize}
+
+    También tenemos unos \textbf{elementos recomendados} a la hora de definir una noticia con \textbf{<entry>}, que son los siguientes:
+
+    \begin{itemize}
+        \item \textbf{<link>}: Relacionado con el sitio web. Tiene un atributo obligatorio \textbf{href} y varios opcionales: \textbf{rel}, \textbf{type}, \textbf{hreflang}, \textbf{title} y \textbf{length}. Si no existe elemento \textbf{content} en la noticia debe haber un elemento \textbf{link} con el atributo \textbf{rel a alternate} que indique la página web de la noticia en el atributo href.
+        \item \textbf{<content>}: Contenido o enlace al texto completo de la noticia. Debe existir un elemento \textbf{content} si no hay elemento \textbf{link} con el valor \textbf{rel=``alternative'}' o no hay un elemento \textbf{summary} en la noticia.
+        \item \textbf{<author>}: Cada elemento entry debe tener al menos un \textbf{author} a menos que haya un elemento author en el \textbf{elemento feed} o como contenido del elemento \textbf{source}. Los datos de autor se podrán recoger en los subelementos: \textbf{name}, \textbf{email} y \textbf{uri}.
+        \item \textbf{<summary>}: Breve resumen del contenido de la noticia. Este elemento debe añadirse si no hay elemento content en la noticia.
+    \end{itemize}
+
+    Por último, vamos a listar los \textbf{elementos opcionales}, que en este caso no son tan numerosos con en los anteriores:
+
+    \begin{itemize}
+        \item \textbf{<category>}: Categoría de la noticia. Puede estar asociada a una o más categorías. Tiene un atributo obligatorio \textbf{term}.
+        \item \textbf{<contributor>}: Datos de los contribuidores de la noticia. Sigue la misma estructura que \textbf{author}.
+        \item \textbf{<published>}: Fecha y hora de la creación o primera publicación de la noticia. La fecha se debe escribir en el formato: CCYY-MM-DDTHH:MM:SSZ
+        \item \textbf{<rights>}: Información sobre los derechos de autor. Permite el atributo \textbf{type} para indicar la codificación del texto (text, html, xhtml)
+        \item \textbf{<source>}: Contiene metainformación sobre el origen del canal de noticias si esta noticia está copiada de otro lugar.
+    \end{itemize}
+
+     Nosotros, al igual que en el ejemplo de RSS hemos \textbf{añadido 3 secciones} con diferentes elementos opcionales.
+
+     \item Así, tras añadir todos los elementos que hemos descrito durante estos pasos, el documento resultante lo podemos ver en la siguiente figura:
+
+     \begin{figure}[H]
+         \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+             \scriptsize
+             \begin{verbatim}
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- **************************** CANAL ********************************-->
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es-es">
+    <title type="text">Canal de noticias</title>
+    <id>http://www.noticias.com/</id>
+    <updated>2018-05-07T17:32:06Z</updated>
+
+    <link rel="self" type="application/atom+xml" href="feed/canal.atom" />
+    <link rel="alternate" type="text/html" href="http://www.noticias.com" />
+    <author>
+        <name>Paco López</name>
+        <email>paco@noticias.com</email>
+    </author>
+
+    <category term="novedades" />
+    <generator version="1.0">vim</generator>
+    <icon>img/icon.jpg</icon>
+    <logo>img/logo.png</logo>
+    <rights>Creative Common</rights>
+    <subtitle type="text">Noticias de actualidad.</subtitle>
+
+    <!--************************* NOTICIAS *******************************-->
+
+    <entry>
+        <title>Primera noticia de actualidad</title>
+        <id>https://www.americannews.com/</id>
+        <updated>2018-05-06T12:24:26Z</updated>
+
+        <author>
+            <name>John Johnson</name>
+            <email>john@americannews.com</email>
+        </author>
+        <link rel="alternate" type="text/html" href="http://www.americann.com/today" />
+        <summary>Estado del tiempo de la ciudad de Frankfurt</summary>
+
+        <category term="actualidad"/>
+        <contributor>
+        <name>Ana Gómez</name>
+        </contributor>
+        <published>2018-05-10T09:12:30Z</published>
+        <rights type="text">Copyright</rights>
+    </entry>
+
+    <entry>
+        <title>Segunda noticia de actualidad</title>
+        <link rel="alternate" type="text/html" href="https://www.ideal.es/hoy/1.html" />
+        <updated>2019-12-18T19:25:00Z</updated>
+
+        <id>https://www.titular.es/hoy/primera.html#titular</id>
+        <summary>Esta es una noticia local de actualidad</summary>
+
+        <category term="noticias locales"/>
+    </entry>
+
+    <entry>
+        <title>Otra noticia de ejemplo</title>
+        <link rel="alternate" type="text/html" href="http://www.pais.com/hoy/2.html" />
+        <updated>2019-12-18T19:27:00Z</updated>
+
+        <id>http://www.quepais.com/actualidad/segunda.html#titular</id>
+        <summary>Aqui podras encontrar todo tipo de noticias de actualidad</summary>
+        <author>
+            <name>María Martín</name>
+            <email>maria@actualidad.quepais.com</email>
+        </author>
+
+        <published>2018-05-06T12:24:26Z</published>
+        <rights type="text">Copyright</rights>
+    </entry>
+</feed>
+             \end{verbatim}
+         \end{tcolorbox}
+         \caption{Documento del Canal con Atom completo}
+     \end{figure}
 \end{enumerate}
+
+Al igual que con el canal creado usando RSS, hay elementos y atributos que no se han usado en este ejemplo y que sería conveniente consultar más a fondo, para ver ejemplos de su uso y los valores que pueden tomar sus atributos. En los \textbf{siguiente enlaces} podemos ampliar la información y ver cada elemento de forma más detallada:
+
+\begin{itemize}
+    \item \href{https://validator.w3.org/feed/docs/atom.html}{Atom 1.0 en W3C}
+    \item \href{http://atomenabled.org/developers/syndication/}{Syndication | Atom Enabled}
+    \item \href{https://tools.ietf.org/html/rfc4287}{Especificación de Atom 1.0}
+    \item \href{https://validator.w3.org/feed/#validate_by_input}{Validador de Atom 1.0 de la W3C}
+\end{itemize}
+
+\section{Validación}
 
 
 
