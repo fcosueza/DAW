@@ -3071,6 +3071,299 @@ Los \textbf{elementos básicos} de estos ficheros son los siguientes:
 En un principio, \textbf{no existe} ninguna \textbf{restricción} a la cantidad de canales que se pueden ofrecer desde un servicio web.
 
 \subsection{RSS}
+En esta sección vamos a crear un \textbf{canal de contenido} empleando el estándar \textbf{RSS}. Esto no servirá para explicar todos los elementos que debe contener un documento XML para la creación de dicho canal y las diferentes opciones y etiquetas que podemos emplear.
+
+Para crear este canal, vamos a seguir los siguientes pasos:
+
+\begin{enumerate}
+    \item En primer lugar, vamos a crear un fichero con \textbf{extensión .rss}, con un editor de texto o un IDE de nuestra preferencia.
+
+    \item Una vez creado el documento, vamos a comenzar a añadir los diferentes elementos necesarios para la creación del canal y que el documento sea válido, comenzando por la \textbf{declaración XML}, donde especificaremos la versión de XML a usar así como la \textbf{codificación del documento}, que en nuestro caso va a ser \textbf{UTF-8}.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                     <?xml version="1.0" encoding="UTF-8"?>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Declaración XML en el documento RSS}
+    \end{figure}
+
+    \item A continuación, debemos de indicar el ejemplar. En este caso, el elemento raíz sera \textbf{<rss>}, donde además deberemos indicar, mediante el atributo \textbf{version}, la versión de RSS que vamos a emplear, en este caso, la 2.0.
+
+       \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                          <rss version="2.0">
+                          ...
+                          </rss>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Elemento raíz del documento RSS}
+    \end{figure}
+
+    \item Una vez creado el elemento raíz, debemos definir el canal empleando el elemento \textbf{<channel>}. Para su definición hay una serie de elementos obligatorios y otros opcionales. Los elementos obligatorios para definir el canal son los siguientes:
+
+    \begin{itemize}
+        \item \textbf{<title>}: es el título del canal de noticias, suele ser el mismo que el de la página Web.
+        \item \textbf{<link>}: elemento con la dirección web de la página asociada al canal de noticias.
+        \item \textbf{<description}: este elemento contiene una breve descripción del canal de noticias.
+    \end{itemize}
+
+    Estos elementos son obligatorios y siempre deben aparecer en en la definición de un canal, pero tenemos \textbf{muchos más elementos}, lo cuales no son obligatorios, pero que nos proporcionan diferentes funcionalidades, siendo los principales los siguientes:
+
+    \begin{itemize}
+        \item \textbf{<language>}: Determina el idioma utilizado en el canal de noticias, en el caso del español su valor será es. Para indicar español de España: es-es.
+        \item \textbf{<item>}: Definirá cada una de las noticias del canal.
+        \item \textbf{<copyright>}: Licencia de los contenidos del canal de noticias.
+        \item \textbf{<managingEditor>}: Correo electrónico del editor de contenidos del canal de noticias.
+        \item \textbf{<webMaster>}: Correo electrónico del responsable técnico del canal de noticias.
+        \item \textbf{<pubDate>}: Fecha de publicación del canal de noticias. La fecha se debe escribir en formato: Sat, 07 Sep 2002 0:00:01 GMT
+        \item \textbf{<lastBuildDate>}: Fecha del último cambio en los contenidos del canal. También en formato: Sat, 07 Sep 2002 0:00:01 GMT
+        \item \textbf{<category>}: Categoría del canal de noticia. Puede estar asociada a una o más categorías.
+        \item \textbf{<generator>}: En caso de que el canal de noticias sea generado, nombre del programa que se utiliza para hacerlo.
+        \item \textbf{<docs>}: URL de la documentación sobre el formato usado en el archivo RSS.
+        \item \textbf{<cloud>}: Permite que los procesos se registren en una nube para recibir notificaciones de las actualizaciones del canal de noticias.
+        \item \textbf{<ttl>}: ``Time to live'', minutos que el canal de noticias esta en cache antes de actualizarse.
+        \item \textbf{<image>}: Especifica una imagen GIF, JPEG o PNG que puede ser mostrada en el canal de noticias. Tiene tres atributos obligatorios: \textbf{url}, \textbf{title} y \textbf{link}. También se puede indicar el alto (height), ancho (width) y una descripción (description) con los atributos opcionales.
+        \item \textbf{<textInput>}: Especifica una caja de texto de entrada que puede ser mostrada en el canal de noticias.
+        \item \textbf{<skipHours>}: En este elemento pueden definirse subelementos <hour> que representan una hora GMT en las cuales los agregadores de noticias no se actualizarán.
+        \item \textbf{<skipDays>}: En este elemento pueden definirse subelementos <day> que representan los días de la semana en los cuales los agregadores de noticias no se actualizarán.
+    \end{itemize}
+
+    Como vemos por la lista anterior, tenemos una gran variedad de elementos que nos permiten añadir información y configurar nuestro canal de contenidos. En nuestro caso, hemos añadidos los que se pueden ver en la siguiente figura:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <channel>
+    <title>Canal de noticias</title>
+    <link>http://www.noticias.com</link>
+    <description>En este canal tendrás noticias actualizadas a diario</description>
+
+    <language>es</language>
+    <pubDate>Mon, 7 May 2018 17:32:06 GMT</pubDate>
+    <managingEditor>paco@noticas.com (Paco López)</managingEditor>
+    <image>
+        <url>http://www.noticias.com/img/logo.png</url>
+        <title>Canal de noticias</title>
+        <link>http://www.noticias.com</link>
+    </image>
+    <copyright>Creative Common</copyright>
+ </channel>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Creación del elemento channel y subelementos}
+    \end{figure}
+
+    En primer lugar hemos puesto los elementos obligatorios y a continuación hemos agregado algunos otros como language, pubDate, image o copyright.
+
+    \item Por último, vamos a agregar una cuantas secciones dentro de la definición del canal con el elemento \textbf{<item>}. Un elemento \textbf{<channel>} puede contener cualquier número de elementos \textbf{<item>}, definiendo una sección del canal cada uno. Estas secciones pueden estar completas o contener una sinopsis y un enlace a la sección completa.
+
+    Todos los subelementos del elemento <item>\ son opcionales, aunque al menos debe aparecer un \textbf{título} y una \textbf{descripción} de la sección.  <description>
+
+    Los principales \textbf{subelementos} de <item>\ que existen son los siguientes:
+
+    \begin{itemize}
+        \item \textbf{<title>}: Título de la noticia.
+        \item \textbf{<link>}: URL de la noticia enlazada, que ha de pertenecer al dominio establecido en el canal.
+        \item \textbf{<description>}: Un resumen de la noticia.
+        \item \textbf{<author>}: Correo electrónico del autor de la noticia.
+        \item \textbf{<category>}: Categoría de la noticia. Puede estar asociada a una o más categorías.
+        \item \textbf{<comments>}: URL del hilo de los comentarios relacionados con la noticia.
+        \item \textbf{<enclosure>}: Descripción de objetos multimedia asociados a la noticia. Tiene tres atributos obligatorios: \textbf{url}, \textbf{length} y \textbf{type}.
+        \item \textbf{<guid>}: Cadena única que identifica la noticia.
+        \item \textbf{<pubDate>}: Fecha de publicación de la noticia. La fecha se debe escribir en formato: Sat, 07 Sep 2002 0:00:01 GMT.
+        \item \textbf{<source>}: Canal RSS del que proviene la noticia. Tiene un atributo obligatorio \textbf{url}.
+    \end{itemize}
+
+    En nuestro ejemplo, nosotros hemos añadido 3 secciones dentro del elemento <channel>\ con los elementos que podemos ver a continuación:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+ <item>
+    <title>Primera noticia de actualidad</title>
+    <description>Esta noticia es un ejemplo de noticia de actualidad</description>
+    <link>https://www.americannews.com/</link>
+    <guid>http://www.americannews.com/today</guid>
+    <author>John@americannews.com (John Johnson)</author>
+    <category>Actualidad</category>
+    <pubDate>Sun, 6 May 2018 12:24:26 GMT</pubDate>
+ </item>
+
+ <item>
+    <title>Segunda noticia de actualidad</title>
+    <link>https://www.titular.es/hoy/segunda.html</link>
+    <guid>http://www.titular.es/segunda.html#titular</guid>
+ </item>
+
+ <item>
+    <description>Otra noticia de ejemplo</description>
+    <guid>http://www.quepais.com/actualidad/primera.html#titular</guid>
+    <author>maria@actualidad.quepais.com (María Martín)</author>
+    <pubDate>Sun, 6 May 2018 12:24:26 GMT</pubDate>
+ </item>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Secciones del canal RSS}
+    \end{figure}
+
+    Como podemos ver, el número de elementos presentes en cada elemento <item> puede variar según nuestra preferencia o la cantidad de información que queramos añadir.
+
+    No todos los elementos que hemos visto se han empleado en el ejemplo, habiendo algunos como el elemento \textbf{<enclosure>} que sería conveniente revisar la documentación oficial para ver más detalladamente como se usa cuales son sus atributos. Al final de esta sección, se incorporarán algunos enlaces hacia la documentación oficial.
+
+    \item Por último, ponemos todos los elementos juntos y ya tendremos creado nuestro canal RSS, siendo el documento final resultante el que podemos ver en la siguiente figura.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0">
+
+    <!--CANAL DE NOTICIAS-->
+
+    <channel>
+        <title>Canal de noticias</title>
+        <link>http://www.noticias.com</link>
+        <description>En este canal tendrás noticias actualizadas a diario</description>
+
+        <language>es</language>
+        <pubDate>Mon, 7 May 2018 17:32:06 GMT</pubDate>
+        <managingEditor>paco@noticas.com (Paco López)</managingEditor>
+        <image>
+        <url>http://www.noticias.com/img/logo.png</url>
+        <title>Canal de noticias</title>
+        <link>http://www.noticias.com</link>
+        </image>
+        <copyright>Creative Common</copyright>
+
+        <!--LISTADO DE NOTICIAS-->
+        <!--1º Noticia-->
+        <item>
+            <title>Primera noticia de actualidad</title>
+            <description>Esta noticia es un ejemplo</description>
+            <link>https://www.americannews.com/</link>
+            <guid>http://www.americannews.com/today</guid>
+            <author>John@americannews.com (John Johnson)</author>
+            <category>Actualidad</category>
+            <pubDate>Sun, 6 May 2018 12:24:26 GMT</pubDate>
+        </item>
+
+        <!--2º Noticia-->
+        <item>
+            <title>Segunda noticia de actualidad</title>
+            <link>https://www.titular.es/hoy/segunda.html</link>
+            <guid>http://www.titular.es/segunda.html#titular</guid>
+        </item>
+
+        <!--3º Noticia-->
+        <item>
+            <description>Otra noticia de ejemplo</description>
+            <guid>http://www.quepais.com/actualidad/primera.html#titular</guid>
+            <author>maria@actualidad.quepais.com (María Martín)</author>
+            <pubDate>Sun, 6 May 2018 12:24:26 GMT</pubDate>
+        </item>
+
+    </channel>
+</rss>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Documento RSS completo}
+    \end{figure}
+\end{enumerate}
+
+Como hemos visto, la creación de un canal RSS puede ser bastante simple, aunque como hemos comentado, no hemos empleado todos los elementos en este ejemplo y puede que haya algunos que requieran ver ejemplos concretos para comprender bien como funcionan, por eso, se incluyen los siguiente enlaces para obtener información más detallada sobre los elementos y sus atributos.
+
+\begin{itemize}
+    \item \href{https://validator.w3.org/feed/docs/rss2.html}{RSS 2.0 en W3C}
+    \item \href{https://validator.w3.org/feed/#validate_by_input}{Validador RSS 2.0 del W3C}
+    \item \href{https://cyber.harvard.edu/rss/rss.html}{Especificación del estándar RSS 2.0}
+\end{itemize}
+
+\subsection{Atom}
+En la sección anterior ya creamos una canal de contenido usando el estándar RSS 2.0, en esta sección, vamos a crear un canal pero empleando el \textbf{estándar Atom}, para ellos, vamos a enumerar los pasos para su creación al igual que hicimos en la sección anterior.
+
+Como veremos, algunos pasos son prácticamente iguales, mientras que otros difieren tanto en los elementos como en sus atributos.
+
+\begin{enumerate}
+    \item En primero lugar, al igual que con RSS, vamos a agregar la \textbf{declaración XML} y la \textbf{codificación} que vamos emplear en el documento, que como vemos en la siguiente figura, no difiere del documento anterior.
+
+        \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+                     <?xml version="1.0" encoding="UTF-8"?>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Declaración XML en el documento Atom}
+    \end{figure}
+
+    \item A continuación, vamos a definir el canal. A diferencia de RSS, con Atom definimos directamente el canal como elemento raíz empleando la etiqueta \textbf{<feed>}, a la que tendremos que añadir el estándar Atom usado, mediante el atributo \textbf{xmlns} y el lenguaje utilizado en el fichero con el atributo \textbf{xml:lang}, como podemos ver en la siguiente figura:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es-es">
+            ...
+            </feed>
+            \end{verbatim}
+        \end{tcolorbox}
+        \caption{Elemento feed del canal Atom}
+    \end{figure}
+
+    \item Al igual que con los canales de RSS, en Atom tenemos ciertos \textbf{elementos obligatorios} que todo canal debe incluir, entre los que nos podemos encontrar los siguientes:
+
+    \begin{itemize}
+        \item \textbf{<title>}: Es el título del canal de noticias.
+        \item \textbf{<id>}: Identificador del canal de noticias. Habitualmente su URI.
+        \item \textbf{<updated>}: Fecha de publicación del canal de noticias. La fecha se debe escribir en el formato: CCYY-MM-DDTHH:MM:SSZ, donde T es el separador entre la fecha y la hora y Z indica que la hora hace referencia al sistema de tiempo universal, esto es la hora zulú, o la hora del meridiano de Greenwich. Ejemplo: 6 de febrero de 2010 a la 17:15 hora española tenemos que poner: 2010-02-06T16:15:00Z
+    \end{itemize}
+
+    Además de estos elementos obligatorios, tenemos dos \textbf{elementos recomendados} que si bien no es indispensable que aparezcan, es una buena práctica influirlos en cada canal. Estos son:
+
+    \begin{itemize}
+        \item \textbf{<link>}: Identificación del sitio web. Tiene un atributo obligatorio \textbf{href} y varios opcionales: \textbf{rel}, \textbf{type}, \textbf{hreflang}, \textbf{title} y \textbf{length}.
+
+        Para el atributo \textbf{rel} deben indicarse dos valores, cada uno en un elemento link diferente:
+        \begin{itemize}
+            \item \textbf{self}: Referenciando la ubicación del fichero .atom.
+            \item \textbf{alternate}: Referenciando la web.
+        \end{itemize}
+
+        \item \textbf{<author>}: Cada elemento feed debe tener al menos un \textbf{author} a menos que todas las noticias \textbf{entry} tengan \textbf{author}. Los datos de autor se podrán recoger en los subelementos: \textbf{name}, \textbf{email} y \textbf{uri}.
+    \end{itemize}
+
+    Al igual que con los canales RSS, tenemos un conjunto de \textbf{elementos opcionales} que nos ayudarán a aportar información al canal o a incluir imágenes, logos, etc... Estos elementos son:
+
+    \begin{itemize}
+        \item \textbf{<category>}: Categoría del canal de noticia. Puede estar asociada a una o más categorías. Tiene un atributo obligatorio \textbf{term}.
+
+        \item \textbf{<contributor>}: Datos de los contribuidores al canal de noticias. Sigue la misma estructura que \textbf{author}.
+    \end{itemize}
+\end{enumerate}
+
+
+
 % Glossary
 
 \glsaddall
