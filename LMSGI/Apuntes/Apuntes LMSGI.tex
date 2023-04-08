@@ -3534,8 +3534,127 @@ Una véz validado, nos ofrecerán la posibilidad de incluir un \textbf{banner co
 Uno de los validadores más empleados es el \href{https://validator.w3.org/feed/}{validador de la W3C}, que nos permite validar documentos tanto de RSS como de Atom mediante una URI o introduciendo directamente el código.
 
 \section{Utilización de Herramientas}
+Aunque podemos crear un documento RSS o Atom prácticamente con cualquier editor, hay editores e IDE`s que nos simplifican el trabajo añadiendo diferentes funcionalidades que no tiene un editor simple.
 
+Un ejemplo de este tipo de herramientas es \textbf{PSPad Editor}, un editor de textos con licencia freeware orientado a la programación. Algunas de las funcionalidades que nos ofrece este editor son las siguientes:
 
+\begin{itemize}
+    \item Trabajar con distintos estándares.
+    \item Importar documentos de texto con CSV y HTML..
+    \item Editar HTML.
+    \item Editar documentos XML e imágenes.
+    \item Actualizar las fuentes por vía FTP.
+    \item Exportar documentos RSS a HTML, CSV y Javascript.
+\end{itemize}
+
+Aunque hemos mencionado PSPad, hay una gran variedad de editores e IDE`s que nos pueden ofrecer estas funcionalidades y otras muchas más, como pueden set \textbf{Netbeans} o \textbf{VSCode} entre otros.
+
+\section{Directorios de Canales de Contenido}
+Los \textbf{directorios de canales de contenido} permiten que un fichero RSS esté disponible para cualquiera, además de facilitar a los usuarios/as finales la búsqueda de información, ya que estos directorios también clasifican los ficheros RSS.
+
+Para usarlos, es necesario \textbf{registrar} un \textbf{fichero RSS} en un \textbf{directorio RSS}. El proceso es similar a registrar un sitio en un motor de búsqueda. Si tienes una web con un feed, es recomendable incluirlo en un directorio, ya que esto ayudará a incrementar las visitas de la web. Además, es totalmente gratuito.
+
+Cabe mencionar, que es posible que a la hora de sindicar un canal puedan surgir problemas debido al uso de tildes o ñ en los contenidos del canal, por lo que siempre es recomendable usar la codificación \textbf{UTF-8} y las entidades XML que les sustituyen, es decir:
+
+\begin{itemize}
+    \item \textbf{\&aacute}, en lugar de à, \textbf{\&eacute}, en lugar de é, ...etc.
+    \item \textbf{\&lt} en lugar de < y \textbf{\&gt} en lugar de >.
+\end{itemize}
+
+\section{Agregación}
+Los clientes que quieran usar un servicio RSS o Atom tendrán que utilizar un \textbf{agregador de contenidos} para poder leer estos canales de información.
+
+Un \textbf{agredador} o \textbf{lector de fuentes} es una aplicación software que permite suscribirse a fuentes RSS y Atom. El agregador avisa al usuario de que webs han incorporado contenido nuevo  desde la última lectura y cual es este contenido nuevo. Para ello hay que indicar la dirección web de cada archivo fuente en el agregador, ya sea en formato RSS o Atom, para que pueda acceder al contenido.
+
+Existen \textbf{varios tipos de agregadores}, siendo los más comunes los siguientes:
+
+\begin{itemize}
+    \item \textbf{Agregadores RSS Web o En Línea}:
+
+    Son aplicaciones que residen en determinados \textbf{sitios web} y que se ejecutan a través de la propia web. Los lectores RSS online cumplen la misma función que los programas que se instalan en el ordenador, aunque en estos todos se hace a través de la página web. Para ello, hay que \textbf{darse de alta} en la web que ofrece el servicio. A partir de ese momento, se puede acceder en cualquier momento al lector web introduciendo el nombre de usuario y contraseña. Son recomendables cuando el usuario/a no accede a internet siempre desde el mismo ordenador.
+
+    Algunos ejemplos de estas aplicaciones son:
+
+    \begin{itemize}
+        \item \textbf{Netvibes}: \url{https://validator.w3.org/feed/}
+        \item \textbf{Feedly}: \url{https://feedly.com/}
+        \item \textbf{Inoreader}: \url{https://www.inoreader.com/}
+    \end{itemize}
+
+    \item \textbf{Agregadores RSS en Navegador Web o Gestor de Correo}:
+
+    Son lectores de RSS que se instalan en un \textbf{navegador web} o en un \textbf{gestor de correo}. Antes los navegadores llevaban esta opción por defecto, aunque en la actualizad se le puede añadir esta funcionalidad mediante plugins. Algunos de los navegadores y gestores de correo más usados que tienen esta funcionalidad son \textbf{Mozilla Firefox}, \textbf{Outlook Express}, \textbf{Google Chrome} o \textbf{Mozilla Thunderbird}.
+
+    Aquí tienes \href{https://www.muylinux.com/2018/10/16/firefox-64-eliminara-soporte-rss/}{un articulo} relacionado con el tema, en concreto con la eliminación de la opción por defecto en Firefox y donde se nos recomiendan diferentes extensiones.
+
+    \item \textbf{Agregadores RSS de Escritorio}:
+
+    Son aplicaciones que se instalan en el ordenador del usuario/a. Su uso es aconsejable para quienes acceden a internet siempre desde el mismo ordenador. Su interfaz suele ser parecida a la de los gestores de correo con un panel donde se agrupan suscripciones y otro donde se accede a la entradas individuales para su lectura.
+
+    Algunos de estos programas son:
+
+    \begin{itemize}
+        \item \textbf{Feedreader}: \url{http://feedreader.com/download}
+        \item \textbf{RSSReader}: \url{http://www.rssreader.com/download.htm}
+    \end{itemize}
+
+    \item \textbf{Agregadores de Podcast o Podcasting}:
+
+    Un \textbf{Podcast} consiste en la \textbf{distribución de archivos multimedia}, por normal general \textbf{vídeo} y \textbf{audio}, de larga duración, mediante un sistema de \textbf{redifusión RSS} y que presenta la posibilidad de suscribirse y usar programas de descarga para que los usuarios los escuchen y vean. Suele haber dos tipos principales:
+
+    \begin{itemize}
+        \item \textbf{Podcast de Audio}: distribución de archivos de audio, en general en formato MP3 o AAC, con un tamaño pequeño y fáciles de manejar.
+
+        \item \textbf{Podcast de Video o  Vodcast}: distribución de archivos de video que requieren conexiones de un gran ancho de banda, debido a su tamaño. En general suelen distribuirse en formato MP4 o M4V.
+    \end{itemize}
+
+    Algunos de los agregadores de podcast más usados son \textbf{Spotify}, \textbf{Podimo} o \textbf{Google Podcast}, los cuales permiten no solo escucharlos o verlos en directo, sino también descargarlos.
+\end{itemize}
+
+% Apéndice
+\appendix
+
+% Change appendix display options
+\titleformat{\chapter}{\bfseries\Huge}{\thechapter.}{1ex}{}
+
+\chapter{Anexos Tema 3}
+
+\section{Servidores}
+Un \textbf{servidor}, como la misma palabra indica, es un ordenador o máquina informática que esta al ``servicio'' de otras máquinas u ordenadores, llamadas \textbf{clientes}, y que suministran a estos todo tipo de información.
+
+Este tipo de relación entre diferentes dispositivos genera uno de los esquemas mas empleados y en el que se basa gran parte de internet, como es el esquema \textbf{cliente-servidor}, del cual podemos ver un ejemplo en la siguiente figura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{cliente-servidor.png}
+    \caption{Arquitectura Cliente-Servidor}
+\end{figure}
+
+Como vemos en este esquema, tenemos una máquina servidora que se comunica con diferentes clientes, todos demandando algún tipo de información. Esta información puede ser desde archivos de texto, audio, vídeo, imágenes, programas, consultas a bases de datos, etc...
+
+Los \textbf{servidores} suelen ser \textbf{más potentes} que un ordenador normal, sobre todo en lo relativo  \textbf{capacidad de almacenamiento} como de \textbf{memoria principal}, ya que suelen dar servicios a muchos clientes, aunque esto también depende de las necesidades, ya que si vamos a tener pocos clientes, podemos tener un servidor con menores prestaciones.
+
+Existen muchos \textbf{tipos de servidores}, como servidores de corre, proxy, web, de bases de datos, de aplicaciones, etc...
+
+\subsection{Servidores Web}
+Un \textbf{servidor Web} se encarga de almacenar documentos HTML, imágenes, vídeos, documentos y todo tipo de información relacionado con una web. Además, se encarga de servir esta información y hacerla llegar a los clientes.
+
+A la hora de crear una página web será necesario contar con un \textbf{dominio} y un \textbf{servidor} donde alojar los archivos de nuestra web. Si se trata de una web muy extensa, se recomienda usar un \textbf{servidor local} mientras se desarrolla, ya que si contratamos un hosting de pago antes de que este finalizada tendremos un periodo de tiempo en el que no lo estaremos usando, ademas tenemos el riesgo de \textbf{no tener} aún el \textbf{SEO adecuado}, ya que durante el proceso de desarrollo se irá añadiendo mucha información.
+
+Un \textbf{servidor local} es simplemente un ordenador común con una serie de aplicaciones instaladas para que podamos usarlo de servidor de pruebas y así corregir las imperfecciones y realizar los cambios necesarios en nuestra página web hasta que estemos seguro de que la podemos poner online. Suelen ser servidores que se instalan en el \textbf{mismo ordenador} u \textbf{otro diferente} en donde se realiza el desarrollo de la web pero que \textbf{solo ofrecen servicios} a nuestra \textbf{red local}.
+
+También tenemos la posibilidad de hacer que \textbf{nuestro ordenador} funcione como un servidor online. En este caso necesitaremos un conjunto de aplicaciones entre las que podemos encontrar:
+
+\begin{itemize}
+    \item \textbf{Sistema Operativo}: debemos tener instalado un sistema operativo, ya sea \textbf{Windows}, \textbf{Linux}, \textbf{MacOS} o algún otro de nuestra preferencia.
+    \item \textbf{Servidor Web}: debemos tener instalada una aplicación de servidor web, que permita al ordenador ofrecer esta función. Algunos de los más usados son \textbf{Apache}, \textbf{Nginx} o \textbf{LiteSpeed}.
+    \item \textbf{Base de Datos}: por norma general las aplicaciones de servidores web nos pedirán que tengamos instalado un sistema de bases de datos. Algunos de los más usados son \textbf{MySQL}, \textbf{PostgreSQL} o \textbf{MongoDB}.
+    \item \textbf{Soporte para Lenguaje del Servidor}: también debemos tener instalado el soporte para el lenguaje que vayamos a usar en la parte del servidor o \textbf{backend}, ya sea este \textbf{PHP}, \textbf{Java}, \textbf{Javascript}, \textbf{Ruby}, etc..
+\end{itemize}
+
+La mayoría de las aplicaciones que podemos emplear son de \textbf{código abierto} y todas pueden ser instaladas por separado, aunque podemos encontrar \textbf{paquetes} que incluyen todas las aplicaciones necesarias para poder empezar a funcionar como un servidor.
+
+Uno de los paquetes más empleados es \textbf{LAMP} (Linux, Apache, MySQL y PHP), que nos permitirá instalar todo lo necesario de una sola vez así como gestionar los diferentes servicios desde una misma interfaz de forma cómoda y sencilla.
 
 
 % Glossary
