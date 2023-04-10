@@ -4,12 +4,12 @@
   <!-- Elementos Obligatorios -->
 
   <title>LlegaYa Feeds</title>
-  <id>www.llegaya.com</id>
-  <updated>2023-04-10T10:15:00Z</updated>
+  <id>http://www.llegaya.com</id>
+  <updated>2023-4-10T10:15:00Z</updated>
 
   <!-- Elementos Recomendatos -->
 
-  <link rel="self" type="application/xml+atom" href="feed/canal.atom"/>
+  <link rel="self" type="application/atom+xml" href="feed/canal.atom"/>
   <link rel="alternate" type="text/html" href="www.llegaya.com" />
   <author>
     <name>Francisco Sueza Rodríguez</name>
@@ -22,12 +22,12 @@
   <category term="envíos" />
   <category term="transporte" />
 
-  <!-- Secciones -->
+  <!-- Noticias -->
 
   <entry>
     <title>InterGlobe enterprises and UPS launch MOVIN - a new logistics brand built for India</title>
     <id>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</id>
-    <updated>2022-22-05T12:00:00Z</updated>
+    <updated>2022-5-22T12:00:00Z</updated>
 
     <category term="paqueteria" />
     <summary>
@@ -37,8 +37,5 @@
     </summary>
     <link rel="alternate" type="text/html" href="https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html" />
   </entry>
-
-  <entry></entry>
-  <entry></entry>
 
 </feed>

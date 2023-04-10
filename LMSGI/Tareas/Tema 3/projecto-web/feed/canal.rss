@@ -2,38 +2,60 @@
 
 <rss version="2.0">
   <channel>
+
     <!-- Elementos Obligatorios -->
 
     <title>LlegaYa Feeds</title>
-    <link>www.llegaya.com</link>
+    <link>http://www.llegaya.com</link>
     <description>Canal de noticas sobre paquetería nacional e internacional</description>
 
     <!-- Elementos Opcionales -->
 
     <language>es</language>
-    <managingEditor>fcosueza@gmail.com</managingEditor>
-    <pubDate>Mon, 10 Apr 2023 9:00:00 GMT</pubDate>
+    <managingEditor>fcosueza@gmail.com (Fran Sueza)</managingEditor>
+    <pubDate>Mon, 10 Apr 2023 09:00:00 GMT</pubDate>
 
     <category>paquetería</category>
     <category>envíos</category>
     <category>transporte urgente</category>
 
-    <!-- Secciones -->
+    <!-- Noticias -->
 
     <item>
       <title>InterGlobe enterprises and UPS launch MOVIN - a new logistics brand built for India</title>
       <category>paquetería</category>
-      <pubDate>Sun, 22 May 12:00:00 GMT</pubDate>
+      <pubDate>Sun, 22 May 2022 12:00:00 GMT</pubDate>
+      <guid>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</guid>
+
       <description>
-        UPS y InterGlobe Enterprise anuncian la creación de MOVIN, una nueva marca de para de logística
-        para abastecer las demandas especiales y el rápido mercado Indio. Movin ofrecerá un servicio 
-        premium y con covertura en toda la India.
+        UPS y InterGlobe Enterprise anuncian la creación de MOVIN, una nueva marca de para abastecer las demandas especiales y el rápido mercado Indio.
       </description>
-      <link>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</link>
+      <link>https://about.ups.com/mx/en/newsroom/press-releases/</link>
     </item>
 
-    <item></item>
-    <item></item>
-  </channel>
+    <item>
+      <title>Adiós al chollo de Aliexpress: así afectará la llegada del IVA a la paquetería internacional</title>
+      <category>paquetería</category>
+      <pubDate>Tue, 29 Jun 2021 12:00:00 GMT</pubDate>
+      <guid>https://logistica.cdecomunicacion.es/noticias/sectoriales/45956/aliexpress-llegada-iva-paqueteria-internacional</guid>
+      <description>
+        A partir del 1 de Julio se eliminará el umbral de 22 euros para los aranceles sobre los paquetes importados de origen no comunitarios en la UE.
+      </description>
+      <enclosure url="https://logistica.cdecomunicacion.es/wp-content/webp-express/webp-images/uploads/2022/12/1624960313-paquetera-iva-aduanas-1-1140x641.jpg.webp" length="4500" type="image/webp" />
+      <link>https://logistica.cdecomunicacion.es/noticias/</link>
+    </item>
 
+    <item>
+      <title>Denuncian Atrasos de siete meses en la distribución de paquetería internacional en Cuba</title>
+      <category>paquetería</category>
+      <pubDate>Mon, 17 Jan 2022 12:38:00 +0500</pubDate>
+      <guid>https://www.cibercuba.com/noticias/2022-01-17-u1-e199370-s27061-denuncian-atraso-siete-meses-distribucion-paqueteria</guid>
+      <description>
+        Los cubanos denuncian que las empresas estatales transitarias y Correos de Cuba tienen retrasos en la entrega de paquetería de hasta 7 meses.
+      </description>
+      <enclosure url="https://cdn0.celebritax.com/sites/default/files/styles/watermark_100/public/1642440970-denuncian-atraso-siete-meses-distribucion-paqueteria-internacional-cuba.jpg" length="5000" type="image/jpg" />
+      <link>https://www.cibercuba.com/noticias/</link>
+    </item>
+
+  </channel>ç
 </rss>
