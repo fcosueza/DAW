@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Francisco Javier Sueza Rodríguez" />
+    <meta name="description" content="Página Web de Llegayá S.L" />
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- Enlaces para la fuentes de Google Fonts  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+
+    <title>Llegaya, S.L</title>
+  </head>
+
+  <body>
+
+    <!-- Cabecera de la página, incluyendo el menú principal y el logotipo de la empreas -->
+
+    <header class="header flex">
+      <nav class="navbar flex">
+        <ul>
+          <a class="navbar__item" href="#inicio">Inicio</a>
+          <a class="navbar__item" href="#servicio">Servicio</a>
+          <a class="navbar__item" href="#contacto">Contacto</a>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <p class="logo__text">Llega<span class="logo__accent">ya</span> SL</p>
+      </div>
+    </header>
+
+    <!-- Contenido princpal de la web -->
+
+    <main class="main">
+
+      <!-- Capa de Inicio -->
+
+      <div class="content" id="inicio">
+        <div class="banner">
+          <h4 class="banner__text">Llega<span class="banner__accent">ya</span> SL</h4>
+          <p class="banner__slogan">Llevando alegría desde 2004</p>
+        </div>
+
+        <p class="content__para">
+          Bienvenidos a nuestra página web!!! <br> <br>
+
+          Llegaya SL es una empresa familiar que llevamos repartiendo felicidad desde hace casi 20 años.
+          Ubicada en Almería, contamos con una flota de vehículos y repartidores que podrán llevar sus paquetes a
+          cualquier parte de España (y Europa). Nuestro principales servicios son: <br><br>
+        </p>
+
+        <div class="container">
+          <ol class="list">
+            <li>
+              Servicios:
+              <ol class="list__sublist" type="a">
+                <li>Transporte Urgente</li>
+                <li>Transporte Ordinario</li>
+              </ol>
+            </li>
+            <li>
+              Productos:
+              <ol class="list__sublist" type="a">
+                <li>Paquetes</li>
+                <li>Sobres</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Capa de Servicios -->
+
+      <div class="content" id="servicio">
+
+        <h2 class="content__title">Servicios / Productos</h2>
+
+        <div class="gallery flex">
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/services-delivery.jpg" alt="">
+            <h4 class="gallery__title">Transporte Urgente Peninsular</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/services-delivery.jpg" alt="">
+            <h4 class="gallery__title">Transporte Urgente Territoriales</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/services-delivery.jpg" alt="">
+            <h4 class="gallery__title">Transportes Sectoriales</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/services-delivery.jpg" alt="">
+            <h4 class="gallery__title">Servicios Especiales a Medida</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/envelope.jpg" alt="">
+            <h4 class="gallery__title">Paquetes</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/envelope.jpg" alt="">
+            <h4 class="gallery__title">Sobres</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/envelope.jpg" alt="">
+            <h4 class="gallery__title">Papel de Burbujas</h4>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__image" src="./img/envelope.jpg" alt="">
+            <h4 class="gallery__title">Cajas de Cartón</h4>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Capa de Contacto -->
+
+      <div class="content" id="contacto">
+
+        <form class="form flex" method="post">
+          <h4 class="form__title">Formulario de Contacto</h4>
+          <div class="form__control">
+            <label class="form__label" for="name">Nombre:</label>
+            <input class="form__input" type="text" id="name" placeholder="Introduzca su nombre..." required>
+          </div>
+          <div class="form__control">
+            <label class="form__label" for="email">E-mail:</label>
+            <input class="form__input" type="email" id="email" placeholder="Introduzca su email..." required>
+          </div>
+          <div class="form__control">
+            <label class="form__label" for="phone">Teléfono (formato: 999 999 999):</label>
+            <input class="form__input" type="tel" id="phone" pattern="[0-9]{3}\s[0-9]{3}\s[0-9]{3}" placeholder="Introduzca su telefono..." required>
+          </div>
+          <div class="form__control">
+            <label class="form__label" for="ciudad">Ciudad:</label>
+            <input class="form__input" type="text" id="ciudad" placeholder="Introduzca su telefono..." required>
+          </div>
+          <div class="form__control">
+            <label class="form__label" for="comentario">Comentario (opcional):</label>
+            <textarea class="form__input form__textarea" id="comentario" cols="30" rows="5" placeholder="Introduzca aquí su comentario..."></textarea>
+          </div>
+
+          <div class="form__control">
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">Desea recibir respuesta por: </legend>
+              <div class="form__control">
+                <input class="form__radio" name="reponse" type="radio" id="resp_email">
+                <label for="resp_email">Email</label>
+                <input class="form__radio" name="reponse" type="radio" id="resp_tel">
+                <label for="resp_tel">Telefono</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <button class="form__button" type="post">Enviar</button>
+        </form>
+
+      </div>
+    </main>
+
+    <!-- Pie de página  de la web -->
+
+    <footer class="foot">
+      <div class="info">
+        <p class="info__text">
+          Llegaya, SL <br>
+          Calle Castor, n 22 <br>
+          teléfono: 958 89 65 34 <br>
+          email: llegaya@gmail.com
+        </p>
+        <p class="info__author">
+          Copyright &#169; Francisco Sueza Rodríguez bajo licencia creative common:
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <img class="info__logo" src="./img/creative-common.png" alt="logo creative commons">
+          </a>
+        </p>
+      </div>
+    </footer>
+  </body>
+
+</html>

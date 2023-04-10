@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es-es">
+  <!-- Elementos Obligatorios -->
+
+  <title>LlegaYa Feeds</title>
+  <id>www.llegaya.com</id>
+  <updated>2023-04-10T10:15:00Z</updated>
+
+  <!-- Elementos Recomendatos -->
+
+  <link rel="self" type="application/xml+atom" href="feed/canal.atom"/>
+  <link rel="alternate" type="text/html" href="www.llegaya.com" />
+  <author>
+    <name>Francisco Sueza Rodríguez</name>
+    <email>fcosueza@gmail.com</email>
+  </author>
+
+  <!-- Elementos Opcionales -->
+
+  <category term="paquetería" />
+  <category term="envíos" />
+  <category term="transporte" />
+
+  <!-- Secciones -->
+
+  <entry>
+    <title>InterGlobe enterprises and UPS launch MOVIN - a new logistics brand built for India</title>
+    <id>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</id>
+    <updated>2022-22-05T12:00:00Z</updated>
+
+    <category term="paqueteria" />
+    <summary>
+      UPS y InterGlobe Enterprise anuncian la creación de MOVIN, una nueva marca de para de logística
+      para abastecer las demandas especiales y el rápido mercado Indio. Movin ofrecerá un servicio 
+      premium y con covertura en toda la India.
+    </summary>
+    <link rel="alternate" type="text/html" href="https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html" />
+  </entry>
+
+  <entry></entry>
+  <entry></entry>
+
+</feed>

@@ -1,0 +1,348 @@
+/* Se va a usar BEM para nombrar las clases, ya que permite tenerlas mas ordenadas y crear clases mas reutilizables. Basicamente la convención es la siguiente:
+
+   - Nombre de elemento:     elememto
+   - Nombre de subelemento:  elemento__subelemento
+   - Nombre modificador:     elemento--modificador ó elemento__subelemento--modificador
+*/
+
+/* Reseteo básico de estilo para todos los elementos */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo básico para los elementos html y body:
+
+   Se establece el tamaño de fuente a 62.5% ya que esto deja
+   la fuente a 10px y facilita trabajar con unidades
+   relativas, como el rem, al ser múltiplos de 10.
+*/
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+
+}
+
+/* Clases de utilidad:
+
+  Clases que se van a aplicar a diferentes elementos y se han extraído
+  para no repetir código. Se definen primero, por si queremos cambiar 
+  alguna de sus opciones poder hacerlo en la clase del elemento, que sobreescribira estas por el efecto cascada.
+*/
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo principal de la aplicación */
+
+/* Estilo de la cabecera */
+
+.header {
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem;
+  color: #EEEEEE;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar {
+  font-size: 2rem;
+}
+
+
+.navbar__item {
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 0.8rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: color 0.5s, background-color 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.navbar__item:link,
+.navbar__item:visited {
+  color: #EEEEEE;
+}
+
+.navbar__item:hover {
+  color: #111;
+  background-color: #dfa667;
+}
+
+.logo__text {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+.logo__accent {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3.5rem;
+  color: #dfa667;
+}
+
+/* Estilo de la capa de contenido  */
+
+/* Para conseguir que solo se vea una capa de contenido al mismo tiempo lo hemos hecho de la siguiente forma:
+
+   Se ha establecido la altura del elemento body a 100vh, por un lado, y por otro hemos hecho este elemento un contenedor de tipo flex. Además, se han establecido la anchura y la altura del contenido al 100%.
+
+   Con esto no solo se logra que se vea una capa de contenido a la vez, sino que la cabecera y el pie de página sean siempre visibles sin tener que usar el position: fixed, que sacaría a ambos elementos del flujo normal, además, se consigue que el contenido se adapte a cualquier dispositivo, aunque serían necesarias algunas media queries para que fuera totalmente responsive elementos como el banner o el formulario.
+*/
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  color: #222831;
+  background-color: #fff;
+  overflow: scroll;
+}
+
+.content__title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+/* Estilo de la capa Inicio */
+
+.banner {
+  display: block;
+  width: 50%;
+  height: 35rem;
+  margin: 0 auto;
+  text-align: center;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), 100% / 100% url(./img/banner-background.jpg);
+}
+
+.banner__text {
+  font-size: 10rem;
+}
+
+.banner__accent {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 12rem;
+  color: #dfa667;
+}
+
+.banner__slogan {
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.banner__text,
+.banner__slogan {
+  color: #fff;
+}
+
+.content__para,
+.list {
+  font-size: 2rem;
+}
+
+.container {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.content__para {
+  text-align: left;
+  width: 50%;
+  margin: 2rem auto;
+
+}
+
+.container,
+.content__para {
+  display: block;
+}
+
+.list {
+  font-weight: bold;
+}
+
+.list__sublist {
+  margin-left: 2rem;
+}
+
+
+/* Estilo de la capa servicios */
+
+.gallery {
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 3rem;
+}
+
+.gallery__element {
+  margin: 2rem 4rem;
+  text-align: center;
+  color: #111;
+  background-color: #dfa667;
+  border: 0.2rem solid rgb(112, 112, 112);
+  border-radius: 0.6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.gallery__element:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.gallery__title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 4rem;
+}
+
+.gallery__image {
+  width: 30rem;
+  height: 20rem;
+}
+
+/* Estilo capa de contacto */
+
+.form {
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  padding: 1rem;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 0.2rem solid rgb(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.form__control {
+  width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.form__input {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.form__input:focus {
+  outline: 0.3rem solid #dfa667;
+  box-shadow: 0 0 0.5rem 0.5rem #dfa667;
+
+}
+
+.form__label {
+  font-weight: bold;
+}
+
+.form__label,
+.form__input {
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.form__title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.form__textarea {
+  resize: none;
+}
+
+.fieldset {
+  font-size: 1.6rem;
+  border: none;
+}
+
+.fieldset__legend {
+  margin-bottom: 1rem;
+}
+
+.form__radio {
+  margin-left: 2rem;
+}
+
+.form__radio:checked {
+  accent-color: #dfa667;
+}
+
+.form__button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 15rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  color: #111;
+  background-color: #dfa667;
+  transition: all 0.2s ease-in-out;
+}
+
+.form__button:active {
+  transform: scale(0.9);
+}
+
+
+/* Estilo del pie de página */
+
+.foot {
+  font-size: 1.6rem;
+  width: 100%;
+  padding: 2rem;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.info {
+  display: block;
+  margin-left: 2rem;
+}
+
+.info__text {
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.info__author {
+  position: absolute;
+  bottom: 2rem;
+  left: 35%;
+}
+
+.info__logo {
+  width: 10rem;
+  padding-left: 2rem;
+}

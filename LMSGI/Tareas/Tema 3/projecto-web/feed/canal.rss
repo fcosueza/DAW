@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+  <channel>
+    <!-- Elementos Obligatorios -->
+
+    <title>LlegaYa Feeds</title>
+    <link>www.llegaya.com</link>
+    <description>Canal de noticas sobre paquetería nacional e internacional</description>
+
+    <!-- Elementos Opcionales -->
+
+    <language>es</language>
+    <managingEditor>fcosueza@gmail.com</managingEditor>
+    <pubDate>Mon, 10 Apr 2023 9:00:00 GMT</pubDate>
+
+    <category>paquetería</category>
+    <category>envíos</category>
+    <category>transporte urgente</category>
+
+    <!-- Secciones -->
+
+    <item>
+      <title>InterGlobe enterprises and UPS launch MOVIN - a new logistics brand built for India</title>
+      <category>paquetería</category>
+      <pubDate>Sun, 22 May 12:00:00 GMT</pubDate>
+      <description>
+        UPS y InterGlobe Enterprise anuncian la creación de MOVIN, una nueva marca de para de logística
+        para abastecer las demandas especiales y el rápido mercado Indio. Movin ofrecerá un servicio 
+        premium y con covertura en toda la India.
+      </description>
+      <link>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</link>
+    </item>
+
+    <item></item>
+    <item></item>
+  </channel>
+
+</rss>
