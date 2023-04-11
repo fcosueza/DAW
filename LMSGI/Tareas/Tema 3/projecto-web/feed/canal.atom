@@ -4,8 +4,8 @@
   <!-- Elementos Obligatorios -->
 
   <title>LlegaYa Feeds</title>
-  <id>http://www.llegaya.com</id>
-  <updated>2023-4-10T10:15:00Z</updated>
+  <id>http://www.llegaya.com/</id>
+  <updated>2023-04-10T10:15:00Z</updated>
 
   <!-- Elementos Recomendatos -->
 
@@ -27,15 +27,39 @@
   <entry>
     <title>InterGlobe enterprises and UPS launch MOVIN - a new logistics brand built for India</title>
     <id>https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html</id>
-    <updated>2022-5-22T12:00:00Z</updated>
-
+    <updated>2023-01-31T12:00:00Z</updated>
     <category term="paqueteria" />
     <summary>
-      UPS y InterGlobe Enterprise anuncian la creación de MOVIN, una nueva marca de para de logística
-      para abastecer las demandas especiales y el rápido mercado Indio. Movin ofrecerá un servicio 
-      premium y con covertura en toda la India.
+      UPS y InterGlobe Enterprise anuncian la creación de MOVIN para abastecer las demandas especiales y el rápido mercado Indio. .
     </summary>
+    <published>2022-05-22T12:00:00Z</published>
     <link rel="alternate" type="text/html" href="https://about.ups.com/mx/en/newsroom/press-releases/innovation-driven/interglobe-enterprises-and-ups-launch-movin-.html" />
+  </entry>
+
+  <entry>
+    <title>Adiós al chollo de Aliexpress: así afectará la llegada del IVA a la paquetería internaciona</title>
+    <id>https://logistica.cdecomunicacion.es/noticias/sectoriales/45956/aliexpress-llegada-iva-paqueteria-internacional</id>
+    <updated>2023-04-10T12:00:00Z</updated>
+    <category term="paqueteria" />
+    <summary>
+      A partir del 1 de Julio se eliminará el umbral de 22 euros para los aranceles sobre los paquetes importados de origen no comunitarios en la UE.
+    </summary>
+    <published>2021-06-29T12:00:00Z</published>
+    <link rel="enclosure" href="https://logistica.cdecomunicacion.es/wp-content/webp-express/webp-images/uploads/2022/12/1624960313-paquetera-iva-aduanas-1-1140x641.jpg.webp" length="4500" type="image/webp" />
+    <link rel="alternate" type="text/html" href="https://logistica.cdecomunicacion.es/noticias/" />
+  </entry>
+
+  <entry>
+    <title>Denuncian Atrasos de siete meses en la distribución de paquetería internacional en Cuba</title>
+    <id>https://www.cibercuba.com/noticias/2022-01-17-u1-e199370-s27061-denuncian-atraso-siete-meses-distribucion-paqueteria</id>
+    <updated>2023-02-10T20:00:00Z</updated>
+    <category term="paqueteria" />
+    <summary>
+      Los cubanos denuncian que las empresas estatales transitarias y Correos de Cuba tienen retrasos en la entrega de paquetería de hasta 7 meses.
+    </summary>
+    <published>2022-01-17T12:38:00Z</published>
+    <link rel="enclosure" href="https://cdn0.celebritax.com/sites/default/files/styles/watermark_100/public/1642440970-denuncian-atraso-siete-meses-distribucion-paqueteria-internacional-cuba.jpg" length="5000" type="image/webp" />
+    <link rel="alternate" type="text/html" href="https://www.cibercuba.com/noticias/" />
   </entry>
 
 </feed>
