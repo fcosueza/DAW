@@ -332,6 +332,7 @@ body {
 }
 
 .info__text {
+  width: 30%;
   line-height: 1.5;
   font-weight: bold;
 }
@@ -340,9 +341,18 @@ body {
   position: absolute;
   bottom: 2rem;
   left: 35%;
+  width: 40%;
 }
 
 .info__logo {
   width: 10rem;
   padding-left: 2rem;
+}
+
+.info__feed {
+  position: absolute;
+  right: 10%;
+  bottom: 4rem;
+  justify-content: space-between;
+  width: 10%;
 }

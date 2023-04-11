@@ -91,12 +91,36 @@ Descarga e instala el programa de la web oficial \url{https://www.thunderbird.ne
 
 Debes buscar dentro de la web de la empresa elegida un archivo de este \href{https://e00-marca.uecdn.es/rss/portada.xml}{estilo}, en este caso es el canal rss de la web deportiva "marca".
 
-\section{Solución}
+\section{Solución Apartado A}
 En esta tarea vamos a trabajar con canales de noticias tanto RSS como Atom, incluyéndolos, además, en la página web creada en el Tema 2 y usando un agregador de feeds, en nuestro caso Thunderbird, para agregar un canal de noticias.
 
 \subsection{Aparatado A: RSS}
 
 En primer lugar hemos creado un canal RSS con toda la información que se nos pide y con 3 secciones. El fichero RSS se incluye dentro del archivo comprimo de esta práctica, aunque en la siguiente figura podemos ver una captura de su validación en el validador de la W3C.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{rss-validation.png}
+    \caption{Validación del canal RSS}
+\end{figure}
+
+Como apunte decir que aunque el fichero valida correctamente, pero se nos hace una recomendación y es que incluyamos un par de líneas para mantener la compatibilidad con atom, aunque nosotros vamos a dejar el fichero como está.
+
+\subsection{Solución Apartado B}
+Al igual que en la sección anterior, hemos creado el fichero canal.atom con el canal de noticias codificado con el estándar Atom. En la siguiente imagen podemos ver la validación de dicho fichero en el validador de la W3C.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{atom-validation.png}
+    \caption{Validación de canal Atom}
+\end{figure}
+
+Al igual que con el fichero RSS, este fichero se valida correctamente, aunque también nos hace una sugerencia, la cual es incluir el URI absoluto del canal Atom en los enlaces con el atributo rel="self", aunque ya que nuestro canal no esta colgado en la red esto es complicado, por lo que se ha dejado la ruta absoluta.
+
+\subsection{Solución Apartado C}
+En este punto, vamos a incluir los canales en la página web que creamos en la tarea del tema 2. En primer lugar, hemos creado una carpeta llamada \textbf{feed} donde hemos incluido los ficheros de los dos canales. A continuación, hemos descargado las \textbf{imágenes} y los enlaces que nos ha generado el validador de la W3C para cada uno de los archivos.
+
+Una vez con todos los archivos en sus carpetas correspondientes hemos procedido a \textbf{añadir los dos canales a la página web}, en concreto en el pie de página, donde aparecerán dos iconos con los logos tanto de RSS como de Atom donde los usuarios podrán pulsar para descargar los canales de noticias.
 % Bibliography
 
 \newpage
