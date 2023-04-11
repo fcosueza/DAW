@@ -91,10 +91,10 @@ Descarga e instala el programa de la web oficial \url{https://www.thunderbird.ne
 
 Debes buscar dentro de la web de la empresa elegida un archivo de este \href{https://e00-marca.uecdn.es/rss/portada.xml}{estilo}, en este caso es el canal rss de la web deportiva "marca".
 
-\section{Solución Apartado A}
+\section{Soluciónes}
 En esta tarea vamos a trabajar con canales de noticias tanto RSS como Atom, incluyéndolos, además, en la página web creada en el Tema 2 y usando un agregador de feeds, en nuestro caso Thunderbird, para agregar un canal de noticias.
 
-\subsection{Aparatado A: RSS}
+\subsection{Solución Apartado A: RSS}
 
 En primer lugar hemos creado un canal RSS con toda la información que se nos pide y con 3 secciones. El fichero RSS se incluye dentro del archivo comprimo de esta práctica, aunque en la siguiente figura podemos ver una captura de su validación en el validador de la W3C.
 
@@ -106,7 +106,7 @@ En primer lugar hemos creado un canal RSS con toda la información que se nos pi
 
 Como apunte decir que aunque el fichero valida correctamente, pero se nos hace una recomendación y es que incluyamos un par de líneas para mantener la compatibilidad con atom, aunque nosotros vamos a dejar el fichero como está.
 
-\subsection{Solución Apartado B}
+\subsection{Solución Apartado B: Atom}
 Al igual que en la sección anterior, hemos creado el fichero canal.atom con el canal de noticias codificado con el estándar Atom. En la siguiente imagen podemos ver la validación de dicho fichero en el validador de la W3C.
 
 \begin{figure}[H]
@@ -117,15 +117,67 @@ Al igual que en la sección anterior, hemos creado el fichero canal.atom con el 
 
 Al igual que con el fichero RSS, este fichero se valida correctamente, aunque también nos hace una sugerencia, la cual es incluir el URI absoluto del canal Atom en los enlaces con el atributo rel="self", aunque ya que nuestro canal no esta colgado en la red esto es complicado, por lo que se ha dejado la ruta absoluta.
 
-\subsection{Solución Apartado C}
+\subsection{Solución Apartado C: Añadiendo los canales a la Web}
 En este punto, vamos a incluir los canales en la página web que creamos en la tarea del tema 2. En primer lugar, hemos creado una carpeta llamada \textbf{feed} donde hemos incluido los ficheros de los dos canales. A continuación, hemos descargado las \textbf{imágenes} y los enlaces que nos ha generado el validador de la W3C para cada uno de los archivos.
 
-Una vez con todos los archivos en sus carpetas correspondientes hemos procedido a \textbf{añadir los dos canales a la página web}, en concreto en el pie de página, donde aparecerán dos iconos con los logos tanto de RSS como de Atom donde los usuarios podrán pulsar para descargar los canales de noticias.
+Una vez con todos los archivos en sus carpetas correspondientes hemos procedido a \textbf{añadir los dos canales a la página web}, en concreto en el pie de página, donde aparecerán dos iconos con los logos tanto de RSS como de Atom donde los usuarios podrán pulsar para descargar los canales de noticias. También se ha añadido una clase CSS para darles un poco de estilo.
+
+En la siguiente captura, se puede ver la página principal con los dos iconos de los canales añadidos en el pie de página.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{channels-web.png}
+    \caption{Página Web con los canales añadidos en el pie de página}
+\end{figure}
+
+\subsection{Solución Apartado D: Usando Thunderbird como Agregador de Noticias}
+En este apartado vamos a usar un agregador de feeds para agregar un canal y consultar algunas de sus noticias. En nuestro caso, vamos a usar \textbf{Thunderbird}, ya que es el gestor de correo que estamos usando. Para ello, hemos seguido los siguientes pasos:
+
+\begin{enumerate}
+    \item Nosotros no hemos necesitado \textbf{descargar e instalar Thunderbird}, ya que es el gestor de correo que viene por defecto en Kubuntu y el que suelo usar. Pero si no fuera el caso, abría que descargar Thunderbird desde su \href{https://www.thunderbird.net/es-ES/}{página oficial}, siguiendo las instrucciones de instalación según el sistema operativo donde queramos instalarlo.
+
+    \item Una vez instalado, deberemos \textbf{crear una cuenta de feeds}. En nuestro ya teníamos una creada, pero si no fuera el caso, podemos crear una pulsando en la opción del menu \textbf{File -> New -> Feed Account...}, que nos mostrará una ventana que nos guiará por el proceso de creación de la cuenta, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{thunderbird-1.png}
+        \caption{Creación de la cuenta de feeds en Thunderbird}
+    \end{figure}
+
+    \item Lo siguiente ha sido buscar un canal de noticias de alguna empresa de paquetería. En nuestro caso ha sido complicado encontrar un canal de una empresa nacional, por lo que hemos buscado en empresa extranjeras donde teníamos varias opciones, pero al final, nos hemos decidido por \textbf{FedEx}. En concreto, en su división  \href{https://fedexbusinessinsights.com/}{FedEX Bussines Insight},
+
+    Así, usaremos la dirección \url{https://fedexbusinessinsights.com/feed/} para añadir a Thunderbird y suscribirnos al canal RSS de FedEx.
+
+    \item Para añadir el canal RSS a Thunderbird solo tenemos que pulsar con el botón derecho sobre el canal que de Feeds que se habrá creado y que se mostrará en el menú desplegable que se encuentra a la izquierda de la interfaz de Thunderbird, como podemos ver en la siguiente imagen, y pulsar en la opción \textbf{Subscribe}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{thunderbird-2.png}
+        \caption{Añadiendo el feed a Thunderbird}
+    \end{figure}
+
+    En la ventana que se nos abrirá, debemos introducir la URL que hemos comentado arriba y pulsar en el botón \textbf{add}. Si todo va bien, se nos mostrará una ventana con los datos del canal de noticias. Si pulsamos en \textbf{Verify}, se verificará el canal y se añadirá a Thunderbird.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{thunderbird-3.png}
+        \caption{Ventana verificación canal de noticias en Thnderbird}
+    \end{figure}
+
+    \item Una vez realizado esto, tendremos añadido el canal de noticias y podremos acceder a ellas como si fuera una cuenta de correo. En la siguiente imagen podemos ver, resaltados con una cuadrado en rojo, tanto el canal ya añadido en la sección de feeds como la lista de noticias de dicho canal.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{thunderbird-4.png}
+        \caption{Canal de noticias añadido y lista de noticias}
+    \end{figure}
+\end{enumerate}
+
 % Bibliography
 
-\newpage
+%\newpage
 
-\bibliography{citas}
-\bibliographystyle{unsrt}
+%\bibliography{citas}
+%\bibliographystyle{unsrt}
 
 \end{document}
