@@ -3611,6 +3611,261 @@ Existen \textbf{varios tipos de agregadores}, siendo los más comunes los siguie
     Algunos de los agregadores de podcast más usados son \textbf{Spotify}, \textbf{Podimo} o \textbf{Google Podcast}, los cuales permiten no solo escucharlos o verlos en directo, sino también descargarlos.
 \end{itemize}
 
+\chapter{Conversión y Adaptación de Documentos XML}
+En esta unidad vamos a estudiar diferentes técnicas de adaptación y conversión de documentos XML. Para llevar a cabo esto, vamos a usar principalmente dos tecnologías ligadas a XML, por una lado \textbf{XPath}, un que permite realizar la consulta de elementos en en un documento XML y \textbf{XSL}, un lenguaje que nos permitirá realizar diferentes tipos de transformaciones a un documento XML.
+
+\section{Técnicas de Transformación de Documentos XML}
+Una de las principales herramientas para realizar transformaciones en un documento XML es \textbf{Extensible Stylesheet Language} (XSL), un lenguaje que interpreta hojas de estilo. Una \textbf{hoja de estilo XSL} describe como debe mostrarse un documento XML, algo parecido a lo que hace un archivo  \textbf{CSS} (Cascade Style Sheets) con los documentos HTML.
+
+La especificación XSL define unas características y una sintaxis que se puede agrupar en tres partes:
+
+\begin{itemize}
+    \item \textbf{XSL Transfornation Language} (XSLT): es un lenguaje para la transformación de documentos XML que nos permite realizar diferentes tipos de transformaciones.
+    \item \textbf{XML Path Language} (XPath): un lenguaje de consulta de elementos XML.
+    \item \textbf{XSL Formatting Object} (XSL-FO): un vocabulario XML para especificar la semántica del formato, es decir, indica donde debe aparecer cada elemento, con que espaciado, que color, etc...
+\end{itemize}
+
+Para realizar las transformaciones se utilizan unos programas denominados \textbf{procesadores XSL} o \textbf{XSL parsers}. A estos programas se les debe indicar los archivos de entrada XSL y XML. Si los archivos no tienen errores, se generará el archivo deseado en el formato indicado en las instrucciones XSL.
+
+\textbf{XSLT }fue diseñado para usar realizar transformaciones usando el vocabulario XML especificado por XSL-FO, pero también puede usarse  con independencia de XSL y dicho vocabulario. A nivel académico podemos realizar transformaciones de documentos XML a documentos HTML u otros XML de estructura diferente sin usar XSL-FO.
+
+En esta unidad, usaremos \textbf{XSLT} y \textbf{XPath}, para evitar de esta forma la complejidad añadida por XSL-FO.
+
+\section{XML Path Language (XPath)}
+\textbf{XML Path Language} (XPath) es un lenguaje para la consulta de elementos en un documento XML. Diseñado originalmente para ser usado con \textbf{XSLT} (eXtensible Stylesheet Language for Transformations) y \textbf{XPointer} (XML Pointer Language), en versiones posteriores también es usado con \textbf{XQuery} como veremos en próximas unidades.
+
+El consorcio W3C (The World Wide Web Consortium) aprobó su primera versión \textbf{XPath 1.0} en \textbf{noviembre de 1999}. XPath usa una sintaxis compacta y sin etiquetas, por lo que no se asemeja a XML. Su nombre surge por el uso de las rutas en la navegación a través de las estructuras jerárquicas dentro de un documento XML.
+
+Posteriormente siguieron las \textbf{versiones}:
+
+\begin{itemize}
+    \item \textbf{XPath 2.0} (Enero de 2007)
+    \item \textbf{XPath 2.O Second Edition} (Diciembre 2010)
+    \item \textbf{XPath 3.0} (Abril de 2014)
+    \item \textbf{XPath 3.1} (Marzo de 2017)
+\end{itemize}
+
+Para obtener más información puedes ver la \href{https://www.w3.org/TR/1999/REC-xpath-19991116/}{recomendación completa} en la web de W3C.
+
+\subsection{Árbol de Nodos}
+XPath modela los documentos empleando un \textbf{árbol de nodos}.
+
+Un \textbf{árbol} es una estructura abstracta muy empleada en informática que representa una serie de elementos, \textbf{nodos}, unidos por líneas o \textbf{vértice}. Además, entre dos nodos cualesquiera solo existe un camino único y ninguno de los caminos forma un bucle.
+
+El nombre de esta estructura le viene porque tiene forma de copa de árbol invertida. Partiendo de un nodo raíz, van añadiéndose ramas que contienen los nodos hijo. A los nodos que \textbf{tienen} al menos \textbf{un hijo} se les llama \textbf{nodos padre}. 	A los nodos que \textbf{no tienen} ningún hijo se les llama \textbf{nodos hoja}. Los nodos que \textbf{comparten padre} se les llama \textbf{nodos hermanos}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{arbol-nodos.png}
+    \caption{Árbol de nodos}
+\end{figure}
+
+En \textbf{XPath} existen distintos \textbf{tipos de nodos} que recogen diferentes tipos de información en los documentos XML. Los \textbf{siete tipos distintos} de nodos que podemos encontrar en XPath son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Nodo raíz}: es el primer nodo del árbol y el único que no tiene padre. No hay que confundir el nodo raíz con el elemento raíz del documento XML. El nodo raíz tiene como hijos al elemento raíz y en su caso, los comentarios y las instrucciones de procesamiento que formen el prólogo del documento XML.
+
+    \item \textbf{Nodo Elemento}: hay un nodo elemento por cada elemento XML en el documento. Todos los nodos elemento tienen un sólo padre que puede ser otro elemento o el nodo raíz. Los nodo elementos pueden tener un identificador único (ID), aunque para ello deben estar declarados como tipo ID en el documento DTD o en el XMl Schema.
+
+    \item \textbf{Nodo atributo}: estos nodos almacenan los atributos de un documento XML. Un nodo atributo estará asociado a un único elemento que será el padre de este, pero desde el punto de vista del elemento no se considera a los nodo atributo como sus hijos. Los nodo atributo son siempre nodos hoja, es decir, no pueden tener nodos hijo.
+
+    \item \textbf{Nodo texto o contenido}: estos nodos almacenan los valores alfanuméricos de los elementos en un documento XML. Estos nodos son nodos hoja, al igual que nodos atributo. Nótese que los valores de los nodos atributo no se almacenan en nodos texto, sino en los propios identificadores de dichos nodos.
+
+    \item \textbf{Nodo comentario}: son los nodos que almacenan los comentarios de un documento XML. El nodo almacenará el contenido del comentario sin incluir las cadenas de inicio (<!--) ni fin (-->) del comentario.
+
+    \item \textbf{Nodo espacio de nombres}: cada nodo elemento puede tener un conjunto asociado de nodos espacio de nombres, uno para cada uno de los distintos prefijos de espacios de nombres, incluyendo si si es el caso el espacio de nombres por defecto. Tienen un funcionamiento parecido a los nodos atributo. Un nodo espacio de nombres tiene un único elemento como nodo padre, pero desde el punto de vista del elemento estos nodos no son considerados nodos hijo. Estos nodos siempre serán nodos hoja.
+
+    \item \textbf{Nodo instrucción de procesamiento}: hay un nodo por cada instrucción de procesamiento. No se incluye la cadena de terminación de la orden (?>).
+\end{itemize}
+
+Además se establece un \textbf{orden entre los nodos} que se corresponde con el orden en el que está escrito el documento, de modo que la raíz será el primer nodo y los nodos elemento aparecerán antes que sus hijos. Por tanto, el orden del documento establece un orden para los nodos según el orden de aparición de las etiquetas de apertura de dichos elementos en el documento XML. Los nodos atributos y los nodos espacio de nombres aparecen antes que los hijos del elemento, apareciendo los nodos espacio de nombres antes que los nodos atributo.
+
+El nodo raíz y los nodos elemento tiene un lista ordenada de nodos hijo. Además, los nodos nunca comparten hijo, es decir, cada nodo tiene un único padre, excepto del nodo raíz que no tiene padre.
+
+En el \textbf{siguiente ejemplo} de un documento XML que almacena una agenda podemos ver el árbol de nodos que crea la aplicaicón \textbf{BaseX}. Podemos observar a la izquierda el documento XML y a la derecha el árbol creado. Esta aplicación no resalta los diferentes nodos de ninguna forma especial, mostrando todos con su identificador.
+
+En la siguiente figura podemos ver una captura del documento y su correspondiente árbol.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{xml-arbol.png}
+    \caption{Arbol de un documento XML}
+\end{figure}
+
+\begin{itemize}
+    \item El \textbf{nodo raíz} esta indicado con el nombre del documento \textbf{XML:arbol\_nodos\_ejemplo.xml}. Nótese que no se corresponde con el elemento raíz que en esta caso sería 'agenda'. Es importante \textbf{no confundir} el nodo raíz con el elemento raíz. El primero ser refiere al árbol de nodos y el segundo al documento XML.
+
+    \item Los \textbf{nodos elementos} son los más abundantes: \textbf{agenda}, \textbf{contacto}, \textbf{nombre} y \textbf{teléfono}.
+
+    \item Los \textbf{nodos texto} son los contenidos de los elementos \textbf{nombre} y \textbf{teléfono}, es decir: \textbf{Jóse}, \textbf{600102030}, \textbf{Pizzería Roma} y \textbf{600302010}. Estos nodos siempre serán nodos hoja.
+
+    \item Los \textbf{nodos atributo} recogen el identificado y el valor. En nuestro caso, \textbf{tipo=``personal''} y \textbf{tipo=``empresa''}.
+
+    \item También podemos ver en el ejemplo los \textbf{nodos comentario}, uno al inicio y otro dentro del segundo elemento \textbf{contacto}, con el contenido \textbf{Ejemplo de agenda y añadir dirección web}.
+\end{itemize}
+
+\subsection{Relaciones entre Nodos}
+Cuando nos \textbf{posicionamos en un nodo} dentro de un árbol de nodos se establecen \textbf{distintas relaciones} con otros nodos del arbol. El nodo en el que nos posicionamos para establecer la relación se denomina \textbf{nodo contexto} o \textbf{nodo contextual}. Las distintas relaciones que podemos tener serán utilizadas después como ejes en los pasos de localización.
+
+Las \textbf{relaciones} que se pueden establecer son la siguientes:
+
+\begin{itemize}
+    \item \textbf{self}: contiene solo el nodo contexto.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-1.png}
+    \end{figure}
+
+    \item \textbf{child}: contiene los hijos del nodo contexto.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-2.png}
+    \end{figure}
+
+    \item \textbf{descendant}: contiene los descendientes del nodo contexto, es decir, los hijos y los hijos de éstos, etc.. Nunca contiene nodos atributo o espacio de nombres.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-3.png}
+    \end{figure}
+
+    \item \textbf{descendant-or-self}: contiene todos los nodos que contiene la relación descendant además del nodo contexto mismo.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-4.png}
+    \end{figure}
+
+    \item \textbf{parent}: contiene el padre del nodo contexto, si lo hay.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-5.png}
+    \end{figure}
+
+    \item \textbf{ancestor}: contiene los ancestros del nodo contexto, es decir, el padre del nodo contexto y el padre de este, etc.. Esta relación siempre incluirá al nodo raíz, salvo que el nodo contexto sea el mismo nodo raíz.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-6.png}
+    \end{figure}
+
+    \item \textbf{ancestor-or-self}: contiene los mismo nodos que la relación ancestor, pero además incluye al nodo contexto mismo.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-7.png}
+    \end{figure}
+
+    \item \textbf{preceding}: contiene todos los nodos del mismo documento que el nodo contexto que están antes que él, según el orden de documento, excluyendo a los ancestros y los nodos atributos y espacio de nombres.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-8.png}
+    \end{figure}
+
+    \item \textbf{preceding-siblin}: contiene todos los hermanos precedentes del nodo contexto. Si el nodo contexto es un nodo atributo o espacio de nombres el eje preceding-sibling estará vacío.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-9.png}
+    \end{figure}
+
+    \item \textbf{following}: contiene todos los nodos del mismo documento que el nodo contexto que preceden a este según el orden del documento, excluyendo a los descendientes de este y los nodos atributo y espacio de nombres.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-10.png}
+    \end{figure}
+
+    \item \textbf{followinf-sibling}: contiene todos los elementos siguiente al nodo contexto. Si el nodo contexto es un nodo atributo o espacio de nombres, el eje following-sibling estará vacío.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{relacion-nodo-11.png}
+    \end{figure}
+\end{itemize}
+
+No se han incluido \textbf{nodos atributo} ni \textbf{nodos espacios de nombres} en estos gráficos para simplificarlos un poco, pero las \textbf{relaciones} que podemos encontrar con estos nodos son las siguientes:
+
+\begin{itemize}
+    \item \textbf{attribute}: contiene todos los nodos atributos del nodo contexto. Esta relación estará vacía si el elemento contexto no es un nodo elemento, ya que es el único que puede tener atributos.
+    \item \textbf{namespace}: contiene todos los nodos de espacio de nombres del nodo contexto. Al igual que la relación attibute, ésta estará vacía si el nodo contexto no es un nodo elemento.
+\end{itemize}
+
+\subsection{Sintaxis}
+La sintaxis de XPath no usa etiquetas, por lo que no se asemeja a XML. Como su utilidad es hacer búsquedas en el árbol de nodos, se utiliza una sintaxis similar a la que se usa en los árboles de directorios y archivos del sistema operativo.
+
+Un ejemplo de sintaxis de XPath puede ser el siguiente '\textbf{camino de localización}' (location paths):
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+descendant-or-self::curso[position()=1]/child::grupo[position()=2]/child::alumno[last()]/
+    child::nombre/child::node()
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Aunque siempre que se pueda, se suele emplear su \textbf{versión simplificada}. El ejemplo anterior, quedaría de la siguiente forma en esta versión:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+                   //curso[1]/grupo[2]/alumno[last()]/nombre/text()
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Como podemos ver, nos hemos ahorrado muchos caracteres, y la consulta se ve mucho más limpia y fácil de entender. Por lo que es altamente recomendable usar la versión simplificada siempre que se pueda.
+
+Además de las expresiones XPath, se pueden emplear \textbf{llamadas a funciones}, \textbf{operaciones matemáticas simples} y \textbf{operaciones lógicas}.
+
+Cuando un programa \textbf{evalúa} un \textbf{camino de localización} devolverá el resultado en uno de los siguientes \textbf{tipos básicos}:
+
+\begin{itemize}
+    \item Un \textbf{conjunto de nodos} (Node-Set): una colección desordenada de nodos sin duplicados. Nótese que este conjunto de nodos no puede ser vacío ni contener un único nodo.
+    \item Un \textbf{valor lógico} (booleano): el valor verdadero o falso.
+    \item Un \textbf{valor numérico}: un número en punto flotante.
+    \item Una \textbf{cadena de caracteres}.
+\end{itemize}
+
+Las \textbf{palabras reservadas} de XPath son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Ejes}: ancestor, ancestor-or-self, child, descendant, descendant-or-self, following, following-sibling, namespace, parent, preceding, preceding-sibling y self.
+
+    \item \textbf{Selectores de nodos}: node(), text(), comment() y procesing-instruction().
+    \item \textbf{Operaciones lógicas}: and, or, not().
+    \item \textbf{Operaciones matemáticas}: div, mod.
+\end{itemize}
+
+Además, hay un \textbf{conjunto de símbolos} con funcionales definidas en el lenguaje, a saber:
+
+\begin{itemize}
+    \item \textbf{Agrupación} de \textbf{operaciones} con paréntesis: \textbf{()}
+    \item \textbf{Predicados} con corchetes: \textbf{[]}
+    \item Abreviación \textbf{nodo actual} con el punto: \textbf{.}
+    \item Abreviación del \textbf{nodo padre} con dos puntos: \textbf{..}
+    \item Abreviación del \textbf{atributo} con la arroba: \textbf{@}
+    \item \textbf{Todos} los \textbf{tipos de nodos} con el asterisco: \textbf{*}
+    \item \textbf{Separado eje-selector} con los dos puntos: \textbf{:}
+    \item \textbf{Separador} de los \textbf{pasos} de localización con la barra: \textbf{/}
+    \item Abreviación del \textbf{paso} de localización \textit{descendant-or-self::node()} con dos barras: \textbf{//}
+    \item Referencia a \textbf{una variable} con el símbolo del dolar: \textbf{\$}
+    \item \textbf{Unión} de conjuntos con las barra vertical: \textbf{|}
+    \item \textbf{Operaciones lógicas}: \textbf{=}, \textbf{!=}, \textbf{<}, \textbf{>}, \textbf{<=} y \textbf{>=}
+    \item \textbf{Operaciones matemáticas}: \textbf{+}, \textbf{-} y \textbf{*}
+\end{itemize}
+
+El lenguaje también usa:
+
+\begin{itemize}
+    \item \textbf{Nombres cualificados} de los identificadores de XML.
+    \item Los \textbf{nombres de las funciones} que se desean utilizar.
+    \item \textbf{Nombres de las referencias a variables} anteponiendo el símbolo \$.
+    \item \textbf{Numeros y literales}, estos últimos entrecomillados con comillas simples o dobles. Pueden anidarse alternando el tipo de comillas.
+\end{itemize}
+
+
+
 % Apéndice
 \appendix
 
