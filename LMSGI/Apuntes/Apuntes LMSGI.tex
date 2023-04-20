@@ -4467,9 +4467,188 @@ Esto es una prueba
 \end{itemize}
 
 \subsection{Estrategias de Uso}
+A la hora de crear sentencias de XPath hay ciertas estrategias que podemos seguir para obtener los resultados deseados de una forma más precisa. Ademas hay situaciones concretas que se resuelven de mejor manera usando un determinado patrón.
+
+A continuación veremos las principales estrategias que nos ayudarán a crear consultas eficientes.
+
+\subsubsection{Posicionamiento de Predicados}
+
+     Hay ciertas \textbf{estrategias} que podemos tener en cuenta a la hora de \textbf{posicionar los predicados} dentro de un paso de localización. Vamos a ver un ejemplo para que quede más claro como posicionar éstos.
+
+     Imaginemos que queremos saber el \textbf{grupo del alumno que se apellida 'Bellido Bravo'}.
 
 
+     Primero, buscamos en la estructura de nuestro documento XML la posición del atributo y del elemento que se indica en el enunciado. Para ello, podremos usar las siguientes sentencias:
 
+         \begin{figure}[h]
+             \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                 \scriptsize
+                 \begin{verbatim}
+colegio/curso/grupo/alumno/apellidos
+
+colegio/curso/grupo/@orden
+\end{verbatim}
+             \end{tcolorbox}
+         \end{figure}
+
+        A continuación, sabemos que el resultado debe ser el número de orden, es decir, nuestro camino de localización debe acabar en ese atributo. Este será nuestro punto de partida. Probamos por lo tanto la consulta \textbf{colegio/curso/grupo/@orden)} antes de filtrar el apellido.
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+orden="A"
+orden="B"
+orden="A"
+\end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        Para posicionar el predicado podemos utilizar varias estrategias. Una de ellas puede ser \textbf{poner el predicado} en el \textbf{primer elemento padre común}, que en nuestro ejemplo sería grupo. Es decir:
+         \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+
+\begin{verbatim}
+colegio/curso/grupo[alumno/apellidos="Bellido Bravo"]
+\end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        Si probamos esta consulta, obtendremos el grupo que buscamos, pero nos devuelve todo el grupo, no solamente su orden.
+
+        Podemos \textbf{mezclar ambos caminos de localización} en el elemento común que habíamos determinado antes, obtendremos el resultado que queremos. Es decir, usaremos el camino de localización del atributo que queremos mostrar con el predicado que situaremos en el elemento común.
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+colegio/curso/grupo[alumno/apellidos="Bellido Bravo"]/@orden
+\end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+        Simplificando con doble barra en la parte inicial quedaría:
+
+        \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+\begin{verbatim}
+ //grupo[alumno/apellidos="Bellido Bravo"]/@orden
+\end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        Cuando trabajamos con información en distintos niveles de nuestra estructura \textbf{es importante no utilizar} la \textbf{doble barra} (//) en mitad de los caminos de localización, ya que la \textbf{búsqueda se reiniciará} desde el \textbf{elemento raíz} y no con el predicado establecido. Por ejemplo, si sustituimos la expresión anterior por \textbf{//grupo[//apellidos="Bellido Bravo"]/@orden}, el resultado obtenido no será el deseado, como vemos a continuación.
+
+     \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+ orden="A"
+ orden="B"
+ orden="A"
+ orden="B
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    Vemos también la utilidad de utilizar el operador nodo actual (\textbf{.}) cuando necesitamos \textbf{bajar niveles} y del operador nodo padre (\textbf{..}) cuando necesitamos \textbf{subir niveles}.
+
+\subsubsection{Consultas Anidadas}
+En ocasiones necesitamos realizar \textbf{varias consultas anidadas}, es decir, que necesitemos el resultado de una consulta para realizar la segunda consulta.
+
+Por ejemplo, si queremos saber la nota media de los alumnos/as que tienen una nota media menor que la del alumno que se apellida 'Abad Álvarez', tendremos que hacer \textbf{dos consultas}.
+
+La \textbf{primera consulta} para saber la nota media de 'Abad Álvarez' y \textbf{otra} para saber los alumnos/as que tienen una nota media inferior a un número cualquiera, por ejemplo 5. Estas consultas podrían ser las siguientes:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+//alumno[apellidos="Abad Álvarez"]/nota_media
+
+Resultado:
+
+<nota_media>6.5</nota_media>
+
+
+//alumno[nota_media < 5]/nota_media
+
+Resultado:
+
+<nota_media>4.75</nota_media>
+<nota_media>2.25</nota_media>
+<nota_media>4</nota_media>
+<nota_media>2.5</nota_media
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Ahora tendremos que mezclar las dos consultas y en lugar del número 5 de antes poner la subconsulta que nos muestra la nota de 'Abad Ávarez', dando como resultado la siguiente consulta:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+//alumno[number(nota_media) < //alumno[apellidos="Abad Álvarez"]/nota_media ]/nota_media
+
+Resultado:
+
+<nota_media>4.75</nota_media>
+<nota_media>2.25</nota_media>
+<nota_media>5.25</nota_media>
+<nota_media>4</nota_media>
+<nota_media>2.5</nota_media>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{Evitar Elementos Repetidos}
+A veces puede que queramos mostrar todos los resultados de un determinado tipo pero sin que salgan resultados repetidos. Gracias al eje \textbf{preceding} podemos hacerlo de forma sencilla. Recordad que este eje no tiene abreviación por lo que su notación es la completa.
+
+En primer lugar, mostramos \textbf{todos los nombres de los alumnos}:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+//alumno/nombre
+
+Resultado:
+
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carlos</nombre>
+<nombre>Ana</nombre>
+<nombre>Benito</nombre>
+<nombre>Carmen</nombre>
+<nombre>Alejando</nombre>
+<nombre>Benito</nombre>
+<nombre>Carmen</nombre>
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carmen</nombre>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Si ahora quisiéramos que se nos mostrara el resultado sin los nombres duplicados, podemos añadir el eje \textbf{preceding} junto con la función \textbf{not()} obteniendo la consulta y resultados siguientes:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+//alumno[not(nombre=preceding::nombre)]/nombre
+
+Resultado:
+
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carlos</nombre>
+<nombre>Benito</nombre>
+<nombre>Carmen</nombre>
+<nombre>Alejando</nombre>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
 % Apéndice
 \appendix
 
