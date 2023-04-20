@@ -3864,6 +3864,610 @@ El lenguaje también usa:
     \item \textbf{Numeros y literales}, estos últimos entrecomillados con comillas simples o dobles. Pueden anidarse alternando el tipo de comillas.
 \end{itemize}
 
+A continuación, mostramos \textbf{un ejemplo} de como se realizarían varias consultas dado un documento XML. En la siguiente imagen, podemos ver el documento XML que se usará de ejemplo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{ejemplo-xpath-xml.png}
+    \caption{XML de ejemplo para XPath}
+\end{figure}
+
+Partiendo de este documento XML, vamos a realizar la siguientes consultas:
+
+\begin{enumerate}
+    \item Localizar al alumnado de la clase 2 de ESO A:
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+/child::colegio/child::curso[@nivel="2"]/child::grupo[@orden="A"]/child::alumno
+
+<!-- Versión simplificada -->
+
+/colegio/curso[@nivel="2"]/grupo[@orden="A"]/alumno
+
+
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Localizar a todas las alumnas llamadas Ana:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+descendant-or-self::alumno[nombre="Ana"]
+
+<!-- Versión simplificada -->
+
+//alumno[nombre="Ana"]
+
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Nombre del alumno con la nota más alta:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+descendant-or-self::alumno[child::nota_media=max(/descendant-or-self::nota_media)]/
+    child::nombre
+
+<!-- Versión simplificada -->
+
+//alumno[nota_media=max(//nota_media)]/nombre
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{enumerate}
+
+\subsubsection{Caminos de Localización}
+Aunque los \textbf{caminos de localización} no son la construcción gramatical más general del lenguaje XPath, si es la \textbf{más importante}.
+
+Todo camino de localización se \textbf{puede expresar} utilizando la sintaxis compleja, aunque algo más extensa. Existen también ciertas abreviaturas sintácticas que permiten expresar los casos más frecuentes de forma más concisa.
+
+Siguiendo con el ejemplo anterior:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+        /descendant-or-self::curso[position()=1]/child::grupo[position()=2]
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+A estas expresiones se le llama \textbf{camino de localización} (location paths). Estos caminos están compuestos por trozos separados por barras (\textbf{/}). Cada uno de estos trozos se denominan \textbf{pasos de localización} (location steps).
+
+A su vez, cada \textbf{pasado de localización} esta separado en dos partes por dos puntos dobles (\textbf{::}). A la \textbf{primera parte} se le denomina \textbf{eje} (axe) y a la \textbf{segunda parte} se le llama \textbf{selector de nodos} (node test).
+
+En la siguiente imagen podemos ver de forma más gráfica las diferentes partes de una expresión de camino de localización.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{camino-localizacion.png}
+    \caption{Partes de un camino de localización}
+\end{figure}
+
+En algunos \textbf{pasos de localización} hay instrucciones entre corchetes (\textbf{[]}), después del selector de nodos. Son los conocidos como \textbf{predicados}.
+
+Además, en los caminos de localización se pueden usar \textbf{llamadas a funciones}, \textbf{operaciones matemáticas} y \textbf{operaciones lógicas}, como por ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+sum(//nota_media) div count(//nota_media)
+
+substring(//child::colegio/child::comment(), 12, 4)
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Los caminos de localización pueden expresarse de forma \textbf{absoluta o relativa}:
+
+\begin{itemize}
+    \item Un \textbf{camino de localización} es \textbf{absoluto} si comienza por el nodo raíz. Esto se puede reconocer fácilmente ya que el camino de localización comenzará con una barra (\textbf{/}). Por ejemplo:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+
+
+            /child::colegio/child::curso/child::grupo/attribute::*
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Si no comienza por el nodo raíz, estamos hablando de una \textbf{camino de localización relativo}, es decir, relativo al nodo de contexto que éste posicionado en un determinado lugar. En el siguiente ejemplo el nodo contexto estaría posicionado en el elemento grupo:
+
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+                               child::grupo/attribute::*
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+\end{itemize}
+
+Además, podemos usar el \textbf{operador unión} (\textbf{|}) para unir el resultado de dos caminos de localización que devuelvan conjuntos de nodos, como por ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+                descendant-or-self::apellidos | descendant-or-self::nota_media
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{Pasos de Localización}
+Como hemos visto en el punto anterior los caminos de localización pueden estar compuestos de \textbf{pasos de localización}. Cada paso irá refinando la búsqueda de la información que deseemos localizar. Los pasos de localización se separan unos de otros con una barra (\textbf{/}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{paso-localizacion.png}
+    \caption{Elementos de un paso de localización}
+\end{figure}
+
+Como vemos en la imagen, una paso de localización tiene \textbf{3 partes diferentes}:
+
+\begin{itemize}
+    \item Un \textbf{eje}, que especifica la relación jerárquica entre los nodos seleccionados por el paso de localización y el nodo contextual.
+    \item Un \textbf{selector de nodos}, que especifica el tipo de nodo de los nodos seleccionados por el paso de localización.
+    \item Cero o más \textbf{predicados}, que usan expresiones lógicas para refinar aún más el conjunto de nodos seleccionados por el paso de localización.
+\end{itemize}
+
+La \textbf{sintaxis} de un paso de localización es, por tanto, el \textbf{nombre del eje} y el \textbf{selector de nodos}, separados por dos puntos dobles (\textbf{::}), seguidos de cero o más \textbf{predicados}, cada uno de los cuales va entre corchetes (\textbf{[]}). Por ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+                            child::grupo[position()=2]
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Donde \textbf{child} es el nombre del eje, \textbf{grupo} es el selector de nodo y \textbf{[position()=2]} es un predicado.
+
+El \textbf{conjunto de nodos seleccionados} por un paso de localización es el resultante de generar un conjunto de nodos inicial a partir  del eje y el selector de nodos, para a continuación filtrar dicho conjunto por cada uno de los predicados definidos. El conjunto final de nodos es el conjunto seleccionado por el paso de localización.
+
+\subsubsection{Ejes}
+Los \textbf{ejes} se corresponden con las relaciones entre los nodos del árbol de nodos que hemos visto en puntos anteriores. Estos \textbf{trece} ejes son:
+
+\begin{itemize}
+    \item \textbf{self}: nodo contexto.
+    \item \textbf{child}: hijos del nodo contexto.
+    \item \textbf{descendant}: descendientes del nodo contexto.
+    \item \textbf{descendant-or-self}: nodo contexto y sus descendientes.
+    \item \textbf{parent}: padre del nodo contexto.
+    \item \textbf{ancestor}: ancestros del nodo contexto.
+    \item \textbf{ancestor-of-self}: nodo contexto y ancestros.
+    \item \textbf{preceding}: nodos anteriores.
+    \item \textbf{preceding-sibling}: hermanos anteriores.
+    \item \textbf{following}: nodos posteriores.
+    \item \textbf{followinf-sibling}: nodos hermanos posteriores.
+    \item \textbf{attribute}: nodos atributos.
+    \item \textbf{namespace}: nodos de espacio de nombres. En XPath 2.0 se dejó de usar.
+\end{itemize}
+
+Hay que recordad que para seleccionar los atributos o espacios de nombres hay que utilizar  la \textbf{forma explícita}  de sus ejes correspondientes. Por ejemplo, en el eje \textbf{child} de un nodo elemento no contendrá sus atributos ni sus espacios de nombres.
+
+\subsubsection{Selectores de Nodos}
+Los \textbf{selectores de nodos} usan los diferentes tipos de nodos que vimos al estudiar el árbol de nodos. Cada uno tiene un tipo principal de nodos. Si un eje puede contener elementos, entonces el tipo principal del no es elemento, en otro caso, será el tipo de nodo que contenga el eje. Pudiendo ser:
+
+\begin{itemize}
+    \item Para el eje \textbf{attribute}, el tipo de nodo principal son los \textbf{atributos}.
+    \item Para el eje \textbf{namepspace}, el tipo de nodo principal son los \textbf{espacios de nombres}.
+    \item Para los \textbf{demás ejes}, el tipo de nodo principal será el \textbf{elemento}.
+\end{itemize}
+
+El siguiente elemento en el paso de localización es el \textbf{selector de nodos}. XPath nos proporcionar los siguientes:
+
+\begin{itemize}
+    \item \textbf{Nombre cualificado}: nombre del objeto que estamos buscando.
+    \item \textbf{Todos} (\textbf{*})
+    \item \textbf{text()}
+    \item \textbf{comment()}
+    \item \textbf{processing-intruction()}
+    \item \textbf{node()}
+\end{itemize}
+
+Estos son los selectores de nodos orinales, pero en versiones posteriores de XPath se agregaron algunos selectores más, que son los siguientes:
+
+\begin{itemize}
+    \item \textbf{element()}
+    \item \textbf{attribute()}
+    \item \textbf{document-node()}
+\end{itemize}
+
+Un selector de nombres que sea un \textbf{nombre cualificado} (QName) es cierto si los tipos de nodo se corresponden y tiene un nombre igual al especificado por el nombre cualificado. Por ejemplo, \textbf{child::alumno} selecciona los elementos \textbf{alumno} hijos del nodo contexto. Si el nodo contexto no tiene ningún hijo alumno, seleccionará un conjunto de nodos vacíos. Otro ejemplo es, \textbf{attribute::nivel}, que seleccionaría el atributo \textbf{nivel} del nodo contexto. Si este no tuviera ningún atributo \textbf{nivel}, se seleccionará un conjunto de nodos vacíos igualmente.
+
+Un selector de nodos \textbf{*} es cierto para cualquier nodo del tipo principal de nodo. Por ejemplo, \textbf{child::*} seleccionará todo elemento hijo del nodo contexto, y \textbf{attribute::*} seleccionaría todos los nodos atributos de éste.
+
+El selector de nodos \textbf{text()} es cierto para cualquier nodo de texto. Por ejemplo, \textbf{child::text()} seleccionaría todos los nodos hijos del nodo contexto que son de tipo texto.
+
+Análogamente, el selector de nodos \textbf{comment()} es cierto para cualquier nodo comentario, y el selector de nodos \textbf{processgin-instruction()} es cierto para cualquier instrucción de procesamiento. El selector \textbf{processing-instruction()} puede tener un argumento que sea literal; en este caso, será verdadera para cualquier instrucción de procesamiento que tenga un nombres igual al literal.
+
+El selector \textbf{node()} es cierto para cualquier nodo de cualquier tipo.
+
+A continuación, vamos a ver varios \textbf{ejemplos de uso} de los selectores de nodos.
+
+\begin{itemize}
+    \item Selector nombre cualificado:
+
+    \textbf{/descendant-or-self::alumno/child::nombre}
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carlos</nombre>
+<nombre>Ana</nombre>
+<nombre>Benito</nombre>
+<nombre>Carmen</nombre>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Selector todos:
+
+    \textbf{ /descendant-or-self::grupo/attribute::*}
+        \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+orden="A"
+orden="B"
+orden="A"
+orden="B"
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Selector text():
+
+    \textbf{/descendant-or-self::apellidos/text()}
+    \begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+Abad Álvarez
+Benitez Bermúdez
+Carmona Casado
+Amate Antunez
+Bellido Bravo
+Cuesta Camacho
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item Selector comment():
+
+    \textbf{ /descendant-or-self::colegio/child::comment()}
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<!-- Datos del colegio -->
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item Selector node():
+
+    \textbf{/descendant-or-self::grupo/child::node()}
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<alumno codigo="342">
+    <nombre>Ana</nombre>
+    <apellidos>Abad Álvarez</apellidos>
+    <anno_nac>2018</anno_nac>
+    <nota_media>6.5</nota_media>
+</alumno>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+\end{itemize}
+
+\subsubsection{Sintaxis Abreviada}
+La abreviatura más importante es que el selector \textbf{child::} puede ser omitido en los pasos de localización. A efectos prácticos, \textbf{child} es el \textbf{eje por defecto}. Por ejemplo, un camino de localización \textbf{/colegio/curso}es la abreviatura de \textbf{child::colegio/child::curso}.
+
+Hay también una abreviatura para atributos. \textbf{attribute::} puede abreviarse usando el carácter \textbf{@}. Por ejemplo, un camino \textbf{grupo::[@orden=``A'']} es la abreviatura de \textbf{child::grupo[attribute::orden=``A']} y por tanto selecciona hijos \textbf{grupo} con un atributo \textbf{orden} con el valor igual a \textbf{A}.
+
+La doble barra (\textbf{//}) es una abreviatura de \textbf{descendant-or-self::node()}. Por ejemplo, \textbf{//alumno}, sería la correspondiente abreviatura de \textbf{/descendant-or-self::node()/child::alumno} y por tanto seleccionará cualquier elemento \textbf{alumno} en el documento. Otro ejemplo sería \textbf{curso//alumno} que es la abreviatura de \textbf{child::curso/descendant-or-self::node()/child::alumno} y por tanto seleccionará todos los descendientes \textbf{alumno} de hijos \textbf{curso}.
+
+Otra abreviatura es el uso del punto (\textbf{.}) en lugar de \textbf{self::node()}. Esto es particularmente útil en conjunción con \textbf{//}. Por ejemplo, el camino de localización \textbf{.//grupo} es abreviatura de \textbf{self::node()/descendant-or-self::node()/child::grupo} y por tanto seleccionará todos los descendientes elementos \textbf{grupo} del nodo contexto.
+
+Análogamente, un paso de localización con dos puntos (\textbf{..}) es la abreviatura de \textbf{parent::node()}. Por ejemplo, \textbf{../apellidos} es las abreviatura de \textbf{parend::node/child::apellidos} y por tanto seleccionará los hijos \textbf{apellidos} del nodo padre del nodo contexto.
+
+En resumen, las principales abreviaturas son:
+
+\begin{itemize}
+    \item Si se omite el eje, estamos usando el eje \textbf{child} por defecto.
+    \item Si usamos \textbf{@} estamos usando el eje \textbf{attribute}.
+    \item (\textbf{//}): paso de localización \textbf{descendant-or-self::node()}
+    \item (\textbf{..}): paso de localización \textbf{parent::node()}
+    \item (\textbf{.}): paso de localización \textbf{self::node()}.
+\end{itemize}
+
+Algunos ejemplos del uso de abreviaturas son las siguientes:
+
+\begin{itemize}
+    \item \textbf{descendant-or-self::node()/child::nota\_media} se abrevia \textbf{//nota\_media}
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<nota_media>6.5</nota_media>
+<nota_media>8.25</nota_media>
+<nota_media>4.75</nota_media>
+<nota_media>7.5</nota_media>
+<nota_media>2.25</nota_media>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{child::colegio/child::curso/attribute::etapa} se abrevia \textbf{colegio/curso/@etapa)}
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+etapa="ESO"
+etapa="ESO"
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item \textbf{self::node()/descendant::telefono} se abrevia \textbf{./descendant::telefono}
+     \begin{figure}[H]
+     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+         \scriptsize
+         \begin{verbatim}
+<telefono>900102030</telefono>
+         \end{verbatim}
+     \end{tcolorbox}
+ \end{figure}
+\end{itemize}
+
+\subsubsection{Predicados}
+Un \textbf{predicado} filtra un conjunto de nodos respecto a un eje y un selector de nodos para introducir un nuevo conjunto de nodos. El resultado de la expresión contenida en el predicado sera de tipo booleano. Los predicados dentro de corchetes (\textbf{[]}). Un paso de localización puede tener \textbf{cero o más} predicados en cascada. Si existe más de un predicado, estos se evaluarán de \textbf{izquierda a derecha}.
+
+Si estamos evaluando un valor numérico, este será cierto si el número es igual a la posición contextual y se convertirá en falso de otro modo. Así, un camino de localización \textbf{grupo[2]} es equivalente a \textbf{grupo[position()=2]}.
+
+Las \textbf{operaciones} que podemos usar en los predicados son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Operadores de comparación}: =, !=, <, >, >=, <=
+    \item \textbf{Operadores lógicos}: and, or
+    \item \textbf{Operadores matemáticos}: +, -, *, div, mod
+\end{itemize}
+
+A continuación vemos \textbf{algunos ejemplos} del uso de predicados:
+
+\begin{itemize}
+    \item Primer Alumno de 2 ESO A:
+
+     \textbf{//curso[@nivel="2"]/grupo[@orden="A"]/alumno[1]}
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<alumno codigo="534">
+    <nombre>Alejando</nombre>
+    <apellidos>Álvarez Amate</apellidos>
+    <anno_nac>2018</anno_nac>
+    <nota_media>5.25</nota_media>
+</alumno>
+            \end{verbatim}
+        \end{tcolorbox}
+        \end{figure}
+
+        \item Apellidos de alumnos con nota superior a 8:
+
+        \textbf{//alumno[nota\_media>8]/apellidos}
+
+         \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+<apellidos>Benitez Bermúdez</apellidos>
+<apellidos>Cuesta Camacho</apellidos>
+<apellidos>Camacho Camacho</apellidos>
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+
+        \item Nombres de alumnos que no nacieron en el 2017 y tienen media superior a 7:
+
+        \begin{itemize}
+            \item  \textbf{//alumno[anno\_nac!=2017][nota\_media>7]/nombre}
+            \item  \textbf{//alumno[anno\_nac!=2017 and nota\_media>7]/nombre}
+        \end{itemize}
+
+         \begin{figure}[H]
+            \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                \scriptsize
+                \begin{verbatim}
+<nombre>Beatriz</nombre>
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carmen</nombre>
+                \end{verbatim}
+            \end{tcolorbox}
+        \end{figure}
+\end{itemize}
+
+\subsubsection{Funciones}
+
+XPath nos ofrece un conjunto de funciones para poder realizar diferentes operaciones y evaluar expresiones. Todas las implementaciones de XPath deben incluir las \textbf{funciones} que vamos a ver en esta sección y que podremos usar para \textbf{evaluar expresiones}.
+
+Vamos a especificar cada función con un prototipo de función, que indica el tipo devuelto, el nombre de la función y el tipo de argumentos, que pueden ser número, string, booleano o node-set. Si un tipo de argumento es seguido de un símbolo de interrogación indica que el argumento es opcional, en otro caso, el argumento es obligatorio.
+
+Esta \textbf{funciones} se pueden clasificar en cuatro grupos y son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Funciones de Conjuntos de Nodos}: son funciones que nos permiten trabaja con nodos y realizar diferentes operaciones con nodos. Estas funciones son las siguientes:
+
+    \begin{itemize}
+        \item \textbf{\textit{number} last()}: devuelve el número total de nodos del contexto seleccionado.
+        \item \textbf{\textit{number} position()}: devuelve la posición del nodo actual dentro de los nodos del contexto seleccionado. Esta posición de enumera desde el 1, y no desde el 0 como en otros lenguajes de programación.
+        \item \textbf{\textit{número} count(\textit{nodo-set})}: devuelve el número de nodos del conjunto de nodos pasado como argumento.
+        \item \textbf{\textit{string} name(\textit{nodo-set?})}: devuelve una cadena de caracteres con el nombre cualificado de un nodo del conjunto de nodos que se le pasa como argumento, formado por una URI del espacio de nombres y el nombres local. Si no se le pasa ningún argumento, tomará el nodo contexto como argumento. Si no se declaran espacios de nombres devolverá el mismo resultado que la función local-name().
+        \item \textbf{\textit{string} loca-name(\textit{node-set?})}: devuelve el nombres local, sin URI, de un nodo del conjunto de nodos pasado como argumento. Si no se le pasa ningún argumento tomará los nodos contexto como argumento. Si no se declaran espacios de nombres dará el mismo resultado que la función name().
+        \item \textbf{\textit{string} namespace-uri(\textit{nodo-set?})}: devuelve el URI del espacio de nombres, sin el nombres local, de un nodo del conjunto de nodos que se le pasa como argumento. Si no se le pasa ningún parámetro, tomará los nodos contexto como argumentos.
+        \item \textbf{\textit{node-ser} id(\textit{object})}: selecciona elementos mediante su identificador único. Los nodos deben ser declarados de tipo ID en DTD o el XML Schema correspondiente.
+    \end{itemize}
+
+    \item \textbf{Funciones de Cadenas de Caracteres}: son funciones que nos permiten trabajar con cadenas de caracteres, permitiéndonos buscar subcadenas, hacer concatenaciones, etc... Esta funciones son:
+    \begin{itemize}
+        \item \textbf{\textit{string} string(\textit{object?})}: convierte un objeto en cadena de caracteres. Si no se especifica el objeto toma un conjunto de nodos con el nodo contexto como único miembro.
+        \item \textbf{\textit{string} concat(\textit{string}, \textit{string}, \textit{string*})}: devuelve la concatenación de las cadenas pasadas como argumento.
+        \item \textbf{\textit{boolean} starts-with(\textit{string}, string)}: devuelve verdadero si la primera cadena del argumento comienza con la segunda cadena del argumento. Devuelve falso en caso contrario.
+        \item \textbf{\textit{boolean} contains(\textit{string, string})}: devuelve verdadero si la primera cadena de los argumentos contiene a la segunda y falso en caso contrario.
+        \item \textbf{\textit{string} substring-before(\textit{string}, \textit{string})}: devuelve las subcadena, de la primera cadena del argumento, que precede a la aparición de la cadena pasada como segundo argumento, o la cadena vacía si la cadena no aparece en ésta. Si el argumento es la cadena vacía, entonces devuelve una cadena vacía.
+        \item \textbf{\textit{string} substring-after(\textit{string}, \textit{string})}: devuelve la subcadena, de la primera cadena del argumento, que sigue a la aparición de la segunda cadena pasada como argumento o la cadena vacía en caso de que esta no aparezca en la primera cadena. Si el argumento es la cadena vacía, devolverá una cadena vacía.
+        \item \textbf{\textit{string} substring(\textit{string}, \textit{number}, \textit{number?})}: devuelve la subcadena que comienza en la posición indicada por el segundo argumento y con la longitud indicada en el tercer argumento. Si no es especifica la longitud, devuelve la cadena que comienza en la posición especificada y continúa hasta el final de la cadena. Se considera que cada carácter tiene una posición numérica dentro de la cadena, comenzado a contar desde 1.
+        \item \textbf{\textit{number} string-length(\textit{string?})}: devuelve el número de caracteres de la cadena indicada como argumento. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
+        \item \textbf{\textit{string} normalize-space(\textit{string?})}: devuelve la cadena argumento con el espacio en blanco normalizado, es decir, elimina los espacios que se encuentra al principio y final de la cadena, además de sustituir las secuencias de espacios en blanco por uno solo. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
+        \item \textbf{\textit{string} translate(\textit{string}, \textit{string}, \textit{string})}: devuelve la cadena del primer argumento con las apariciones indicadas en el segundo argumento sustituidas por las indicadas en el tercer argumento.
+    \end{itemize}
+
+    \item \textbf{Funciones Lógicas}: nos permiten realizar diferentes operaciones booleanas sobre diferentes datos.
+    \begin{itemize}
+        \item \textbf{\textit{boolean} boolean(\textit{object})}: convierte el objecto argumento al tipo booleano.
+        \item \textbf{\textit{boolean} not(\textit{boolean})}: devuelve verdadero si su argumento es falso y falso en caso contrario.
+        \item \textbf{\textit{boolean} true()}: devuelve el valor true.
+        \item \textbf{\textit{boolean} false()}: devuelve el valor false.
+        \item \textbf{\textit{boolean} lang(\textit{string})}: devuelve verdadero o falso dependiendo si el lenguaje del nodo contextual, tal como se especifica por el atributo \textit{xml:lang}, es el mismo o un sublenguaje del especificado como argumento.
+    \end{itemize}
+
+    \item \textbf{Funciones Matemáticas}: son funciones que nos permiten realizar diferentes operaciones matemáticas. Estas son:
+    \begin{itemize}
+        \item \textbf{\textit{number} number(\textit{object?})}: convierte el argumento al tipo numérico. Si se omite el argumento, toma por defecto un conjunto de nodos con el nodo contexto como único elemento.
+        \item \textbf{\textit{number} sum(\textit{node-set})}: devuelve la suma, a lo largo de todos los nodos del conjunto de nodos del argumento, resultando de convertir los valores de cadenas de caracteres de los distintos nodos en números.
+        \item \textbf{\textit{number} floor(\textit{number})}: devuelve el mayor número entero que sea igual o menor que el número pasado como argumento.
+        \item \textbf{\textit{number} ceiling(\textit{number})}: devuelve el menor número entero que sea igual o mayor que el número pasado como argumento.
+        \item \textbf{\textit{number} round(\textit{number})}: devuelve el número entero más cercano al pasado como argumento.
+    \end{itemize}
+\end{itemize}
+
+A continuación vamos a ver \textbf{algunos ejemplos} de las funciones que hemos visto:
+
+\begin{itemize}
+    \item Número total de alumnos nacidos en 2018:
+
+    \textbf{count(//alumno[anno\_nac=2018])}
+
+    \begin{figure}[h]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+8
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Nombre de los primeros alumnos de cada grupo: \textbf{//alumno[1]/nombre}
+    \begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<nombre>Ana</nombre>
+<nombre>Ana</nombre>
+<nombre>Alejando</nombre>
+<nombre>Ana</nombre>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item Alumnos que su nombre comience por 'Al':
+
+    \textbf{//alumno[starts-with(nombre,"Al")]}
+    \begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+<alumno codigo="534">
+    <nombre>Alejando</nombre>
+    <apellidos>Álvarez Amate</apellidos>
+    <anno_nac>2018</anno_nac>
+    <nota_media>5.25</nota_media>
+</alumno>
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item Normalización de una cadena:
+
+    \textbf{normalize-space(" Esto    es      una   prueba  ")}
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+Esto es una prueba
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item Alumnos que no se llaman 'Carmen':
+
+    \textbf{//alumno[not(nombre="Carmen")]/nombre}
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+<nombre>Ana</nombre>
+<nombre>Beatriz</nombre>
+<nombre>Carlos</nombre>
+<nombre>Ana</nombre>
+<nombre>Benito</nombre>
+<nombre>Alejando</nombre>
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Suma de las notas de los alumnos de 1 ESO A:
+
+    \textbf{sum(//curso[@nivel="1"]/grupo[@orden="A"]/alumno/nota\_media)}
+     \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+19.5
+        \end{verbatim}
+    \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Estrategias de Uso}
+
 
 
 % Apéndice
