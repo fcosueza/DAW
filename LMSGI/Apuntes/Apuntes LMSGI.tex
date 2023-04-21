@@ -4786,7 +4786,302 @@ También tenemos otros elementos de nivel superior que aunque, son menos utiliza
 
     \item \textbf{xsl:attribute-set}: se utiliza para crear grupos de atributos que se pueden reutilizar en los elementos \textbf{xsl:element} y \textbf{xsl:param}.
 \end{itemize}
-% Apéndice
+
+Estos elementos de nivel superior pueden aparecer varias veces o no aparecer en el documento. El orden de aparición no es relevante salvo para \textbf{xsl:import} que debe aparecer en primer lugar. Además, los elementos de nivel superior no pueden usarse dentro de otros elementos excepto \textbf{xsl:variable} y \textbf{xsl:param}.
+
+\subsubsection{xsl:template}
+Las plantillas (\textbf{xsl:template}) constan de dos partes: \textbf{un patrón}, expresado mediante XPath en el atributo \textbf{match}, que se compara con los nodos del árbol origen, y \textbf{unas instrucciones} que se aplicarán a los nodos seleccionados.
+
+Con la aplicación de estas instrucciones y la incorporación de los elementos de contenido literal, podremos ir construyendo los nodos que necesitemos para el árbol de nodos resultado. Esto permite que la hoja de estilo sea aplicable a distintos documentos XML siempre que éstos tengan una misma estructura.
+
+El \textbf{atributo mathc} es obligatorio a no ser que existe el atributo \textbf{name}. El atributo \textbf{name} sirve para hacer referencia a una plantilla mediante la instrucción \textbf{xsl:call-template}. El valor del atributo \textbf{match} no puede incluir el uso de variables.
+
+En una \textbf{hoja de estilo} podemos tener \textbf{más de una plantilla}. La ejecución de las plantillas tiene una serie de abreviaciones que si no tenemos en cuenta puede llegar a confundir. Cada plantilla se puede hacer coincidir con un determinado nodo de nuestra estructura. Algunos ejemplos de \textbf{constricciones plantilla} son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Plantilla vacía}: si tenemos una plantilla que se corresponde con un nodo de nuestra estructura y es plantilla no tiene contenido entonces al recorrer los nodos no mostrará nada.
+    \item \textbf{Nodos sin plantillas asociadas}: si en un determinado nodo de nuestra construcción no creamos plantilla, por defecto, ese nodo mostrará el contenido textual de ese nodo determinado, pero no mostrará el valor de sus atributos.
+\end{itemize}
+
+En el siguiente ejemplo tenemos una plantilla asociado a los nodos de tipo 'alumno', pero es plantilla esta vacía, por lo que al recorres estos nodos mostrará lo que contiene la plantilla, es decir, nada. Además, en nuestra estructura, tenemos otros nodos que no tienen correspondencia con el atributo \textbf{match} de ninguna plantilla, por lo que mostrará el contenido textual de esos nodos sin plantilla.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="xml"/>
+    <xsl:template match="//alumno">
+        <!-- No hacer nada -->
+    </xsl:template>
+    </xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+El resultado de esta transformación será:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+Cervantes
+900102030
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En ocasiones cuando tenemos \textbf{más de una plantilla} vemos que \textbf{no funciona como esperábamos}. Por ejemplo, si tenemos una plantilla para 'alumno' que nos muestra el 'nombre' y otra plantilla para 'apellidos' que nos muestra el propio elemento '.', vemos que no funciona correctamente.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="xml"/>
+
+    <xsl:template match="//alumno">
+        <xsl:value-of select="nombre"/>
+    </xsl:template>
+
+    <xsl:template match="//apellidos">
+        <xsl:value-of select="."/>
+    </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+El resultado, no es el que esperamos, como vemos a continuación:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+Cervantes
+900102030
+
+Ana
+Beatriz
+Carlos
+
+Ana
+Benito
+Carmen
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+EL \textbf{motivo} de este comportamiento es el \textbf{recorrido del árbol origen}. Cuando recorremos en la primera plantilla los elementos 'alumno' podemos mostrar perfectamente su nombre. Pasamos al siguiente 'alumno' y volvemos a mostrar el 'nombre', y así hasta el último elemento 'alumno'. Cuando vamos a aplicar la segunda plantilla ya hemos \textbf{terminado de recorrer} todo el árbol de nodos origen y no podemos volver atrás. Para que esto funcione, debemos usar la instrucción \textbf{xsl:apply-templates}.
+
+Sabiendo esto, entenderemos porque el siguiente ejemplo, si mostraría correctamente ambos valores, nombre y apellidos, ya que los recorre cuando nos encontramos en el nodo alumno.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="xml"/>
+
+    <xsl:template match="//alumno">
+        <xsl:value-of select="nombre"/>
+        <xsl:value-of select="apellido"/>
+    </xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Una \textbf{forma habitual de simplificar} el \textbf{uso de plantillas} es usar una única plantilla que accede al elemento raíz. Dentro de esta única plantilla podemos utilizar XPath para seleccionar las partes del documento XML que queramos e instrucciones de recorrido, como \textbf{xsl:for-each} y selección \textbf{xsl:if} para construir la estructura que deseemos. Por ejemplo, la siguiente estructura con llamadas anidadas mediante el uso de plantillas:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="text" />
+    <xsl:strip-space elements="*"/>
+    <xsl:template match="/">
+        <xsl:apply-templates select="//alumno"/>
+    </xsl:template>
+    <xsl:template match="//alumno">
+        <xsl:apply-templates/>
+    </xsl:template>
+    <xsl:template match="//anno_nac">
+        <xsl:text>privado</xsl:text>
+    </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Se puede simplificar a una sola plantilla con expresiones XPath e instrucciones \textbf{xsl:for-each} y \textbf{xsl:if}, como vemos a continuación.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="text" />
+        <xsl:template match="/">
+            <xsl:for-each select="//alumno">
+                <xsl:value-of select="nombre"/>
+                <xsl:value-of select="apellidos"/>
+                <xsl:text>privado</xsl:text>
+                <xsl:value-of select="nota_media"/>
+            </xsl:for-each>
+        </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+\end{tcolorbox}
+\end{figure}
+
+El resultado de ambas hojas de estilo es el mismo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+AnaAbad Álvarezprivado6.5BeatrizBenitez Bermúdezprivado8.25 ...
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{xsl:variable y xsl:param}
+Una \textbf{variable} es un nombre que se vincula con un valor. El valor de la variable puede ser de distintos tipos que devuelven las expresiones y funciones XPath. Hay dos elementos que utilizan esta vinculación de valores, \textbf{xsl:variable} y \textbf{xsl:param}.
+
+Ambos elementos tienen un atributo obligatorio \textbf{name} en el cual hay que especificar el nombre de la variable, en el momento de utilizar su contenido, con un símbolo \textbf{\$} delante.  El otro atributo de estos elementos es \textbf{select}, que si se especifica en una expresión XPath almacenará su valor en una variables.
+
+La \textbf{diferencia entre ambos} elementos es que el valor de \textbf{xsl:param} es un valor predeterminado que se usa normalmente pero que puede ser sobreescrito cuandoa se invoca una plantilla o una hoja de estilo mediante el elemento \textbf{xsl:with-param}, que tenga el mismo nombre (\textbf{name}) pero un valor distinto al predeterminado.
+
+A continuación vemos unos ejemplos del uso de estos elementos:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="text"/>
+    <xsl:template match="/">
+
+        <xsl:variable name="mensaje" >Hola mundo</xsl:variable>
+        <xsl:value-of select="$mensaje" />
+        <xsl:text>&#10;</xsl:text>
+        <xsl:variable name="nombre_cole" select="colegio/nombre" />
+        <xsl:value-of select="$nombre_cole"/>
+
+    </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="text"/>
+    <xsl:template match="/">
+
+        <xsl:param name="mensaje" >Hola mundo</xsl:param>
+        <xsl:value-of select="$mensaje" />
+        <xsl:text>&#10;</xsl:text>
+        <xsl:param name="nombre_cole" select="colegio/nombre" />
+        <xsl:value-of select="$nombre_cole"/>
+
+    </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{xsl:output}
+Con esta instrucción especificamos el \textbf{formato de salida deseado}. Esta instrucción se puede omitir ya que el procesador XSLT devolverá el resultado como secuencias de caracteres. El uso de este elemento nos facilita poder especificar características de salida. Los \textbf{atributos más usados} son:
+
+\begin{itemize}
+    \item \textbf{method}: especifica el formato de salida. Los valores que puede tomar este atributo son: \textbf{xml}, \textbf{html} y \textbf{text},
+    \item \textbf{version}: especifica la versión del método de salida.
+    \item \textbf{indent}: especifica si la salida tiene que ser indentada o no. Los valores que puede tomar son: \textbf{yes} y \textbf{no}.
+    \item \textbf{encoding}: para especificar la codificación.
+    \item \textbf{standalone}: especifica si el documento tendrá relación con otros documentos. Los posibles valores que puede tomar son: \textbf{yes} y \textbf{no}.
+    \item Otros atributos menos usados son: \textbf{media-type}, \textbf{doctype-system}, \textbf{doctype-public}, \textbf{omit-xml-declaration} y \textbf{cdata-section-elements}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes" />
+....
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsection{Otros Elementos de XSLT}
+Además de los elementos que hemos visto en la sección anterior, que son los más usados, XSLT tiene otros elementos que nos permiten realizar diferentes acciones sobre el documento y que podemos clasificar en tres grupos principales:
+
+\begin{itemize}
+    \item Intrucciones de manipulación de plantillas:
+    \begin{itemize}
+        \item \textbf{xsl:apply-templates}
+        \item \textbf{xsl:call-template}
+        \item \textbf{xsl:with-param}
+    \end{itemize}
+
+    \item Intrucciones de control de flujo:
+    \begin{itemize}
+        \item \textbf{xsl:for-each}
+        \item \textbf{xsl:if}
+        \item \textbf{xsl:choose}
+        \item \textbf{xsl:when}
+        \item \textbf{xsl:otherwise}
+        \item \textbf{xsl:sort}
+    \end{itemize}
+
+    \item Intrucciones de de salida:
+    \begin{itemize}
+        \item \textbf{xsl:value-of}
+        \item \textbf{xsl:number}
+        \item \textbf{xsl:element}
+        \item \textbf{xsl:attribute}
+        \item \textbf{xsl:text}
+        \item \textbf{xsl:comment}
+        \item \textbf{xsl:processing-instruction}
+    \end{itemize}
+\end{itemize}
+
+Todas estas instrucciones las veremos con más detalle en los siguientes puntos, pero hay otras, que aunque no las veremos en profundidad, si conviene que sepamos de su existencia, que son las siguientes:
+
+\begin{itemize}
+    \item \textbf{xsl:copy}: con esta instrucción podemos añadir el nodo actual al árbol de nodos destino. Al copiar un nodo se copian sus nodos espacios de nombres pero no sus atributos ni sus elementos hijos. Este elemento puede usar el atributo \textbf{use-attribute-sets} para añadir conjuntos de atributos declarados anteriormente. Solo se puede usar esta instrucción con nodos que puedan tener atributos o elementos hijos, es decir, el nodo raíz y nodos elementos.
+
+    \item \textbf{xsl:copy-of}: con esta instrucción podemos añadir un fragmento completo del árbol de nodos al árbol de destino. No es necesario convertir ese fragmento a cadenas de caracteres. Tiene una \textbf{atributo obligatorio} llamado \textbf{select} donde debe indicarse, mediante una expresión XPath, el fragmento de árbol a copiar. Cuando se copia un elemento se copia el propio elemento y también sus nodos atributo, sus nodos espacio de nombres y sus elementos hijo.
+
+    \item \textbf{xsl:apply-imports}: sirve para indicar cuando realizar una importación para sobreescribir una regla de plantillas.
+
+    \item \textbf{xsl:message}: se utiliza para enviar mensajes al procesador XSLT. Tiene un atributo, \textbf{terminate}, que puede tomar los valores \textbf{yes} y \textbf{no}, y que se utiliza para indicar al procesador XSLT que interrumpa el procesamiento de la hoja de estilos.
+
+    \item \textbf{xsl:fallback}: su función es establecer una secuencia ordenada de ejecución.
+\end{itemize}
+
+\subsubsection{Instrucción de Manipulación de Plantillas}
+
+% Apéndice -------------------------------------------------------------------------------------
 \appendix
 
 % Change appendix display options
