@@ -4649,6 +4649,143 @@ Resultado:
 \end{verbatim}
     \end{tcolorbox}
 \end{figure}
+
+\section{XSL Transformations (XSLT)}
+El \textbf{lenguaje de transformaciones XSL} (Extensible Stylesheet Language Transformations ó XSLT) es una recomendación aprobada por el consorcio W3C, cuya versión 1.0 fue aprobada el 16 de Noviembre de 1999. El mismo día que la recomendación XPath 1.0.
+
+Gracias a este lenguaje, los procesadores XSLT pueden transformar un documento XML en otros documentos XML, HTML o de texto plano con estructuras y contenido diferentes al original. Esta transformación se realiza gracias al uso de \textbf{hojas de estilo} (\textbf{xsl:stylesheet}). El lenguaje XSLT define la sintaxis y semántica de estas hojas de estilo.
+
+Una \textbf{transformación} expresada en XSLT describe reglas para transformar un árbol de nodos origen en un árbol de nodos resultado. La transformación se logra asociando patrones definidos en la plantilla (\textbf{xsl:template}). Un \textbf{patrón}, expresado mediante XPath, se compara con los elementos de origen.  Si cumple con alguna de las reglas de la plantilla, éstos pasan a formar parte del árbol de nodo resultado.
+
+Es importante resaltar que el \textbf{árbol de nodos resultado} es distinto del árbol de nodos origen. Además la estructura del árbol de nodos resultado puede ser completamente diferentes al de origen. Al construir el árbol resultado los elementos del árbol origen se pueden reordenar, filtrar y agrupar en una estructura arbitraria.
+
+\subsection{Hojas de Estilo XSLT}
+Para crear el árbol de nodos resultado debemos crear una \textbf{hoja de estilo}, en la que podremos usar \textbf{diferentes tipos de elementos}, siendo estos:
+
+\begin{itemize}
+    \item \textbf{Elementos del espacio de nombres} asociados a la URI \textbf{http://www.w3.org/1999/XSL/Transform}. Se suele emplear el prefijo \textbf{xsl} y son las instrucciones que usa el el lenguaje XSLT. Algunos ejemplos son: \textbf{xsl:stylesheet}, \textbf{xsl:template}, \textbf{xsl:value-of}, \textbf{xsl:for-each}, etc...
+
+    \item \textbf{Elementos de extensión} que se utilizan como mecanismos implementados por diferentes desarrolladores para aportar funcionalidades extra. Cada desarrollador determinará su uso. No los estudiaremos en esta unidad.
+
+    \item \textbf{Elementos de resultado literal} (LRE), que son elementos que se añaden al árbol de nodos resultado y que no pertenecen al espacio de nombres xsl. Por ejemplo, cuando incluimos elementos HTML o texto entre la información obtenida del documento XML.
+\end{itemize}
+
+El \textbf{lenguaje XSLT no especifica} como se \textbf{asocia} una hoja de estilo con un documento XML. Para esto, se usa un mecanismo propio de XML, las \textbf{instrucciones de procesamiento}. Debe tenerse en cuenta que algunos navegadores, por seguridad, bloquean estas instrucciones de procesamiento. Un ejemplo de documento XML asociado con una hoja de estilo lo podemos ver en la siguiente figura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{xml-hoja-estilo.png}
+    \caption{Documento XML asociado con una hoja de estilo}
+\end{figure}
+
+En este ejemplo, se utiliza la instrucción de procesamiento \textbf{xml-stylesheet}, indicando en el atributo \textbf{type} el tipo de archivo con la nomenclatura MIME (\textbf{text/xml} o \textbf{text/xsl}) y en el atributo \textbf{ref}, la ubicación de la hoja de estilo.
+
+\begin{figure}[h]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+                 <?xml-stylesheet type="text/xsl" href="colegio.xsl"?>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Esta instrucción de procesamiento no es obligatoria, ya que al ejecutar el procesador XSLT se le puede indicar	como parámetros los documentos XML y XSL sobre los que queremos realizar la transformación.
+
+Para \textbf{crear una hoja de estilos} usaremos la instrucción \textbf{xsl:stylesheet}, necesitando declarar el espacio de nombres de XSLT que se corresponde con la URI \textbf{http://www.w3.org/1999/XSL/Transform}. Se suele asociar este espacio de nombres con el \textbf{prefijo xsl:}. Además, esta instrucción tiene una atributo obligatorio, \textbf{version}, en el que indicaremos la versión del lenguaje XSLT en la que vamos a codificar nuestra hoja de estilos.
+
+Normalmente, cada hoja de estilos se creará en un \textbf{archivo de texto plano} con las extensión \textbf{.xsl}. Como dijimos anteriormente, el lenguaje XSLT es derivado de XML, por lo que será necesario incluir en la primera línea el prólogo XML. Posteriormente declararemos nuestra hoja de estilos como vemos en el siguiente código:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+...
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{Simplificación de Hojas de Estilo}
+XSLT permite una \textbf{sintaxis simplificada} para las hojas de estilo que consten con una plantilla para el nodo raíz. La sintaxis simplificada permite omitir el elemento \textbf{xsl:stylesheet} cuando se trate de un\textbf{elemento de contenido literal}. Además, en vez de declarar una plantilla \textbf{xsl:template}, esta se sustituirá directamente por dicho elemento de contenido literal. Desde este contenido literal se podrá acceder a las instrucciones del espacio de nombres \textbf{xsl:} como si se hubiera seleccionado como patrón el nodo raíz del árbol de nodos origen.
+
+En este caso de simplificación, el elemento literal debe tener el atributo \textbf{xsl:version}. Para poder usar este atributo, así como las demás instrucciones del espacio de nombres \textbf{xsl:} se deberá añadir dicho espacio de nombres al citado elemento literal. Este elemento que actúa como plantilla no podrá contener instrucciones de nivel superior.
+
+En el siguiente ejemplo, tenemos el documento \textbf{colegio.xml}, al que vamos a realizar una transformación.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="html"/>
+    <xsl:template match="/">
+        <html>
+            <head>
+               <title>Colegio Cervantes</title>
+            </head>
+            <body>
+               <h1>Nombre del colegio: <xsl:value-of select="colegio/nombre"/></h1>
+               <p>Teléfono: <xsl:value-of select="colegio/telefono"/></p>
+               <p>Suma de notas: <xsl:value-of select="sum(//nota_media)"/></p>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Si simplificamos este documento, el resultado sería el siguiente:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<html xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <head>
+        <title>Colegio Cervantes</title>
+    </head>
+    <body>
+        <h1>Nombre del colegio: <xsl:value-of select="colegio/nombre"/></h1>
+        <p>Teléfono: <xsl:value-of select="colegio/telefono"/></p>
+        <p>Suma de notas: <xsl:value-of select="sum(//nota_media)"/></p>
+    </body>
+</html>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En esta simplificación el \textbf{elemento de contenido literal} sería el elemento \textbf{html}, que contiene la declaración  del espacio de nombres \textbf{xslnm} del lenguaje XSLT y el atributo obligatorio \textbf{version}. Posteriormente, haciendo uso del prefijo \textbf{xsl:}, podemos utilizar instrucciones que no sean de nivel superior como \textbf{xls:value-of}.
+
+\subsection{Elementos XSLT de Nivel Superior}
+Si consideramos un documento XSLT como un documento XML, el elemento raíz será \textbf{xsl:stylesheet} ó \textbf{xsl:transform}. Los \textbf{elementos de nivel superior} son aquellos del espacio de nombres \textbf{xsl:} que son hijos directos de alguno de estos dos elementos. Tiene una tratamiento especial ya que su ámbito de aplicación es toda la hoja de estilos que estamos declarando.
+
+Los elementos de nivel superior \textbf{más utilizados} son:
+
+\begin{itemize}
+    \item \textbf{xsl:template}
+    \item \textbf{xsl:variable} y \textbf{xsl:param}
+    \item \textbf{xsl:output}
+\end{itemize}
+
+También tenemos otros elementos de nivel superior que aunque, son menos utilizados, es conveniente que los conozcamos ya que cada uno tiene una utilizada muy específica. Estos son:
+
+\begin{itemize}
+    \item \textbf{xsl:import} y \textbf{xsl:include}: sirven para añadir contenido a las hojas de estilo que estamos desarrollando. Los contenidos añadidos mediante \textbf{xsl:import} tiene una menor preferencia que los desarrollados en nuestra hoja de estilo. La preferencia de los contenidos añadidos con \textbf{xsl:include} es la misma que los desarrollados en nuestra hoja de estilos. Ambos elementos tiene una atributo \textbf{href} que indica donde se encuentran los contenidos a añadir.
+
+    \item \textbf{xsl:strip-space} y \textbf{xsl:preserve-space}: sirve para indicar al procesador XSL como deber actuar al normalizar los espacios en blanco.
+
+    \item \textbf{xsl:key}: sirve para declarar un elemento como clave de forma que pueda emplearse como los tipos de dato ID, IDREF y IDREFS. Declara una clave con nombres que se puede usar en cualquier lado de la hoja de estilo con la función \textbf{key()}.
+
+    \item \textbf{xls:decimal-format}: define el formato que se empleará para convertir los números en cadenas de caracteres.
+
+    \item \textbf{xsl:namespace-alias}: sirve para definir un prefijo alternativo para un espacio de nombres.
+
+    \item \textbf{xsl:attribute-set}: se utiliza para crear grupos de atributos que se pueden reutilizar en los elementos \textbf{xsl:element} y \textbf{xsl:param}.
+\end{itemize}
 % Apéndice
 \appendix
 
