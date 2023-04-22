@@ -5068,18 +5068,511 @@ Además de los elementos que hemos visto en la sección anterior, que son los m�
 Todas estas instrucciones las veremos con más detalle en los siguientes puntos, pero hay otras, que aunque no las veremos en profundidad, si conviene que sepamos de su existencia, que son las siguientes:
 
 \begin{itemize}
-    \item \textbf{xsl:copy}: con esta instrucción podemos añadir el nodo actual al árbol de nodos destino. Al copiar un nodo se copian sus nodos espacios de nombres pero no sus atributos ni sus elementos hijos. Este elemento puede usar el atributo \textbf{use-attribute-sets} para añadir conjuntos de atributos declarados anteriormente. Solo se puede usar esta instrucción con nodos que puedan tener atributos o elementos hijos, es decir, el nodo raíz y nodos elementos.
+    \item \textbf{xsl:copy}
 
-    \item \textbf{xsl:copy-of}: con esta instrucción podemos añadir un fragmento completo del árbol de nodos al árbol de destino. No es necesario convertir ese fragmento a cadenas de caracteres. Tiene una \textbf{atributo obligatorio} llamado \textbf{select} donde debe indicarse, mediante una expresión XPath, el fragmento de árbol a copiar. Cuando se copia un elemento se copia el propio elemento y también sus nodos atributo, sus nodos espacio de nombres y sus elementos hijo.
+    Con esta instrucción podemos añadir el nodo actual al árbol de nodos destino. Al copiar un nodo se copian sus nodos espacios de nombres pero no sus atributos ni sus elementos hijos. Este elemento puede usar el atributo \textbf{use-attribute-sets} para añadir conjuntos de atributos declarados anteriormente. Solo se puede usar esta instrucción con nodos que puedan tener atributos o elementos hijos, es decir, el nodo raíz y nodos elementos.
 
-    \item \textbf{xsl:apply-imports}: sirve para indicar cuando realizar una importación para sobreescribir una regla de plantillas.
+    \item \textbf{xsl:copy-of}
 
-    \item \textbf{xsl:message}: se utiliza para enviar mensajes al procesador XSLT. Tiene un atributo, \textbf{terminate}, que puede tomar los valores \textbf{yes} y \textbf{no}, y que se utiliza para indicar al procesador XSLT que interrumpa el procesamiento de la hoja de estilos.
+    Con esta instrucción podemos añadir un fragmento completo del árbol de nodos al árbol de destino. No es necesario convertir ese fragmento a cadenas de caracteres. Tiene una \textbf{atributo obligatorio} llamado \textbf{select} donde debe indicarse, mediante una expresión XPath, el fragmento de árbol a copiar. Cuando se copia un elemento se copia el propio elemento y también sus nodos atributo, sus nodos espacio de nombres y sus elementos hijo.
 
-    \item \textbf{xsl:fallback}: su función es establecer una secuencia ordenada de ejecución.
+    \item \textbf{xsl:apply-imports}
+
+    Sirve para indicar cuando realizar una importación para sobreescribir una regla de plantillas.
+
+    \item \textbf{xsl:message}
+
+    Se utiliza para enviar mensajes al procesador XSLT. Tiene un atributo, \textbf{terminate}, que puede tomar los valores \textbf{yes} y \textbf{no}, y que se utiliza para indicar al procesador XSLT que interrumpa el procesamiento de la hoja de estilos.
+
+    \item \textbf{xsl:fallback}
+
+    Su función es establecer una secuencia ordenada de ejecución.
 \end{itemize}
 
 \subsubsection{Instrucción de Manipulación de Plantillas}
+Esta funciones se emplean para realizar diferentes operaciones con las plantillas. En concreto, en este grupo las instrucciones más destacada es la siguiente:
+
+\begin{itemize}
+    \item l\textbf{xsl:apply-templates}
+
+    Como vimos con la instrucción \textbf{xsl:template}, cuando comparamos el árbol de nodos origen con las expresiones \textbf{match}, por defecto, no se continúa buscando más plantillas recorriendo los elementos hijo. Es decir, se pasa al siguiente elemento hermano que coincide con la expresión \textbf{match}.
+
+    Con la instrucción \textbf{xsl:apply-template} podemos indicar si queremos que se siga con la búsqueda de plantillas en los elementos hijo. Esta instrucción tiene una atributo \textbf{select} en el que podemos indicar, mediante una expresión XPath, el conjunto de nodos hijos que queremos que se siga recorriendo y buscando plantillas que se correspondan con ellos. Si no estamos usando el atributo \textbf{select} estaremos indicando que se recorran todos los elementos hijo en busca de plantilla.
+
+    Como contenido de la instrucción \textbf{xsl:apply-template} puede aparecer la función \textbf{sort()}, que nos ordenará los resultados antes de aplicar la plantilla que corresponda. También podemos encontrar la función \textbf{xsl:with-param} que nos permite pasar valores a la plantilla. Estos valores sobreescribirán los valores pode defecto indicados por la instrucción \textbf{xsl:param}:
+
+    En el \textbf{siguiente ejemplo}, vemos el uso de \textbf{xsl:apply-template}. Podemos ver como se van invocando los elementos desde el elemento raíz hasta el elemento hijo. En unos casos usando el atributo \textbf{select} y en otros no. En la segunda plantilla, por ejemplo, no se usa \textbf{select}, por lo que se aplica a todos los elemento hijo (\textbf{nombre}, \textbf{apellidos},...). Estos elementos, al no tener plantilla por defecto, mostrarán su contenido textual, excepto el elemento \textbf{anno\_nac} que si tiene una plantilla que especifica que se muestre el texto \textbf{privado} en vez de su contenido textual.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+    <xsl:output method="text" />
+    <xsl:strip-space elements="*"/>
+
+    <xsl:template match="/">
+        <xsl:apply-templates select="//alumno"/>
+    </xsl:template>
+
+    <xsl:template match="//alumno">
+        <xsl:apply-templates/>
+    </xsl:template>
+
+    <xsl:template match="//anno_nac">
+        <xsl:text>privado</xsl:text>
+    </xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{xsl:call-template}
+
+    Se usa para invocar una plantilla que esta declarada con un atributo \textbf{name}.
+
+    \item \textbf{xsl:with-param}
+
+    Permite pasar valores a una plantilla que sobreescribirán los indicados por el elemento \textbf{xsl:param} que tenga el mismo atributo \textbf{name}.
+\end{itemize}
+
+\subsubsection{Instrucciones de Control}
+En este grupo nos encontramos diferentes instrucciones que nos ayudarán a controlar el flujo de ejecución de las diferentes instrucciones que usemos, permitiéndonos recorres nodos o seleccionar unos o otros en función de una condición.
+
+Las \textbf{principales instrucciones de control} son las siguientes:
+
+\begin{itemize}
+    \item \textbf{xsl:for-each}
+
+    Con esta función podemos crear un \textbf{bloque repetitivo} que \textbf{recorra de uno en uno todos los nodos} indicados mediante una expresión XPath en el atributo \textbf{select}. Dicho atributo es obligatorio. El valor indicado deben ser un conjunto de nodos. El recorrido de estos nodos se hace en el orden en el que son procesados, salvo en caso de que se utilice la función \textbf{sort()}.
+
+    \item \textbf{xsl:if}
+
+    Esta instrucción se utiliza para crear \textbf{bloques condicionales}, de modo que \textbf{solo ejecutemos una parte} de la plantilla si se \textbf{cumple una determinada condición}. Esta condición debe especificarse en el atributo \textbf{test}. La expresión de la condición se evaluará y se convertirá al tipo \textbf{boolean}. Si el resultado es \textbf{true}, entonces se ejecutar el contenido del elemento \textbf{xsl:if}. Si el resultado es \textbf{false} se pasará a la siguiente instrucción después del elemento \textbf{xsl:if}.
+
+    En el siguiente ejemplo, vamos a realizar una transformación en la que vamos a ordenar los alumnos por orden de apellido descendente y de cada uno de ellos mostraremos su nombres y su fecha de nacimiento o su nota media dependiendo de si su posición es par o impar.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" version="5.0" indent="yes" />
+
+  <xsl:template match="/">
+    <html>
+      <body>
+        <ol>
+          <xsl:for-each select="//alumno">
+            <xsl:sort select="apellidos" order="descending"/>
+            <li>
+              <xsl:if test="((position() mod 2)=1)">
+                <xsl:value-of select="nombre"/>
+                <xsl:text>. Fecha de nacimiento: </xsl:text>
+                <xsl:value-of select="anno_nac"/>
+              </xsl:if>
+              <xsl:if test="((position() mod 2)=0)">
+                <xsl:value-of select="nombre"/>
+                <xsl:text>. Nota media: </xsl:text>
+                <xsl:value-of select="nota_media"/>
+              </xsl:if>
+            </li>
+          </xsl:for-each>
+        </ol>
+      </body>
+    </html>
+  </xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    Esta misma transformación también podría realizarse  sustituyendo \textbf{xsl:for-each} por una llamada recursiva a otra plantilla mediante \textbf{xsl:apply-template}:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" version="5.0" indent="yes" />
+
+  <xsl:template match="/">
+    <html>
+      <body>
+        <ol>
+          <xsl:apply-templates select="//alumno">
+            <xsl:sort select="apellidos" order="descending"/>
+          </xsl:apply-templates>
+        </ol>
+      </body>
+    </html>
+  </xsl:template>
+
+  <xsl:template match="alumno">
+    <li>
+      <xsl:if test="((position() mod 2)=1)">
+        <xsl:value-of select="nombre"/>
+        <xsl:text>. Fecha de nacimiento: </xsl:text>
+        <xsl:value-of select="anno_nac"/>
+      </xsl:if>
+      <xsl:if test="((position() mod 2)=0)">
+        <xsl:value-of select="nombre"/>
+        <xsl:text>. Nota media: </xsl:text>
+        <xsl:value-of select="nota_media"/>
+      </xsl:if>
+    </li>
+  </xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El resultado en ambo casos sería el mismo, el que se muestra a continuación:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<html>
+    <body>
+        <ol>
+            <li>Carmen. Fecha de nacimiento: 2017</li>
+            <li>Carmen. Nota media: 4</li>
+            <li>Carlos. Fecha de nacimiento: 2017</li>
+            <li>Carmen. Nota media: 10</li>
+            <li>Beatriz. Fecha de nacimiento: 2018</li>
+            <li>Beatriz. Nota media: 8.25</li>
+            <li>Benito. Fecha de nacimiento: 2018</li>
+            <li>Benito. Nota media: 2.25</li>
+            <li>Ana. Fecha de nacimiento: 2017</li>
+            <li>Ana. Nota media: 7.5</li>
+            <li>Alejando. Fecha de nacimiento: 2018</li>
+            <li>Ana. Nota media: 6.5</li>
+        </ol>
+    </body>
+</html>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{xsl:choose}, \textbf{xsl:when} y \textbf{xsl:otherwise}
+
+    Esta instrucciones nos permiten construir bloques condicionales, como la instrucción \textbf{xsl:if}, con al diferencia de que nos permite evaluar más de un caso posible.
+
+    Consiste en una secuencia de elementos \textbf{xsl:when} seguidos de elementos \textbf{xsl:otherwise} opcionales. Cada elemento \textbf{xsl:when} tiene un único atributo \textbf{test}, que especifica una expresión. Cuando se procesa un elemento \textbf{xsl:choose}, cada uno de los elementos \textbf{xsl:when} es evaluado en orden. Se ejecutará el primer y solo el primer	elemento \textbf{xsl:when} que haya devuelto \textbf{true}. Si no hay elementos \textbf{xsl:when} con resultado \textbf{true} entonces se ejecutará el elemento \textbf{xsl:otherwise}. Si este último no existe y no hay ningún elemento \textbf{xsl:when} evaluado a \textbf{true}, no se ejecutará nada.
+
+    \item \textbf{xsl:sort}
+
+    Con esta instrucción podemos ordenar los elementos seleccionados por las instrucciones \textbf{xsl:apply-template} o \textbf{xsl:for-each}. Debemos agregar \textbf{xsl:sort} como elemento hijo de alguna de estas instrucciones. Podemos agregar más de una elemento \textbf{xsl:sort}, en cuyo caso, la ordenación se realizará en el orden de aparición. Si \textbf{xsl:sort} se aplica a un bucle \textbf{xsl:for-each} deberá aparecer como primer hijo de este elemento. En el atributo \textbf{select} se indicará una expresión que devuelva una cadena de caracteres que servirá como clave de ordenación del conjunto de nodos seleccionados. El valor por defecto de este atributo es el nodo actual (\textbf{.})
+
+    Otros atributos importantes son:
+
+    \begin{itemize}
+        \item \textbf{order}: especifica el sentido del orden, pudiendo tomar los valores \textbf{ascending} o \textbf{descending}.
+        \item \textbf{lang}: especifica el lenguaje de la clave de ordenación.
+        \item \textbf{data-type}: especifica el tipo de dato. Puedo tomar los valores \textbf{text}, \textbf{number} o un \textbf{nombre cualificado}.
+        \item \textbf{case-order}: especifica casos especiales. Puede tomar los valores \textbf{upper-first}, \textbf{lower-first} para los \textbf{data-type="text"}.
+    \end{itemize}
+
+    En el siguiente ejemplo vamos a realizar una transformación que muestre una tabla con los alumnos ordenados por apellido con las filas de distintos colores según las notas medias obtenidas. Recordando un poco de HTML+CSS, en este ejemplo queremos asignar dinámicamente con un \textbf{xsl:choose} el valor del atributo \textbf{class} del elemento \textbf{tr} para dar uno de los tres estilos creados.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" version="5.0" indent="yes" />
+
+  <xsl:template match="/">
+    <html>
+      <head>
+        <style>
+          .aprobado {color:green;}
+          .suspenso {color:red;}
+          .sobresaliente {color:blue}
+        </style>
+      </head>
+
+      <body>
+        <table border="0">
+          <thead style="background-color:gray; color:white;">
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>NOTA MEDIA</th>
+          </thead>
+          <tbody style="background-color:white;">
+            <xsl:for-each select="//alumno">
+              <xsl:sort select="apellidos"/>
+              <xsl:element name="tr">
+                <xsl:attribute name="class">
+                  <xsl:choose>
+                    <xsl:when test="nota_media < 5">suspenso</xsl:when>
+                    <xsl:when test="nota_media < 9">aprobado</xsl:when>
+                    <xsl:otherwise>sobresaliente</xsl:otherwise>
+                  </xsl:choose>
+                </xsl:attribute>
+                <td><xsl:value-of select="nombre"/></td>
+                <td><xsl:value-of select="apellidos"/></td>
+                <td style="text-align: center;"><xsl:value-of select="nota_media"/></td>
+              </xsl:element>
+            </xsl:for-each>
+          </tbody>
+        </table>
+      </body>
+    </html>
+</xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El \textbf{resultado} será una tabla como la que vemos en la siguiente figura:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.70]{xsl-html-table.png}
+        \caption{Tabla en HTML resultado}
+    \end{figure}
+
+    Que tendrá como \textbf{código HTML} el \textbf{generado} por la transformación XSLT que hemos realizado y que es el siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      .aprobado {color:green;}
+      .suspenso {color:red;}
+      .sobresaliente {color:blue}
+    </style>
+  </head>
+
+  <body>
+    <table border="0">
+      <thead style="background-color:gray; color:white;">
+        <th>NOMBRE</th><th>APELLIDOS</th><th>NOTA MEDIA</th>
+      </thead>
+      <tbody style="background-color:white;">
+        <tr class="aprobado">
+          <td>Ana</td>
+          <td>Abad &Aacute;lvarez</td>
+          <td style="text-align: center;">6.5</td>
+        </tr>
+        <tr class="aprobado">
+          <td>Alejando</td>
+          <td>&Aacute;lvarez Amate</td>
+          <td style="text-align: center;">5.25</td>
+        </tr>
+        <tr class="aprobado">
+          <td>Ana</td>
+          <td>Amate Antunez</td>
+          <td style="text-align: center;">7.5</td>
+        </tr>
+        <tr class="suspenso">
+          <td>Ana</td>
+          <td>Antunez Amaya</td>
+          <td style="text-align: center;">2.5</td>
+        </tr>
+        <tr class="suspenso">
+          <td>Benito</td>
+          <td>Bellido Bravo</td>
+          <td style="text-align: center;">2.25</td>
+        </tr>
+        <tr class="aprobado">
+            <td>Benito</td>
+            <td>Ben&iacute;tez Bellido</td>
+            <td style="text-align: center;">6.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \textbf{NOTA}: no se han incluído todos los elementos td generados en el código anterior, para que sea más legible y se quepa en una sola página, pero nos podemos hacer una idea del código generado por la transformación XSLT.
+\end{itemize}
+
+\subsubsection{Instrucciones de Salida}
+Estas instrucciones nos permiten manipular la salida de la transformación, por ejemplo, añadiendo atributos o elementos al árbol resultado, realizando conversiones de datos o añadiendo comentarios o instrucciones de procesamiento.
+
+Las \textbf{principales instrucciones} en este grupo son las siguientes:
+
+\begin{itemize}
+    \item \textbf{xsl:value-of}
+
+    Este elemento se utiliza para generar texto, ya sea extraído del árbol de nodos origen, generado por una expresión XPath o insertado de valores de una variable. El elemento \textbf{xsl:value-of} creará un nodo de tipo text en el árbol de nodos resultado. Tiene un atributo obligatorio, \textbf{select}, en el que se indicará la expresión que será evaluada y su resultado se convertirá a una cadena de caracteres. Si queremos añadir un conjunto de nodos, es decir, elementos con sus correspondientes hijos, al árbol de nodos destino, deberíamos utilizar \textbf{xsl:copy-of} en su lugar.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="xml" indent="yes" />
+  <xsl:template match="/">
+    <xsl:text>
+    </xsl:text>
+    <xsl:comment>Esto es un saludo</xsl:comment>
+      <xsl:text>
+      </xsl:text>
+    <xsl:element name="saludo">
+      <xsl:attribute name="idioma">español</xsl:attribute>
+      <xsl:text>Hola, bienvenido al colegio </xsl:text>
+      <xsl:value-of select="colegio/nombre" />
+    </xsl:element>
+  </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El \textbf{resultado} de esta transformación sería el siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+    <!--Esto es un saludo-->
+    <saludo idioma="español">Hola, bienvenido al colegio Cervantes</saludo>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{xsl:number}
+
+    Se usa para insertar un número formateado en el árbol de nodos de destino. El número que se va a insertar se debe especificar en el atributo \textbf{value} mediante una expresión. La expresión se evaluará y el objeto resultante se convertirá en un número. El número se redondeará a un entero y después se convertirá en una cadena de caracteres. Si no se especifica el atributo \textbf{value} el número añadido estará basado en la posición del nodo contexto. Los siguientes \textbf{atributos} nos ayudan a controlar como se realiza la conversión:
+
+    \begin{itemize}
+        \item \textbf{level}: especifica que niveles del árbol de nodos origen se utilizarán. Sus valores pueden ser \textbf{single}, \textbf{multiple} o \textbf{any}. Por defecto, su valor será \textbf{single}.
+        \item \textbf{count}: será un patrón que especifique que nodos serán contados en ese nivel. Por defecto, se contarán todos los nodos semejantes al nodo contexto.
+        \item \textbf{from}: es un patrón que especifica desde donde se empieza a contar.
+    \end{itemize}
+
+    Para \textbf{especificar un formato} se utiliza el atributo opcional \textbf{format}, al que se le indicará un patrón con una combinación de los siguientes caracteres:
+
+    \begin{itemize}
+        \item Un \textbf{token que acabe en 1}: formará una secuencia numérica. Por ejemplo, 1 formará la secuencia 1, 2, 3,... y 001 formará la secuencia 001, 002, 003, ...
+        \item \textbf{Letra A}: formará la secuencia A, B, C.., AA, AB, ...
+        \item \textbf{Letra a}: formará la secuencia a, b, c.., aa, ab, ...
+        \item \textbf{Letra I}: formará la secuencia I, II, III, IV, ...
+        \item \textbf{Letra i}: formará la secuencia i, ii, iii, iv, ...
+        \item Otras numeraciones especificadas en \textbf{unicode}:  \textbf{\&\#x30A2}; \textbf{\&\#x30A4}; \textbf{\&\#x0E51}; \textbf{\&\#x05D0}; \textbf{\&\#x10D0}; \textbf{\&\#x03B1}; \textbf{\&\#x0430};
+    \end{itemize}
+
+    El patrón por defecto es 1.
+
+    \item \textbf{xsl:element}
+
+    Esta instrucción permite crear un elemento con el nombre indicado por el atributo obligatorio \textbf{name}. También se le puede indicar un espacio de nombres de forma opcional con el atributo \textbf{namespace}. El contenido de este elemento podrá ser, por ejemplo, elementos \textbf{xsl:attribute}, otros elementos \textbf{xsl:element} hijos, comentarios \textbf{xsl:comment}, etc..
+
+    \item \textbf{xsl:attribute}
+
+    Este elemento puede ser usado para añadir atributos a los elementos creados en un plantilla mediante el elemento \textbf{xsl:element} o directamente escribiendo las etiquetas de apertura y cierre (LRE). El nombre del atributo será indicado mediante el atributo obligatorio \textbf{name}. También se le puede indicar un espacio de nombres opcional con el atributo \textbf{namspace}. El contenido de este elemento será el valor del atributo.
+
+    Al igual que una elemento se puede crear mediante \textbf{LRE}, los atributos también pueden construirse mediante el uso de llaves \textbf{{}}. A esto se le llama \textbf{attribute template values}. Consiste en escribir el atributo dentro de su correspondiente etiqueta y cuando se quiere introducir el valor indicarlo mediante una expresión entre llaves {}.
+
+    Si un elemento tiene varios atributos o un atributo que se quiere reutilizar se puede usar la instrucción \textbf{xsl:attribute-set}.
+
+    \item \textbf{xsl:comment}
+
+    Este elemento creará un nodo comentario en al árbol resultado. Su contenido será una cadena de texto.
+
+    \item \textbf{xsl:processing-instruction}
+
+    Este elemento creará un nodo de instrucción de procesamiento en el árbol de nodos  destino. En el atributo obligatorio \textbf{name} se deberá especificar el nombre o clase de instrucción de procesamiento.
+
+    A partir de nuestro documento \textbf{colegio.xml}, vamos a crear otro documento XML que contenga un listado de alumnos ordenador por notas cuyo nombre comience por 'A':
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="xml" version="1.0" indent="yes" />
+  <xsl:template match="/">
+
+  <xsl:text>
+  </xsl:text>
+
+  <xsl:comment>Documento de estilos CSS vinculado al archivo XML resultante</xsl:comment>
+
+  <xsl:text>
+  </xsl:text>
+
+  <xsl:processing-instruction
+    name="xml-stylesheet">href="style.css" type="text/css"</xsl:processing-instruction>
+
+  <xsl:text>
+  </xsl:text>
+
+  <xsl:element name="listado">
+    <xsl:comment>
+      Listado de alumnos ordenados por notas cuyo nombre empieza por A
+    </xsl:comment>
+    <xsl:for-each select="//alumno[starts-with(nombre,'A')]">
+      <xsl:sort select="nota_media" order="descending" data-type="number"/>
+      <xsl:element name="persona">
+        <xsl:attribute name="calificacion">
+          <xsl:value-of select="nota_media"/>
+        </xsl:attribute>
+        <xsl:attribute name="num_orden">
+          <xsl:number value="position()" format="1"/>
+        </xsl:attribute>
+        <xsl:value-of select="nombre"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="apellidos"/>
+      </xsl:element>
+    </xsl:for-each>
+  </xsl:element>
+ </xsl:template>
+</xsl:stylesheet>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    El resultado sería el siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Documento de estilos CSS vinculado al archivo XML resultante-->
+<?xml-stylesheet href="style.css" type="text/css"?>
+<listado>
+    <!--Listado de alumnos ordenados por notas cuyo nombre empieza por A-->
+    <persona calificacion="7.5" num_orden="1">Ana Amate Antunez</persona>
+    <persona calificacion="6.5" num_orden="2">Ana Abad Álvarez</persona>
+    <persona calificacion="5.25" num_orden="3">Alejando Álvarez Amate</persona>
+    <persona calificacion="2.5" num_orden="4">Ana Antunez Amaya</persona>
+</listado>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{itemize}
+
+\subsection{Funciones Propias de XSLT}
 
 % Apéndice -------------------------------------------------------------------------------------
 \appendix
