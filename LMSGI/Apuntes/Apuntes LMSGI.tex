@@ -4336,45 +4336,45 @@ Esta \textbf{funciones} se pueden clasificar en cuatro grupos y son las siguient
     \item \textbf{Funciones de Conjuntos de Nodos}: son funciones que nos permiten trabaja con nodos y realizar diferentes operaciones con nodos. Estas funciones son las siguientes:
 
     \begin{itemize}
-        \item \textbf{\textit{number} last()}: devuelve el número total de nodos del contexto seleccionado.
-        \item \textbf{\textit{number} position()}: devuelve la posición del nodo actual dentro de los nodos del contexto seleccionado. Esta posición de enumera desde el 1, y no desde el 0 como en otros lenguajes de programación.
-        \item \textbf{\textit{número} count(\textit{nodo-set})}: devuelve el número de nodos del conjunto de nodos pasado como argumento.
-        \item \textbf{\textit{string} name(\textit{nodo-set?})}: devuelve una cadena de caracteres con el nombre cualificado de un nodo del conjunto de nodos que se le pasa como argumento, formado por una URI del espacio de nombres y el nombres local. Si no se le pasa ningún argumento, tomará el nodo contexto como argumento. Si no se declaran espacios de nombres devolverá el mismo resultado que la función local-name().
-        \item \textbf{\textit{string} loca-name(\textit{node-set?})}: devuelve el nombres local, sin URI, de un nodo del conjunto de nodos pasado como argumento. Si no se le pasa ningún argumento tomará los nodos contexto como argumento. Si no se declaran espacios de nombres dará el mismo resultado que la función name().
-        \item \textbf{\textit{string} namespace-uri(\textit{nodo-set?})}: devuelve el URI del espacio de nombres, sin el nombres local, de un nodo del conjunto de nodos que se le pasa como argumento. Si no se le pasa ningún parámetro, tomará los nodos contexto como argumentos.
-        \item \textbf{\textit{node-ser} id(\textit{object})}: selecciona elementos mediante su identificador único. Los nodos deben ser declarados de tipo ID en DTD o el XML Schema correspondiente.
+        \item \textit{number} \textbf{last()}: devuelve el número total de nodos del contexto seleccionado.
+        \item \textit{number} \textbf{position()}: devuelve la posición del nodo actual dentro de los nodos del contexto seleccionado. Esta posición de enumera desde el 1, y no desde el 0 como en otros lenguajes de programación.
+        \item \textit{número} \textbf{count(\textit{nodo-set})}: devuelve el número de nodos del conjunto de nodos pasado como argumento.
+        \item \textit{string} \textbf{name(\textit{nodo-set?})}: devuelve una cadena de caracteres con el nombre cualificado de un nodo del conjunto de nodos que se le pasa como argumento, formado por una URI del espacio de nombres y el nombres local. Si no se le pasa ningún argumento, tomará el nodo contexto como argumento. Si no se declaran espacios de nombres devolverá el mismo resultado que la función local-name().
+        \item \textit{string} \textbf{loca-name(\textit{node-set?})}: devuelve el nombres local, sin URI, de un nodo del conjunto de nodos pasado como argumento. Si no se le pasa ningún argumento tomará los nodos contexto como argumento. Si no se declaran espacios de nombres dará el mismo resultado que la función name().
+        \item \textit{string} \textbf{namespace-uri(\textit{nodo-set?})}: devuelve el URI del espacio de nombres, sin el nombres local, de un nodo del conjunto de nodos que se le pasa como argumento. Si no se le pasa ningún parámetro, tomará los nodos contexto como argumentos.
+        \item \textit{node-ser} \textbf{id(\textit{object})}: selecciona elementos mediante su identificador único. Los nodos deben ser declarados de tipo ID en DTD o el XML Schema correspondiente.
     \end{itemize}
 
     \item \textbf{Funciones de Cadenas de Caracteres}: son funciones que nos permiten trabajar con cadenas de caracteres, permitiéndonos buscar subcadenas, hacer concatenaciones, etc... Esta funciones son:
     \begin{itemize}
-        \item \textbf{\textit{string} string(\textit{object?})}: convierte un objeto en cadena de caracteres. Si no se especifica el objeto toma un conjunto de nodos con el nodo contexto como único miembro.
-        \item \textbf{\textit{string} concat(\textit{string}, \textit{string}, \textit{string*})}: devuelve la concatenación de las cadenas pasadas como argumento.
-        \item \textbf{\textit{boolean} starts-with(\textit{string}, string)}: devuelve verdadero si la primera cadena del argumento comienza con la segunda cadena del argumento. Devuelve falso en caso contrario.
-        \item \textbf{\textit{boolean} contains(\textit{string, string})}: devuelve verdadero si la primera cadena de los argumentos contiene a la segunda y falso en caso contrario.
-        \item \textbf{\textit{string} substring-before(\textit{string}, \textit{string})}: devuelve las subcadena, de la primera cadena del argumento, que precede a la aparición de la cadena pasada como segundo argumento, o la cadena vacía si la cadena no aparece en ésta. Si el argumento es la cadena vacía, entonces devuelve una cadena vacía.
-        \item \textbf{\textit{string} substring-after(\textit{string}, \textit{string})}: devuelve la subcadena, de la primera cadena del argumento, que sigue a la aparición de la segunda cadena pasada como argumento o la cadena vacía en caso de que esta no aparezca en la primera cadena. Si el argumento es la cadena vacía, devolverá una cadena vacía.
-        \item \textbf{\textit{string} substring(\textit{string}, \textit{number}, \textit{number?})}: devuelve la subcadena que comienza en la posición indicada por el segundo argumento y con la longitud indicada en el tercer argumento. Si no es especifica la longitud, devuelve la cadena que comienza en la posición especificada y continúa hasta el final de la cadena. Se considera que cada carácter tiene una posición numérica dentro de la cadena, comenzado a contar desde 1.
-        \item \textbf{\textit{number} string-length(\textit{string?})}: devuelve el número de caracteres de la cadena indicada como argumento. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
-        \item \textbf{\textit{string} normalize-space(\textit{string?})}: devuelve la cadena argumento con el espacio en blanco normalizado, es decir, elimina los espacios que se encuentra al principio y final de la cadena, además de sustituir las secuencias de espacios en blanco por uno solo. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
-        \item \textbf{\textit{string} translate(\textit{string}, \textit{string}, \textit{string})}: devuelve la cadena del primer argumento con las apariciones indicadas en el segundo argumento sustituidas por las indicadas en el tercer argumento.
+        \item \textit{string} \textbf{string(\textit{object?})}: convierte un objeto en cadena de caracteres. Si no se especifica el objeto toma un conjunto de nodos con el nodo contexto como único miembro.
+        \item \textit{string} \textbf{concat(\textit{string}, \textit{string}, \textit{string*})}: devuelve la concatenación de las cadenas pasadas como argumento.
+        \item \textit{boolean} \textbf{starts-with(\textit{string}, string)}: devuelve verdadero si la primera cadena del argumento comienza con la segunda cadena del argumento. Devuelve falso en caso contrario.
+        \item \textit{boolean} \textbf{contains(\textit{string, string})}: devuelve verdadero si la primera cadena de los argumentos contiene a la segunda y falso en caso contrario.
+        \item \textit{string} \textbf{substring-before(\textit{string}, \textit{string})}: devuelve las subcadena, de la primera cadena del argumento, que precede a la aparición de la cadena pasada como segundo argumento, o la cadena vacía si la cadena no aparece en ésta. Si el argumento es la cadena vacía, entonces devuelve una cadena vacía.
+        \item \textit{string} \textbf{substring-after(\textit{string}, \textit{string})}: devuelve la subcadena, de la primera cadena del argumento, que sigue a la aparición de la segunda cadena pasada como argumento o la cadena vacía en caso de que esta no aparezca en la primera cadena. Si el argumento es la cadena vacía, devolverá una cadena vacía.
+        \item \textit{string} \textbf{substring(\textit{string}, \textit{number}, \textit{number?})}: devuelve la subcadena que comienza en la posición indicada por el segundo argumento y con la longitud indicada en el tercer argumento. Si no es especifica la longitud, devuelve la cadena que comienza en la posición especificada y continúa hasta el final de la cadena. Se considera que cada carácter tiene una posición numérica dentro de la cadena, comenzado a contar desde 1.
+        \item \textit{number} \textbf{string-length(\textit{string?})}: devuelve el número de caracteres de la cadena indicada como argumento. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
+        \item \textit{string} \textbf{normalize-space(\textit{string?})}: devuelve la cadena argumento con el espacio en blanco normalizado, es decir, elimina los espacios que se encuentra al principio y final de la cadena, además de sustituir las secuencias de espacios en blanco por uno solo. Si se omite el argumento, toma por defecto el nodo contexto convertido en cadena de caracteres.
+        \item \textit{string} \textbf{translate(\textit{string}, \textit{string}, \textit{string})}: devuelve la cadena del primer argumento con las apariciones indicadas en el segundo argumento sustituidas por las indicadas en el tercer argumento.
     \end{itemize}
 
     \item \textbf{Funciones Lógicas}: nos permiten realizar diferentes operaciones booleanas sobre diferentes datos.
     \begin{itemize}
-        \item \textbf{\textit{boolean} boolean(\textit{object})}: convierte el objecto argumento al tipo booleano.
+        \item \textit{boolean} \textbf{boolean(\textit{object})}: convierte el objecto argumento al tipo booleano.
         \item \textbf{\textit{boolean} not(\textit{boolean})}: devuelve verdadero si su argumento es falso y falso en caso contrario.
-        \item \textbf{\textit{boolean} true()}: devuelve el valor true.
-        \item \textbf{\textit{boolean} false()}: devuelve el valor false.
-        \item \textbf{\textit{boolean} lang(\textit{string})}: devuelve verdadero o falso dependiendo si el lenguaje del nodo contextual, tal como se especifica por el atributo \textit{xml:lang}, es el mismo o un sublenguaje del especificado como argumento.
+        \item \textit{boolean} \textbf{true()}: devuelve el valor true.
+        \item \textit{boolean} \textbf{false()}: devuelve el valor false.
+        \item \textit{boolean} \textbf{lang(\textit{string})}: devuelve verdadero o falso dependiendo si el lenguaje del nodo contextual, tal como se especifica por el atributo \textit{xml:lang}, es el mismo o un sublenguaje del especificado como argumento.
     \end{itemize}
 
     \item \textbf{Funciones Matemáticas}: son funciones que nos permiten realizar diferentes operaciones matemáticas. Estas son:
     \begin{itemize}
-        \item \textbf{\textit{number} number(\textit{object?})}: convierte el argumento al tipo numérico. Si se omite el argumento, toma por defecto un conjunto de nodos con el nodo contexto como único elemento.
-        \item \textbf{\textit{number} sum(\textit{node-set})}: devuelve la suma, a lo largo de todos los nodos del conjunto de nodos del argumento, resultando de convertir los valores de cadenas de caracteres de los distintos nodos en números.
-        \item \textbf{\textit{number} floor(\textit{number})}: devuelve el mayor número entero que sea igual o menor que el número pasado como argumento.
-        \item \textbf{\textit{number} ceiling(\textit{number})}: devuelve el menor número entero que sea igual o mayor que el número pasado como argumento.
-        \item \textbf{\textit{number} round(\textit{number})}: devuelve el número entero más cercano al pasado como argumento.
+        \item \textit{number} \textbf{number(\textit{object?})}: convierte el argumento al tipo numérico. Si se omite el argumento, toma por defecto un conjunto de nodos con el nodo contexto como único elemento.
+        \item \textit{number} \textbf{sum(\textit{node-set})}: devuelve la suma, a lo largo de todos los nodos del conjunto de nodos del argumento, resultando de convertir los valores de cadenas de caracteres de los distintos nodos en números.
+        \item \textit{number} \textbf{floor(\textit{number})}: devuelve el mayor número entero que sea igual o menor que el número pasado como argumento.
+        \item \textit{number} \textbf{ceiling(\textit{number})}: devuelve el menor número entero que sea igual o mayor que el número pasado como argumento.
+        \item \textit{number} \textbf{round(\textit{number})}: devuelve el número entero más cercano al pasado como argumento.
     \end{itemize}
 \end{itemize}
 
@@ -5573,6 +5573,183 @@ Las \textbf{principales instrucciones} en este grupo son las siguientes:
 \end{itemize}
 
 \subsection{Funciones Propias de XSLT}
+Además de las instrucciones que hemos visto en la sección anterior, XSLT proporciona un número de funciones propias que nos permiten realizar diferentes operaciones.
+
+Estas funciones son:
+
+\begin{itemize}
+    \item \textit{node-set} \textbf{document(\textit{object}, \textit{node-set?})}
+
+    Función que permite el acceso a otros documentos XML distintos del original. Tiene dos parámetros. El \textbf{primero} que indica \textbf{la URI} donde está el documento a añadir. Si no se indica nada, se tomará el documento actual como valor por defecto. El \textbf{segundo} parámetro opcional nos permite seleccionar una parte de ese nuevo documento mediante una expresión XPath. Es función \textbf{devuelve} un conjunto de nodos.
+
+    \item \textit{node-set} \textbf{key(\textit{string}, \textit{object})}
+
+    Esta función es similar a \textbf{id()} en XPath. El primer parámetro es el nombre de la clave, que debe ser un nombre cualificado indicado	en un elemento \textbf{xsl:key}. El segundo debe ser el valor para dicha clave. Devuelve el conjunto de nodos del documento que cumplen con estas condiciones.
+
+    \item \textit{string} \textbf{ format-number(\textit{number}, \textit{string}, \textit{string?})}
+
+    Convierte el primer parámetro a una cadena de caracteres siguiendo el patrón indicado en el segundo parámetro. Si existe un tercer parámetro indicará el nombres de \textbf{xsl:decimal-format} que se utilizará, si no se indica, se cogerá el valor por defecto.
+
+    \item \textit{node-set} \textbf{current()}
+
+    Devuelve el valor del nodo contexto. Normalmente se sustituye por su versión abreviada, usando el carácter para designar al nodo contexto (\textbf{.}).
+
+    \item \textit{string} \textbf{generate-id(\textit{node-set?})}
+
+    Genera un identificador único para el conjunto de nodos pasado como parámetro. Si no se especifica el conjunto de nodos, se tomará el nodo contextual por defecto.
+\end{itemize}
+
+Otras funciones menos usadas son: \textbf{unparsed-entity-uri()}, \textbf{system-property()}, \textbf{element-avaible()} y \textbf{function-avaible()}.
+
+En el siguiente \textbf{ejemplo} vamos a realizar una transformación para calcular la media de notas de los alumnos agrupados por nombre.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \tiny
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" version="5.0" indent="yes" />
+
+  <xsl:template match="/">
+    <xsl:key name="nombre_clave" match="//alumno/nombre" use="."/>
+      <html>
+        <body>
+          <ol>
+            <xsl:for-each
+              select="//alumno/nombre[generate-id() = generate-id(key('nombre_clave',.)[1])]">
+
+              <xsl:sort select="." order="ascending" data-type="text"/>
+              <xsl:variable name="nombre_actual" select="."/>
+
+              <xsl:variable name="media"
+              select="sum(//alumno[nombre=$nombre_actual]/nota_media) div
+              count(//alumno[nombre=$nombre_actual]/nota_media)"/>
+              <li>
+                <xsl:value-of select="$nombre_actual"/>
+                <xsl:text>. Media de notas: </xsl:text>
+                <xsl:value-of select="$media"/>
+              </li>
+            </xsl:for-each>
+          </ol>
+        </body>
+      </html>
+    </xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En este caso, generamos una clave por cada nombre de alumno, recorremos los nombres de alumnos que al generar de nuevo la clave es igual a la primera ya creada. Realizamos la media agrupando por el nombre que tenemos seleccionado. Otra forma de hacerlo hubiera sido usando el eje \textbf{preceding} para evitar elementos repetidos.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" version="5.0" indent="yes" />
+
+  <xsl:template match="/">
+    <html>
+      <body>
+        <ol>
+          <xsl:for-each select="//alumno[not(nombre=preceding::nombre)]">
+            <xsl:sort select="nombre" order="ascending" data-type="text"/>
+            <xsl:variable name="nombre_actual" select="nombre"/>
+            <xsl:variable name="media"
+            select="sum(//alumno[nombre=$nombre_actual]/nota_media) div
+            count(//alumno[nombre=$nombre_actual]/nota_media)"/>
+            <li>
+              <xsl:value-of select="$nombre_actual"/>
+              <xsl:text>. Media de notas: </xsl:text>
+              <xsl:value-of select="$media"/>
+            </li>
+          </xsl:for-each>
+        </ol>
+      </body>
+    </html>
+</xsl:template>
+
+</xsl:stylesheet>
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsection{Procesadores XSLT}
+Un \textbf{procesador XSLT} es una aplicación que realiza una transformación en un documento XML siguiendo las reglas indicadas en otro documento XSLT. El resultado, será otro documento en alguno de los formatos permitidos: XML, HTML y texto plano.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{procesador-xslt.png}
+    \caption{Esquema procesador XSLT}
+\end{figure}
+
+Como hemos comentado a lo largo de esta unidad, el procesador XSLT \textbf{lee el archivo XML inicial} y crea el árbol de nodos origen. A continuación, va \textbf{procesando} las \textbf{instrucciones de la hoja de estilos} recogida en el documento XSLT. Esta hoja de estilos contendrá una o varias plantillas, las cuales tendrán una expresión de emparejamiento. Estas expresiones serán buscadas en archivo XML original y si encuentra coincidencias se ejecutarán las instrucciones indicadas. Estas instrucciones irán \textbf{generando el árbol de nodos destino}. Una vez recorridas todas las plantillasy generado el árbol de nodos destino, éste se escribirá en el documento de salida.
+
+También hay que tener en cuenta que el consorcio W3C publica sus recomendaciones sobre el lenguaje XSLT pero no se encarga de desarrollar los procesadores. Existen varias empresas que se dedican a ello.
+
+Algunos de las empresas que ha \textbf{desarrollado procesadores} de XSLT son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Saxon}
+
+    Desarrolla su procesador XSLT llamado \href{https://www.saxonica.com/documentation11/index.html#!about/whatis}{saxon} con las recomendaciones de la W3C mas recientes: XSLT 3.0 y XPath 3.1.
+
+    Se distribuye como librerías de programación para varios lenguajes como Java, .NET, C/C++, PHP, Python y Javascript, aunque también se puede usar en la línea de comandos gracias al empaquetado de aplicaciones de jar, de Java.
+
+    El fundador es esta empresa es Michael Kay, uno de los participantes en las recomendaciones del W3C.
+
+    \item \textbf{Gnome}
+
+    Tiene una implementación de las recomendaciones XSLT 1.0 y XPath 1.0 en una librería llamada \href{https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home}{libxslt}. Esta librería tiene una utilidad de línea de comandos llamada \href{https://gnome.pages.gitlab.gnome.org/libxslt/xsltproc.html}{xsltproc}.
+
+    Gnome tiene otra librería relacionada con XML llamada \href{https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home}{libxml2} que permite trabajar y validar documentos XML. También tiene una utilidad de línea de comandos llamada \href{https://gnome.pages.gitlab.gnome.org/libxml2/xmllint.html}{xmllint}
+
+    \item \textbf{Apache}
+
+    Desarrolló un procesador de XSLT muy utilizado llamado \href{https://xalan.apache.org/index.html}{Xalan}. Este procesador implementaba las recomendaciones XSLT 1.0 y XPath 1.0. Si distribuía como librerías para los lenguajes Java y C/C++. Su última versión estable es la 2.7.1 lanzada en Noviembre de 2007.
+
+    Dentro de Apache existe un proyecto hermano llamado \href{https://xerces.apache.org/}{Xerces} que permite trabajar con documentos XML y validarlos.
+
+    \item \textbf{Microsoft}
+
+    Desarrollo una librería con funciones XML llamada MSXML (Microsoft XML Core Services) que implementaba XML 1.0, XML Schema 1.0 (2ª Edición), XPath 1.0 y XSLT 1.0. Su última versión es la 6 de 2016.
+\end{itemize}
+
+La forma de usar estos procesadores varía según las necesidades. Podemos encontrar procesadores XSLT que se ejecutan en la \textbf{línea de comandos} de nuestro sistema operativo (xsltproc, saxonb-xslt, xalan), como \textbf{librerías} de distintos lenguajes de programación, en \textbf{páginas web} accesibles con nuestro navegador (\href{https://xslttest.appspot.com/}{xslttest}, \href{http://xsltransform.net/,}{xsltransform}) o integrados en \textbf{editores específicos} de XML (XML Copy Editos, Oxygen XML, Stylus Studio) o \textbf{generales} (Netbeans, Visual Studio, Eclipse, ...).
+
+\subsection{Depuración de Documentos XSLT}
+
+Algunos editores incluyen la funcionalidad de \textbf{depuración del código}.
+
+Esta funcionalidad permite \textbf{ejecutar paso a paso} las instrucciones de forma que facilita enormemente \textbf{encontrar y corregir errores}. Además suelen permitir mostrar los \textbf{valores} que van tomando las \textbf{variables} o estructuras de datos. También permiten establecer \textbf{puntos de ruptura} (breakpoints) o ejecución hasta el cursos de forma que podemos ejecutar el código hasta encontrar estos puntos de ruptura o la línea donde tenemos el cursos.
+
+Entre los editores genéricos con versión open source y que tengan esta funcionalidad de depuración tenemos:
+
+\begin{itemize}
+    \item IntelliJ IDEA + Plugin XSLT Debugger
+    \item Eclipse + Plugin EclipseXML Editors and Tools
+    \item NetBeans + Plugin netbeans-xslt-debugger (obsoleto)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{depuracion-idea.png}
+    \caption{Depuración XSLT en Intellij IDEA}
+\end{figure}
+
+Dentro de los \textbf{editores especializados} en XML no tenemos ninguno con versión gratuita, pero sin con períodos de evaluación de 15 o 30 días:
+
+\begin{itemize}
+    \item Oxygen XML Editor
+    \item Liquid XML Studio
+    \item Editix
+    \item Stylus Studio
+    \item Altova XMLSpy
+\end{itemize}
+
 
 % Apéndice -------------------------------------------------------------------------------------
 \appendix
