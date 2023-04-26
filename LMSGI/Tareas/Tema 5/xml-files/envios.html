@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Tarea 5 - LMSGI - Curso 2022-23</title>
+        <style>
+                    table, th, td {
+                    width:500px;
+                    margin: 0 auto;
+                    text-align: center;
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    }
+                    th {
+                    color: white;
+                    background-color:grey;
+                    }
+                    .urgente {
+                    color: red;
+                    background-color:yellow;
+                    }
+                    .nocturno {
+                    color: white;
+                    background-color:black;
+                    }
+                </style>
+    </head>
+    <body>
+        <header>
+            <h2>Lenguaje de Marcas y Sistemas de Gesti&oacute;n de Informaci&oacute;n</h2>
+            <h2>Tarea 5: XPath y XSLT</h2>
+            <h2>Autor/a: Francisco Javier Sueza Rodr&iacute;guez</h2>
+        </header>
+        <h3>A. Lista ordenada por precio y apellido de los env&iacute;os a Sevilla. 
+                    Indicar el n&uacute;mero de orden (con n&uacute;mero), el precio, la moneda, el 
+                    apellido y el nombre. El orden ser&aacute; de mayor a menor precio y si 
+                    tienen el mismo precio por orden alfab&eacute;tico de apellido. </h3>
+        <h5>
+            Formato:
+            <br>
+                                1) 33 euros - S&aacute;nchez, Carlos.
+        </h5>
+        <br>
+        <br>
+        <h3>Soluci&oacute;n:</h3>
+        <p>1) 
+                        33 euros - 
+                        S&aacute;nchez,
+                        Carlos</p>
+        <p>2) 
+                        26 euros - 
+                        Fern&aacute;ndez,
+                        Noelia</p>
+        <p>3) 
+                        26 euros - 
+                        Romera,
+                        Luis</p>
+        <p>4) 
+                        26 euros - 
+                        Romero,
+                        Isabel</p>
+        <p>5) 
+                        26 euros - 
+                        S&aacute;nchez,
+                        Noelia</p>
+        <p>6) 
+                        23 euros - 
+                        Cano,
+                        Alicia</p>
+        <p>7) 
+                        23 euros - 
+                        Garc&iacute;a,
+                        Jose</p>
+        <p>8) 
+                        23 euros - 
+                        S&aacute;nchez,
+                        In&eacute;s</p>
+        <p>9) 
+                        22 euros - 
+                        Mart&iacute;nez,
+                        Antonio</p>
+        <p>10) 
+                        21 euros - 
+                        Romera,
+                        Elena</p>
+        <p>11) 
+                        19 euros - 
+                        Garc&iacute;a,
+                        Javier</p>
+        <p>12) 
+                        14 euros - 
+                        Garc&iacute;a,
+                        Bel&eacute;n</p>
+        <p>13) 
+                        14 euros - 
+                        Romera,
+                        Daniel</p>
+        <p>14) 
+                        13 euros - 
+                        Fern&aacute;ndez,
+                        Carlos</p>
+        <p>15) 
+                        12 euros - 
+                        L&oacute;pez,
+                        Daniel</p>
+        <p>16) 
+                        12 euros - 
+                        Mart&iacute;n,
+                        Pedro</p>
+        <p>17) 
+                        5 euros - 
+                        Delgado,
+                        Elena</p>
+        <p>18) 
+                        4 euros - 
+                        Mart&iacute;n,
+                        In&eacute;s</p>
+        <p>19) 
+                        4 euros - 
+                        Mart&iacute;nez,
+                        In&eacute;s</p>
+        <p>20) 
+                        4 euros - 
+                        Mu&ntilde;oz,
+                        Luis</p>
+        <h3>B. N&uacute;mero de env&iacute;os urgentes a C&aacute;diz y su porcentaje respecto al 
+                    total de env&iacute;os a C&aacute;diz</h3>
+        <h5>
+            Formato:
+            <br>
+                                Hay 4 env&iacute;os urgentes a C&aacute;diz, que suponen el 28.57% 
+                    de los 14 env&iacute;os totales registrados a C&aacute;diz.
+        </h5>
+        <br>
+        <br>
+        <h3>Soluci&oacute;n:</h3>
+        <p>
+                    Hay 4 env&iacute;os urgentes a C&aacute;diz, 
+                    que supone el  28.57% 
+                    del los 14 env&iacute;os totales registrados a 
+                    C&aacute;diz.
+                </p>
+        <h3>C. Lista ordenada (por c&oacute;digo de env&iacute;o) con el tipo de prioridad, 
+                    la provincia, el nombre y el apellido de todos los env&iacute;o cuyo nombre 
+                    comience por 'A' y tengan una prioridad 'Normal', o 
+                    su apellido contenga una 'a' y la provincia sea 'Almer&iacute;a' o 'Granada'.
+                </h3>
+        <h5>
+            Formato:
+            <br>
+                                1.- (DBD72R - 24_horas - Granada). Carlos Cano.
+        </h5>
+        <br>
+        <br>
+        <h3>D. Lista de todas las provincias (ordenadas alfabeticamente) con su 
+                    n&uacute;mero de env&iacute;os, ingresos totales (suma de todos sus precios) e 
+                    ingreso medio</h3>
+        <h5>
+            Formato:
+            <br>
+                                Almer&iacute;a: 11 env&iacute;os. Ingresos totales: 229 euros. 
+                    Ingreso medio: 20.82 euros.
+        </h5>
+        <br>
+        <br>
+        <h3>E. Crear una tabla, ordenada por fecha de entrega, de los env&iacute;os a 
+                    Almer&iacute;a. La tabla incluir&aacute; las columnas: fecha de entrega, provincia, 
+                    c&oacute;digo de env&iacute;o y prioridad. Estilos: La tabla deber&aacute; usar los estilos 
+                    definidos en la plantilla que se proporciona en el ejercicio. Los 
+                    elementos tabla y las celdas usar&aacute;n los estilos de los selectores 
+                    'table','th' y 'td'. La cabecera usar&aacute; el estilo del selector 'th'. 
+                    Si la prioridad de un env&iacute;o es 'Urgente' esa celda usar&aacute; el estilo del 
+                    selector '.urgente'. Si la prioridad de un env&iacute;o es 'Nocturno' esa 
+                    celda usar&aacute; el estilo del selector '.nocturno'.</h3>
+        <h5>Formato:</h5>
+        <table>
+            <tr>
+                <th>Fecha</th><th>Provincia</th><th>C&oacute;digo de env&iacute;o</th><th>Prioridad</th>
+            </tr>
+            <tr>
+                <td>2023-02-??</td><td>Almer&iacute;a</td><td>??????</td><td>Normal</td>
+            </tr>
+            <tr>
+                <td>2023-02-??</td><td>Almer&iacute;a</td><td>??????</td><td class="urgente">Urgente</td>
+            </tr>
+            <tr>
+                <td>2023-02-??</td><td>Almer&iacute;a</td><td>??????</td><td class="nocturno">Nocturno</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+    </body>
+</html>
