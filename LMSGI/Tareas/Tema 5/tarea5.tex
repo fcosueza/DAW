@@ -145,8 +145,113 @@ En este ejercicios vamos a realizar diversas transformaciones al documento XML d
         \end{tcolorbox}
     \end{figure}
 
-    \item
+    \item Para realizar esta consulta se han usado varias operaciones lógicas en el select del \textbf{for-each} principal. Por un lado comprobamos que el nombre de los envíos empiece por 'A' y tenga prioridad Normal ó que el nombre contenga la vocal 'a' y que la provincia sea Granada o Almería.
+
+    Una vez seleccionados los nodos adecuados en el for-each, simplemente se ordenan por el número de código, con xsl:sor y se muestra la información dentro de un elemento <p> creado con xsl:element.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<xsl:for-each select="
+  //envio[(starts-with(nombre, 'A') and prioridad='Normal') or
+  (contains(nombre, 'a') and (provincia='Granada' or provincia='Almería'))]">
+
+  <xsl:sort select="@codigo" />
+  <xsl:element name="p">
+    <xsl:value-of select="position()" />.-
+    (<xsl:value-of select="@codigo" /> -
+    <xsl:value-of select="prioridad" /> -
+    <xsl:value-of select="provincia" />).
+    <xsl:value-of select="nombre" />
+    <xsl:text> </xsl:text>
+    <xsl:value-of select="apellido" />.
+  </xsl:element>
+
+</xsl:for-each>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Para resolver esta consulta en primer lugar hemos usado un \textbf{for-each}
+    para seleccionar los envios con un predicado que incluye \textbf{provincia=preceding::provincia},
+    para que vaya seleccionando solo las provincias con el mismo nombre en cada pasada.
+
+    A continuación, se han creado 4 variables, \textbf{prov} que contiene el nombre de la provincia,
+    \textbf{num\_envios}, que usa count() para obtener el número total de envíos de esa provincia,
+    \textbf{ingresos}, donde se ha usado sum() para calcular el total de ingresos y por último
+    \textbf{media}, donde se han usados las 2 variables anteriores para calcular los ingresos medios.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<xsl:for-each select="//envio[not(provincia=preceding::provincia)]">
+  <xsl:sort select="provincia" order="ascending" data-type="text" />
+
+  <xsl:variable name="prov" select="provincia" />
+  <xsl:variable name="num_envios" select="count(//envio[provincia=$prov])" />
+  <xsl:variable name="ingresos" select="sum(//envio[provincia=$prov]/precio)" />
+  <xsl:variable name="media" select="format-number($ingresos div $num_envios, '#.##')" />
+
+  <xsl:element name="p">
+    <xsl:value-of select="$prov" />: <xsl:value-of select="$num_envios" />.
+    Ingresos totales: <xsl:value-of select="$ingresos" />.
+    Ingresos Medios: <xsl:value-of select="$media" /> euros.
+  </xsl:element>
+</xsl:for-each>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item En este caso se ha creado una tabla, empleando las \textbf{etiquetas html}. En la parte
+    del cuerpo de la tabla, se ha usado un \textbf{xsl:for-each} para iterar por todos los
+    envios en la provincia de Almería, creado una fila mediante \textbf{xsl:element} para cada
+    uno.
+
+    Se han rellenado cada celda usando \textbf{xsl:value-of}, con los diferentes datos. Cabe mencionar
+    que en la última celda, referente a la \textbf{prioridad}, se ha creado ésta con \textbf{xsl:element}, y se ha
+    usado \textbf{xsl:attribute}, creando un atributo '\textbf{class}' y usando \textbf{xsl:choose} para cargar una u otra clase CSS dependiendo del tipo de priodidad.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Provincia</th>
+      <th>Código de envío</th>
+      <th>Prioridad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <xsl:for-each select="//envio[provincia='Almería']" >
+
+      <xsl:element name="tr">
+        <td><xsl:value-of select="fecha_entrega" /></td>
+        <td><xsl:value-of select="provincia" /></td>
+        <td><xsl:value-of select="@codigo" /></td>
+        <xsl:element name="td">
+          <xsl:attribute name="class">
+            <xsl:choose>
+              <xsl:when test="prioridad='Urgente'">urgente</xsl:when>
+              <xsl:when test="prioridad='Nocturno'">nocturno</xsl:when>
+            </xsl:choose>
+          </xsl:attribute>
+          <xsl:value-of select="prioridad" />
+        </xsl:element>
+      </xsl:element>
+
+    </xsl:for-each>
+  </tbody>
+</table>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
 \end{enumerate}
+
 
 
 

@@ -80,9 +80,10 @@
                      De esta forma, si quisieramos obtener la información de otra provincia, por ejemplo Sevilla, 
                      solo tendriamos que cambiar el valor de la variable $prov. En las variables 
                      $env_totales y $env_urg se ha usado count con el predicado adecuado para obtener el número 
-                     total de envíos en cada caso.
+                     total de envíos en cada caso. Tanto en env_ugr como en env_total se ha usado la función
+                     count() para obtener el número en cada caso.
 
-                     A tontinuación se ha creado un elemento de tipo <p> mediante xsl:element y dentro 
+                     A continuación se ha creado un elemento de tipo <p> mediante xsl:element y dentro 
                      se han usado diferentes instrucciones de tipo xsl:value of para mostrar la información 
                      requerida. Cabe mencionar el caso del procentaje, donde se ha usado en el select la 
                      función format-number para dar un formato adecuado a la salida del cálculo del porcentaje. 
@@ -109,6 +110,29 @@
                 <br/>
                 <br/>
                 
+                <h3>Solución:</h3>
+                
+                <!-- Para realizar esta consulta se han usado varias operaciones lógicas en el select del for-each principal. 
+                     Por un lado comprobamos que el nombre de los envíos empiece por 'A' y tenga prioridad Normal ó que el nombre contenga 
+                     la vocal 'a' y que la provincia sea Granada o Almería.
+
+                     Una vez seleccionados los nodos adecuados en el for-each, simplemente se ordenan por el número de código, con xsl:sor y 
+                     se muestra la información dentro de un elemento <p> creado con xsl:element.
+                 -->
+                
+                <xsl:for-each select="//envio[(starts-with(nombre, 'A') and prioridad='Normal') or (contains(nombre, 'a') and (provincia='Granada' or provincia='Almería'))]">
+                    
+                    <xsl:sort select="@codigo" />                  
+                    <xsl:element name="p">
+                        <xsl:value-of select="position()" />.- 
+                        (<xsl:value-of select="@codigo" /> - <xsl:value-of select="prioridad" /> - <xsl:value-of select="provincia" />).
+                        <xsl:value-of select="nombre" />
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="apellido" />.
+                    </xsl:element>
+                    
+                </xsl:for-each> 
+                
                 <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
                 
                 <h3>D. Lista de todas las provincias (ordenadas alfabeticamente) con su 
@@ -121,6 +145,35 @@
                 <br/>
                 
                 <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+                
+                <h3>Solución:</h3>
+                
+                <!-- Para resolver esta consulta en primer lugar hemos usado un for-each 
+                     para seleccionar los envios con un predicado que incluye provincia=preceding::provincia,
+                     para que vaya seleccionando solo las provincias con el mismo nombre en cada pasada.
+                     
+                     A continuación, se han creado 4 variables, prov que contiene el nombre de la provincia,
+                     num_envios, que usa count() para obtener el número total de envíos de esa provincia, 
+                     ingresos, donde se ha usado sum() para calcular el total de ingresos y por último
+                     media, donde se han usados las 2 variables anteriores para calcular los ingresos medios.
+                     
+                     Por último, se han mostrado los resultados por cada provincia dentro de un elemento xsl:element
+                     y usando varios xsl:value-of
+                -->
+                
+                <xsl:for-each select="//envio[not(provincia=preceding::provincia)]"> 
+                    <xsl:sort select="provincia" order="ascending" data-type="text" />
+                    
+                    <xsl:variable name="prov" select="provincia" />
+                    <xsl:variable name="num_envios" select="count(//envio[provincia=$prov])" />
+                    <xsl:variable name="ingresos" select="sum(//envio[provincia=$prov]/precio)" />
+                    <xsl:variable name="media" select="format-number($ingresos div $num_envios, '#.##')" />
+                    
+                    <xsl:element name="p">
+                        <xsl:value-of select="$prov" />: <xsl:value-of select="$num_envios" />. 
+                        Ingresos totales: <xsl:value-of select="$ingresos" />. Ingresos Medios: <xsl:value-of select="$media" /> euros.
+                    </xsl:element>
+                </xsl:for-each>
                 
                 <h3>E. Crear una tabla, ordenada por fecha de entrega, de los envíos a 
                     Almería. La tabla incluirá las columnas: fecha de entrega, provincia, 
@@ -162,6 +215,50 @@
                 <br/>
                 
                 <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+                
+                <h3>Solución:</h3>
+                
+                <!-- En este caso se ha creado una tabla, empleando las etiquetas html. En la parte
+                     del cuerpo de la tabla, se ha usado un xsl:for-each para iterar por todos los
+                     envios en la provincia de Almería, creado una fila mediante xsl:element para cada 
+                     uno. 
+                                     
+                     Se han rellenado cada celda usando xsl:value-of, con los diferentes datos. Cabe mencionar
+                     que en la última celda, referente a la prioridad, se ha creado ésta con xsl:element, y se ha 
+                     usado xsl:attribute, creando un atributo 'class' y usando xsl:choose para cargar una u otra clase
+                     CSS dependiendo del tipo de priodidad.
+                -->
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Provincia</th>
+                            <th>Código de envío</th>
+                            <th>Prioridad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:for-each select="//envio[provincia='Almería']" >
+                            
+                            <xsl:element name="tr">
+                                <td><xsl:value-of select="fecha_entrega" /></td>
+                                <td><xsl:value-of select="provincia" /></td>
+                                <td><xsl:value-of select="@codigo" /></td>
+                                <xsl:element name="td">
+                                    <xsl:attribute name="class">
+                                        <xsl:choose>
+                                            <xsl:when test="prioridad='Urgente'">urgente</xsl:when>
+                                            <xsl:when test="prioridad='Nocturno'">nocturno</xsl:when>
+                                        </xsl:choose>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="prioridad" />
+                                </xsl:element>
+                            </xsl:element>    
+                                        
+                        </xsl:for-each>
+                    </tbody>
+                </table>
                 
                 
             </body>
