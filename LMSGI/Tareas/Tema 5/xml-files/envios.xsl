@@ -43,10 +43,6 @@
                 <br/>
                 <br/>
                 
-                <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
-                
-                <h3>Solución:</h3>
-                
                 <!-- Se ha realizado un bucle xsl:for-each con 2 sorts dentro,
                      uno para el precio y otro para el apellido. A continuación
                      se han mostrado cada resultado dentro de un elemento de tipo parrafo
@@ -70,10 +66,6 @@
                     de los 14 envíos totales registrados a Cádiz.</h5>
                 <br/>
                 <br/>
-                
-                <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
-                
-                <h3>Solución:</h3>
                 
                 <!-- Para resolver este ejercicios se han usado, en primer lugar, 3 variables. Una para almacenar
                      el nombre de la provincia, otra para el número de envios totales y otra para los envíos urgentes.
@@ -110,8 +102,6 @@
                 <br/>
                 <br/>
                 
-                <h3>Solución:</h3>
-                
                 <!-- Para realizar esta consulta se han usado varias operaciones lógicas en el select del for-each principal. 
                      Por un lado comprobamos que el nombre de los envíos empiece por 'A' y tenga prioridad Normal ó que el nombre contenga 
                      la vocal 'a' y que la provincia sea Granada o Almería.
@@ -133,8 +123,6 @@
                     
                 </xsl:for-each> 
                 
-                <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
-                
                 <h3>D. Lista de todas las provincias (ordenadas alfabeticamente) con su 
                     número de envíos, ingresos totales (suma de todos sus precios) e 
                     ingreso medio</h3>
@@ -143,10 +131,6 @@
                     Ingreso medio: 20.82 euros.</h5>
                 <br/>
                 <br/>
-                
-                <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
-                
-                <h3>Solución:</h3>
                 
                 <!-- Para resolver esta consulta en primer lugar hemos usado un for-each 
                      para seleccionar los envios con un predicado que incluye provincia=preceding::provincia,
@@ -214,10 +198,6 @@
                 <br/>
                 <br/>
                 
-                <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
-                
-                <h3>Solución:</h3>
-                
                 <!-- En este caso se ha creado una tabla, empleando las etiquetas html. En la parte
                      del cuerpo de la tabla, se ha usado un xsl:for-each para iterar por todos los
                      envios en la provincia de Almería, creado una fila mediante xsl:element para cada 
@@ -258,9 +238,7 @@
                                         
                         </xsl:for-each>
                     </tbody>
-                </table>
-                
-                
+                </table>            
             </body>
         </html>
     </xsl:template>
