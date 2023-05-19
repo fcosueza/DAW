@@ -218,8 +218,63 @@ Muestra el esquema de particionado definitivo del disco duro tras la instalació
 \end{itemize}
 
 \subsubsection{Solución}
+En este ejercicio vamos a mostrar la como ha quedado la tabla de particiones en nuestra máquina virtual después de la instalación de Ubuntu, explicando los datos de cada partición. Se ha usado el programa \textbf{Discos} que incluye Ubuntu para mostrar esta información, la cual podemos ver en la siguiente captura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{particiones.png}
+    \caption{Tabla de particiones desde la aplicación Discos}
+\end{figure}
+
+Como podemos ver, en la tabla de particiones hay \textbf{8 particiones}, las que pasamos a describir a continuación:
 
  \begin{itemize}
+    \item \textbf{Partición 1}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 315 MB
+        \item \textbf{Sistemas de Archivos}: NTFS
+        \item \textbf{Punto de montaje}: Ninguno
+        \item \textbf{Uso}: esta es la partición Windows Recovery Environment, partición creada por el sistema Windows en su proceso de instalación y que nos sirve para recuperar el sistema en caso de que haya algún fallo.
+    \end{itemize}
+
+        \item \textbf{Partición 2}:
+        \begin{itemize}
+            \item \textbf{Tipo de Partición}: Primaria
+            \item \textbf{Tamaño}: 105 MB
+            \item \textbf{Sistemas de Archivos}: FAT
+            \item \textbf{Punto de montaje}: /boot/efi
+            \item \textbf{Uso}: partición del sistema de arranque EFI, independiente del sistema operativo y donde se almacenan los diferentes cargadores de los sistemas operativos.
+        \end{itemize}
+
+    \item \textbf{Partición 3}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 134 MB
+        \item \textbf{Sistemas de Archivos}: ?
+        \item \textbf{Punto de montaje}: Ninguno
+        \item \textbf{Uso}: esta es la partición MSR, partición reservada por Microsoft y que crean los sistemas Windows, desde Windows 7, durante el proceso de instalación
+        para uso posterior del sistema operativo y almacenar ciertos archivos de arranque.
+    \end{itemize}
+
+    \item \textbf{Partición 4}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 27 GB
+        \item \textbf{Sistemas de Archivos}: NTFS
+        \item \textbf{Punto de montaje}: Sin montar
+        \item \textbf{Uso}: partición de datos básica de Windows donde se ha realizado la instalación de Windows 8.1.
+    \end{itemize}
+
+    \item \textbf{Partición 5}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 36 GB
+        \item \textbf{Sistemas de Archivos}: NTFS
+        \item \textbf{Punto de montaje}: Sin montar
+        \item \textbf{Uso}: partición de datos básica de Windows donde se ha realizado la instalación de Windows 10.
+    \end{itemize}
+
     \item \textbf{Partición 6}:
     \begin{itemize}
         \item \textbf{Tipo de Partición}: Primaria
@@ -247,11 +302,142 @@ Muestra el esquema de particionado definitivo del disco duro tras la instalació
         \item \textbf{Punto de montaje}: Ninguno
         \item \textbf{Uso}: esta partición se usará como área de intercambio, para almacenar operaciones que deberían estar en la memoria RAM pero no están ahora mismo en estado de ejecución, proporcionando una RAM virtual. En nuestro caso es de especial utilidad, ya que la memoria que tenemos asignada a la Máquina Virtual es poca.
     \end{itemize}
-
-
 \end{itemize}
 
+\subsection{Actividad 4}
 
+\subsubsection{Enunciado}
+Selecciona el mejor servidor de descarga de repositorios atendiendo a tu ubicación y, a continuación, actualiza los repositorios. Una vez hecho esto, actualiza el sistema utilizando:
+
+\begin{enumerate}
+    \item El terminal
+    \item La herramienta "Actualización de software".
+\end{enumerate}
+
+\textbf{Capturas}
+\begin{itemize}
+    \item Ventana donde se elije el mejor servidor de descarga de repositorios atendiendo a tu ubicación (indica textualmente cómo se accede a dicha ventana).
+    \item Comando/s usado/s en el terminal y resultado del mismo/s, para la actualización de repositorios y para la actualización del sistema.
+    \item Ventana donde se realiza la actualización del sistema (indica textualmente cómo se accede a dicha ventana) y resultado final.
+\end{itemize}
+
+\subsection{Solución}
+En este ejercicio vamos a cambiar el servidor de descarga de repositorios, eligiendo el más cercado a nuestra ubicación lo que hará que las descargas sean más rápidas y tengan menos latencia. Para llevar esto a cabo, vamos a usar la aplicación \textbf{Software y Actualizaciones} de Ubuntu, a la que podemos acceder pulsando en el botón \textbf{Mostrar Aplicaciones} de la barra latera y introduciendo \textbf{Software y Actualizaciones} en el formulario de búsqueda.
+
+Una vez se abra la aplicación, veremos la opción \textbf{Descargar desde} con un menú desplegable donde podremos seleccionar el \textbf{Servidor para España}, como podemos ver en la siguiente captura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{repos-1.png}
+    \caption{Software y Actualizaciones en Ubuntu}
+\end{figure}
+
+A continuación, vamos a \textbf{actualizar los repositorios} con el servidor seleccionado, lo cual vamos a hacer de dos formas diferentes, usando en primer lugar \textbf{APT} para realizar la actualización de los repositorios y del sistema desde \textbf{la termina} y después usando herramienta gráfica \textbf{Actualización de Software}
+
+\begin{enumerate}
+    \item \textbf{Terminal}: para actualizar los repositorios desde la terminal, debemos usar el comando \textbf{apt-get update}, mientras que para actualizar el sistema usaremos \textbf{apt-get dist-upgrade}, ambos comandos precedidos del comando \textbf{sudo}, ya que necesitamos privilegios de administrados.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.44]{repos-2.png}
+        \caption{Actualización de repositorios con apt-get}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.44]{repos-3.png}
+        \caption{Actualización del sistema con apt-get}
+    \end{figure}
+
+    Como vemos en la última captura, cuando ejecutemos \textbf{apt-get dist-upgrade} se nos mostrarán todos los paquetes que se van a actualizar, pidiéndonos la confirmación de la actualización. Tras introducir la letra \textbf{S} para confirmar, la actualización de los paquetes dará comienzo.
+
+    Una vez que haya finalizado, se nos mostrará la información en la terminal, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.44]{repos-4.png}
+        \caption{Actualización del sistema finalizada}
+    \end{figure}
+
+    \item La siguiente manera de actualizar tanto los repositorios como el sistema es empleando la herramienta gráfica que proporciona Gnome llamada \textbf{Actualización de Software}, a la cual podemos acceder pulsando en el botón \textbf{Mostrar aplicaciones} de la barra lateral e introduciendo el nombre en la caja de búsqueda. Una vez que pulsemos en su icono, la aplicación comenzarán a buscar actualizaciones de forma automáticamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{repos-5.png}
+        \caption{Aplicación Actualización de Software en Ubuntu}
+    \end{figure}
+
+    En nuestro caso, como hemos usado previamente el comando \textbf{apt-get dist-upgrade}, en sistema esta actualizado, como nos indica la aplicación y podemos ver en la anterior captura.
+\end{enumerate}
+
+\subsection{Actividad 5}
+
+\subsubsection{Enunciado}
+Instala y desinstala la aplicación que prefieras de dos formas diferentes. Recomendamos un programa para la captura de pantalla como "Shutter" (para crear capturas de pantalla). Consulta el apartado 7 de la unidad para elegir el método:
+
+\begin{itemize}
+    \item Utilizando el terminal (con los comandos apt-get, apt, aptitude o snap).
+    \item De cualquier otra de las formas que se indican en la unidad (Synaptic,  Ubuntu Software, ...).
+\end{itemize}
+
+\textbf{Capturas}:
+\begin{itemize}
+    \item Comando usado para la instalación de la aplicación por terminal, mostrando el resultado del mismo. Si fuera necesario, comando para añadir el repositorio oficial del paquete.
+    \item Comando usado para la desinstalación de la aplicación por terminal, mostrando el resultado del mismo.
+    \item Ventana donde se solicita la instalación de la aplicación (indica textualmente cómo se accede a dicha ventana) y captura final mostrando que se completó con éxito.
+    \item Ventana donde se solicita la desinstalación de la aplicación (indica textualmente cómo se accede a dicha ventana) y captura final mostrando que se completó con éxito.
+\end{itemize}
+
+\subsubsection{Solución}
+En este ejercicio vamos a realizar la instalación y desinstalación de una aplicación, en concreto al aplicación \textbf{nmap}, una utilidad de red para el análisis de redes y la auditoría de seguridad.
+
+Para realizar la instalación y desinstalación de la aplicación vamos a usar dos métodos, por un lado, vamos a realizar la instalación desde la termina usando el comando \textbf{apt-get}, por otro, realizaremos el mismo proceso usando la aplicación gráfica \textbf{Ubuntu Software}.
+
+\begin{itemize}
+    \item \textbf{Instalación/Desinstalación usando apt-get}: En primer lugar vamos a realizar la \textbf{instalación de nmap usando apt-get}. Para realizar la instalación, abrimos una terminal e introducimos el comando \textbf{apt-get install nmap}. Hay que tener en cuenta, que necesitamos tener privilegios de root para instalar paquetes, por lo que o bien deberemos estar loggeados como root o usar el comando \textbf{sudo} delante del apt-get. En la figura 2.17 podemos ver el resultado de la ejecución de este comando.
+
+    Una vez que los tenemos instalado, vamos a proceder a realizar \textbf{la desinstalación}. Para hacerlo, vamos a usar el comando \textbf{apt-get purge}. Podríamos usar también el comando \textbf{apt-get remove}, ya que hacen básicamente lo mismo, pero con la opción \textbf{purge} de apt-get, además de eliminar los paquetes, también se eliminan los archivos de configuración asociados a dichos paquetes, haciendo una \textbf{limpieza más profunda}, por decirlo así.
+    El resultado de este comando lo podemos ver en la figura 2.18 de la siguiente página.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{install-1.png}
+    \caption{Instalación de nmap con apt-get}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{install-2.png}
+    \caption{Desinstalación de nmap con apt-get}
+\end{figure}
+
+    \item \textbf{Instalación/Desinstalación usando Ubuntu Software}: para iniciar la aplicación \textbf{Ubuntu Software}, pulsamos en su icono en la barra lateral del escritorio. Una vez pulsado (es un icono naranja con una A), se nos abrirá la aplicación con la pestaña \textbf{Explorar} seleccionada. A la izquierda de esta pestaña, pulsamos en el \textbf{icono con forma de lupa} que nos permitirá buscar la aplicación que queremos instalar.
+
+    Una vez que pinchemos en el icono de la aplicación que queremos instalar, en nuestro caso, nmap, se nos abrirá una nueva ventana donde podremos ver información de la aplicación. Pulsamos en el botón \textbf{instalar}, y tras solicitarnos la contraseña de root, el proceso de instalación comenzará.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{install-3.png}
+        \caption{Inicio de instalación de nmap desde Ubuntu Software}
+    \end{figure}
+
+    Tras la instalación, el botón de \textbf{instalar} cambiará a un icono rojo con un cubo de basura, que nos permite desinstalar la aplicación, indicando que se instalación se ha realizado correctamente.
+
+   \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{install-4.png}
+        \caption{Instalación completada de nmap desde Ubuntu Software}
+    \end{figure}
+
+    Para realizar la \textbf{desinstalación}, solo hay que pulsar en el \textbf{botón rojo}, que podemos ver en al captura anterior, y tras pedirnos la confirmación, la desinstalación se realizará correctamente.
+
+   \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{install-5.png}
+        \caption{Desinstalación de nmap desde Ubuntu Software}
+    \end{figure}
+\end{itemize}
 % Bibliography
 
 %\newpage
