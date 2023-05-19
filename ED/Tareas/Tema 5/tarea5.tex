@@ -236,6 +236,53 @@ Este proceso es bastante sencillo, y solo debemos seguir los siguientes pasos pa
 
 \section{Parte 2: Diagramas de Comportamiento}
 
+\subsection{Ejercicio 5}
+
+\subsubsection{Enunciado}
+Identifica el tipo de diagrama e interpreta lo que está representando sobre pedidos de pizza.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{diagrama-estado.png}
+    \caption{Diagrama de comportamiento}
+\end{figure}
+
+\subsubsection{Solución}
+El diagrama que se muestra es una \textbf{diagrama de estados}, que muestra el comportamiento de un sistema en respuesta a diferentes eventos y los estados en los que se encuentra este en cada después de dichos eventos. En nuestro caso, el diagrama muestra un sistema para realizar pedidos de pizzas.
+
+En este sistema podemos encontrar los siguientes estados:
+
+\begin{itemize}
+    \item \textbf{Pedido}: es el primer estado después del inicial, que representa el inicio del proceso de pedido.
+    \item \textbf{Elegir tipo de pizza}: es el siguiente estado, donde se deberá elegir el tipo de pizza que se quiere pedir.
+    \item \textbf{Añadir ingredientes}: tras haber seleccionado el tipo de pizza, en este estado podemos añadir ingredientes a esta.
+    \item \textbf{Elegir método de entrega}: en este estado debemos realizar la elección del método de entrega de la pizza, dependiendo del método que elijamos, el sistema pasará a uno estado u otro, lo que se representan con un rombo y las dos opciones que podemos elegir: \textbf{Domicilio} ó \textbf{Recogida}.
+    \item Si \textbf{elegimos Recogida}:
+    \begin{itemize}
+        \item \textbf{Pago en Recogida}: en este estado el sistema establecerá que el pago se realizará a la recogida de la pizza en el local.
+        \item \textbf{Estado final}: la ejecución de la operación a concluido.
+    \end{itemize}
+
+    \item Si elegimos \textbf{domicilio}:
+    \begin{itemize}
+        \item \textbf{Dirección de entrega}: en este estado se debe introducir la dirección de entrega de la pizza, para poder llevarla al domicilio.
+        \item \textbf{Pago domicilio}: aquí se establece el método de pago de la pizza para que se realice en el domicilio a la entrega de esta.
+        \item \textbf{Estado final}: la ejecución de la operación a concluido.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Ejercicio 6}
+
+\subsubsection{Enunciado}
+Realiza el diagrama de estados para la siguiente operatoria de un ascensor:
+
+El ascensor dispone de los siguientes estados: ReposoXXX2223, Subiendo, Bajando, Puertas abiertas y Puertas cerradas.
+
+La posición inicial parte del estado Reposo, en el cual se mantiene hasta que se pulsa un botón, pasando al siguiente estado subiendo o bajando, dependiendo de la dirección del piso en el que se ha pulsado el botón o abriendo la puerta si se pulsa el botón.
+
+Cuando llega al piso, vuelve a la posición de Reposo, y abre las puertas, cambiando a este estado. A continuación, cierra las puertas, cambiando a dicho estado, y vuelve a estar en Repos a la espera de que se pulse un botón.
+
+\subsubsection{Solución}
 
 % Bibliography
 %\newpage

@@ -113,6 +113,143 @@ En este ejercicio vamos a realizar la instalación de \textbf{Ubuntu 22.04 LTS} 
 
 Para realizar la instalación, vamos a llevar a cabo una \textbf{serie de pasos} que enumeraremos a continuación, ilustrándolos con las capturas de pantalla pedidas de forma que el proceso se entienda más claramente.
 
+\begin{enumerate}
+    \item En primer lugar, vamos a descargar la imagen ISO de \textbf{Ubuntu 22.04 LTS}, en concreto, su versión para \textbf{AMD64} que podemos encontrar en \href{https://releases.ubuntu.com/jammy/}{este enlace}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{ubuntu-install-1.png}
+        \caption{Descarga de la imagen de Ubuntu 22.04 LTS}
+    \end{figure}
+
+    \item Una vez descargada la imagen ISO, debemos \textbf{cargar la imagen en VMWare}. Para ello, iniciamos VMWare y pulsamos con el botón derecho sobre nuestra máquina virtual y seleccionamos la opción ``\textit{\textbf{Virtual Machine Setting}}''. En la ventana que se nos muestra, seleccionamos la opción ``\textit{\textbf{CD/DVD SATA}}'', lo que nos mostrará otra ventana donde, seleccionando la opción ``\textit{\textbf{Use ISO image}}'', nos permitirá seleccionar nuestra imagen ISO, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{ubuntu-install-2.png}
+        \caption{Selección de imagen ISO en VMWare}
+    \end{figure}
+
+    \item Tras iniciar la imagen ISO, nos aparecerá la ventana de \textbf{GRUB}, donde podremos seleccionar diferentes opciones, teniendo que elegir la opción ``\textbf{Try or Install Ubuntu}''. Una vez seleccionada, se nos mostrará el asistente para comenzar el inicio de la instalación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{ubuntu-install-3.png}
+        \caption{Asistente de instalación de Ubuntu}
+    \end{figure}
+
+    En esta ventana, podemos seleccionar el idioma y si queremos probar o instalar Ubuntu. Nosotros hemos seleccionado
+    el idioma \textbf{Español} y la opción \textbf{Instalar Ubuntu}.
+
+
+    \item La siguiente pantalla, nos mostrará opciones para seleccionar la \textbf{distribución} del teclado, nosotros seleccionaremos la opción \textbf{Spanish} en ambos cuadros de opciones. También tenemos la opción ``\textbf{Detectar la distribución del teclado}, que nos pedirá que pulsemos diferentes caracteres en nuestro teclado para realizar la detección y nos sugerirá la opción de distribución más adecuada para nuestro teclado. Pulsamos en \textbf{continuar}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{ubuntu-install-4.png}
+        \caption{Selección de la distribución del teclado}
+    \end{figure}
+
+    \item La siguiente pantalla que nos muestra el instalador es la de \textbf{Actualizaciones y Otro Software}. Aquí se nos ofrecen opciones sobre el tipo de instalación que se va a realizar, así como si se bajaran actualizaciones durante el proceso o se instalarán software de terceros. En la siguiente captura vemos esta pantalla y las opciones que hemos seleccionado.
+
+    Por un lado, hemos seleccionado la opción \textbf{Instalación normal}, ya que esto nos instala todos los paquetes de software, además de los básicos, como pueden ser paquetes ofimáticos, reproductores multimedia, etc..
+
+    También hemos seleccionado la opción \textbf{Descargar actualizaciones...}, para que durante el proceso de instalación se actualicen los paquetes que sean necesarios. Esto es una buena idea, ya que si no lo hacemos durante el proceso de instalación, tendríamos que hacerlo al acabar ésta. Así, se realizarán los dos procesos la vez, asegurándonos de que contamos con las \textbf{últimas versiones} del software instalado, las cuales pueden tener solo mejoras de funcionalidad, pero también puede ser que solución problemas de seguridad en las diferentes aplicaciones.
+
+    Por último, hemos seleccionado también la opción \textbf{Instalar software de terceros...}. Esta opción es importante que la marquemos, aunque ciertamente no siempre es necesaria, pero hay ciertos dispositivos, como tarjetas wifi o adaptadores gráficos, que pueden requerir de la instalación de drivers desarrollados por terceros, en muchos casos de la propia compañía que produce el hardware, para su correcto funcionamiento y desempeño.
+
+    En la siguiente captura, vemos esta pantalla con todas las opciones que hemos seleccionado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{ubuntu-install-5.png}
+        \caption{Pantalla Actualización y Otro Software}
+    \end{figure}
+
+    \item En la siguiente pantalla, se nos permite elegir el \textbf{tipo de instalación} que queremos realizar. Aquí nos dan varias opciones que explicaremos brevemente a continuación.
+
+    La primera opción es \textbf{Instalar Ubuntu junto a Windows Boot Manager}. Esta opción, nos dejará instalar Ubuntu junto a Windows, lo que nos permitirá elegir entre el sistema operativo que queremos iniciar durante el proceso de booteo. En este caso, se instalará GRUB junto al Gestor de Boot de Windows y el sistema se instalará en alguna partición que quede libre en el mismo disco duró donde este Windows, previo formateo con el sistema de archivo \textbf{Ext4}.
+
+    La siguiente opción, \textbf{Borrar disco e Instalar Ubuntu}, realizará un formateo completo del disco duro e instalará Ubuntu en todo el disco duro.
+
+    Por último, tenemos la opción \textbf{Más opciones}, Esta opción nos mostrará la tabla de particiones y nos permitirá cambiar el número de particiones, formatearlas, generar nuevas tablas de particiones, etc...
+
+    Hemos \textbf{elegido esta última opción}, ya que vamos a \textbf{realizar 3 particiones diferentes} para la instalación de Ubuntu en el espacio libre que dejamos después de las instalación de Windows 10, que son, aproximadamente, 30 GB. Las particiones que vamos a crear y su uso serán las siguientes:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{ubuntu-install-6.png}
+        \caption{Selección del tipo de instalación}
+    \end{figure}
+
+    \item Tras elegir la opción de instalación \textbf{Mas opciones}, se nos mostrará una ventana con información sobre la tabla de particiones que nos permitirá realiza modificaciones en ésta creando, borrando y cambiando las particiones que tiene el disco duro. En nuestro vaso, \textbf{hemos creado 3 particiones} para realizar la instalación de Ubuntu.
+
+    En este punto no vamos a entrar más en detalles, ya que en el siguiente ejercicio hablaremos de forma más extensa sobre el particionado y como ha quedado la tabla de particiones tras la instalación, así como el uso que se le va a dar a cada una de ellas.
+
+    \item Tras pulsar en \textbf{Instalar ahora} en la ventana de particionamiento, se nos mostrará el siguiente paso de la instalación, con una ventana donde podremos \textbf{crear el usuario por defecto}, el \textbf{nombre de equipo}, así como la contraseña de dicho usuario.
+
+    Nosotros hemos introducido los datos pedidos en el enunciado, esto es, nuestro usuario será \textbf{fsuezarodriguez} y nuestra contraseña {admin2223}. También hemos introducido el nombre completo así como el nombre del equipo.
+
+    Se ha marcado la opción \textbf{Iniciar sesión automática} para que no nos pida la contraseña al iniciar el sistema, aunque esto no es lo idóneo si el sistema lo van a usar varios usuarios por ejemplo, aunque no es nuestro caso.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.41]{ubuntu-install-8.png}
+        \caption{Creación del usuario inicial y contraseña}
+    \end{figure}
+
+    \item Tras copiarse los archivos, la \textbf{instalación se habrá completado}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.42]{ubuntu-install-7.png}
+        \caption{Instalación de Ubuntu completada}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Ejercicio 3}
+
+\subsubsection{Enunciado}
+Muestra el esquema de particionado definitivo del disco duro tras la instalación e indica lo que contiene cada una de las particiones, incluyendo aquellas que se crearon durante las instalaciones de Windows 8.1 y Windows 10. Puedes utilizar la herramienta de gestión de particiones incluida en Ubuntu llamada "Discos".
+
+\textbf{Capturas}:
+\begin{itemize}
+    \item Esquema de particionado en el que se vean todas las particiones del disco duro. Detalla el contenido de cada una de ellas.
+\end{itemize}
+
+\subsubsection{Solución}
+
+ \begin{itemize}
+    \item \textbf{Partición 6}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 20 GB
+        \item \textbf{Sistemas de Archivos}: Ext4
+        \item \textbf{Punto de montaje}: / (sistema raíz)
+        \item \textbf{Uso}: esta partición la vamos a emplear para instalar el sistema operativo. Será donde irán todas las aplicaciones instaladas, tanto durante el proceso de instalación como las que instalemos en un futuro.
+    \end{itemize}
+
+
+    \item \textbf{Partición 7}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Primaria
+        \item \textbf{Tamaño}: 10 GB
+        \item \textbf{Sistemas de Archivos}: Ext4
+        \item \textbf{Punto de montaje}: /home
+        \item \textbf{Uso}: en esta partición se almacenarán los directorios personales de los usuarios. Es una buena práctica poner estos directorios en una partición independiente, ya que si en un futuro tuviéramos que reinstalar el sistema, podríamos dejar esta partición sin tocar con lo que todos los archivos de los diferentes usuarios no se perderían.
+    \end{itemize}
+
+    \item \textbf{Partición 8}:
+    \begin{itemize}
+        \item \textbf{Tipo de Partición}: Swap (área de intercambio)
+        \item \textbf{Tamaño}: 3 GB
+        \item \textbf{Sistemas de Archivos}: Linux Swap Filesystem
+        \item \textbf{Punto de montaje}: Ninguno
+        \item \textbf{Uso}: esta partición se usará como área de intercambio, para almacenar operaciones que deberían estar en la memoria RAM pero no están ahora mismo en estado de ejecución, proporcionando una RAM virtual. En nuestro caso es de especial utilidad, ya que la memoria que tenemos asignada a la Máquina Virtual es poca.
+    \end{itemize}
+
+
+\end{itemize}
 
 
 % Bibliography

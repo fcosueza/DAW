@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ingenieriaInversa_FJS2223">
+  <ClassDiagramComponents>
+    <Class name="Rectangulo" package="figuras" visibility="public" xPosition="195.0" yPosition="35.0">
+      <Fields>
+        <Field name="longitud" type="double" visibility="private"/>
+        <Field name="anchura" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="anchura"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLongitud" returnType="double" visibility="public"/>
+        <Method name="setLongitud" returnType="void" visibility="public">
+          <Argument type="double" name="longitud"/>
+        </Method>
+        <Method name="getAnchura" returnType="double" visibility="public"/>
+        <Method name="setAnchura" returnType="void" visibility="public">
+          <Argument type="double" name="anchura"/>
+        </Method>
+        <Method name="getArea" returnType="double" visibility="public"/>
+        <Method name="getPerimetro" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CuadradoFJS2223" package="figuras" visibility="public" xPosition="608.0" yPosition="111.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="lado"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="figuras" visibility="public" xPosition="631.0" yPosition="323.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Forma" package="figuras" visibility="public" xPosition="257.0" yPosition="389.0">
+      <Methods>
+        <Method name="getArea" returnType="double" visibility="package"/>
+        <Method name="getPerimetro" returnType="double" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="figuras.Rectangulo" target="figuras.Forma"/>
+    <IsRelation name="is" source="figuras.CuadradoFJS2223" target="figuras.Rectangulo"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
