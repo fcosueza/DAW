@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="windows-1252" standalone="yes"?>
+<!DOCTYPE llegaya>
+<llegaya>
+ <vehiculos>
+		<vehiculo cod="semi">
+			<marca>Tesla</marca>
+			<modelo>Semi</modelo>
+			<precio moneda="EUR">539900</precio>
+		</vehiculo>
+		<vehiculo cod="buzz">
+			<marca>Volkswagen</marca>
+			<modelo>ID Buzz Cargo</modelo>
+			<precio moneda="EUR">110000</precio>
+		</vehiculo>
+		<vehiculo cod="kangoo">
+			<marca>Renault</marca>
+			<modelo>Kangoo e-tech</modelo>
+			<precio moneda="EUR">87000</precio>
+		</vehiculo>
+		<vehiculo cod="master">
+			<marca>Renault</marca>
+			<modelo>Master e-tech</modelo>	
+			<precio moneda="EUR">133000</precio>
+		</vehiculo>
+		<vehiculo cod="proace">
+			<marca>Toyota</marca>
+			<modelo>Proace electric</modelo>
+			<precio moneda="EUR">97000</precio>
+		</vehiculo>
+	</vehiculos>	
+	<repartidores>
+		<repartidor nif="12123123A" zona="B">
+			<nombre>Juan</nombre>
+			<telefono>607234125</telefono>
+			<direccion>Plaza Mayor, 1</direccion>
+			<localidad>Coria del Río</localidad>
+			<provincia>Sevilla</provincia>
+			<salario unidad="Euros">800</salario>
+		</repartidor>
+		<repartidor nif="23234234B" zona="D">
+			<nombre>Víctor</nombre>
+			<telefono>607624122</telefono>
+			<direccion>Calle Nápoles, 1</direccion>
+			<localidad>Aguadulce</localidad>
+			<provincia>Sevilla</provincia>
+			<salario unidad="Euros">1100</salario>
+		</repartidor>
+		<repartidor nif="34345345C" zona="B">
+			<nombre>Luisa</nombre>
+			<telefono>602834164</telefono>
+			<direccion>Calle Cerezo, 24</direccion>
+			<localidad>Mairena del Alcor</localidad>
+			<provincia>Sevilla</provincia>
+			<salario unidad="Euros">850</salario>
+		</repartidor>
+		<repartidor nif="45456456D" zona="A">
+			<nombre>Pedro</nombre>
+			<telefono>607780410</telefono>
+			<direccion>Calle Alerce, 2</direccion>
+			<localidad>Bailén</localidad>
+			<provincia>Jaén</provincia>
+			<salario unidad="Euros">1050</salario>
+		</repartidor>
+		<repartidor nif="56567567E" zona="A">
+			<nombre>Lorenzo</nombre>
+			<telefono>687234692</telefono>
+			<direccion>Calle Alerce, 2</direccion>
+			<localidad>Bailén</localidad>
+			<provincia>Jaén</provincia>
+			<salario unidad="Euros">900</salario>
+		</repartidor>
+		<repartidor nif="67678678F" zona="A">
+			<nombre>Andrés</nombre>
+			<telefono>609890444</telefono>
+			<direccion>Calle Giralda, s/n</direccion>
+			<localidad>Sevilla</localidad>
+			<provincia>Sevilla</provincia>
+			<salario unidad="Euros">700</salario>
+		</repartidor>
+		<repartidor nif="78789789G" zona="C">
+			<nombre>María</nombre>
+			<telefono>602020395</telefono>
+			<direccion>Calle Mayor, 3</direccion>
+			<localidad>Alcalá de Guadaira</localidad>
+			<provincia>Sevilla</provincia>
+			<salario unidad="Euros">600</salario>
+		</repartidor>
+ 	</repartidores>
+	<repartos>
+        <reparto vehiculo="proace" repartidor="12123123A" fechareparto="12/01/2023">2</reparto>
+        <reparto vehiculo="buzz" repartidor="12123123A" fechareparto="25/12/2022">3</reparto>
+		<reparto vehiculo="semi" repartidor="23234234B" fechareparto="25/2/2023">10</reparto>
+        <reparto vehiculo="proace" repartidor="23234234B" fechareparto="05/07/2022">7</reparto>
+        <reparto vehiculo="master" repartidor="23234234B" fechareparto="03/11/2022">15</reparto>
+        <reparto vehiculo="semi" repartidor="34345345C" fechareparto="30/04/2023">3</reparto>
+        <reparto vehiculo="buzz" repartidor="45456456D" fechareparto="20/04/2023">8</reparto>
+		<reparto vehiculo="proace" repartidor="45456456D" fechareparto="21/04/2023">3</reparto>
+		<reparto vehiculo="master" repartidor="45456456D" fechareparto="22/04/2023">5</reparto>
+    </repartos>
+	<entregas>
+		<entrega id="1">
+			<nombre>Pedro Rodríguez</nombre>
+			<importe moneda="EUR">129</importe>
+			<paquetes>2</paquetes>
+			<fecha>2/4/2023</fecha>
+			<repartidor>Andrés</repartidor>
+			<zona>A</zona>
+	  	</entrega>
+		<entrega id="2">
+			<nombre>Guillermo López</nombre>
+			<importe moneda="EUR">19</importe>
+			<paquetes>2</paquetes>
+			<fecha>10/1/2023</fecha>
+			<repartidor>Luisa</repartidor>
+			<zona>B</zona>
+	  	</entrega>
+		<entrega id="3">
+			<nombre>Ton Stone</nombre>
+			<importe moneda="EUR">33</importe>
+			<paquetes>5</paquetes>
+			<fecha>6/1/2023</fecha>
+			<repartidor>Lorenzo</repartidor>
+			<zona>A</zona>
+	  	</entrega>
+		<entrega id="4">
+			<nombre>Mito Pop</nombre>
+			<importe moneda="EUR">210</importe>
+			<paquetes>10</paquetes>
+			<fecha>19/2/2023</fecha>
+			<repartidor>Pedro</repartidor>
+			<zona>A</zona>
+	  	</entrega>
+	</entregas>
+</llegaya>
