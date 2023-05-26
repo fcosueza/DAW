@@ -7,7 +7,7 @@
 \title{
 \vspace{10ex}
 \normalfont \normalsize
-\Huge \textbf{Tarea 6: Programación de Bases de Datos}
+\Huge \textbf{Tarea 7: Uso de Bases de Datos Objeto-Relacionales}
 }
 \author{Francisco Javier Sueza Rodríguez}
 \date{\normalsize\today}
@@ -28,381 +28,482 @@
         \textbf{Centro}: & IES Aguadulce \\
         \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
         \textbf{Asignatura}: & Bases de Datos\\
-        \textbf{Tema}: & Tema 6 - Programación de Bases de Datos\\
+        \textbf{Tema}: & Tema 7 - Uso de Bases de Datos Objeto-Relacionales\\
     \end{tabular}
 \end{center}
 
 \newpage
 
-\section{Caso Práctico}
-Siguiendo con los casos prácticos de las unidades anteriores, el equipo de Ana ya sabe realizar  todo tipo de consultas y todo tipo de  operaciones como la inserción, eliminación y la actualización de datos. Ahora de lo que se trata de es de aumentar las posibilidades que nos ofrecen las bases de datos aprendiendo a realizar pequeñas aplicaciones como procedimientos, funciones y triggers.
+\tableofcontents
 
-Para ello, se han reunido para ver cómo van a abordar esta tarea y han decidido realizar esta aplicaciones en el SGBD Oracle Database Express Edition 11g Release 2 y el  lenguaje de programación PL SQL. Para ello también van a instalar SQL Developer que les permitirá conectarse a una BD de Oracle y cuya interafaz gráfica es mucho más amigable y potente para desarrollar que la que proporciona el propio Oracle Express Edition.
+\newpage
+
+\listoffigures
+
+\newpage
+
+\section{Caso Práctico}
+Una organización sin ánimo de lucro llamada LA CESTA SOLIDARIA ofrece la posibilidad de repartir alimentos a las personas que más lo necesiten. Para ello, los alimentos que los ceden gratuitamente empresas y particulares se organizan en cestas con diferentes tipos de productos y los voluntarios se encargan de repartirlas a los clientes o socios que acuden al almacén registrándose para ello con los datos personales, renta y miembros en la unidad familiar.
+
+Hasta ahora, todo lo que hemos visto ha sido sobre bases de datos relacionales, sin embargo la aparición de las bases de datos orientadas a objetos nos ofrece nuevas perspectivas para aprovechar de manera más óptima las bases de datos.
+
+De esta manera se trata  es de ver las ventajas que nos ofrecen este tipo de bases de datos principalmente en aspectos como  la reutilización de código, el trabajo colaborativo, y la interconexión de las bases de datos con otros lenguajes de programación orientados a objetos.
+
+Como Juan ha realizado recientemente un curso de bases de datos orientadas a objetos, Ada le ha propuesto a él que utilizando los conocimientos adquiridos en el curso realice la base de datos orientada a objetos que tienen que desarrollar para la gestión de esta organización.
 
 \section{Actividades}
+El propósito de esta tarea es crear los objetos, tablas y bloques de código necesarios para crear la BD objeto-relacional que se propone a continuación y probarla mediante la creación de instancias creadas a partir de esos objetos.
 
-\subsection{Enunciado}
-Para automatizar ciertas operaciones en la BD y que puedan ser llamadas desde otras aplicaciones se desea programar algunas funcionalidades en la base de datos \textbf{CUIDATUCUERPO} y tienes que implementar dos procedimientos, una función y un disparador.
 
-\begin{enumerate}[label=\Alph*)]
-    \item Crear un procedimiento que reciba como parámetro el número de fisioterapeuta  y muestre por pantalla un listado con todos los clientes que han tenido una cita con él. Debe mostrar el nombre y apellidos de los distintos clientes, así como el DNI, teléfono, fecha\_hora  y el precio de la cita ordenados por fecha\_hora de menor a mayor. Por último en la última línea debe aparecer el precio total de las citas.  Puedes guiarte con la siguiente salida por pantalla:
+En la organización \textbf{LA CESTA SOLIDARIA }se  desea informatizar la gestión de los voluntarios que reparten diferentes donaciones en forma de cestas con productos a los clientes o socios más vulnerables dependiendo del tipo de ayuda que necesiten. Tú también puedes colaborar con esta organización informatizando una BD objeto-relacional que maneje la funcionalidad que nos solicitan. Para ello debes crear los objetos y tablas siguientes.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.70]{formato-salida.png}
-        \caption{Formato de Salida del Procedimiento del Apartado A}
-    \end{figure}
+\subsection{Actividad 1}
+
+\subsubsection{Enunciado}
+Realiza los siguientes subapartados:
+
+\begin{enumerate}[label=\alph*)]
+    \item Crea el tipo de objeto ``\textbf{Persona}'' con los siguientes atributos teniendo en cuenta que otros objetos heredarán de éste:
+
+ \begin{figure}[H]
+     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+         \scriptsize
+         \begin{verbatim}
+     DNI       VARCHAR2(9),
+     nombre    VARCHAR2(30),
+     apellidos VARCHAR2(40),
+     telefono  VARCHAR2(9),
+     f_ingreso DATE\end{verbatim}
+     \end{tcolorbox}
+ \end{figure}
+
+ \item  Crea, como tipo heredado de ``\textbf{Persona}'', el tipo de objeto ``\textbf{Voluntario}'' con los siguientes atributos:
+
+  \begin{figure}[H]
+     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+         \scriptsize
+         \begin{verbatim}
+     puntosAcumula NUMBER(8)\end{verbatim}
+     \end{tcolorbox}
+ \end{figure}
+
+    Y el siguiente método:
 
     \begin{itemize}
-        \item Para formatear la salida en cada una de las líneas se utiliza la función DMBS\_OUTPUT.PUT\_LINE que imprime en cada línea la información que se pasa como parámetros concatenando si es necesario varios valores o literales.
-        \item Para proporcionar espacios en blanco a la derecha o a la izquierda se puede utilizar las funciones RPAD y LPAD respectivamente. Puedes encontrar más información en los contenidos de la unidad 4 de este módulo donde se explican estas funciones en el apartado 5.2. Funciones de cadena de caracteres para Oracle.
+        \item \textbf{calcularPuntosGanados}: que devolverá la cantidad resultante de multiplicar los turnos del mes que ha colaborado en la organización por 50.
     \end{itemize}
 
-    \item Crear un procedimiento que reciba como parámetro el DNI de un cliente. El procedimiento debe calcular la cantidad de citas de fisioterapia que ha tenido y el precio total bruto de esas citas. También en función del porcentaje de descuento que tiene ese cliente el procedimiento debe calcular el descuento, y  el precio total de las citas con el descuento aplicado.
+    \item Crea, como tipo heredado de ``\textbf{Persona}'', el tipo de objeto ``\textbf{Cliente}'' con los siguientes atributos:
 
-    El procedimiento debe mostrar por pantalla el dni del cliente, nombre, apellidos, número de citas, precio total bruto (sin descuento), descuento, precio total neto  (con descuento). Puedes guiarte con la siguiente salida por pantalla:
+ \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+        ingresosMes NUMBER(6,2),
+        miembrosFam NUMBER(2),
+        tipoAyuda   VARCHAR2(1)\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
 
-   \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.80]{formato-salida-B.png}
-        \caption{Formato Salidad del Procedimiento del Apartado B}
-    \end{figure}
+     Y el siguiente método constructor:
+     \begin{itemize}
+         \item \textbf{Cliente(parámetos\_necesarios)} : el valor del atributo tipoAyuda se inicializará de forma automática cuando se cree una instancia mediante este constructor en el que se pasan como parámetros necesarios todos los atributos excepto el de tipoAyuda que deberá inicializarse automáticamente de la siguiente forma:
+         \begin{itemize}
+             \item Si la renta es menor o igual que 50 el atributo tipoAyuda es A
+             \item Si la renta es mayor que 50 y menor o igual que 100 el atributo tipoAyuda es B.
+             \item Si la renta es mayor que 100 entonces el atributo tipoAyuda es C.
 
-    \item Crea una función que reciba el nombre de un sala  y nos indique el número de profesores de pilates que dan clase en esa sala.
+             Para calcular la renta se necesitarán los datos ingreso mensual y miembros de la unidad familiar del cliente. La fórmula sería la siguiente:
 
-    \item Crear un disparador (trigger) que se dispare cada vez que se realice la venta de un producto de manera que se disminuya el stock del producto  en la cantidad vendida. En este caso se deberá comprobar el funcionamiento del trigger, para ello deberás insertar algunos registros en la tabla VENDEN y posteriormente consultar la tabla PRODUCTOS para comprobar que se ha actualizado el campo Stock.
+               \begin{figure}[H]
+                 \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+                     \scriptsize
+                     \begin{verbatim}
+                         renta = ingresosMes/miembrosFam\end{verbatim}
+                 \end{tcolorbox}
+             \end{figure}
+         \end{itemize}
+     \end{itemize}
 \end{enumerate}
 
-\subsection{Solución}
-En esta tarea vamos a programar diferentes procedimientos, funciones y disparadores que nos ayudarán a automatizar ciertas tareas de nuestra base de datos, usando para ello el lenguaje \textbf{PL/SQL}.
+\subsubsection{Solución}
+En este apartado vamos a empezar a crear los \textbf{tipos de objetos} que vamos a usar en nuestra base de datos:
 
-\begin{enumerate}[label=\Alph*)]
-    \item \textbf{Procedimiento NumeroClientesFisio}:
-
-    Este procedimiento se va a encargar de, dado un \textbf{número de fisioterapeuta}, mostrar \textbf{todos los clientes} que han tenido cita con el, mostrándolos en una tabla. A continuación se muestra una captura del procedimiento correctamente creado en Oracle XE.
+\begin{enumerate}[label=\alph*)]
+    \item En primer lugar hemos creado el objeto \textbf{Persona}, como podemos ver en la siguiente imagen.
 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.33]{procedimiento-1-creado.png}
-        \caption{Procedimiento NumeroClientesFisio creado en Oracle XE}
+        \includegraphics[scale=0.30]{creacion-persona.png}
+        \caption{Creación del Objeto Persona}
     \end{figure}
 
-    Hemos creado \textbf{un procedimiento} que acepta como \textbf{parámetro} el \textbf{número de un fisioterapeuta}. Con este número, realizamos \textbf{una consulta} donde vamos a obtener todos los clientes que han tenido cita con el y los datos de estos.
+    Hemos creado este objeto con los datos proporcionados, añadiendo \textbf{NOT FINAl} al final, para indicar que va a ser un objeto del que van ha heredar otros. El código empleado para su definición ha sido el siguiente:
 
-    Para ir \textbf{procesando} esta información se ha creado un \textbf{cursos explícito}, donde vamos ir almacenando las diferentes filas del resultado de la consulta, y una variable de tipo \textbf{\%ROWTYPE} donde vamos ir almacenando los resultados del cursor.
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+            \begin{verbatim}
+CREATE OR REPLACE TYPE PERSONA as object(
+  DNI varchar2(9),
+  nombre varchar2(30),
+  apellidos varchar2(40),
+  telefono varchar2(9),
+  f_ingreso date
+) not final
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
 
-    Por último, se ha mostrado la salida con \textbf{DBMS\_OUTPUT}, formateándola para que se muestre en una tabla, haciendo uso intensivo de la función \textbf{RPAD} y la función \textbf{TO\_CHAR} para formatear la salida de la fecha.
+    \item El siguiente objeto creado ha sido el tipo \textbf{Voluntario}, el cual es un tipo \textbf{hijo} de Persona, lo que hemos indicado con la palabra \textbf{UNDER} en su definición, como podemos ver en la siguiente captura.
 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.30]{procedimiento-1-ejecucion.png}
-        \caption{Ejecución de NumeroClientesFisio en Oracle XE}
+        \includegraphics[scale=0.30]{creacion-voluntario.png}
+        \caption{Creación del Objeto Voluntario}
     \end{figure}
 
-    \item \textbf{Procedimiento CitasFisio}:
-
-    El segundo procedimiento que hemos creado es \textbf{CitasFisio}, el cual se encarga de mostrar todas las citas que ha tenido un cliente con fisioterapeutas, mostrando el nombre y apellidos del cliente, DNI, el número total de citas, el precio total de las citas y más datos.
-
-    En este caso, se ha optado por \textbf{no usar} las funciones \textbf{COUNT} y \textbf{SUM} para realizar los cálculos en la consulta a la base de datos, sino que hemos usado \textbf{PL/SQL} para realizar estos cálculos.
-
-    En primer lugar, el procedimiento recibe como \textbf{parámetro} el \textbf{DNI de un cliente}. Con este DNI, hacemos una \textbf{consulta} en las tablas \textbf{cita} y \textbf{clientes} para comprobar cuantas citas hay con ese DNI, obteniendo de paso todos los datos necesarios.
-
-    Al igual que en el ejemplo anterior, hemos creado un \textbf{cursos explícito} para ir iterando por las filas del resultado de la consulta. El \textbf{número de filas} que tenga el resultado, coincide con el \textbf{número de citas} que ha tenido un cliente, por lo que cuando hemos llegado al final del resultado, la opción \textbf{\%ROWCOUNT} del cursor nos devolverá el número exacto de citas que hay con ese DNI, es decir, el número de filas. Por lo que hemos \textbf{iterado} sobre el \textbf{cursor}, aprovechando para acumular el \textbf{precio de cada cita} en una variable, obteniendo así el total bruto del coste de las citas.
-
-    Tras esto, se ha \textbf{calculado el descuento} que supone sobre ese total, que depende del descuento que tenga asignado el cliente, y se ha almacenado dicha cantidad en una variable.´
-
-    A continuación se han mostrado los datos usando \textbf{DBMS\_OUTPUT}.
-
-    También comentar que hemos \textbf{creado una excepción} para mostrar una mensaje en caso de que el DNI no tenga la longitud correcta.
-
-    En la siguiente captura podemos ver como se ha creado correctamente el procedimiento.
+    Además, este objeto incorpora un \textbf{método} para calcular los puntos que ha ganado un voluntario según la cantidad de turnos que ha realizado en el mes, lo cual hemos definido dentro de su correspondiente \textbf{TYPE BODY}. El código empleado ha sido el siguiente.
 
     \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.33]{procedimiento-2-creado.png}
-        \caption{Procedimiento CitasFisio creado en Oracle XE}
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+            \begin{verbatim}
+
+CREATE OR REPLACE TYPE  VOLUNTARIO under Persona (
+  puntosAcumula number(8),
+
+  member function calcularPuntosGanados(turnos number) return number
+);
+/
+
+CREATE OR REPLACE TYPE BODY VOLUNTARIO as
+  member function calcularPuntosGanados(turnos number) RETURN NUMBER IS
+
+  puntos NUMBER;
+
+  begin
+    puntos := turnos * 50;
+
+    return puntos;
+  end calcularPuntosGanados;
+end;\end{verbatim}
+        \end{tcolorbox}
     \end{figure}
 
-    Tras la creación, lo hemos ejecutado dentro de una cláusula \textbf{BEGIN} para comprobar que funcionaba correctamente, ofreciendo el resultado que esperábamos como vemos en la siguiente figura.
+    \item EL siguiente objeto creado ha sido el objeto \textbf{Cliente}, que además de hededar de persona, tiene un constructor propio, como podemos ver en el código empleado a continuación.
 
     \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.33]{procedimiento-2-ejecucion.png}
-        \caption{Procedimiento CistasFisio ejecutado en Oracle XE}
-    \end{figure}
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+            \begin{verbatim}
+CREATE OR REPLACE TYPE CLIENTE UNDER Persona(
+ingresosMes NUMBER(6,2),
+miembrosFam NUMBER(2),
+tipoAyuda VARCHAR2(1),
 
-    \item \textbf{Función NumeroProfesoresSala}:
+CONSTRUCTOR FUNCTION Cliente(
+DNI VARCHAR2,
+nombre VARCHAR2,
+apellidos VARCHAR2,
+telefono VARCHAR2,
+f_ingreso DATE,
+ingresosMes NUMBER,
+miembrosFam NUMBER
+) RETURN self AS result
+);
+/
 
-    En este caso no se ha creado un procedimiento, sino una \textbf{función}. Esta función recibe como \textbf{parámetro} un código de sale y devuelve el \textbf{número de profesores diferentes} que imparten clases en ella.
+-- Definición del constructor Cliente que calcula automáticamente el valor de tipoAyuda
 
-    Para implementar, hemos creado una \textbf{variable}, llamada \textbf{nProfesores} en la definición de la función. Con el código de sala, solo hemos tenido que realizar una consulta, usando la función \textbf{COUNT} junto con \textbf{DISTINC} lo que nos devuelve el número de profesores diferentes que dan clases en dicha sala. Esta información, se ha almacenado en la variable \textbf{nProfesores} y se ha devuelto por la función.
+CREATE OR REPLACE TYPE BODY CLIENTE AS
+CONSTRUCTOR FUNCTION Cliente(
+DNI VARCHAR2,
+nombre VARCHAR2,
+apellidos VARCHAR2,
+telefono VARCHAR2,
+f_ingreso DATE,
+ingresosMes NUMBER,
+miembrosFam NUMBER
+) RETURN self AS result IS
 
-    En la siguiente captura se puede ver la función creada.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.33]{funcion-creada.png}
-        \caption{Función NumeroProfesoresSala creada en Oracle XE}
-    \end{figure}
-
-    Tras crearla, hemos probado su funcionamiento introduciendo la función dentro de un \textbf{DBMS\_OUTPUT} para comprobar que muestra los datos correctamente, como vemos en la siguiente captura.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.33]{funcion-ejecucion.png}
-        \caption{Función NumeroProfesoresSala ejecutada en Oracle XE}
-    \end{figure}
-
-    \textbf{Disparador actulizaStock}:
-
-    Por último, se ha creado un \textbf{disparador} o \textbf{trigger} para automatizar la actualización del stock de productos cada vez que se realiza una venta de estos.
-
-    En primer lugar hemos usado la cláusula \textbf{BEFORE INSERT} en la definición del disparador porque debemos hacer una comprobación antes de actualizar la base de datos y permitir que se inserte la vente, que explicaremos en en los siguiente párrafos. También hemos usado la cláusula \textbf{FOR EACH ROW} ya que nos interesa que se actualice el stock de productos por cada venta realizada.
-
-    Se han declarado varias variables, \textbf{stockTotal}, \textbf{stockMIN} y \textbf{nombreProducto} para almacenar el resultado de la consulta, usando un \textbf{INTO} dentro de está para almacenar la información en las variables.
-
-    También se ha creado la variable \textbf{stockActualizado} para calcular el stock que habrá después de realizar la venta.
-
-    Aquí es donde viene uno de los puntos clave. Si \textbf{intentamos vender más stock del que hay}, no debería permitirse realizar la operación \textbf{INSERT} ni realizar el \textbf{UPDATE} en la \textbf{tabla productos}. Esta segunda parte es fácil, ya que \textbf{controlamos} nosotros la sentencia de \textbf{actualización}, pero \textbf{no controlamos} la de \textbf{inserción}. Podríamos simplemente no actualizar el stock, pero entonces no tendríamos una \textbf{visión real} del stock que hay, por lo que lo ideal sería \textbf{no permitir esa venta}.
-
-    \textbf{No se puede eliminar} al final del disparador la operación \textbf{INSERT}, aunque usemos la cláusula \textbf{AFTER INSERT}, ya que nos devolverá un \textbf{error} de que la \textbf{tabla esta mutando}. \textbf{Tampoco podemos usar} la función \textbf{ROLLBACK}, ya que no esta permitido su uso dentro de los triggers.
-
-    Realmente, lo ideal sería hacer una comprobación en la operación de inserción, donde añadiríamos una condición dentro del \textbf{WHERE} para comprobar que hay suficiente stock para vender. Pero no tenemos control sobre este paso. Por lo que se ha optado por una \textbf{solución} no muy elegante, que es lanzar un error de aplicación si el número de stock que se quiere vender es mayor que el número de stock existente.
-
-    Además, se comprobado si tras la venta, el número de stock esta por debajo del mínimo, lanzando un mensaje de aviso en caso afirmativo.
-
-    En la siguiente imagen, tenemos una captura del disparador creado en Oracle XE.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.33]{trigger-1.png}
-        \caption{Disparador creado en Oracle XE}
-    \end{figure}
-
-    Una vez creado, vamos a \textbf{comprobar que funciona correctamente}. Para ello en \textbf{primer lugar}, hemos comprobado la información que contiene la tabla productos antes de realizar la inserción en la tabla venden. Como vemos en la siguiente captura.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.40]{trigger-2.png}
-        \caption{Información tabla productos antes de la inserción}
-    \end{figure}
-
-    A continuación, hemos realizado una venta de  \textbf{5 Vendajes Tubulares}, como vemos en la siguiente captura, la cual se ha realizado correctamente.
-
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.35]{trigger-3.png}
-        \caption{Inserción en la tabla venden}
-    \end{figure}
-
-    Por último, hemos comprobado que la tabla productos se ha actualizado correctamente, es decir, que la fila de \textbf{Vendajes Tubulares} tiene un stock menor, en concreto, 5 unidades menor.
-
-    Como hemos podido comprobar, y como se ve en la siguiente captura, la actualización se ha realizado correctamente.
-
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.35]{trigger-4.png}
-        \caption{Tabla productos actualizada}
-    \end{figure}
-\end{enumerate}
-
-\section{Código Completo en PL/SQL}
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=cyan!30, colframe=white!20]
-\textbf{IMPORTANTE}:
-
-El código no se muestra en orden, sino que se muestra por funciones adaptándolas
-al espacio que hay libre en el documento, ya que no entra todo el código en una página,
-aunque sea ha puesto pie de imagen en cada uno para indicar a que fragmento pertenece
-este código. En el archivo que se adjunta viene todo el código en el orden adecuado.
-
-También se han eliminado algunos comentarios en el código que aquí se muestra, y que
-si están presentes en el archivos SQL que se adjunta, ya que sino los trozos de código
-serían demasiado largos y no cabe en una misma página.
-    \end{tcolorbox}
-\end{figure}
-
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-        \tiny
-        \begin{verbatim}
--- Función que devuelve el número de profesores de pilates diferentes que imparten clases en una sala dada.
-
-create or replace FUNCTION NumeroProfesoresSala(vCodigoSala VARCHAR2) RETURN NUMBER IS nProfesores NUMBER;
+renta NUMBER;
 
 BEGIN
-SELECT count(DISTINCT numero_trabajador_pilates) INTO nProfesores
-FROM imparte
-WHERE codigo_sala = vCodigoSala;
+SELF.DNI := DNI;
+SELF.nombre := nombre ;
+SELF.apellidos := apellidos;
+SELF.telefono := telefono;
+SELF.f_ingreso := f_ingreso;
+SELF.ingresosMes := ingresosMes;
+SELF.miembrosFam := miembrosFam;
 
-RETURN nProfesores;
+renta := ingresosMes / miembrosFam;
 
-END NumeroProfesoresSala;
-        \end{verbatim}
-    \end{tcolorbox}
-    \caption{Código de la función NumeroProfesoresSala}
-\end{figure}
-
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-        \tiny
-        \begin{verbatim}
-
--- Procedimiento para calcular el número de clientes que han tenido con un fisioterapeuta dado.
-
-create or replace PROCEDURE NumeroCLientesFisio(pNumeroFisio VARCHAR2)
-AS
-CURSOR clientesFisio IS
-SELECT cli.nombre, cli.apellidos, cli.dni, cli.telefono, ci.fecha_hora, ci.precio
-FROM cita ci, cliente cli
-WHERE ci.numero_fisio = pNumeroFisio AND ci.dni_cliente = cli.dni;
-
-invalid_param EXCEPTION;
-PRAGMA exception_init(invalid_param, -404);
-
-rowClientes clientesFisio%ROWTYPE;
-
-BEGIN
-
-if (LENGTH(pNumeroFisio) <> 5) THEN
-RAISE invalid_param;
-END IF;
-
-open clientesFisio;
-fetch clientesFisio INTO rowClientes;
-
-DBMS_OUTPUT.PUT_LINE('El fisio con número: ' || pNumeroFisio || ' ha tenido cita con los siguientes clientes: ');
-DBMS_OUTPUT.PUT_LINE('----------------------------------------------------------------------------------------------');
-DBMS_OUTPUT.PUT_LINE('CLIENTES                        DNI           TELEFONO        FECHA                PRECIO     ');
-DBMS_OUTPUT.PUT_LINE('----------------------------------------------------------------------------------------------');
-
-WHILE clientesFisio%FOUND LOOP
-    DBMS_OUTPUT.PUT_LINE(
-        RPAD(rowCLientes.nombre, 10) || RPAD(rowCLientes.apellidos, 22) ||
-        RPAD(rowClientes.dni, 14) || RPAD(rowClientes.telefono, 16) ||
-        RPAD(TO_CHAR(rowClientes.fecha_hora, 'DD-MM-YYYY HH:MI'), 21) || rowClientes.precio|| '€' );
-
-fetch clientesFisio INTO rowCLientes;
-END LOOP;
-
-CLOSE clientesFisio;
-
-EXCEPTION
-    WHEN invalid_param THEN
-        DBMS_OUTPUT.PUT_LINE('El identificador del fisioterapeuta debe ser una cadena de 5 caracteres, ejemplo: 00001');
-
-END NumeroClientesFisio;
-        \end{verbatim}
-    \end{tcolorbox}
-    \caption{Código del Procedimiento NumeroClientesFisio}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-        \tiny
-        \begin{verbatim}
-
-create or replace TRIGGER actualizaStock BEFORE INSERT ON venden FOR EACH ROW
-
-DECLARE
-stockTotal NUMBER;
-stockMIN NUMBER;
-stockActualizado NUMBER;
-nombreProducto VARCHAR(60);
-
-BEGIN
-SELECT stock, stock_minimo, nombre INTO stockTotal, stockMin, nombreProducto
-FROM productos
-WHERE id = :NEW.id_producto;
-
--- Calculamos el stock que quedará despues de la venta.
-
-stockActualizado := stockTotal - :NEW.cantidad;
-
-
-IF (stockActualizado < 0) THEN
-raise_application_error(-20000, 'No se pueden vender más productos de los que hay en stock.');
-ELSIF ((stockActualizado >= 0) AND (stockActualizado < stockMIN)) THEN
-DBMS_OUTPUT.PUT_LINE('AVISO: El stock esta por debajo del stock mínimo (stock mínimo: ' || stockMIN ||')');
-DBMS_OUTPUT.PUT_LINE('Insertando fila...');
+IF (renta <= 50) THEN
+SELF.tipoAyuda := 'A';
+ELSIF (renta <= 100) THEN
+SELF.tipoAyuda := 'B';
 ELSE
-DBMS_OUTPUT.PUT_LINE('Insertando fila...');
+SELF.tipoAyuda := 'C';
 END IF;
 
--- Se actualiza la tabla productos con la nueva cantidad del producto vendido.
+RETURN;
+END;
 
-UPDATE productos SET stock = stockActualizado WHERE id = :NEW.id_producto;
+END;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{enumerate}
 
-END actualizaStock;
-        \end{verbatim}
+\subsection{Actividad 2}
+
+\subsubsection{Enunciado}
+Realiza los siguientes subapartados:
+
+\begin{enumerate}[label=\alph*)]
+    \item Crea el tipo de objeto ``\textbf{Producto}'' con los siguientes atributos:
+
+     \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+          codigo   VARCHAR2(3),
+          nombre   VARCHAR2(30),
+          cantidad NUMBER(3)
+          medida   VARCHAR2(10)\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item Crea una colección VARRAY llamada \textbf{ListadoProductos} en la que se puedan almacenar hasta 20 objetos de tipo Productos.
+
+    \item Crea el tipo de objeto ``\textbf{Donacion}'' con los siguientes atributos:
+
+     \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+          numero     VARCHAR2(3),
+          valor      NUMBER(6,2),
+          listaCesta ListadoProductos\end{verbatim}
     \end{tcolorbox}
-    \caption{Código del disparador}
 \end{figure}
+
+    \item Crea el tipo de objeto ``\textbf{Entrega}'' con los siguientes atributos:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+            \begin{verbatim}
+         numero     VARCHAR2(5),
+         fecha      DATE,
+         socio      Cliente,
+         repartidor REF Voluntario,
+         cesta      Donacion\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{enumerate}
+
+\subsubsection{Solución}
+Puede ver el código de la solución en el archivo adjunto, no me ha dado tiempo a realizar la explicación. :(
+
+\subsection{Actividad 3}
+
+\subsubsection{Enunciado}
+Crea las siguientes tablas de objetos con la sentencia apropiada para cada uno de los subapartados:
+
+\begin{enumerate}[label=\alph*)]
+    \item Una tabla llamada VOLUNTARIADO de objetos tipo Voluntario.
+    \item Una tabla llamada SOCIOS de objetos tipo Cliente.
+    \item Una tabla llamada CATALOGO de objetos tipo Producto.
+    \item Una tabla llamada ENTREGADOS de objetos tipo Entrega.
+\end{enumerate}
+
+\subsubsection{Solución}
+En este aparatado hemos creado las diferentes tablas, usando para ello el siguiente código:
 
 \begin{figure}[H]
     \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
         \tiny
         \begin{verbatim}
-create or replace PROCEDURE CitasFisio(pDNI VARCHAR2)
-AS
-CURSOR cCitas IS
-SELECT cli.dni, cli.nombre, cli.apellidos, cli.descuento, ci.precio
-FROM cliente cli, cita ci
-WHERE ci.dni_cliente = pDNI AND ci.dni_cliente = cli.dni;
-
--- Creamos una excepción por si el DNI no se introduce con la longitud adecuada
-
-invalid_param EXCEPTION;
-PRAGMA exception_init(invalid_param, -404);
-
-cCitasRow cCitas%ROWTYPE;
-precioTotal FLOAT := 0.0;
-descuento FLOAT;
-
-BEGIN
-
--- Si el DNI introducido no tiene el tamaño adecuado lanzamos una excepción.
-
-if (LENGTH(pDNI) <> 9) THEN
-RAISE invalid_param;
-END IF;
-
-OPEN cCitas;
-FETCH cCitas INTO cCitasRow;
-
-WHILE cCitas%FOUND LOOP
-precioTotal := precioTotal + cCitasRow.precio;
-FETCH cCitas INTO cCitasRow;
-END LOOP;
-
--- Calculamos el descuento a aplicar
-
-descuento := (cCitasRow.descuento * precioTotal) / 100;
-
-
-DBMS_OUTPUT.PUT_LINE('El DNI del clientes es: ' || pDNI);
-DBMS_OUTPUT.PUT_LINE('El nombre del clientes es: ' || cCitasRow.nombre);
-DBMS_OUTPUT.PUT_LINE('Los apellidos del cliente son: ' || cCitasRow.apellidos);
-DBMS_OUTPUT.PUT_LINE('El numero total de citas es: ' || cCitas%ROWCOUNT);
-DBMS_OUTPUT.PUT_LINE('El precio total de las citas es: '  || precioTotal);
-DBMS_OUTPUT.PUT_LINE('El descuento es: ' || cCitasRow.descuento || '%');
-DBMS_OUTPUT.PUT_LINE('El precio final es: ' || (precioTotal - descuento));
-
-CLOSE cCitas;
-
--- Procesamos la excepción invalid_param si se ha lanzado y mostramos un mensaje de ayuda
-
-EXCEPTION
-WHEN invalid_param THEN
-DBMS_OUTPUT.PUT_LINE('El DNI del cliente debe ser una cadena de 9 caracteres, ejemplo: 75192847W');
-
+CREATE TABLE VOLUNTARIADO OF  VOLUNTARIO;
+CREATE TABLE SOCIOS OF CLIENTE;
+CREATE TABLE CATALOGO OF PRODUCTO;
+CREATE TABLE ENTREGADOS OF ENTREGA;
         \end{verbatim}
     \end{tcolorbox}
-    \caption{Código del procedimiento CitasFisio}
 \end{figure}
+
+\subsection{Actividad 4}
+Para trabajar con los objetos y tablas creados debes usar instancias y bloques de PL/SQL. A continuación debes implementar \textbf{diferentes bloques PL/SQL} con lo que se pide \textbf{en cada uno de los siguientes subapartados}:
+
+\begin{enumerate}[label=\alph*)]
+    \item Crea \textbf{dos} instancias de Voluntario con los siguientes datos:
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.60]{datos-voluntariado.png}
+     \end{figure}
+
+    A continuación y dentro del mismo bloque realiza las siguientes acciones:
+    \begin{itemize}
+        \item Inserta las instancias en la tabla VOLUNTARIADO.
+        \item Utiliza el método que has creado en este objeto para calcular los puntos ganados por el voluntario con DNI 10000000A sabiendo que ha colaborado 8 turnos en un mes.
+        \item Por último, actualiza en la tabla VOLUNTARIADO el valor correspondiente a este voluntario incrementando los puntos ganados a su acumulado.
+    \end{itemize}
+
+    \item Crea \textbf{tres} instancias de Cliente con los siguientes datos y después debes insertarlos en la tabla SOCIOS.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.60]{datos-voluntariado.png}
+    \end{figure}
+
+    \item Crea \textbf{ocho} instancias de Producto con los siguientes datos e insértalos en la tabla CATALOGO.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.60]{datos-producto.png}
+    \end{figure}
+
+    A continuación en ese mismo bloque PL/SQL realiza las siguientes acciones:
+
+    \begin{itemize}
+        \item Crea \textbf{tres} instancias de ListadoProductos con los siguientes datos:
+        \begin{itemize}
+            \item ListaProductos1 contiene los objetos de tipo Producto : 001,003,005 y 007.
+            \item ListaProductos2 contiene los objetos de tipo Producto: 001,002,004 y 008.
+            \item ListaProductos3 contiene los objetos de tipo Producto: 003,005 y 006.
+        \end{itemize}
+
+        \item Muestra en un mensaje por pantalla los nombres de todos los productos que forman la ListaProductos1 accediendo a dicha lista y recuperando esa información. Nota: NO hay que obtenerlos de las instancias propias de Producto sino de la instancia ListaProductos1 que almacena dichos elementos en el orden insertado. Visita el siguiente enlace para ver qué métodos se pueden emplear en las colecciones.
+
+        \item Crea tres instancias de Donacion con los siguientes datos:
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{datos-donaciones.png}
+    \end{figure}
+
+    \item Obtén la referencia de cada voluntario almacenado en la tabla correspondiente y guarda dichas referencias en variables del tipo apropiado.
+    \item Obtén las instancias de los clientes 11111111A y 22222222B almacenados en la tabla correspondiente y guárdalos en variables del tipo apropiado.
+    \item A continuación crea \textbf{cuatro} instancias de Entrega con la siguiente información teniendo en cuenta que:
+    \begin{itemize}
+        \item en el atributo  Socio debes insertar la instancia recuperada de cliente que se indica a continuación.
+        \item en el atributo Repartidor debes insertar la referencia del objeto voluntario recuperada correspondiente.
+        \item en el atributo Cesta debes insertar el objeto creado como instancias de Donacion que se indica a continuación.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.60]{datos-cesta.png}
+        \end{figure}
+    \end{itemize}
+
+      \item Para finalizar el bloque, una vez creadas las cuatro instancias debes insertarlas en la tabla ENTREGADOS.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Solución}
+En este ejercicio hemos empezado a trabajar ya con las tablas creadas y nuestros tipos de objetos.
+
+\begin{enumerate}[label=\alph*)]
+    \item En primer lugar hemos trabajado con la tabla voluntariado, donde hemos creado dos instancias de objetos \textbf{voluntario} y las hemos insertado como se ve a continuación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{voluntario-op-1.png}
+        \caption{Creación e inserción en la tabla Voluntariado}
+    \end{figure}
+
+    Hemos realizado un SELECT para comprobar que se habían insertado correctamente los objetos, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{voluntario-op-2.png}
+        \caption{Tabla Voluntariado actualizad}
+    \end{figure}
+
+    El código empleado para este apartado ha sido el siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+            \begin{verbatim}
+DECLARE
+  voluntario_1 Voluntario;
+  voluntario_2 Voluntario;
+  puntos NUMBER;
+BEGIN
+  voluntario_1 := NEW Voluntario('10000000A', 'Jaime', 'Sánchez Terol', '111222333', TO_DATE('03/12/2018'), 200);
+  voluntario_2 := NEW Voluntario('20000000B', 'Carmen', 'Mira González', '888999000', TO_DATE('08/02/2020'), 100);
+
+  INSERT INTO Voluntariado VALUES(voluntario_1);
+  INSERT INTO Voluntariado VALUES(voluntario_2);
+
+  puntos := voluntario_1.calcularPuntosGanados(8);
+
+  UPDATE Voluntariado SET Voluntariado.puntosAcumula = Voluntariado.puntosAcumula + puntos
+  WHERE Voluntariado.DNI = '10000000A';
+END;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item En este punto hemos trabajado con la tabla \textbf{Socios} creando varios y comprobando que el constructor que hemos creado funciona correctamente. Como vemos en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{socios-op-1.png}
+        \caption{Creación e inserción de socios}
+    \end{figure}
+
+    Hemos comprobado que los datos se han creado correctamente, incluyendo el tipoAyuda generado automáticamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{socios-op-2.png}
+        \caption{Tabla Socios actualizad}
+    \end{figure}
+
+    El código empleado a sido el siguiente:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \tiny
+            \begin{verbatim}
+Declare
+  socio1 Cliente;
+  socio2 Cliente;
+  socio3 Cliente;
+Begin
+  socio1 := NEW Cliente('11111111A', 'Pepe', 'Amorós García', '555999000', TO_DATE('12/12/2004'), 200, 5, 'C');
+  socio2 := NEW Cliente('22222222B', 'María', 'López Narváez', '222444666', TO_DATE('05/24/2008'), 780, 8);
+  socio3 := NEW Cliente('33333333C', 'Luis', 'Pérez Sanz', '444555666', TO_DATE('01/31/2010'), 420, 9);
+
+  INSERT INTO Socios VALUES(socio1);
+  INSERT INTO Socios VALUES(socio2);
+  INSERT INTO Socios VALUES(socio3);
+end;
+            \end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Actividad 5}
+\subsubsection{Enunciado}
+Realiza las siguientes operaciones sobre la tabla ENTREGADOS de forma independiente:
+\begin{enumerate}[label=\alph*)]
+    \item En primer lugar debes actualizar la fecha de la entrega con número 00004 con el nuevo valor 12/04/23. (Realiza una única sentencia SQL)
+    \item Después y mediante un bloque PL/SQL recupera información de la tabla ENTREGADOS e imprime por pantalla la siguiente información sobre una entrega determinada cualquiera: (Aquí se muestra un ejemplo de lo que tendría que salir por pantalla si buscamos información sobre la entrega número 00002.) Puedes hacerlo con cualquier otro número de entrega.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.80]{ejemplo-salida-5.png}
+    \end{figure}
+\end{enumerate}
+
+\subsubsection{Solución}
 % Bibliography
 
 %\newpage
