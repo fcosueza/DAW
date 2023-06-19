@@ -21,7 +21,7 @@
                     .urgente {
                     color: red;
                     background-color:yellow;
-                    }
+                    }   
                     .nocturno {
                     color: white;
                     background-color:black;
