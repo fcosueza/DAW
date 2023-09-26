@@ -127,8 +127,122 @@ Esta es la primera fase del desarrollo del programa, para la cuál deberá estar
 \end{enumerate}
 
 \subsection{Implementación}
+Esta fase consiste en plasmar en un código la solución a la que hemos llegado en la fase de resolución del problema y consta de las siguientes etapas:
 
+\begin{enumerate}
+    \item \textbf{Etapa de Codificación}:
 
+    Esta etapa consiste en transformar o traducir la solución a la que hemos llegado en un lenguaje de programación concreto. Para comprobar la estabilidad y calidad de la solución, deberemos realizar una serie de pruebas para comprobar que los módulos funcionan correctamente (\textbf{pruebas unitarias}), que dichos módulos funcionan bien entre ellos (\textbf{pruebas de interconexión}) y todo el conjunto funciona correctamente (\textbf{pruebas de integración}).
+
+    Cuando realizamos la traducción deberemos tener en cuenta la reglas gramaticales y sintácticas del lenguaje de programación que estemos usando, lo que generará lo que se conoce como \textbf{código fuente}, es decir, el programa en sí mismo. Pero para que nuestro programa funcione correctamente, antes deberá ser traducido a \textbf{código máquina}, el único lenguaje que entiende el ordenador. Este proceso de traducción será llevado a cabo por un \textbf{compilador} o un \textbf{interprete}, dependiendo del lenguaje de programación que estemos empleando.
+
+    Algunos de los términos que están asociados a esta fase son los siguientes:
+
+    \begin{itemize}
+        \item \textbf{Compilación}: proceso mediante el cual el código fuente, es decir, el conjunto de instrucciones escritas en un determinado lenguaje de programación, es traducido a código máquina, un código binario que es el único lenguaje que entiende el computador.
+
+        \item \textbf{Compilador}: es la aplicación informática que se encarga de realizar la traducción. Esta recibe el código fuente, y tras realizar una análisis lexicográfico, semántico y sintáctico, generando en primer lugar un código intermedio sin optimizar, el cual se optimiza y genera el código objeto para la plataforma especifica.
+
+        \item \textbf{Interprete}: aplicación informática capaz de analizar y traducir programas escritos en un determinado lenguaje de programación. A diferencia de los compiladores, que realizan una traducción completa del programa a lenguaje máquina, los interpretas van realizando la traducción a medida que va siendo necesaria, típicamente, realizándola instrucción por instrucción. Además, no suelen guardar los resultados de dicha traducción.
+    \end{itemize}
+
+    \item \textbf{Prueba, Ejecución y Validación}:
+
+    Una vez que el programa ha sido codificado, estará listo para ser ejecutado. Para ello, deberemos implantar la aplicación en el sistema donde va a ser ejecutado para comprobar su funcionamiento correcto. Utilizando diferentes datos, se comprobará si el programa cumple con los requisitos que se han especificado, si se detectan nuevos errores o si la interfaz es amigable. Se trata de poner a prueba nuestro programa para ver su respuesta en diferentes situaciones.
+
+    Mientas que el programa tenga errores, no podremos pasar a la siguiente fase. Una vez que se corrijan, se habrán generado diferentes documentos sobre la aplicación que entrarán el alguna de las siguientes dos categorías:
+
+    \begin{itemize}
+        \item \textbf{Documentación Interna}: encabezados, descripciones, declaraciones del problema y comentarios que se incluyen dentro de código fuente.
+
+        \item \textbf{Documentación Externa}: son los manuales que se crean para una mejor ejecución y utilización del programa, así como los diferentes diagramas generados durante el proceso de desarrollo que nos ayuden a comprender mejor su funcionamiento y arquitectura.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Explotación}
+En esta última fase, el software ya esta instalado en el sistema y esta siendo de utilidad para los usuarios, siendo esta la \textbf{etapa de explotación}.
+
+Periódicamente será necesario realizar evaluaciones y, si es necesario, llevar a cabo modificaciones para que el programa se adapte o actualice a las nuevas necesidades de los usuarios, pudiendo también realizarse la corrección de errores no detectados anteriormente. Esta es la \textbf{etapa de mantenimiento}.
+
+Así, se define el \textbf{mantenimiento de software} como el proceso de mejora y optimización del software después de su entrega al usuario final. Involucra la realización de cambios para corregir defectos y dependencias encontradas durante su uso o para la adición de funcionalidades para mejorar su usabilidad y aplicabilidad.
+
+Sera indispensable que se haya generado la documentación adecuada para facilitar la labor del programador en la compresión, uso y modificación de la aplicación.
+
+\section{Ciclo de Vida del Software}
+Sean cuales sean las fases que las fases en las que realicemos el proceso de desarrollo de software, siempre habrá que aplicar un \textbf{modelo de ciclo vida}, siendo este una sucesión de estados o fases por las cuales pasa el software a lo largo de su vida.
+
+Este proceso debe tener siempre la siguientes etapas mínimas:
+
+\begin{itemize}
+    \item \textbf{Especificación} y \textbf{Análisis de Requisitos}
+    \item \textbf{Diseño}
+    \item \textbf{Codificación}
+    \item \textbf{Pruebas}
+    \item \textbf{Instalación} y \textbf{Producción}
+    \item \textbf{Mantenimiento}
+\end{itemize}
+
+Existen diferentes modelos de desarrollo como el modelo en cascada, en espiral, incremental, evolutivo, etc.. En la siguiente \href{https://es.wikipedia.org/wiki/Proceso_del_desarrollo_del_software}{entrada de Wikipedia} podemos ver más información sobre el proceso de desarrollo de software y las diferentes metodologías.
+
+\section{Lenguajes de Programación}
+Como hemos visto en los puntos anteriores, una de las etapas del desarrollo es la codificación del programa. Para ello, emplearemos un lenguaje que exprese cada uno de los pasos que se deben ejecutar. Este lenguaje recibe el nombre de \textbf{lenguaje de programación}.
+
+Se entiende por \textbf{lenguaje de programación} el conjunto de reglas sintácticas y semánticas, símbolos y palabras especiales establecidos para la construcción del programa. Todo lenguaje se compone de:
+
+\begin{itemize}
+    \item \textbf{Gramática}: reglas aplicables al conjunto de símbolos y palabras empleados en el lenguaje de programación para la construcción de sentencias correctas.
+    \item \textbf{Léxico}: es el conjunto de símbolos y palabras especiales, es decir, el vocabulario del lenguaje.
+    \item \textbf{Sintaxis}: son las posibles combinaciones de símbolos y palabras especiales.
+    \item \textbf{Semántica}: es el significado de cada construcción del lenguaje, es decir, la acción que se llevará a cabo.
+\end{itemize}
+
+Los lenguajes permiten que los programadores pueden expresar el código de forma que sea legible para ellos y otros programadores. Estos se clasifican según lo cercanos que estén al lenguaje máquina o al lenguaje natural, así como si son lenguajes interpretados o compilados, lo que vamos a ver en los siguientes puntos.
+
+\subsection{Lenguaje Máquina}
+Este lenguajes es él único que entiende el ordenador y se compone de un conjunto de instrucciones codificadas en binario que se encarga de ejecutar el procesador. Este lenguaje es directamente interpretable por un circuito microprogramable.
+
+Se trata del primer lenguaje utilizado para la programación de computadoras. De hecho, cada máquina tenía su propio conjunto de instrucciones codificadas en ceros y uno. Esto, evidentemente, genera un conjunto de \textbf{inconvenientes}:
+
+\begin{itemize}
+    \item Cada programa era válido \textbf{solo para un tipo de procesador} u ordenador.
+    \item La \textbf{lectura} e \textbf{interpretación} de este tipo de programas es \textbf{extremadamente difícil}, por lo que realizar modificaciones resultaba extremadamente costoso.
+    \item Los programadores de la época debían \textbf{memorizar largas cadenas de unos y ceros}, que equivalían a las instrucciones disponibles en los diferentes tipos de procesadores.
+    \item Además, la introducción de estas cadenas suponía \textbf{largos tiempos de espera y posibles errores}.
+\end{itemize}
+
+En la siguiente tabla muestran algunos ejemplos de operaciones codificadas en binario.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{ejemplo-binario.png}
+    \caption{Operaciones en binario}
+\end{figure}
+
+Dada la dificultad de este lenguaje, con el tiempo fue sustituido por otros de más fácil compresión, aunque hay que tener en cuenta que en última instancia todos los lenguajes deben ser traducido a éste para que puedan ser interpretados y ejecutados por el ordenador.
+
+\subsection{Lenguaje Ensamblador}
+La evolución del lenguaje máquina fue el \textbf{lenguaje ensamblador}. En éste, las instrucciones ya no son secuencias binarias sino que son códigos de operación que describen operaciones básicas del procesador.
+
+Estos códigos, conocidos como \textbf{mnemotécnicos}, son palabras especiales que sustituyen largas secuencias de unos y ceros, utilizadas para referirse a diferentes operaciones disponibles en el juego de instrucciones que soporta un procesador concreto.
+
+En la siguiente tabla, podemos ver alguno ejemplos de estos mnemotécnicos con diferentes operaciones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{ejemplo-asm.png}
+    \caption{Operaciones en ensamblador}
+\end{figure}
+
+Aunque el ensamblador fue un intento de acercar el lenguaje máquina al lenguaje humano, aún presentaba diferentes \textbf{dificultades}:
+\begin{itemize}
+    \item Los programas seguían \textbf{dependiendo} directamente del \textbf{hardware} que los soportaba.
+    \item Los programadores debían \textbf{conocer} detalladamente \textbf{la máquina} sobre la que programaban, ya que debían hacer un uso adecuado de los recursos del sistema.
+    \item La \textbf{lectura}, \textbf{interpretación} o \textbf{modificación} de los programas seguía presentando dificultades.
+\end{itemize}
+
+Todo programa escrito en ensamblador necesita ser traducido al lenguaje máquina para poder ser ejecutad. Esta función la lleva a cabo el \textbf{programa ensamblador}, el cual convierte el programa original escrito en lenguaje ensamblador (código fuente) en el programa traducido a lenguaje máquina (código objeto).
+
+\subsection{Lenguajes Compilados}
 % Bibliography
 
 \newpage
