@@ -243,6 +243,43 @@ Aunque el ensamblador fue un intento de acercar el lenguaje máquina al lenguaje
 Todo programa escrito en ensamblador necesita ser traducido al lenguaje máquina para poder ser ejecutad. Esta función la lleva a cabo el \textbf{programa ensamblador}, el cual convierte el programa original escrito en lenguaje ensamblador (código fuente) en el programa traducido a lenguaje máquina (código objeto).
 
 \subsection{Lenguajes Compilados}
+Para paliar los defectos del lenguaje ensamblador y acercar los lenguajes de programación al lenguaje humano nacieron los \textbf{lenguajes compilados}.
+
+ Así surgieron lenguajes como \textbf{Pascal}, \textbf{FORTRAN}, \textbf{Algol}, \textbf{C}, \textbf{C++}, etc. Estos lenguajes, más cercanos al humano, también se denominan \textbf{lenguajes de alto nivel}. Son más fáciles de utilizar y comprender, ya que las instrucciones que emplean y los signos que usan son fácilmente reconocibles por el programador.
+
+ Entre las principales \textbf{ventajas} de estos lenguajes tenemos:
+ \begin{itemize}
+     \item Son mucho más \textbf{fáciles} de \textbf{aprender y utilizar} que sus predecesores.
+     \item Se \textbf{reduce} el \textbf{tiempo} para desarrollar programas así como el \textbf{coste}.
+     \item Son \textbf{independientes del hardware}, es decir, los programas pueden ejecutarse en diferentes tipos de máquina.
+     \item La \textbf{lectura}, \textbf{modificación} e \textbf{interpretación} de los programas es \textbf{mucho más sencilla}.
+ \end{itemize}
+
+Un programa que este escrito en un lenguaje de alto nivel también tiene que \textbf{traducirse} a código máquina para que pueda ser ejecutado por el ordenador. Este trabajo, lo lleva a cabo el \textbf{compilador}, mediante un proceso de traducción que se conoce como \textbf{compilación}.
+
+En la siguiente imagen podemos ver de forma mas ilustrativa cual es el proceso de compilación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{compilador.png}
+    \caption{Proceso de compilación}
+\end{figure}
+
+El compilador realizará la traducción y ademas \textbf{informará} de posibles \textbf{errores}. Una vez subsanados se generará el programa traducido a código máquina, conocido como \textbf{código objeto}. Este programa aún no puede ser ejecutado hasta que no se añadan los módulos de enlace o bibliotecas, durante el proceso de enlazado. Una vez realizado, se obtiene el \textbf{código ejecutable}.
+
+\subsection{Lenguaje Interpretados}
+Los lenguajes interpretados están diseñados para que su ejecución se realice a través de un \textbf{interprete}. Cada instrucción de un lenguaje interpretado se analiza, traduce y ejecuta tras haber sido verificada.
+
+Un \textbf{interprete} es un traductor de lenguaje de alto nivel donde el proceso de traducción y ejecución se llevan a cabo simultáneamente, es decir, la instrucción se pasa al lenguaje máquina y se ejecuta directamente. No se genera código objeto ni ejecutable, como en los lenguajes compilados.
+
+Los lenguajes interpretados tienen el inconveniente que son un poco más lentos que los lenguajes compilados, además, se necesita tener el intérprete instalado en la máquina donde se quiere ejecutar el programa, algo que no es necesario con los lenguajes compilados.
+
+Algunos ejemplos de lenguajes interpretados son \textbf{Perl}, \textbf{PHP}, \textbf{Python} o \textbf{Javascript}, entre otros.
+
+A medio camino entre los lenguajes compilados y los interpretados existen los lenguajes que podríamos llamar \textbf{pseudo-compilados} o \textbf{pseudo-interpretados}, como es el caso de \textbf{Java}. Java puede verse como un lenguaje compilado, pero también como un lenguaje interpretado, ya que su código fuente se compila para obtener el código binario conocido como \textbf{bytecode}, que son estructuras parecidas a las instrucciones máquina, con la importante propiedad de no se dependiente de ningún tipo de máquina. La \textbf{Maquina Virtual Java} se encargará de interpretar este código, y para su ejecución, lo traducirá al código máquina del procesador en particular donde se quiera ejecutar la aplicación.
+
+\section{El Lenguaje de Programación Java}
+
 % Bibliography
 
 \newpage
