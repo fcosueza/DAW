@@ -279,6 +279,163 @@ Algunos ejemplos de lenguajes interpretados son \textbf{Perl}, \textbf{PHP}, \te
 A medio camino entre los lenguajes compilados y los interpretados existen los lenguajes que podríamos llamar \textbf{pseudo-compilados} o \textbf{pseudo-interpretados}, como es el caso de \textbf{Java}. Java puede verse como un lenguaje compilado, pero también como un lenguaje interpretado, ya que su código fuente se compila para obtener el código binario conocido como \textbf{bytecode}, que son estructuras parecidas a las instrucciones máquina, con la importante propiedad de no se dependiente de ningún tipo de máquina. La \textbf{Maquina Virtual Java} se encargará de interpretar este código, y para su ejecución, lo traducirá al código máquina del procesador en particular donde se quiera ejecutar la aplicación.
 
 \section{El Lenguaje de Programación Java}
+Java es un lenguaje de programación con un sintaxis similar a C++, donde se han eliminado algunos de sus elementos complicados, como el tratamiento de punteros. Es un lenguaje \textbf{orientado a objetos} que nos permite la utilización de gran cantidad de bibliotecas fomentando la reutilización de código y evitando que tengamos que reescribir código ya existente.
+
+Una de las principales virtudes de Java es su \textbf{independencia del hardware}, ya que el código que se genera es válido para cualquier plataforma. Este código será ejecutado en una maquina virtual denominada \textbf{Máquina Virtual Java} (JVM), que interpretará el código generado traduciéndolo al código máquina de la plataforma donde queramos ejecutarlo. De este modo, el programa se escribe una única vez y puede hacerse funcionar en cualquier lugar, llevando a la práctica el lema del lenguaje \textbf{``Write once, run everywhere''}.
+
+Antes de la aparición de Java, el lenguaje de programación C era uno de los más versátiles y extendidos, pero cuando los programas en C aumentaban de volumen, su manejo se volvía muy complejo. Aunque mediante la programación modular y estructura se conseguía reducir esta complejidad, no era suficiente.
+
+Fue entonces cuando entró en escena la \textbf{Programación Orientada a Objetos} (POO), aproximando más la construcción al pensamiento humano y haciendo más sencillo todo el proceso. Los problemas se dividen en objetos que tienen propiedades e interactúan con otros objetos, pudiendo el programador centrarse en cada objeto y los detalles las propiedades y funcionalidades que este posee. Fue entonces cuando surgió el lenguaje Java.
+
+Las principales \textbf{características} del \textbf{lenguaje Java} son:
+
+\begin{itemize}
+    \item El código generado por el compilador es independiente del hardware.
+    \item Es totalmente orientado a objetos.
+    \item Su sintaxis es similar a C y C++.
+    \item Es distribuido, es decir, preparado para aplicaciones TCP/IP.
+    \item Dispone de un amplio conjunto de bibliotecas.
+    \item Es robusto, realizando comprobaciones tanto en tiempo de compilación como de ejecución.
+    \item La seguridad está garantizada, ya que las aplicaciones Java no acceden directamente a zonas delicadas de la memoria o el sistema.
+\end{itemize}
+
+\subsection{Breve Historia de Java}
+Java surgió en 1991 cuando un pequeño grupo de ingenieros de Sun Microsystems trataron de diseñar un lenguaje de programación destinado a programar pequeños dispositivos electrónicos. El problema con estos dispositivos es que cambian rápidamente de un modelo a otro y el software debe ser reescrito, por lo que necesitaban un lenguaje que se fuera \textbf{independiente del dispositivo}.
+
+No fue hasta 1995 cuando el lenguaje adoptó el nombre de Java, dándose a conocer al mundo como lenguaje de programación de computadores. El hecho de que sea un lenguaje orientado a objetos, independiente de la plataforma y su facilidad para la creación de aplicaciones TCP/IP, han hecho que Java sea uno de los lenguajes más utilizados.
+
+El factor determinante para su expansión fue la inclusión de un interprete en la versión 2.0 del navegador Netscape, lo que supuso un gran revuelo en internet. A principio de 1997 apareció \textbf{Java 1.1}, que proporcionó sustanciales mejoras en el lenguaje. A finales de 1998 salió \textbf{Java 1.2}, posteriormente rebautizado como \textbf{Java 2}.
+
+Para el desarrollo de programas en Java es necesario el uso de un entorno de desarrollo denominado \textbf{JDK} (Java Development Kit), que provee de un compilador y un entorno de ejecución, conocido como \textbf{JRE} (Java Runtime Environment), para ejecutar los bytecode generados. Al igual que el lenguaje, JDK y JRE han sido mejorados con cada versión del lenguaje.
+
+\textbf{Java 2} es la tercera versión del lenguaje, pero no solo incluye el lenguaje, sino incluye:
+
+\begin{itemize}
+    \item El lenguaje de programación: Java.
+    \item Un conjunto de bibliotecas estándar que vienen incluidas en el lenguaje y son necesarias en todo el entorno Java. Es el \textbf{Java Core}.
+    \item Un conjunto de herramientas para el desarrollo de programas como compilador de bytecode, el generador de documentación, un depurador, etc...
+    \item Un entorno de ejecución que en definitiva es una máquina virtual para ejecutar los bytecodes generados.
+\end{itemize}
+
+En la siguiente imagen podemos ver un esquema de los elementos de Java 2.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{java2.png}
+    \caption{Elementos de Java 2}
+\end{figure}
+
+Actualmente hay varias ediciones de la plataforma Java y que de forma resumida se podrían clasificar en:
+
+\begin{itemize}
+    \item \textbf{Java SE}: es la plataforma base para el desarrollo de aplicaciones con Java. Es usado para desarrollar aplicaciones de escritorio, applets y otros tipos de aplicaciones. Es fundamental, ya que es la basa en la que se cimienta el resto de plataformas Java.
+    \item \textbf{Java EE}: es una plataforma de desarrollo de aplicaciones empresariales y del lado del servidor.
+    \item \textbf{Java ME}: es una plataforma de desarrollo de aplicaciones para dispositivos móviles.
+\end{itemize}
+
+En \href{https://www.campusmvp.es/recursos/post/Descifrando-Java-lenguaje-plataforma-ediciones-implementaciones.aspx}{este enlace} puedes encontrar más información sobre las diferentes plataformas de Java y como trabajan entre ellas.
+
+\subsection{La POO y Java}
+En Java, los datos y el código (funciones o métodos) se combinan en entidades llamadas \textbf{objetos}. El objeto tendrá un \textbf{comportamiento} (su código interno) y un \textbf{estado} (los datos). Los objetos permiten la reutilización de código y pueden considerarse a sí mismos con piezas reutilizables en diferentes proyectos. Esta característica permite reducir el tiempo de desarrollo de aplicaciones.
+
+Al incorporar los conceptos de Programación Orientada a Objetos (POO), Java incluye las tres características propias de este paradigma de programación:
+
+\begin{itemize}
+    \item \textbf{Encapsulación}: se denomina así al ocultamiento de la información interna de un objeto. Este solo se puede modificar a través de sus operaciones definidas.
+    \item \textbf{Herencia}: mecanismo que permite derivar una clase de otra, de manera que extienda su funcionalidad.
+    \item \textbf{Polimorfismo}: capacidad para que varias clases derivada de otra utilicen un mismo método de forma diferentes.
+\end{itemize}
+
+Los patrones o tipos de objetos se denominan \textbf{clases} y los objetos que utilizan estos patrones o pertenecen a dichos tipos se denominan \textbf{instancias}.
+
+En la siguiente figura podemos ver algunas de las ventajas de la POO de forma más esquemática.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{ventajas-poo.png}
+    \caption{Ventajas de la POO}
+\end{figure}
+
+\subsection{Independencia de la Plataforma}
+Hay dos características de distinguen a Java de otros lenguajes de programación, como son la \textbf{independencia de la plataforma} y la posibilidad de \textbf{crear aplicaciones} para \textbf{trabajar en red}.
+
+Estas características consisten en:
+\begin{itemize}
+    \item \textbf{Independencia}: los programas escritos en Java pueden ser ejecutados en cualquier tipo de hardware. El código fuente se compila generando el código conocido como Java Bytecode, el cual será interpretado y ejecutado por la \textbf{Máquina Virtual Java}, que es un programa escrito en código nativo de la plataforma destino. Con eso se evita tener que realizar un programada diferente para diferentes CPUs.
+
+    \item \textbf{Trabajo en red}: esta capacidad del lenguaje ofrece múltiples posibilidades para la comunicación vía TCP/IP. Para poder hacer esto, existen librerías que permiten el acceso y la interacción con protocolos como \textbf{http}, \textbf{ftp}, etc.., facilitando las tareas del programador para el tratamiento de la información.
+\end{itemize}
+
+\subsection{Seguridad y Simplicidad}
+Además de las características vistas en el punto anterior, cabe destacar dos virtudes de este lenguaje que hacen que este tan extendido: la \textbf{seguridad} y la \textbf{simplicidad}.
+
+\begin{itemize}
+    \item \textbf{Seguridad}: en primer lugar, el acceso a zonas sensibles de memoria que podemos tener en otros lenguajes como C o C++ se han eliminado en Java.
+
+    En segundo lugar, el código en Java se comprueba y verifica para evitar que determinadas secciones del código produzcan efectos adversos. Los test que se aplican garantizan que las operaciones, operandos, conversiones y uso de clases son seguras.
+
+    En definitiva, podemos afirmar que Java es un lenguaje seguro.
+
+    \item \textbf{Simplicidad}: aunque Java es tan potente como C o C++, es bastante más sencillo. Tiene una curva de aprendizaje muy rápida y para alguien que aprende a programar con este lenguaje, le resultará más fácil comenzar a escribir aplicaciones interesantes.
+
+    Java elimina ciertos mecanismos complejos que si encontramos en C o C++ como pueden ser la aritmética de punteros, los registros, la definición de tipos, la gestión de memoria, etc.., reduciendo considerablemente la posibilidad de cometer errores comunes en otros lenguajes de programación.
+
+    Un elemento que ayuda a la simplicidad de Java es el \textbf{Recolector de Basura} (Garbage Collector), que permite al programador liberarse de la gestión de memoria y hace que ciertos bloques de memoria puedan reaprovecharse, disminuyendo el número de huevos libres, lo que se conoce como \textbf{fragmentación de memoria}.
+\end{itemize}
+
+Como vemos, además de ser independiente de la plataforma, Java es un lenguaje más seguro y simple que otros parecidos, manteniendo la misma potencia que estos.
+
+\subsection{Java y los Bytecodes}
+Un programa en Java no es directamente ejecutable, es necesario que el código sea interpretado por la Máquina Virtual.
+
+Una vez escrito el código fuente (con extensión .java), este es precompilado generándose los códigos de bytes o Bytecodes (con extensión .class), que serán interpretados directamente por la Máquina Virtual y traducidos a código nativo de la plataforma donde queramos ejecutarlo.
+
+Un \textbf{Bytecode} es un conjunto de instrucciones en lenguaje máquina que no son específicos de ningún procesador o sistema de cómputo. Un intérprete de bytes para una plataforma concreta será el que los ejecute. A este interprete también se les conoce como Máquina Virtual Java.
+
+En el proceso de compilación, existe un verificador de códigos de bytes que se asegurará que se cumplen las siguientes condiciones:
+
+\begin{itemize}
+    \item El código satisface las especificaciones de la Máquina Virtual Java.
+    \item No existe amenaza contra la integridad del sistema.
+    \item No se produce desbordamiento de memoria.
+    \item Los parámetros y sus tipos son adecuados.
+    \item No existen conversiones de datos no permitidas.
+\end{itemize}
+
+Para que un bytecode puede ser ejecutado en cualquier plataforma es imprescindible que la plataforma cuente con el intérprete adecuado, es decir, la \textbf{máquina virtual} específica para \textbf{dicha plataforma}.
+
+\section{Programas en Java}
+Hasta ahora hemos descrito el lenguaje de programación Java y hablado un poco sobre su historia y características. En este punto, ya vamos a empezar ha hablar de los programas en Java, cuales son su elementos básicos, como debemos escribir el código y los tipos de aplicaciones que podremos crear con este lenguaje.
+
+\subsection{Estructura de un Programa}
+En la siguiente figura, se presenta una estructura general de un programa en Java, la cual vamos a explicar en esta sección punto por punto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{estructura-java.png}
+    \caption{Estructura general de un programa en Java}
+\end{figure}
+
+Los diferentes elementos que podemos ver en esta figura son los siguientes:
+
+\begin{itemize}
+    \item \textbf{public class ClasePrincipal}: todos los programas en Java deben incluir este elemento. Podrá llamarse ClasePrincipal, ProgramaPrincipal, ... o como queramos, pero debe tener un nombre. Se trata de una clase general donde se incluyen todos los demás elementos del programa. En unidades posteriores veremos que es una clase y cuales son sus componentes principales. Por ahora es suficiente que sepamos que nuestro programa debe comenzar con este elemento.
+
+    \item \textbf{public static void main (String args[])}: dentro del elemento anterior podemos ver el método \textbf{main()} que contiene las líneas de código de nuestro programa. Más adelante también veremos que es un método. Basta saber por ahora que al igual que la línea anterior nuestro programa debe contener la sentencia \textbf{public static void main (String args[])}. Aquí dentro podremos incluir las instrucciones que veamos oportunas para ejecución del programa.
+
+    \item \textbf{Comentarios}: los comentarios suelen introducirse en el programa para realizar aclaraciones, anotaciones o cualquier otra indicación que el programador estime oportuna. Estos comentarios pueden introducirse de dos formas:
+
+    \begin{itemize}
+        \item Con \textit{\textbf{//}} estaríamos estableciendo una línea de comentario, es decir, todo lo que hay detrás de este símbolo es un comentario hasta que se produzca un salto de línea.
+        \item Si queremos indicar que un comentario tiene varias líneas debemos usar \textit{\textbf{/*} }para comenzar el comentario y \textit{\textbf{*/}} para cerrarlo.
+    \end{itemize}
+
+    \item \textbf{Bloques de Código} (\textbf{\{} \textbf{\}}): con conjuntos de instrucciones que se marcan mediante la apertura y cierre de llaves \textbf{\{} \textbf{\}}. En código así marcado se considera interno al bloque.
+
+    \item \textbf{Punto y Coma} (\textbf{;}): aunque en el ejemplo de la imagen no tenemos ninguna línea de código acabada con un punto y coma, para no distraernos de momento con estos detalles, hay que hacer hincapié en que cada línea de código ha de terminar con un punto y coma. En caso de no hacerlo, tendremos errores sintácticos.
+\end{itemize}
+
+\subsection{El Entorno Básico de Desarrollo de Java}
 
 % Bibliography
 
