@@ -586,7 +586,7 @@ Hay que tener en cuenta que un IDE es solo una fachada para el proceso de desarr
 Existen una gran variedad de IDEs en el mercado para el lenguaje de programación Java, orientados a principiantes, para profesionales, gratuitos, de pago, libres, propietarios, etc. A continuación damos una lista de los principales.
 
 \begin{itemize}
-    \item \textbf{IDEs Gratuitos y de Libre Distribución}
+    \item IDEs Gratuitos y de Libre Distribución:
     \begin{itemize}
         \item \textbf{Netbeans}
         \item \textbf{Eclipse}
@@ -595,14 +595,66 @@ Existen una gran variedad de IDEs en el mercado para el lenguaje de programació
         \item \textbf{JCreator LE}
     \end{itemize}
 
-    \item \textbf{IDEs Propietarios}
+    \item IDEs Propietarios:
     \begin{itemize}
         \item \textbf{IntelliJ IDEA}
         \item \textbf{JDeveloper}
     \end{itemize}
 \end{itemize}
 
-Actualmente, los más utilizados por la comunidad son \textbf{Netbeans}, \textbf{Eclipse} y \textbf{IntelliJ IDEA}. En los siguiente epígrafes vamos a ver las características de \textbf{Netbeans} y \textbf{Eclipse}, aunque si quieres ver una comparativa más exhaustiva sobre los diferentes IDE puede consultar \href{https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Java}{esta entrada en Wikipedia}.
+Actualmente, los más utilizados por la comunidad son \textbf{Netbeans}, \textbf{Eclipse} y \textbf{IntelliJ IDEA}. En los siguiente epígrafes vamos a ver las características de \textbf{Netbeans}, aunque si quieres ver una comparativa más exhaustiva sobre los diferentes IDE puede consultar \href{https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Java}{esta entrada en Wikipedia}.
+
+\subsection{El Entorno Netbeans}
+Como hemos comentado anteriormente, nosotros vamos a usar \textbf{Netbeans} como entorno de desarrollo, así que lo primero que vamos a hacer es estudiar sus características y ver que puede aportar al proceso de desarrollo.
+
+Se trata de un entorno de desarrollo \textbf{orientado} principalmente al \textbf{lenguaje de programación Java}, aunque también soporta otros lenguajes. Es un entorno libre y gratuito sin restricciones de uso, siendo un \textbf{proyecto de código abierto} con una gran comunidad de usuario en continuo crecimiento y apoyado por varias empresas.
+
+Netbeans lleva un tiempo pugnando con Eclipse por convertirse en la plataforma mas importante de desarrollo de aplicaciones Java y hasta el nombre, Eclipse, es una declaración de intenciones por hacerle la competencia a Oracle, la empresa propietaria de Netbeans. Aunque Oracle adquirió Sun Microsistems en 2009, Netbeans sigue siendo de código abierto y ofrece las siguiente características, entre otras:
+
+\begin{itemize}
+    \item Permite escribir código en \textbf{C++}, \textbf{C}, \textbf{Ruby}, \textbf{Groovy}, \textbf{Javascript}, \textbf{CSS} y \textbf{PHP}, además de por supuesto, \textbf{Java}.
+    \item Permite crear aplicaciones \textbf{J2EE} gracias a que incorpora servidores de aplicaciones Java como \textbf{Glassfish} y \textbf{Tomcat}.
+    \item Permite crear aplicaciones gráficas con \textbf{Swing} de forma sencilla al estilo del Visual Studio de Microsoft.
+    \item Permite crear aplicaciones \textbf{JME} para dispositivos móviles.
+\end{itemize}
+
+La plataforma Netbeans permite el desarrollo de aplicaciones a partir de un conjunto de componente de software llamados módulos. Un \textbf{módulo} no es más que un archivo Java que contiene un conjunto de clases escritas para interactuar con la API de Netbeans y un archivo especial, \textbf{manifest file}, que lo identifica como módulo.
+
+Las aplicaciones creadas a partir de módulos pueden ser extendidas añadiendo más módulos. Debido a que los módulos pueden ser desarrollados por cualquiera, las aplicaciones basadas en esta plataforma pueden ser extendidas por cualquier desarrollador.
+
+Cada módulo provee una función bien definida, tales como soporte para Java, edición o soporte para sistemas de control de versiones. Netbeans contiene todos los módulos necesarios para el desarrollo de aplicaciones Java en una sola descarga, permitiendo que la persona que va a trabajar con el comience a hacerlo inmediatamente.
+
+En la \href{https://netbeans.apache.org/}{página oficial de Netbeans} puede encontrar toda la información que necesites sobre este IDE, así como aprender de forma más exhaustiva su uso diario.
+
+\subsection{Instalación y Configuración}
+En este curso, vamos utilizar la versión \textbf{Netbeans 19} del IDE, que es la última versión estable disponible. Para realizar su instalación debemos seguir los siguientes pasos:
+
+\begin{enumerate}
+    \item Descargar la versión que deseemos de su página oficial, la cual podemos encontrar en \href{https://netbeans.apache.org/download/index.html}{este enlace}. En nuestro caso, descargaremos la versión 19.
+    \item Ejecutar el fichero de instalación, en caso de que sea en Windows, o utilizar el gestor de paquetes APT para realizar la instalación del paquete, en caso de que usemos Linux.
+\end{enumerate}
+
+A continuación, se proporcionan 2 enlace donde se explica la instalación y creación de un proyecto con Netbeans. Estos vídeos son sobre la versión 16 de Netbeans, pero el proceso es el mismo que la versión 19, que es la que usaremos.
+
+\begin{itemize}
+    \item \href{https://www.youtube.com/watch?v=7c-JgO7QhMY&t=1s}{Instalación de Netbeans 16 - YouTube}
+    \item \href{https://www.youtube.com/watch?v=AxAJdvikdtk}{Creación del primer proyecto con Netbeans - YouTube}
+\end{itemize}
+
+\subsection{Aspecto del Entorno y Gestión de Proyectos}
+La pantalla inicial de nuestro entorno ofrece accesos directos a las operaciones más usuales: aprendizaje inicial, tutoriales, ejemplos, demos, los últimos programas realizados y las novedades de la versión.
+
+Para describir el aspecto del entorno, es necesario crear un nuevo proyecto accediendo al menú ``\textbf{\textit{File -> New Project}}'', donde indicaremos el tipo de aplicación que vamos a crear.
+
+Una vez creado nuestro proyecto, la interfaz de Netbeans cambiará, y nos mostrará un conjunto de pestañas he información que podemos ver de forma resumida en la siguiente figura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{netbeans-1.png}
+    \caption{Ventana de proyecto de Netbeans}
+\end{figure}
+
+Cuando trabajemos con Netbeans nuestros proyectos harán usos de clases para poder desarrollar las operaciones de nuestros programas. Estas clases se agrupan en paquetes. En las siguientes figuras se muestra un esquema de como se gestiona la creación de paquetes.
 
 
 % Bibliography
