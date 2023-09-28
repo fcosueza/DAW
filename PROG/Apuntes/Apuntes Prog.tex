@@ -436,6 +436,174 @@ Los diferentes elementos que podemos ver en esta figura son los siguientes:
 \end{itemize}
 
 \subsection{El Entorno Básico de Desarrollo de Java}
+La herramienta básica para comenzar a desarrollar aplicaciones en Java es el \textbf{JDK} (\textbf{Java Development Kit}), que incluye un compilador y un interprete para la línea de comandos. Estos dos programas son los empleados en la compilación y la interpretación del código.
+
+Como veremos, existen diferentes entornos para el desarrollo de aplicaciones en Java que incluyen una gran variedad de herramientas, pero por ahora nos centraremos en el entorno básico, extendido y gratuito, el Java Development Kit. JDK es un entorno para construir aplicaciones, applets y componentes utilizando el lenguaje de programación Java, incluyendo todas las herramientas necesarias para su construcción y ejecución.
+
+Junto con JDK se incluye una implementación del entorno de ejecución Java, conocido como \textbf{Java Runtime Environment} (\textbf{JRE}), para ser utilizado por JDK. El JRE incluye la \textbf{Java Virtual Machine} (\textbf{JVM}), bibliotecas de clases y otros ficheros que soportan la ejecución de programas escritos en Java.
+
+Java fue creado por Sun Microsystems, pero posteriormente fue absorbida por Oracle, los que no han dejado de lanzar versiones de JDK. Con el lanzamiento de Java 11, Oracle hizo un cambio de licencia de modo que se convirtió en tecnología de pago en caso de usarlo en ciertas circunstancias. Podemos usar JDK u otras implementaciones abiertas. En nuestro caso, usaremos \textbf{OpenJDK}.
+
+\textbf{OpenJDK} es la versión libre de la plataforma de desarrollo Java, en concreto de su versión \textbf{Java SE} (Standard Edition). Esta bajo la licencia \textbf{GPL 2.0} y desde la versión 7 de Java SE, OpenJDK es la versión de referencia. \cite{wiki01}
+
+En \href{https://www.muylinux.com/2021/03/23/adoptium-working-group-adoptopenjdk-eclipse-foundation-openjdk/}{este enlace} podemos ver una guía de como instalar OpenJDK en las principales distribuciones.
+
+\subsection{La API de Java}
+Dentro del kit de desarrollo de Java que acabos de ver se incluyen gratuitamente todas las bibliotecas de Java, los que se conoce como la \textbf{API} (Advanced Programing Interface) de Java, lo que se conoce como \textbf{Biblioteca de Clases Java}. Este conjunto de bibliotecas proporcionar al programador paquetes de clases útiles para la realización de diferentes tareas dentro de un programa. Las bibliotecas están organizadas en paquetes donde cada paquete tiene un conjunto de clases relacionadas semánticamente.
+
+En décadas pasadas una biblioteca era un conjunto de programas que contenía cientos de rutinas. Estas rutinas manejaban las tareas de todos o casi todos los programas que necesitaban. El programador podía recurrir a estar bibliotecas para para desarrollar programas con rapidez.
+
+Una biblioteca de clases es un conjunto de clases en programación orientada a objetos. Estas clases contienen métodos que son útiles para los programadores realizando diferentes tareas. En el caso de Java, cuando descargamos el JDK obtenemos la biblioteca de clases API. Utilizar las clases y métodos de la API de Java acelera el proceso de desarrollo de los programas. También, existen diferentes bibliotecas de clases desarrolladas por terceros que contienen componentes reutilizables de software y están disponibles a través de la web.
+
+En la \href{https://docs.oracle.com/en/java/javase/index.html}{página oficial de Oracle} podemos encontrar información más detallada sobre la API de Java.
+
+\subsection{Afinando la Configuración}
+Para que podamos compilar y ejecutar ficheros Java es necesario que realicemos unos pequeños ajustes en la configuración del sistema. Vamos a indicarle donde puede encontrar los ficheros necesarios para realizar la labores de compilación y ejecución, es esta caso los ficheros \textbf{javac.exe} y \textbf{java.exe}, así como las librerías incluidas en la API de Java y las clases de usuario. Esto lo haremos definiendo o editando las siguientes variables del sistema.
+
+\begin{itemize}
+    \item \textbf{Variable PATH}: como aún no disponemos de un IDE (Integrated Development Environment), la única forma de ejecutar programas es a través de la línea de comandos. Pero sólo podremos ejecutar programas directamente si la ruta hacia ellos esta indicada en la variable de sistema PATH. Es necesario que incluyamos la ruta hacia estos programas en nuestra variable PATH, incluyendo la ruta donde se instaló JDK hasta su directorio \textbf{bin}.
+
+    \item \textbf{Variable CLASSPATH}: esta variable de entorno establece donde encontrar la librerías y clases de la API de Java, así como las clases creadas por el usuario. Es decir, los ficheros \textbf{.class} que se obtienen una vez compilado el código fuente de un programa escrito en Java. Es posible que en dicha ruta existan ficheros comprimidos en los formatos \textbf{zip} o \textbf{jar} que pueden ser utilizados directamente por JDK, conteniendo en su interior los archivos \textbf{class}.
+\end{itemize}
+
+\subsection{Codificación, Compilación y Ejecución de Aplicaciones}
+Una vez que la configuración del entorno de Java y tenemos el código fuente de nuestro programa escrito en un archivo con extensión \textbf{.java}, la compilación de aplicaciones se realiza mediante el programa \textbf{javac} incluido en JDK.
+
+Para llevar a cabo esta compilación deberemos usar el comando \textbf{\textit{javac archivo.java}}, desde la línea de comandos, donde archivo.java es el archivo con nuestro código fuente.
+
+El resultado de la compilación sera un nuevo archivo con el mismo nombre que el nuestro pero con una extensión \textbf{.class}. Este es el archivo con el código a bytecode, es decir, con el código precompilado. Si en el código fuente de nuestro programa figuraran más de una clase, veremos como al realizar la compilación se generarán tantos archivos .class como clases tengamos. Además, si esta clases tenía el método \textbf{main()} podremos ejecutarlas por separado para ver el funcionamiento de dichas clases.
+
+Para que el programa pueda ser ejecutado, siempre y cuando este incluido en el interior el método \textbf{main()}, podemos usar el interprete incluido en JDK. Para ello, usaremos el comando \textbf{\textit{java archivo}}.
+
+Donde \textbf{java} es el interprete y \textbf{archivo} es el archivo con el código precompilado a bytecode, es decir, el archivo con extensión \textbf{.class}. Hay que destacar que no hay que incluir la extensión del archivo .class al llamar al interprete, solo debemos poner el nombre del archivo.
+
+\subsubsection{Estandarización del Código}
+Cada vez que escribamos código es importante que sigamos unas normas o estándares que nos ayuden a realizar este proceso siempre de la misma manera. De este modo todos los programas tendrán una estructura similar y nos resultará mucho más sencillo localizar los componentes en cada uno.
+
+En caso del lenguaje Java ya hemos visto la estructura básica de un programa. A partir de aquí, vamos a desarrollar una plantilla que nos ayudará a desarrollar nuestro programas sin tener que reescribir las partes comunes una y otra vez.
+
+Nuestra plantilla podría tener la siguiente \textbf{estructura}:
+
+\begin{enumerate}
+    \item \textbf{Declaración de la clase principal}: aquí podríamos poner el \textbf{nombre de nuestro programa}. Es decir, en lugar de llamar a la clase \textbf{ClasePrincipal}, podríamos llamar \textbf{Concurso}, \textbf{Juego}, \textbf{CalculoDeAreas}, etc. Esto es, algún nombre que nos de una pista sobre el funcionamiento de nuestro programa.
+
+    \item \textbf{Método main}: dentro del componente anterior y encerrado entre llaves. Este nombre no se puede cambiar. En su interior estarán las líneas de código de nuestro programa:
+
+    \begin{enumerate}
+        \item \textbf{Declaración de constantes y variables}:
+        \begin{enumerate}
+            \item Declaración de \textbf{constantes}
+            \item Declaración de \textbf{variables de entrada}
+            \item Declaración de \textbf{variables de salida}
+            \item Declaración de \textbf{variables auxiliares}
+        \end{enumerate}
+        \item \textbf{Cuerpo del Programa}
+        \begin{enumerate}
+            \item \textbf{Entrada de datos}
+            \item \textbf{Procedimientos}
+            \item \textbf{Salida de datos}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+Si seguimos esta estructura, será muy fácil analizar nuestro programas pues estarán divididos en distintos elementos con significado propio cada uno de ellos. Ahora bien, tampoco hay que ser excesivamente rígidos. Dependiendo de la naturaleza y al complejidad del	programa es posible que alguna vez estas tres partes se fundan en una, especialmente cuando el programa sea interactivo y se sigan introduciendo datos a la vez que se van procesando e incluso devolviendo resultados.
+
+\subsubsection{Problemas con Caracteres Acentuados}
+A veces cuando intentamos ejecutar un programa Java y este tiene caracteres acentuados podemos obtener símbolos extraños, en vez de dichos caracteres, especialmente si estamos trabajando con la consola de comandos.
+
+Una solución simple que suele funcionar en la mayoría de los casos es compilar el archivo de código fuente con normalidad, indicando cuando se vaya a realizar su ejecución la opción \textit{\textbf{-Dfile.encoding}} con la codificación que queremos emplear, es decir:
+
+
+\begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+    \scriptsize
+    \begin{verbatim}
+
+
+java -Dfile.encoding=cp850 PROG_programa1
+    \end{verbatim}
+\end{tcolorbox}
+
+En este ejemplo, la página de códigos que usamos es la 850, pero se puede forzar al interprete a usar cualquier codificación que queramos, siempre y cuando este la soporte. Para saber que codificación usa nuestro sistema, podemos usar el comando \textbf{\textit{chcp}} desde la consola, que nos mostrará dicha codificación.
+
+\subsection{Tipos de Aplicaciones en Java}
+La versatilidad del lenguaje de programación Java permite al programador crear distintos tipos de aplicaciones, los cuales listamos a continuación:
+
+\begin{itemize}
+    \item \textbf{Aplicaciones de Consola}
+    \begin{itemize}
+        \item Son programas independientes al igual que los creados con otros lenguajes tradicionales.
+        \item Se componen como mínimo de un archivo \textbf{.class} que debe contener necesariamente el método \textbf{main()}.
+        \item No necesitan un navegador y se ejecutan cuando invocamos el comando \textbf{java}. Si no se encuentra el método \textbf{main()} la aplicación no podrá ejecutarse.
+        \item Estas aplicaciones leen y escriben hacia y desde la entrada y salida estándar, sin ninguna interfaz de usuario.
+    \end{itemize}
+
+    \item \textbf{Aplicaciones Gráficas}
+    \begin{itemize}
+        \item Aquellas que utilizan clases con capacidades gráficas, como \textbf{Swing}, que es la biblioteca para la interfaz gráfica de la API de Java.
+        \item Incluyen instrucciones de tipo \textbf{import}, que indican al compilador de Java que clases del paquete \textbf{javax.swing} se incluyan en la compilación.
+    \end{itemize}
+
+    \item \textbf{Applets}
+    \begin{itemize}
+        \item Son programas incrustados en otras aplicaciones, normalmente páginas web que se muestran en el navegador. Cuando el navegador carga una web que contienen applets, estos se descargan en el navegador y comienza su ejecución. Esto nos permite crear programas que cualquier usuario con un navegador web puede utilizar.
+        \item Los applets se descargan junto con una página HTML y se ejecutan en la máquina del cliente.
+        \item No tienen acceso a partes sensibles a menos que uno le de los permisos oportunos.
+        \item No tienen un método principal.
+        \item Son multiplataforma y pueden ejecutarse en cualquier navegador que soporte Java.
+    \end{itemize}
+
+    \textbf{Servlets}
+    \begin{itemize}
+        \item Son componente de la parte del servidor de Java EE, encargados de generar respuestas a las peticiones realizadas por los usuarios.
+        \item Al contrario que los applets, están pensados para trabajar en el lado del servidor y procesar las peticiones de los clientes.
+    \end{itemize}
+
+    \item \textbf{Midlets}
+    \begin{itemize}
+        \item Son aplicaciones Java creadas para su ejecución en sistemas de propósito simple o móviles.
+        \item Se usan en dispositivos embebidos, mas específicamente para la máquina virtual Java Micron Editio (Java ME).
+        \item Generalmente son juegos y aplicaciones que se ejecutan en teléfonos móviles.
+    \end{itemize}
+\end{itemize}
+
+Como vemos, la variedad de aplicaciones que podemos crear con Java es enorme, ya dependerá de lo que estemos interesados en crear, usaremos unas u otras opciones y librerías.
+
+\section{Entornos Integrados de Desarrollo}
+En los comienzos de Java la utilización de la línea de comandos era algo habitual. El programador escribía el código utilizando un editor de textos básico y a continuación utilizaba el compilador para obtener el código compilado. En un paso posterior necesitaba usar una herramienta para ensamblar el programa. Por último, podía probar el programa desde la línea de comandos. El problema surgía cuando ocurría algún error y había que iniciar el proceso de nuevo.
+
+Esto hacía que el proceso de desarrollo no estuviera optimizado. Con el paso del tiempo se fueron desarrollando aplicaciones que incluían todas las herramientas necesarias para que el proceso de desarrollo fuera más rápido, sencillo y fiable. Para cada lenguaje de programación existen múltiples entornos de desarrollo, cada uno con sus ventajas e inconvenientes. Dependiendo de las necesidades y gustos del programador, se elegirá uno u otro.
+
+Para el lenguaje de programación Java existen diferentes alternativas, siendo los principales entornos de desarrollo \textbf{Netbeans}, desarrollado por Sun y \textbf{Eclipse}. Ambos gratuitos, con soporte de idiomas y multiplataforma (Windows, Linux y MacOS).
+
+En nuestro caso, el entorno que vamos a usar durante nuestros desarrollos va a ser \textbf{Netbeans}, ya que es de código abierto y además ha sido desarrollado por la misma compañía que desarrollo el lenguaje Java.
+
+\subsection{¿Que es un IDE?}
+Los \textbf{IDE} (Integrated Development Environment) son aplicaciones que permiten llevar todo el proceso de desarrollo de software a través de una misma aplicación. Podremos realizar labores de edición, compilación, depuración, detección de errores, corrección y ejecución de programas escritos en Java o en otros lenguajes de programación bajo un entorno gráfico. Junto a estas características, cada entorno añade otras que ayudan a realizar el proceso de programación, como por ejemplo: resaltado de sintaxis, plantillas de diferentes tipos de aplicaciones, creación de proyectos, etc...
+
+Hay que tener en cuenta que un IDE es solo una fachada para el proceso de desarrollo, por lo que tendremos que tener instalados compiladores, interpretes y demás para su correcto funcionamiento.
+
+\subsection{IDE Actuales}
+Existen una gran variedad de IDEs en el mercado para el lenguaje de programación Java, orientados a principiantes, para profesionales, gratuitos, de pago, libres, propietarios, etc. A continuación damos una lista de los principales.
+
+\begin{itemize}
+    \item \textbf{IDEs Gratuitos y de Libre Distribución}
+    \begin{itemize}
+        \item \textbf{Netbeans}
+        \item \textbf{Eclipse}
+        \item \textbf{BlueJ}
+        \item \textbf{jGRASP}
+        \item \textbf{JCreator LE}
+    \end{itemize}
+
+    \item \textbf{IDEs Propietarios}
+    \begin{itemize}
+        \item \textbf{IntelliJ IDEA}
+        \item \textbf{JDeveloper}
+    \end{itemize}
+\end{itemize}
+
+Actualmente, los más utilizados por la comunidad son \textbf{Netbeans}, \textbf{Eclipse} y \textbf{IntelliJ IDEA}. En los siguiente epígrafes vamos a ver las características de \textbf{Netbeans} y \textbf{Eclipse}, aunque si quieres ver una comparativa más exhaustiva sobre los diferentes IDE puede consultar \href{https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Java}{esta entrada en Wikipedia}.
+
 
 % Bibliography
 
