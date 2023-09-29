@@ -765,6 +765,139 @@ En el siguiente ejemplo, vemos la creación de dos variables:
     \item \textbf{y}: variable \textbf{mutable} que solo podrá ser accedida dentro del bloque de código donde se ha declarado, en este caso, el método \textbf{main()}, ya que fuera de él no existe. Podrá modificarse el valor que contiene tantas veces como se quiera a lo largo de la vida del programa.
 \end{itemize}
 
+En aparatados posteriores veremos como expandir más la funcionalidad de nuestro programas, por ahora, este ejemplo, solo muestra 3 líneas indicando que este es el primer programa y el valor de las variables.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.65]{ejemplo-variables-2.png}
+\end{figure}
+
+La salida del programa por pantalla será la siguientes:
+
+\begin{figure}[H]
+    \includegraphics[scale=0.50]{salida-ejemplo-variables-2.png}
+\end{figure}
+
+\section{Los Tipos de Datos}
+En los \textbf{lenguajes fuertemente tipados}, como es el caso de Java, a todo dato le corresponde un tipo que es conocido antes de que se ejecute el programa.
+
+El tipo, limita el valor de la variable o expresión, las operaciones que se pueden realizar sobre esos valores y el significado de esas operaciones. Esto es así porque \textbf{un tipo}, no es más que la \textbf{especificación} de los valores que son \textbf{válidos} para esa variable y las operaciones que se pueden realizar sobre ella.
+
+Durante el proceso de compilación, el compilador revisa todas las variables y sus tipos, sabiendo de antemano que rango de valores va a contener cada una. En el caso de que intentemos asignar a una variable un valor de otro tipo, el compilador mostrará un error. Aún así, en Java podemos realizar \textbf{conversiones entre ciertos tipos de datos}, lo que se conoce como \textbf{casting}.
+
+Aunque ahora no vamos a entrar en detalle sobre la conversión de tipos, si es conveniente que sepas los tipos de datos que podemos encontrar en Java. Estos tipos de datos, pueden ser principalmente de dos categorías:
+
+\begin{itemize}
+    \item \textbf{Tipos de datos primitivos}: representan valores simples que vienen predefinidos en el lenguaje, como por ejemplo, un carácter o un número.
+
+    \item \textbf{Tipos de datos referencia}: se definen como un nombre o referencia que contiene la dirección de memoria de un valor o grupo de valores. Dentro de este tipo podemos encontrar, por ejemplo, los \textbf{vectores}, más usualmente conocidos como \textbf{arrays}, que son una serie de elementos del mismo tipo, o las \textbf{clases}, que son los modelos a partir de los cuales se crean objetos.
+\end{itemize}
+
+En los siguientes apartados veremos con más detalle estos dos tipos de datos.
+
+\subsection{Tipos de Datos Primitivos}
+Los \textbf{tipos primitivos} son aquellos datos sencillos que constituyen el tipo de datos más habituales: números, caracteres y valores lógicos. Al contrario que en otros lenguajes de programación, en Java, estos valores \textbf{no son objetos}.
+
+Una de las mayores \textbf{ventajas} de tratar con datos primitivos es que el compilador puede optimizar mejor su uso. Además, cada uno de los tipos tiene \textbf{idéntico tamaño} en las \textbf{diferentes versiones de Java} y para \textbf{cualquier tipo de ordenador}. Esto quiere decir que no debemos de preocuparnos como se representa cada tipo de datos en las diferentes plataformas, asegurando la \textbf{portabilidad} de los programas, a diferencia de lo que ocurro con otros lenguajes.
+
+Es importante que consultes \href{https://dcodingames.com/tipos-de-datos-en-java/}{este enlace}, donde se explica con más detalle los diferentes tipos de datos primitivos que nos podemos encontrar en Java y el rango de valores que pueden tomar.
+
+\subsubsection{Tipo Entero y Carácter}
+
+Hay una peculiaridad con los datos primitivos en Java, y es que el tipo de dato \textbf{\textit{char}} es considerado un número por el compilador, ya que los valores que guarda son el código Unicode correspondiente al carácter que representa, no en carácter en sí, por lo que \textbf{puede operarse con caracteres} como si fueran \textbf{números}.
+
+A la hora de elegir un tipo deberemos \textbf{tener en cuenta} como es la información que va a almacenar, si es un número, una letra, un valor booleano,.. así como el tango de valores que va a poder tomar. En este sentido, hay veces que aunque no queramos representar un número con decimales, deberemos usar un número real.
+
+Por ejemplo, si queremos representar la población mundial del planeta, no podremos usar un dato de tipo \textbf{int}, ya que el valor máximo que puede alcanzar es 2.147.483.647, siendo este el número máximo de combinaciones posibles con 32 bits, teniendo en cuenta que en Java la representación de los números enteros se realiza en complemento a 2. Si queremos representar a la población mundial deberemos usar al menos un tipo de dato \textbf{long}, o si tenemos problemas de espacio, de tipo \textbf{float}. Sin embargo los \textbf{tipos reales} tiene otro problema, \textbf{la precisión}.
+
+\subsubsection{Tipo Real}
+El \textbf{tipo de dato real} permite representar números con decimales. Al igual que ocurre con los enteros, la mayoría de lenguajes define diferentes tipos de datos reales, dependiendo del número de bits que utilicen para realizar la representación. Cuanto mayor bits se usen:
+
+\begin{itemize}
+    \item \textbf{Más grande} podrá ser el número real representado.
+    \item \textbf{Mayor será} la \textbf{precisión} de la parte decimal.
+\end{itemize}
+
+Entre dos números reales cualesquiera, matemáticamente siempre tendremos infinitos números reales, pero un ordenador no puede representar infinitos números, porque no dispone de capacidad ilimitada, por lo que la mayoría de números reales \textbf{se representan} de \textbf{forma aproximada}.
+
+Los números reales se representan en \textbf{coma flotante} o \textbf{notación científica}, que consiste en trasladar la coma a la primera cifra significativa del valor, con objeto de poder representar el máximo de números posibles.
+
+Internamente, un número se representa en el interior de un computador con la siguiente formula:
+
+\begin{equation*}\label{key}
+    Valor = mantisa*2^{exponente}
+\end{equation*}
+
+Donde la \textbf{mantisa} son las cifras significativas del número. De este modo, para almacenar el número, solo se guardan la mantisa y el exponente al que va a ser elevada la base. Los bits empleados por la \textbf{mantisa} representan la \textbf{precisión} del número real, es decir, el número de cifras decimales significativas que puede tener el número, mientras que los bits del \textbf{exponente} representan la diferencia entre el mayor y menor número representable, es decir, el \textbf{intervalo de representación}.
+
+En Java las variables de tipo \textbf{float} se emplean para representar los números de coma flotante de simple precisión de \textbf{32 bits}, de los cuales 24 bits son para la mantisa y 8 bits para el \textbf{exponente}. Por su parte, las variables de tipo \textbf{double} representan los números en coma flotante con doble precisión de \textbf{64 bits}, de los cuales 53 son para la mantisa y 11 para el exponente.
+
+La mayoría de programadores usa \textbf{double} en Java cuando están tratando con datos de tipo real. Es una forma de asegurarse que los errores cometidos en la sucesivas aproximaciones sea menor. De hecho, Java considera los datos de tipo coma flotante como \textbf{double} por defecto. Así el literal \textbf{3.25} será considerado como tipo double. En caso de querer representarlo como float deberemos indicarlo en su definición con \textbf{3.25f} o \textbf{3.25F}.
+
+Con objetivo de conseguir la máxima portabilidad de los programas, Java usa el estándar \href{https://grouper.ieee.org/groups/msc/ANSI_IEEE-Std-754-2019/}{IEE 754} para la representación interna de los números en coma flotante, para asegurarse que el resultado de los cálculos sea el mismo en todas las plataformas.
+
+\subsection{Tipos Referenciados}
+A partir de los tipos de datos primitivos, se pueden construir otros tipos de datos. Estos tipos de datos se llaman \textbf{tipos referenciados} o \textbf{referencias}, porque se utilizan para almacenar la dirección de los datos en la memoria del ordenador.
+
+\begin{figure}[H]
+    \includegraphics[scale=1]{ejemplo-referencia.png}
+\end{figure}
+
+En la primera línea declaramos una lista de elementos del mismo tipo, en este caso, enteros, lo que se suele conocer como un \textbf{array de enteros}. En la segunda línea declaramos un objeto, \textbf{cuentaCliente}, como una referencia del tipo \textbf{Cuenta}.
+
+Cualquier aplicación de hoy en día necesita tratar con un conjunto de datos. Cuando estos datos tiene características similares suelen agruparse en estructuras para facilitar el acceso a los mismos. Son los llamados \textbf{datos estructurados}. Algunos ejemplos de estos datos son los \textbf{arrays}, \textbf{listas}, \textbf{arboles}, etc. Pueden estar en la memoria del programa en ejecución,	guardados en el disco como ficheros o almacenados en una base de datos.
+
+Además de los 8 tipos de datos primitivos visto anteriormente, Java proporciona un tratamiento especial a los textos o cadenas de caracteres mediante el tipo de dato \textbf{String}. Java crea automáticamente este tipo de dato cuando se encuentra un cadena de caracteres encerrada entre comillas dobles. En realidad se trata de \textbf{objetos} y por tanto son \textbf{tipos referenciados}, aunque el lenguaje nos permite usarlos de forma sencilla como si fueran tipos primitivos.
+
+En esta unidad no veremos como definir ni tratar los datos referenciados, los cuales veremos en unidades posteriores de este curso con más detalle.
+
+\subsection{Tipos Enumerados}
+Los \textbf{tipos de datos enumerados} permiten declarar una variable con un conjunto restringido de valores. Por ejemplo: los dias de las semana, los meses de un año, etc..
+
+Para declararlos, se usa la palabra reservada \textbf{enum}, seguida del nombre de la variable y la lista de valores que puede tomar entre llaves. Los valores que puede tomar se consideran constantes, van separados por comas y deben ser valores únicos.
+
+Este tipo de dato es considerado por Java como un tipo de clase, por lo que no solo podemos definir los valores del tipo enumerado, sino que también podemos definir operaciones a realizar con él y otro tipo de elementos, lo que hace que este tipo de dato sea más versátil y potente que en otros lenguajes de programación. Por el momento debemos quedarnos con el \textbf{tipo enum} nos \textbf{permite definir} un nuevo \textbf{tipo de dato} donde los valores que puede tomar son los que nosotros indicamos.
+
+A continuación tienes un ejemplo de creación y uso del tipo de dato \textbf{enum} en Java. Declaramos un \textbf{enum Dias} que contiene valores que representan todos los posibles días de la semana. Para acceder a cada valor, se utiliza el nombre del \textbf{enum}, seguido de un punto y el valor de la lista.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.70]{ejemplo-enum.png}
+\end{figure}
+
+Este ejemplo ademas de declarar \textbf{enum Dias} con su posibles valores declara dos variables de ese nuevo tipo (\textbf{diaActual y diaSiguiente}) que acabamos de definir y les asigna valores de entre el conjunto de valores posibles.
+
+\subsection{Declaración e Inicialización}
+Como podrás imaginar, debemos de crear la variables antes de utilizarlas en nuestro programas, indicando que nombre van a tener y que tipo de información van a almacenar, es decir, debemos \textbf{declarar la variable}.
+
+Las variables se pueden declarar en cualquier bloque de código, dentro de llaves. Y lo hacemos indicando su \textbf{identificador} y el \textbf{tipo de datos}, separadas por comas si vamos a declarar varias a la vez, por ejemplo:
+
+\begin{figure}[H]
+    \includegraphics[scale=1]{declaracion-variables-1.png}
+\end{figure}
+
+De esta forma, estamos declarando \textbf{numeroAlumnos} como una variable de tipo \textbf{int} y otras dos variables, \textbf{radio} e \textbf{importe}, de tipo \textbf{double}. En este caso se les asigna una valor en la declaración de las variables para inicializarlas, aunque esto no es obligatorio.
+
+Si la variable va a permanecer inalterable a lo largo del programa, la declararemos \textbf{constante}, utilizando la palabra reservada \textbf{final} de la siguiente forma:
+
+\begin{figure}[H]
+    \includegraphics[scale=1]{declaracion-variables-2.png}
+\end{figure}
+
+En algunas ocasiones declararemos variables sin asignarles un valor. Hay que tener en cuenta que las \textbf{variables} \textbf{no se inicializan de forma automática}, por lo que deberemos ser nosotros los que les asignemos un valor antes de ser usadas, ya que si el compilador detecta que intentamos usar una variable antes de que sea inicializada nos devolverá un error.
+
+Por último, vamos a ver un ejemplo de declaración y uso de todos los tipos primitivos que hemos visto (lo referenciados se verán mas adelante), aunque también se incluye el tipo String, que es de tipo referenciado pero Java permite trabajar con el como si fuera un tipo primitivo.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.65]{declaracion-variables-4.png}
+\end{figure}
+
+El resultado que se obtendrá por pantalla al ejecutar este programa tendrá el siguiente aspecto:
+
+\begin{figure}[H]
+    \includegraphics[scale=0.55]{declaracion-variables-4-salida.png}
+\end{figure}
+
+
+
 % Bibliography
 
 \newpage
