@@ -654,8 +654,116 @@ Una vez creado nuestro proyecto, la interfaz de Netbeans cambiará, y nos mostra
     \caption{Ventana de proyecto de Netbeans}
 \end{figure}
 
-Cuando trabajemos con Netbeans nuestros proyectos harán usos de clases para poder desarrollar las operaciones de nuestros programas. Estas clases se agrupan en paquetes. En las siguientes figuras se muestra un esquema de como se gestiona la creación de paquetes.
+Cuando trabajemos con Netbeans nuestros proyectos harán usos de clases para poder desarrollar las operaciones de nuestros programas. Estas clases se agrupan en paquetes. En la siguiente figura se muestra un esquema de como se gestiona la creación de paquetes.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{netbeans-2.png}
+    \caption{Creación de paquetes en Netbeans}
+\end{figure}
+
+Al igual que los paquetes, las clases se pueden crear de la misma forma, solo tenemos que seleccionar la opción ``\textbf{Java Class}'' en el menú que se muestra en al figura anterior, en vez de la opción ``\textbf{Java Package}''.
+
+Una de las ventajas que ofrece este entorno es que podemos examinar nuestro proyectos a través de la vista \textbf{Archivos}. Esta vista nos enseña los archivos del proyecto, como la carpeta \textbf{build}, que contiene los archivos \textbf{.class}, la carpeta \textbf{src}, que es donde se encuentran los archivos de código fuente y el resto, son archivos creador por Netbeans para comprobar la configuración del proyecto o los archivos necesarios para interpretación del código en otros sistema. Para activar esta vista, seleccionar la opción ``\textbf{Window --> Files}.
+
+\section{Variables e Identificadores}
+Un programa maneja datos para hacer cálculos, presentar resultados, solicitarlos al usuario, guardarlos en disco, etc. Para poder manejar estos datos, el programa los guarda en \textbf{variables}.
+
+Una \textbf{variable} es una zona de memoria del computador que puede almacenar un valor de un determinado tipo para ser usado más tarde en el programa. Las variables vienen determinadas por:
+
+\begin{itemize}
+    \item Un \textbf{nombre} que permite al programa acceder al valor que contiene en memoria. Debe ser un identificador válido, por ejemplo, podría llamarse \textit{precioVenta}. A este nombre, se le conoce como \textbf{identificador}.
+
+    \item Un \textbf{tipo de datos}, que especifica la clase de información que puede ser guardada por la variable en esta zona de memoria. Por ejemplo, puede ser de tipo entero, o de tipo de cadena de caracteres, o de tipo real, etc. La variable anterior, si pretendemos que almacene precios, podría definirse como de tipo real, para que admita decimales. Cualquier lenguaje permitirá definir uno o varios tipos de reales. En Java, por ejemplo, \textbf{float} y \textbf{double} sería dos tipos de reales.
+
+    \item Un \textbf{rango de valores} que puede admitir dicha variable. Establece el valor máximo y mínimo que se puede almacenar en la variable, así como la precisión. Normalmente va asociado al tipo de dato de la variable. Siguiendo con el ejemplo, en Java la diferencia entre definir una variable de tipo \textbf{float} o \textbf{double} supone que se podrán almacenar números reales más pequeños o más grandes y en la precisión que se puede usar. Así, para un precio, con \textbf{float} tendremos suficiente rango y precisión, ya que solo necesitamos 2 decimales y este tipo nos permite usar incluso más.
+\end{itemize}
+
+\subsection{Identificadores}
+Un \textbf{identificador} en Java es una secuencia ilimitada, sin espacios, de letras y dígitos Unicode, de forma que el \textbf{primer símbolo} de la secuencia \textbf{debe ser una letra}, un \textbf{símbolo de subrayado} (\_) o el \textbf{símbolo del dolar} (\$). A continuación vemos unos ejemplos de identificadores válidos y no válidos.
+
+
+\begin{itemize}
+    \item Identificadores \textbf{válidos}: \textit{x5}, \textit{NUM\_MAX}, \textit{numCuenta}, \textit{\_data} o \textit{\$PI}.
+    \item Identificadores \textbf{no válidos}: \textit{5p}, \textit{-precio} o \textit{\%porcentaje}
+\end{itemize}
+
+En la definición anterior decimos que un identificador puede ser una secuencia ilimitada de caracteres Unicode, pero... ¿qué es Unicode? Unicode es un código de caracteres o o sistema de codificación, un alfabeto que recoge prácticamente todos los caracteres de los idiomas más importantes del mundo. Las lineas de código en los programas se escriben usando este conjunto de caracteres.
+
+El estándar Unicode originalmente utilizaba 16 bits, pudiéndose representar hasta 65.536 caracteres distintos. Actualmente, Unicode puede utilizar más o menos bits dependiendo del formato que se utilice, así, \textbf{UTF-8}, \textbf{UTF-16} o \textbf{UTF-32} pueden usar 8, 16 y 32 bits respectivamente.
+
+A cada carácter le corresponde un número entero unívoco perteneciente al intervalo de 0 a 2 elevado a n, siendo n el número de bits utilizado para representar los caracteres. Por ejemplo, la letra ñ es el entero 164. Además, el código Unicode es compatible con el \textbf{código ASCII}, ya que para los caracteres del código ASCII, Unicode asigna como código los mismos 8 bits, a los que se les añade a la izquierda otros 8 bits todos a 0. Así, la conversión de un carácter ASCII a Unicode es inmediata.
+
+\subsection{Convenios y Reglas}
+A la hora de escribir el nombre de las variables existen una \textbf{reglas de estilo} que, aunque no son obligatorias, se aceptan por convenio y se usan en la mayor parte del código escrito en Java, lo que ayuda a entender más rápidamente la semántica de cada identificador. Estas reglas para la nomenclatura de variables se pueden resumir en:
+
+\begin{itemize}
+    \item Java \textbf{distingue mayúsculas de minúsculas}. Por ejemplo, \textbf{Alumno} y \textbf{alumno} son variables diferentes.
+
+    \item \textbf{No} se suelen emplear identificadores que \textbf{comiencen por ``\textit{\$}'' o ``\textit{\_}''}. Además, el símbolo del dolar, no se suele emplear nunca para identificadores que define el usuario.
+
+    \item \textbf{No} se puede usar como nombre los valores booleanos \textbf{true} o \textbf{false}, así como tampoco el valor nulo, \textbf{null}.
+
+    \item Los \textbf{identificadores} deben ser lo \textbf{más descriptivos posible}. Es mejor usar palabras completas en vez de abreviaciones crípticas. En muchos casos también hará que nuestro código se \textbf{autodocumente}. Por ejemplo, si tenemos que darle nombre a una variable que almacena los datos de un cliente sería recomendable que la misma se llamara algo como \textbf{FicheroCliente} ó \textbf{ManejadorCliente}, y no algo poco descriptivo como \textbf{Cl33}, por más que Java lo considere correcto.
+\end{itemize}
+
+Además de esta restricciones, en la siguiente tabla puedes ver otras convenciones, que no siendo obligatorias, sí son recomendable a la hora de crear identificadores en Java.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{ident-java.png}
+    \caption{Convenciones de identificadores en Java}
+\end{figure}
+
+\subsection{Palabras Reservadas}
+Las \textbf{palabras reservadas} son secuencias de caracteres ASCII cuyo uso se reserva para el lenguaje, y por tanto, \textbf{no pueden utilizarse} para crear identificadores. En la siguiente tabla se muestran todas las palabras reservadas en Java:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{palabras-reservadas.png}
+    \caption{Palabras reservadas en Java}
+\end{figure}
+
+Hay palabras reservadas como \textbf{const} o \textbf{goto}, que apenas se usan en la implementación actual de Java. Por otro lado, puede haber otro tipo de palabras que aunque no sean reservadas tampoco se pueden usar para la creación de identificadores. Es el caso de \textbf{true} y \textbf{false}, que son \textbf{literales booleanos}. Igualmente, \textbf{null} es considerada un literal, no una palabra reservada.
+
+\subsection{Tipos de Variables}
+Dentro de un programa podemos encontrar diferentes tipos de variables. La diferencia entre unas otras dependerá de diferentes factores como el tipo de dato que representan, si el valor puede cambiar o no, o cual es el papel que cumple en el programa.
+
+En el \textbf{lenguaje de programación Java}, podemos distinguir los tipos de variables según los siguientes criterios:
+
+\begin{itemize}
+    \item Según el \textbf{tipo de información} que contengan, podemos hablar de \textbf{variables de tipos primitivos} o \textbf{variables referencia}. En función de al grupo que pertenezca, podrá tomar unos valores u otros, y se podrán definir sobre ella unas operaciones u otras.
+
+    \item Dependiendo de su \textbf{mutabilidad}, podemos hablar de variables \textbf{mutables} ó \textbf{inmutables}, es decir, según su valor pueda ser modificado o no durante la ejecución del programa.
+\end{itemize}
+
+En conclusión podemos decir sobre una variable que:
+
+\begin{enumerate}
+    \item Es un \textbf{almacén temporal de información} que usan los programas para registrar datos y operar con ellos.
+    \item Puede contener un valor de \textbf{tipo primitivo} (entero, real, carácter,...) o bien \textbf{una referencia} (una dirección de memoria) a una zona de memoria que contendrá información mucho más compleja que un simple valor primitivo.
+    \item Se crea y se usa \textbf{dentro de un bloque de código}.
+    \item Deja de existir, es decir, \textbf{se destruye}, cuando la ejecución de ese bloque de código finaliza.
+\end{enumerate}
+
+A continuación vamos a ver un ejemplo de definición de variables. Como vemos, en algunos casos se han indicado un valor inicial, mientras que en otros no.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{ejemplo-variables.png}
+\end{figure}
+
+Como vemos, son pequeños casilleros donde se almacenan cierta información básica (tipos \textbf{primitivos})o bien una referencia (dirección de memoria) a información más compleja (tipos \textbf{referenciados}). En unos casos puede tratarse de información cambiante (\textbf{mutable}) y en otros constante (\textbf{inmutable}).
+
+Por último, apuntar que en \textbf{Java}, para indicar que que una variables es \textbf{inmutable} o \textbf{constante}, se emplea el modificador \textbf{\textit{final}} en su declaración.
+
+En el siguiente ejemplo, vemos la creación de dos variables:
+
+\begin{itemize}
+    \item \textbf{MAXIMO}: variable \textbf{inmutable} (\textbf{final}), con el valor \textbf{4.245}. Al haber sido declarada como constante no podrá modificarse a lo largo de la vida del programa.
+
+    \item \textbf{y}: variable \textbf{mutable} que solo podrá ser accedida dentro del bloque de código donde se ha declarado, en este caso, el método \textbf{main()}, ya que fuera de él no existe. Podrá modificarse el valor que contiene tantas veces como se quiera a lo largo de la vida del programa.
+\end{itemize}
 
 % Bibliography
 
