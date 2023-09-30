@@ -807,7 +807,7 @@ Hay una peculiaridad con los datos primitivos en Java, y es que el tipo de dato 
 
 A la hora de elegir un tipo deberemos \textbf{tener en cuenta} como es la información que va a almacenar, si es un número, una letra, un valor booleano,.. así como el tango de valores que va a poder tomar. En este sentido, hay veces que aunque no queramos representar un número con decimales, deberemos usar un número real.
 
-Por ejemplo, si queremos representar la población mundial del planeta, no podremos usar un dato de tipo \textbf{int}, ya que el valor máximo que puede alcanzar es 2.147.483.647, siendo este el número máximo de combinaciones posibles con 32 bits, teniendo en cuenta que en Java la representación de los números enteros se realiza en complemento a 2. Si queremos representar a la población mundial deberemos usar al menos un tipo de dato \textbf{long}, o si tenemos problemas de espacio, de tipo \textbf{float}. Sin embargo los \textbf{tipos reales} tiene otro problema, \textbf{la precisión}.
+Por ejemplo, si queremos representar la población mundial del planeta, no podremos usar un dato de tipo \textbf{int}, ya que el valor máximo que puede alcanzar es 2.147.483.647, siendo este el número máximo de combinaciones posibles con 32 bits, teniendo en cuenta que en Java la representación de los números enteros se realiza en complemento a 2. Si queremos representar a la población mundial deberemos usar al menos un tipo de dato \textbf{long}, o si tenemos problemas de espacio, de tipo \textbf{\textit{float}}. Sin embargo los \textbf{tipos reales} tiene otro problema, \textbf{la precisión}.
 
 \subsubsection{Tipo Real}
 El \textbf{tipo de dato real} permite representar números con decimales. Al igual que ocurre con los enteros, la mayoría de lenguajes define diferentes tipos de datos reales, dependiendo del número de bits que utilicen para realizar la representación. Cuanto mayor bits se usen:
@@ -829,9 +829,9 @@ Internamente, un número se representa en el interior de un computador con la si
 
 Donde la \textbf{mantisa} son las cifras significativas del número. De este modo, para almacenar el número, solo se guardan la mantisa y el exponente al que va a ser elevada la base. Los bits empleados por la \textbf{mantisa} representan la \textbf{precisión} del número real, es decir, el número de cifras decimales significativas que puede tener el número, mientras que los bits del \textbf{exponente} representan la diferencia entre el mayor y menor número representable, es decir, el \textbf{intervalo de representación}.
 
-En Java las variables de tipo \textbf{float} se emplean para representar los números de coma flotante de simple precisión de \textbf{32 bits}, de los cuales 24 bits son para la mantisa y 8 bits para el \textbf{exponente}. Por su parte, las variables de tipo \textbf{double} representan los números en coma flotante con doble precisión de \textbf{64 bits}, de los cuales 53 son para la mantisa y 11 para el exponente.
+En Java las variables de tipo \textbf{\textit{float}} se emplean para representar los números de coma flotante de simple precisión de \textbf{32 bits}, de los cuales 24 bits son para la mantisa y 8 bits para el \textbf{exponente}. Por su parte, las variables de tipo \textbf{\textit{double}} representan los números en coma flotante con doble precisión de \textbf{64 bits}, de los cuales 53 son para la mantisa y 11 para el exponente.
 
-La mayoría de programadores usa \textbf{double} en Java cuando están tratando con datos de tipo real. Es una forma de asegurarse que los errores cometidos en la sucesivas aproximaciones sea menor. De hecho, Java considera los datos de tipo coma flotante como \textbf{double} por defecto. Así el literal \textbf{3.25} será considerado como tipo double. En caso de querer representarlo como float deberemos indicarlo en su definición con \textbf{3.25f} o \textbf{3.25F}.
+La mayoría de programadores usa \textbf{\textit{double}} en Java cuando están tratando con datos de tipo real. Es una forma de asegurarse que los errores cometidos en la sucesivas aproximaciones sea menor. De hecho, Java considera los datos de tipo coma flotante como \textbf{\textit{double}} por defecto. Así el literal \textbf{3.25} será considerado como tipo double. En caso de querer representarlo como float deberemos indicarlo en su definición con \textbf{3.25f} o \textbf{3.25F}.
 
 Con objetivo de conseguir la máxima portabilidad de los programas, Java usa el estándar \href{https://grouper.ieee.org/groups/msc/ANSI_IEEE-Std-754-2019/}{IEE 754} para la representación interna de los números en coma flotante, para asegurarse que el resultado de los cálculos sea el mismo en todas las plataformas.
 
@@ -842,18 +842,18 @@ A partir de los tipos de datos primitivos, se pueden construir otros tipos de da
     \includegraphics[scale=1]{ejemplo-referencia.png}
 \end{figure}
 
-En la primera línea declaramos una lista de elementos del mismo tipo, en este caso, enteros, lo que se suele conocer como un \textbf{array de enteros}. En la segunda línea declaramos un objeto, \textbf{cuentaCliente}, como una referencia del tipo \textbf{Cuenta}.
+En la primera línea declaramos una lista de elementos del mismo tipo, en este caso, enteros, lo que se suele conocer como un \textbf{array de enteros}. En la segunda línea declaramos un objeto, \textbf{\textit{cuentaCliente}}, como una referencia del tipo \textbf{Cuenta}.
 
 Cualquier aplicación de hoy en día necesita tratar con un conjunto de datos. Cuando estos datos tiene características similares suelen agruparse en estructuras para facilitar el acceso a los mismos. Son los llamados \textbf{datos estructurados}. Algunos ejemplos de estos datos son los \textbf{arrays}, \textbf{listas}, \textbf{arboles}, etc. Pueden estar en la memoria del programa en ejecución,	guardados en el disco como ficheros o almacenados en una base de datos.
 
-Además de los 8 tipos de datos primitivos visto anteriormente, Java proporciona un tratamiento especial a los textos o cadenas de caracteres mediante el tipo de dato \textbf{String}. Java crea automáticamente este tipo de dato cuando se encuentra un cadena de caracteres encerrada entre comillas dobles. En realidad se trata de \textbf{objetos} y por tanto son \textbf{tipos referenciados}, aunque el lenguaje nos permite usarlos de forma sencilla como si fueran tipos primitivos.
+Además de los 8 tipos de datos primitivos visto anteriormente, Java proporciona un tratamiento especial a los textos o cadenas de caracteres mediante el tipo de dato \textbf{\textit{String}}. Java crea automáticamente este tipo de dato cuando se encuentra un cadena de caracteres encerrada entre comillas dobles. En realidad se trata de \textbf{objetos} y por tanto son \textbf{tipos referenciados}, aunque el lenguaje nos permite usarlos de forma sencilla como si fueran tipos primitivos.
 
 En esta unidad no veremos como definir ni tratar los datos referenciados, los cuales veremos en unidades posteriores de este curso con más detalle.
 
 \subsection{Tipos Enumerados}
 Los \textbf{tipos de datos enumerados} permiten declarar una variable con un conjunto restringido de valores. Por ejemplo: los dias de las semana, los meses de un año, etc..
 
-Para declararlos, se usa la palabra reservada \textbf{enum}, seguida del nombre de la variable y la lista de valores que puede tomar entre llaves. Los valores que puede tomar se consideran constantes, van separados por comas y deben ser valores únicos.
+Para declararlos, se usa la palabra reservada \textbf{\textit{enum}}, seguida del nombre de la variable y la lista de valores que puede tomar entre llaves. Los valores que puede tomar se consideran constantes, van separados por comas y deben ser valores únicos.
 
 Este tipo de dato es considerado por Java como un tipo de clase, por lo que no solo podemos definir los valores del tipo enumerado, sino que también podemos definir operaciones a realizar con él y otro tipo de elementos, lo que hace que este tipo de dato sea más versátil y potente que en otros lenguajes de programación. Por el momento debemos quedarnos con el \textbf{tipo enum} nos \textbf{permite definir} un nuevo \textbf{tipo de dato} donde los valores que puede tomar son los que nosotros indicamos.
 
@@ -884,7 +884,7 @@ Si la variable va a permanecer inalterable a lo largo del programa, la declarare
 
 En algunas ocasiones declararemos variables sin asignarles un valor. Hay que tener en cuenta que las \textbf{variables} \textbf{no se inicializan de forma automática}, por lo que deberemos ser nosotros los que les asignemos un valor antes de ser usadas, ya que si el compilador detecta que intentamos usar una variable antes de que sea inicializada nos devolverá un error.
 
-Por último, vamos a ver un ejemplo de declaración y uso de todos los tipos primitivos que hemos visto (lo referenciados se verán mas adelante), aunque también se incluye el tipo String, que es de tipo referenciado pero Java permite trabajar con el como si fuera un tipo primitivo.
+Por último, vamos a ver un ejemplo de declaración y uso de todos los tipos primitivos que hemos visto (lo referenciados se verán mas adelante), aunque también se incluye el tipo \textbf{\textit{String}}, que es de tipo referenciado pero Java permite trabajar con el como si fuera un tipo primitivo.
 
 \begin{figure}[H]
     \includegraphics[scale=0.65]{declaracion-variables-4.png}
@@ -896,7 +896,62 @@ El resultado que se obtendrá por pantalla al ejecutar este programa tendrá el 
     \includegraphics[scale=0.55]{declaracion-variables-4-salida.png}
 \end{figure}
 
+\section{Literales de los Tipos Primitivos}
+Un \textbf{literal} es un valor concreto para para los tipos de datos primitivos del lenguaje, el tipo \textbf{string} o el valor \textbf{null}.
 
+Los \textbf{literales booleanos} son dos únicos valores, los que puede aceptar el tipo: \textbf{true} y \textbf{false}. Por ejemplo, con las instrucción \textbf{\textit{boolean encontrar = true;}} estamos declarando una variable de tipo booleana a la cual hemos asignado el valor literal \textbf{true}.
+
+Los \textbf{literales enteros} se pueden representar con tres notaciones diferentes:
+
+\begin{itemize}
+    \item \textbf{Decimal}: es la forma más común. Por ejemplo, \textbf{20} es un literal entero decimal.
+    \item \textbf{Octal}: un número representado en base octal, que siempre comenzará por cero e irá seguido de dígitos octales (0 a 7). Por ejemplo, \textbf{024}.
+    \item \textbf{Hexadecimal}: un número en base hexadecimal que siempre empezará por \textbf{0x} e irá seguido de dígitos hexadecimales (de 0 a 9 y de `a' a la `f` o de `A` a la `F`). Por ejemplo: \textbf{0x14}.
+\end{itemize}
+
+A los \textbf{literales de long} se les debe añadir detrás de una ele mayúscula o minúscula (\textbf{l} ó \textbf{L}), por ejemplo, \textbf{837L}, de lo contrario, se considera por defecto un literal de tipo \textbf{int}. Se suele usar \textbf{L} para evitar la confusión entre la ele minúscula y \textbf{1}.
+
+Los \textbf{literales reales} se expresan con como decimal o en notación científica, osea, seguidos de un exponente \textbf{e}. El valor puede finalizarse con una \textbf{f} ó \textbf{F} para indicar que se trata de un literal de tipo \textbf{float} o con una \textbf{d} ó \textbf{D} para indicar que el formato es \textbf{double}, por defecto, si no se pone nada, se entiende que es de tipo \textbf{double}. Por ejemplo, podríamos representar un mismo literal de las siguientes formas: \textbf{13.2}, \textbf{13.2D}, \textbf{1.32e1} ó \textbf{1.32E1}.
+
+Desde Java SE 7 y posteriores, puede aparecer el carácter ``\textbf{\_}'' entre dígitos de un literal numérico. La idea subyacente es mejorar la legibilidad del código. Así, por ejemplo, sería válido escribir:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+long numeroTarjeta = 1234_5678_9021_3456L
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Un \textbf{literal carácter} puede escribir con un carácter entre comillas simples, como \textbf{`a'}, \textbf{`ñ'},\textbf{`Z'}, etc., o por su código de la tabla Unicode, anteponiendo la secuencia de escape \textbf{`\'} si el valor lo pones en octal, \textbf{`\textbackslash u'} si el valor lo ponemos en hexadecimal. Por ejemplo, si sabemos tanto que tanto en código ASCII como en Unicode, la letra A (mayúscula) es el símbolo número 65, y que 65 en octal es 101 y 41 en hexadecimal, podemos representar esta letra comom \textbf{\textbackslash 101} en octal o \textbf{\textbackslash u0041}. Existen, ademas, unos caracteres especiales que se presentan utilizando secuencias de escape.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{secuencias-escape.png}
+    \caption{Secuencias de escape en Java}
+\end{figure}
+
+Normalmente lo objetos en Java deben crearse empleando el operador \textbf{\textit{new}}. Sin embargo, los literales \textbf{\textit{String}} no lo necesitan ya que son objetos que se crean implícitamente	por Java, pudiendo prescindir del uso del operador \textbf{\textit{new}}.
+
+Los \textbf{literales de cadenas de caracteres} se indican entre comillas dobles. En el ejemplo anterior ``\textbf{El primer mensaje}'' es un literal de tipo cadena de caracteres. Al construir una cadena de caracteres se puede incluir cualquier carácter Unicode excepto un carácter de retorno de carro. Por ejemplo, en la siguiente instrucción utilizamos la secuencia de escale ``\'' para escribir dobles comillas dentro del mensaje:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}
+
+
+String texto = "Juan dijo: \"Hoy hace un dia fantastico\"";
+        \end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+En el ejemplo del apartado anterior ya estábamos usando secuencias de escape para introducir un salto de línea en una cadena de caracteres, utilizando el carácter especial `\textbf{\textbackslash n}'.
+
+\section{Operadores y Expresiones}
 
 % Bibliography
 
