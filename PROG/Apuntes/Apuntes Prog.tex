@@ -1193,6 +1193,13 @@ En la siguiente tabla se detalla el orden de preferencia y la asociatividad de t
 \end{figure}
 
 \section{Conversión de Tipos}
+Las \textbf{conversiones de tipo} se realizan para hacer que el resultado de una expresión sea del tipo que nosotros queremos. Por ejemplo, para hacer el resultado de una operación de división entre enteros sea de tipo real, con decimales, deberemos hacer una conversión de tipos. Existen dos tipos de conversiones:
+
+\begin{itemize}
+    \item \textbf{Conversiones implícitas}: cuando a una variable de un tipo se le asigna un valor de otro tipo que requiere menos bits para su representación se realiza una conversión de forma automática del tipo con menos bits al tipo que necesita más. En este caso se dice que el valor se ha \textbf{promocionado} al tipo más grande, el de la variable, para poder hacer la asignación. También se realizan conversiones automáticas en las operaciones aritméticas, cuando estamos usando valores de distinto tipo. En este caso, el valor más pequeño se promociona al valor más grande, ya que el tipo más grande siempre podrá representar un valor del tipo menor, por ejemplo, de \textbf{\textit{int}} a \textbf{\textit{long}} o de \textbf{\textit{float}} a \textbf{double}.
+
+    \item \textbf{Conversiones explícitas}: cuando hacemos una conversión de un tipo con más bits a un tipo con menos bits, debemos indicar que queremos hacer la conversión de manera expresa, ya que se puede producir una perdida de datos y hemos de ser conscientes de ello. Este tipo de operaciones se realiza con el \textbf{operador \textit{cast}}. El operador \textbf{\textit{cast}} es un operador unario que se forma colocando delante del valor a convertir el tipo de dato entre paréntesis. Tiene la misma precedencia que el resto de operadores unarios y se asocia de derecha a izquierda. Las conversiones explícitas suelen ser conocidas como \textbf{casting}.
+\end{itemize}
 
 % Bibliography
 
