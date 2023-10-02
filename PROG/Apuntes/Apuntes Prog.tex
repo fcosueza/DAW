@@ -952,10 +952,104 @@ String texto = "Juan dijo: \"Hoy hace un dia fantastico\"";
 En el ejemplo del apartado anterior ya estábamos usando secuencias de escape para introducir un salto de línea en una cadena de caracteres, utilizando el carácter especial `\textbf{\textbackslash n}'.
 
 \section{Operadores y Expresiones}
+Los \textbf{operadores} llevan a cabo operaciones sobre un conjunto de datos u operandos, representados por literales o identificadores. Los operadores pueden ser \textbf{unarios}, \textbf{binarios} o \textbf{terciarios}, según el número de operandos que utilicen sean uno, dos o tres, respectivamente. Los operadores actúan sobre los tipos de datos primitivos y también devuelven tipos de datos primitivos.
+
+Los operandos se combinan con los literales y/o identificadores para formar \textbf{expresiones}. Una \textbf{expresión} es una combinación de operadores y operandos que se evalúa produciendo un único resultado de un tipo determinado.
+
+El resultado de una expresión puede ser usado en otra expresión o en una sentencia. Las expresiones, combinadas con algunas palabras reservadas o por sí solas forman las \textbf{sentencias} o \textbf{instrucciones}. Por ejemplo:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}i + 1\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Con esta expresión estamos usando operador aritmético para sumarle una cantidad a la variable \textbf{\textit{i}}, pero es necesario indicar al programa que hacer con el resultado. Así, podrías escribir:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+        \begin{verbatim}suma = i + 1\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+De esta forma, le indicaríamos al programa que almacena el valor de esa expresión en la variable \textbf{\textit{suma}}, formando lo que se conoce como una \textbf{sentencia} o \textbf{instrucción}.
+
+Más ejemplos de sentencias lo tenemos en la declaración de variables, que vimos en el apartado anterior o en las estructuras de control del lenguaje, como bucles, que veremos en puntos posteriores.
+
+Como curiosidad comentar que las \textbf{expresiones de asignación}, al poder ser usadas como parte de otras asignaciones u operaciones, son consideradas tanto expresiones en sí mismas como sentencias.
+
+\subsection{Operadores Aritméticos}
+Los operadores aritméticos son aquellos operadores que combinados con los operandos forman expresiones matemáticas o aritméticas. En la siguiente tabla, podemos ver los operadores aritméticos básicos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{operadores-aritmeticos.png}
+    \caption{Operadores aritméticos básicos}
+\end{figure}
+
+Dependiendo del tipo de operandos que se empleen en con estos operadores, el resultado de la operación tendrá un tipo u otro. Así, en la siguiente tabla podemos ver el tipo resultante dependiendo del tipo de los operandos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{operadores-resultado.png}
+    \caption{Tipo del resultado según operandos}
+\end{figure}
+
+Además de estos operadores aritméticos, otro tipo de \textbf{operadores unarios} son los de \textbf{incremento y decremento}. Producen un resultado del mismo tipo que el operando y podemos usarlos con \textbf{notación prefija}, si el operador aparece antes que el operando, o \textbf{notación sufija} si el operador aparece después que el operando. En la siguiente tabla se ve un ejemplo del uso de estos operadores.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{operadores-unarios.png}
+    \caption{Operadores de incremento y decremento}
+\end{figure}
+
+En la siguiente tabla, podemos ver un ejemplo de uso de los \textbf{operadores aritméticos} en un programa básico donde se muestra además por pantalla el resultado de cada operación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.62]{operadores-ejemplo.png}
+    \caption{Ejemplo de uso de operadores aritméticos}
+\end{figure}
+
+\subsection{Operadores de Asignación}
+El principal operador de esta categoría es el \textbf{operador de asignación} ``\textbf{\textit{=}}'', que permite al programa asignar un valor a una variable y que ya hemos usado varias veces en esta unidad. Además de este operador, Java proporcionar otros operadores de asignación combinados con operadores aritméticos que permiten abreviar operaciones.
+
+Por ejemplo, el operador ``\textbf{+=}'', suma el valor de la expresión a la derecha del operando con el valor de la variable que hay a la izquierda del operador y almacena el resultado en dicha variable. En la siguiente tabla, se muestran todos los operadores de asignación que podemos encontrarnos en Java.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{operadores-asignacion.png}
+    \caption{Operadores de asignación}
+\end{figure}
+
+\subsection{Operadores de Relación}
+Los \textbf{operadores relacionales} se utilizan para \textbf{comparar datos primitivos} (número, carácter y booleano). El resultado de la comparación se usará en otras expresiones o sentencias, que permitan comprobar en una condición dicho resultado, y ejecutar una acción u otra en función de si se cumple ésta o no.
+
+Estas expresiones en Java dan como resultado un valor booleano, \textbf{true} o \textbf{false}. En la siguiente tabla vemos todos los operadores relacionales que podemos encontrarnos en Java.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{operadores-relacionales.png}
+    \caption{Operadores relacionales}
+\end{figure}
+
+Hasta ahora hemos visto ejemplos que creaban variables y se inicializaban a alguna valor. Pero si queremos que el usuario introduzca un valor, en vez de asignarlo, deberemos añadirle interactividad, añadiendo por ejemplo la función
+\textbf{Scanner}. Aunque no hemos visto aún que son las clases y los objetos, de momento vamos a pensar que la clase \textbf{Scanner} nos va a permitir leer datos que se escriben por el teclado y que para usarla es necesario importar el paquete que la contiene.
+
+    \begin{figure}[H]
+    \includegraphics[scale=0.48]{uso-scanner.png}
+\end{figure}
+
+En este código de ejemplo, el programa se quedará esperando a que el usuario escriba algo por teclado y pulse la tecla intro. En ese momento se convierte el valor leído aun valor de tipo \textbf{int} y lo guarda en la variable indicada. Además de los operadores relacionales, en este ejemplo ejemplo usamos también el operador condiciona, que compara si los números son iguales o no. si lo son, devuelve la cadena iguales, y si no, la cadena distintos.
+
+\subsection{Operadores Lógicos}
+
+
 
 % Bibliography
 
-\newpage
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{citas}
 \bibliographystyle{unsrt}
