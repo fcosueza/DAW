@@ -1038,15 +1038,161 @@ Estas expresiones en Java dan como resultado un valor booleano, \textbf{true} o 
 Hasta ahora hemos visto ejemplos que creaban variables y se inicializaban a alguna valor. Pero si queremos que el usuario introduzca un valor, en vez de asignarlo, deberemos añadirle interactividad, añadiendo por ejemplo la función
 \textbf{Scanner}. Aunque no hemos visto aún que son las clases y los objetos, de momento vamos a pensar que la clase \textbf{Scanner} nos va a permitir leer datos que se escriben por el teclado y que para usarla es necesario importar el paquete que la contiene.
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \includegraphics[scale=0.48]{uso-scanner.png}
 \end{figure}
 
 En este código de ejemplo, el programa se quedará esperando a que el usuario escriba algo por teclado y pulse la tecla intro. En ese momento se convierte el valor leído aun valor de tipo \textbf{int} y lo guarda en la variable indicada. Además de los operadores relacionales, en este ejemplo ejemplo usamos también el operador condiciona, que compara si los números son iguales o no. si lo son, devuelve la cadena iguales, y si no, la cadena distintos.
 
 \subsection{Operadores Lógicos}
+Los \textbf{operadores lógicos} realizan operaciones sobre valores booleanos o resultados de expresiones relacionales, dando como resultado un valor booleano.
+
+Existen ciertos casos en los que el \textbf{segundo operando} de una expresión \textbf{no se evalúa}, para ahorrar tiempo de ejecución, porque con la evaluación del primero ya es suficiente para saber cual será el resultado de la expresión.
+
+Por ejemplo, en la expresión \textbf{\textit{a \&\& b}}, sí \textbf{\textit{a}} es falso, no se sigue comprobando, ya que se sabe que la condición de que ambos sean verdaderos no se va a cumplir. En estos casos, es recomendable colocar el operando más propenso a ser falso en en lado de la izquierda. Igualmente ocurre con el operador \textbf{\textit{||}}, donde se deberá colocar a la izquierda el operando con más posibilidades de ser verdadero.
+
+A continuación se muestra una tabla con los principales operadores booleanos que podemos encontrarnos en Java.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{operadores-booleanos.png}
+    \caption{Operadores lógicos}
+\end{figure}
+
+En el siguiente código podemos ver algunos ejemplos del uso de los operadores lógicos que hemos visto en este apartado.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+    System.out.println(" false & false es : " + (false & false));
+    System.out.println(" true  & false es : " + (true & false));
+    System.out.println(" true  | false es : " + (true | false));
+    System.out.println(" false ^ true  es : " + (false ^ true));
+    System.out.println(" false && true  es : " + (false && true));
+    System.out.println(" true  && true  es : " + (true && true));
+    System.out.println(" true  || false es : " + (true || false));
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\subsection{Operador Condicional}
+El \textbf{operador condicional} ``\textbf{\textit{? :}}'', sirve para \textbf{evaluar una condición} y \textbf{devolver un resultado} u \textbf{otro} en función de si esta es verdadera o falsa. Es el único \textbf{operador ternario} de Java, y como tal, necesita tres operandos.
+
+\begin{itemize}
+    \item El \textbf{primer operando} se sitúa a la \textbf{izquierda del símbolo de interrogación} (\textbf{\textit{?}})y siempre será una expresión booleana, también llamada condición.
+    \item El \textbf{segundo operador} se sitúa a la \textbf{derecha del signo de interrogación} (\textbf{\textit{?}}) y \textbf{antes de los dos puntos} (\textbf{\textit{:}}), y es el \textbf{valor que se devolverá} si la expresión del primer operando \textbf{es verdadera}.
+    \item El \textbf{tercer y último operando}, que se sitúa \textbf{después de los dos puntos} (\textbf{\textit{:}}), es la expresión cuyo \textbf{valor de devolverá} si la condición evaluada en el operando primero \textbf{es falsa}.
+\end{itemize}
+
+En la siguiente tabla, se muestra con más detalle la sintaxis de este operador para que quede más clara la idea.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{operadores-condicionales.png}
+    \caption{Operador condicional}
+\end{figure}
+
+Por ejemplo, en la siguiente expresión:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+(x>y) ? x : y ;
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Se evalúa la condición de si \textbf{x es mayor que y}, en caso de que ésta \textbf{sea verdadera}, se \textbf{devolverá el valor de x}, en caso contrario, se \textbf{devolverá el valor de y}.
+
+\subsection{Operadores de Bits}
+Los \textbf{operadores a nivel de bits} se caracterizan porque realizan operaciones sobre los números enteros (o char) en su representación binaria, es decir, sobre cada dígito binario.
+
+Aunque estos operadores no son de uso frecuente, sino más bien para aplicaciones especificas, no esta de más que al menos sepas cuales son. En la siguiente tabla, tienes todos los operadores binarios que podemos encontrar en Java.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.52]{operadores-binarios.png}
+    \caption{Operadores binarios}
+\end{figure}
+
+\subsection{Trabajo con Cadenas}
+Ya hemos visto en la sección sobre literales que el objeto \textbf{\textit{String}} se corresponde con una secuencia de caracteres entrecomillados, por ejemplo, \textbf{\textit{``Hola''}}. Este tipo de literal se puede emplear en Java como si de un tipo primitivo se tratase, y como caso especial que es, no es necesario el uso del operador \textbf{\textit{new}}.
+
+En ese punto vamos a utilizar determinadas operaciones sobre el objeto \textbf{\textit{String}}, y lo verás más claro con ejemplos descriptivos.
+
+Para aplicar una operación a una variable de tipo de \textbf{\textit{String}}, escribiremos su nombre seguido de la operación, separados por un punto. En el siguiente ejemplo, vemos todas las operaciones que se pueden realizar sobre cadenas, las cuales pasaremos a explicar a continuación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{operaciones-cadenas.png}
+\end{figure}
 
 
+Entre las principales operaciones que podemos ver en el código anterior tenemos las siguientes:
+
+\begin{itemize}
+    \item \textbf{Creación}: como hemos visto en la sección de literales, podemos crear una variable de tipo \textbf{\textit{String}} simplemente asignándole una cadena de caracteres entre comillas dobles.
+    \item \textbf{Obtención del carácter}: podemos obtener el carácter que se encuentra en una posición determinada. Para ello se utiliza el método \textbf{charAt}.
+    \item \textbf{Obtención de longitud}: si necesitamos obtener la longitud de un \textbf{\textit{String}}, podemos usar el método \textbf{\textit{length}}
+    \item \textbf{Concatenación}: se utiliza el operador \textbf{\textit{+}} entre dos cadenas de caracteres o el método \textbf{\textit{concat()}} para concatenar cadenas de caracteres.
+    \item \textbf{Comparación}: el método \textbf{\textit{equals}} nos devuelve un valor booleano que nos indica si las dos cadenas son iguales o no. El método \textbf{\textit{equalsIgnoreCase}} hace lo mismo, pero ignorando las mayúsculas de las cadenas que se comparan. La comparación entre objetos \textbf{\textit{String}}, \textbf{nunca} debe realizarse utilizando el operador \textbf{\textit{==}}.
+    \item \textbf{Obtención de subcadenas}: podemos obtener cadenas derivadas de una cadena original mediante el método \textbf{\textit{substring()}}, en el cual debemos indicar la posición de inicio y de fin de la subcadena a obtener.
+    \item \textbf{Cambio de mayúsculas/minúsculas}: los métodos \textbf{\textit{toUpperCase}} y \textbf{\textit{toLowerCase}} devuelven una nueva cadena con todos los caracteres en mayúsculas o minúsculas respectivamente.
+    \item \textbf{Conversiones}: utilizaremos el método \textbf{\textit{valueOf}} para convertir un tipo de dato primitivo a una variable de tipo \textbf{\textit{String}}.
+\end{itemize}
+
+Sabiendo ya para que se usa cada operación, el resultado del ejemplo anterior que obtendríamos en la consola sería el siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{operaciones-cadenas-salida.png}
+\end{figure}
+
+\subsection{Precedencia de Operadores}
+El \textbf{orden de precedencia de los operadores} determina la secuencia en la que deben realizarse las operaciones cuando en una expresión intervienen diferentes operadores. Las reglas de operadores que utiliza Java \textbf{coinciden} con las \textbf{reglas de álgebra convencional}. Por ejemplo:
+
+\begin{itemize}
+    \item La \textbf{multiplicación}, \textbf{división} y \textbf{resto} de una expresión se \textbf{evalúan en primer lugar}. Si dentro de la expresión hay varias operaciones de este tipo, se evaluarán de izquierda a derecha.
+    \item La \textbf{suma} y la \textbf{resta} se evalúan después de los operadores anteriores. De igual manera, si se tiene varias operaciones de suma o resta se evaluarán de izquierda a derecha.
+\end{itemize}
+
+A la hora de evaluar una expresión, hay que tener también en cuenta las \textbf{asociatividad} de los operadores. La asociatividad nos indica que operador se evalúa antes, en condiciones de igualdad de precedencia.
+
+Los \textbf{operadores de asignación}, el \textbf{operador condicional}, los \textbf{operadores incrementales} y el \textbf{casting}, son asociativos por la derecha. En cambio, el \textbf{resto de operadores} son asociativos por la izquierda, es decir, se evalúan en el orden en el que están escritos. Por ejemplo, en la siguiente expresión:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+ 10 / 2 * 5
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Realmente la operación que se realiza es \textbf{(10/2) * 5}, porque ambos operadores, división y multiplicación, tiene igual precedencia y por tanto se evalúa primero el que antes nos encontramos por la izquierda, que es la división. El resultado de la operación es \textbf{25}. Si fueran asociados por la derecha el resultado sería \textbf{1}, ya que primero se multiplicaría \textbf{2 * 5} y después se realizaría la división entre \textbf{10}. En cambio, en la siguiente sentencia:
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+ x = y = z = 1
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+Realmente la operación que se realiza es \textbf{x = (y = (z = 1))}. Primero se le asigna el valor a la variable\textbf{z}, luego a la variable \textbf{y}, para terminar asignando el resultado a la variable \textbf{x}.
+
+En la siguiente tabla se detalla el orden de preferencia y la asociatividad de todos los operadores que hemos visto en este apartado. Los operadores se muestran de mayor a menor preferencia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{preferencia-operadores.png}
+    \caption{Preferencia de operadores}
+\end{figure}
+
+\section{Conversión de Tipos}
 
 % Bibliography
 
