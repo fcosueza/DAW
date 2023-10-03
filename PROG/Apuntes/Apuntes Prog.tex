@@ -1201,6 +1201,118 @@ Las \textbf{conversiones de tipo} se realizan para hacer que el resultado de una
     \item \textbf{Conversiones explícitas}: cuando hacemos una conversión de un tipo con más bits a un tipo con menos bits, debemos indicar que queremos hacer la conversión de manera expresa, ya que se puede producir una perdida de datos y hemos de ser conscientes de ello. Este tipo de operaciones se realiza con el \textbf{operador \textit{cast}}. El operador \textbf{\textit{cast}} es un operador unario que se forma colocando delante del valor a convertir el tipo de dato entre paréntesis. Tiene la misma precedencia que el resto de operadores unarios y se asocia de derecha a izquierda. Las conversiones explícitas suelen ser conocidas como \textbf{casting}.
 \end{itemize}
 
+Debemos tener en cuenta que \textbf{un valor numérico} nunca puede ser asignado de una variable de \textbf{menos rango} si no es con una conversión explícita. Por ejemplo:
+
+\begin{figure}[H]
+    \includegraphics[scale=0.80]{casting.png}
+\end{figure}
+
+En este ejemplo vemos un caso típico de error de tipos, ya que estamos intentado asignar a la variable \textbf{\textit{b}} el valor de \textbf{\textit{a}}, siendo \textbf{\textit{b}} de un tipo más pequeño. El compilador detecta que \textbf{\textit{a}} es un ``recipiente más grande'', y que por tanto puede no caber en \textbf{\textit{b}}, que es un ``recipiente más pequeño'', y podría perderse información por un desbordamiento.
+
+Lo correcto es forzar la conversión realizando una conversión explícita del tipo \textbf{\textit{a}}, al tipo de dato \textbf{byte} y entonces asignarle su valor a la variable \textbf{\textit{b}}.
+
+Por último, consulta el \textbf{Anexo A.1} donde podrás ver información importante sobre la conversión de tipos en Java, tanto de la implícita como la explícita.
+
+\section{Comentarios}
+Los \textbf{comentarios} son muy importantes a la hora de describir que hace un determinado programa. A lo largo de la unidad los hemos utilizado para documentar ejemplos y mejorar la compresión del código. Para lograr este objetivo, es normal que cada programa comience con unas líneas de comentario que indiquen, al menos, una breve descripción del programa, el autor/a del mismo y la última fecha en la que se ha modificado.
+
+Todos los lenguajes de programación disponen de alguna forma de introducir comentarios en el código. En el caso de Java, no podemos encontrar con los siguientes tipos de comentarios:
+
+\begin{itemize}
+    \item \textbf{Comentarios de una sola línea}: utilizaremos el delimitador \textbf{\textit{//}} para introducir comentarios de una sola línea, como podemos ver a continuación.
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+// comentario de una sola línea
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{Comentarios de múltiples líneas}: para introducir este tipo de comentarios, utilizaremos una barra inclinada y un asterisco (\textbf{\textit{/*}}), al principio del párrafo, y un asterisco con una barra inclinada (\textbf{\textit{*/}}) al final del mismo. Aunque no es obligatorio poner asteriscos al comienzo de cada nueva línea, suele hacerse para que quede más claro de forma visual que líneas forman parte del comentario. A continuación, vemos un ejemplo.
+
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+    /* Esto es un comentario de
+     * varias lineas */
+
+     /* Esto es otro comentario de
+      de varias lineas */
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+    \item \textbf{Comentarios Javadoc}: para este tipo de comentarios usaremos los delimitadores \textbf{\textit{/**}} y \textbf{\textit{*/}}. Al igual que los comentarios tradicionales, el texto incluido entre estos delimitadores será ignorado por el compilador. Este tipo de comentarios se emplea para generar documentación del programa de forma automática. A través de \textbf{javadoc}, incluido en Java SE, se recogen todos estos comentarios y se llevan a un documento \textbf{HTML}.
+
+    \begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \scriptsize
+\begin{verbatim}
+    /** Comentario de documentacion
+     * Javadoc recopila los comentarios del código y
+     * genera un documento HTML a partir de ellos.
+     */
+\end{verbatim}
+    \end{tcolorbox}
+\end{figure}
+
+\end{itemize}
+
+% Apéndice
+\appendix
+
+% Change appendix display options
+\titleformat{\chapter}{\bfseries\Huge}{\thechapter.}{1ex}{}
+
+\chapter{Anexos Tema 1}
+
+\section{Conversión de Tipos de Datos en Java}
+Es este anexo se va a profundizar un poco en la conversión de tipos de Java, para complementar lo visto en la unidad 1 sobre este tema. En primer lugar, vamos a mostrar una tabla con todos los tipos de conversión que se pueden realizar en Java, especificando cuales se permiten, cuales se realizan de forma automática y cuales de forma explícita.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{anexo-conversiones-1.png}
+    \caption{Conversión de Tipos en Java}
+\end{figure}
+
+Explicación de los símbolos utilizados:
+
+\begin{itemize}
+    \item \textbf{N}: conversión no permitida. Un booleano no se puede convertir a otro tipo de dato y viceversa.
+    \item \textbf{CI}: conversión implícita. Un asterisco indica que puede haber posible perdida de datos.
+    \item \textbf{C}: casting de tipos o conversión explícita.
+    \item \textbf{-}: mismo tipo, no hay que realizar conversión.
+\end{itemize}
+
+El asterisco indica que puede haber \textbf{perdida de datos}, por ejemplo, al convertir un \textbf{int} que usa 32 bits para la representación, a un tipo \textbf{float}, que también usa 32 bits para la representación pero 8 bits se usan para el exponente.
+
+En cualquier caso, la conversión de \textbf{números de coma flotante} a \textbf{números enteros} siempre necesitarán un casting, y debemos de tener mucho cuidado con la perdida de precisión que supone esta conversión.
+
+\subsection*{Reglas de Promoción de Tipo de Datos}
+Cuando en una expresión hay datos o variables de distinto tipo el compilador hace una conversión de unos tipos a otros, para obtener como resultado el tipo final de la expresión. Esta promoción de tipos se realiza siguiendo unas reglas básicas, que son las siguientes:
+
+\begin{itemize}
+    \item Si uno de los operandos es de tipo \textbf{double}, el otro es convertido a \textbf{double}.
+    \item En cualquier otro caso:
+    \begin{itemize}
+        \item Si uno de los operandos es \textbf{float}, el otro se convierte a \textbf{float}.
+        \item Si uno de los operandos es \textbf{long}, el otro se convierte a \textbf{long}.
+        \item Si no se cumple ninguna de estás reglas, entonces ambos operandos son convertidos a \textbf{int}.
+    \end{itemize}
+\end{itemize}
+
+Por último, en la siguiente tabla, se exponen algunas últimas consideraciones a tener en cuenta sobre la conversión de tipos de diferentes datos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{conversion-consideraciones.png}
+    \caption{Consideraciones para la conversión de tipos}
+\end{figure}
+
+
 % Bibliography
 
 \addcontentsline{toc}{chapter}{Bibliografía}
