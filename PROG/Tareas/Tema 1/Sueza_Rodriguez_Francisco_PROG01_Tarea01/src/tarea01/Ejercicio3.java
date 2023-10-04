@@ -26,23 +26,30 @@ public class Ejercicio3 {
         
         // Variables de salida 
         
-        String longitud, mayorLongitud, encadenadas, circulares;
+        String menosDeSeis, mayorLongitud, encadenadas, circulares;
         
         // Variables auxiliares
         
         /*
-         * Vamos a crear 6 variables auxiliales para almacenar el primer y último
-         * carácter de cada palabra y realizar las comparaciones. Las vamos a declarar
-         * de tipo String, para poder usar el método equalsIgnoreCase de esta clase. 
-         * No es lo más eficiente, pero si las declaramos de tipo char, deberíamos usar 
-         * el método toLowerCase o toUpperCase de la clase Character para ignorar mayúsculas, 
-         * y aún no hemos visto está clase en el temario.
+         * Vamos a crear 6 variables auxiliares para almacenar el primer y último
+         * carácter de cada palabra y realizar las comparaciones, declaradas de tipo
+         * String. 
          *
-         * También se van a crear 3 variables para almacenar la longitud de cada cadena,
+         * Esto se hace así porque si queremos pasar por alto si los caracteres
+         * están en mayúsculas o minúsculas, podemos realizarlo usando o bien el método
+         * equalsIgnoreCase, de la clase String, o los métodos toUpperCase o toLowerCase
+         * de la clase Character. Esta última clase, no la hemos visto aún en el temario
+         * por lo que creo que no podemos usarla, aunque sería la opción más correcta, ya que 
+         * al definir las variables como String tendremos que hacer una conversión con
+         * valueOf al usar charAt, ya que este último método devuelve un carácter, no una cadena.
+         * Además, el tipo carácter es primitivo, por lo que podríamos realizar la comparación
+         * usando el operador ==.
+         *
+         * También se van a crear 3 variables para almacenar la menosDeSeis de cada cadena,
          * ya que es un dato que vamos a usar varias veces y ási nos evitammos repetir código;
          */
         
-        char inicioPrimera, finPrimera;
+        String inicioPrimera, finPrimera;
         String inicioSegunda, finSegunda;
         String inicioTercera, finTercera;
         
@@ -76,46 +83,61 @@ public class Ejercicio3 {
     /*
      * Vamos a tener que realizar varias comprobaciones condicionales. Aún
      * no hemos visto las estructuras condicionales if-then-else, pero si hemos visto
-     * el operador ternario que nos permite realizar las mismas comprobaciones.
-    */
+     * el operador ternario que nos permite realizar las mismas comprobaciones.     
+     * 
+     */
     
-    // En primer lugar almacenamos la longitud de cada palabra 
+    // En primer lugar almacenamos la menosDeSeis de cada palabra 
     
     longitudPrimera = primeraPalabra.length();
     longitudSegunda = segundaPalabra.length();
     longitudTercera = terceraPalabra.length();
     
-    // En segundo lugar almacenamos las palabras inicial y final de cada palabra.
+    // En segundo lugar almacenamos las palabras inicial y final de cada palabra. 
     
-    inicioPrimera = Character.toLowerCase(primeraPalabra.charAt(0));
-    finPrimera = primeraPalabra.charAt(longitudPrimera - 1);
+    inicioPrimera = String.valueOf(primeraPalabra.charAt(0));
+    finPrimera = String.valueOf(primeraPalabra.charAt(longitudPrimera - 1));
     
-    inicioSegunda = segundaPalabra.charAt(0);
-    finSegunda = segundaPalabra.charAt(longitudSegunda - 1);
+    inicioSegunda = String.valueOf(segundaPalabra.charAt(0));
+    finSegunda = String.valueOf(segundaPalabra.charAt(longitudSegunda - 1));
     
-    inicioTercera = terceraPalabra.charAt(0);
-    finTercera = terceraPalabra.charAt(longitudTercera - 1);
+    inicioTercera = String.valueOf(terceraPalabra.charAt(0));
+    finTercera = String.valueOf(terceraPalabra.charAt(longitudTercera - 1));
     
-    /* Comprobamos si la longitud de las dos primeras palabras 
-     * es menor que 6 o la tercera menos que 8
+    /* 
+     * Comprobamos si la menosDeSeis de las dos primeras palabras 
+     * es menor que 6 o la de la tercera es mayor que 8,
      */
     
-    longitud = (longitudPrimera < 6 && longitudSegunda < 6) || longitudTercera > 8 ? "SI" : "NO";
+    menosDeSeis = (longitudPrimera < 6 && longitudSegunda < 6) || longitudTercera > 8 ? "SI" : "NO";
     
-    // Comprobamos que la segunda palabra tiene la mayor longitud 
+    // Comprobamos que la segunda palabra tiene la mayor menosDeSeis 
     
-    mayorLongitud = (longitudSegunda >= longitudPrimera) && (longitudSegunda >= longitudTercera) ? "SI" : "NO";
+    mayorLongitud = (longitudSegunda > longitudPrimera) && (longitudSegunda > longitudTercera) ? "SI" : "NO";
     
     // Comprobamos que son palabras encadenadas
     
-    encadenadas = (finPrimera == inicioSegunda) && (finSegunda == inicioTercera) ? "SI" : "NO";
+    encadenadas = finPrimera.equalsIgnoreCase(inicioSegunda) && finSegunda.equalsIgnoreCase(inicioTercera) ? "SI" : "NO";
+    
+    // Por último comprobamos que son ciculares, usando el resultado de la operación anterior.
+    
+    circulares = encadenadas.equals("SI") && finTercera.equalsIgnoreCase(inicioPrimera) ? "SI" : "NO";
     
 
     //----------------------------------------------
     //              Salida de resultados 
     //----------------------------------------------
-        System.out.println();
-        System.out.println("RESULTADO");
+        
+    System.out.println();
+    System.out.println("RESULTADO");
+    System.out.println("---------");
+    System.out.println("La longitud de las primeras dos palabras el menor que 6 o la de la tercera mayor de 8: " + menosDeSeis);
+    System.out.println("La segunda palabra es la de mayor longitud: " + mayorLongitud);
+    System.out.println("Las tres palabras introducidas son palabras encadenadas: " + encadenadas);
+    System.out.println("Las tres palabras introducidas son palabras circulares: " + circulares);
+    
+    System.out.println();
+    System.out.println("Fin del programa");
     }
     
 }

@@ -73,8 +73,9 @@ public class Ejercicio1 {
     System.out.println();
     System.out.println("RESULTADO");
     System.out.println("---------");
-    System.out.printf("El volumen del cilindro de radio %.2f y altura %.2f es: %.2f", radio, altura, volumen);
+    System.out.printf("El volumen del cilindro de radio y altura %.2f es: %.2f", radio, altura, volumen);
    
+    System.out.println();
     System.out.println();
     System.out.println("Fin del programa");
 
