@@ -54,7 +54,7 @@ public class Ejercicio1 {
     
     /* Calculamos el volumen usando la formula PI * radio² * altura.
      * Como aun no hemos visto las clases que ofrece Java para ciertas operaciones
-     * matemáticas, nos e va a usar el método pow() de la clase Math, sino que 
+     * matemáticas, no se va a usar el método pow() de la clase Math, sino que 
      * vamos a realizar el cuadrado caculando radio * radio.
      */
     
@@ -73,7 +73,7 @@ public class Ejercicio1 {
     System.out.println();
     System.out.println("RESULTADO");
     System.out.println("---------");
-    System.out.println("El volumen del cilindro de radio " + radio + " y altura " + altura + " es: " + volumen);
+    System.out.printf("El volumen del cilindro de radio %.2f y altura %.2f es: %.2f", radio, altura, volumen);
    
     System.out.println();
     System.out.println("Fin del programa");

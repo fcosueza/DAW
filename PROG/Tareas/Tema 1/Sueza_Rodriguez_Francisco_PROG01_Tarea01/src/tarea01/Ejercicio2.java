@@ -32,11 +32,15 @@ public class Ejercicio2 {
 
     // Variables de salida 
 
-    double tercio;    // variable que almacena el resultado de la primera operación
-    double cuadrado;  // variable que almacena el resultado de la segunda operación
-    boolean par;      // variable que almacena el resultado de la tercera operación
-    double suma;      // variable que almacena el resultado de la última operación
-    
+    /* 
+     * Vamos a declarar 4 variables, 1 por cada operación que debemos realizar
+     * para almacenar el resultado de cada una de ellas.
+     */
+    double tercio;    
+    double cuadrado;  
+    boolean par;      
+    double suma;      
+   
     // Variables auxiliares
     
     double resultadoIntermedio; // variable auxiliar para guardar resultados intermedios de las operaciones
@@ -51,7 +55,7 @@ public class Ejercicio2 {
     System.out.println("Ejercicio 2: Operaciones Aritméticas");
     System.out.println("-----------------------------------------------");
     
-    // Pedimos al usuario que introduzca tanto el radio como la altura..
+    // Pedimos al usuario que introduzca los 3 números
     
     System.out.println("Introduce el valor del primer numero: ");
     primerNumero = teclado.nextInt();
@@ -75,7 +79,7 @@ public class Ejercicio2 {
     
     tercio = (primerNumero / 3.0) + (tercerNumero / 2.0);
     
-    /* Para la seunda operación primero calculamos la mitad de la suma y despues el cuadrado
+    /* Para la segunda operación primero calculamos la mitad de la suma y despues el cuadrado
      * para no repetir código, haciendo uso de la variable resultado intermedio.
      */ 
     
@@ -96,6 +100,7 @@ public class Ejercicio2 {
     //----------------------------------------------
     //              Salida de resultados 
     //----------------------------------------------
+    
     System.out.println();
     System.out.println("RESULTADO");
     System.out.println("---------");
