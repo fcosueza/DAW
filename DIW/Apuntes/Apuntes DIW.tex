@@ -352,7 +352,255 @@ El \textbf{Bloque de Pie de Página} esta situado al final de la página y al ig
 El diseño del pie no suele ser tan elaborado como el encabezado, ya que si importancia es menor. El usuario debe ser consciente que lo que está viendo es el pie. Esto es de especial importancia en aquellos casos en los que por ser el tamaño vertical de la página mayor que la ventana del navegador, el usuario se ve obligado a desplazarse verticalmente, pudiendo perder de vista el encabezado. Con un diseño más sencillo del pie respecto del resto de bloques conseguimos esa percepción por parte del usuario.
 
 \subsection{Mapa de Navegación}
-Cuando un sitio es muy grande y complejo, conviene tener un mapa del sitio que ayude a los usuarios a encontrar lo que buscan.
+Cuando un sitio es muy grande y complejo, conviene tener un mapa del sitio que ayude a los usuarios a encontrar lo que buscan. En nuestro ejemplo, la página de portada permite consultar el mapa del sitio tanto en el encabezado como en el píe de página. Una vez pulsado en el enlace del mapa, verás la imagen que se muestra a continuación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{mapa-sitio.png}
+    \caption{Mapa del sitio de la web del Ministerio de Educación}
+\end{figure}
+
+El \textbf{Mapa del Sitio} proporciona a los visitantes un lugar donde buscar de forma sencilla los contenidos que le interesan si es que no los ha encontrado en la página principal.
+
+La \textbf{obligación de crear un mapa} es directamente proporcional al \textbf{tamaño y la complejidad} del sitio Web. Así, si nuestro sitio consta de una sola página donde hay enlaces a páginas ajenas, no será necesario poner un enlace al Mapa del Sitio. Si por el contrario nuestro sitio consta de una página principal con enlaces a secciones que a su vez están divididas en subsecciones, se sería conveniente crear una Mapa del Sitio y poner un enlace a él en la portada.
+
+En los siguientes enlaces puedes ver diferentes mapas del sitio de páginas web de algunas comunidades autónomas así como del Ministerio de Educación, que ya hemos visto antes:
+
+\begin{itemize}
+    \item \href{https://sede.comunidad.madrid/buscador?t=&tipo=All&consejeria=All&estado_pendiente%5B1%5D=1&estado_plazo%5B1%5D=1&estado_tramitacion%5B1%5D=1}{Mapa de la web de la Comunidad Autónoma de Madrid}
+    \item \href{https://www.xunta.gal/mapa-do-portal}{Mapa del sitio de la Xunta de Galicia}
+    \item \href{https://web.gencat.cat/es/ajuda/mapaweb/}{Mapa del sitio de la web de la Generalitat de Catalunya}
+\end{itemize}
+
+Seria interesante que ademas de estos mapas consultes por tu cuenta los de otras webs para ver los diferentes diseños que te puedes encontrar referentes al mapa del sitio web.
+
+\subsubsection{Prototipos de Mapas de Navegación}
+Ahora que ya sabes que es un mapa de navegación vamos a ver los tipos de mapas más comunes que nos podemos encontrar.
+
+El Mapa de un sitio Web va a tener una estructura que dependerá de la relación que tengan las páginas del sitio entre ellas. Esta relación puede ser:
+
+\begin{itemize}
+    \item \textbf{Lineal}
+    \item \textbf{Reticular}
+    \item \textbf{Jerárquica}
+    \item \textbf{Lineal Jerárquica}
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{mapa-sitio-estructura.png}
+    \caption{Estructuras de Mapas del Sitio}
+\end{figure}
+
+En la anterior imagen podemos ver de una forma más gráfica los diferentes tipos de estructura que nos podemos encontrar, pero para que quede claro, vamos a explicar un poco cada unos de ellos:
+
+\begin{itemize}
+    \item \textbf{Estructura Lineal}: es adecuada en aquellos sitios donde la lectura de las páginas se hace de manera secuencia. Su estructura es similar a la de un libro donde avanzar de página en página, pero puedes volver a la página anterior, y desde esta a la anterior, para releer algún párrafo.
+
+    \item \textbf{Estructura Reticular}: se emplea en aquellos sitios en los que todas sus páginas están relacionadas entre sí. No resulta adecuado cuando el sitio es compuesto por muchas páginas ya que el usuario puede llegar a perderse.
+
+    \item \textbf{Estructura Jerárquica}: es la más común. Se emplea en aquellos sitios donde existen varias secciones bien diferenciadas pero de poca complejidad, de modo que el usuario no tiene porque navegar de una sección a otra.
+
+    \item \textbf{Estructura Lineal Jerárquica}: es una de las más empleadas cuando cada sección tiene un volumen de información más elevado y la lectura se realiza de forma secuencial en cada sección. También se emplea este mapa en sitios en los que sus secciones representan un grado de complejidad de la información presentada y se permite la navegación entre secciones.
+\end{itemize}
+
+\subsection{Detección de Patrones}
+Un \textbf{Patrón de Diseño} es una solución a un problema concreto que se puede emplear en repetidas ocasiones en problemas similares haciendo pequeñas variaciones. Podemos distinguir dos tipos de patrones:
+
+\begin{itemize}
+    \item \textbf{Patrones de Diseño de Software}, orientados a la funcionalidad.
+    \item \textbf{Patrones de Diseño de Interacción}, orientados a la usabilidad.
+\end{itemize}
+
+La finalidad de la personas que diseñan una interfaz web debe ser la de desarrollar diseños centrados en la usabilidad, la eficiencia, la eficacia y la satisfacción del usuario. Para lograrlo, se puede apoyar en los \textbf{Principio de Gestalt} como principios de organización de elementos dentro de la interfaz y aplicarlos a la creación de los patrones de diseño.
+
+En los siguiente subapartados vamos a ver los principios de Gestalt más importantes y como se aplican estos a lo patrones de diseño web.
+
+\subsubsection{Principios de Proximidad y Semejanza}
+Los principio de proximidad y semejanza tiene que ver con como agrupa nuestra mente los elementos que están cerca o que son similares. Vamos a explicar más detalladamente cada uno de estos principios.
+
+\begin{itemize}
+    \item \textbf{Principio de Proximidad}
+
+    Nuestra mente suelen agrupar los elementos en función de la distancia que hay entre ellos. En la siguiente figura, podemos ver un ejemplo gráfico de este principio.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-prox-1.png}
+        \caption{Principio de Proximidad de Gestalt}
+    \end{figure}
+
+    Un ejemplo de la aplicación de este principio lo puedes ver en una de las páginas web que componen el sitio de la Comunidad de Madrid.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-prox-2.png}
+        \caption{Principio de proximidad en la web de la CAM}
+    \end{figure}
+
+     En esta imagen, se han agrupado dentro de dos rectángulos azules, aquellos elementos que, siendo todos enlaces a otras páginas del sitio y presentando el mismo formato, se perciben como bloques distintos por estar todos sus elementos más próximos entre sí.
+
+     La cercanía de los elementos del mismo tipo es percibida por el usuario como una misma unidad. Y la distancia que hay entre los dos bloques, es suficiente para que el usuario los perciba como elementos que pertenecen a diferentes categorías.
+
+     \item \textbf{Principio de Semejanza}
+
+     Nuestra mente suele agrupar los elementos que son similares en su aspecto visual, es decir, que tiene una forma, color, tamaño, etc.., similar. En la siguiente imagen lo vemos de forma más gráfica.
+
+     \begin{figure}[H]
+         \centering
+         \includegraphics[scale=0.40]{principio-semej-1.png}
+         \caption{Principio de semejanza de Gestalt}
+     \end{figure}
+
+    Nuestra mente no percibe 36 elementos en la parte izquierda de la imagen, sino que percibe 3 filas de elementos amarillos y 3 filas de elementos negros. En la parte central de la imagen vemos los elementos con forma similar formar la diagonal principal. En la imagen de la derecha distinguimos 3 bloques de rectángulo, el bloque superior horizontal y dos bloques verticales paralelos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-semej-2.png}
+        \caption{Principio de semejanza en la web de la Xunta de Galicia}
+    \end{figure}
+
+    En esta imagen podemos ver un ejemplo de aplicación de este principio. Se han agrupado, dentro de rectángulos azules, los elementos que se perciben como un bloque, aunque son enlaces a diferentes páginas del sitio, son similares entre sí tanto en forma como en tamaño.
+\end{itemize}
+
+\subsubsection{Principios de Simetría y Continuidad}
+Ahora vamos a ver los principios de simetría y continuidad, y como nuestra mente percibe como un todo elementos que son simétricos o que sugieren continuidad a pesar de estar ésta interrumpida.
+
+\begin{itemize}
+    \item \textbf{Principio de Simetría}
+
+    Nuestra mente tiene a percibir como un único elemento aquellos elementos que tiene una disposición simétrica, como podemos de forma más clara en la siguiente imagen.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{principio-sim-1.png}
+        \caption{Principio de simetría de Gestalt}
+    \end{figure}
+
+    En este dibujo, por ejemplo, no vemos el símbolo de copyright que está colocado cuatro veces, pero girado de forma que la C interior apunte al centro, sino que vemos una flor con cuatro pétalos.
+
+    Un ejemplo de la aplicación de este principio lo puedes ver en la imagen la tienda online Bornay Desserts, que vemos a continuación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{principio-sim-2.png}
+        \caption{Principio de simetría en la página de Bornay Desserts}
+    \end{figure}
+
+    En esta imagen se han separado, mediante una línea vertical azul, las dos zonas simétricas. En la izquierda el texto está alineado a su derecha mientras que en la izquierda éste está alineado a su izquierda. Desde lejos, parece un único elemento centrado en la imagen.
+
+    \item \textbf{Principio de Continuidad}
+
+    Nuestra mente tiende a percibir los elementos continuos aunque estén interrumpidos, como podemos ver en la siguiente imagen.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-cont-1.png}
+        \caption{Principio de continuidad de Gestalt}
+    \end{figure}
+
+    En la imagen vemos a la izquierda un grupo de ovejas que avanza por un camino. Las ovejas que van delante no se ven tan claramente pero nosotros las percibimos igualmente por el principio de continuidad. En la imagen de la derecha no vemos la forma de la aleta del delfín de color azul que se ha repetido 8 veces. Por efecto del principio de continuidad lo que vemos en una forma con ondulaciones sobre la que se ha escrito el texto ``abcd''.
+
+    Un ejemplo de aplicación de este principio se puede ver en la imagen de la parte central de la página de la Tienda On-line de Bornay Desserts.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-cont-2.png}
+        \caption{Principio de continuidad en la página de Bornay Desserts}
+    \end{figure}
+
+    En esta figura se ha separado mediante una línea vertical de color azul la imagen central original con su hueco central, de la imagen de lo que el usuario percibe, destacando en color azul la B completa y con color granate el hueco de la línea central. El usuario percibe estos elementos unidos aunque están interrumpidos.
+\end{itemize}
+
+\subsubsection{Principio de Cierre y de Tamaño Relativo}
+Estos principios establecen como nuestro cerebro ve figuras cerradas a partir de contornos y como se perciben dos objetos de distinto tamaño superpuestos.
+
+\begin{itemize}
+    \item \textbf{Principio de Cierre}
+
+    Nuestra mente tienda a percibir figuras completas o cerradas a partir de contornos, incluso aunque éstos estén incompletos. En la siguiente imagen podemos ver un ejemplo.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-contor-1.png}
+        \caption{Principio de cierre de Gestalt}
+    \end{figure}
+
+    Un ejemplo de la aplicación de este principio lo puede ver en las tres zonas enmarcadas con un rectángulo grisáceo en la parte derecha de la siguiente imagen. La parte izquierda se corresponde con el aspecto original de la página web de la empresa Endesa Logística S.L.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-cont-2.png}
+        \caption{Aplicación del principio de cierre en una web}
+    \end{figure}
+
+    \item \textbf{Principio de Área o Tamaño Relativo}
+
+    Este principio estipula que nuestra mente tiende a percibir como objeto el más pequeño de dos objetos superpuestos, percibiendo el objeto de mayor tamaño como fondo. En la siguiente imagen vemos un ejemplo de este principio.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-cierre-1.png}
+        \caption{Principio de cierre de Gestalt}
+    \end{figure}
+
+    El hexágono se ve como la figura principal de la imagen y el cuadrado azul se percibe como el fondo sobre el cuál se encuentra el hexágono. En la siguiente imagen, podemos ver un ejemplo de aplicación de este principio.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{principio-cierre-2.png}
+        \caption{Aplicación del principio de cierre en una página web}
+    \end{figure}
+
+    Podemos ver el principio aplicado en las zonas enmarcadas mediante círculos en la parte derecha de la imagen. La circunferencia roja representa el fondo y los círculos pequeños son los elementos de interés. La parte izquierda de la imagen se corresponde con el aspecto original de la página web de la empresa Golfitness Style, donde se pueden ver las imágenes que están debajo de los círculos y que corresponden con la zona de navegación.
+\end{itemize}
+
+\subsubsection{Principio de Figura-Fondo}
+Nuestra mente tiende a percibir ciertos elementos como figuras, con forma y borde, destacándolos del resto de los objetos que los envuelve. En la siguiente imagen puedes ver un ejemplo de este principio.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{principio-fig-1.png}
+    \caption{Principio de figura-fondo de Gestalt}
+\end{figure}
+
+En la imagen distinguimos en triángulo de color claro como una imagen sobre el rectángulo de color azul que está de fondo, debido a que asimilamos mejor la forma triangulas que la poligonal. Si esto no fuera así, estaríamos viendo un triángulo a la izquierda y un polígono a la derecha.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{principio-fig-2.png}
+    \caption{Aplicación del principio figura-fondo en una web}
+\end{figure}
+
+Un ejemplo de aplicación de este principio es la imagen de la página de Isaiah Fraizer Artistic Designs. En ella podemos ver el corazón como un objeto principal situado sobre un fondo de rectángulos de colores.
+
+\subsubsection{Ley de Simplicidad, Pregnancia o Buena Forma}
+La \textbf{ley de simplicidad} establece que nuestra mente tiende a percibir las formas más simples, facilitando así su recuerdo. Es un principio de organización de los elementos que componente nuestra experiencia perceptiva, por el cual se reducen las ambigüedades o efectos distorsionadores, permitiéndonos centrarnos en un objeto separándolo del entorno con facilidad.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{principio-simp-1.png}
+    \includegraphics[scale=0.30]{principio-simp-2.png}
+    \caption{Ley de simplicidad de Gestalt}
+\end{figure}
+
+En la figura de la izquierda nuestra mente percibe un circulo de color blanco y otro azul aunque estén colocados detrás de los rombos. No percibe las figuras que podemos observar en la imagen de la derecha, las cuales se han separado a propósito para evitar la percepción inevitable de la forma.
+
+La misma imagen que poníamos como ejemplo del principio figura-fondo nos vale como aplicación práctica de otros principios. Distinguimos en la fila superior los elementos que forman parte del sistema de navegación por la tonalidad más oscura de los colores (\textbf{principio de semejanza}). También hay agrupación de elementos en distintos rectángulos con fondo blanco (\textbf{principio de proximidad}). Y vemos rectángulos completos incluso cuando están cortados por la silueta del corazón blanco (\textbf{principio de cierre}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{principio-fig-2.png}
+    \caption{Aplicación de varios principios de Gestalt}
+\end{figure}
+
+En los \textbf{sitios Web } es fundamental \textbf{conseguir un equilibrio} de los elementos que conforman la interfaz, hasta tal punto, de que esta logre pasar desapercibida por el usuario. Esta paradoja de buscar lo imperceptible usando principios fundados en la percepción, nos lleva a comprender la importancia de realizar un \textbf{diseño centrado en el usuario} y no en nuestros gustos personales. Es necesario que el usuario se familiarice lo más rápido posible que sea con nuestra interfaz. Nos apoyamos en los principios de Gestalt en un intento de lograr nuestros objetivos, \textbf{diseñar} una \textbf{interfaz usable} y además \textbf{visual}.
+
+\subsection{El Color}
+
 % Bibliography
 
 \addcontentsline{toc}{chapter}{Bibliografía}
