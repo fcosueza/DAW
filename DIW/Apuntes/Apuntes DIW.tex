@@ -600,6 +600,328 @@ La misma imagen que poníamos como ejemplo del principio figura-fondo nos vale c
 En los \textbf{sitios Web } es fundamental \textbf{conseguir un equilibrio} de los elementos que conforman la interfaz, hasta tal punto, de que esta logre pasar desapercibida por el usuario. Esta paradoja de buscar lo imperceptible usando principios fundados en la percepción, nos lleva a comprender la importancia de realizar un \textbf{diseño centrado en el usuario} y no en nuestros gustos personales. Es necesario que el usuario se familiarice lo más rápido posible que sea con nuestra interfaz. Nos apoyamos en los principios de Gestalt en un intento de lograr nuestros objetivos, \textbf{diseñar} una \textbf{interfaz usable} y además \textbf{visual}.
 
 \subsection{El Color}
+El color\textbf{} es un \textbf{aspecto esencial} en el diseño Web. Una elección inadecuada de los colores puede ser motivo para la pérdida de visitantes. En este punto, hablaremos de lo que deberíamos tener en cuenta a la hora de seleccionar los colores de nuestro sitio Web.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{rueda-color.png}
+    \caption{Rueda de Color}
+\end{figure}
+
+Los colores están relacionados entre sí. La \textbf{rueda de color} formada por 12 colores es una herramienta gráfica importante para crear combinaciones cromáticas y que nos permite hacer distintas clasificaciones de los colores. Así, podemos clasificar los diferentes colores según las siguientes características:
+
+\begin{itemize}
+    \item \textbf{Colores Primarios}, \textbf{Secundarios} y \textbf{Terciarios}
+
+    \begin{itemize}
+        \item \textbf{Colores primarios}: hay tres colores primarios, estos son el \textbf{rojo}, \textbf{amarillo} y \textbf{azul}, y están dispuestos en la rueda formando un triángulo equilátero.
+
+        \item \textbf{Colores secundario}: en la lado opuesto de la rueda a cada uno de los colores primarios se encuentran los colores secundarios, que son \textbf{verde}, \textbf{púrpura} y \textbf{naranja}. Cada uno de los colores secundarios se consigue con una mezcla de los dos sus dos colores primarios adyacentes. Así, el verde viene la mezcla del amarillo y el azul, el naranja, de la mezcla de rojo y amarillo, y el púrpura, de la mezcla de rojo y azul. Los tres colores secundarios forman también un triángulo equilátero.
+
+        \item \textbf{Colores terciarios}: por último están los 6 colores terciarios, que son los que se consiguen al mezclar el color primario y el color secundario adyacentes al mismo. Así tenemos azul-verdoso, amarillo-anaranjado,  rojo-anaranjado, rojo-púrpura y azul-púrpura.
+    \end{itemize}
+
+    \item \textbf{Colores Fríos y Cálidos}
+    \begin{itemize}
+        \item \textbf{Colores fríos}: son colores fríos todos los situados, en la rueda de color, entre el amarillo-verdoso y el púrpura.
+
+        \item \textbf{Colores cálidos}: son colores cálidos todos lo situados en la rueda de color entre el rojo-púrpura y el amarillo.
+    \end{itemize}
+
+    \item \textbf{Colores Complementario, Análogos y Monocromáticos}
+    \begin{itemize}
+        \item \textbf{Colores complementarios}: son aquellos colores que están en lados opuestos de la rueda cromática. Se utilizan para \textbf{crear contraste}.
+
+        \item \textbf{Colores análogos}: son aquellos colores que se encuentran juntos en la rueda cromática. Se suelen usar para \textbf{crear armonía del color}.
+
+        \item \textbf{Colores monocromáticos}: son todos los tonos y matices de un mismo color.
+    \end{itemize}
+\end{itemize}
+
+En \href{https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF}{este enlace}, puedes encontrar una herramienta, \textbf{Paletton}, que nos va a ayudar a ir probando lo que vamos a estudiar en este punto sobre el color, además, de en un futuro, para que puedas elegir los colores para tu sitio web.
+
+\subsubsection{El Sistema RGB}
+El ojo humano percibe los colores rojo, verde y azul, y el resto de colores se realiza se consigue con la adición de estos tres colores en diferentes proporciones. El blanco se consigue con la mezcla de los tres colores puros y el negro se considera la ausencia total de color.
+
+A estos colores se les conoce como \textbf{colores aditivos} y el ordenador se basa en este sistema para representar los colores, dando lugar a lo que conocemos como \textbf{Modo de color RGB}. RGB es el acrónimo de los colores rojo, verde y azul en inglés (Red Green Blue).
+
+Los \textbf{ordenadores emplean estos tres colores} para representar cualquier colore de la escala cromática. Para ello, utilizan 8 bits de información para representar cada color. La escala monocromática de un color viene dada por todas las posibles combinaciones de estos 8 bits, es total\textbf{ 256 combinaciones}. Si tenemos en cuenta que tenemos una escala de 0 a 255 para representar cada color, es decir, 256 grados de color, y que el resto de los colores se consigue mezclando estos tres, ¿cuantos colores tenemos en total? Para saberlo, debemos de calcular todas las combinaciones posibles multiplicando 3 veces el número de grados que tenemos, es decir:
+
+\begin{equation*}
+    256\;x\;256\;x\;256 = 16.777.216
+\end{equation*}
+
+
+Es decir, con este sistema tenemos \textbf{16.777.216 de colores} usando 8 bits para representar cada uno de los colores aditivos. A la hora de representar cada color, usamos este modelo RGB y lo podemos expresar tanto en el sistema de numeración decimal como en hexadecimal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{esquema-rgb.png}
+    \caption{Esquema RGB}
+\end{figure}
+
+En la imagen puedes ver las diferentes informaciones suministradas por la página web sobre esquemas de colores que compartimos como enlace en el punto anterior. Se ha elegido en el sistema RGB una tríada compuesta por un color primario, el azul, y los equidistantes a su color complementario. Se pueden ver los códigos hexadecimales correspondientes a cada combinación de color y en la parte derecha, sobre fondo blanco, la equivalencia en decimal de esos códigos hexadecimales.
+
+\subsubsection{Colores Seguros}
+El color rojo siempre será rojo, pero es posible que quede algún usuario con un monitor antiguo o con una versión del navegador muy anticuada, y debemos tenerlo en cuenta.
+
+Hay monitores que solo permiten visualizar 256 colores, o navegadores que solo soportan 216, conocimos en el ámbito del diseño como c\textbf{olores seguros}. Emplear estos colores seguros es una forma de garantizar que nuestro sitio Web se verá igual en todos los navegadores.
+
+Los \textbf{colores seguros} son los que se forman con las \textbf{combinaciones} de los tres colores \textbf{rojo}, \textbf{verde} y \textbf{azul}, pero solo con los valores hexadecimales \textbf{00}, \textbf{33}, \textbf{66}, \textbf{99}, \textbf{CC} y \textbf{FF}. Son 6 grados distintos de cada color y de ahí que sean \textbf{216 colores en total}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{secure-colors.png}
+    \caption{Selección colores seguros}
+\end{figure}
+
+Como vemos en la imagen, hemos seleccionado los colores seguros de la Web, seleccionando la opción en el menú superior de la herramienta. Puedes comprobar que todos los códigos hexadecimales se corresponden con los mencionados en el párrafo anterior.
+
+Para terminar esta sección, te recomendamos que consultes \href{https://www.testking.com/techking/wp-content/uploads/2011/01/IG-PoC-1000px.jpg}{este enlace} donde podrás ver un esquema con a modo de resumen explicando la \textbf{psicología del color}, que nos ayudará también a seleccionar los colores de nuestro sitio Web según la sensación que queramos transmitir.
+
+\section{Generación de Documentos y Sitios Web}
+Cuando diseñamos un sitio Web tenemos que tener claro que es tan importante el resultado final, el visual, lo que ve el usuario, como todo el trabajo previo de diseño y toda la documentación que habrá que realizar durante este proceso.
+
+Como cualquier proyecto de software, el proceso de generación de un sitio Web para por \textbf{diferentes fases}, siendo estás más o menos complejas dependiendo del sitio que estemos desarrollando. Estas fases son:
+
+\begin{itemize}
+    \item \textbf{Análisis}: en esta fase, después de recabar la información necesaria, establecemos los \textbf{requisitos} que deberá cumplir la Web, su sistema de navegación y su funcionalidad, y se \textbf{eligen las herramientas} necesarias y los \textbf{lenguajes} con los que estará implementado el sitio Web. También se \textbf{establecen unas pautas} que todos los miembros del equipo de diseño deberán tener en cuenta durante la generación del sitio y durante su mantenimiento. Estas pautas incluyen: tipografía, colores, iconografía, distribución de los elementos, etc.
+
+    \item \textbf{Desarrollo}: en esta fase se emplean las herramientas y lenguajes seleccionados en la fase anterior y se \textbf{implementa} el sitio Web, atendiendo a las pautas definidas en la fase de análisis.
+
+    \item \textbf{Pruebas y Depuración}: en esta fase, que se debe ir realizando de forma \textbf{paralela al desarrollo}, se comprueba que todos los enlaces funcionan y que los usuarios pueden ir interactuando correctamente con todas las páginas del sitio. Es importante ir probando que el diseño ya realizado es operativo.
+
+    \item \textbf{Documentación}: esta fase se realiza de \textbf{forma paralela a las demás}. Hay que documentar los requisitos establecidos en la fase de análisis. También hay que documentar el código durante la fase de implementación para facilitar su posterior mantenimiento. Pero lo más importante en el diseño Web es, quizás, la documentación de las pautas a seguir durante la generación del sitio. Estas pautas, recogidas en una \textbf{guía de estilo}, servirán al equipo de diseño durante la generación y mantenimiento del sitio.
+\end{itemize}
+
+\subsection{Guías de Estilo y sus Elementos}
+Un \textbf{manual de estilo} es un conjunto de normas para el diseño y redacción de documentos, ya sea para el uso general, o para una publicación u organización específica. Los manuales de estilo son frecuentes en el uso general y en el especializado, en medios escritos, orales o gráficos. El manual de estilo se compone tanto de normas lingüísticas, como de estilo, para que el mensaje sea más coherente, eficaz y correcto.
+
+Algunos manuales se centran en el diseño gráfico y abarcan temas como la tipografía, los colores y espacios en blanco. Los \textbf{manuales de estilo de sitios Web} se centran en los aspectos técnicos y visuales de la publicación, la prosa, uso correcto del lenguaje, la gramática, puntuación, la ortografía, pero sobre todo, la estética. La estricta aplicación de los manuales de estilo proporciona uniformidad al aspecto visual de un documento.
+
+La \textbf{guía de estilo} esta dirigidas a personas que se encargan del diseño y programación de la interfaz Web. Esta guía debe recoger todos los aspectos relacionados con el diseño de la interfaz y servir de ayuda eficaz en la toma de decisiones, tanto en el proceso de diseño como posteriormente en el proceso de mantenimiento.
+
+Una guía de estilo incluye aspectos relacionados con la inclusión en la interfaz de fotografías, logos, imágenes, iconos, los colores, los tipos de letra y, aquellos relacionados con la maquetación Web. Cuando una web esta desarrollada por un grupo de personas, la guía de estilo se hace \textbf{imprescindible}.
+
+Es recomendable que visites los siguientes enlaces donde podemos ver diferentes guías de estilo de varias instituciones y sitios web.
+
+\begin{itemize}
+    \item \href{https://si.ua.es/es/web-institucional-ua/guia-de-estilo.html}{Guía de estilo de la Universidad de Alicante}
+    \item \href{http://www.upv.es/entidades/ASIC/manuales/guia_estilos_upv.pdf}{Guía de estilo de la Universidad de Valencia}
+\end{itemize}
+
+\subsubsection{Fotos y Logos}
+Los recursos gráficos son muy empleados en la Web. Si se usan correctamente, pueden añadir valor a esta y facilitar el aprendizaje del usuario. Pero si se usan incorrectamente, pueden tener el efecto contrario.
+
+A la hora de emplear imágenes hay que tener en cuenta que estas son archivos que \textbf{tienen un tamaño}, y por tanto, \textbf{deberán descargarse} antes de su visualización. Por ello, solo \textbf{usaremos imágenes} que \textbf{complementen} nuestros sitio Web y trataremos de evitar aquellas cuya única finalidad sea adornas el sitio. Sobre las imágenes hablaremos en la unidad 5 en más profundidad.
+
+A continuación vemos una imagen ilustrativa de diferentes elementos que se han usado en otros apartados y que entran dentro de la categoría de fotos y logos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{fotos-logos.png}
+    \caption{Fotos y logos}
+\end{figure}
+
+Ahora lo que nos importa es la información que se debe reflejar en una guía de estilo referente a estos elementos, en los que deben figurar los siguientes puntos:
+
+\begin{itemize}
+    \item \textbf{Formato}: el tipo de formato en el que deberán estar almacenadas las imágenes o logotipos empleados.
+    \item \textbf{Tamaño}: el tamaño de logotipo o imagen que se establece dando las medias de ancho y alto en píxeles.
+\end{itemize}
+
+Hay que tener en cuenta demás que se \textbf{deben incluir} todos los \textbf{tamaños posibles} que puedan tener la imágenes o logotipos según su funcionalidad o en lugar de la página donde deberán ir situados, ya que no es lo mismo una imagen que vaya en la zona de contenidos que una imagen que se use en la cabecera de una página como distintivo de la organización.
+
+\textbf{Todos los tamaños y formatos} a emplear por el equipo deben quedar \textbf{perfectamente descritos} en el documento de la guía de estilo.
+
+\subsubsection{Tipografías}
+La \textbf{elección de la tipografía} es otro elemento muy importante en el diseño de una Web. La elección de una fuente familiar para el usuario puede facilitar la lectura y añadir valor al sitio Web.  A la hora de elegir la tipografía más adecuada tenemos que tener en cuenta lo siguiente:
+
+\begin{itemize}
+    \item \textbf{La fuente}: no todas las fuentes se leen con la misma facilidad y no todas las fuentes se ven igual en todas las plataformas. La fuente \textbf{Arial} es una fuente muy extendida que asegura la correcta visibilidad en todos los tamaños y en todas las plataformas y navegadores.
+
+    \item \textbf{El estilo de la fuente}: en la guía de estilo hay que especificar en que casos usar negrita, cursiva, subrayado o alguna de las posibles combinaciones. Hay que tener en cuenta que:
+
+    \begin{itemize}
+        \item El \textbf{subrayado} se suele emplear normalmente en los \textbf{enlaces}, pudiendo dar una falsa impresión al usuario si se emplea con otra finalidad.
+        \item Se debe usar \textbf{negrita} solo para conseguir fijar la atención del usuario sobre un elemento, destacándolo del resto.
+        \item No se deben utilizar diferentes características de la fuente para mostrar el énfasis de mas de una o dos palabras o una frase corta.
+    \end{itemize}
+
+    \item \textbf{Tamaño de la fuente}: la guía de estilo debe reflejar los tamaños de la fuente en función de la ubicación del texto y su finalidad. No se emplea el mismo tamaño del texto para un titular que para su contenido. Así mismo, se pueden establecer diferentes tamaños según la importancia del titular.
+
+    \item \textbf{Color de la fuente}: la guía de estilo debe especificar el color de la fuente en función de la ubicación del texto y su finalidad. A la hora de elegir el color debemos tener en cuenta lo siguiente:
+
+    \begin{itemize}
+        \item Se lee mejor el texto en color oscuro sobre un fondo blanco que al revés.
+        \item Se lee mejor un texto sobre un fondo liso que sobre un fondo con alguna textura o con una imagen.
+    \end{itemize}
+
+    Conocer lo \textbf{distintos tipos de fuentes} y \textbf{su comportamiento} en diferentes navegadores y sistemas operativos es de gran importancia para garantizar una visualización consistente de nuestro sitio Web.
+
+    Por último, dejamos un enlace con los \href{https://mejoratucopy.com/tipografias-para-web/}{tres mandamientos} que debe cumplir la tipografía de nuestra web.
+\end{itemize}
+
+\subsubsection{Colores}
+En una guía de estilo deben figurar todos los colores que se van a usar en todos los textos, fondos e imágenes según sea su ubicación y finalidad. La información debe suministrarse aportando los valores RGB tanto en decimal como en hexadecimal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.33]{guia-colores.png}
+\end{figure}
+
+En muchos sitios se usan colores distintos en los distintos enlaces del sistema de navegación de su página principal. Estos mismo colores se emplean después para representar otras secciones del sitio. Por ejemplo, en el sitio de la Junta de Castilla  y León tiene en su parte centra una zona de navegación enlazada con las secciones más visitadas:
+
+\begin{itemize}
+    \item Medio ambiente: tiene una fuente de color verde oscuro sobre un fondo de color verde claro.
+    \item Empleo: tiene la fuente de color blanco sobre un fondo de color oscuro.
+    \item Administración pública: tiene una fuente de color blanco sobre un fondo de color púrpura.
+    \item Vivienda y Urbanismo: tiene la fuente de color blanco sobre un fondo de color rojo.
+\end{itemize}
+
+Cada una de las secciones utiliza los mismos colores o algunos de su misma escala en su zona de navegación y en el título del contenido propio de sección. En este caso, la guía de estilo debe reflejar, entre otras, las combinaciones hexadecimales para el color de:
+
+\begin{itemize}
+    \item Las fuentes en el bloque central de la página.
+    \item Los fondos de los títulos de las secciones de la página principal.
+    \item Las fuentes del menú de navegación y el título del contenido en cada una de las páginas de las secciones.
+    \item Los fondos de las opciones del menú de navegación y de su título en cada una de las páginas de las secciones.
+\end{itemize}
+
+Por último, aquí te dejamos \textbf{unos consejos} que te pueden ser útiles a la hora de seleccionar los colores de tu sitio Web:
+
+\begin{itemize}
+    \item Si vas a emplear colores como \textbf{sistema de codificación}, es decir, para que el usuario haga una distinción de finalidad de los elementos según su color, asegúrate de que sea \textbf{fácil de comprender}.
+    \item \textbf{Ser consistente }en el uso de colores, usando por ejemplo un color siempre para lo mismo.
+    \item \textbf{No excederse} en el uso de colores distintos.
+    \item Utilizar combinaciones de colores que \textbf{trasmitan armonía}.
+    \item Utilizar correctamente el \textbf{contraste de colores} para destacar las partes relevantes del sitio.
+    \item Ten en cuenta la \textbf{psicología del color}.
+\end{itemize}
+
+\subsubsection{Iconografía}
+La \textbf{iconografía} es la aplicación práctica de los elementos prácticos del diseño (Representación, Significado y Función). Según la Real Academia Española, un icono es un signo que mantiene una relación de semejanza con el objeto representado.
+
+La Wikipedia dice que, desde el punto de vista informático, \textbf{un icono} es un pequeño elemento gráfico en pantalla que identifica y representa algún objeto, usualmente con algún simbolismo gráfico, para establecer una asociación.
+
+Un icono es una aplicación del elemento \textbf{Representación} porque es una forma representativa de algo en el mundo real; es una aplicación del elemento \textbf{Significado} porque el mensaje transmitido por el icono genera en nuestra mente una imagen conceptual, y es una aplicación del elemento \textbf{Función} porque logra atraer la atención del usuario que percibe de una forma más rápida el mensaje que se intenta transmitir y de esta forma no tiene necesidad de leer el texto al que acompaña.
+
+Los iconos suelen emplease para completar los textos de los enlaces en la página de portada. Un icono debe contener la \textbf{menor cantidad de detalle} posible sin perder significado.
+
+La elección de los iconos es muy importante, puesto que si un usuario no es capaz de determinar su significado a simple vista, entonces no habremos conseguido nuestro propósito de ahorrarle tiempo en la visualización de la página.ç
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{iconos.png}
+    \caption{Ejemplos de iconos}
+\end{figure}
+
+En la imagen podemos ver iconos agrupados según su ámbito de aplicación. En el grupo más grande los iconos están relacionados con el comercio: tarjetas de crédito, monedas, billetes, etc. Estos icono y otros con un diseño parecido son de uso común en todos los sitios web on-line.
+
+En la guía de estilos se deben especificar los iconos a emplear en el sitio Web, donde se van emplear y con que finalidad. Usar iconos por el mero hecho de adornar nuestra Web pero que no importe su significado es algo arriesgado.
+
+\subsubsection{Estructura}
+En el apartado de \textbf{Maquetación Web} hablábamos de la disposición de los bloques de elementos dentro del espacio de la ventana del navegador y veíamos un ejemplo de distribución de dichos elementos muy empleada en los diseños de interfaces Web.
+
+En el apartado de \textbf{Mapas de Navegación} hablábamos también de la relación existente entre las páginas a través de sus enlaces.
+
+En la \textbf{guía de estilos} debe quedar reflejada no solo la disposición de estos bloques en cada una de las páginas Web de nuestro sitio, sino también la relación de navegación entre las diferentes páginas.
+
+Es muy común en los sitios Web de gran tamaño que la \textbf{página principal} tenga una \textbf{diseño diferente} al resto de páginas, pero tanto si todas las páginas son iguales como si tenemos tanto si tenemos grupos de páginas iguales entre sí, la guía debe reflejar todos los diseños posibles indicando en todos los casos:
+
+\begin{itemize}
+    \item El tamaño en píxeles o porcentaje que debe ocupar \textbf{el encabezado} y dentro de él lo que ocupara y donde se ubicará cada uno de sus elementos.
+    \item El tamaño en píxeles o porcentaje de la \textbf{zona de navegación} y su ubicación, así como si estará dispuesta de forma horizontal u vertical.
+    \item Como se \textbf{dispondrán los enlaces} dentro de cada zona de navegación y su tamaño.
+    \item El tamaño, lugar y formato de la \textbf{zona de posicionamiento} dentro de la página.
+    \item El tamaño de la \textbf{zona de contenido} y su ubicación. Donde se colocará el título y lo que ocupará dentro de la zona de contenido.
+    \item Si hay \textbf{cuadros de contenido secundario}, cuál va a ser su tamaño y posición, y cual será su funcionamiento. Si estarán visibles o se mostrarán al pasar el ratón por alguna zona concreta.
+    \item El tamaño y la distribución de los \textbf{elementos de pie}.
+    \item También se deberán reflejar los \textbf{huecos} que se dejaran a propósito.
+    \item Como se van a mostrar los \textbf{submenús} de navegación.
+\end{itemize}
+
+\subsection{Aplicaciones Para El Desarrollo Web}
+En este punto, vamos a conocer algunas de las herramientas que podemos emplear para desarrollar nuestro sitio Web, en especial, las que nos van a permitir crear los elementos gráficos, los contenidos y la maquetación de los mismos.
+
+En \href{https://www.lawebera.es/}{este artículo de La Webera} puedes empezar consultando todas las herramientas que vas a necesitar para crear un sitio web. Aunque aquí vamos a ver algunas de estas.
+
+Dada la infinidad de herramientas que disponibles, haremos una agrupación de las mismas y daremos el nombre de algunas que no figuran en el artículo de el enlace y que pueden ser interesantes. Si te vas a dedicar profesionalmente al diseño de aplicaciones Web y dentro de esta profesión de especializas en el diseño de interfaces, necesitaras conocer, al menos, algunas de las herramientas que vemos en la siguiente tabla.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{tabla-herramientas.png}
+\end{figure}
+
+Las herramientas a emplear para la edición de imágenes, sonido, vídeo, animaciones y contenido se verán en sus correspondientes unidades de trabajo.
+
+\subsection{Lenguajes de Marcar}
+Los sitios web están compuestos de páginas que están escritas en algún lenguaje. Aunque algunas de las herramientas vistas en el punto anterior te permite comenzar a hacer una web sin conocimientos de estos lenguajes, solo conociendo la propia herramienta, si tu intención es dedicarte profesionalmente, deberás conocer, comprender y utilizar los \textbf{lenguajes de marcar}. Los principales que podemos encontrarnos son:
+
+\begin{itemize}
+    \item \textbf{HTML}: acrónimo del inglés HyperText Markup Language,  es el lenguaje de marcado predominante para la elaboración de páginas web. Los documentos escritos en este lenguaje sirven tanto para definir la estructura como el contenido de la página web.
+
+    HTML emplea marcas o etiquetas dentro del documento para informar al navegador de que se va a representar en el documento y lo hace, normalmente, delimitando el texto entre dos etiquetas, una de apertura y otra de cierre, aunque también hay etiquetas no tienen una de cierre. Las etiquetas van encerradas entre corchetes angulares y tiene unas normas sintácticas que se deben respetar si queremos que el resultado mostrado en el navegador sea el deseado.
+
+    Si no tienes conocimientos de HTML o quieres ponerlos al día, puedes visitar este \href{https://es.wikibooks.org/wiki/Lenguaje_HTML}{Curso de Introducción a HTMl}.
+
+    \item \textbf{HTML5}: es la nueva versión de HTML, que ha evolucionado de la versión HTML 4.0.1. Esta nueva versión incorpora muchas etiquetas nuevas, pero nosotros nos centraremos en las denominadas como \textbf{etiquetas semánticas}, algunas de las cuales son: \textbf{header}, \textbf{nav}, \textbf{main}, \textbf{section}, \textbf{article}, \textbf{aside} y \textbf{footer}. Esta etiquetas nos permitirán organizar nuestra web dándole un significado por el simple hecho de utilizarlas. Así, por ejemplo, al utilizar la etiqueta \textbf{nav} estamos indicando que lo que se encuentra dentro es un bloque de navegación.
+
+    A continuación, se muestra un ejemplo de código en HTML5:
+
+    \begin{figure}[H]
+        \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+            \scriptsize
+\begin{verbatim}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- Comentarios del código -->
+    <h1> ¡Hola mundo! </h1>
+  </body>
+</html>
+\end{verbatim}
+        \end{tcolorbox}
+    \end{figure}
+
+    \item \textbf{XML}: acrónimo del ingles eXtensible Markup Language, se propone como estándar para el intercambio de información estructurada entre diferentes plataformas. XML no es realmente un lenguaje en particular, sino que es un \textbf{metalenguaje }extensible desarrollado por el World Wide Web Consortium (W3C).
+
+    A diferencia de HTML, donde los errores sintácticos no provocan errores en el navegador, XML es muy estricto en cuanto a sus normas sintácticas.
+
+    \item \textbf{XHTML}: acrónimo del ingles eXtensible Hypertext Markup Language, es un lenguaje que utiliza las mismas etiquetas y atributos que HTML pero aplicando las reglas sintácticas de XML. En este \href{https://es.wikipedia.org/wiki/XHTML}{artículo de Wikipedia} puedes ver con más detalle las características de XHTML y sus diferencias con HTML.
+\end{itemize}
+
+\subsection{Tablas, Capas y Marcos}
+En los comienzos de HTML, la única forma de estructura una página era mediante el uso de \textbf{tablas}. Para poder agrupar los contenidos en los diferentes bloques de encabezado, navegación, contenido y pie, había que anidar tablas dentro de otras y definir los tamaños de cada bloque dándoles valores absolutos o relativos a la altura o anchura de cada celda. Era fácil, aunque laborioso, pero se conseguía situar cada elemento en su sitio. Había que tener el código HTML bien indentado para no perderse en un maremágnum de \textbf{tr} y \textbf{td}.
+
+Las nuevas versiones de los navegadores incorporan los \textbf{frames} o \textbf{marcos} que permiten estructurar la ventana del navegador en partes independientes entre sí, mostrando en cada una de estas partes una página HTML distinta. La ventaja del uso de marcos respecto a las tablas es que se pueden dejar zonas de la ventana visibles permanentemente, además, al estar separadas unas de otras según su funcionalidad resulta más fácil realizar el mantenimiento.
+
+Actualmente, \textbf{no deben utilizarse} ni tablas ni marcos para realizar la maquetación de nuestra página web, ya que hay herramientas más nuevas y eficientes que estás dos.
+
+Con la aparición de las \textbf{hojas de estilo}, las cuales no hay que confundir con las guías de estilo, se dejan de emplear tanto marcos como tablas, sustituyendo ambos por el uso de etiquetas \textbf{div} para definir bloques y las hojas de estilo para configurar la visualización de dichos bloques. Pero este tema tiene la suficiente entidad como para dedicarle más adelante un tema entero.
+
+Como hemos visto en el punto anterior, con la aparición de HTML5, han surgido un nuevo conjunto de etiquetas y complementan y en algunos casos sustituyen a la etiqueta \textbf{div} y que además añaden significado semántico al contenido que hay en su interior.
+
+\subsection{Plantilla de Diseño}
+En el apartado de \textbf{Maquetación Web} vimos un ejemplo de distribución de los bloques en los que se estructura una página web. Nos solemos encontrar esta distribución en sitios Web que no son excesivamente complejos, donde solo hay una zona de navegación que esta siempre visible y una zona de contenidos donde se representa cada uno de los contenidos enlazados desde la zona de navegación.
+
+Hay muchas distribuciones de los elementos de una página web, pero después de navegar horas y horas nos damos cuenta que muchos sitios distintos tiene una distribución similar. Esto es debido a que la \textbf{reutilización de código} es una técnica común que intenta ahorrar tiempo y energía, reduciendo el trabajo redundante.
+
+Las \textbf{plantillas de diseño Web} son sitios web prediseñados que se pueden usar como base en un diseño Web y que permiten adaptarlo a las necesidades del diseñador de forma rápida y sencilla, ahorrando una gran cantidad de tiempo y dinero.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.31]{diseno-plantilla.png}
+\end{figure}
+
+En la imagen anterior podéis ver un ejemplo de un diseño realizado en 20 minutos a partir de una plantilla suministrada por \href{https://www.webself.net/}{Webself}.
+
+Hoy en día hay una gran cantidad de sitios comerciales que suministran plantillas de diseño Web por muy poco dinero si consideramos el tiempo ahorrado en el diseño. Además, la mayoría te dan alojamiento gratuito de tu sitio Web durante el primer año.
 
 % Bibliography
 
