@@ -1,0 +1,240 @@
+\input{preambulo.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{10ex}
+\normalfont \normalsize
+\huge \textbf{Tarea 1: Análisis y Diseño de una Interfaz Web}
+}
+\author{Francisco Javier Sueza Rodríguez}
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+%                                     DOCUMENTO
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{75ex}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Centro}: & IES Aguadulce \\
+        \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
+        \textbf{Asignatura}: & Diseño de Interfaces Web\\
+        \textbf{Tema}: & Tema 1 -  Planificación de Interfaces Gráficas\\
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\section{Ejercicio 1; Selección de Página Web}
+
+\subsection{Enunciado}
+Visita al menos dos páginas con las temáticas citadas anteriormente:
+
+\begin{itemize}
+    \item Pon el foro (o base datos) la web que has seleccionado. Recuerda que no debe estar seleccionada por ningún otro compañero o compañera. En caso de ya haberse seleccionado (estar repetida) no se valorará la tarea.
+    \item Adjunta captura de pantalla donde se vea tu aportación en el foro.
+    \item Adjunta captura de pantalla de las dos páginas visitadas, debe verse tu foto, para ello puedes cargar la página y por detrás que se vea tu foto de la plataforma.
+    \item Selecciona una de las páginas visitadas para trabajar con ella durante la tarea. Justifica de una manera objetiva porqué has seleccionada ésta. Debes basarte el algo concreto, no valen justificaciones como: es la que más me gusta o es la que conozco. Se deben utilizar criterios técnicos, de diseño, de uso, etc.
+    \item Visualiza la página Web seleccionada en al menos dos dispositivos diferentes (ordenador y móvil por ejemplo). Adjunta una captura de pantallas de las diferentes visualizaciones. Las capturas deben ser de la web completa. Existen plugins o extensiones que captura toda la web, no valdrá como captura aquella que muestre solo una parte de la página.
+    \item Comenta brevemente al menos tres diferencias que existan entre las diferentes versiones (por ejemplo móvil y ordenador).
+\end{itemize}
+
+\subsection{Solución}
+El sitio web seleccionado es el de \href{https://www.heroku.com/}{Heroku}, una plataforma de hosting en la nube que además ofrece herramientas para el despliegue y desarrollo de aplicaciones Web. En la siguiente imagen, podemos ver la captura de mi aporte en el foro.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.44]{aporte-foro.png}
+    \caption{Aporte en el foro con la web seleccionada}
+\end{figure}
+
+Además de la página de Heroku, también he visitado la de \href{https://vercel.com/}{Vercel}, es otra \textbf{PaaS} (Platform as a Service) que ofrece servicios de hospedaje web y herramientas para el despliegue y desarrollo de aplicaciones web. A continuación se pueden ver dos capturas con las página principales tanto de Heroku como de Vercel.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.28]{heroku.png}
+    \caption{Página principal de Heroku}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.28]{vercel.png}
+    \caption{Página principal de Vercel}
+\end{figure}
+
+Después de visitar las dos páginas, he decidido \textbf{elegir la de Heroku}. El \textbf{motivo} por el que se \textbf{ha elegido} esta es porque en la página web de Vercel \textbf{faltan elementos interactivos}, por lo menos en la página principal, que es la que vamos a analizar. Por lo que para efectos de esta tarea es más conveniente la selección de Heroku, ya que a la hora de analizarla vamos a poder realizar una análisis más completo.
+
+A continuación, hemos \textbf{visualizado} la página web tanto en un \textbf{ordenador portátil}, con una pantalla de 15.4 pulgadas, como en un \textbf{dispositivo móvil}, con una pantalla de 5 pulgadas. En la siguiente figura podemos ver la capturas de la versión en sobremesa (parte izquierda de la imagen) y de la versión móvil (parte derecha).
+
+\textbf{NOTA}: cabe señalar que debido a tamaño que tienen la capturas se han tenido que reducir para que quepan en la página, por lo que los detalles no se pueden apreciar todo lo bien que se debiera. Además, la captura en pantalla móvil se ha tenido que dividir por la mitad ya que sino era imposible que entrará en una página. Por esto, además de incluir las capturas en el documento, se van a adjuntar por si se quieren ver de forma más detallada.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[scale=0.10]{heroku-completa-portatil.png}}
+    \hspace{1cm}
+    \fbox{\includegraphics[scale=0.155]{heroku-completa-movil-1.png}}    \fbox{\includegraphics[scale=0.155]{heroku-completa-movil-2.png}}
+    \caption{Página de Heroku en versión sobremesa (izquierda) y móvil (derecha)}
+\end{figure}
+
+Como podemos ver en las capturas anteriores, hay \textbf{significativas diferencias} entre la versión de ordenador y la versión móvil, 3 de estas diferencias son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Menu de Navegación}: una de las diferencias más llamativas es el menú de navegación. Mientras que en la versión de ordenador se ha optado por \textbf{menú de navegación horizontal}, en la versión móvil tenemos un \textbf{menú hamburguesa}, para ahorrar espacio.
+
+    \item \textbf{Alineación de los elementos}: otra de las diferencias principales es la alineación de los diferentes elementos como iconos, textos, etc. Mientras que en la versión de ordenador se aprovecha más el espacio horizontal y se usa más esta alineación, en la versión móvil se usa una alineación vertical, principalmente para que los elementos se puedan visualizar sin añadir scroll lateral a la página.
+
+    \item \textbf{Formulario de Búsqueda}: en la versión para ordenador podemos ver algunos elementos interactivos en la parte superior derecha como un formulario de búsqueda, estos elementos desaparecen de la cabecera en la versión móvil y se integran, junto con el menú de navegación, en el menú hamburguesa.
+\end{itemize}
+
+\section{Ejercicio 2: Componentes de una Página Web}
+\subsection{Enunciado}
+Trabajando con la página web seleccionada y en la versión para ordenador, identifica y adjunta captura de pantalla de cada uno  de los componentes de la web:
+\begin{itemize}
+    \item \textbf{identificación}
+    \item \textbf{navegación}
+    \item \textbf{contenidos}
+    \item \textbf{interacción}
+\end{itemize}
+
+\subsection{Solución}
+En este ejercicio vamos a identificar varios componentes en la web de Heroku. Son las siguientes:
+
+\begin{itemize}
+    \item \textbf{Identificación}: la identificación la podemos encontrar en la parte superior izquierda de la página.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{heroku-identificacion.png}
+        \caption{Identificación en la página de Heroku}
+    \end{figure}
+
+    \item \textbf{Navegación}: podemos encontrar dos zonas principales de navegación en la página principal de Heroku. Una se encuentra en la cabecera, a modo de menú de navegación horizontal, mientras que encima del pie de página, podemos encontrar otra zona de navegación con un menú de navegación vertical. Se han tomado dos capturas de ambas zonas de navegación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{heroku-navegacion-1.png}
+        \caption{Zona de navegación superior de Heroku}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{heroku-navegacion-2.png}
+        \caption{Zona de navegación inferior de Heroku}
+    \end{figure}
+
+    \item \textbf{Contenidos}: prácticamente el resto de la página, entre la cabecera y la zona de navegación interior esta destinada a contenidos, en concreto a exponer las herramientas y características del servicio.
+
+    También hay una sección de \textbf{Upcoming Events}, donde aparecen los próximos eventos relacionados con la aplicación, como diferentes conferencias donde van a tener presencia. He elegido esta última parte como representativa de una zona de contenido, como se muestra en la siguiente figura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{heroku-contenido.png}
+        \caption{Zona de contenido de Heroku}
+    \end{figure}
+
+    \item \textbf{Interacción}: la zona de interacción la podemos ver en la parte superior izquierda, donde hay un formulario donde podremos realizar búsquedas dentro de contenido de la web, como vemos en la siguiente imagen.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{heroku-interaccion.png}
+        \caption{Zona de interacción de Heroku}
+    \end{figure}
+\end{itemize}
+
+\section{Ejercicio 3: Principios de Gestalt}
+
+\subsection{Enunciado}
+Identifica dos principios de Gestalt de los que se citan en la unidad de trabajo, que se utilicen en la web seleccionada. En caso de que no encuentres ninguno, la web no será válida y tendrás que seleccionar otra. Para cada principio de Gestalt tendrás que:
+
+\begin{itemize}
+    \item indicar nombre del principio
+    \item explicar en que consiste dicho principio.
+    \item adjuntar captura de pantalla donde se pueda apreciar claramente el principio que estás indicando. Sobre la captura de pantalla puedes resaltar o marcar lo que consideres necesario para apreciar mejor el principio seleccionado. No debe darse nada por sobreentendido.
+\end{itemize}
+
+\subsection{Solución}
+En la página web de Heroku podemos ver varios principios de Gestalt aplicados, aunque nosotros nos vamos a centrar en los dos siguientes:
+
+\begin{itemize}
+    \item \textbf{Principio de Proximidad}: este principio se basa en el hecho de que la mente suele agrupar los elementos en función de las distancia que hay entre ellos. En la página de Heroku, en concreto en el menú de navegación inferior, podemos ver como a pesar de que todos los enlaces son iguales, nuestra mente los agrupa según su proximidad, no viéndolos como una amalgama de enlaces, sino como 4 listas de enlaces bien diferenciadas, como vemos a continuación.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.24]{heroku-gestalt-2.png}
+    \end{figure}
+
+    \item \textbf{Principio de Continuidad}: este principio establece que nuestra mente suele percibir los elementos continuos, aunque su contorno este interrumpido. En las ilustraciones que podemos ver en la parte superior de la página, vemos como se aplica este principio. En el ejemplo de la imagen de abajo podemos ver un árbol, montañas o nubes, aunque ninguna de sus formas esta completamente cerrada.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.24]{heroku-gestalt-1.png}
+    \end{figure}
+\end{itemize}
+
+\section{Ejercicio 4: Guía de Estilo}
+
+\begin{enumerate}[label=\alph*]
+    \item Define que es una guía de estilo.
+    \item Da tres razones por lo que es bueno trabajar con una guía de estilo.
+    \item Busca una guía de estilo en internet, adjúntala y comente brevemente que te parece el documento. Indica la URL de donde la has obtenido o descargado o se puede visitar.
+    \item amos a analizar los elementos más importantes que componen una guía de estilo, para ello nos centraremos en la web que has seleccionado en el ejercicio 1 (y que como se ha indicado debe ser única para cada alumno y alumna).
+    \begin{itemize}
+        \item Reconoce el logotipo de la Web. (adjunta captura de pantalla).
+        \item Reconoce dos recursos gráficos que tengan funcionalidades (o finalidades) y naturaleza (imágenes, iconos, etc..) diferentes dentro de la página principal que estás analizando. Indica para cada tipo de recurso cual es su finalidad o funcionalidad (adjunta una captura de pantalla por cada recurso). Si los recursos son de igual naturaleza o funcionalidad solo se valorará uno.
+        \item Analiza el menú (estructura o sistema) de navegación de la versión de escritorio. Adjunta captura de pantalla y comenta al menos:
+        \begin{itemize}
+            \item Dos virtudes.
+            \item Un defecto que encuentres.
+            \item Las respuestas tienen que estar justificadas de forma razonada.
+        \end{itemize}
+
+        \item Indica el tipo de estructura (prototipos) del mapa de navegación que utiliza la web. En caso de que no exista mapa de navegación en la web seleccionada, busca un mapa de navegación en otra web e indica la estructura que tiene. Debes adjuntar URL, captura de pantalla e indicar y justificar el tipo de mapa de navegación que utiliza.
+
+        \item Reconoce una tipografía que se utilice en la web, indica para la fuente seleccionada:
+        \begin{itemize}
+            \item Para qué se utiliza.
+            \item Captura de pantalla donde se vea dónde se utiliza.
+            \item Captura de pantalla donde se vea el nombre de la fuente. Para ello puedes valerte del modo desarrollador del navegador o alguna extensión o plugin.
+        \end{itemize}
+
+        \item Analiza la paleta de colores que utiliza la página seleccionada (al menos dos colores diferentes). Debes indicar para cada color:
+        \begin{itemize}
+            \item Qué elementos la utilizan, debes adjuntar captura de pantalla donde se vea claramente la zona del color a la que haces referencia.
+            \item Código de color en RGB, debes valerte de una herramienta, extensión (como colorZilla) o modo desarrollador, donde se vea claramente la zona de la pantalla a la que haces referencia y el código RGB. No vale con poner solo el código del color o mostrar la zona, deben verse a la vez color y código.
+            \item Indica qué se persigue en la interfaz con ese color y qué te transmite. Puedes consultar la parte de la unidad relacionada con la psicología del color para dar respuesta a esta pregunta.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Solución}
+En este ejercicio vamos a responder varias preguntas sobre las guías de estilo su uso y ha identificar sus elementos en la página que hemos seleccionado.
+
+\begin{enumerate}[label=\alph*]
+    \item Una \textbf{Guía de Estilo} es un conjunto de normas y reglas para el diseño de una página web. En ella se estipulan elementos como el tamaño y posicionamiento de imágenes, los tipos de fuentes y el tamaño que tendrán estás dependiendo de su funcionalidad, la paleta de colores que se va a emplear, los iconos e imágenes, el posicionamiento de los elementos en los diferentes bloques de la página web, etc...
+
+    \item El uso de guías de diseño tiene muchas \textbf{ventajas}, entre las que caben destacar las siguientes:
+    \begin{enumerate}
+        \item \textbf{Ahorro de Tiempo}: el uso de guías de diseño nos va a ahorrar tiempo en el proceso de diseño de una Web, ya que muchas de las decisiones que debemos tomar vienen ya indicadas en la guía, sin tener nosotros que pensar en, por ejemplo, que tipo de fuente vamos a usar para los encabezados o la paleta de colores a elegir. Todo eso viene ya definido en la guía.
+
+        \item \textbf{Uniformidad}: el empleo de la guía ayuda a que todas las páginas Web que pertenecen al sitio tengan el mismo estilo, lo que hace que el sitio Web se vea más consistente y sea más agradable navegar por él.
+
+        \item \textbf{Mantenimiento}: el uso de la guía de estilo hace que el mantenimiento de la aplicación sea más simple y rápido de realizar, ahorrando tiempo y dinero.
+    \end{enumerate}
+\end{enumerate}
+
+% Bibliography
+
+%\newpage
+%\bibliography{citas}
+%\bibliographystyle{unsrt}
+
+\end{document}
