@@ -7,3 +7,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Definición de variables para el tema de color */
+
+:root {
+  --main-background: #D9D9D9;
+  --background-light: #64CCC5;
+  --background-dark: #176B87;
+  --details: #04364A;
+  --text-color: #FFF;
+}
+
+/* Valores para toda la página */
+
+html {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Clases de utilidad */
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
