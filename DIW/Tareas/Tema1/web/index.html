@@ -18,67 +18,80 @@
     <title>Fran Sueza Web Developments</title>
   </head>
 
-  <header>
-    <nav id="nav-1" class="flex">
-      <a href="#ident">Lorem</a>
-      <a href="#conte-1">Lorem</a>
-      <a href="#conte-2">Lorem</a>
-      <a href="#pie">Lorem</a>
-    </nav>
-
-    <div id="ident">
-      <img src="images/personal.jpg" alt="imagen del autor" width="200px" height="220px">
-      <h1>Lorem Ipsum Dolor</h1>
-      <h5>Lorem Ipsum Dolor sit Amet</h5>
-    </div>
-  </header>
-
   <body>
-    <section id="conte-1">
-      <div id="texto">
-        <h3>Lorem Ipsum Dolor </h3>
-        <p>Eu elit ipsum ex duis dolore elit occaecat ullamco enim. Anim reprehenderit
-          tempor et esse in in. Duis fugiat magna consectetur laborum consectetur laboris
-          labore quis esse sint est.</p>
-        <button>Boton</button>
-      </div>
+    <header class="header">
+      <nav id="nav-1" class="flex nav-1">
+        <a href="#nav-1" class="link">Portada</a>
+        <a href="#seccion-1" class="link">Nosotros</a>
+        <a href="#seccion-2" class="link">Servicios</a>
+        <a href="#pie" class="link">Copyright</a>
+      </nav>
 
-      <img src="images/product.jpeg" alt="">
-    </section>
+      <div id="ident" class="flex">
+        <img class="header__image" src="images/personal.jpg" alt="imagen del autor">
+        <div class="header__text flex">
+          <h1 class="header__title">Francisco Sueza Rodríguez</h1>
+          <h5 class="header__subtitle">Desarrollo de aplicaciones Web</h5>
+        </div>
+      </div>
+    </header>
 
-    <section id="conte-2" class="flex">
-      <div>
-        <img src="images/servicio.jpeg" alt="">
-        <h5>Lorem</h5>
-      </div>
-      <div>
-        <img src="images/servicio.jpeg" alt="">
-        <h5>Lorem</h5>
-      </div>
-      <div>
-        <img src="images/servicio.jpeg" alt="">
-        <h5>Lorem</h5>
-      </div>
-      <div>
-        <img src="images/servicio.jpeg" alt="">
-        <h5>Lorem</h5>
-      </div>
-      <div>
-        <img src="images/servicio.jpeg" alt="">
-        <h5>Lorem</h5>
-      </div>
-    </section>
 
-    <nav id="nav-2" class="" flex>
-      <a href="#ident">Lorem</a>
-      <a href="#conten-1">Lorem</a>
-      <a href="#conten-2">Lorem</a>
-      <a href="#pie">Lorem</a>
-    </nav>
+    <main id="contenido">
+      <section id="seccion-1" class="section-1">
+        <div class="flex content">
+          <div id="texto" class="content__text">
+            <h3 class="content__title">Desarrollos Web a Medida </h3>
+            <p class="content__para">Hoy en día la presencia en el internet es algo determinante para cualquier negocio.
+              Con años de experiencia en el sector, podemos asesorarle para que ponga su negocio en la red y empiece a
+              ver los beneficios que ellos conlleva en poco tiempo. Desde simples Webs para matener la presencia en la red, pasando por aplicaciones webs para gestionar su negocio
+              y montar una tienda en la red. No dude en ponerse en contacto con nosotros y podremos asesorarle y elegir el tipo de aplicación web que mejor se adapte a sus
+              necesidades.
+            </p>
+            <button type="button" class="content__button">Información</button>
+          </div>
+
+          <img class="content__image" src="images/product.jpeg" alt="">
+        </div>
+      </section>
+
+      <section id="seccion-2" class="section-2">
+        <div class="flex content gallery">
+          <div class="gallery__element">
+            <img class="gallery__img" src="images/servicio.jpeg" alt="">
+            <h5 class="gallery__text">Webs</h5>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__img" src="images/servicio.jpeg" alt="">
+            <h5 class="gallery__text">Stores</h5>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__img" src="images/servicio.jpeg" alt="">
+            <h5 class="gallery__text">Gestion</h5>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__img" src="images/servicio.jpeg" alt="">
+            <h5 class="gallery__text">Administracion</h5>
+          </div>
+          <div class="gallery__element">
+            <img class="gallery__img" src="images/servicio.jpeg" alt="">
+            <h5 class="gallery__text">Diseño</h5>
+          </div>
+        </div>
+      </section>
+
+      <nav id="nav-2" class="flex nav-2">
+        <a href="#nav-1" class="link">Portada</a>
+        <a href="#seccion-1" class="link">Nosotros</a>
+        <a href="#seccion-2" class="link">Servicios</a>
+        <a href="#pie" class="link">Copyright</a>
+      </nav>
+
+    </main>
+    <footer id="pie" class="foot">
+      <p>Copyright </p>
+    </footer>
+
   </body>
-
-  <footer id="pie">
-    <p>Copyright</p>
-  </footer>
 
 </html>
