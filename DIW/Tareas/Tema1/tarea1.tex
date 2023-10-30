@@ -373,7 +373,69 @@ Si se quiere ver más detalladamente el proyecto, se puede consultar este en \hr
 Desarrolla, usando HTML5 (y CSS si lo crees conveniente y/o necesario), una interfaz donde se vea el diseño realizado en el ejercicio anterior. Para la creación de la página debes utilizar el máximo de etiquetas semánticas. En cada una de las zonas definidas no debe existir ninguna otra información, a excepción de los que se han indicado (cabecera y zona de contenido). Ponle bordes y colores a cada una de las zonas, para que se aprecien de una forma más clara, cada una de las zonas (semánticas) que hay en la página web. Muy importante: no deben utilizarse ni marcos ni tablas, para el posicionamiento de los elementos.
 
 \subsection{Solución}
-En este ejercicio se va a implementar la Web de la que hemos realizado el boceto en el ejercicio anterior. Las zonas de identificación, navegación, contenido y pie de página se les va a poner un \textbf{borde de color rojo} para que se diferencien bien los diferentes bloques, aunque este elemento no estaba presente en el boceto.
+En este ejercicio se va a implementar la Web de la que hemos realizado el boceto en el ejercicio anterior, para lo que se ha usado HTML y CSS, poniendo especial énfasis en el uso de etiquetas semánticas. Sobre el código cabe anotar:
+
+\begin{itemize}
+    \item Para el posicionamiento de los elementos se ha usado \textbf{CSS Flex}.
+    \item Se ha seguido la metodología \href{https://getbem.com/introduction/}{BEM} para nombrar las clases CSS.
+    \item No se han incluido Media Queries ya que no se pedía en este tema, aunque se han usado \textbf{unidades relativas} para hacer la página un poco más responsiva.
+    \item Los diferentes bloques de la web, es decir, identificación, navegación, contenido y píe, han sido marcadas con un \textbf{borde rojo}, aunque este no forma parte del diseño, como se pide en el ejercicio.
+    \item Para que la identificación de cada bloque sea mejor, se ha añadido un atributo \textbf{title} a los principales bloques, por lo que si se pasa el ratón por encima del bloque debería mostrar su nombre.
+    \item Las ilustraciones utilizadas se han descargado de \href{https://undraw.co/illustrations}{Undraw}.
+\end{itemize}
+
+A continuación se muestra una captura de pantalla con parte del resultado final de la web creada. El código se incluirá en el proyecto a entregar.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{web.png}
+\end{figure}
+
+\section{Ejercicio 7: Plantillas Web}
+\subsection{Enunciado}
+En internet existen multitud de páginas que nos permiten descargar una plantilla y evitar tener que desarrollar una página desde cero. Busca una Web desde donde puedas descargar una plantilla que pueda ser utiliz para nuestro modelo de negocio (indicado al inicio de la tarea), no valdrá un servicio web donde se puedan utiliza plantillas directamente en la web (como por ejemplo IONOS), es decir, tiene que ser una plantilla que pueda descargarse de forma local en tu equipo. Descarga los ficheros de forma local a tu equipo y con esa información realiza lo siguiente:
+
+\begin{itemize}
+    \item Indica 2 ventajas y 2 desventajas de utilizar plantillas.
+    \item Indica la url de donde has descargado la plantilla. Desde dicha URL debe poderse descargar los ficheros base. Si se pone una URL que no acceda directamente a la plantilla, este apartado no se dará por válido.
+    \item Indica los derechos de uso de dicha plantilla. Adjunta captura de pantalla donde se vean claramente los derechos de uso, para justificar la respuesta. Muestra la URL donde se puedan ver dichos derechos de uso.
+    \item Sobre la plantilla que has seleccionado tienes que realizar las siguiente acciones, adjuntando las capturas de pantalla que se pidan:
+    \begin{itemize}
+        \item Mostrar en el navegador la visualización de la plantilla seleccionada sin ninguna modificación donde se vea tu foto de perfil de la plataforma.
+        \item Sobre la plantilla base realiza las siguientes modificaciones:
+        \begin{itemize}
+            \item Cambia el logotipo de la empresa, un icono  o una imagen de la web (solo una modificación, la que prefieras).
+            \item Inserta o cambia un título (etiqueta h1,h2, etc.) en la web y asígnale un color (diferente al que tiene).
+            \item Realiza otra modificación que te sea interesante.
+            \item Adjunta captura de pantalla donde se vea el código original en un editor de código, en la captura debe verse tu foto de perfil.
+            \item Adjunta captura de pantalla donde se vea el código que has modificado en un editor de código, en las capturas debe verse tu foto de perfil. Las modificaciones no deben realizarse directamente en la web utilizando el modo desarrollador (no es necesario adjuntar todo el código, solo las partes modificadas)
+            \item Explica brevemente junto a a la capturas de modificación en que ha consistido el cambio.
+            \item Debes adjuntar tantas capturas de pantalla como modificaciones realices.
+        \end{itemize}
+        \item Mostrar en el navegador la visualización de la plantilla seleccionada con las modificaciones realizadas donde se vea tu foto de perfil de la plataforma.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Solución}
+En este último ejercicio vamos a usar una \textbf{plantilla web} y a realizar diferentes modificaciones, respondiendo a las diferentes preguntas que se nos plantean.
+
+\begin{itemize}
+    \item Las plantillas web tiene sus ventajas e inconvenientes. En este punto, vamos a enumerar 2 ventajas y 2 inconvenientes de su uso.
+    \begin{itemize}
+        \item \textbf{Ventajas}:
+        \begin{itemize}
+            \item Son \textbf{fáciles de usar}, ya que solo tenemos que descargarlas y la plantilla estará lista para su uso.
+            \item Se pueden \textbf{implementar rápidamente}, realizando los cambios que se adaptan a nuestras necesidades, ahorrándonos tiempo y dinero.
+        \end{itemize}
+
+        \item \textbf{Inconvenientes}:
+        \begin{itemize}
+            \item Las webs creadas con plantillas son \textbf{menos originales}, pudiendo haber cientos de páginas muy parecidas, tantas como desarrolladores hayan usado la misma plantilla.
+            \item
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 
 
 
