@@ -462,13 +462,25 @@ En este último ejercicio vamos a usar una \textbf{plantilla web} y a realizar d
 
         Una vez descargada, hemos buscado el código HTML en el archivo \textbf{index.html} de la plantilla, el cual está indicado con un comentario, y lo hemos modificado.
 
-            \begin{figure}[H]
+        \begin{figure}[H]
             \centering
             \includegraphics[scale=0.28]{plantilla-cambio-imagen.png}
-            \caption{Código HTML sin modificar (izquierda) y modificado (derecha)}
+            \caption{Código HTML de la imagen sin modificar (izquierda) y modificado (derecha)}
         \end{figure}
 
-        \item El siguiente cambio que se ha realizado ha sido modificar
+        \item El siguiente cambio que se ha realizado ha sido \textbf{modificar un elemento h1}. En este caso hemos elegido el elemento que sirve de identificación del la empresa, que en la plantilla tiene el texto \textbf{KOPPEE} y lo hemos modificado cambiando el texto a \textbf{CAFE KONA}.
+
+        Para el cambio de color ha surgido un ``\textit{inconveniente}'', y es que esta plantilla \textbf{usa bootstrap}, por lo que en vez de modificar el código CSS, hemos tenido que \textbf{cambiar la clase del texto} en el \textbf{elemento HTML}. La idea es poner el texto en el mismo color crema que se usa en otros textos, y después de indagar en el código HTML, he visto que la clase que pone el texto de ese color es \textbf{text-primary}, por lo que se ha sustituido la clase \textbf{text-white} por esta para cambiar el color del texto. Como podemos ver en la siguiente captura de VSCode.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.28]{plantilla-cambio-texto.png}
+            \caption{Código HTML del texto sin modificar (izquierda) y modificado (derecha)}
+        \end{figure}
+
+        \item Por último, un cambio que me ha parecido interesante realizar, es \textbf{modificar el menú de navegación} superior de la página. En este aspecto, es un cambio que es probable que se realice cuando estamos usando plantillas. En nuestro caso, se han traducido los diferentes elementos del menú al castellano y se ha eliminado el elemento \textbf{Pages}, que no lo vamos a usar.
+
+        Para ello, se ha modificado el código HTML concerniente al menú tal y como podemos ver en la siguiente captura.
     \end{enumerate}
 \end{itemize}
 
