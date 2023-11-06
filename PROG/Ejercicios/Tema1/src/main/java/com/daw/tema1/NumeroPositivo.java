@@ -21,9 +21,9 @@ public class NumeroPositivo {
         System.out.println("Introduzca un ńumero entero:");
         numero = teclado.nextInt();
         
-        if (numero >= 0) 
-            System.out.println("El número es positivo.");
-        else 
+        if (numero < 0) 
             System.out.println("El número es negativo.");
+        else 
+            System.out.println("El número es positivo.");
     }
 }
