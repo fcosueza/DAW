@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.daw.tema1;
+package daw.ejercicios.tema1;
 
 import java.util.Scanner;
 
