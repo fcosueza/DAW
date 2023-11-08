@@ -11,5 +11,5 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.daw.tema1.NumeroPositivo</exec.mainClass>
     </properties>
-    <name>Tema1</name>
+    <name>Tema2</name>
 </project>
