@@ -37,7 +37,7 @@ public class Ejercicio01 {
 
         System.out.println("Ejercicio 1. Uso del depurador");
         System.out.println("----------------------------------------------------");
-        System.out.println("PRUEBA DEL PROFESOR LUIS NAVARRO ORTIZ");
+        System.out.println("PRUEBA DEL ALUMNO FRANCISCO JAVIER SUEZA RODRÍGUEZ");
         System.out.println("----------------------------------------------------");
         //----------------------------------------------
         //               Entrada de datos 
