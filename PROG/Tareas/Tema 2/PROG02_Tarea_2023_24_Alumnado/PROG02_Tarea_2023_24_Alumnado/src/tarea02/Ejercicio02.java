@@ -28,7 +28,7 @@ public class Ejercicio02 {
         float PRECIO_AGUA = 1.00f;
         float PRECIO_ZUMO = 2.00f;
         
-        // Variables de entrada (aquí se definen las variables que recibirán valores, si fueran necesarias)
+        // Variables de entrada 
         
         int opcionElegida;
         float dineroUsuario;
@@ -37,7 +37,7 @@ public class Ejercicio02 {
         
         boolean opcionIncorrecta = true, salir = false;
         
-        // Variables de salida (aquí se definen las variables que almacenarán resultados y se mostrarán al usuario, si fueran necesarias)
+        // Variables de salida 
         
         float cambio, precioSeleccion = 0;
         
@@ -51,7 +51,7 @@ public class Ejercicio02 {
         //----------------------------------------------
 
         /* 
-         * Mostramos el menú pedimos la opción por teclado. Si la opción es incorrecta
+         * Mostramos el menú y pedimos la opción por teclado. Si la opción es incorrecta
          * se muestra un mensja de error y se vuelve a pedir, hasta que la opción sea correcta.
          */
         
@@ -83,7 +83,7 @@ public class Ejercicio02 {
         //-----------------------------------------------------------
         
         /*
-         * Procesamos la opción seleccionad y almacenamos la bebida elegida y su
+         * Procesamos la opción seleccionada y almacenamos la bebida elegida y su
          * precio en las variables oportunas, para lo que usaremos un swtich. 
          * 
          * Podríamos haber usado un rule switch, pero como no lo hemos visto en el tema
@@ -118,9 +118,9 @@ public class Ejercicio02 {
          * cambio y si hay dinero suficiente. 
          */
         
-        if (salir) {
+        if (salir) 
             System.out.println("Gracias por usar la Máquina Expendedora. ¡Hasta luego!");
-        } else {
+        else {
             System.out.println("");
             System.out.println("Ha seleccionado: " + miBebida + ". El precio es de "+ precioSeleccion + "€.");           
             System.out.println("Ingrese la cantidad de dinero en euros: ");
