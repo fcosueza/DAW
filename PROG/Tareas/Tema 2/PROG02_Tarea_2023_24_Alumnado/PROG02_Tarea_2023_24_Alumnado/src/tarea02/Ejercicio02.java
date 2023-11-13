@@ -1,7 +1,7 @@
 package tarea02;
 
 /**
- * Clase que implemente una máquina expendedora que permitirá a los usuario
+ * Clase que implementa una máquina expendedora que permitirá a los usuario
  * seleccionar una opción de bebida y pagar por ella, devolviendo el cambio
  * adecuado y la bebida.
  * 
@@ -52,7 +52,7 @@ public class Ejercicio02 {
 
         /* 
          * Mostramos el menú y pedimos la opción por teclado. Si la opción es incorrecta
-         * se muestra un mensja de error y se vuelve a pedir, hasta que la opción sea correcta.
+         * se muestra un mensaje de error y se vuelve a pedir, hasta que la opción sea correcta.
          */
         
         do {
