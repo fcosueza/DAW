@@ -52,7 +52,7 @@ public class Ejercicio04 {
          * más intentos en el caso de valores altos de TAMANO_COMB
          */
        
-        long intentos = 1; // Al menos se va a realizar un intento
+        long intentos = 0; 
         
         // Variables axuliares
         
@@ -128,6 +128,7 @@ public class Ejercicio04 {
              *       además funciona correctamente para valores altos. Además así nos ahorramos una variables.
              */
             
+            intentos++;
             System.out.println(intentos + " - " + combinacion);
             
             if (combinacion.equals(PREMIO_1)) {
@@ -152,9 +153,7 @@ public class Ejercicio04 {
             
             } else {
                 combinacion = "";
-            } 
-            
-            intentos++; 
+            }  
         } while (!premiada);
   
         //----------------------------------------------
