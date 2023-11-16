@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Francisco Sueza Rodríguez" />
+    <meta name="description" content="Parte 2 de la tarea del Tema 1 de la asignatura DWEC." />
+
+    <title>Tema 1 - Parte 2 (DWEC)</title>
+  </head>
+
+  <body>
+    <!-- Se van a incluir los ejercicios en elementos <script> independientes, para que se ejecuten de forma secuencial -->
+
+    <script type="text/javascript">
+      /*
+       * En este primer ejercicio, vamos a pedir las dos cadenas de texto al usuario 
+       * para comparar y mostrar cual es mayor y cual es menor.
+       */
+
+      let cadena1, cadena2, resultado;
+
+
+      document.write("<h1>Ejercicio 1: Comparación de 2 cadenas</h1>");
+      document.write("<h3>A continuación se van a pedir dos cadenas y se mostrará cual es mayor y cual es menor.</h3>");
+
+      /* Pedimos las cadenas al usuario */
+
+      cadena1 = prompt("Introduzca la primera cadena: ");
+      cadena2 = prompt("Introduzca la segunda cadena: ");
+
+      /* Según el tamaño de cada cadena, construimos la cadena resultado con un contenido u otro */
+
+      if (cadena1 > cadena2)
+        resultado = "<h4>La cadena " + cadena1 + " es mayor que " + cadena2 + ".</h4>";
+      else if (cadena2 > cadena1)
+        resultado = "<h4>La cadena " + cadena2 + " es mayor que " + cadena1 + ".</h4>";
+      else
+        resultado = "<h4>Las cadenas " + cadena1 + " y " + cadena + " son iguales.</h4>";
+
+      /* Mostramos el resultado */
+
+      document.write(resultado);
+    </script>
+
+    <script type="text/javascript">
+      /*
+      * En este segundo ejercicio vamos a pedir tres números al usuario. Uno será el límite inferior, otro el superior
+      * y por último el incremento. Con estos datos, se creará una serie numérica que va desde el límite inferior al superior
+      * incrementado cada elemento de la serie la cantidad especificada.
+      */
+
+      document.write("<h1>Ejercicio 2: Rango numérico</h1>");
+      document.write("<h3>A continuación se van a pedir 3 números. El límite inferio, el superior y el incremento, para generar un serie numérica.</h3>");
+      document.write("<h3>Tenga en cuenta que el los datos introducidos deben ser números positivos, además, el límite inferior debe ser menor que el superior.</h3>");
+
+      let limiteInferior, limiteSuperior, incremento;
+      let mensajeError = "Los datos introducidos no son correctos.";
+
+      limiteInferior = prompt("Introduzca el límite inferior: ");
+      limiteSuperior = prompt("Introduzca la límite superior: ");
+      incremento = prompt("Instrozuca el incremento: ");
+    </script>
+
+  </body>
+
+</html>
