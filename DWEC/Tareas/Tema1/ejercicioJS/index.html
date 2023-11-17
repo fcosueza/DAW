@@ -15,10 +15,10 @@
 
     <script type="text/javascript">
       /*
-       * En este primer ejercicio, vamos a pedir las dos cadenas de texto al usuario 
+       * En este primer ejercicio, vamos a pedir las dos cadenas de texto al usuario
        * para comparar y mostrar cual es mayor y cual es menor. Vamos a usar la función alert
        * para darle un poco de información al usuario, porque si no pedirá los datos antes de mostrar
-       * la información 
+       * la información.
        */
 
       let cadena1, cadena2, resultado;
@@ -55,7 +55,6 @@
       */
 
       let limiteInferior, limiteSuperior, incremento, contador;
-      let mensajeError = "Los datos introducidos no son correctos.";
 
       /*
        * Mostramos la información del ejercicio y pedimos los datos al usuario. Al igual que en el anterior,
@@ -70,7 +69,7 @@
 
       /*
        * Prompt devuelve una cadena de texto como resultado, por lo que tendremos que
-       * que realizar una conversión en los datos al tipo entero.
+       * que realizar una conversión de los datos al tipo entero.
        */
 
       limiteInferior = parseInt(limiteInferior);
@@ -83,11 +82,10 @@
        * que incremento sea mayor que 0, porque sino podríamos crear un bucle infinito.
        */
 
-      document.write("<h1>Resultado del ejercicio 2.</h1>");
-
       if (limiteInferior > limiteSuperior || incremento <= 0 || limiteInferior < 0 || limiteSuperior < 0) {
         document.write("<h3>Los datos introducidos no son correctos.</h3>");
         document.write("<h3>El limite inferior debe ser menor que el superior y todos los números deben ser positivos.</h3>");
+
       } else {
 
         /*
@@ -95,31 +93,32 @@
          * incluyendo un bucle for, un do...while y un while.
          */
 
+        document.write("<h1>Resultado del ejercicio 2</h1>");
+
         // Bucle for
 
-        document.write("<h3>Serie generada con el bucle for.</h3>");
-
-        for (contador = limiteInferior; contador < limiteSuperior; contador += incremento)
-          document.write(limiteInferior + " ");
+        document.write("<h3>Serie generada con el bucle for:</h3>");
+        for (contador = limiteInferior; contador <= limiteSuperior; contador += incremento)
+          document.write(contador + " ");
 
         // Bucle do...while
 
-        document.write("<h3>Serie generada con el bucle do while.</h3>");
+        document.write("<h3>Serie generada con el bucle do...while:</h3>");
         contador = limiteInferior;
 
         do {
-          document.write(limiteInferior + " ");
+          document.write(contador + " ");
           contador += incremento;
-        } while (contador < limiteSuperior);
+        } while (contador <= limiteSuperior);
 
         // Bucle while
 
-        document.write("<h3>Serie generada con el bucle while.</h3>");
+        document.write("<h3>Serie generada con el bucle while:</h3>");
         contador = limiteInferior;
 
-        while (limiteInferior < limiteSuperior) {
-          document.write(limiteInferior + " ");
-          limiteInferior += incremento;
+        while (contador <= limiteSuperior) {
+          document.write(contador + " ");
+          contador += incremento;
         }
       }
     </script>
@@ -127,9 +126,54 @@
     <!------------------------------------------------------------------------------------------------------------------------>
 
     <script type="text/javascript">
+      /*
+       *  En este ultimo ejercicio vamos a implementar un algoritmo para realizar la división por restas sucesivas.
+       *  Consiste en dados dos números, dividendo y divisor, ir restando el divisor al dividendo hasta que el dividendo sea
+       *  menor que el divisor. El número de restas efectuado será el cociente y el dividendo final será el resto.
+       */
+
+      let dividendo, divisor, resto, cociente = 0;
+      let entradaCorrecta = false;
+
+      /*
+       * Se muestra información al usuario sobre el problema y los datos que se van a pedir
+       * y se le piden dichos datos. En ese ejercicio vamos a convertir la salida de prompt en
+       * enteros en la misma línea, además, en vez de terminar el programa si no se introducen datos
+       * correctos, vamos a seguir pidiéndolos hasta que se introduzcan los correctos.
+       */
+
+      alert("Se va a realizar una división por restas sucesivas. Deberá introducir dos números positivos, el dividendo y el diviso,  para realizarlo.");
+
+      do {
+        dividendo = parseInt(prompt("Introduzca el dividendo: "));
+        divisor = parseInt(prompt("Introduzca el divisor: "));
+
+        if (dividendo < divisor || dividendo < 0 || divisor < 0)
+          alert("Los datos introducidos son incorrectos: el dividendo debe ser mayor que el divisor y ambos positivos.");
+        else
+          entradaCorrecta = true;
+
+      } while (!entradaCorrecta)
+
+      // Ahora vamos a calcular la división por restas sucesivas usando un bucle do...while
+
+      resto = dividendo;
+
+      do {
+        resto -= divisor;
+        cociente++;
+      } while (resto >= divisor);
+
+      // Mostramos los resultados
+
+      document.write("<h1>Resultado del ejercicio 3</h1>");
+      document.write("<h3>El resultado de la división por restas sucesivas es: </h3>");
+      document.write("<h4>Dividendo: " + dividendo + "</h4>");
+      document.write("<h4>Divisor: " + divisor + "</h4>");
+      document.write("<h4>Cociente: " + cociente + "</h4>");
+      document.write("<h4>Resto: " + resto + "</h4>");
 
     </script>
-
   </body>
 
 </html>
