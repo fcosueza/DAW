@@ -7,13 +7,8 @@
   
   <body>
     <header>
-      <h1>Welcome to PHP Projects Domain</h1>
-      <p>Ahora vamos a mostrar alguna información relativa al servidor.</p>
-      <ol>
-          <li>GUION PHP: <?php echo $_SERVER['PHP_SELF'] ?></li>
-          <li>IP: <?php echo $_SERVER['SERVER_ADDR'] ?></li>
-          <li>NOMBRE: <?php echo $_SERVER['SERVER_NAME'] ?></li>
-      </ol>
+      <h1>Desarrollo Web en el Entorno Servidor: Tema 1</h1>
+      <p>En esta web vamos a ver todos los ejercicios y tareas relacionados con el Tema 1 de DWEC</p>
     </header>
   </body>   
 </html>
