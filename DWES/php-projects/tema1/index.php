@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <title>Welcome to PHP Projects</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Fco Sueza" />
+    <meta name="description" content="Web para desarrollar las actividades en PHP del tema 1 de DWEC" />
+    
+    <title>DWEC - Tema 1</title>
   </head>
   
   <body>
