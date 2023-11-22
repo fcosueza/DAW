@@ -19,7 +19,7 @@
             <h3>Ejercicios y Tarea:</h3>
             <ul>
                 <li><a href="ejercicio1.php">Ejercicio 1</a></li>
-                <li>second</li>
+                <li><a href="ejercicio2.php">Ejercicio 2</a></li>
                 <li>third</li>
             </ul>
         </main>
