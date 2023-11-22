@@ -23,7 +23,7 @@
             <?php
               require("fecha.php");
 
-              echo "<h3>" . fecha() . "</h3>";
+              print fecha();
             ?>
         </header>
     </body>
