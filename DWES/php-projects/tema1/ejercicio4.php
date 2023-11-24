@@ -59,6 +59,8 @@
                 <input name="enviar" type="submit" value="Enviar" />
             </form>
 
+            <!-- Script para procesar el formulario -->
+
             <?php
               require("fecha.php");
 
