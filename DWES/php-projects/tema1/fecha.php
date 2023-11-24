@@ -4,16 +4,17 @@
    * Función que devuelve la fecha actual en castellano.
    */
 
-  function fecha() {
-      $numeroDia = date("N");
-      $numeroMes = date("n");
+  function fecha($dia, $mes, $ano) {
+      $fecha = mktime(0, 0, $dia, $mes, $ano);
+
+      $diaSemana = date("N", $fecha);
 
       $textoDia = "";
       $textoMes = "";
 
       // Primero traducimos el día de la semana
 
-      switch ($numeroDia) {
+      switch ($diaSemana) {
           case 1:
               $textoDia = "Lunes";
               break;
@@ -38,7 +39,7 @@
 
       // A continuación traducimos el mes del año
 
-      switch ($numeroMes) {
+      switch ($mes) {
           case 1:
               $textoMes = "Enero";
               break;
@@ -78,5 +79,5 @@
 
       // Devolvemos la cadena resultante
 
-      return $textoDia . ", " . date("j") . " de " . $textoMes . " de " . date("Y");
+      return $textoDia . ", " . $dia . " de " . $textoMes . " de " . $ano;
   }

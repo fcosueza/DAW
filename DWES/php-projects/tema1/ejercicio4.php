@@ -21,7 +21,47 @@
         </header>
 
         <main>
+
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                <div>
+                    <label for="dia">Introduzca el día del mes: </label>
+                    <input id="dia" name="dia" type="number" min="1"  max="31" />
+
+                    <?php
+                      if (isset($_POST['enviar']) && empty($_POST['dia'])) {
+                          echo "<p style=\"color:red\">Debe introducir un valor para el día.</p>";
+                      }
+                    ?>
+                </div>
+
+                <div>
+                    <label for="mes">Introduzca numero del mes: </label>
+                    <input id="mes" name="mes" type="number" min="1" max="12" />
+
+                    <?php
+                      if (isset($_POST['enviar']) && empty($_POST['mes'])) {
+                          echo "<p style=\"color:red\">Debe introducir un valor para el mes.</p>";
+                      }
+                    ?>
+                </div>
+
+                <div>
+                    <label for="ano">Introduzca el año: </label>
+                    <input id="ano" name="ano" type="number" min="1979" max="2023" />
+
+                    <?php
+                      if (isset($_POST['enviar']) && empty($_POST['ano'])) {
+                          echo "<p style=\"color:red\">Debe introducir un valor para el año.</p>";
+                      }
+                    ?>
+                </div>
+
+                <input name="enviar" type="submit" value="Enviar" />
+            </form>
+
             <?php
+              require("fecha.php");
+
               date_default_timezone_set("Europe/Madrid");
 
               if (!empty($_POST['dia']) || !empty($_POST['mes']) || !empty($_POST['ano'])) {
@@ -32,30 +72,12 @@
 
                   if (checkdate($dia, $mes, $ano)) {
                       $fecha = mktime(0, 0, 0, $dia, $mes, $ano);
-                      $diaSemana = date("N", $fecha);
+                      print "<h3>" . fecha($dia, $mes, $ano) . "</h3>";
+                  } else {
+                      print "<h4 style = \"color: red\">La fecha introducida es errónea.</h4>";
                   }
               }
             ?>
-
-
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <div>
-                    <label for="dia">Introduzca el día del mes: </label>
-                    <input id="dia" type="number" min="1"  max="31"/>
-                </div>
-
-                <div>
-                    <label for="mes">Introduzca numero del mes: </label>
-                    <input id="mes" type="number" min="1" max="12"/>
-                </div>
-
-                <div>
-                    <label for="ano">Introduzca el año: </label>
-                    <input id="ano" type="number" min="1979" max="2023"/>
-                </div>
-
-                <button type="submit">Enviar</button>
-            </form>
 
         </main>
     </body>
