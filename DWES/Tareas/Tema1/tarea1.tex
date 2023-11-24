@@ -7,7 +7,7 @@
 \title{
 \vspace{10ex}
 \normalfont \normalsize
-\huge \textbf{Tarea 1: Arquitecturas y Lenguajes de Programación en Clientes Web}
+\huge \textbf{Tarea 1: Plataformas de Programación Web en el Entorno Servidor. Aplicaciones LAMP}
 }
 \author{Francisco Javier Sueza Rodríguez}
 \date{\normalsize\today}
@@ -27,130 +27,121 @@
     \begin{tabular}{l l}
         \textbf{Centro}: & IES Aguadulce \\
         \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
-        \textbf{Asignatura}: & Desarrollo Web en Entorno Cliente\\
-        \textbf{Tema}: & Tema 1 -  Arquitecturas y Lenguajes de Programación en Clientes Web\\
+        \textbf{Asignatura}: & Desarrollo Web en Entorno Servidor\\
+        \textbf{Tema}: & Tema 1 -  Plataformas de Programación Web en el Entorno Servidor.\\
     \end{tabular}
 \end{center}
 
 \newpage
 
-\section{Ejercicio 1}
+\section{Caso Práctico}
+La asociación \textbf{Respira} para la atención de menores en situación de riesgo de exclusión social ha recibido una pequeña subvención para el desarrollo de estrategias digitales en el ámbito de su actividad. La asociación tiene su sede central en un barrio conflictivo donde reciben multitud de casos, principalmente de menores y familias en situaciones muy complejas, a los que intentan ayudar con los pocos medios que tienen.
 
-\subsection{Enunciado}
-Elige  e instala en tu sistema operativo al menos 2 navegadores web (adicionales al que ya tienes instalado por defecto). Por ejemplo, si ya tienes instalado Firefox instala otros dos más.
+\textbf{Juan} y \textbf{María} han recibido el proyecto con los brazos abiertos y están dispuestos a dar el todo por el todo para que esta asociación ayude a un mayor número de personas. \textbf{María} está especialmente motivada, dado que es el barrio donde ella se crío cuando era pequeña.
 
-Deben realizarse capturas autenticables del proceso de instalación.  Autenticable es que aparezca tu usuario de distancia y la web en algún lado en otro navegador
+\section{Ejercicios}
 
-\subsection{Solución}
-En este ejercicio se van a instalar 2 navegadores adicionales a los que ya hay instalados en el sistema operativo. En mi caso, ya tengo instalados \textbf{Chrome}, \textbf{Mozilla Firefox Developer Edition}, mi navegador principal, y \textbf{Konqueror}, el viene por defecto con KDE. Además, también esta instalado \href{https://es.wikipedia.org/wiki/Links}{Links}, un navegador en modo texto para consola, pero que no soporta Javascript. Para esta actividad se van a instalar \textbf{Opera} y \textbf{Vivaldi}.
+\subsection{Ejercicio 1}
+¿Qué tipo de proyectos podría hacer la asociación \textbf{Respira} con el dinero recibido? Actualmente no tiene web, ¿se te ocurre como podrían mejorar su actividad y su proyección?
 
-La instalación de \textbf{Opera} se va a realizar mediante la aplicación Discover de Kubuntu. Opera es un navegador creado por la empresa noruega Opera Software, compatible en un inicio solo con MS Windows, actualmente es además compatible con macOS y GNU-Linux entre otros. En la siguiente captura vemos su proceso de instalación.
+\subsubsection{Solución}
+Para mejorar su actividad y proyección podrían emplear la subvención recibida para varios proyecto. El principal sería la \textbf{creación de una página web}, que va a ser en el que nos centremos en este ejercicio, pero también podría incluirse la \textbf{creación de puestos informáticos en el centro}, para permitir a los jóvenes que no tengan recursos tener acceso a internet, incluida a la propia página web.
 
-Actualmente opera usa el motor \textbf{Blink} y el intérprete de JS \textbf{V8}.
+Respecto a la creación de la \textbf{página web}, se podría contratar a un desarrollar web para que creara la aplicación web necesaria. La página, además de la \textbf{información relativa} a todos los \textbf{servicios} que ofrece la asociación, podría tener diversos \textbf{canales de comunicación}.
+
+Por ejemplo, se podría implementar un \textbf{chatbot} para responder a la preguntas frecuentes de forma más inmediata. Además, sería interesante la creación de un \textbf{foro} donde los usuarios pudieran exponer sus dudas sobre cualquier tema relacionado con la asociación, para que estas se pudieran responder y debatir. Siendo además un buen canal para recibir feedback de los usuarios y mejorar, en la medida de lo posible, el funcionamiento de la asociación.
+
+También debería incluir varias \textbf{secciones con información} sobre la asociación así como las diferentes actividades que se realicen, siendo interesante la inclusión de una \textbf{calendario} donde se pueda acceder a la actividades previstas de forma sencilla y rápida.
+
+Esta web proporcionaría \textbf{más visibilidad}, \textbf{mejorando la proyección} de la asociación y permitiendo que los usuarios estén más implicados en esta.
+
+Además de esta web, sería interesan añadir una serie de\textbf{ puestos informáticos}, si el presupuesto lo permite, donde además de acceder a la propia web, permitiera a los usuarios con menos recursos acceder a internet para realizar diferentes gestiones, incluso podría valorarse la creación de algún curso online de inicialización a las nuevas tecnologías, uso de editores de texto, creación de CV, etc...
+
+\subsection{Ejercicio 2}
+Fíjate en el siguiente ejemplo que describe la interacción en entre navegador (cliente web) y servidor web donde se detalla lo que ocurre en cada una de las partes. Intenta pensar en otro ``Caso de uso'' donde un potencial usuario (o miembro de la organización) utilice la página web de la asociación Respira para una acción concreta y detalla lo que ocurriría paso por paso.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+     \textbf{Caso de Uso: Un voluntario rellena un formulario}
+     \vspace{3ex}
+     \begin{enumerate}
+         \item La persona voluntaria está visualizando un formulario en la página web de la asociación y ha terminado de rellenarlo, con lo que hace clic en ``enviar''.
+         \item El navegador realiza una petición tipo HTTP POST al servidor web.
+         \item El servidor web recibe la petición con los datos del formulario, y, siguiendo su configuración, detecta que esa petición corresponde a un script PHP y que debe ser redireccionada al motor de ejecución PHP.
+         \item El motor PHP (PHP engine) se arranCA e inicia la ejecución del script el cual contiene:
+         \begin{enumerate}
+             \item Código para comprobar si los datos recibidos son correctos.
+             \item Código para almacenar los datos recibidos en la base de datos.
+             \item Código para generar HTML con la respuesta al candidato a la candidata.
+         \end{enumerate}
+         \item Una vez que el motor PHP ha terminado de ejecutar el script, el HTML generado es enviado al servidor web como resultado de la ejecución.
+         \item El servidor web recoge el resultado generado por el motor PHP y lo envía al navegador con una respuesta HTTP.
+         \item El navegador HTTP recibe la respuesta que incluye el HTML y lo renderiza para que la persona candidata lo vea.
+     \end{enumerate}
+    \end{tcolorbox}
+\end{figure}
+
+\subsubsection{Solución}
+El caso de uso que vamos a proponer es el de un usuario que \textbf{realiza una búsqueda en el foro} para que se muestren los mensajes o hilos con una una determinada palabra.
+
+\begin{figure}[H]
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+        \textbf{Caso de Uso: Búsqueda de mensajes en el foro}
+        \vspace{3ex}
+        \begin{enumerate}
+            \item El usuario que esta en la página relativa a los foros, introduce un termino en la caja de búsqueda y pulsa en \textbf{\textit{Enviar}}.
+            \item El navegador realiza una \textbf{petición tipo HTTP POST} o \textbf{GET}, dependiendo de como se haya programado la página, al servidor.
+            \item El \textbf{servidor web} recibe la petición con los datos de la búsqueda, y pasa la petición al \textbf{motor PHP} para que se ejecute el script adecuado.
+            \item El \textbf{motor PHP} se inicializa e inicia la ejecución del script el cual contiene:
+            \begin{enumerate}
+                \item Código para realizar una \textbf{llamada a la base de datos} y obtener todos los mensajes que contengan el termino de búsqueda.
+                \item Código para \textbf{filtrar y ordenar el resultado}, para que se muestre de una forma más adecuada al usuario.
+                \item Código para \textbf{generar HTML}  y que el resultado se muestre de forma apropiada en la web.
+            \end{enumerate}
+            \item Una vez que se a \textbf{procesado el script}, el motor PHP pasa el resultado al servidor web, para que este pueda servirlo al cliente.
+            \item El \textbf{servidor web} procesa el resultado del motor PHP y lo manda al cliente web.
+            \item El \textbf{cliente} recibe el resultado y lo renderiza.
+        \end{enumerate}
+    \end{tcolorbox}
+\end{figure}
+
+\subsection{Ejercicio 3}
+Rellena la siguiente tabla indicando casos concretos en los que podría ser necesario emplear las siguientes tecnologías en el desarrollo de la web de la asociación \textbf{Respira}:
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.60]{tabla-enunciado.png}
+\end{figure}
+
+\subsubsection{Solución}
+A continuación se muestra la tabla rellena con la información solicitada.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.32]{instalacion-opera.png}
+    \includegraphics[scale=0.60]{tabla-solucion.png}
 \end{figure}
 
-\textbf{Vivaldi} es un fork de Opera que fue desarrollado por Jon Stephenson von Tetzchner, que más tarde fundaría Vivaldi Technologies, empresa que actualmente se encarga del desarrollo y mantenimiento del navegador. Para instalarlo se ha descargado el paquete para Ubuntu (.deb) y se ha instalado usando el gestor de paquetes, como se ve en la siguiente captura.
-
-Aunque en un principio mantuvo el motor HTMl \textbf{Presto} y el interprete JS \textbf{Carakan} que tenía originalmente Opera, actualmente también ha realizado la transición a \textbf{Blink} y \textbf{V8}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.52]{instalacion-vivaldi.png}
-\end{figure}
-
-\section{Ejercicio 2}
-\subsection{Enunciado}
-¿Por qué es conveniente tener instalados al menos dos navegadores diferentes en tu ordenador? Se abrirá un hilo en el foro. Comente ahí.   Indica el nombre del motor HTML y JavaScript de los navegadores que has instalado.
-
-\subsection{Solución}
-A continuación se muestra la captura con la intervención en el foro respondiendo a la pregunta que se nos hace en el enunciado.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{foro-1.png}
-\end{figure}
-
-\section{Ejercicio 3}
-\subsection{Enunciado}
-¿Ves conveniente que  Firefox abandone su motor y use blink?  Existirá un hilo en el foro. No abra el suyo. Realiza una captura de tu intervención y añádela al documento.  Entre en el hilo específico que se ha abierto en el foro  y haz un comentario sobre navegadores independientes. Realiza una captura de tu intervención y añádela al documento.
-
-\subsection{Solución}
-En la siguiente imagen, podemos ver la intervención en el foro respondiendo a la pregunta que se nos realizad enunciado de este ejercicio.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{foro-2.png}
-\end{figure}
-
-\section{Ejercicio 4}
-\subsection{Enunciado}
-Elige un editor para JavaScript e instálalo.  En los materiales y en los foros hay ejemplos de  editores JavaScript. Debes realizar una tabla comparativa de características para sustentar tu opinión. Si no la haces tendrás un 0 en este apartado.
-
-
-\subsection{Solución}
-El editor elegido para su instalación ha sido \textbf{VS Code}. También se ha valorado el uso de Netbeans, pero después de usar ambos editor y ver sus características se ha optado por VS Code. En la siguiente liste podemos ver las características que me han hecho decantarme por VS Code sobre Netbeans:
+\subsection{Ejercicio 4}
+Realiza la instalación de XAMPP 8.2.4 en tu ordenador (preferiblemente en C:/XAMPP) y realiza lo siguiente:
 
 \begin{itemize}
-    \item \textbf{Netbeans}:
-           \begin{itemize}
-               \item \textbf{Lenguaje Principal}: Java
-               \item \textbf{Soporte Plugins}: Si
-               \item \textbf{Soporte JS}: Soporte nativo para Javascript.
-               \item \textbf{Resalte de Sintaxis}: Si
-               \item \textbf{Incluye Debugger para JS}: No
-               \item \textbf{Autocompletado de Código}: Si, de forma nativa aunque el funcionamiento es un poco engorroso y la configuración por defecto no es la idónea.
-               \item \textbf{Soporte para Prettier}: Plugin genérico para formateadores externos (peor integrado)
-               \item \textbf{Rendimiento}: Netbeans es un IDE bastante pesado con un consumo bastante algo, especialmente de memoria RAM.
-           \end{itemize}
-
-    \item \textbf{VS Code}:
-          \begin{itemize}
-              \item \textbf{Lenguaje Principal}: Multilenguaje
-              \item \textbf{Soporte de Plugins}: Si
-              \item \textbf{Suporte JS}: Soporte nativo para Javascript.
-              \item \textbf{Resalte de Sintaxis}: Si
-              \item \textbf{Incluye Debugger para JS}: Si, incluye debugger para JS, TS y Node.
-              \item \textbf{Autocompletado de Código}: Si, mediante intellisense, bastante más intuitivo y rápido, que el autocompletado nativo proporcionado por Netbeans.
-              \item \textbf{Soporte para Prettier}: Plugin específico de prettier (mejor integración)
-              \item \textbf{Rendimiento}: VS Code es un IDE muy ligero con muy buen rendimiento.
-          \end{itemize}
+    \item Realiza una captura de pantalla durante el proceso de instalación.
+    \item Realiza una captura de pantalla de la interfaz de XAMPP para arrancar o detener el servidor web.
+    \item Localiza la carpeta donde podemos añadir nuestras aplicaciones web (generalmente C:/xampp/htdocs) y añade un script llamado phpinfo.php. Añade el siguiente código en su interior: <?php phpinfo(); ?>. Crea una captura de pantalla de lo que aparece en el navegador al acceder a la URL asociada a dicho script (previsiblemente será http://localhost/phpinfo.php).
 \end{itemize}
 
-En definitiva, se ha \textbf{elegido VS Code} porque tiene \textbf{mejor rendimiento}, especialmente en mi portátil que tiene una cantidad de memoria RAM bastante baja.
-
-Además, la \textbf{integración de las diferentes aplicaciones} usadas en la cadena de herramientas para el desarrollo de JS es mucho \textbf{mejor en VS Code} que en Netbeans. Aplicaciones como prettier, eslint, code climate, etc.., tienen plugins específicos para VS Code, así como otras funcionalidades que permiten visualización de la web generada en una pestaña, edición multilínea de forma mas intuitiva, mejor integración con Emmet, etc.
-
-\section{Ejercicio 5}
-\subsection{Enunciado}
-Para finalizar, usando la dirección de validación del W3C indicada en los apuntes, realiza la validación de la página de contenido informático \href{https://slashdot.org/}{Slashdot}. Indica la solución solamente a 3 problemas diferentes.
-
-\subsection{Solución}
-Se ha usado la página de validación de la W3C con la página de noticias \textbf{Slashdot}. El validador de la W3C a mostrado varios errores, de los cuales vamos a proponer aquí la solución a 3 de ellos, que son los siguientes:
-
-\begin{enumerate}
-    \item \textbf{Warning}: Content-Security-Policy HTTP header: Bad content security policy: Source list contains duplicate source expression "slashdot.org". All but the first instance will be ignored.
-
-    \textbf{Solución}: Este error nos dice que hay duplicados en los elementos que definen la política segura de contenido en la cabecera HTML. Para solucionarlo, bastaría con eliminar los elementos duplicados.
-
-    \item \textbf{Error}: A meta element with an http-equiv attribute whose value is X-UA-Compatible must have a content attribute with the value IE=edge.
-
-    \textbf{Solución}: Este error nos dice que hay un elemento meta en la cabecera de tipo http-equiv al que le falta el atributo \textit{content} con el valor ``IE=edge''. Como podemos ver en el error, dicho atributo existe, con el valor ``IE=edge, chrome=1'', por lo que podríamos eliminar el segundo valor, chrome=1, para subsanar este error,
-
-    \item \textbf{Warning}: The type attribute is unnecessary for JavaScript resources.
-
-    \textbf{Solución}: aquí se nos muestra un advertencia, especificando que el atributo \textit{type} no es necesario para los recursos Javascript. Eliminando este atributo en la etiqueta \textit{script} podríamos eliminar este error.
-\end{enumerate}
-
-En la siguiente captura, podemos ver el resultado del validador de la W3C, donde además, se muestran los 3 errores que hemos comentado en la lista anterior.
-
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.30]{validador.png}
+    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
+\textbf{NOTA}: hay un error en la numeración de los ejercicios en la página de la tarea, pasando de ejercicio 3 al 5, por lo que en este documento se van a numerar omitiendo ese error, este sería el ejercicio 5 de la descripción de la tarea.
+    \end{tcolorbox}
 \end{figure}
+
+\subsubsection{Solución}
+En este ejercicio se debía realizar la instalación de XAMPP, pero a riesgo de que el ejercicio puntúe como no realizado, \textbf{no he instalado} dicha versión de AMP, ya que durante el proceso de estudio de la asignatura \textbf{se instaló LAMP} en la distribución Linux que uso, una Kubuntu en concreto.
+
+El \textbf{problema }es que me ha costado un poco configurar la instalación, ya que estoy usando virtual hosts en Apache 2 para cada uno de los temas de la asignatura, y la instalación de XAMPP puede ``trastocarme'' la instalación ya realizada.
+
+Así, en lugar de mostrar capturas del proceso de instalación de XAMPP, se mostrarán de los paquetes ya instalados y de los comandos usados para arrancar y detener el servidor web, que se realizan usando systemctl.
 
 
 
