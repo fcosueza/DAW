@@ -12,7 +12,8 @@
 
         <title>Asociación Respira</title>
     </head>
-    <body>
+
+    <body class="flex flex_columns">
         <?php
           require_once 'conf.php';
           require 'header.php';
@@ -38,11 +39,13 @@
 
           // Cargamos el archivo de la sección actual dentro de una etiqueta main
 
-          print "<main>";
+          print '<main class="content">';
           readfile($archivo);
-          print "</main>";
+          print '</main>';
 
           // Cargamos el píe de página
+
+          generarPie();
         ?>
     </body>
 </html>

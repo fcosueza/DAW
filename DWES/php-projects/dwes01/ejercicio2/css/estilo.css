@@ -1,2 +1,112 @@
+/*
+ * Se va a usar la nomenclatura BEM para nombrar las clases, de forma
+ * que sean más reutilizables y fácil de mantener. Para más información
+ * de como se emplea esta nomenclatura, se puede visitar la web
+ * https://getbem.com/introduction/.
+ */
 
+/*
+ * Vairiables para el tema de color.
+ */
+
+:root {
+    --color-primario: #ECF4D6;
+    --color-secundario: #9AD0C2;
+    --color-resalte: #2D9596;
+}
+
+/*
+ * Primero hacemos un reset para todos los elementos, que sean
+ * consistentes en los diferentes navegadores.
+ */
+
+*, *::after, *:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+ * Establecemos el tamaño de fuente al 62.5%, así al usar unidades relativas,
+ * como rem o em, serán multiplos de 10 y más cómodo trabajar con ellas.
+ */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-primario);
+}
+
+/*
+ * Clases de Utilidad
+ */
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex_columns {
+    flex-direction: column
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/*
+ * Secciones principales de la página
+ */
+
+.header {
+    height: 6rem;
+    width: 100%;
+    align-items: center;
+    background-color: var(--color-secundario);
+}
+
+.content {
+    width: 60%;
+    flex: 1;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.footer {
+    height: 3rem;
+    margin-top: auto;
+    background-color: var(--color-secundario);
+
+}
+
+/*
+ * Elementos de la página
+ */
+
+.header__logo {
+    margin: 0 1rem 0 2rem;
+    border: 0.1rem solid black;
+    border-radius: 50%;
+}
+
+.header__title{
+    font-size: 2.5rem;
+}
+
+.menu {
+    margin-left: auto;
+    width: 20%;
+}
+
+.menu__list {
+    font-size: 2rem;
+    width: 100%;
+    list-style: none;
+    justify-content: space-around;
+    background-color: var(--color-secundario);
+}
 

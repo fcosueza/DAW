@@ -12,10 +12,11 @@
   function generarCabecera($seccionActual) {
 
 
-      print '<header>';
-      print '   <img src="img/placeholder.jpg" alt="Logo de la Asociación Respira" width="100" height="100"/>';
-      print '   <nav>';
-      print '       <ul>';
+      print '<header class="header flex">';
+      print '   <img class="header__logo" src="img/placeholder.jpg" alt="Logo" width="50" height="50" />';
+      print '   <h3 class="header__title">Asociación Respira</h3>';
+      print '   <nav class="menu">';
+      print '       <ul class="flex menu__list">';
       print '           <li><a href="index.php?ver=' . urlencode("Portada") . '">Portada</a></li>';
       print '           <li><a href="index.php?ver=' . urlencode("Nosotros") . '">Nosotros</a></li>';
       print '           <li><a href="index.php?ver=' . urlencode("Servicios") . '">Servicios</a></li>';
