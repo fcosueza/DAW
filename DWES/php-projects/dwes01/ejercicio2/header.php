@@ -14,7 +14,7 @@
 
       print '<header class="header flex">';
       print '   <img class="header__logo" src="img/placeholder.jpg" alt="Logo" width="50" height="50" />';
-      print '   <h3 class="header__title">Asociación Respira</h3>';
+      print '   <h3 class="header__title bold">Asociación Respira</h3>';
       print '   <nav class="menu">';
       print '       <ul class="flex menu__list">';
       print '           <li><a href="index.php?ver=' . urlencode("Portada") . '">Portada</a></li>';

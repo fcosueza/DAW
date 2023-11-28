@@ -66,7 +66,8 @@ body {
     height: 6rem;
     width: 100%;
     align-items: center;
-    background-color: var(--color-secundario);
+    background: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0)),
+        var(--color-secundario);
 }
 
 .content {
@@ -94,7 +95,8 @@ body {
 }
 
 .header__title{
-    font-size: 2.5rem;
+    font-size: 3rem;
+    color: white;
 }
 
 .menu {
@@ -107,6 +109,5 @@ body {
     width: 100%;
     list-style: none;
     justify-content: space-around;
-    background-color: var(--color-secundario);
 }
 
