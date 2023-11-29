@@ -13,7 +13,7 @@
         <title>Asociación Respira</title>
     </head>
 
-    <body class="flex flex_columns">
+    <body class="flex flex__columns">
         <?php
           require_once 'conf.php';
           require 'header.php';
@@ -39,7 +39,7 @@
 
           // Cargamos el archivo de la sección actual dentro de una etiqueta main
 
-          print '<main class="content">';
+          print '<main class="content flex">';
           readfile($archivo);
           print '</main>';
 

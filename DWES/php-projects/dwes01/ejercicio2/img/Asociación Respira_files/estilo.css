@@ -152,7 +152,7 @@ body {
 }
 
 .info__title {
-    font-size: 5rem;
+    font-size: 6rem;
     margin-bottom: 2rem;
 }
 
@@ -162,39 +162,10 @@ body {
 
 .info__image {
     float: right;
-    width: 50%;
-    height: 50%;
-    margin-left: 2rem;
-    box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
-}
-
-.services {
-    width: 60%;
-    margin: 0 auto;
-}
-
-.gallery {
-    align-self: center;
-
-}
-
-.gallery__container {
     width: 30rem;
-    margin: 3rem;
-}
-
-.gallery__image {
-    width: 100%;
-    box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
-}
-
-.gallery__title {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.gallery__text {
-    font-size: 1.4rem;
+    height: 30rem;
+    margin-left: 2rem;
+    box-shadow: 0.1rem 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
 }
 
 /*
