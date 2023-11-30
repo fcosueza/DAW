@@ -92,8 +92,6 @@ body {
 
 .header__logo {
     margin: 0 1rem 0 2rem;
-    border: 0.1rem solid black;
-    border-radius: 50%;
 }
 
 .header__title{
@@ -180,12 +178,13 @@ body {
 
 .gallery__container {
     width: 30rem;
-    margin: 3rem;
+    margin: 2rem;
 }
 
 .gallery__image {
     width: 100%;
     box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
 }
 
 .gallery__title {
