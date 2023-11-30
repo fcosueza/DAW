@@ -48,6 +48,12 @@ body {
     flex-direction: column;
 }
 
+.error {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: red;
+}
+
 /*
  * Clases de elementos principales
  */
