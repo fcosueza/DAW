@@ -4,12 +4,11 @@
    * Función que genera la cabecera de la página. Tiene como parametro la sección
    * actual en la que nos encontramos.
    *
-   * Emplea el archivo conf.php para generar los enlaces a las diferentes secciones
-   * y añadir una clase al elemento html para poner el enlace en engrita, si coincide
-   * con la sección actual.
+   * Como parametros recibe la sección actual y las secciones para generar los
+   * enlaces.
    */
 
-  function generarCabecera($seccionActual) {
+  function generarCabecera($seccionActual, $secciones) {
 
 
       print '<header class="header flex">';
@@ -17,9 +16,22 @@
       print '   <h3 class="header__title bold">Asociación Respira</h3>';
       print '   <nav class="menu">';
       print '       <ul class="flex menu__list">';
-      print '           <li><a class="menu__link" href="index.php?ver=' . urlencode("Portada") . '">Portada</a></li>';
-      print '           <li><a class="menu__link " href="index.php?ver=' . urlencode("Nosotros") . '">Nosotros</a></li>';
-      print '           <li><a class="menu__link" href="index.php?ver=' . urlencode("Servicios") . '">Servicios</a></li>';
+
+      /*
+       * Generamos los enlaces. Si la sección actual coincide con un enlace,
+       * se genera un parrafo en vez de un enlace.
+       */
+
+      foreach ($secciones as $seccion) {
+          if ($seccion['link'] == $seccionActual) {
+              print '<li><p class="paraLink bold">' . $seccion['nombre'] . '</p></li>';
+          } else {
+              print '<li><a class="menu__link" href="index.php?ver=' . urlencode($seccion['link']) . '">'
+                      . $seccion['nombre']
+                      . '</a></li>';
+          }
+      }
+
       print '       </ul>';
       print '   </nav>';
       print '</header>';

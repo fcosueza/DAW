@@ -6,7 +6,7 @@
    * desde otros archivos sin problema.
    */
 
-  define("SECCION_DEFECTO", "Portada");
+  define("SECCION_DEFECTO", "portada");
 
   $secciones = [];
 

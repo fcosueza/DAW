@@ -116,6 +116,11 @@ body {
     text-decoration: none;
 }
 
+.paraLink {
+    font-size: 2rem;
+    color: white;
+}
+
 .home {
     width: 100%;
     flex: 1;

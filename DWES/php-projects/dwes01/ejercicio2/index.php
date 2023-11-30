@@ -27,15 +27,15 @@
           // Si el parametro ver de Get esta es correcto, cabiamos la seccion
 
           foreach ($secciones as $seccion) {
-              if ($_GET['ver'] == $seccion['nombre']) {
-                  $seccionActual = $seccion['nombre'];
+              if ($_GET['ver'] == $seccion['link']) {
+                  $seccionActual = $seccion['link'];
                   $archivo = $seccion['archivo'];
               }
           }
 
           // Creamos la cabecera
 
-          generarCabecera($seccionActual);
+          generarCabecera($seccionActual, $secciones);
 
           // Cargamos el archivo de la sección actual dentro de una etiqueta main
 
