@@ -1,0 +1,83 @@
+/*
+ * Vairiables para el tema de color.
+ */
+
+:root {
+    --color-primario: #F0ECE5;
+    --color-secundario: #161A30;
+    --color-resalte: #31304D;
+    --color-texto: black;
+}
+
+/*
+ * Primero hacemos un reset para todos los elementos, que sean
+ * consistentes en los diferentes navegadores.
+ */
+
+*, *::after, *:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+ * Establecemos el tamaño de fuente al 62.5%, así al usar unidades relativas,
+ * como rem o em, serán multiplos de 10 y más cómodo trabajar con ellas.
+ */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-primario);
+}
+
+/*
+ * Clases de Utilidad
+ */
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex__columns {
+    flex-direction: column;
+}
+
+/*
+ * Clases de elementos principales
+ */
+
+.contenido {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    font-size: 1.6rem;
+    padding: 2rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    background: white;
+
+}
+
+/*
+ * Elementos del formulario
+ */
+
+.form__control {
+    margin: 1rem 0;
+}
+
+.note {
+    margin: 1rem 0;
+}
+
+
+
