@@ -16,12 +16,65 @@
     <body class="flex flex__columns">
         <main class="flex contenido">
             <form class="form flex flex__columns" action="save.php" method="POST">
+                <?php
+                  /*
+                   * Creamos variables para almacenar los datos del POST anterior, y hacer el
+                   * código más legible y fácil de modificar.
+                   */
+
+                  $codigoPostal = "";
+                  $sexo = "";
+                  $curso = "";
+                  $rama = "";
+
+                  // Comprobamos el código postal y su formato
+
+                  if (isset($_POST['codigo_postal']) && preg_match("/^[0-9]{5}$/", $_POST['codigo__postal'])) {
+                      $codigoPostal = $_POST['codigo_postal'];
+                  }
+
+                  /*
+                   * Comprobamos el sexo y el curso. En los select no vamos a comprobar
+                   * si estan inicializados porque al tener una opción por defecto siempre
+                   * van a estar inicializados. Solo vamos a comprobar que contienen un valor correcto.
+                   */
+
+                  if ($_POST['sexo'] == 'M' || $_POST['sexo'] == 'F' || $_POST['sexo'] == 'O' || $_POST['sexo'] == 'N') {
+                      $sexo = $_POST['sexo'];
+                  }
+
+                  if ($_POST['curso'] == "1ESO" || $_POST['curso'] == "2ESO" || $_POST['curso'] == "3ESO") {
+                      $curso = $_POST['curso'];
+                  }
+
+                  // Por último comprobamos la rama
+
+                  if (isset($_POST['rama']) && ($_POST['rama'] == "BCH" || $_POST['rama'] == "FP")) {
+                      $rama = $_POST['rama'];
+                  }
+                ?>
+
+                <!-- Creamos los input ocultos para pasar los datos con POST -->
+
+                <input type="hidden" name="codigo_postal" value="<?php echo $codigoPostal ?>" />
+                <input type="hidden" name="sexo" value="<?php echo $sexo ?>" />
+                <input type="hidden" name="curso" value="<?php echo $curso ?>" />
+                <input type="hidden" name="rama" value="<?php echo $rama ?>" />
+
+
                 <div class="form__control">
                     Señala las asignaturas que te resulten más complicadas:<BR><BR>
 
                     <label><input type="checkbox" name="asgs[]" value="LCL"> Lengua Castellana y Literatura. </label><BR>
                     <label><input type="checkbox" name="asgs[]" value="M"> Matemáticas. </label><BR>
-                    <label><input type="checkbox" name="asgs[]" value="BG"> Biología y Geología.</label><BR> <!-- Esta opción no deberá mostrarse si el usuario selecciono 2ESO -->
+
+                    <!-- Si el curso elegido no es 2ESO, se muestra la asignatura Biología y Geología  -->
+
+                    <?php
+                      if ($curso != "2ESO")
+                          print '<label><input type="checkbox" name="asgs[]" value="BG"> Biología y Geología.</label><BR>';
+                    ?>
+
                     <label><input type="checkbox" name="asgs[]" value="GH"> Geografía e Historia. </label><BR>
                     <label><input type="checkbox" name="asgs[]" value="FQ"> Física y Química. </label><BR>
                     <label><input type="checkbox" name="asgs[]" value="I"> Inglés. </label><BR>
@@ -44,10 +97,30 @@
                 </div>
                 <small class="note">Nota: pulsa Ctrl+click para seleccionar más de una opción</small>
                 <BR>
+
+                <!-- Verificamos los datos del formulario anterior y creamos los inputs ocultos -->
+
+                <?php
+                  $codigoPostal = "";
+                  $sexo = "";
+                  $curso = "";
+                  $rama = "";
+
+                  // Comprobamos el código postal y su formato
+
+                  if (isset($_POST['codigo_postal']) && preg_match("/^[0-9]{5}$/", $_POST['codigo__postal'])) {
+                      $codigoPostal = $_POST['codigo_postal'];
+                  }
+
+                  // Comprobamos el sexo.
+
+                  if ($_POST['sexo'] == 'M' || $_POST['sexo'] == 'F' || $_POST['sexo'] == 'O' || $_POST['sexo'] == 'N') {
+                      $sexo = $_POST['sexo'];
+                  }
+                ?>
                 <input type="submit" value="Terminar">
             </form>
         </main>
-
     </body>
 </html>
 
