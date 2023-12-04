@@ -27,10 +27,14 @@
                   $curso = "";
                   $rama = "";
 
+                  // Expresión regular para comprobar el codigo postal
+
+                  $regexpCP = '/^\d{5}$/';
+
                   // Comprobamos el código postal y su formato
 
-                  if (isset($_POST['codigo_postal']) && preg_match("/^[0-9]{5}$/", $_POST['codigo__postal'])) {
-                      $codigoPostal = $_POST['codigo_postal'];
+                  if (isset($_POST['codigo_postal']) && preg_match($regexpCP, $_POST['codigo_postal'])) {
+                      $codigoPostal = htmlspecialchars($_POST['codigo_postal']);
                   }
 
                   /*
@@ -40,17 +44,17 @@
                    */
 
                   if ($_POST['sexo'] == 'M' || $_POST['sexo'] == 'F' || $_POST['sexo'] == 'O' || $_POST['sexo'] == 'N') {
-                      $sexo = $_POST['sexo'];
+                      $sexo = htmlspecialchars($_POST['sexo']);
                   }
 
                   if ($_POST['curso'] == "1ESO" || $_POST['curso'] == "2ESO" || $_POST['curso'] == "3ESO") {
-                      $curso = $_POST['curso'];
+                      $curso = htmlspecialchars($_POST['curso']);
                   }
 
                   // Por último comprobamos la rama
 
                   if (isset($_POST['rama']) && ($_POST['rama'] == "BCH" || $_POST['rama'] == "FP")) {
-                      $rama = $_POST['rama'];
+                      $rama = htmlspecialchars($_POST['rama']);
                   }
                 ?>
 
@@ -97,27 +101,6 @@
                 </div>
                 <small class="note">Nota: pulsa Ctrl+click para seleccionar más de una opción</small>
                 <BR>
-
-                <!-- Verificamos los datos del formulario anterior y creamos los inputs ocultos -->
-
-                <?php
-                  $codigoPostal = "";
-                  $sexo = "";
-                  $curso = "";
-                  $rama = "";
-
-                  // Comprobamos el código postal y su formato
-
-                  if (isset($_POST['codigo_postal']) && preg_match("/^[0-9]{5}$/", $_POST['codigo__postal'])) {
-                      $codigoPostal = $_POST['codigo_postal'];
-                  }
-
-                  // Comprobamos el sexo.
-
-                  if ($_POST['sexo'] == 'M' || $_POST['sexo'] == 'F' || $_POST['sexo'] == 'O' || $_POST['sexo'] == 'N') {
-                      $sexo = $_POST['sexo'];
-                  }
-                ?>
                 <input type="submit" value="Terminar">
             </form>
         </main>
