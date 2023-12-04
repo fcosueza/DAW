@@ -64,13 +64,13 @@
           $valoresAsignatura = ["LCL", "M", "BG", "BH", "FQ", "Q"];
 
           if (count($_POST['asgs']) > 0) {
-              foreach ($_POST['asgs'] as $asig) {
-                  if (array_key_exists($asig, $valoresAsignatura) && !($_POST['curso'] != "2ESO" && $asig != "BG"))
+              foreach ($_POST['asgs'] as $asignatura => $asig) {
+                  if (in_array($asig, $valoresAsignatura) && !($datos['curso'] != '2ESO' && $asig != "BG"))
                       $asignaturas[] = $asig;
               }
           }
 
-          $datos['asignaturas'] = empty($asignaturas) ? "" : implode('-', $asignaturas);
+          $datos['asignaturas'] = implode('-', $asignaturas);
 
           /*
            * A continuación comprobamos el array tiempolibre, añadiendo solo los elementos
@@ -78,43 +78,45 @@
            */
 
 
-          $valoresTiempoLibre = ["deportes", "musica", "danza", "art", "videojuegos", "television", "dom", "lectura"];
+          $valoresTiempoLibre = ["deportes", "musica", "danza", "art", "vjuegos", "television", "dom", "lectura"];
 
           if (count($_POST['tiempolibre']) > 0) {
-              foreach ($_POST['tiempolibre'] as $libre) {
-                  if (array_key_exists($tiempo, $valoresTiempoLibre))
+              foreach ($_POST['tiempolibre'] as $tiempo => $libre) {
+                  if (in_array($libre, $valoresTiempoLibre))
                       $tiempoLibre[] = $libre;
               }
           }
 
-          $datos['tiempoLibre'] = empty($tiempoLibre) ? "" : implode('-', $asignaturas);
+          $datos['tiempoLibre'] = implode('-', $tiempoLibre);
 
           /*
            * Por último, recorremos el array de datos. Si algún dato falta, no se almacenará
            * y se guardará un mensaje de error correspondiente al dato. Si todo esta correcto,
            * se almacenará en un archivo csv.
-           *
+           */
 
-            foreach ($datos as $dato) {
-            if (!isset($dato)) {
-            $datosCorrectos = "false";
-            $msgError += " - " . $dato . " no se ha introduzido correctamente.\n";
-            }
-            }
+          foreach ($datos as $dato) {
+              print "<p>{$dato}</p>";
 
-            if ($datosCorrectos) {
-            $archivoCSV = fopen("datos.csv");
+              if (empty($dato)) {
+                  $datosCorrectos = "false";
+                  $msgError = $msgError . " - " . $dato . " no se ha introducido correctamente <br>";
+              }
+          }
 
-            fputcsv($archivo, $datos);
-            fclose($archivoCSV);
+          if ($datosCorrectos) {
+              $archivoCSV = fopen('datos.csv', 'a');
 
-            print '<h1>' . $msgExito . '</h1>';
-            } else {
-            print '<h1>Los datos introducidos no son correctos</h1>';
-            print '<p> Los datos erróneos son: ';
-            print $msgError;
-            print '</p>';
-            } */
+              fputcsv($archivoCSV, $datos);
+              fclose($archivoCSV);
+
+              print '<h1>' . $msgExito . '</h1>';
+          } else {
+              print '<h1>Los datos introducidos no son correctos</h1>';
+              print '<p> Los datos erróneos son: <br><br>';
+              print $msgError;
+              print '</p>';
+          }
         ?>
 
     </body>
