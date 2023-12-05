@@ -14,7 +14,6 @@
     </head>
 
     <body>
-
         <?php
           /*
            * En este archivo vamos a comprobar la corrección de los datos, en concreto
@@ -30,10 +29,10 @@
           $tiempoLibre = [];
 
           $msgError = "";
-          $msgExito = "Los datos se han guardado satisfactoriaamente";
+          $msgExito = "<h1>Los datos se han guardado correctamente.</h1>";
 
           $datos = [];
-          $datosCorrectos = "true";
+          $datosCorrectos = true;
 
           /*
            * Creamos el array de datos y comenzamos a rellenarlo. Despues comprobaremos
@@ -61,11 +60,12 @@
            */
 
 
-          $valoresAsignatura = ["LCL", "M", "BG", "BH", "FQ", "Q"];
+          $valoresAsignatura = ["LCL", "M", "BG", "GH", "FQ", "I"];
 
-          if (count($_POST['asgs']) > 0) {
+          if (isset($_POST['asgs']) && count($_POST['asgs']) > 0) {
+
               foreach ($_POST['asgs'] as $asignatura => $asig) {
-                  if (in_array($asig, $valoresAsignatura) && !($datos['curso'] != '2ESO' && $asig != "BG"))
+                  if (in_array($asig, $valoresAsignatura) && !($asig == 'BG' && $datos['curso'] == '2ESO'))
                       $asignaturas[] = $asig;
               }
           }
@@ -80,7 +80,8 @@
 
           $valoresTiempoLibre = ["deportes", "musica", "danza", "art", "vjuegos", "television", "dom", "lectura"];
 
-          if (count($_POST['tiempolibre']) > 0) {
+          if (isset($_POST['tiempolibre']) && count($_POST['tiempolibre']) > 0) {
+
               foreach ($_POST['tiempolibre'] as $tiempo => $libre) {
                   if (in_array($libre, $valoresTiempoLibre))
                       $tiempoLibre[] = $libre;
@@ -95,28 +96,34 @@
            * se almacenará en un archivo csv.
            */
 
-          foreach ($datos as $dato) {
-              print "<p>{$dato}</p>";
-
-              if (empty($dato)) {
-                  $datosCorrectos = "false";
-                  $msgError = $msgError . " - " . $dato . " no se ha introducido correctamente <br>";
+          foreach ($datos as $dato => $valor) {
+              if (empty($valor)) {
+                  $datosCorrectos = false;
+                  $msgError .= ' <li class="list__item"> El dato <span class="error">' . $dato . '</span> no se ha introducido correctamente. <br> </li>';
               }
           }
 
+
+          // Imprimimos el contenedor para los mensajes y los mensajes correspondientes
+
+          print '<div class="flex flex__columns contenido message">';
+
           if ($datosCorrectos) {
-              $archivoCSV = fopen('datos.csv', 'a');
+              $archivoCSV = fopen('datos.csv', 'w');
 
               fputcsv($archivoCSV, $datos);
               fclose($archivoCSV);
 
-              print '<h1>' . $msgExito . '</h1>';
+              print $msgExito;
           } else {
-              print '<h1>Los datos introducidos no son correctos</h1>';
-              print '<p> Los datos erróneos son: <br><br>';
+              print '<h1 class="message__title"> Los datos introducidos no son correctos </h1>';
+              print '<h2 class="message__subtitle"> Los errores son: </h2>';
+              print '<ul>';
               print $msgError;
-              print '</p>';
+              print '</ul>';
           }
+
+          print '</div';
         ?>
 
     </body>

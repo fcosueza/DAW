@@ -1,15 +1,4 @@
 /*
- * Vairiables para el tema de color.
- */
-
-:root {
-    --color-primario: #F0ECE5;
-    --color-secundario: #161A30;
-    --color-resalte: #31304D;
-    --color-texto: black;
-}
-
-/*
  * Primero hacemos un reset para todos los elementos, que sean
  * consistentes en los diferentes navegadores.
  */
@@ -32,6 +21,7 @@ html {
 body {
     min-height: 100vh;
     background-color: var(--color-primario);
+    background: linear-gradient(rgb(92, 131, 116), rgb(158, 200, 185));
 }
 
 /*
@@ -49,7 +39,7 @@ body {
 }
 
 .error {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-style: italic;
     color: red;
 }
@@ -70,7 +60,19 @@ body {
     border: 0.1rem solid black;
     border-radius: 1rem;
     background: white;
+    box-shadow: 0 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
 
+
+}
+
+.message {
+    width: 55rem;
+    margin: 10rem auto;
+    padding: 2rem;
+    background: white;
+    border: 0.1rem solid rgba(0, 0, 0, 0.8);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
 }
 
 /*
@@ -81,8 +83,24 @@ body {
     margin: 1rem 0;
 }
 
-.note {
-    margin: 1rem 0;
+.message__title {
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.message__subtitle {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    align-self: baseline;
+
+}
+
+
+
+.list__item {
+    font-size: 1.6rem;
+    align-self: baseline;
+    margin: 0.5rem 0;
 }
 
 

@@ -35,7 +35,7 @@
                 <div class="form__control">
                     <label for="curso">Curso:</label>
                     <select id="curso" name="curso">
-                        <option value="1ESO" selected>1º ESO</option>
+                        <option value="1ESO">1º ESO</option>
                         <option value="2ESO">2º ESO</option>
                         <option value="3ESO">3º ESO</option>
                     </select>
