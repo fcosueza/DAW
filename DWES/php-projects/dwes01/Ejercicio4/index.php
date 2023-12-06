@@ -18,8 +18,11 @@
 
             <?php
               require('utils/cargar_archivo.php');
+              require('utils/filtrar_por.php');
 
-              $resultado = cargar_archivo("data.csv");
+              $archivo = cargar_archivo("data.csv");
+
+              $resultado = filtrar_por_curso("2ESO", $archivo);
 
               foreach ($resultado as $dato) {
                   print "<br>";

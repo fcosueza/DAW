@@ -6,7 +6,7 @@
    * Función que devuelve un array multiple con todos los datos almacenados en
    * un archivo CSV.
    *
-   * @param $nombreArchivo Nombre del archivo que se quiere cargar.
+   * @param $nombreArchivo Cadena de caractéres con el nombre del archivo que se quiere cargar.
    *
    * @return array[] Array formado de arrays asociativos con los datos del fichero.
    * @return false En caso de que el fichero no se encuentre.
