@@ -1,0 +1,41 @@
+/*
+ * Primero hacemos un reset para todos los elementos, que sean
+ * consistentes en los diferentes navegadores.
+ */
+
+*, *::after, *:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+ * Establecemos el tamaño de fuente al 62.5%, así al usar unidades relativas,
+ * como rem o em, serán multiplos de 10 y más cómodo trabajar con ellas.
+ */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/*
+ * Clases de Utilidad
+ */
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex__columns {
+    flex-direction: column;
+}
+
+/*
+ * Clases de elementos principales
+ */
