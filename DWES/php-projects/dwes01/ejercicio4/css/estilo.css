@@ -20,6 +20,9 @@ html {
 
 body {
     min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgb(92, 131, 116), rgb(158, 200, 185));
 }
 
 /*
@@ -39,3 +42,33 @@ body {
 /*
  * Clases de elementos principales
  */
+
+.content {
+    width: 60%;
+    padding: 2rem;
+    margin: 2rem;
+    background-color: white;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    box-shadow: 0 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+.content__title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content__subtitle {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+}
+
+.list {
+    font-size: 1.4rem;
+    padding-left: 2rem;
+}
+
+.list__name {
+    font-weight: bold;
+}

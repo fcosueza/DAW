@@ -104,18 +104,32 @@
           }
 
           /*
-           * Imprimimos el contenedor para los mensajes y los mensajes correspondientes. En
-           * caso de que los datos sean correctos, los escribimos en el archivo CSV, almacenando
-           * primero el nombre de las cabeceras.
+           * Imprimimos los mensajes correspondientes. En caso de que los datos sean correctos,
+           * los escribimos en el archivo CSV, almacenando primero el nombre de las cabeceras.
            */
+
 
           print '<div class="flex flex__columns contenido message">';
 
           if ($datosCorrectos) {
-              $archivoCSV = fopen('datos.csv', 'a');
-              $cabeceraCVS = ["codigo_potal", "sexo", "curso", "rama", "asgs", "tiempolibre"];
 
-              fputcsv($archivoCSV, $cabeceraCVS);
+              /*
+               * Comprobamos si el archivo ya estaba creado. Si no esta creado, se
+               * crea y se le añade la cabecera.
+               */
+
+              if (!file_exists('datos.csv')) {
+                  $archivoCSV = fopen('datos.csv', 'a');
+                  $cabeceraCVS = ["codigo_postal", "sexo", "curso", "rama", "asgs", "tiempolibre"];
+
+                  fputcsv($archivoCSV, $cabeceraCVS);
+                  fclose($archivoCSV);
+              }
+
+              // Escribimos el resto de datos
+
+              $archivoCSV = fopen('datos.csv', 'a');
+
               fputcsv($archivoCSV, $datos);
               fclose($archivoCSV);
 
