@@ -103,13 +103,12 @@
               }
           }
 
-
           // Imprimimos el contenedor para los mensajes y los mensajes correspondientes
 
           print '<div class="flex flex__columns contenido message">';
 
           if ($datosCorrectos) {
-              $archivoCSV = fopen('datos.csv', 'w');
+              $archivoCSV = fopen('datos.csv', 'a');
 
               fputcsv($archivoCSV, $datos);
               fclose($archivoCSV);
