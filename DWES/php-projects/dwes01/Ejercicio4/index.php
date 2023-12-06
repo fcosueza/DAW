@@ -19,15 +19,13 @@
             <?php
               require('utils/cargar_archivo.php');
               require('utils/filtrar_por.php');
+              require('utils/resumen.php');
 
               $archivo = cargar_archivo("data.csv");
 
-              $resultado = filtrar_por_curso("2ESO", $archivo);
+              $resultado = resumen($archivo);
 
-              foreach ($resultado as $dato) {
-                  print "<br>";
-                  print_r($dato);
-              }
+              print_r($resultado);
             ?>
         </main>
     </body>
