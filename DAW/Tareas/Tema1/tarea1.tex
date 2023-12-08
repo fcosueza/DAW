@@ -215,6 +215,58 @@ En este ejercicio vamos a instalar un certificado SSL en Apache, con lo siguient
 Partiendo de la instalación de Apache del ejercicio 3, realiza la instalación del servidor de aplicaciones \textbf{Apache Tomcat} (es recomendable instalar una versión lo más reciente posible, tomcat10). \textbf{Importante:} para esta actividad solo hay que hacer la instalación y comprobar desde nuestro navegador que tenemos acceso a la página principal del servidor de aplicaciones. No hay que configurar el acceso al panel de administración ni crear usuarios.
 
 \subsection{Solución}
+En este ejercicio vamos a realizar una instalación básica del servidor de aplicaciones Tomcat, probando a continuación que se ha instalado correctamente desde un navegador. Los pasos que se han seguido han sido los siguientes:
+
+\begin{enumerate}
+    \item En primer lugar, hemos descargado la distribución binaria de Tomcat mediante el comando \textbf{\textit{wget}}. En nuestro caso, se ha descargado la \textbf{versión 10.1.6}, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{tomcat.png}
+    \end{figure}
+
+    \item El siguiente paso ha sido descomprimir el archivo descargado en la carpeta \textbf{\textit{/opt}}, que va a ser donde se almacene definitivamente la distribución binaria de Tomcat. Para ello hemos usado el comando \textbf{\textit{sudo tar -zxvf /tmp/apache-tomcat-10.1.16.tar.gz -C /opt/}}.
+
+    \item Como vamos a realizar una instalación básica sin mucha configuración, ya solo nos queda ejecutar el script de inicio de Tomcat. En este caso, hemos ejecutado el script \textbf{startup.sh}, que se encuentra en al carpeta \textbf{\textit{bin/bin}} del directorio de Tomcat.
+
+    \item Por último, nos hemos conectado al \textbf{localhost} usando el puerto \textbf{8080} para comprobar que se esta ejecutando Tomcat correctamente, y como podemos ver en la siguiente captura, su ejecución e instalación se ha realizado correctamente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.30]{tomcat-installed.png}
+    \end{figure}
+\end{enumerate}
+
+\section{Ejercicio 6: Hosts Virtuales}
+\subsection{Enunciado}
+Ya sabemos que Apache permite tener más de un sitio web en un servidor, donde cada sitio puede estar asociado a un dominio diferente. Revisa el punto 5 de la documentación y explica qué es, para que se utiliza y cuál es la diferencia entre virtualhost por nombre y por IP. Pon un ejemplo de configuración de cada uno, usando las directiva 'VirtualHost', incluyendo capturas del fichero de configuración.
+
+\subsection{Solución}
+Los \textbf{VirtualHosts} son un mecanismo de Apache que nos permite que un servidor albergue diferentes webs con diferentes dominios, manteniendo cada dominio y su estructura de directorios independiente de los demás. Los Virtualhost se pueden utilizar de varias formas diferentes, aunque las más comunes son:
+
+\begin{itemize}
+    \item \textbf{VirtualHost por Nombre}: en este tipo de VirtualHosts tenemos varios dominios asociados a una misma IP. Cuando un cliente se conecta a dicha IP, se servirá una página u otra dependiendo del dominio que se especifica.
+
+    \item \textbf{VirtualHost por IP}: en este caso, hay diferentes IPs asociadas a la misma máquina y estas se asocian con las diferentes páginas que alberga el servidor, por lo que se servirá una página u otra dependiendo de la dirección IP que especifique el cliente.
+\end{itemize}
+
+
+Para configurar los Virtualhost en Ubuntu, que es el sistema que estamos empleando se deben añadir un archivo a la carpeta \textbf{/etc/apache2/sites-avaibles/}, donde se especifiquen las diferentes directivas del servidor. Habrá que añadir un archivo por cada Virtualhost que queramos, y una vez que que estén bien definidos, deberemos copiarlos o crear un enlace simbólico en la carpeta \textbf{/etc/apache/sites-enabled}. A continuación, vamos a mostrar dos ejemplos de configuración de VirtualHosts.
+
+El primer ejemplo es un \textbf{VirtualHost por nombre} que ya teníamos configurado para la asignatura DWES. En este caso, en este caso, además de las opciones habituales, se ha añadido una directiva para que no se puede acceder a la \textbf{carpeta nbproject} desde el servidor, ya que es irrelevante para el sitio web ya que contiene la información del proyecto de Netbeans.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{virtual-name.png}
+\end{figure}
+
+Ahora vamos a mostrar un ejemplo del fichero de configuración de un \textbf{Virtualhost por IP}. En este caso como no teníamos ninguno configurado, se ha creado desde cero y hemos simulado dos hosts virtuales a las paginas de las asignaturas de programación y desarrollo web en el entorno cliente. El fichero, quedaría como podemos ver a continuación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{virtual-ip.png}
+\end{figure}
+
 
 
 
