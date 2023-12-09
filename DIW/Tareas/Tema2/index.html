@@ -13,7 +13,19 @@
   </head>
 
   <body>
+    <header class="flex">
+      <nav class="flex menu">
+        <button type="button" class="button" onclick="loadFrame('pages/1.html', 'content')">Ejercicio 1</button>
+        <button type="button" class="button" onclick="loadFrame('pages/2.html', 'content')">Ejercicio 2</button>
+        <button type="button" class="button" onclick="loadFrame('pages/3.html', 'content')">Ejercicio 3</button>
+        <button type="button" class="button" onclick="loadFrame('pages/4.html', 'content')">Ejercicio 4</button>
+        <button type="button" class="button" onclick="loadFrame('pages/5.html', 'content')">Ejercicio 5</button>
+      </nav>
+    </header>
+    <main id="content" class="flex content">
+    </main>
 
+    <script src="js/loadIframe.js" async></script>
   </body>
 
 </html>

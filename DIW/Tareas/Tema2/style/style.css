@@ -1,0 +1,85 @@
+/* Reinicio básico CSS */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+ *  Elementos HTML y Body
+ */
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+/* Clases de utilidad */
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/*
+ * Clases de elementos
+ */
+
+.menu {
+  width: 50%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 3rem;
+}
+
+.button {
+  font-weight: bold;
+  color: white;
+  background-color: #0076FF;
+  margin: 1rem;
+  padding: 1rem 4rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.content {
+  justify-content: center;
+  align-items: center;
+}
+
+.frame {
+  width: 50%;
+  height: 80rem;
+  margin-top: 3rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+}
+
+/*
+ * Estados de los elementos
+ */
+
+/*
+  * Se va a añadir un sombra a los botones, para que el usuario
+  * tenga un poco de feedback a la hora de pulsarlos.
+  */
+
+.button:hover {
+  box-shadow: 0.1rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+
+}
+
+.button:active {
+  box-shadow: none;
+}
