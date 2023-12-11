@@ -66,11 +66,11 @@ function cadenas() {
 
   /*
    * Ahora vamos a realizar la conversión. Solo se van a pasar a mayúsculas o minúsculas
-   * las letras, no tiene sentido hacerlo con los números o carácteres de puntiación.
+   * las letras, no tiene sentido hacerlo con los números o caracteres de puntuación.
    *
-   * Para determinar si una letra esta estta en mayúsculas o minúsculas y hay que pasarla a una u otra,
+   * Para determinar si una letra esta esta en mayúsculas o minúsculas y hay que pasarla a una u otra,
    * tendremos en cuenta que en la tabla unicode, las mayúsculas se encuentran entre los valores 65
-   *  y 90, estándo las minúsculas entre 97 y 122.
+   *  y 90, estando las minúsculas entre 97 y 122.
    */
 
   for (let i = 0; i < cadena.length; i++) {
@@ -89,7 +89,7 @@ function cadenas() {
 
   /* Mostramos el resultado */
 
-  document.write("<h2>Invertir Mayusculas y Minúsculas: </h2>");
+  document.write("<h2>Invertir Mayúsculas y Minúsculas: </h2>");
   document.write(
     "<p>La cadena resultante es: " +
       '<span style="font-weight: bold;">' +
