@@ -68,6 +68,7 @@ body {
   margin-top: 3rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.6);
   border-radius: 1rem;
+  box-shadow: 0.1rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 /*

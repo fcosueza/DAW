@@ -5,18 +5,21 @@
 function bruja() {
   let pregunta = "";
   let respuesta = "";
-  let count = 1;
 
   let salir = false;
   let rand;
 
   /*
-   * Realizamos la pregunta hasta que se introduzca la cadena DWEC
+   * Realizamos la pregunta hasta que se introduzca la cadena DWEC.
    */
 
   do {
-    pregunta = window.prompt("Introduzca una pregunta (incluya DWEC para acabar: ");
+    /* Realizamos la pregunta y generamos el número aleatorio */
+
+    pregunta = window.prompt("Introduzca una pregunta (incluya DWEC para acabar): ");
     rand = Math.random();
+
+    /* Procesamos la pregunta. Si incluye DWEC, almacenamos la respuesta y salimos */
 
     if (pregunta.includes("DWEC")) {
       respuesta = "A esas preguntas no respondo. Adios";
