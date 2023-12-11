@@ -11,7 +11,7 @@ function calcularFecha() {
 
   /* Pedimos la fecha por teclado */
 
-  fechaNueva = Date.parse(window.prompt('Introduzca la fecha (formato: "AAAA-MM-DD")'));
+  fechaNueva = Date.parse(window.prompt('Introduzca la fecha (formato: "AAAA-MM-DD"): '));
 
   /* Calculamos en primer lugar la diferencia en segundos */
 
