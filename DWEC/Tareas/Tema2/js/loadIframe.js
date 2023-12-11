@@ -3,7 +3,7 @@
  *
  * Esta función crea un iFrame en la página desde donde se llama en un elemento especificado por elementID.
  *
- * NOTA: Se van a usar las funciones getElementId, createElement, setAttribute y appendChild, que vienen en
+ * NOTA: Se van a usar los métodos getElementId, createElement, setAttribute y appendChild, que vienen en
  * la documentación extendida para el elemento document en el apartado "Debes Conocer" del punto 1.4 de la
  * teoría del Tema 2.
  *
