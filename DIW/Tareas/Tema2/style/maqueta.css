@@ -1,0 +1,169 @@
+/* Fichero de estilo del documento maqueta.html */
+
+/* Importamos la fuente local */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+/* Reseteo básico del estilo de todos los elementos */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Declaración de Variables */
+
+:root {
+  /* Variables tema de color */
+
+  --color-principal: rgb(241, 239, 239);
+  --color-secundario: rgba(25, 23, 23, 0.9);
+  --color-terciario: rgba(204, 200, 170, 0.8);
+  --color-resalte: rgb(125, 124, 124);
+
+
+  --color-fuente-conte: rgb(25, 23, 23);
+  --color-fuente-secun: rgb(241, 239, 239);
+}
+
+/* Estilo básico de los elementos html y body */
+
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-principal);
+}
+
+/* Clases de Utilidad */
+
+.flex {
+  display: flex;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Establecimiento del Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: 30% 30% 30% 10%;
+  grid-template-rows: 1fr 3fr 3fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "content content content menu"
+    "content content content menu"
+    "footer footer footer footer";
+}
+
+
+
+/* Estilo de las zonas y subzonas de la maqueta */
+
+.header {
+  grid-area: header;
+  justify-content: space-between;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.header__sub {
+  flex-grow: 1;
+  width: 33%;
+}
+
+.header__title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 3rem;
+  margin: 4rem 0;
+  letter-spacing: 3rem;
+  text-shadow:
+    0.2rem 0.2rem 0 rgb(125, 124, 124),
+    0.4rem 0.4rem 0 rgb(241, 239, 239);
+}
+
+.content {
+  font-size: 3rem;
+  grid-area: content;
+  background-color: var(--color-primario);
+}
+
+.content__sub {
+  height: 50%;
+
+  /* solo para que se diferencien las subzonas añadimos un borde */
+  border: 0.05rem solid rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+  grid-area: menu;
+  background-color: var(--color-terciario);
+}
+
+.footer {
+  font-size: 2rem;
+  grid-area: footer;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.footer__sub {
+  flex-grow: 1;
+}
+
+/* Estilo de la linea horizontal de separación */
+
+.rule {
+  margin: 5rem 0;
+  height: 2rem;
+  background-color: black;
+}
+
+/* Estilo de la maqueta del footer */
+
+.footerFull {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 4rem;
+  height: 20rem;
+  margin-bottom: 4rem;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.footerFull__sub1,
+.footerFull__sub2,
+.footerFull__sub3 {
+  flex-grow: 1;
+  padding: 1rem;
+  border: 0.1rem solid white;
+}
+
+.footerFull__sub1 {
+  font-size: 3rem;
+  color: var(--color-resalte);
+  justify-content: flex-end;
+}
+
+.footerFull__sub2 {
+  font-size: 5rem;
+  justify-content: flex-start;
+  box-shadow: -0.3rem 0.3rem 0.5rem black;
+}
+
+.localidad {
+  color: var(--color-terciario);
+  margin-left: 3rem;
+}

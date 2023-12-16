@@ -1,0 +1,111 @@
+/* Fichero de estilo del documento index.html */
+
+/* Reseteo básico del estilo de todos los elementos */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Declaración de Variables */
+
+:root {
+  /* Variables tema de color */
+
+  --color-principal: rgb(241, 239, 239);
+  --color-secundario: rgb(125, 124, 124);
+  --color-resalte: rgba(204, 200, 170, 0.8);
+
+  --color-fuente-conte: rgb(25, 23, 23);
+  --color-fuente-secun: rgb(241, 239, 239);
+
+  /* Variables media queries */
+
+  --resolucion: 620px;
+}
+
+/* Estilo básico de los elementos html y body */
+
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+}
+
+/* Clases de Utilidad */
+
+.flex {
+  display: flex;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Establecimiento del Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: 30% 30% 30% 10%;
+  grid-template-rows: 1fr 3fr 3fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "content content content menu"
+    "content content content menu"
+    "footer footer footer footer";
+}
+
+
+
+/* Estilo de las zonas y subzonas de la maqueta */
+
+.header {
+  grid-area: header;
+  justify-content: space-between;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.header__sub {
+  flex-grow: 1;
+}
+
+.header__title {
+  margin: 4rem 0rem;
+}
+
+.content {
+  grid-area: content;
+  background-color: var(--color-terciario);
+}
+
+.content__sub {
+  height: 50%;
+
+  /* solo para que se diferencien las subzonas añadimos un borde */
+  border: 0.05rem solid rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+  grid-area: menu;
+  background-color: var(--color-resalte);
+}
+
+.footer {
+  grid-area: footer;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.footer__sub {
+  flex-grow: 1;
+}
