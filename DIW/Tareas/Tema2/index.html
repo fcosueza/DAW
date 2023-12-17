@@ -17,35 +17,102 @@
   </head>
 
 
-  <body>
-    <div class="container">
-      <header class="header flex">
-        <div class="flex centered header__sub">
-          <h1 class="header__title">AdminSyS</h1>
-        </div>
-        <div class="flex centered header__sub">
-          <h2 class="header__text">Cabecera - Subzona 2</h2>
-        </div>
-        <div class="flex centered header__sub">
-          <h2 class="header__text">Cabecera - Subzona 3</h2>
-        </div>
-      </header>
 
-      <aside class="menu flex centered">
-        Menu - Subzona 1
-      </aside>
+  <body class="container">
 
-      <main class="content">
-        <div class="flex centered content__sub">Contenido - Subzona 1</div>
-        <div class="flex centered content__sub">Contenido - Subzona 2</div>
-      </main>
+    <header class="header flex">
+      <div class="flex centered header__sub1">
+        <h1 class="header__title">AdminSYS</h1>
+        <button class="button title__buton" type="button">Iniciar Sesión</button>
+      </div>
+      <div class="flex centered header__sub2">
+        <img class="logo" src="images/logo.png" alt="logo de AdminSYS">
+      </div>
+      <div class="flex centered header__sub3">
+        <div class="flex flex--columns">
+          <img class="header__image" src="images/programacion.jpg" alt="Imagen de un ordenador portátil">
+          <button class="button" type="button">Contáctanos</button>
+        </div>
+      </div>
+    </header>
 
-      <footer class="footer flex">
-        <div class="flex centered footer__sub">Pie - Subzona 1</div>
-        <div class="flex centered footer__sub">Pie - Subzona 2</div>
-        <div class="flex centered footer__sub">Pie - Subzona 3</div>
-      </footer>
-    </div>
+    <nav class="menu flex centered">
+      <ul class="flex menu__items">
+        <li><a class="menu__link" href="">Desarrollo de Software</a></li>
+        <li><a class="menu__link" href="">Consultoria</a></li>
+        <li><a class="menu__link" href="">Implantación y Administración de Redes</a></li>
+        <li><a class="menu__link" href="">Zona Privada</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <div class="flex centered content__sub">
+        <section class="flex centered content__section">
+          <div class="gallery">
+            <div class="gallery__item">
+              <h3 lass="gallery__title">Producto 1</h3>
+              <img class="gallery__image" src="images/programacion.jpg" alt="">
+              <p>Valoración: 4.5</p>
+            </div>
+            <div class="gallery__item">
+              <h3 lass="gallery__title">Producto 1</h3>
+              <img class="gallery__image" src="images/programacion.jpg" alt="">
+              <p>Valoración: 4.5</p>
+            </div>
+            <div class="gallery__item">
+              <h3 lass="gallery__title">Producto 1</h3>
+              <img class="gallery__image" src="images/programacion.jpg" alt="">
+              <p>Valoración: 4.5</p>
+            </div>
+            <div class="gallery__item">
+              <h3 lass="gallery__title">Producto 1</h3>
+              <img class="gallery__image" src="images/programacion.jpg" alt="">
+              <p>Valoración: 4.5</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="content__section"></div>
+        <div class="content__section"></div>
+        <div class="content__section"></div>
+      </div>
+      <div class="flex centered content__sub">Contenido - Subzona 2</div>
+    </main>
+
+    <footer class="footer flex">
+      <div class="flex flex--columns centered footer__sub">
+        <h3 class="footer__title">Política de Cookies</h3>
+
+        <form class="flex flex--columns" action="">
+          <label for="obligatorias">
+            <input type="checkbox" name="obligatorias">
+            Cookies Obligatorias
+          </label>
+          <label for="funcionalidad">
+            <input type="checkbox" name="funcionalidad">
+            Cookies de Funcionalidad
+          </label>
+          <label for="publi">
+            <input type="checkbox" name="publi">
+            Cookies Publicitarias
+          </label>
+        </form>
+      </div>
+
+      <div class="flex centered footer__sub">
+        <ul class="list">
+          <li class="list__element">Soporte</li>
+          <li class="list__element">Politica de Privacidad</li>
+          <li class="list__element">Acerca de</li>
+        </ul>
+      </div>
+      <div class="flex centered footer__sub">
+        <div class="footer__icon"><img src="images/facebook.png" alt=""></div>
+        <div class="footer__icon"><img src="images/instagram.png" alt=""></div>
+        <div class="footer__icon"><img src="images/linkedin.png" alt=""></div>
+        <div class="footer__icon"><img src="images/twitter.png" alt=""></div>
+      </div>
+    </footer>
   </body>
 
 </html>

@@ -60,12 +60,13 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 30% 30% 30% 10%;
-  grid-template-rows: 1fr 3fr 3fr 1fr;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 1fr 6rem 3fr 3fr 1fr;
   grid-template-areas:
     "header header header header"
-    "content content content menu"
-    "content content content menu"
+    "menu menu menu menu"
+    "content content content content"
+    "content content content content"
     "footer footer footer footer";
 }
 

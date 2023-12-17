@@ -1,4 +1,11 @@
-/* Fichero de estilo del documento index.html */
+/* Fichero de estilo del documento maqueta.html */
+
+/* Importamos la fuente local */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Medium.ttf);
+}
 
 /* Reseteo básico del estilo de todos los elementos */
 
@@ -16,15 +23,13 @@
   /* Variables tema de color */
 
   --color-principal: rgb(241, 239, 239);
-  --color-secundario: rgb(125, 124, 124);
-  --color-resalte: rgba(204, 200, 170, 0.8);
+  --color-secundario: rgba(25, 23, 23, 0.9);
+  --color-terciario: rgba(204, 200, 170, 0.9);
+  --color-resalte: rgb(125, 124, 124);
+
 
   --color-fuente-conte: rgb(25, 23, 23);
   --color-fuente-secun: rgb(241, 239, 239);
-
-  /* Variables media queries */
-
-  --resolucion: 620px;
 }
 
 /* Estilo básico de los elementos html y body */
@@ -32,12 +37,12 @@
 
 html {
   font-size: 62.5%;
-  min-height: 100vh;
   scroll-behavior: smooth;
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
+  background-color: var(--color-principal);
 }
 
 /* Clases de Utilidad */
@@ -51,56 +56,147 @@ body {
   align-items: center;
 }
 
+.flex--columns {
+  flex-direction: column;
+}
+
 /* Establecimiento del Layout */
 
 .container {
   display: grid;
-  grid-template-columns: 30% 30% 30% 10%;
-  grid-template-rows: 1fr 3fr 3fr 1fr;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 2fr 6rem 10fr 5fr 1fr;
   grid-template-areas:
     "header header header header"
-    "content content content menu"
-    "content content content menu"
+    "menu menu menu menu"
+    "content content content content"
+    "content content content content"
     "footer footer footer footer";
 }
 
 
 
-/* Estilo de las zonas y subzonas de la maqueta */
+/* Estilo de la página principal*/
 
 .header {
   grid-area: header;
   justify-content: space-between;
+  padding: 2rem;
   color: var(--color-fuente-secun);
   background-color: var(--color-secundario);
 }
 
-.header__sub {
+.header__sub1,
+.header__sub2,
+.header__sub3 {
   flex-grow: 1;
+  width: 33%;
+}
+
+.header__sub1 {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .header__title {
-  margin: 4rem 0rem;
+  font-family: 'Roboto Slab', serif;
+  font-size: 8rem;
+  margin: 4rem 0;
+  align-self: center;
+  margin-left: auto;
+}
+
+.header__sub3 {
+  justify-content: flex-start;
+}
+
+.header__image {
+  width: 30rem;
+  height: 18rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.button {
+  font-family: 'Roboto';
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 1rem;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-resalte);
+  border: none;
+  border-radius: 0.5rem;
+}
+
+
+.logo {
+  width: 30rem;
+  height: 30rem;
 }
 
 .content {
+  font-size: 3rem;
   grid-area: content;
-  background-color: var(--color-terciario);
+  background-color: var(--color-primario);
 }
 
 .content__sub {
   height: 50%;
+  flex-wrap: wrap;
+}
 
-  /* solo para que se diferencien las subzonas añadimos un borde */
-  border: 0.05rem solid rgba(0, 0, 0, 0.5);
+.content__section {
+  width: 50%;
+  height: 50%;
+  padding: 1rem;
+  border: 0.1rem solid black;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 3rem;
+}
+
+.gallery__item {
+  text-align: center;
+  width: fit-content;
+  border-radius: 0.5rem;
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+
+}
+
+.gallery__title {
+  text-align: center;
+}
+
+.gallery__image {
+  width: 30rem;
+  height: 15rem;
 }
 
 .menu {
   grid-area: menu;
-  background-color: var(--color-resalte);
+  position: sticky;
+  top: 0;
+  font-family: 'Roboto';
+  font-size: 2rem;
+  padding: 3rem;
+  background-color: var(--color-terciario);
+}
+
+.menu__items {
+  width: 100%;
+  list-style: none;
+  justify-content: center;
 }
 
 .footer {
+  font-family: 'Roboto';
+  font-size: 2rem;
   grid-area: footer;
   color: var(--color-fuente-secun);
   background-color: var(--color-secundario);
@@ -108,4 +204,47 @@ body {
 
 .footer__sub {
   flex-grow: 1;
+  width: 33%;
+}
+
+.footer__title {
+  margin-bottom: 2rem;
+}
+
+.footer__icon {
+  padding: 0.5rem;
+  margin: 0 1rem;
+  border: 0.2rem solid white;
+  border-radius: 25%;
+}
+
+.list {
+  list-style-type: square;
+}
+
+/* Estilo del estado de los elementos */
+
+.menu__link:link {
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 3rem;
+  color: var(--color-fuente-conte);
+}
+
+.menu__link:visited {
+  color: var(--color-fuente-conte);
+}
+
+.button:hover {
+  color: var(--color-fuente-conte);
+  background-color: var(--color-terciario);
+}
+
+.list__element:hover::marker {
+  color: var(--color-secundario);
+}
+
+.footer__icon:hover {
+  background-color: var(--color-resalte);
+  border-color: black;
 }
