@@ -1,0 +1,4 @@
+<?php
+
+
+//CONSTANTES CON EL DSN, USER y PASSWORD para conectar A LA BASE DE DATOS

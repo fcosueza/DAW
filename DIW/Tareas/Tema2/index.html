@@ -2,16 +2,22 @@
 <html lang="es">
 
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Francisco Sueza Rodríguez" />
-    <meta name="description" content="Página web de la empresa AdminSys" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Francisco Sueza Rodríguez">
+    <meta name="description" content="Página web de la empresa AdminSys">
 
     <link rel="stylesheet" href="style/estilo.css">
 
+    <!-- Enlaces para la fuente Roboto Slab -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Enlace a Fontawesome para crear la estrella del rating -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>AdminSys Web Page</title>
   </head>
@@ -26,6 +32,7 @@
         <button class="button title__buton" type="button">Iniciar Sesión</button>
       </div>
       <div class="flex centered header__sub2">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <img class="logo" src="images/logo.png" alt="logo de AdminSYS">
       </div>
       <div class="flex centered header__sub3">
@@ -47,53 +54,299 @@
 
     <main class="content">
       <div class="flex centered content__sub">
-        <section class="flex centered content__section">
+        <div class="flex centered content__section">
           <div class="gallery">
             <div class="gallery__item">
-              <h3 lass="gallery__title">Producto 1</h3>
               <img class="gallery__image" src="images/programacion.jpg" alt="">
-              <p>Valoración: 4.5</p>
+              <h3 class="gallery__title">Desarrollo Web</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+              </p>
             </div>
             <div class="gallery__item">
-              <h3 lass="gallery__title">Producto 1</h3>
-              <img class="gallery__image" src="images/programacion.jpg" alt="">
-              <p>Valoración: 4.5</p>
+              <img class="gallery__image" src="images/consultoria.jpg" alt="">
+              <h3 class="gallery__title">Consultoria</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
             </div>
             <div class="gallery__item">
-              <h3 lass="gallery__title">Producto 1</h3>
-              <img class="gallery__image" src="images/programacion.jpg" alt="">
-              <p>Valoración: 4.5</p>
+              <img class="gallery__image" src="images/admin.jpg" alt="">
+              <h3 class="gallery__title">Admón. Redes</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
             </div>
             <div class="gallery__item">
-              <h3 lass="gallery__title">Producto 1</h3>
-              <img class="gallery__image" src="images/programacion.jpg" alt="">
-              <p>Valoración: 4.5</p>
+              <img class="gallery__image" src="images/redes.jpg" alt="">
+              <h3 class="gallery__title">Instalación de Redes</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <div class="content__section"></div>
-        <div class="content__section"></div>
-        <div class="content__section"></div>
+        <div class="flex centered content__section">
+          <div class="flex flex--columns centered promo">
+            <img class="promo__image" src="images/programacion.jpg" alt="">
+            <h2 class="promo__title">Desarrollo de Software</h2>
+            <p class="promo__text">
+              En AdminSYS nos preocupamos por desarrollar aplicaciones web de calidad y que se adapten a las necesidades
+              y el presupuesto de nuestros clientes. Nuestro servicio además incorpora soporte de mantenimiento
+              gratuito durante el primer año.
+            </p>
+            <p class="promo__text">Precio: 1.000€ - 6.000€</p>
+          </div>
+        </div>
+
+        <div class="flex centered content__section">
+          <table class="table">
+            <caption class="table__caption">Tabla de servicios, numero de clientes y valoraciones</caption>
+
+            <thead class="table__head">
+              <tr>
+                <td class="table__cell">Producto</td>
+                <td class="table__cell">N. Clientes</td>
+                <td class="table__cell">N. Clientes (ultimo año)</td>
+                <td class="table__cell">Valoración Media</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table__cell">Desarrollo Software</td>
+                <td class="table__cell">500</td>
+                <td class="table__cell">124</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table__cell">Consultoria</td>
+                <td class="table__cell">1.200</td>
+                <td class="table__cell">332</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table__cell">Instalación de Redes</td>
+                <td class="table__cell">893</td>
+                <td class="table__cell">577</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table__cell">Admón. de Redes</td>
+                <td class="table__cell">678</td>
+                <td class="table__cell">122</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table__cell">Reparación Ordenadores</td>
+                <td class="table__cell">567</td>
+                <td class="table__cell">90</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table__cell">Servicio Matenimiento</td>
+                <td class="table__cell">200</td>
+                <td class="table__cell">89</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot class="table__foot">
+              <tr>
+                <td class="table__cell">Total: </td>
+                <td class="table__cell">4.038</td>
+                <td class="table__cell">1.334</td>
+                <td class="table__cell">
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star checked"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+
+        <div class="flex centered content__section">
+          <div class="gallery">
+            <div class="gallery__item">
+              <img class="gallery__image" src="images/programacion.jpg" alt="">
+              <h3 class="gallery__title">Desarrollo Web</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+              </p>
+            </div>
+            <div class="gallery__item">
+              <img class="gallery__image" src="images/consultoria.jpg" alt="">
+              <h3 class="gallery__title">Consultoria</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
+            </div>
+            <div class="gallery__item">
+              <img class="gallery__image" src="images/admin.jpg" alt="">
+              <h3 class="gallery__title">Admón. Redes</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
+            </div>
+            <div class="gallery__item">
+              <img class="gallery__image" src="images/redes.jpg" alt="">
+              <h3 class="gallery__title">Instalación de Redes</h3>
+              <p class="gallery__review">
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star checked"></i></span>
+                <span class="gallery__star"><i class="fa fa-star"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex centered content__sub">Contenido - Subzona 2</div>
+
+      <hr class="rule">
+
+      <div class="content__sub">
+        <article class="article">
+          <h2 class="article__title">Tecnología espacial al servicio del desarrollo en la Tierra</h2>
+          <div class="article__text">
+            <img class="article__imagen" src="images/noticia-1.jpg" alt="">
+            <p class="article__para">
+              La tecnología espacial es crucial para afrontar el cambio climático y lograr un desarrollo sostenible, aseguraron los expertos reunidos en un foro de la ONU en
+              Dubai
+              que concluye este jueves.
+            </p>
+
+            <p class="article__para">
+              La reunión, organizada por la Oficina de la ONU para Asuntos del Espacio Ultraterrestre (UNOOSA) y la agencia espacial de Emiratos Árabe Unidos, busca hacer más
+              accesibles herramientas como las imágenes por satélite, los sistema de navegación y las telecomunicaciones para lograr los Objetivos de Desarrollo Sostenible (ODS).
+            </p>
+
+            <p class="article__para">
+              La directora de UNOOSA, Simonetta Di Pippo, dijo durante la apertura que el sector espacial puede ayudar a combatir el cambio climático, la polución o la
+              deforestación. “Para entender lo que pasa en nuestra Tierra y se capaces de elaborar medidas de respuesta, tenemos que monitorear y poder acceder a datos fiables”,
+              explicó. “La infraestructura especial nos ofrece esta herramienta única y es crucial en este objetivo”.
+            </p>
+
+            <p class="article__para">
+              Luc St-Pierre, jefe de la sección de aplicaciones de la tecnología espacial en UNOOSA, contó, en entrevista con Noticias ONU, que tienen un proyecto con seis países
+              de Centroamérica que sufren la falta de lluvias.
+            </p>
+
+            <p class="article__para">
+              “Las sequías sobre todo en los últimos años son más duras por El Niño, hasta el punto de que en Centroamérica se dice que hay un corredor seco”, señala. “Estamos
+              trabajando con ellos para transmitir buenas prácticas, soluciones técnicas, buscar datos útiles no sólo para la respuesta, sino para tratar de planificar un poquito
+              más para que en los próximos años el impacto sea menor”.
+            </p>
+
+            <p class="article__para">
+              Además de las sequías, las imágenes de los satélites sirven para controlar nevadas, estado de los suelos o crecimiento de cultivos, que es fundamental para la
+              producción agrícola. La información que proveen también se puede usar para analizar los patrones de enfermedades infecciosas y ver qué áreas están en riesgo.
+              También
+              ofrecen imágenes del uso de tierras para ayudar a los gobiernos a planificar la urbanización.
+            </p>
+
+            <p class="article__para">
+              Además de las sequías, las imágenes de los satélites sirven para controlar nevadas, estado de los suelos o crecimiento de cultivos, que es fundamental para la
+              producción agrícola. La información que proveen también se puede usar para analizar los patrones de enfermedades infecciosas y ver qué áreas están en riesgo.
+              También
+              ofrecen imágenes del uso de tierras para ayudar a los gobiernos a planificar la urbanización.
+            </p>
+
+            <img class="article__imagen" src="images/noticia-2.jpg" alt="">
+
+            <p class="article__para">
+              Este foro es el segundo de tres encuentros anuales para preparar un gran evento llamado UNISPACE50 que, en junio de 2018, presentará las actividades espaciales que
+              se
+              llevarán a cabo bajo el paraguas de la ONU durante los próximos 50 años.
+            </p>
+          </div>
+
+        </article>
+      </div>
     </main>
 
     <footer class="footer flex">
       <div class="flex flex--columns centered footer__sub">
         <h3 class="footer__title">Política de Cookies</h3>
 
-        <form class="flex flex--columns" action="">
+        <form class="flex flex--columns" action="POST">
           <label for="obligatorias">
-            <input type="checkbox" name="obligatorias">
+            <input type="checkbox" id="obligatorias">
             Cookies Obligatorias
           </label>
           <label for="funcionalidad">
-            <input type="checkbox" name="funcionalidad">
+            <input type="checkbox" id="funcionalidad">
             Cookies de Funcionalidad
           </label>
           <label for="publi">
-            <input type="checkbox" name="publi">
+            <input type="checkbox" id="publi">
             Cookies Publicitarias
           </label>
         </form>

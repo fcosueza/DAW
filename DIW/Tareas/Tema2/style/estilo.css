@@ -41,6 +41,7 @@ html {
 }
 
 body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   min-height: 100vh;
   background-color: var(--color-principal);
 }
@@ -65,7 +66,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 2fr 6rem 10fr 5fr 1fr;
+  grid-template-rows: 2fr 6rem 15fr 1fr 1fr;
   grid-template-areas:
     "header header header header"
     "menu menu menu menu"
@@ -77,6 +78,8 @@ body {
 
 
 /* Estilo de la página principal*/
+
+/* Cabecera */
 
 .header {
   grid-area: header;
@@ -119,7 +122,6 @@ body {
 }
 
 .button {
-  font-family: 'Roboto';
   font-size: 1.8rem;
   font-weight: bold;
   padding: 1rem;
@@ -134,6 +136,8 @@ body {
   width: 30rem;
   height: 30rem;
 }
+
+/* Contenido */
 
 .content {
   font-size: 3rem;
@@ -150,13 +154,14 @@ body {
   width: 50%;
   height: 50%;
   padding: 1rem;
-  border: 0.1rem solid black;
 }
+
+/* Contenido - Productos */
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  grid-gap: 3rem;
+  grid-gap: 5rem;
 }
 
 .gallery__item {
@@ -170,7 +175,8 @@ body {
 }
 
 .gallery__title {
-  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 1rem;
 }
 
 .gallery__image {
@@ -178,11 +184,133 @@ body {
   height: 15rem;
 }
 
+.gallery__review {
+  margin: 1rem;
+}
+
+/* Contenido - Promocionado */
+
+.promo {
+  width: 75%;
+  margin-top: 2rem;
+}
+
+.promo__image {
+  width: 65rem;
+  align-self: baseline;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+}
+
+.promo__title {
+  font-family: 'Roboto Slab', serif;
+  align-self: baseline;
+  margin: 2rem 0 1rem;
+}
+
+.promo__text {
+  font-size: 1.8rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Contenido - Tabla */
+
+.table {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.8);
+  caption-side: bottom;
+}
+
+.table__head {
+  color: var(--color-fuente-secun);
+  background-color: var(--color-resalte);
+}
+
+.table__cell {
+  padding: 2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+.table__foot {
+  color: var(--color-fuente-secun);
+  background-color: var(--color-secundario);
+}
+
+.table__caption {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+/* Cebra Striping */
+
+tbody tr:nth-child(odd) {
+  background-color: var(--color-terciario);
+}
+
+/* Estilo de los iconos de la valoración */
+
+.gallery__star {
+  font-size: 2.5rem;
+}
+
+.checked {
+  color: gold;
+}
+
+/* Linea de separación de contenido */
+
+.rule {
+  height: 5rem;
+  border: none;
+  background-color: var(--color-resalte);
+}
+
+
+/* Contenido 2 - Articulo */
+
+.article {
+  font-family: 'Roboto Slab', serif;
+  width: 65%;
+  margin: 5rem auto;
+}
+
+.article__title {
+  font-size: 4rem;
+  text-align: center;
+  margin: 6rem 0;
+}
+
+.article__text {
+  font-size: 2rem;
+  font-weight: lighter;
+  column-count: 2;
+  column-fill: balance;
+  column-rule: 0.2rem;
+  column-rule-style: groove;
+  column-gap: 3rem;
+}
+
+.article__para {
+  margin-bottom: 1rem;
+}
+
+.article__imagen {
+  width: 60rem;
+}
+
+.article__para::first-letter {
+  font-size: 4rem;
+}
+
+/* Menu de Navegación */
+
 .menu {
   grid-area: menu;
   position: sticky;
   top: 0;
-  font-family: 'Roboto';
   font-size: 2rem;
   padding: 3rem;
   background-color: var(--color-terciario);
@@ -194,8 +322,9 @@ body {
   justify-content: center;
 }
 
+/* Pie de página */
+
 .footer {
-  font-family: 'Roboto';
   font-size: 2rem;
   grid-area: footer;
   color: var(--color-fuente-secun);
@@ -221,6 +350,7 @@ body {
 .list {
   list-style-type: square;
 }
+
 
 /* Estilo del estado de los elementos */
 
