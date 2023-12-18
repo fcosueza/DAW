@@ -1,4 +1,9 @@
 <?php
 
+  /*
+   * Definición de los datos de conexión de la base de datos.
+   */
 
-//CONSTANTES CON EL DSN, USER y PASSWORD para conectar A LA BASE DE DATOS
+  define("DSN", "localhost");
+  define("USER", "respira");
+  define("PASSWORD", "AbC1234.");

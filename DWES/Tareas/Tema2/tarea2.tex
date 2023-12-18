@@ -7,7 +7,7 @@
 \title{
 \vspace{10ex}
 \normalfont \normalsize
-\huge \textbf{Tarea 1: Plataformas de Programación Web en el Entorno Servidor. Aplicaciones LAMP}
+\huge \textbf{Tarea 2: Trabajar con Bases de Datos en PHP}
 }
 \author{Francisco Javier Sueza Rodríguez}
 \date{\normalsize\today}
@@ -28,169 +28,73 @@
         \textbf{Centro}: & IES Aguadulce \\
         \textbf{Ciclo Formativo}: & Desarrollo Aplicaciones Web (Distancia)\\
         \textbf{Asignatura}: & Desarrollo Web en Entorno Servidor\\
-        \textbf{Tema}: & Tema 1 -  Plataformas de Programación Web en el Entorno Servidor.\\
+        \textbf{Tema}: & Tema 2 -  Trabajar con Bases de Datos en PHP.\\
     \end{tabular}
 \end{center}
 
 \newpage
 
 \section{Caso Práctico}
-La asociación \textbf{Respira} para la atención de menores en situación de riesgo de exclusión social ha recibido una pequeña subvención para el desarrollo de estrategias digitales en el ámbito de su actividad. La asociación tiene su sede central en un barrio conflictivo donde reciben multitud de casos, principalmente de menores y familias en situaciones muy complejas, a los que intentan ayudar con los pocos medios que tienen.
+\textbf{Ada} está explicando el proyecto que van a empezar a realizar. \textbf{María} y \textbf{Juan}, están escuchando atentamente:
 
-\textbf{Juan} y \textbf{María} han recibido el proyecto con los brazos abiertos y están dispuestos a dar el todo por el todo para que esta asociación ayude a un mayor número de personas. \textbf{María} está especialmente motivada, dado que es el barrio donde ella se crío cuando era pequeña.
+- En el proyecto de la asociación Respira una de las partes más peliagudas sería la gestión del seguimiento de los usuarios, por lo que quiero que empecéis por ahí. Es una de las partes más sensibles de la aplicación, dado que se va a gestionar información sensible de cada usuario -comenta \textbf{Ada}.
+
+- En estos casos, ¿la información de seguimiento de los usuarios no suele borrarse verdad? Creo que \textbf{Clara}, la coordinadora de la asociación me comentó algo al respecto. - pregunta \textbf{Juan}.
+
+- Si, efectivamente -comenta \textbf{Ada}-. La información de seguimiento no se puede borrar, lo que se hace es que se archiva. Se guarda en otra tabla por si hay que consultarla posteriormente una vez que deja de ser necesaria.
 
 \section{Ejercicios}
 
-\subsection{Ejercicio 1}
-¿Qué tipo de proyectos podría hacer la asociación \textbf{Respira} con el dinero recibido? Actualmente no tiene web, ¿se te ocurre como podrían mejorar su actividad y su proyección?
+\subsection{Pregunta 1}
+Cita al menos tres sistemas que podrían utilizarse para organizar la información que maneja la asociación Respira sobre sus usuarios, sus empleados, y la información que manejan descrita en el apartado anterior (Descripción de la tarea). Estos sistemas no tienen porqué ser necesariamente una base de datos relacional (existen otras formas de almacenar la información en un ordenador), aunque una base de datos relacional es uno de los sistemas de almacenamiento de la información que deberías contemplar. Reflexiona sobre cuales son los sistemas más convenientes de cara a desarrollar una aplicación web desde PHP.
 
 \subsubsection{Solución}
-Para mejorar su actividad y proyección podrían emplear la subvención recibida para varios proyecto. El principal sería la \textbf{creación de una página web}, que va a ser en el que nos centremos en este ejercicio, pero también podría incluirse la \textbf{creación de puestos informáticos en el centro}, para permitir a los jóvenes que no tengan recursos tener acceso a internet, incluida a la propia página web.
-
-Respecto a la creación de la \textbf{página web}, se podría contratar a un desarrollar web para que creara la aplicación web necesaria. La página, además de la \textbf{información relativa} a todos los \textbf{servicios} que ofrece la asociación, podría tener diversos \textbf{canales de comunicación}.
-
-Por ejemplo, se podría implementar un \textbf{chatbot} para responder a la preguntas frecuentes de forma más inmediata. Además, sería interesante la creación de un \textbf{foro} donde los usuarios pudieran exponer sus dudas sobre cualquier tema relacionado con la asociación, para que estas se pudieran responder y debatir. Siendo además un buen canal para recibir feedback de los usuarios y mejorar, en la medida de lo posible, el funcionamiento de la asociación.
-
-También debería incluir varias \textbf{secciones con información} sobre la asociación así como las diferentes actividades que se realicen, siendo interesante la inclusión de una \textbf{calendario} donde se pueda acceder a la actividades previstas de forma sencilla y rápida.
-
-Esta web proporcionaría \textbf{más visibilidad}, \textbf{mejorando la proyección} de la asociación y permitiendo que los usuarios estén más implicados en esta.
-
-Además de esta web, sería interesan añadir una serie de\textbf{ puestos informáticos}, si el presupuesto lo permite, donde además de acceder a la propia web, permitiera a los usuarios con menos recursos acceder a internet para realizar diferentes gestiones, incluso podría valorarse la creación de algún curso online de inicialización a las nuevas tecnologías, uso de editores de texto, creación de CV, etc...
-
-\subsection{Ejercicio 2}
-Fíjate en el siguiente ejemplo que describe la interacción en entre navegador (cliente web) y servidor web donde se detalla lo que ocurre en cada una de las partes. Intenta pensar en otro ``Caso de uso'' donde un potencial usuario (o miembro de la organización) utilice la página web de la asociación Respira para una acción concreta y detalla lo que ocurriría paso por paso.
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-     \textbf{Caso de Uso: Un voluntario rellena un formulario}
-     \vspace{3ex}
-     \begin{enumerate}
-         \item La persona voluntaria está visualizando un formulario en la página web de la asociación y ha terminado de rellenarlo, con lo que hace clic en ``enviar''.
-         \item El navegador realiza una petición tipo HTTP POST al servidor web.
-         \item El servidor web recibe la petición con los datos del formulario, y, siguiendo su configuración, detecta que esa petición corresponde a un script PHP y que debe ser redireccionada al motor de ejecución PHP.
-         \item El motor PHP (PHP engine) se arranCA e inicia la ejecución del script el cual contiene:
-         \begin{enumerate}
-             \item Código para comprobar si los datos recibidos son correctos.
-             \item Código para almacenar los datos recibidos en la base de datos.
-             \item Código para generar HTML con la respuesta al candidato a la candidata.
-         \end{enumerate}
-         \item Una vez que el motor PHP ha terminado de ejecutar el script, el HTML generado es enviado al servidor web como resultado de la ejecución.
-         \item El servidor web recoge el resultado generado por el motor PHP y lo envía al navegador con una respuesta HTTP.
-         \item El navegador HTTP recibe la respuesta que incluye el HTML y lo renderiza para que la persona candidata lo vea.
-     \end{enumerate}
-    \end{tcolorbox}
-\end{figure}
-
-\subsubsection{Solución}
-El caso de uso que vamos a proponer es el de un usuario que \textbf{realiza una búsqueda en el foro} para que se muestren los mensajes o hilos con una una determinada palabra.
-
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-        \textbf{Caso de Uso: Búsqueda de mensajes en el foro}
-        \vspace{3ex}
-        \begin{enumerate}
-            \item El usuario que esta en la página relativa a los foros, introduce un termino en la caja de búsqueda y pulsa en \textbf{\textit{Enviar}}.
-            \item El navegador realiza una \textbf{petición tipo HTTP POST} o \textbf{GET}, dependiendo de como se haya programado la página, al servidor.
-            \item El \textbf{servidor web} recibe la petición con los datos de la búsqueda, y pasa la petición al \textbf{motor PHP} para que se ejecute el script adecuado.
-            \item El \textbf{motor PHP} se inicializa e inicia la ejecución del script el cual contiene:
-            \begin{enumerate}
-                \item Código para realizar una \textbf{llamada a la base de datos} y obtener todos los mensajes que contengan el termino de búsqueda.
-                \item Código para \textbf{filtrar y ordenar el resultado}, para que se muestre de una forma más adecuada al usuario.
-                \item Código para \textbf{generar HTML}  y que el resultado se muestre de forma apropiada en la web.
-            \end{enumerate}
-            \item Una vez que se a \textbf{procesado el script}, el motor PHP pasa el resultado al servidor web, para que este pueda servirlo al cliente.
-            \item El \textbf{servidor web} procesa el resultado del motor PHP y lo manda al cliente web.
-            \item El \textbf{cliente} recibe el resultado y lo renderiza.
-        \end{enumerate}
-    \end{tcolorbox}
-\end{figure}
-
-\subsection{Ejercicio 3}
-Rellena la siguiente tabla indicando casos concretos en los que podría ser necesario emplear las siguientes tecnologías en el desarrollo de la web de la asociación \textbf{Respira}:
-
-    \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.60]{tabla-enunciado.png}
-\end{figure}
-
-\subsubsection{Solución}
-A continuación se muestra la tabla rellena con la información solicitada.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.60]{tabla-solucion.png}
-\end{figure}
-
-\subsection{Ejercicio 4}
-Realiza la instalación de XAMPP 8.2.4 en tu ordenador (preferiblemente en C:/XAMPP) y realiza lo siguiente:
+La asociación Respira podría usar diferentes sistema para el manejo de los datos, pudiendo tener en consideración alguno de los siguientes:
 
 \begin{itemize}
-    \item Realiza una captura de pantalla durante el proceso de instalación.
-    \item Realiza una captura de pantalla de la interfaz de XAMPP para arrancar o detener el servidor web.
-    \item Localiza la carpeta donde podemos añadir nuestras aplicaciones web (generalmente C:/xampp/htdocs) y añade un script llamado phpinfo.php. Añade el siguiente código en su interior: <?php phpinfo(); ?>. Crea una captura de pantalla de lo que aparece en el navegador al acceder a la URL asociada a dicho script (previsiblemente será http://localhost/phpinfo.php).
+    \item \textbf{MySQL}: esta \textbf{base de datos relacional SQL} es una de las más empleadas en el mundo, junto con Oracle DB. Sería una muy buena opción ya que se integra perfectamente
+    en el stack LAMP y dadas las características de la información que se quiere almacenar, una base de datos relacional sería la más adecuada.
+
+    \item \textbf{MongoDB}: esta es una base de datos \textbf{No-SQL} basada en documentos. La ventajas de este tipo de bases de datos es que son menos costosas a nivel de computación y además más flexibles. En nuestro caso, los datos están muy estructurados, por lo que este tipo de bases de datos no representaría una ventaja, ya que su desempeño sería peor para este tipo de datos. Además, no proporcionan integridad de datos, algo que en el caso de la asociación Respira es importante.
+
+    \textbf{Amazon Aurora}: otra opción sería utilizad una \textbf{base de datos SQL en la Nube}, como es el caso de Amazon Aurora, o algunas de las decenas que podemos encontrar actualmente. Esta base de datos es relacional, por lo que cumpliría nuestras nuestros requerimientos, pero aportar ciertas características como flexibilidad, escalabilidad, adaptabilidad, etc.., que dada la naturaleza del caso de uso que estamos tratando tampoco se van a aprovechar. Por lo que cabría valorar si la diferencia del costo entre el uso de una base de datos en la nube o una base de datos tradicional.
 \end{itemize}
 
-\begin{figure}[H]
-    \begin{tcolorbox}[sharp corners, colback=yellow!30, colframe=white!20]
-\textbf{NOTA}: hay un error en la numeración de los ejercicios en la página de la tarea, pasando de ejercicio 3 al 5, por lo que en este documento se van a numerar omitiendo ese error, este sería el ejercicio 5 de la descripción de la tarea.
-    \end{tcolorbox}
-\end{figure}
+\subsection{Pregunta 2}
+Si usamos una base de datos MySQL o MariaDB, ¿con qué tipo de sistema de almacenamiento de información de los citados por ti en el ejercicio anterior encajaría?
 
 \subsubsection{Solución}
-En este ejercicio se debía realizar la instalación de XAMPP, pero a riesgo de que el ejercicio puntúe como no realizado, \textbf{no he instalado} dicha versión de AMP, ya que durante el proceso de estudio de la unidad 1 \textbf{se instaló LAMP} en la distribución Linux que uso, una Kubuntu en concreto.
+Tanto MySQL como MariaDB son bases SQL tradicionales. Son prácticamente lo mismo, MariaDB surgió como alternativa a MySQL tras la adquisición por parte de Oracle de ésta, pero a nivel funcional y de características son prácticamente idénticas.
 
-El \textbf{problema }es que me ha costado un poco configurar la instalación, ya que estoy usando virtual hosts en Apache 2 para cada uno de los temas de la asignatura, y la instalación de XAMPP puede ``trastocarme'' la instalación ya realizada.
+\subsection{Pregunta 3}
+Desde PHP se puede acceder a una base de datos MySQL o MariaDB a través de diferentes formas. Cita al menos dos formas diferentes y explica sus diferencias.
 
-Así, en lugar de mostrar capturas del proceso de instalación de XAMPP, se mostrarán de los paquetes ya instalados y de los comandos usados para arrancar y detener el servidor web, que se realizan usando systemctl.
-
-En primer lugar, se va a mostrar una captura con información del paquete instalado de \textbf{Apache 2}, obtenida con el comando APT como se puede ver en la siguiente captura.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.34]{instalacion-apache.png}
-    \caption{Información sobre la instalación de Apache2}
-\end{figure}
-
-Para \textbf{arrancar el servidor Web}, o bien reiniciarlo, se usan el comando \textit{\textbf{systemctl}}. En la siguiente captura se muestra la salida del estado del servidor con este comando.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.42]{systemctl.png}
-    \caption{Uso de systemctl para gestión del servidor Web}
-\end{figure}
-
-La carpeta por defecto de nuestro sitio web en Linux se encuentra en \textbf{\textit{/var/www/html}}. Se ha añadido el script pedido y en la siguiente captura podemos ver su carga en el navegador web Firefox.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.38]{phpinfo.png}
-    \caption{Carga del script phpinfo.php}
-\end{figure}
-
-\subsection{Ejercicio 5}
-Localiza el archivo php.ini (generalmente en c:/xampp/php/php.ini). Este archivo contiene un montón de directivas que determinan como trabaja el motor PHP cuando es invocado por el servidor Apache. La configuración de PHP incluida por defecto viene establecida para un escenario de desarrollo (cuando la aplicación pasa a producción se pone una configuración más segura y fiable). El objetivo ahora es modificar dos directivas que afectarán al funcionamiento de PHP:
+\subsubsection{Solución}
+Las dos principales formas de acceder a una base de datos SQL en PHP son:
 
 \begin{itemize}
-    \item ModifiCA la directiva max\_execution\_time que determina el tiempo máximo que un script PHP puede ejecutarse, cambiando el valor a 60 segundos. Realiza una captura de pantalla de la modificación.
-    \item ModifiCA la directiva modificar los errores reportados por el usuario de forma que se quede así: error\_reporting=E\_ALL \& ~E\_STRICT.
+    \item \textbf{MySQLi}: esta es una extensión introducida desde PHP 5 y que trabaja directamente con bases de datos SQL. Permite una mayor rapidez en las consultas o modificaciones y permite usar todas las características del motor de MySQL o MariaDB. Proporciona dos tipos de acceso, usando objetos o funciones. El problema con esta forma de acceso es que si cambiamos la base de datos que empleamos tendremos que programar de nuevo las operaciones que se realicen en la base de datos.
+
+    \item \textbf{PDO}: esta forma de acceso añade un nivel de abstracción, haciendo que la operaciones sobre ésta se realicen de forma más genérica y puedan ser utilizadas por diferentes bases de datos. A diferencia de MySQLi, solo ofrece la opción de trabajar mediante objetos con la base de datos. Las operaciones son más lentas que con MySQLi, pero por otro lado, no tendremos que volver a programar las interacciones con las base de datos si cambiamos ésta.
 \end{itemize}
 
+\subsection{Pregunta 4}
+Investiga que diferencias hay entre MySQL y \href{https://firebase.google.com/?hl=es-419}{Firebase}, y reflexiona sobre que limitaciones o ventajas tendría el uso de una u otra de cara a desarrollar la aplicación web para esta empresa.
+
 \subsubsection{Solución}
-En este caso, el archivo \textbf{php.ini} se encuentra en la ubicación \textbf{\textit{/etc/php/8.1/apache2/php.ini
-}}. Se ha abierto el archivo y se han cambiado las dos directivas que se piden, como podemos ver en las siguiente capturas de pantalla.
+\textbf{Firebase} es una base de datos \textbf{NO-SQL} basada en la nube. Como hemos comentado antes, este tipo de bases de datos suelen basarse en documentos, almacenando archivos de tipo JSON en la mayoría de los casos. Es rápida a la hora de manejar grandes cantidades de información. Tienen tanto versiones gratuitas como de pago, aunque la versión gratuita tiene limitaciones. Tiene soporte para los principales lenguajes de programación usados en el backend del desarrollo web, como Java, Node (Javascript), Go, ..etc.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{cambio-phpini-2.png}
-    \caption{Cambio de la directiva max\_execution\_time}
-\end{figure}
+\textbf{MySQL} es una base de datos \textbf{relacional SQL}. Almacena la información en forma de tablas y registros y permite un manejo rápido de información compleja y muy estructurada. Soporta una gran variedad de lenguajes de programación y utiliza SQL como lenguaje de consulta, modificación, etc. Es una base de datos de código abierto y gratuita. Tiene suporte para la mayoría de lenguajes de programación.
 
+Si \textbf{analizamos las diferencias}, claramente \textbf{MySQL} sería la \textbf{opción adecuada} para nuestro caso.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{cambio-phpini-1.png}
-    \caption{Cambio de la directiva error\_reporting}
-\end{figure}
+Por un lado, dadas las \textbf{características de los datos} que vamos a manejar, necesitamos una base de datos que trabaje rápidamente con datos complejos y estructurados. En este aspecto, MySQL trabaja mucho más rápido con este tipo de datos de Firebase, que esta más orientada a los documentos y a procesar grandes cantidades de datos en este formato rápidamente.
+
+Además, dada la naturaleza de la asociación, \textbf{no necesitamos} algunos de las \textbf{características} que ofrece \textbf{Firebase} y que están mas orientados a empresas de tamaño medio o grande, como una gran escalabilidad horizontal, adaptatibilidad, etc. En cambio \textbf{si podemos sacar partido} de algunas de las características que aporta \textbf{MySQL}, como la integridad de datos, algo que dado el tipo de datos sensible que va a manejar la asociación es de suma importancia.
+
+Por otro lado, \textbf{MySQL} es de código abierto y gratuita. Firebase también ofrece una versión gratuita, pero habría que analizar con mayor profundidad si esta versión sería suficiente para nuestra aplicación para la asociación respira.
+
+En definitiva, \textbf{MySQL} es la opción más adecuada para la asociación Respira, dado las necesidades de la asociación y el tipo de datos que se van a manejar.
 
 % Bibliography
 
