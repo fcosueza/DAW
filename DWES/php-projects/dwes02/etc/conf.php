@@ -4,6 +4,7 @@
    * Definición de los datos de conexión de la base de datos.
    */
 
-  define("DSN", "localhost");
-  define("USER", "respira");
-  define("PASSWORD", "AbC1234.");
+  define('HOST', 'localhost');
+  define('DB', 'respira');
+  define('USER', 'respira');
+  define('PASSWORD', 'AbC1234.');
