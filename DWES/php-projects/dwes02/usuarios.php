@@ -4,10 +4,10 @@
 
   /* Comprobamos los parametros del POST y los procesamos */
 
-  if (isset($_POST['activos']))
+  if (isset($_POST['activos']) && $_POST['activos'] == 1)
       $activos = false;
 
-  if (isset($_POST['filtrar']))
+  if (isset($_POST['filtrar']) && is_string($_POST['filtrar']))
       $filtro = filter_input(INPUT_POST, 'filtrar', FILTER_SANITIZE_STRING);
 
   /* Realizamos la conexión a la base de datos */
@@ -16,14 +16,22 @@
   /*
    * Si la conexión se ha realizado correctamente, vamos a crear un array donde
    * iremos añadiendo los parametros que vamos a pasarle a la función usuarios.
-   * Cuando la llamemos, desempaquetaremos el array.
+   *
+   * El problema con el que me he encontrado es que no hay forma de omitir
+   * parametros intermedios en la llamada a las funciones en PHP, por lo que si
+   * quisieramos filtrar por nombre, pero no por si están activos o no, el filtro
+   * se pasaría como segundo parametro, no como el tercero. Así que no podemos
+   * omitir el segundo parametro.
+   *
+   * En cambio, si omitimos el último, no tendremos ningun problema. Por eso
+   * el parametro activos, lo introduzco por defecto como true.
+   *
+   * Si hay otra forma de solucionar esta situación, agradecería mucho el feedback.
    */
 
   if ($conexion) {
       $args = [$conexion];
-
-      if (isset($activos))
-          $args[] = $activos;
+      $args[] = isset($activos) ? $activos : true;
 
       if (isset($filtro))
           $args[] = $filtro;
@@ -44,7 +52,7 @@
 
         <form action="" method="post">
             <H2>Filtrar datos</H2>
-            <label>Mostrar usuarios inactivos: <input type="checkbox" name="inactivos" value="1" >(si no se marca, se mostrarán los usuarios activos)</label><br>
+            <label>Mostrar usuarios inactivos: <input type="checkbox" name="activos" value="1" >(si no se marca, se mostrarán los usuarios activos)</label><br>
             <label>Filtrar usuarios: <input type="text" name="filtrar" value="" ></label><br>
             <input type="submit" value="¡Filtrar!">
         </form>
@@ -58,22 +66,25 @@
                 <th>Apellidos</th>
                 <th>Acciones</th>
             </tr>
-            <tr>
-
-                <?php
-                  <td>1</td>
-                  <td>12345678A</td>
-                  <td>15/05/2010</td>
-                  <td>Juan</td>
-                  <td>Pérez García</td>
-                  <td>
-                  <form action = "detalleusuario.php" method = "post">
-                  <input type = "submit" value = "Ver detalle">
-                  <input type = "hidden" name = "id" value = ""> <!--ENCAPSULAR AQUÍ ID DE USUARIO-->
-                  </form>
-                  </td>
-                ?>
-            </tr>
+            <?php
+              if (isset($usuarios)) {
+                  foreach ($usuarios as $row => $usuario) {
+                      print '<tr>';
+                      print '<td>' . $usuario['id'] . '</td>';
+                      print '<td>' . $usuario['dni'] . '</td>';
+                      print '<td>' . $usuario['fnacim'] . '</td>';
+                      print '<td>' . $usuario['nombre'] . '</td>';
+                      print '<td>' . $usuario['apellidos'] . '</td>';
+                      print '<td>';
+                      print '<form action = "detalleusuario.php" method = "post">';
+                      print '<input type = "submit" value = "Ver detalle">';
+                      print '<input type = "hidden" name = "id" value = "' . $usuario["id"] . '">';
+                      print '</form>';
+                      print '</td>';
+                      print '</tr>';
+                  }
+              }
+            ?>
         </table>
     </body>
 </html>

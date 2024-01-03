@@ -12,11 +12,12 @@
    * @param boolean $activos Booleano que indica si los usuarios filtrados están activos o no.
    * @param string $filtro Cadena con el nombre y apellidos (o alguno de los dos) del usuario.
    *
-   * @return array|int Array bidimensional con el resultado de la consutla. En caso de error devuelve -1.
+   * @return array Array bidimensional con el resultado de la consutla.
+   * @return int En caso de error devuelve -1.
    */
   function usuarios(PDO $pdo, $activos = true, $filtro = ""): array|int {
 
-      /* Añadimos el símbolo % al filtro para que funcione bien con el like */
+      /* Preparamos el filtro */
       $nombreApellidos = '%' . $filtro . '%';
 
       /* Almacenamos la consulta con los parámetros */
@@ -34,6 +35,7 @@
       $consulta->execute();
 
       /* Si la consulta se ha realizado con éxito, devolvemos el array con el resultado */
+
       if ($consulta)
           return $consulta->fetchAll();
 

@@ -11,7 +11,7 @@
    * @return conexion Un objeto de tipo PDO con la conexión a la base de datos.
    * @return false En caso de que no se pueda realizar la conexión.
    */
-  function connect() {
+  function connect(): PDO|false {
       $opciones = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
       /* Podriamos haber métido la conexión dentro de un try-catch, pero si no se van
