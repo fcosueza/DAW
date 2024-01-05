@@ -62,3 +62,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/*
+ * He añadido un poco de css a los enlaces para que se vean mejor con ese fondo
+ * oscuro, que de forma predeterminada costaba bastantes.
+ */
+
+footer a:link,
+footer a:visited {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
