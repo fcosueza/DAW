@@ -16,9 +16,27 @@
 
   if (is_string($ver) && ($pos = array_search($ver, array_column($secciones, 'link'))) !== false) {
       $seccion = $secciones[$pos];
+
       /*
-       * Comprobamos que existen las cookies, en caso de que existan y no se hayan modificado, creamos
-       * un nuevo array con la lista de sitios vistados y lo poblamos con las secciones visitadas.
+       * En primer lugar creamos un array con la lista actualizada de visitas. Esta entrada
+       * siempre se va a enviar, independientemente de que estén o no creadas las cookies o
+       * de que coincida el hash, ya que en cualquier caso, se va a crear una cookie con la
+       * entrada de la página que se esta visitando actualmente.
+       */
+
+      $nombre_ultima = $seccion['nombre'];
+      $enlace_ultima = $seccion['link'];
+
+      $lista_actualizada = [];
+      $lista_actualizada[] = [
+          "nombre" => $nombre_ultima,
+          "link" => $enlace_ultima,
+          "hora" => date("d/m/Y H:i", time())
+      ];
+
+      /*
+       * Comprobamos que hay cookies existentes y que el hash coincide. En ese caso,
+       * agreamos la información de dichas cookies a la lista actualizada.
        */
 
       if (isset($_COOKIE['lista_sitios_visitados']) && isset($_COOKIE['hash_lista_sitios_visitados'])) {
@@ -27,16 +45,6 @@
               $lista_visitados = unserialize($_COOKIE['lista_sitios_visitados']);
 
               if (is_array($lista_visitados)) {
-                  $nombre_ultima = $seccion['nombre'];
-                  $enlace_ultima = $seccion['link'];
-
-                  $lista_actualizada = [];
-                  $lista_actualizada[] = [
-                      "nombre" => $nombre_ultima,
-                      "link" => $enlace_ultima,
-                      "hora" => date("d/m/Y H:i", time())
-                  ];
-
                   foreach ($lista_visitados as $elemento => $registro)
                       if ($registro['nombre'] != $nombre_ultima) {
                           $lista_actualizada[] = [
@@ -45,41 +53,24 @@
                               "hora" => $registro['hora']
                           ];
                       }
-
-                  if (count($lista_actualizada) > 5)
-                      array_pop($lista_actualizada);
-
-                  setcookie("lista_sitios_visitados", serialize($lista_actualizada));
-                  setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada)));
               }
-          } else {
-              $nombre_ultima = $seccion['nombre'];
-              $enlace_ultima = $seccion['link'];
-
-              $lista_actualizada = [];
-              $lista_actualizada[] = [
-                  "nombre" => $nombre_ultima,
-                  "link" => $enlace_ultima,
-                  "hora" => date("d/m/Y H:i", time())
-              ];
-
-              setcookie("lista_sitios_visitados", serialize($lista_actualizada));
-              setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada)));
           }
-      } else {
-          $nombre_ultima = $seccion['nombre'];
-          $enlace_ultima = $seccion['link'];
-
-          $lista_actualizada = [];
-          $lista_actualizada[] = [
-              "nombre" => $nombre_ultima,
-              "link" => $enlace_ultima,
-              "hora" => date("d/m/Y H:i", time())
-          ];
-
-          setcookie("lista_sitios_visitados", serialize($lista_actualizada));
-          setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada)));
       }
+
+      /*
+       * Comprobamos que el array no tenga más de 5 elementos, en ese caso,
+       * se eliminar el último.
+       */
+
+      if (count($lista_actualizada) > 5)
+          array_pop($lista_actualizada);
+
+      /*
+       * Creamos las cookies y las enviamos al navegador.
+       */
+
+      setcookie("lista_sitios_visitados", serialize($lista_actualizada));
+      setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada)));
   }
 ?>
 <!DOCTYPE html>

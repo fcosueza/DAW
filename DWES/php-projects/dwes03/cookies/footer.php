@@ -17,7 +17,7 @@
 
       /*
        * Para mostrar las páginas se va a usar $lista_actualizada, ya que si
-       * se usa $_COOKIE no muestra la lista actulizada hasta que se cambia
+       * se usa $_COOKIE no muestra la lista actualizada hasta que se cambia
        * de enlace, y no se consigue el efecto que se muestra en el video.
        *
        * No se si es la forma correcta de hacerlo, o si había que hacerlo
