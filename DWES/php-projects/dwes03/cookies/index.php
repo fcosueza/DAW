@@ -15,7 +15,7 @@
       $seccion = $secciones[$pos];
   }
 
-//TODO:
+//TODO: 
 // 1.- obtener las cookies y verificar que no ha sido modificada (calcular hash)
 // 2.- deserializar la cookie con la listad e sitios visitados.
 // 3.- añadir la seccion recien visitada sin duplicados (usa la función time() para el momento de acceso), insertando el primero en la cookie
@@ -31,23 +31,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-<?php require 'header.php'; ?>
+        <?php require 'header.php'; ?>
         <div>
 
-<?php
+            <?php
 //Buscamos el texto de "link" almacenado en $ver en las secciones y extraemos el archivo o contenido
-  if (isset($seccion)) {
-      if (isset($seccion['contenido'])) {
-          $longitud = strlen($seccion['contenido']);
-          echo $seccion['contenido'];
-      } else if (isset($seccion['archivo']) && file_exists($seccion['archivo'])) {
-          readfile($archivo = $seccion['archivo']);
-      }
-  } elseif ($ver) {
-      echo 'Sección <em>"' . htmlentities($ver) . '"</em> no encontrada.';
-  }
-?>
+              if (isset($seccion)) {
+                  if (isset($seccion['contenido'])) {
+                      $longitud = strlen($seccion['contenido']);
+                      echo $seccion['contenido'];
+                  } else if (isset($seccion['archivo']) && file_exists($seccion['archivo'])) {
+                      readfile($archivo = $seccion['archivo']);
+                  }
+              } elseif ($ver) {
+                  echo 'Sección <em>"' . htmlentities($ver) . '"</em> no encontrada.';
+              }
+            ?>
         </div>
-            <?php require 'footer.php'; ?>
+        <?php require 'footer.php'; ?>
     </body>
 </html>
