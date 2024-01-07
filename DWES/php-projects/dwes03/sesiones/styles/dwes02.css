@@ -1,23 +1,28 @@
-table {font-family: helvetica; border-spacing:0px;width:100%}
+table {
+    font-family: helvetica;
+    border-spacing:0px;
+    width:100%
+}
 
-td, th {border:  1px solid;
-      padding: 10px;      
-      background: white;
-      box-sizing: border-box;
-      text-align: left;
+td, th {
+    border:  1px solid;
+    padding: 10px;
+    background: white;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 th {
-  background: hsl(20, 50%, 70%);
+    background: hsl(20, 50%, 70%);
 }
 
 tfoot {
-  bottom: 0;
-  z-index: 2;
+    bottom: 0;
+    z-index: 2;
 }
 
 tfoot td {
-  background: hsl(20, 50%, 70%);
+    background: hsl(20, 50%, 70%);
 }
 
 form {
@@ -35,7 +40,7 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="checkbox"], input[type="text"] {    
+input[type="checkbox"], input[type="text"] {
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
