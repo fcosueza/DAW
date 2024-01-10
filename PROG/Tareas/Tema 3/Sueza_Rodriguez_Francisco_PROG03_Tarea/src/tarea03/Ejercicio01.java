@@ -7,6 +7,11 @@ import libtarea3.Teatro;
 /**
  * Ejercicio 1: Trabajo con teatros
  *
+ * Ejercicio 1 de la tarea 3 de Programación, donde vamos a trabajar con objetos
+ * de la clase Teatro y a realizar diferentes acciones para aprender el uso de
+ * objetos y sus métodos.
+ *
+ * @author Francisco Javier Sueza Rodríguez
  * @author Profe
  */
 public class Ejercicio01 {
@@ -26,7 +31,6 @@ public class Ejercicio01 {
         // 1.1. Declaración de tres variables referencia a objetos instancia de la clase Teatro
         Teatro teatro1, teatro2, teatro3;
 
-        // Clase Scanner para petición de datos de entrada (no es necesario)
         //----------------------------------------------
         //              Presentación
         //----------------------------------------------
