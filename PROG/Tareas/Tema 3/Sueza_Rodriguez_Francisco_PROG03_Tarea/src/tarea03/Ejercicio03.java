@@ -1,9 +1,15 @@
 package tarea03;
 
-import java.util.Scanner;
 import java.time.Year;
 import java.time.YearMonth;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
+
+import java.util.Locale;
+import java.util.Scanner;
 import java.util.InputMismatchException;
 
 /**
@@ -24,7 +30,7 @@ public class Ejercicio03 {
         //----------------------------------------------
         // Constantes
 
-        final String FORMATO_FECHA = "dd/MM/yy";
+        final String FORMATO_FECHA = "dd/MM/YYYY";
 
         // Variables de entrada
         int dia = 1, mes = 1, anio = 1900;
@@ -32,11 +38,20 @@ public class Ejercicio03 {
         // Variables de salida
         int numeroCoincidencias = 0;
 
-        String diaSemana = "";
+        String diaSemana;
         String fechasCoincidencia = "";
 
         // Variables auxiliares
         int diasMes;
+        int contAnio = 0;
+
+        String diaSemanaAnio;
+
+        LocalDate anioSiguiente;
+        LocalDate fechaNacimiento;
+
+        LocalDateTime fechaActual = LocalDateTime.now();
+
         boolean esBisiesto = false;
         boolean datoCorrecto = false;
 
@@ -48,8 +63,6 @@ public class Ejercicio03 {
         //----------------------------------------------
         System.out.println("DÍA DE CUMPLEAÑOS");
         System.out.println("-----------------");
-
-        LocalDateTime fechaActual = LocalDateTime.now();
 
         // 1. Entrada de datos: lectura de año de nacimiento
         // 1.1.- Leer y comprobar el año de nacimiento (entre 1900 y año actual)
@@ -144,11 +157,45 @@ public class Ejercicio03 {
             }
         } while (!datoCorrecto);
 
+        fechaNacimiento = LocalDate.of(anio, mes, dia);
         //----------------------------------------------
         //    Procesamiento + Salida de resultados
         //----------------------------------------------
         //2.- Cálculo del día de la semana en que cayó el nacimiento
+        diaSemana = fechaNacimiento.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
+
         // 3.- Recorremos desde el año posterior al año de nacimiento hasta el año actual (bucle)
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern(FORMATO_FECHA);
+
+        System.out.printf("¿Cuantas veces ha caido tu cumpleaños en %s?\n\n", diaSemana);
+
+        do {
+
+            /*
+             * Ahora se va a procesar la información. Vamos a ir añadiendo 1 año a la fecha
+             * de nacimiendo en cada iteración y comprobando si el día de la semana coincide.
+             */
+            contAnio++;
+            anioSiguiente = fechaNacimiento.plus(contAnio, ChronoUnit.YEARS);
+            diaSemanaAnio = anioSiguiente.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
+
+            /*
+             * Comprobamos si coincide el día de la semana, pero solo si la fecha es el 29 de Febrero y el año que comprobamos es bisiesto,
+             * si el año de nacimiento es bisiesto pero no es 29 de Febrero, o si no es bisiesto.
+             */
+            if ((esBisiesto && mes == 2 && dia == 29 && anioSiguiente.isLeapYear()) || (esBisiesto && (dia != 29 || mes != 2)) || !esBisiesto) {
+                if (diaSemanaAnio.equals(diaSemana)) {
+                    numeroCoincidencias++;
+                    fechasCoincidencia += "\n" + numeroCoincidencias + ". " + anioSiguiente.format(formato);
+                }
+            }
+
+        } while (anioSiguiente.getYear() != fechaActual.getYear());
+
         // 4.- Mostramos por pantalla el número de coincidencias
+        System.out.printf("\nEl día que naciste fue %s.\n", diaSemana);
+        System.out.printf("----------------------------------------------\n");
+        System.out.printf("%s\n\n", fechasCoincidencia);
+        System.out.printf("El número de coincidencias es: %d\n", numeroCoincidencias);
     }
 }
