@@ -6,7 +6,13 @@ import libtarea3.Dado;
 /**
  * Ejercicio 2: Uso de la clase Dado
  *
+ * Ejercicio 2 de la Tarea 3 donde vamos a trabajar con la clase Dado,
+ * realizando diferentes tiradas hasta que se supere la puntuación máxima y
+ * mostrando diferentes datos sobre estas tiradas.
+ *
+ * @author Francisco Javier Sueza Rodríguez
  * @author Profe
+ *
  */
 public class Ejercicio02 {
 
