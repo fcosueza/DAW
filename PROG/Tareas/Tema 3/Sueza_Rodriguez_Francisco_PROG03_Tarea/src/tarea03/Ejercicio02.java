@@ -30,8 +30,8 @@ public class Ejercicio02 {
 
         // Variables de salida
         String tablaTiradas = "";
-        String textoGanador = "";
-        String historialGanador = "";
+        String textoGanador;
+        String historialGanador;
 
         int tiradaGanador = 0;
         long puntuacion = 0;
