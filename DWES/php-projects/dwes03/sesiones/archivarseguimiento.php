@@ -11,13 +11,16 @@
   $idusuario = filter_input(INPUT_POST, 'idusuario', FILTER_VALIDATE_INT);
   $confirmado = filter_input(INPUT_POST, 'confirmado', FILTER_SANITIZE_SPECIAL_CHARS);
   $enviado = filter_input(INPUT_POST, 'enviado', FILTER_SANITIZE_SPECIAL_CHARS);
+
 //Salvaguarda - Si no es un entero, salimos.
   if (!is_int($idseguimiento) || $idseguimiento <= 0)
       exit();
 
 //TODO: verificar si el usuario es coordinador. Solo coordinador puede archivar --> usar función creada para ello en userauth.php
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">

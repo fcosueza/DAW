@@ -103,18 +103,22 @@
 
   function archivarseguimiento(PDO $pdo, int $idseguimiento) {
       $sql1 = <<<ENDSQL
-        insert into seguimiento_archivado (id, fechahora,medio, otro,contactado,informe,empleados_id,usuarios_id)
-        select id, fechahora,medio, otro,contactado,informe,empleados_id,usuarios_id from seguimiento WHERE id=:id;
+        insert into seguimiento_archivado (id, fechahora, medio, otro, contactado, informe, empleados_id, usuarios_id)
+        select id, fechahora, medio, otro, contactado, informe, empleados_id, usuarios_id from seguimiento WHERE id=:id;
     ENDSQL;
+
       $sql2 = <<<ENDSQL
         delete from seguimiento WHERE id=:id;
     ENDSQL;
+
       $pdo->beginTransaction();
       $resultado = doSQL($pdo, $sql1, ['id' => $idseguimiento]);
+
       if ($resultado <= 0) {
           $pdo->rollBack();
           return $resultado;
       }
+
       $resultado = doSQL($pdo, $sql2, ['id' => $idseguimiento]);
       if ($resultado <= 0)
           $pdo->rollBack();

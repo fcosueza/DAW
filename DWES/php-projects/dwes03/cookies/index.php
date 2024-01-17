@@ -40,7 +40,7 @@
        */
 
       if (isset($_COOKIE['lista_sitios_visitados']) && isset($_COOKIE['hash_lista_sitios_visitados'])) {
-          if (hash('sha256', $_COOKIE['lista_sitios_visitados']) == $_COOKIE['hash_lista_sitios_visitados']) {
+          if (hash('sha256', $_COOKIE['lista_sitios_visitados'] . SALT) == $_COOKIE['hash_lista_sitios_visitados']) {
 
               $lista_visitados = unserialize($_COOKIE['lista_sitios_visitados']);
 
@@ -70,10 +70,12 @@
        */
 
       setcookie("lista_sitios_visitados", serialize($lista_actualizada));
-      setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada)));
+      setcookie("hash_lista_sitios_visitados", hash('sha256', serialize($lista_actualizada) . SALT));
   }
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -81,6 +83,7 @@
         <title>Ejercicio 1. Tarea 1. </title>
         <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
         <?php require 'header.php'; ?>
         <div>

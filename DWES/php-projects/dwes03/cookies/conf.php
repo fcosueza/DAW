@@ -1,6 +1,7 @@
 <?php
 
   define('SECCION_DEFECTO', 'Principal');
+  define('SALT', 'wL_(fzHPRyi7');
 
   $secciones = [];
   $secciones[] = ['nombre' => 'Contacto', 'link' => 'ver contactos', 'contenido' => 'aquí se mostrará una lista de contactos'];
@@ -9,3 +10,4 @@
   $secciones[] = ['nombre' => 'Visita Ex1', 'link' => 'ver visitaEx1', 'contenido' => 'sección adicional 1'];
   $secciones[] = ['nombre' => 'Visita Ex2', 'link' => 'ver visitaEx2', 'contenido' => 'sección adicional 2'];
   $secciones[] = ['nombre' => 'Visita Ex3', 'link' => 'ver visitaEx3', 'contenido' => 'sección adicional 3'];
+  
