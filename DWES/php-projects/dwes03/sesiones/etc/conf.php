@@ -4,8 +4,8 @@
    * Datos de conexión con la base de datos.
    */
   define('DB_DSN', 'mysql:host=localhost;dbname=respira');
-  define('DB_USER', 'dwes');
-  define('DB_PASSWD', '%DWES4dwes%');
+  define('DB_USER', 'respira');
+  define('DB_PASSWD', 'AbC1234.');
 
   /*
    * Otras constantes

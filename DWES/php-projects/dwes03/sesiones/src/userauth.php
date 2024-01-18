@@ -1,15 +1,12 @@
 <?php
 
-/* TODO: 1.- Crea una función para autenticar al usuario 
+  /* TODO: 1.- Crea una función para autenticar al usuario  */
 
-function ..... nombre función .... (PDO $pdo, $dni, $password)
-{
-    ...
-}
+  function auth(PDO $pdo, $dni, $password) {
+      
+  }
 
-*/
-
-/* TODO: 2.- Crea una o varias funciones para chequear el rol del usuario (solo usa información almacenada en la sesión)
+  /* TODO: 2.- Crea una o varias funciones para chequear el rol del usuario (solo usa información almacenada en la sesión)
 
 function tieneRol (...)
 {

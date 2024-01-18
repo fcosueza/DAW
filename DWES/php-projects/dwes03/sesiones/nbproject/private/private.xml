@@ -8,7 +8,14 @@
             <file>file:/C:/Users/profesorado/OneDrive%20-%20iesaguadulce.es/I.E.S.%20Aguadulce%202023-2024/DWES/UT02/dwes02_sol/etc/conf.php</file>
         </group>
         <group>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/session_control.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/usuarios.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/registrarseguimiento.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/seguimientocontactado.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/detalleusuario.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/logout.php</file>
             <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/archivarseguimiento.php</file>
+            <file>file:/home/fcosueza/Source/DAW/DWES/php-projects/dwes03/sesiones/login.php</file>
         </group>
     </open-files>
 </project-private>
