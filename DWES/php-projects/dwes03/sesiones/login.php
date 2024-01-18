@@ -1,4 +1,7 @@
 <?php
+  include_once __DIR__ . '/etc/conf.php';
+  include_once __DIR__ . '/src/conn.php';
+  include_once __DIR__ . '/src/userauth.php';
   /* TODO: 0.- Antes de nada, incluye los archivos necesarios para verificar el usuario (entre ellos, el archivo userauth.php) */
   /* TODO: 1.- Arranca el uso de sesiones */
   /* TODO: 2.- Verifica si hay información del usuario en la sesión, si es así,
@@ -18,11 +21,15 @@
         <title>Login Empleados Asociación Respira</title>
     </head>
     <body>
-        <H1> Formulario de login </H1>
-        <form action="" method="post">
-            <label for="dni">DNI: <input type="text" name="dni" id="dni"></label><br>
-            <label for="password">Password: <input type="password" name="password" id="password"></label><br>
-            <input type='submit' value='¡Entrar!'>
-        </form>
+        <?php if (!isset($_SESSION['id'])): ?>
+              <H1> Formulario de login </H1>
+              <form action="" method="post">
+                  <label for="dni">DNI: <input type="text" name="dni" id="dni"></label><br>
+                  <label for="password">Password: <input type="password" name="password" id="password"></label><br>
+                  <input type='submit' value='¡Entrar!'>
+              </form>
+          <?php else: ?>
+              <h2>Bienvenido!! Para continuar, puedes visitar es enlace: <a href="usuarios.php">Usuarios</a></h2>
+        <?php endif; ?>
     </body>
 </html>
