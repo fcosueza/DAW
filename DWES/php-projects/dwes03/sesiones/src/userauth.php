@@ -14,7 +14,7 @@
    * @return array Array con los datos del usuario
    */
   function authUser(PDO $pdo, $dni, $password) {
-      $hashPass = sha2(concat(dni, $password, reverse(concat(dni, $password)), '495k5ndikakzFSKZssd'), 256);
+      $hashPass = hash('sha256', $dni . $password . strrev($dni . $password) . '495k5ndikakzFSKZssd');
       $sql = 'select id, dni, nombre, apellidos, roles from empleados where dni=:dni and password=:password';
       $user = false;
 
@@ -25,7 +25,7 @@
           $query->bindValue(":password", $hashPass);
 
           if ($query->execute()) {
-              $user = $query->fetchColumn();
+              $user = $query->fetch();
           }
       } catch (PDOException $ex) {
           var_dump($ex);

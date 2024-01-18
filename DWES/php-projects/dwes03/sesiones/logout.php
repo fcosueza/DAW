@@ -1,11 +1,14 @@
 <?php
 
-  // Comprobamos si hay una sessión iniciada y la destruimos en caso afirmativo.
+  session_start();
+
+  /*
+   * Comprobamos si hay una session iniciada para el usuario y en tal caso
+   * la eliminamos y redirigimos a la página de login.
+   */
+
   if (isset($_SESSION['id'])) {
       session_unset();
-      session_destroy();
+      header('Location: login.php');
   }
 
-  // Redirigimos a la página login.
-  header('Location: login.php');
-  exit();

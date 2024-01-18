@@ -1,5 +1,6 @@
 <?php
-//TODO: INCLUYE el archivo de control de sesión
+  require_once 'session_control.php';
+
 //TODO: INCLUYE el archivo de funciones de autenticación (userauth.php)
 
   require_once __DIR__ . '/etc/conf.php';

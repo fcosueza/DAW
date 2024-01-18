@@ -1,8 +1,9 @@
 <header>
-    Ejemplo de header
     <?php
-      /* TODO: Mostrar información de cabecera: nombre empleado, apellidos, empleados, roles,
-       * enlace para consultar último usuario (si está la información en la sesión), enlaces a usuarios y enlace a salir
-       */
+      if (isset($_SESSION['id'])) {
+          print '<p>' . $_SESSION['nombre'] . " " . $_SESSION['apellidos'] . '(roles:' . $_SESSION['roles'] . ')' . '<a href="logout.php">Salir</a>';
+      } else {
+          print "Cabeccera Standard";
+      }
     ?>
 </header>

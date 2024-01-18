@@ -2,16 +2,43 @@
   include_once __DIR__ . '/etc/conf.php';
   include_once __DIR__ . '/src/conn.php';
   include_once __DIR__ . '/src/userauth.php';
-  /* TODO: 0.- Antes de nada, incluye los archivos necesarios para verificar el usuario (entre ellos, el archivo userauth.php) */
-  /* TODO: 1.- Arranca el uso de sesiones */
-  /* TODO: 2.- Verifica si hay información del usuario en la sesión, si es así,
-    el usuario ya está autenticado y no tiene que mostrarse le formulario de dni y password. Saltamos al paso 5. */
-  /* TODO: 3.- Si no hay información de usuario en la sesión, comprueba si se ha recibido los datos post del
-    formulario, autentica al usuario usando la función creada en userauth.php e introduce los datos en la sesión si la autenticación
-    ha sido satisfactoria */
-  /* TODO: 4.- Si la autenticación ha sido satisfactoria, anota el momento en el que ha hecho login en la sesión para el control de inactividad (time()) */
-  /* TODO: 5.- Si la autenticación ha sido satisfactoria o ya está autenticado, muestra un mensaje de bienvenida y un enlace a usuarios.php */
+
+  /*
+   * Iniciamos la sesion y comprobamos si el usuario ya estaba autenticado.
+   * Si lo esta, solo cambiamos el valor de la variable $authenticated. Si no
+   * estaba autentificado comprobamos si hay datos en el $_POST, los filtramos,
+   * y si estos son correctos, se establece la información en la variable $_SESSION.
+   *
+   * En caso de que los datos no sean correctos, se muestrará la página de login de nuevo.
+   */
+  session_start();
+
+  $authenticated = false;
+
+  if (isset($_SESSION['id'])) {
+      $authenticated = true;
+  } else if ($_POST) {
+      $user = filter_input(INPUT_POST, 'dni', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $password = filter_input(INPUT_POST, 'password');
+
+      if (isset($user) && isset($password) && is_string($user) && is_string($password)) {
+          $dbConnection = connect();
+
+          $authUser = authUser($dbConnection, $user, $password);
+
+          if ($authUser) {
+              $_SESSION['id'] = $authUser['id'];
+              $_SESSION['nombre'] = $authUser['nombre'];
+              $_SESSION['apellidos'] = $authUser['apellidos'];
+              $_SESSION['roles'] = $authUser['roles'];
+              $_SESSION['actividad'] = time();
+
+              $authenticated = true;
+          }
+      }
+  }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -21,7 +48,7 @@
         <title>Login Empleados Asociación Respira</title>
     </head>
     <body>
-        <?php if (!isset($_SESSION['id'])): ?>
+        <?php if (!$authenticated): ?>
               <H1> Formulario de login </H1>
               <form action="" method="post">
                   <label for="dni">DNI: <input type="text" name="dni" id="dni"></label><br>
