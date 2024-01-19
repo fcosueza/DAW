@@ -2,13 +2,21 @@
 
   require_once 'session_control.php';
 
-//TODO: INCLUYE userauth.php
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
   require_once __DIR__ . '/extra/utils.php';
+  require_once __DIR__ . '/src/userauth.php';
 
-//TODO: verificar que tiene el rol de coord o trasoc para continuar --> usar función creada para ello
+  /* Almacenamos el ID del usuario en una variable para trabajar más comodamente
+   * y comprobamos si el usuario que esta accediendo tiene permisos para ejecutar el script.
+   */
+  $userID = $_SESSION['id'];
+
+  if (!checkRole($userID, ALLOW_REG_TRACKING)) {
+      header("Location: usuarios.php");
+      exit();
+  }
 
   $pdo = connect();
 //Obtenemos la lista de empleados

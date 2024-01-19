@@ -61,11 +61,31 @@
       return $result;
   }
 
-  /* TODO: 3.- Crea una función para comprobar si un seguimiento pertenece a un empleado
+  /**
+   * Función que determina si un seguimiento determinado pertenece a un empleado.
+   *
+   * @param PDO $pdo Objeto con la conexión a la base datos.
+   * @param int $trackingID Id del seguimiento
+   * @param int $userID Id del usuario
+   *
+   * @return bool Devuelve true si el seguimiento pertenece al usuario y false en caso contrario
+   */
+  function checkTracking(PDO $pdo, $trackingID, $userID) {
+      $sql = 'select * from seguimiento where id=:trackingID and empleados_id=:userID';
+      $matches = false;
 
-        function ... nombre función ... (PDO $pdo, $idseguimiento, $idempleado)
-        {
-        $sql="...";
-        }
+      try {
+          $query = $pdo->prepare($sql);
+          $query->bindValue(":trackingID", $trackingID);
+          $query->bindValue(":userID", $userID);
 
-       */
+          if ($query->execute() && $query->rowCount() > 0) {
+              $matches = true;
+          }
+      } catch (PDOException $ex) {
+          var_dump($ex);
+          exit;
+      }
+
+      return $matches;
+  }

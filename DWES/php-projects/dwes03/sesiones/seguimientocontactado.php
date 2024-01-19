@@ -63,25 +63,35 @@
               <?php
               $pdo = connect();
 
-              /* TODO: antes de registrar contacto, hay que verificar que el $idseguimiento
-                es del usuario autenticado (función creada en userauth.php). */
-
-              $r = registrarcontactoseguimiento($pdo, $idseguimiento, $informe);
-              if ($r === 1):
-                  ?>
-                  <h1>Informe registrado adecuadamente</h1>
-                  <?php if (isset($usuario_id)): ?>
-                      <form action="detalleusuario.php" method="post">
-                          <input type="hidden" name="idusuario" value="<?= $usuario_id ?>">
-                          <input type="submit" value="Volver a detalles del usuario">
+              /*
+               * Verificamos que el empleado tiene el mismo id que el asignado al
+               * seguimiento, sino lo tiene mostramos un mensaje de error y un enlace
+               * a usuario para que pueda volver atras.
+               */
+              if (checkTracking($pdo, $idseguimiento, $userID)):
+                  $r = registrarcontactoseguimiento($pdo, $idseguimiento, $informe);
+                  if ($r === 1):
+                      ?>
+                      <h1>Informe registrado adecuadamente</h1>
+                      <?php if (isset($usuario_id)): ?>
+                          <form action="detalleusuario.php" method="post">
+                              <input type="hidden" name="idusuario" value="<?= $usuario_id ?>">
+                              <input type="submit" value="Volver a detalles del usuario">
+                          </form>
+                      <?php endif; ?>
+                      <form action="usuarios.php" method="post">
+                          <input type="submit" value="Volver a lista de usuarios">
                       </form>
+                  <?php else: ?>
+                      <B>Error: posiblemente el informe ya se ha rellenado.</B>
                   <?php endif; ?>
-                  <form action="usuarios.php" method="post">
-                      <input type="submit" value="Volver a lista de usuarios">
-                  </form>
               <?php else: ?>
-                  <B>Error: posiblemente el informe ya se ha rellenado.</B>
-              <?php endif; ?>
+                  <B>Error: Solo puede registrar seguimientos asignados a usted.</B>
+                  <p>Volver a la página de usuarios: <a href="usuarios.php">Usuarios</a></</p>
+              <?php endif;
+              ?>
+
+
         <?php endif; ?>
 
     </body>
