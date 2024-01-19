@@ -23,7 +23,6 @@
 
       if (isset($user) && isset($password) && is_string($user) && is_string($password)) {
           $dbConnection = connect();
-
           $authUser = authUser($dbConnection, $user, $password);
 
           if ($authUser) {

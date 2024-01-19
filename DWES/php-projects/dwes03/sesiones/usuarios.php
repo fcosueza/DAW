@@ -4,6 +4,7 @@
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
+  require_once __DIR__ . '/src/userauth.php';
 
   $inactivos = filter_input(INPUT_POST, 'inactivos', FILTER_SANITIZE_SPECIAL_CHARS);
   $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -12,6 +13,8 @@
 
   $pdo = connect();
   $usuarios = usuarios($pdo, activos: ($inactivos === "si" ? false : true), filtro: ($nombre ?? ''));
+
+  $userID = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,9 +26,9 @@
 
     </head>
     <body>
-<?php
-  include __DIR__ . '/extra/header.php';
-?>
+        <?php
+          include __DIR__ . '/extra/header.php';
+        ?>
         <form action="" method="post">
             <H2>Filtrar datos</H2>
             <label>Mostrar usuarios inactivos:
@@ -41,7 +44,7 @@
             <input type="submit" value="¡Filtrar!">
         </form>
 
-<?php if (is_array($usuarios) && count($usuarios) > 0): ?>
+        <?php if (is_array($usuarios) && count($usuarios) > 0): ?>
               <h1>Usuarios asociación Respira</h1>
               <table>
                   <tr>
@@ -53,7 +56,7 @@
                       <th>Acciones</th>
                   </tr>
 
-      <?php foreach ($usuarios as $u): ?>
+                  <?php foreach ($usuarios as $u): ?>
                       <tr>
                           <td><?= $u['id'] ?></td>
                           <td><?= $u['dni'] ?></td>
@@ -61,16 +64,18 @@
                           <td><?= $u['nombre'] ?></td>
                           <td><?= $u['apellidos'] ?></td>
                           <td>
-                              <form action="detalleusuario.php" method="post">
-                                  <input type="submit" value="Ver detalle">
-                                  <input type="hidden" name="idusuario" value="<?= htmlspecialchars($u['id']) ?>">
-                              </form>
+                              <?php if (checkRole($userID, ["admin", "coord", "trasoc"])): ?>
+                                  <form action="detalleusuario.php" method="post">
+                                      <input type="submit" value="Ver detalle">
+                                      <input type="hidden" name="idusuario" value="<?= htmlspecialchars($u['id']) ?>">
+                                  </form>
+                              <?php endif; ?>
                           </td>
                       </tr>
-      <?php endforeach; ?>
+                  <?php endforeach; ?>
 
               </table>
-  <?php else: ?>
+          <?php else: ?>
               La búsqueda no genero resultados.
         <?php endif; ?>
     </body>

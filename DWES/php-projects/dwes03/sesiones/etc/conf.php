@@ -8,6 +8,17 @@
   define('DB_PASSWD', 'AbC1234.');
 
   /*
+   * Definimos diferentes constantes con los roles permitidos para cada acción,
+   * de esta forma será mucho más sencillo añadir o eliminar permisos.
+   */
+
+  define('ALLOW_SEE_DETAILS', ["admin", "coord", "trasoc"]);
+  define('ALLOW_SEE_TRACKING', ["coord", "trasoc"]);
+  define('ALLOW_REG_TRACKING', ["coord", "trasoc"]);
+  define('ALLOW_FILL_REPORT', ["coord", "trasoc"]);
+  define('ALLOW_STORE_REPORT', ["coord"]);
+
+  /*
    * Otras constantes
    */
   define('MEDIOS_CONTACTO', ['TLF' => 'Teléfono', 'EMAIL' => 'Correo electrónico',

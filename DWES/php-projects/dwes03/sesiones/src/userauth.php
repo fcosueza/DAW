@@ -20,7 +20,6 @@
 
       try {
           $query = $pdo->prepare($sql);
-
           $query->bindValue(":dni", $dni);
           $query->bindValue(":password", $hashPass);
 
@@ -48,11 +47,11 @@
       $result = false;
 
       if ($_SESSION['id'] == $userID) {
-          if (is_string($roles) && ($_SESSION['role'] == $roles)) {
+          if (is_string($roles) && ($_SESSION['roles'] == $roles)) {
               $result = true;
           } else if (is_array($roles)) {
               foreach ($roles as $role) {
-                  if ($_SESSION['role'] == $role) {
+                  if ($_SESSION['roles'] == $role) {
                       $result = true;
                   }
               }

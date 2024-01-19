@@ -9,7 +9,6 @@
           $_SESSION['actividad'] = time();
       } else {
           session_unset();
-          session_destroy();
 
           header('Location: login.php');
           exit();
