@@ -10,8 +10,12 @@
   /*
    * Definimos diferentes constantes con los roles permitidos para cada acción,
    * de esta forma será mucho más sencillo añadir o eliminar permisos.
+   *
+   * NOTA: Algunos persmiso se repiten, pero se ha creado 1 por cada acción restringida
+   * por si en un futuro queremos variar los permisos de alguna de ellas independientemente.
    */
 
+  define('ALLOW_SEE_USERS', ["admin", "coord", "trasoc", "edusoc"]);
   define('ALLOW_SEE_DETAILS', ["admin", "coord", "trasoc"]);
   define('ALLOW_SEE_TRACKING', ["coord", "trasoc"]);
   define('ALLOW_REG_TRACKING', ["coord", "trasoc"]);

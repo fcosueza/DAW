@@ -1,13 +1,21 @@
 <?php
   require_once 'session_control.php';
 
-//TODO: INCLUYE userauth.php
-
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
+  require_once __DIR__ . '/src/userauth.php';
 
-//TODO: si no es el rol coord o trasoc no puede estar aquí --> usar función creada para ello
+  /*
+   * Almacenamos el ID del usuario en una variable para trabajar más comodamente
+   * y comprobamos si el usuario que esta accediendo tiene permisos para ejecutar el script.
+   */
+  $userID = $_SESSION['id'];
+
+  if (!checkRole($userID, ALLOW_FILL_REPORT)) {
+      header("Location: usuarios.php");
+      exit();
+  }
 
   $idseguimiento = filter_input(INPUT_POST, 'id_seguimiento', FILTER_VALIDATE_INT);
   $informe = filter_input(INPUT_POST, 'informe');

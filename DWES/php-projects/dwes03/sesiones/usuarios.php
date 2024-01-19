@@ -14,6 +14,7 @@
   $pdo = connect();
   $usuarios = usuarios($pdo, activos: ($inactivos === "si" ? false : true), filtro: ($nombre ?? ''));
 
+  // Almacenamos el id de usuario en una variable para trabajar de forma más cómoda
   $userID = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
@@ -29,54 +30,57 @@
         <?php
           include __DIR__ . '/extra/header.php';
         ?>
-        <form action="" method="post">
-            <H2>Filtrar datos</H2>
-            <label>Mostrar usuarios inactivos:
-                <input type="checkbox" name="inactivos" value="si" <?= $inactivos === "si" ? "checked" : "" ?>>(si no se marca, se mostrarán los usuarios activos)
-            </label>
-            <br>
 
-            <label>Filtrar usuarios:
-                <input type="text" name="nombre" value="<?= $nombre ?? "" ?>" >
-            </label>
-            <br>
+        <?php if (checkRole($userID, ALLOW_SEE_USERS)): ?>
+              <form action="" method="post">
+                  <H2>Filtrar datos</H2>
+                  <label>Mostrar usuarios inactivos:
+                      <input type="checkbox" name="inactivos" value="si" <?= $inactivos === "si" ? "checked" : "" ?>>(si no se marca, se mostrarán los usuarios activos)
+                  </label>
+                  <br>
 
-            <input type="submit" value="¡Filtrar!">
-        </form>
+                  <label>Filtrar usuarios:
+                      <input type="text" name="nombre" value="<?= $nombre ?? "" ?>" >
+                  </label>
+                  <br>
 
-        <?php if (is_array($usuarios) && count($usuarios) > 0): ?>
-              <h1>Usuarios asociación Respira</h1>
-              <table>
-                  <tr>
-                      <th>ID</th>
-                      <th>DNI</th>
-                      <th>Fecha de Nacimiento</th>
-                      <th>Nombre</th>
-                      <th>Apellidos</th>
-                      <th>Acciones</th>
-                  </tr>
+                  <input type="submit" value="¡Filtrar!">
+              </form>
 
-                  <?php foreach ($usuarios as $u): ?>
+              <?php if (is_array($usuarios) && count($usuarios) > 0): ?>
+                  <h1>Usuarios asociación Respira</h1>
+                  <table>
                       <tr>
-                          <td><?= $u['id'] ?></td>
-                          <td><?= $u['dni'] ?></td>
-                          <td><?= date('d/m/Y', strtotime($u['fnacim'])) ?></td>
-                          <td><?= $u['nombre'] ?></td>
-                          <td><?= $u['apellidos'] ?></td>
-                          <td>
-                              <?php if (checkRole($userID, ["admin", "coord", "trasoc"])): ?>
+                          <th>ID</th>
+                          <th>DNI</th>
+                          <th>Fecha de Nacimiento</th>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th>Acciones</th>
+                      </tr>
+
+                      <?php foreach ($usuarios as $u): ?>
+                          <tr>
+                              <td><?= $u['id'] ?></td>
+                              <td><?= $u['dni'] ?></td>
+                              <td><?= date('d/m/Y', strtotime($u['fnacim'])) ?></td>
+                              <td><?= $u['nombre'] ?></td>
+                              <td><?= $u['apellidos'] ?></td>
+                              <td>
                                   <form action="detalleusuario.php" method="post">
                                       <input type="submit" value="Ver detalle">
                                       <input type="hidden" name="idusuario" value="<?= htmlspecialchars($u['id']) ?>">
                                   </form>
-                              <?php endif; ?>
-                          </td>
-                      </tr>
-                  <?php endforeach; ?>
+                              </td>
+                          </tr>
+                      <?php endforeach; ?>
 
-              </table>
+                  </table>
+              <?php else: ?>
+                  La búsqueda no genero resultados.
+              <?php endif; ?>
           <?php else: ?>
-              La búsqueda no genero resultados.
+              <h2>Contenido restringido.</h2>
         <?php endif; ?>
     </body>
 </html>

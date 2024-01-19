@@ -6,9 +6,18 @@
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
+  require_once __DIR__ . '/src/userauth.php';
 
-//TODO: control de rol, verificar que sea "admin", "coord" o "trasoc" para continuar
-//si no, redirecciona a usuarios.php --> usar función creada para ello en userauth.php
+  /*
+   * Almacenamos el ID del usuario en una variable para trabajar más comodamente
+   * y comprobamos si el usuario que esta accediendo tiene permisos para ejecutar el script.
+   */
+  $userID = $_SESSION['id'];
+
+  if (!checkRole($userID, ALLOW_SEE_DETAILS)) {
+      header("Location: usuarios.php");
+      exit();
+  }
 
   $idusuario = filter_input(INPUT_POST, 'idusuario', FILTER_VALIDATE_INT);
   $pdo = connect();
@@ -63,64 +72,65 @@
                   ?>
               </table>
               <?php
-              //TODO: mostrar seguimientos solo si tiene rol de coord o trasoc para esta sección --> usar función creada para ello en userauth.php
-
-              if (isset($seguimientos) && is_array($seguimientos) && count($seguimientos) > 0):
-                  ?>
-                  <h1>Tabla de Seguimientos</h1>
-                  <table>
-                      <tr>
-                          <th>Nombre del Empleado</th>
-                          <th>Apellidos del Empleado</th>
-                          <th>ID de Seguimiento</th>
-                          <th>Fecha y Hora del Seguimiento</th>
-                          <th>Medio de Seguimiento</th>
-                          <th>Contactado</th>
-                          <th>Informe de Seguimiento</th>
-                          <th>Acciones</th>
-                      </tr>
-                      <?php foreach ($seguimientos as $seguimiento): ?>
+              if (checkRole($userID, ALLOW_SEE_TRACKING)):
+                  if (isset($seguimientos) && is_array($seguimientos) && count($seguimientos) > 0):
+                      ?>
+                      <h1>Tabla de Seguimientos</h1>
+                      <table>
                           <tr>
-                              <td><?= $seguimiento['nombre_empleado'] ?></td>
-                              <td><?= $seguimiento['apellidos_empleado'] ?></td>
-                              <td><?= $seguimiento['id_seguimiento'] ?></td>
-                              <td><?= date('d/m/Y H:i', strtotime($seguimiento['fechahora_seguimiento'])) ?></td>
-                              <td>
-                                  <?php if ($seguimiento['medio_seguimiento'] === 'OTRO'): ?>
-                                      OTRO (<?= htmlspecialchars($seguimiento['otro_seguimiento']) ?>)
-                                  <?php else: ?>
-                                      <?= $seguimiento['medio_seguimiento'] ?>
-                                  <?php endif; ?>
-                              </td>
-                              <td><?= $seguimiento['contactado_seguimiento'] == 1 ? 'Sí' : 'No' ?></td>
-                              <td><?= $seguimiento['informe_seguimiento'] ?></td>
-                              <td>
-                                  <form action="archivarseguimiento.php" method="post">
-                                      <input type="submit" value="Archivar seguimiento">
-                                      <input type="hidden" name="idseguimiento" value="<?= $seguimiento['id_seguimiento'] ?>">
-                                      <input type="hidden" name="idusuario" value="<?= $detalle_usuario['id'] ?>">
-                                  </form>
-                                  <?php if (!$seguimiento['contactado_seguimiento']): ?>
-                                      <BR>
-                                      <form action="seguimientocontactado.php" method="post">
-                                          <input type="submit" value="Contactado">
-                                          <input type="hidden" name="id_seguimiento" value="<?= $seguimiento['id_seguimiento'] ?>">
+                              <th>Nombre del Empleado</th>
+                              <th>Apellidos del Empleado</th>
+                              <th>ID de Seguimiento</th>
+                              <th>Fecha y Hora del Seguimiento</th>
+                              <th>Medio de Seguimiento</th>
+                              <th>Contactado</th>
+                              <th>Informe de Seguimiento</th>
+                              <th>Acciones</th>
+                          </tr>
+                          <?php foreach ($seguimientos as $seguimiento): ?>
+                              <tr>
+                                  <td><?= $seguimiento['nombre_empleado'] ?></td>
+                                  <td><?= $seguimiento['apellidos_empleado'] ?></td>
+                                  <td><?= $seguimiento['id_seguimiento'] ?></td>
+                                  <td><?= date('d/m/Y H:i', strtotime($seguimiento['fechahora_seguimiento'])) ?></td>
+                                  <td>
+                                      <?php if ($seguimiento['medio_seguimiento'] === 'OTRO'): ?>
+                                          OTRO (<?= htmlspecialchars($seguimiento['otro_seguimiento']) ?>)
+                                      <?php else: ?>
+                                          <?= $seguimiento['medio_seguimiento'] ?>
+                                      <?php endif; ?>
+                                  </td>
+                                  <td><?= $seguimiento['contactado_seguimiento'] == 1 ? 'Sí' : 'No' ?></td>
+                                  <td><?= $seguimiento['informe_seguimiento'] ?></td>
+                                  <td>
+                                      <form action="archivarseguimiento.php" method="post">
+                                          <input type="submit" value="Archivar seguimiento">
+                                          <input type="hidden" name="idseguimiento" value="<?= $seguimiento['id_seguimiento'] ?>">
                                           <input type="hidden" name="idusuario" value="<?= $detalle_usuario['id'] ?>">
                                       </form>
-                                  <?php endif; ?>
-                              </td>
-                          </tr>
-                      <?php endforeach; ?>
-                  </table>
-              <?php else: ?>
-                  <h2>No se han registrado seguimientos para el usuario.</h2>
+                                      <?php if (!$seguimiento['contactado_seguimiento']): ?>
+                                          <BR>
+                                          <form action="seguimientocontactado.php" method="post">
+                                              <input type="submit" value="Contactado">
+                                              <input type="hidden" name="id_seguimiento" value="<?= $seguimiento['id_seguimiento'] ?>">
+                                              <input type="hidden" name="idusuario" value="<?= $detalle_usuario['id'] ?>">
+                                          </form>
+                                      <?php endif; ?>
+                                  </td>
+                              </tr>
+                          <?php endforeach; ?>
+                      </table>
+                  <?php else: ?>
+                      <h2>No se han registrado seguimientos para el usuario.</h2>
+                  <?php endif; ?>
               <?php endif; ?>
-              <?php
-              //TODO: mostrar formulario solo si tiene el rol de coord o trasoc para esta sección --> usar función creada para ello en userauth.php
 
-              $empleados = listarEmpleadosSeguimiento($pdo);
-              if (isset($detalle_usuario) && is_array($detalle_usuario) && is_array($empleados)):
-                  include ('extra/formseguimiento.php');
+              <?php
+              if (checkRole($userID, ALLOW_SEE_TRACKING)):
+                  $empleados = listarEmpleadosSeguimiento($pdo);
+                  if (isset($detalle_usuario) && is_array($detalle_usuario) && is_array($empleados)):
+                      include ('extra/formseguimiento.php');
+                  endif;
               endif;
               ?>
           <?php else: ?>
