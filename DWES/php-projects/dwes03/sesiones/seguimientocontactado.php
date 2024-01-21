@@ -13,7 +13,9 @@
   $userID = $_SESSION['id'];
 
   if (!checkRole($userID, ALLOW_FILL_REPORT)) {
-      header("Location: usuarios.php");
+      header('Refresh: 3; url=usuarios.php');
+      print '<B>Error: Solo un coordinador o un trabajador social puede rellenar los seguimientos.</B>';
+      print '<p>Redireccionando a la página de usuario...</a></</p>';
       exit();
   }
 

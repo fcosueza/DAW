@@ -1,8 +1,6 @@
 <?php
   require_once 'session_control.php';
 
-//TODO: INCLUYE el archivo de funciones de autenticación (userauth.php)
-
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
@@ -15,7 +13,9 @@
   $userID = $_SESSION['id'];
 
   if (!checkRole($userID, ALLOW_SEE_DETAILS)) {
-      header("Location: usuarios.php");
+      header('Refresh: 3; url=usuarios.php');
+      print '<B>Error: Solo el administrador, un coordinador o un trabajador social puede ver los detalles de usuario.</B>';
+      print '<p>Redireccionando a la página de usuario...</a></</p>';
       exit();
   }
 

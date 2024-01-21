@@ -1,12 +1,11 @@
 <?php
   require_once 'session_control.php';
 
-//TODO: INCLUYE userauth.php
-
   require_once __DIR__ . '/etc/conf.php';
   require_once __DIR__ . '/src/conn.php';
   require_once __DIR__ . '/src/dbfuncs.php';
   require_once __DIR__ . '/extra/utils.php';
+  require_once __DIR__ . '/src/userauth.php';
 
   $idseguimiento = filter_input(INPUT_POST, 'idseguimiento', FILTER_VALIDATE_INT);
   $idusuario = filter_input(INPUT_POST, 'idusuario', FILTER_VALIDATE_INT);
@@ -17,7 +16,16 @@
   if (!is_int($idseguimiento) || $idseguimiento <= 0)
       exit();
 
-//TODO: verificar si el usuario es coordinador. Solo coordinador puede archivar --> usar función creada para ello en userauth.php
+  /*
+   * Comprobamos si el usuario que esta accediendo tiene permisos para ejecutar el script.
+   */
+
+  if (!checkRole($_SESSION['id'], ALLOW_STORE_REPORT)) {
+      header('Refresh: 3; url=usuarios.php');
+      print '<B>Error: Solo un coordinador puede archivar seguimientos.</B>';
+      print '<p>Redireccionando a la página de usuario...</a></</p>';
+      exit();
+  }
 ?>
 
 <!DOCTYPE html>

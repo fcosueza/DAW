@@ -1,7 +1,5 @@
 <?php
 
-  /* TODO: 1.- Crea una función para autenticar al usuario  */
-
   /**
    * Funcion que comprueba los credenciales del usuario en la base de datos y devuelve
    * los datos del usuario o false en caso de que no se pueda acceder.
@@ -62,7 +60,7 @@
   }
 
   /**
-   * Función que determina si un seguimiento determinado pertenece a un empleado.
+   * Función que determina si un seguimiento pertenece a un empleado.
    *
    * @param PDO $pdo Objeto con la conexión a la base datos.
    * @param int $trackingID Id del seguimiento
