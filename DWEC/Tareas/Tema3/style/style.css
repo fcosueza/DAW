@@ -63,6 +63,12 @@ body {
   margin: 2rem;
 }
 
+.question {
+  font-size: 2rem;
+  margin: 2rem;
+  ;
+}
+
 /*
  * La tabla vamos a emplear selectores de elemento, para no tener que 
  * añadirle classes a cada elemento, que va a complicar más el codo en JS

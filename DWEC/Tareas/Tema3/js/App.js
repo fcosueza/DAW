@@ -1,6 +1,7 @@
 import Ciudadano from "./Ciudadano.js";
 import Espia from "./Espia.js";
 import Agencia from "./Agencia.js";
+import buscaTopo from "./buscaTopo.js";
 
 let arrayCiudadanos = [];
 let arrayEspias = [];
@@ -173,3 +174,97 @@ document.body.appendChild(document.createElement("hr"));
 document.body.appendChild(document.createElement("br"));
 
 document.body.appendChild(arrayAgencias[1].toString());
+
+// Eliminamos algún agente de las agencias y mostramos las lista de agentes ordenada
+
+arrayAgencias[1].cesarAgente("Marlene");
+
+// Mostramos la tabla con los espias actualizada
+
+document.body.appendChild(document.createElement("br"));
+document.body.appendChild(document.createElement("hr"));
+document.body.appendChild(document.createElement("br"));
+
+document.body.appendChild(arrayAgencias[1].toString());
+
+// Ahora vamos a usar la función buscaTopo, para ver si funciona correctamente
+
+document.body.appendChild(document.createElement("br"));
+document.body.appendChild(document.createElement("hr"));
+document.body.appendChild(document.createElement("br"));
+
+title = document.createElement("h2");
+
+title.classList.add("title");
+title.innerHTML = "Buscar Topo";
+
+document.body.appendChild(title);
+
+let parrafo = document.createElement("p");
+
+// Probamos con un espía que no es topo
+let topo = buscaTopo(arrayAgencias[0], arrayAgencias[1], "Michael") ? "SI" : "NO";
+
+parrafo.innerHTML = "¿Es Michael el Topo? - " + topo;
+parrafo.classList.add("question");
+
+document.body.appendChild(parrafo);
+
+parrafo = document.createElement("p");
+parrafo.classList.add("question");
+
+// Ahora probamos con un espía que si es topo
+
+topo = buscaTopo(arrayAgencias[0], arrayAgencias[1], "Linda") ? "SI" : "NO";
+parrafo.innerHTML = "¿Es Linda el Topo? - " + topo;
+
+document.body.appendChild(parrafo);
+
+/*
+ * Ya hemos probado todos y casi todos los métodos de las clases. Directa o
+ * indirectamente, ya que los métodos para listar a los espías se han usado en la
+ * función buscaTopo.
+ *
+ * En esta última parte vamos a poner una serie de sentencias que provocarían una
+ * excepción, comentadas, ya que sino se interrumpe la ejecución del script.
+ *
+ * No se van a poner por duplicado, ya que la comprobación que se hace en el constructor es
+ * exactamente la misma que se hace en los Getter y Setter, por lo que si se lanza en el
+ * constructor, se lanza en los métodos.
+ */
+
+// Sentencias que lanzan una excepción para la clase Ciudadano
+
+//let ciudadanoExcp1;
+//let ciudadanoExcp2;
+//let ciudadanoExcp3;
+
+//try {
+//  ciudadanoExcp1 = new Ciudadano("Bob", "USA", 19);
+//  ciudadanoExcp2 = new Ciudadano("Bobby", "GUATEMALA", 19);
+//  ciudadanoExcp3 = new Ciudadano("Andrrew", "USA", 200);
+//} catch (e) {
+//  console.error("Error: " + e);
+//}
+
+// Sentencias que lanzan una excepción para la clase Espía, además de todas las de Ciudadano.
+
+//let espiaExcp1;
+//let espiaExcp2;
+//
+//try {
+//  espiaExcp1 = new Espia("Linda", "USA", 20, "Panadero");
+//  espiaExcp2 = new Espia("Linda", "USA", 15, "Infiltrado");
+//} catch (e) {
+//  console.error("Error: " + e);
+//}
+
+// Por último, las excepciones que lanza Agencia, que solo están relacionadas con el pais
+
+//let agenciaExcp;
+//
+//try {
+//  agenciaExcp = new Agencia("CIA", "RFA");
+//} catch (e) {
+//  console.error("Error: " + e);
+//}

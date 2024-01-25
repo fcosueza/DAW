@@ -13,3 +13,5 @@ function buscaTopo(agencia1, agencia2, nombre) {
 
   return false;
 }
+
+export default buscaTopo;

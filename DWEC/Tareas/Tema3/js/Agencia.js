@@ -149,6 +149,8 @@ class Agencia {
   /**
    * Método privado #_formateaInfo que crea una tabla HTML y añade la información
    * de todos los agentes que tiene la agencia para que se muestre de forma ordenada.
+   * El método crea un nodo HTML de tipo table y va añadiendo todos los nodos necesarios
+   * para crear una tabla bien construida.
    *
    * NOTA: No se si es exactamente esto lo que pedía el ejercicio, pero no se me ocurre otra forma
    *       de que se muestre la información en una tabla.
@@ -193,7 +195,6 @@ class Agencia {
 
       nodoNombre = document.createElement("td");
       nodoPais = document.createElement("td");
-      nodoNombre = document.createElement("td");
       nodoEdad = document.createElement("td");
       nodoTipo = document.createElement("td");
 
