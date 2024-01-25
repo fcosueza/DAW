@@ -42,13 +42,52 @@ body {
   box-shadow: 0.4rem 0 0.3rem 0.3rem rgba(0, 0, 0, 0.4);
 }
 
-.title {
+.header__title {
   font-size: 6rem;
   text-align: center;
   margin: 2rem;
 }
 
+.title {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
 .para {
   font-size: 1.6rem;
   margin: 2rem;
+}
+
+.subtitle {
+  font-size: 4rem;
+  margin: 2rem;
+}
+
+/*
+ * La tabla vamos a emplear selectores de elemento, para no tener que 
+ * añadirle classes a cada elemento, que va a complicar más el codo en JS
+ */
+
+table {
+  font-size: 2rem;
+  table-layout: fixed;
+  width: 95%;
+  margin: 2rem;
+  border-collapse: collapse;
+  border: 0.2rem solid black;
+}
+
+th,
+td {
+  padding: 2rem;
+  text-align: center;
+  border: 0.2rem solid black;
+}
+
+th {
+  background-color: #99BC85;
+}
+
+tr:nth-child(even) {
+  background-color: #E1F0DA;
 }

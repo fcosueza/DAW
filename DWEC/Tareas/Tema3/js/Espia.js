@@ -13,6 +13,7 @@ class Espia extends Ciudadano {
     super(nombre, pais, edad);
 
     // Comprobamos si el tipo de espía es correcto
+
     if (!TIPO_ESPIA.includes(tipo))
       throw new Error("El tipo de espía tiene que ser alguno de lo siguiente: " + TIPO_ESPIA.toString());
 
@@ -23,6 +24,7 @@ class Espia extends Ciudadano {
   }
 
   // Get y Set del atributo tipo.
+
   get tipo() {
     return this._tipo;
   }
@@ -35,6 +37,7 @@ class Espia extends Ciudadano {
   }
 
   // Método que devuelve una cadena con la información del ciudadano
+
   toString() {
     return this._nombre + " es un agente " + this._tipo + " de " + this._pais + " y tiene " + this._edad + " años.";
   }

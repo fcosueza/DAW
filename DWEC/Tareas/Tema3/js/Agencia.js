@@ -92,6 +92,7 @@ class Agencia {
     let listaOrdenada = "";
 
     // Vamos a pasar los valores del criterio a un array, y vamos a ordenar ese array.
+
     this._agentes.forEach(agente => {
       if (criterio == "nombre") {
         arrayValores.push(agente.nombre);
@@ -101,9 +102,11 @@ class Agencia {
     });
 
     // Ordenamos el array
+
     arrayValores.sort();
 
     // Recorremos arrayValores y _agentes y vamos añadiéndolos en orden
+
     arrayValores.forEach(valorOrden => {
       this._agentes.forEach(agente => {
         if (agente.nombre == valorOrden) listaOrdenada += agente.toString() + "\n";
@@ -123,18 +126,101 @@ class Agencia {
    * Es decir, este método no devuelve una cadena, sino un nodo HTML.
    */
 
-  toString() {}
+  toString() {
+    // Vamos a crear un par de elementos HTMl para mostrar el nombre y pais de la agencia antes de la tabla.
+
+    let nombreAgencia = document.createElement("h3");
+    let paisAgencia = document.createElement("h3");
+
+    nombreAgencia.classList.add("subtitle");
+    paisAgencia.classList.add("subtitle");
+
+    nombreAgencia.innerHTML = "Nombre: " + this._nombreAgencia;
+    paisAgencia.innerHTML = "Pais: " + this._pais;
+
+    document.body.appendChild(nombreAgencia);
+    document.body.appendChild(paisAgencia);
+
+    // Llamamos a #_formateaInfo para que nos genere la tabla
+
+    return this.#_formateaInfo();
+  }
 
   /**
    * Método privado #_formateaInfo que crea una tabla HTML y añade la información
-   * de todos los agentes que tiene la agencia.
+   * de todos los agentes que tiene la agencia para que se muestre de forma ordenada.
+   *
+   * NOTA: No se si es exactamente esto lo que pedía el ejercicio, pero no se me ocurre otra forma
+   *       de que se muestre la información en una tabla.
    */
 
   #_formateaInfo() {
-    let tabla = document.createElement("table");
-    let cabecera = document.createElement("thead");
-    let cuerpo = document.createElement("tbody");
-    let fila = document.createElement("tr");
+    // Creamos los diferentes nodos que va a tener la tabla
+
+    let nodoTabla = document.createElement("table");
+    let nodoCabecera = document.createElement("thead");
+    let nodoCuerpo = document.createElement("tbody");
+    let nodoFila = document.createElement("tr");
+
+    let nodoPais = document.createElement("th");
+    let nodoNombre = document.createElement("th");
+    let nodoEdad = document.createElement("th");
+    let nodoTipo = document.createElement("th");
+
+    // Introducimos el nombre de cada elementos de la cabecera
+
+    nodoPais.innerHTML = "País";
+    nodoNombre.innerHTML = "Nombre";
+    nodoEdad.innerHTML = "Edad";
+    nodoTipo.innerHTML = "Tipo";
+
+    // Añadimos los nodos a la tabla
+
+    nodoFila.appendChild(nodoPais);
+    nodoFila.appendChild(nodoNombre);
+    nodoFila.appendChild(nodoEdad);
+    nodoFila.appendChild(nodoTipo);
+
+    nodoCabecera.appendChild(nodoFila);
+    nodoTabla.appendChild(nodoCabecera);
+
+    // Vamos a recorrer todos los agentes y a ir añadiendo los datos.
+
+    this._agentes.forEach(agente => {
+      nodoFila = document.createElement("tr");
+
+      // Creamos nuevos elementos para cada dato
+
+      nodoNombre = document.createElement("td");
+      nodoPais = document.createElement("td");
+      nodoNombre = document.createElement("td");
+      nodoEdad = document.createElement("td");
+      nodoTipo = document.createElement("td");
+
+      // Añadimos los datos del agente
+
+      nodoPais.innerHTML = agente.pais;
+      nodoNombre.innerHTML = agente.nombre;
+      nodoEdad.innerHTML = agente.edad;
+      nodoTipo.innerHTML = agente.tipo;
+
+      // Añadimos los nodos a la fila y esta al cuerpo de la tabla
+
+      nodoFila.appendChild(nodoPais);
+      nodoFila.appendChild(nodoNombre);
+      nodoFila.appendChild(nodoEdad);
+      nodoFila.appendChild(nodoTipo);
+
+      nodoCuerpo.appendChild(nodoFila);
+    });
+
+    // Añadimos el cuerpo de la tabla a la tabla
+
+    nodoTabla.appendChild(nodoCuerpo);
+
+    // Por  ultimo, devolvemos la tabla completa
+
+    return nodoTabla;
   }
 }
 

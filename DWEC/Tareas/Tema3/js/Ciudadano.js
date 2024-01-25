@@ -27,6 +27,7 @@ class Ciudadano {
   }
 
   // Get y Set del atributo nombre.
+
   get nombre() {
     return this._nombre;
   }
@@ -38,6 +39,7 @@ class Ciudadano {
   }
 
   // Get y Set del atributo pais.
+
   get pais() {
     return this._pais;
   }
@@ -49,6 +51,7 @@ class Ciudadano {
   }
 
   // Get y Set del atributo edad.
+
   get edad() {
     return this._edad;
   }
@@ -60,6 +63,7 @@ class Ciudadano {
   }
 
   // Método que devuelve una cadena con la información del ciudadano
+
   toString() {
     return this._nombre + " es un ciudadano de " + this._pais + " y tiene " + this._edad + " años.";
   }
