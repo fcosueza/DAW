@@ -8,8 +8,9 @@
     <meta name="description" content="Tarea 4 de la asignatura DWEC: Gestión de Eventos">
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
-    <!-- Enlace con los icons de font awesome, para incluir un icono para mostrar la contraseña -->
+    <!-- Enlace con los iconos de Font Awesome, para incluir el icono para mostrar la contraseña -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Los 39 Escalones</title>
@@ -20,7 +21,7 @@
       <h1 class="title">Los 39 Escalones</h1>
     </header>
 
-    <form class="form flex center" action="">
+    <form id="form" class="form flex center" action="">
       <div class="form__header">
         <h2 class="form__title">Solicitud Maligna</h2>
       </div>
@@ -58,14 +59,16 @@
       </div>
 
       <div class="form__buttons flex">
-        <button type="button" class="form__button">Enviar</button>
-        <button type="reset" class="form__button">Reiniciar</button>
+        <button id="sendButton" type="submit" class="form__button">Enviar</button>
+        <button id="resetButton" type="button" class="form__button">Reiniciar</button>
       </div>
     </form>
 
     <div id="result">
       Al actualizar este contenido se borra este mensaje.
     </div>
+
+    <script type="module" src="./js/solicitud.js"></script>
   </body>
 
 </html>

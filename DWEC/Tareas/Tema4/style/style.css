@@ -155,3 +155,38 @@ body {
   border-radius: 5%;
   box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
 }
+
+/*
+ * Estado de los elementos:
+ *
+ * Aunque la interactividad se le va a añadir con
+ * Javascript, aquí voy a añadir un poco de feedback a los
+ * botones, para que el usuario sepa cuando se están pulsando.
+ */
+
+
+.form__button:active {
+  box-shadow: none;
+  transform: scale(0.9);
+}
+
+.form__password:active {
+  color: white;
+  background-color: #1B1A55;
+}
+
+/*
+ * Clases auxiliares
+ */
+
+.focus {
+  background-color: yellow;
+}
+
+.error {
+  background-color: red;
+}
+
+.valid {
+  background-color: green;
+}
