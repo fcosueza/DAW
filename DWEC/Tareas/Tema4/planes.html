@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
     <meta charset="UTF-8">
@@ -14,9 +14,98 @@
 
   <body>
     <header>
-      <h1>Los 39 Escalones</h1>
+      <h1 class="title">Los 39 Escalones</h1>
     </header>
 
+    <form class="form flex center" action="">
+      <div class="form__header">
+        <h2 class="form__title">Planes Malvados</h2>
+      </div>
+
+      <div class="form__controls flex">
+        <label for="name" class="form__label">Nombre del Plan: </label>
+        <input id="name" name="name" type="text" class="form__input" required>
+      </div>
+
+      <div class="form__controls flex">
+        <label for="code" class="form__label">Código del Plan: </label>
+        <input id="code" name="code" type="text" class="form__input" required>
+      </div>
+
+
+      <div class="form__controls">
+        <fieldset class="form__fieldset">
+          <legend class="form__label">Seleccione el tipo de plan:</legend>
+          <div>
+            <input id="plan-type1" name="plan-type" type="radio" class="form__radio" required>
+            <label for="plan-type1">Operaciones de campo</label>
+          </div>
+
+          <div>
+            <input id="plan-type2" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type2">Manejo de recursos financieros</label>
+          </div>
+
+          <div>
+            <input id="plan-type3" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type3">Desarrollo de tecnología</label>
+          </div>
+          <div>
+
+            <input id="plan-type4" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type4">Luchas por el poder interno</label>
+          </div>
+
+          <div>
+            <input id="plan-type5" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type5">Operaciones de rescate</label>
+          </div>
+
+          <div>
+            <input id="plan-type6" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type6">Cifrado y descifrado</label>
+          </div>
+
+          <div>
+            <input id="plan-type7" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type7">Operaciones encubiertas</label>
+          </div>
+          <div>
+
+            <input id="plan-type8" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type8">Contrainteligencia</label>
+          </div>
+
+          <div>
+            <input id="plan-type9" name="plan-type" type="radio" class="form__radio">
+            <label for="plan-type9">Desinformación Estratégica</label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="form__controls flex">
+        <label for="country-plan">Elija un pais donde desarrollar el plan:</label>
+        <input id="country-plan" name="country-plan" type="text" list="countries" />
+        <datalist id="countries">
+          <option value="USA">Estados Unidos</option>
+          <option value="Russia">Rusia</option>
+          <option value="China">China</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Mexico">México</option>
+        </datalist>
+
+      </div>
+
+      <div class="form__buttons flex">
+        <button type="button" class="form__button">Enviar</button>
+        <button type="reset" class="form__button">Reiniciar</button>
+      </div>
+    </form>
+
+    <div id="result">
+      Al actualizar este contenido se borra este mensaje.
+    </div>
 
   </body>
 

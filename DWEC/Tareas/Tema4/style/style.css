@@ -1,0 +1,157 @@
+/* Reinicio básico CSS */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+ *  Elementos HTML y Body
+ */
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+  background-color: #535C91;
+}
+
+/*
+ * Clases de utilidad
+ */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+ * Clases de los elementos principales
+ */
+
+/* Página Principal */
+
+.title {
+  font-size: 6rem;
+  text-align: center;
+  margin: 5rem;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card {
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 5%;
+  box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
+  background-color: white;
+
+}
+
+.image {
+  width: 40rem;
+  height: 40rem;
+}
+
+.link {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2rem;
+}
+
+/* Formularios */
+
+.form {
+  width: 55rem;
+  margin: 0 auto;
+  border-radius: 5%;
+  box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
+  background-color: beige;
+  overflow: hidden;
+}
+
+.form__header {
+  background-color: #1B1A55;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.form__title {
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+}
+
+.form__controls {
+  flex-direction: column;
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.form__buttons {
+  justify-content: space-between;
+  margin: 3rem 0;
+}
+
+.form__controls,
+.form__buttons {
+  width: 80%;
+}
+
+.form__label {
+  margin-bottom: 0.4rem;
+}
+
+.form__input {
+  width: 100%;
+  line-height: 2;
+}
+
+.form__password {
+  width: 3rem;
+  height: 100%;
+  margin-left: -3.5rem;
+  background-color: #9290C3;
+  border: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+.form__select {
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}
+
+.form__fieldset {
+  border: none;
+}
+
+
+.form__button {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  width: 13rem;
+  padding: 1rem;
+  background-color: #9290C3;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 5%;
+  box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
+}
