@@ -156,6 +156,12 @@ body {
   box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
 }
 
+.result {
+  font-size: 1.8rem;
+  width: 30%;
+  margin: 5rem auto;
+}
+
 /*
  * Estado de los elementos:
  *
@@ -178,6 +184,10 @@ body {
 /*
  * Clases auxiliares
  */
+
+.hidden {
+  display: hidden;
+}
 
 .focus {
   background-color: yellow;

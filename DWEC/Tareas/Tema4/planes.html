@@ -30,7 +30,7 @@
 
       <div class="form__controls flex">
         <label for="planCode" class="form__label">Código del Plan: </label>
-        <input id="planCode" name="planCode" type="text" class="form__input" required>
+        <input id="planCode" name="planCode" type="text" class="form__input" pattern="^[a-zñçA-Zñç]\d{3,7}$" required>
       </div>
 
 
@@ -104,7 +104,7 @@
       </div>
     </form>
 
-    <div id="result">
+    <div id="result" class="flex card result">
       Al actualizar este contenido se borra este mensaje.
     </div>
 

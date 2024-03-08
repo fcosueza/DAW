@@ -1,3 +1,5 @@
+import * as validation from "./utils/validationHandlers.js";
+
 // Definición de constantes
 const CSS_FOCUS_CLASS = "focus";
 
