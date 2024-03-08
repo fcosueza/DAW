@@ -8,6 +8,7 @@
     <meta name="description" content="Tarea 4 de la asignatura DWEC: Gestión de Eventos">
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     <title>Los 39 Escalones</title>
   </head>
@@ -17,19 +18,19 @@
       <h1 class="title">Los 39 Escalones</h1>
     </header>
 
-    <form class="form flex center" action="">
+    <form id="form" class="form flex center" action="">
       <div class="form__header">
         <h2 class="form__title">Planes Malvados</h2>
       </div>
 
       <div class="form__controls flex">
-        <label for="name" class="form__label">Nombre del Plan: </label>
-        <input id="name" name="name" type="text" class="form__input" required>
+        <label for="planName" class="form__label">Nombre del Plan: </label>
+        <input id="planName" name="planName" type="text" class="form__input" required>
       </div>
 
       <div class="form__controls flex">
-        <label for="code" class="form__label">Código del Plan: </label>
-        <input id="code" name="code" type="text" class="form__input" required>
+        <label for="planCode" class="form__label">Código del Plan: </label>
+        <input id="planCode" name="planCode" type="text" class="form__input" required>
       </div>
 
 
@@ -99,7 +100,7 @@
 
       <div class="form__buttons flex">
         <button type="button" class="form__button">Enviar</button>
-        <button type="reset" class="form__button">Reiniciar</button>
+        <button type="reset" class="form__button">Borrar</button>
       </div>
     </form>
 
@@ -107,6 +108,7 @@
       Al actualizar este contenido se borra este mensaje.
     </div>
 
+    <script type="module" src="./js/planes.js"></script>
   </body>
 
 </html>

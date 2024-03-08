@@ -20,6 +20,8 @@ function onPageLoad() {
   sendButton.addEventListener("click", sendForm, false);
   resetButton.addEventListener("click", resetForm, false);
 
+  // Añadimos los eventos al botón para visualizar el password
+
   passButton.addEventListener("mousedown", showPass, false);
   passButton.addEventListener("mouseup", showPass, false);
 
@@ -69,7 +71,7 @@ function showPass(event) {
 
 /**
  * Función que añade una clase al elemento que la llama, que cambia el color del
- * fondo. Según su el evento es focusin o focusout, la función añadirá o eliminará dicha
+ * fondo. Según si el evento es focusin o focusout, la función añadirá o eliminará dicha
  * clase, para que solo se cambie el color del elemento cuando tiene el focus, pero no
  * cuando lo pierde.
  *
