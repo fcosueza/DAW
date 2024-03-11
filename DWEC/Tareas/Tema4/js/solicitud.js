@@ -1,9 +1,6 @@
 import * as validation from "./utils/validation.js";
 import { cleanForm, showPass, onFocus, resetForm } from "./utils/formUtils.js";
 
-// Definición de constantes
-const CSS_FOCUS_CLASS = "focus";
-
 // Ejecutamos la función onPageLoad cuando se carga la página
 window.onload = onPageLoad;
 
@@ -40,20 +37,25 @@ function onPageLoad() {
     }
   }
 }
-
+/**
+ * Función que se encarga de procesar el formulario. Primero llama a la función
+ * para validarlo y a continuación muestra el resultado, en caso de que se haya
+ * validado correctamente, o un mensaje de error indicando que el formulario no se
+ * ha podido enviar.
+ *
+ * @param {*} event Evento que llama a la función
+ */
 function sendForm(event) {
-  event.preventDefault();
-
-  let nameField = document.getElementById("name");
+  let formNode = event.currentTarget.form;
   let countryField = document.getElementById("country");
   let passField = document.getElementById("pass");
   let passRepField = document.getElementById("passRep");
-  let formElements = document.getElementById("form").elements;
+
+  event.preventDefault();
 
   cleanForm(document.getElementById("form"));
 
-  validation.validateName(nameField);
-  validation.validatePass(passField);
+  validation.validateForm(formNode);
 
   if (
     passRepField.value == "" ||
