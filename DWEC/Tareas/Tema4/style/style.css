@@ -160,6 +160,20 @@ body {
   font-size: 1.8rem;
   width: 30%;
   margin: 5rem auto;
+  padding: 3rem;
+  border-radius: 5rem;
+}
+
+.result__title {
+  font-size: 3rem;
+}
+
+.result__para {
+  margin: 1rem;
+}
+
+.result__list {
+  margin-left: 3rem;
 }
 
 /*

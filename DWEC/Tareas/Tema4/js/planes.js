@@ -1,3 +1,5 @@
+import { toUpperInput, resetForm } from "./utils/formUtils.js";
+
 window.onload = onPageLoad;
 
 /**
@@ -8,10 +10,13 @@ window.onload = onPageLoad;
  */
 function onPageLoad() {
   let planName = document.getElementById("planName");
-  let formElements = document.getElementById("form").elements;
+  let sendButton = document.getElementById("sendButton");
+  let deleteButton = document.getElementById("deleteButton");
 
   // Añadimos el evento para procesar en cambio de valor en el campo nombre
-  planName.addEventListener("input", updateValue, true);
+  planName.addEventListener("input", toUpperInput, true);
+  sendButton.addEventListener("click", sendForm, true);
+  deleteButton.addEventListener("click", resetForm, true);
 
   /*
    * Comprobamos si existe el contador en el localStorage y lo
@@ -25,30 +30,4 @@ function onPageLoad() {
   }
 }
 
-/**
- * Función que cambia el valor del elemento input que lo llama a
- * mayúsculas mientras se esta escribiendo.
- *
- * @param { } event Evento que llama a la función
- */
-function updateValue(event) {
-  event.currentTarget.value = event.currentTarget.value.toUpperCase();
-}
-
-/**
- * Función que añade una clase al elemento que la llama, que cambia el color del
- * fondo. Según si el evento es focusin o focusout, la función añadirá o eliminará dicha
- * clase, para que solo se cambie el color del elemento cuando tiene el focus, pero no
- * cuando lo pierde.
- *
- * @param {*} event Evento que llama a la función
- */
-function onFocus(event) {
-  let currentNode = event.currentTarget;
-
-  if (event.type == "focusin") {
-    currentNode.classList.add("focus");
-  } else {
-    currentNode.classList.remove("focus");
-  }
-}
+function sendForm() {}

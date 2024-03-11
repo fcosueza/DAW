@@ -1,5 +1,5 @@
-import * as validation from "./utils/validation.js";
-import { cleanForm, showPass, onFocus, resetForm } from "./utils/formUtils.js";
+import { validateQueryForm } from "./utils/validation.js";
+import { showPass, onFocus, resetForm } from "./utils/formUtils.js";
 
 // Ejecutamos la función onPageLoad cuando se carga la página
 window.onload = onPageLoad;
@@ -47,26 +47,25 @@ function onPageLoad() {
  */
 function sendForm(event) {
   let formNode = event.currentTarget.form;
-  let countryField = document.getElementById("country");
-  let passField = document.getElementById("pass");
-  let passRepField = document.getElementById("passRep");
+
+  let name = document.getElementById("name").value;
+  let country = document.getElementById("country").value;
+  let pass = document.getElementById("pass").value;
+
+  let result = document.getElementById("result");
 
   event.preventDefault();
 
-  cleanForm(document.getElementById("form"));
-
-  validation.validateForm(formNode);
-
-  if (
-    passRepField.value == "" ||
-    passRepField.value != passField.value ||
-    !validation.PASSWORD.test(passRepField.value)
-  ) {
-    passRepField.focus();
-    passRepField.classList.add("error");
-    document.getElementById("passRepError").innerHTML = "<p>*La contraseña no se ha introducido correctamente.</p>";
+  if (validateQueryForm(formNode)) {
+    result.innerHTML = `<h3 class="result__title">Formulario Correcto</h3>
+     <p class="result__para">El formulario se ha enviado correctamente, los datos son: </p>
+     <ul class="result__list">
+       <li class="result__data">Nombre: ${name}</li>
+       <li class="result__data">Nacionalidad: ${country}</li>
+       <li class="result__data">Contraseña: ${pass}</li>
+     </ul>`;
   } else {
-    passRepField.classList.add("valid");
-    document.getElementById("passRepError").innerHTML = "";
+    result.innerHTML = `<h3 class="result__title">Formulario Incorrecto</h3>
+    <p class="result__para">Los datos son incorrectos, corrija los campos indicados.</p>`;
   }
 }

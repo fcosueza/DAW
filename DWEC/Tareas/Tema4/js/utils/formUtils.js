@@ -48,26 +48,49 @@ function onFocus(event) {
  * Función que reinicia el formulario borrando todos los datos introducidos.
  * Se podría haber incluido simplemente el tipo "reset" en el botón, pero como se
  * pedía hacerlo con JS se ha usado la función reset() del elemento form, que tiene el mismo efecto.
+ * Además limpia el formulario de clases con la función cleanForm.
  *
  * @param {*} event Evento que llama a la función
  */
 function resetForm(event) {
-  cleanForm(event.currentTarget.form);
   event.currentTarget.form.reset();
+  cleanForm(event.currentTarget.form);
 }
 
 /**
- *  Función que elimina todas las clases asociadas a la validación de un formulario.
+ * Función que elimina todas las clases asociadas a la validación de un formulario,
+ * así como los mensajes de error.
  *
- * @param {} formObject Objecto con el formulario que se desea limpiar
+ * @param {} formNode Objecto con el formulario que se desea limpiar
  */
 function cleanForm(formNode) {
   let formElements = formNode.elements;
+  let errorMsgNodes = document.querySelectorAll(".errorMsg");
+  let result = document.getElementById("result");
 
+  // Eliminamos el color de los inputs
   for (let i = 0; i < formElements.length; i++) {
     formElements[i].classList.remove("error");
     formElements[i].classList.remove("valid");
   }
+
+  // Eliminamos los mensajes de error
+  errorMsgNodes.forEach(node => {
+    node.innerHTML = "";
+
+    // Eliminamos el mensaje del resultado
+    result.innerHTML = "";
+  });
 }
 
-export { showPass, onFocus, resetForm, cleanForm };
+/**
+ * Función que cambia el valor del elemento input que lo llama a
+ * mayúsculas mientras se esta escribiendo.
+ *
+ * @param { } event Evento que llama a la función
+ */
+function toUpperInput(event) {
+  event.currentTarget.value = event.currentTarget.value.toUpperCase();
+}
+
+export { showPass, onFocus, resetForm, cleanForm, toUpperInput };

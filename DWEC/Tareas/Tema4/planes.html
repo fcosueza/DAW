@@ -92,7 +92,7 @@
       </div>
 
       <div class="form__controls flex">
-        <label for="country-plan">Elija un pais donde desarrollar el plan</label>
+        <label for="country-plan">Elija un país donde desarrollar el plan</label>
         <input id="country-plan" name="country-plan" type="text" list="countries" />
         <datalist id="countries">
           <option value="USA">Estados Unidos</option>
@@ -105,14 +105,12 @@
       </div>
 
       <div class="form__buttons flex">
-        <button type="button" class="form__button">Enviar</button>
-        <button type="reset" class="form__button">Borrar</button>
+        <button id="sendButton" type="button" class="form__button">Enviar</button>
+        <button id="deleteButton" type="reset" class="form__button">Borrar</button>
       </div>
     </form>
 
-    <div id="result" class="flex card result">
-      Al actualizar este contenido se borra este mensaje.
-    </div>
+    <div id="result" class="flex card result"></div>
 
     <script type="module" src="./js/planes.js"></script>
   </body>
