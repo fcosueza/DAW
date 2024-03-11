@@ -32,9 +32,8 @@ const PASSWORD =
 const COUNTRIES = ["Alemania", "España", "Italia", "Francia", "Inglaterra"];
 
 /**
- * Función que se encarga de validar el formulario, realizando llamadas a las diferentes
- * funciones que validan los campos. Dependiendo del formulario que se le pase, si es el
- * de solicitud o el de planes maléficos, llamará a unas u otras funciones.
+ * Función que se encarga de validar el formulario de solicitud, realizando llamadas a las diferentes
+ * funciones que validan los campos.
  *
  * @param {*} formObject Objecto con el formulario a validad
  * @return true si el formulario se ha validado correctamente o false en caso contrario
@@ -42,63 +41,70 @@ const COUNTRIES = ["Alemania", "España", "Italia", "Francia", "Inglaterra"];
 function validateQueryForm(formNode) {
   let result = false;
 
-  let nameValidation = validateText(formNode.name, "text");
+  let nameValidation = validateName(formNode.name);
   let countryValidation = validateCountry(formNode.country);
-  let passValidation = validateText(formNode.pass, "password");
-  let passRepValidation = validatePassRep(formNode.passRep, formNode.pass);
+  let passValidation = validatePassword(formNode.pass, formNode.passRep);
 
-  if (nameValidation && countryValidation && passValidation && passRepValidation) {
+  if (nameValidation && countryValidation && passValidation) {
     result = true;
   }
 
   return result;
 }
 
-function validatePlanForm(formNode) {}
-
 /**
- * Función que valida el campo del nombre o de la contraseña del formulario. Recibe como
- * parámetros el nodo del campo a validar y una cadena con el tipo de campo, pudiendo tener
- * los valores "text" o "password", para indicar que se va a validar un nombre o una
- * contraseña respectivamente.
+ * Función que se encarga de validar el formulario del plan maligno. Este formulario ya
+ * se está validando con HTML5, por lo que no vamos a necesitar funciones de validación a parte,
+ * ya que casi todo el trabajo lo realiza HTML5. Aquí solo vamos a comprobar que los campos no estén
+ * en blanco.
+ *
+ * @param {*} formNode Nodo del formulario que se quiere validar.
+ */
+function validatePlanForm(formNode) {
+  let planName = formNode.planName;
+  let planCode = formNode.planCode;
+  let planType = document.querySelector("input:checked");
+
+  let result = true;
+
+  // Comprobamos si los valores obligatorios están en blanco
+  if (planName.value == "") {
+    planName.setCustomValidity("Este campo es obligatorio.");
+    result = false;
+  } else {
+    planName.setCustomValidity("");
+  }
+
+  if (planCode.value == "") {
+    planCode.setCustomValidity("Este campo es obligatorio.");
+    result = false;
+  } else {
+    planCode.setCustomValidity("");
+  }
+
+  if (planType == null) {
+    result = false;
+  }
+
+  return result;
+}
+/**
+ * Función que valida el campo del nombre del formulario.
  *
  * @param {*} inputNode Objecto con el nodo del campo a validar
- * @param string type  Indica si el campo a validar es de tipo nombre o contraseña.
  * @returns true si la validación a tenido éxito y false en caso contrario
  */
-function validateText(inputNode, type = "text") {
+function validateName(inputNode) {
   let result = false;
-  let pattern;
-  let errorNode;
-  let errorMsg = "";
+  let pattern = NAME;
+  let errorNode = document.getElementById("nameError");
 
-  // Comprobamos el tipo de campo que es y asignamos algunas variables
-  if (type == "text") {
-    pattern = NAME;
-    errorNode = document.getElementById("nameError");
-    errorMsg = "* El nombre ";
+  // Comprobamos si el campo es correcto y cargamos las clases adecuadas.
+  if (!inputNode.value || inputNode.value == "" || !pattern.test(inputNode.value)) {
+    setInvalid(inputNode);
+    errorNode.innerHTML = "* Este campo es incorrecto";
   } else {
-    pattern = PASSWORD;
-    errorNode = document.getElementById("passError");
-    errorMsg = "* La contraseña ";
-  }
-
-  // Comprobamos si el campo es correcto y almacenamos el mensaje de error adecuado
-  if (!inputNode.value || inputNode.value == "") {
-    errorMsg = "* Este campo es obligatorio y no puede estar vacío";
-  } else if (!pattern.test(inputNode.value)) {
-    errorMsg = errorMsg + " no cumple con los requisitos";
-  } else {
-    errorMsg = "";
-  }
-
-  // Se comprueba si ha habido error y se cargan las clases y mensajes oportunos
-  if (errorMsg != "") {
-    inputNode.focus();
-    inputNode.classList.add("error");
-    errorNode.innerHTML = errorMsg;
-  } else {
-    inputNode.classList.add("valid");
+    setValid(inputNode);
     errorNode.innerHTML = "";
     result = true;
   }
@@ -128,40 +134,62 @@ function validateCountry(formNode) {
 }
 
 /**
- * Función que valida el campo donde se repite la contraseña. Recibe el nodo de
- * la contraseña y de dicho campo como parámetros, comprobando, además de la
- *  existencia de la contraseña, que las dos coinciden.
+ * Función que se encarga de validar la contraseña. Valida tanto el campo
+ * donde se introduce la contraseña como el campo donde se tiene que repetir.
+ * Si ambos son correctos, la contraseña de dará por válida.
  *
  * @param {*} repNode Nodo con el campo de repetición de la contraseña
  * @param {*} passNode Nodo con el campo de al contraseña
  *
  * @returns true si al validación es correcta y false en caso contrario
  */
-function validatePassRep(repNode, passNode) {
+function validatePassword(passNode, passRepNode) {
   let result = false;
-  let errorNode = document.getElementById("passRepError");
-  let errorMsg = "";
 
-  // Comprobamos si el campo es correcto y almacenamos el mensaje de error adecuado
-  if (!repNode.value || repNode.value == "") {
-    errorMsg = "* Este campo es obligatorio y no puede estar vacío";
-  } else if (!PASSWORD.test(repNode.value)) {
-    errorMsg = "* La contraseña no cumple los requisitos";
-  } else if (passNode.value != repNode.value) {
-    errorMsg = "* Las contraseñas deben coincidir";
+  let errorPass = document.getElementById("passError");
+  let errorRep = document.getElementById("passRepError");
+  let pattern = PASSWORD;
+
+  // Comprobamos si la contraseña es correcta y cargamos los mensajes y clases adecuados.
+  if (!passNode.value || passNode.value == "" || !pattern.test(passNode.value)) {
+    setInvalid(passNode);
+    errorPass.innerHTML = "* Este campo es incorrecto.";
+  } else {
+    setValid(passNode);
+    errorPass.innerHTML = "";
   }
 
-  // Se comprueba si ha habido error y se cargan las clases y mensajes oportunos
-  if (errorMsg != "") {
-    repNode.focus();
-    repNode.classList.add("error");
-    errorNode.innerHTML = errorMsg;
+  // Por último, comprobamos si el campo donde se repite la contraseña es correcto.
+  if (passNode.value != passRepNode.value || (passNode.value == passRepNode.value && errorPass.innerHTML != "")) {
+    setInvalid(passRepNode);
+    errorRep.innerHTML = "* Este campo es incorrecto.";
   } else {
-    repNode.classList.add("valid");
-    errorNode.innerHTML = "";
+    setValid(passRepNode);
+    errorRep.innerHTML = "";
     result = true;
   }
 
   return result;
 }
+/**
+ * Función que carga las clases de un campo válido
+ *
+ * @param {*} node Nodo donde se quieren cargar las clases
+ */
+function setValid(node) {
+  node.classList.remove("error");
+  node.classList.add("valid");
+}
+
+/**
+ * Función que carga las clases de un campo erróneo
+ *
+ * @param {*} node Nodo donde se quieren cargar las clases
+ */
+function setInvalid(node) {
+  node.focus();
+  node.classList.remove("valid");
+  node.classList.add("error");
+}
+
 export { validateQueryForm, validatePlanForm };

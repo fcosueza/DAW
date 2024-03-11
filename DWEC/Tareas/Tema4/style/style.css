@@ -224,3 +224,16 @@ body {
   color: red;
   font-style: italic;
 }
+
+/*
+ * Classes para la validación en HTML5 
+ */
+
+input:invalid,
+fieldset:invalid {
+  border: 0.1rem solid red;
+}
+
+input:valid {
+  border: 0.1rem solid green;
+}

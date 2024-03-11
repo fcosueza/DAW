@@ -1,4 +1,5 @@
 import { toUpperInput, resetForm } from "./utils/formUtils.js";
+import { validatePlanForm } from "./utils/validation.js";
 
 window.onload = onPageLoad;
 
@@ -30,4 +31,30 @@ function onPageLoad() {
   }
 }
 
-function sendForm() {}
+function sendForm(event) {
+  let formNode = event.currentTarget.form;
+
+  let planName = document.getElementById("planName").value;
+  let planCode = document.getElementById("planCode").value;
+  let planType = document.querySelector("input:checked");
+  let planCountry = document.getElementById("countryPlan").value;
+
+  let result = document.getElementById("result");
+
+  event.preventDefault();
+
+  if (validatePlanForm(formNode)) {
+    result.innerHTML = `<h3 class="result__title">Formulario Correcto</h3>
+     <p class="result__para">El formulario se ha enviado correctamente, los datos son: </p>
+     <ul class="result__list">
+       <li class="result__data">Nombre del Plan: ${planName}</li>
+       <li class="result__data">Código del Plan: ${planCode}</li>
+       <li class="result__data">Tipo de Plan: ${planType.value}</li>
+       <li class="result__data">País de Ejecución: ${planCountry}</li> <br>
+       <li class="result__data">Número de Visitas: ${localStorage.visits}</li>
+     </ul> <br>`;
+  } else {
+    result.innerHTML = `<h3 class="result__title">Formulario Incorrecto</h3>
+    <p class="result__para">Los datos son incorrectos, corrija los campos indicados.</p>`;
+  }
+}
