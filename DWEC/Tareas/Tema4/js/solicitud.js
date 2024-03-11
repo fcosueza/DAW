@@ -1,4 +1,5 @@
-import * as validation from "./utils/validationHandlers.js";
+import * as validation from "./utils/validation.js";
+import { cleanForm, showPass, onFocus, resetForm } from "./utils/formUtils.js";
 
 // Definición de constantes
 const CSS_FOCUS_CLASS = "focus";
@@ -42,49 +43,28 @@ function onPageLoad() {
 
 function sendForm(event) {
   event.preventDefault();
-}
 
-/**
- * Función que reinicia el formulario borrando todos los datos introducidos.
- * Se podría haber incluido simplemente el tipo "reset" en el botón, pero como se
- * pedía hacerlo con JS se ha usado la función reset() del elemento form, que tiene el mismo efecto.
- *
- * @param {*} event Evento que llama a la función
- */
-function resetForm(event) {
-  event.currentTarget.form.reset();
-}
-/**
- * Función que cambia el tipo del elemento input para repetir el password. Para ello
- * comprueba si el evento es de tipo mousedown, en cuyo caso cambia el tipo a text, cambiándolo
- * de nuevo al tipo password cuando se deja de pulsar el botón.
- *
- * @param {*} event Evento que llama a la función
- */
-function showPass(event) {
-  let passButton = document.getElementById("pass-rep");
+  let nameField = document.getElementById("name");
+  let countryField = document.getElementById("country");
+  let passField = document.getElementById("pass");
+  let passRepField = document.getElementById("passRep");
+  let formElements = document.getElementById("form").elements;
 
-  if (event.type == "mousedown") {
-    passButton.type = "text";
+  cleanForm(document.getElementById("form"));
+
+  validation.validateName(nameField);
+  validation.validatePass(passField);
+
+  if (
+    passRepField.value == "" ||
+    passRepField.value != passField.value ||
+    !validation.PASSWORD.test(passRepField.value)
+  ) {
+    passRepField.focus();
+    passRepField.classList.add("error");
+    document.getElementById("passRepError").innerHTML = "<p>*La contraseña no se ha introducido correctamente.</p>";
   } else {
-    passButton.type = "password";
-  }
-}
-
-/**
- * Función que añade una clase al elemento que la llama, que cambia el color del
- * fondo. Según si el evento es focusin o focusout, la función añadirá o eliminará dicha
- * clase, para que solo se cambie el color del elemento cuando tiene el focus, pero no
- * cuando lo pierde.
- *
- * @param {*} event Evento que llama a la función
- */
-function onFocus(event) {
-  let currentNode = event.currentTarget;
-
-  if (event.type == "focusin") {
-    currentNode.classList.add(CSS_FOCUS_CLASS);
-  } else {
-    currentNode.classList.remove(CSS_FOCUS_CLASS);
+    passRepField.classList.add("valid");
+    document.getElementById("passRepError").innerHTML = "";
   }
 }

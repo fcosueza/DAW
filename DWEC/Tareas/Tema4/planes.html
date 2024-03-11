@@ -24,19 +24,25 @@
       </div>
 
       <div class="form__controls flex">
-        <label for="planName" class="form__label">Nombre del Plan: </label>
+        <label for="planName" class="form__label">
+          Nombre del Plan<span class="required" title="campo requerido">*</span>
+        </label>
         <input id="planName" name="planName" type="text" class="form__input" required>
       </div>
 
       <div class="form__controls flex">
-        <label for="planCode" class="form__label">Código del Plan: </label>
+        <label for="planCode" class="form__label">
+          Código del Plan<span class="required" title="campo requerido">*</span>
+        </label>
         <input id="planCode" name="planCode" type="text" class="form__input" pattern="^[a-zñçA-Zñç]\d{3,7}$" required>
       </div>
 
 
       <div class="form__controls">
         <fieldset class="form__fieldset">
-          <legend class="form__label">Seleccione el tipo de plan:</legend>
+          <legend class="form__label">
+            Seleccione el tipo de plan<span class="required" title="campo requerido">*</span>
+          </legend>
           <div>
             <input id="plan-type1" name="plan-type" type="radio" class="form__radio" required>
             <label for="plan-type1">Operaciones de campo</label>
@@ -86,7 +92,7 @@
       </div>
 
       <div class="form__controls flex">
-        <label for="country-plan">Elija un pais donde desarrollar el plan:</label>
+        <label for="country-plan">Elija un pais donde desarrollar el plan</label>
         <input id="country-plan" name="country-plan" type="text" list="countries" />
         <datalist id="countries">
           <option value="USA">Estados Unidos</option>

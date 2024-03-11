@@ -27,12 +27,15 @@
       </div>
 
       <div class="form__controls flex">
-        <label for="name" class="form__label">Nombre: </label>
+        <label for="name" class="form__label">
+          Nombre<span class="required" title="campo requerido">*</span>
+        </label>
         <input id="name" name="name" type="text" class="form__input">
+        <div id="nameError" class="errorMsg"></div>
       </div>
 
       <div class="form__controls flex">
-        <label for="country" class="form__label">Seleccione su nacionalidad: </label>
+        <label for="country" class="form__label">Seleccione su nacionalidad </label>
         <select id="country" name="country" class="form__select">
           <option value="Germany">Alemania</option>
           <option value="Spain">España</option>
@@ -43,19 +46,25 @@
       </div>
 
       <div class="form__controls flex">
-        <label for="pass" class="form__label">Contraseña: </label>
+        <label for="pass" class="form__label">
+          Contraseña<span class="required" title="campo requerido">*</span>
+        </label>
         <input id="pass" name="pass" type="password" class="form__input">
-
+        <div id="passError" class="errorMsg"></div>
       </div>
 
       <div class="form__controls flex">
-        <label for="pass-rep" class="form__label">Repita la contraseña: </label>
+        <label for="passRep" class="form__label">
+          Repita la contraseña<span class="required" title="campo requerido">*</span>
+        </label>
         <div>
-          <input id="pass-rep" name="pass-rep" type="password" class="form__input">
+          <input id="passRep" name="passRep" type="password" class="form__input">
           <button id="showpass" type="button" class="form__password" title="Mostrar contraseña">
             <i class="fa fa-eye"></i>
           </button>
         </div>
+        <div id="passRepError" class="errorMsg"></div>
+
       </div>
 
       <div class="form__buttons flex">

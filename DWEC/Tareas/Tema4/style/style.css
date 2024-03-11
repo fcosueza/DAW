@@ -200,3 +200,13 @@ body {
 .valid {
   background-color: green;
 }
+
+.required {
+  color: red;
+}
+
+.errorMsg {
+  font-size: 1.4rem;
+  color: red;
+  font-style: italic;
+}

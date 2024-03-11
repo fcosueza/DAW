@@ -14,18 +14,6 @@ function onPageLoad() {
   planName.addEventListener("input", updateValue, true);
 
   /*
-   * Vamos a usar los eventos focusin y focusout pasar saber cuando
-   * coge o pierde el focus un elemento de tipo input.
-   */
-
-  for (let i = 0; i < formElements.length; i++) {
-    if (formElements[i].type == "text") {
-      formElements[i].addEventListener("focusin", onFocus, true);
-      formElements[i].addEventListener("focusout", onFocus, true);
-    }
-  }
-
-  /*
    * Comprobamos si existe el contador en el localStorage y lo
    * incrementamos. Sino lo inicializamos.
    */
