@@ -67,7 +67,7 @@ function validatePlanForm(formNode) {
 
   let result = true;
 
-  // Comprobamos si los valores obligatorios están en blanco
+  // Comprobamos si los valores obligatorios están en blanco o son nulos.
   if (planName.value == "") {
     planName.setCustomValidity("Este campo es obligatorio.");
     result = false;
