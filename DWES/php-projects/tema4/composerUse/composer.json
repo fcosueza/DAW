@@ -1,0 +1,21 @@
+{
+    "name": "fcosueza/composer-use",
+    "description": "Ejemplo de uso de composer",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fcosueza\\ComposerUse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fco Sueza",
+            "email": "fcosueza@disroot.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog": "3.x-dev"
+    }
+}
