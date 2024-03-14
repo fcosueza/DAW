@@ -72,3 +72,7 @@
 /PROG/Tareas/Tema5/Sueza_Rodriguez_Francisco_PROG_Tarea5/build/
 /PROG/Tareas/Tema5/Sueza_Rodriguez_Francisco_PROG_Tarea5/dist/
 /DWES/php-projects/tema4/nbproject/private/
+
+# PHP and Composer folders
+
+/vendor
