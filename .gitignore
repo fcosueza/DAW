@@ -46,11 +46,14 @@
 ## VSCode Folder
 **/.vscode/
 
-
 ## Netbeans Files
 
-**/nbproject/
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 # PHP and Composer folders
-
-**/vendor/
+vendor/
