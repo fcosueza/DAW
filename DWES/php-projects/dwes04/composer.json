@@ -1,0 +1,19 @@
+{
+    "name": "dwes04/tarea4",
+    "description": "Tarea 4 de la asignatura DWES",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fcosueza\\Dwes04\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fco Sueza",
+            "email": "fcosueza@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
