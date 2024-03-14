@@ -44,35 +44,13 @@
 *.pdfsync
 
 ## VSCode Folder
-.vscode/
-/ED/Tareas/Tema 3/proyectos/Paintball_esqueleto/nbproject/private/
-/ED/Tareas/Tema 3/proyectos/Paintball_esqueleto/build/
-/ED/Tareas/Tema 4/Vehiculo/build/
-/ED/Tareas/Tema 5/ingenieriaInversa_FJS2223/nbproject/private/
-/PROG/Tareas/Tema 1/PROG01_Tarea_2023_24_Alumnado/nbproject/private/
-/PROG/Tareas/Tema 1/PROG01_Tarea_2023_24_Alumnado/build/
-/PROG/Tareas/Tema 1/Sueza_Rodriguez_Francisco_PROG01_Tarea01/nbproject/private/
-/PROG/Tareas/Tema 1/Sueza_Rodriguez_Francisco_PROG01_Tarea01/build/
-/PROG/Tareas/Tema 1/Sueza_Rodriguez_Francisco_PROG01_Tarea01/dist/
-/PROG/Ejercicios/Tema1/target/
-/PROG/Ejercicios/Tema2/target/
-/PROG/Tareas/Tema 2/PROG02_Tarea_2023_24_Alumnado/PROG02_Tarea_2023_24_Alumnado/build/
-/DWES/php-projects/tema1/nbproject/private/
-/DWES/php-projects/dwes01/nbproject/private/
-/DWES/php-projects/dwes01/ejercicio2/nbproject/private/
-/DWES/php-projects/dwes01/ejercicio3/nbproject/private/
-/DWES/php-projects/ejercicio2/nbproject/private/
-/DWES/php-projects/dwes02/nbproject/private/
-/DWES/php-projects/dwes03/cookies/nbproject/private/
-/DWES/php-projects/dwes03/ejercicio2/nbproject/private/
-/PROG/Tareas/Tema 3/PROG03_Tarea_2023_24_Alumnado/nbproject/private/
-/PROG/Tareas/Tema 3/PROG03_Tarea_2023_24_Alumnado/dist/
-/PROG/Tareas/Tema 3/Sueza_Rodriguez_Francisco_PROG03_Tarea/nbproject/private/
-/PROG/Tareas/Tema 3/Sueza_Rodriguez_Francisco_PROG03_Tarea/build/
-/PROG/Tareas/Tema5/Sueza_Rodriguez_Francisco_PROG_Tarea5/build/
-/PROG/Tareas/Tema5/Sueza_Rodriguez_Francisco_PROG_Tarea5/dist/
-/DWES/php-projects/tema4/nbproject/private/
+**/.vscode/
+
+
+## Netbeans Files
+
+**/nbproject/
 
 # PHP and Composer folders
 
-/vendor
+**/vendor/
