@@ -8,17 +8,6 @@
    * con estos, como inserciones, borrados y actualizaciones en la base de datos.
    */
   class Taller implements IGuardable {
-      /*
-       * Constante con los días de la semana.
-       *
-       * En el enunciado se nos dice que los días tienen que ser en minúsculas,
-       * pero en la base de datos están almacenados con el primer carácter en mayusculas,
-       * por lo quedebe haber una errata en el enunciado.
-       *
-       * Se han especificado como se almacenan en la base de datos.
-       */
-
-      private const DIAS_SEMANA = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
       // Atributos de la clase
 
@@ -36,7 +25,7 @@
        *
        * @return string|null Id del taller o null si no esta establecido
        */
-      public function getId(): ?string {
+      public function getId(): ?int {
           return $this->id;
       }
 
@@ -122,7 +111,7 @@
        * @return bool false si el día esta vacío o true en caso contrario
        */
       public function setDia(string $dia): bool {
-          if ($dia == "" || !in_array($dia, self::DIAS_SEMANA)) return false;
+          if ($dia == "" || !in_array($dia, \DIAS_SEMANA)) return false;
 
           $this->dia = $dia;
           return true;
@@ -161,7 +150,7 @@
        * @return string Hora de inicio del taller con el formato HH:MM:SS
        */
       public function getHoraFinal(): ?string {
-          return $this->hora_final;
+          return $this->hora_fin;
       }
 
       /**
@@ -171,14 +160,14 @@
        * @param string $hora Hora de inicio del taller
        * @return bool false si la hora es incorrecta y true en caso contrario
        */
-      public function setHoraFinal(string $hora): bool {
+      public function setHoraFin(string $hora): bool {
           $arrayHora = explode(":", $hora);
 
           if ($hora == "") return false;
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
           if ($arrayHora[1] < 0 || $arrayHora[1] > 23) return false;
 
-          $this->hora_final = date(strtotime($hora));
+          $this->hora_fin = date(strtotime($hora));
           return true;
       }
 
@@ -214,7 +203,7 @@
        * @param PDO $pdo Conexión a la base de datos.
        * @return int El número de filas afectadas o -1 si la consulta falla
        */
-      public function guardar(PDO $pdo): int {
+      public function guardar(\PDO $pdo): int {
           $result = -1;
           $data = get_object_vars($this);
 
@@ -251,11 +240,61 @@
           }
       }
 
-      public function rescatar(PDO $connection, string $id) {
-          return false;
+      /**
+       * Método de clase que buscar un taller en la base de datos y lo devuelve como un
+       * objeto de la clase Taller. Si no se ha podido ejecutar la consutla, o si
+       * no hay filas coincidentes, devuelve -1.
+       *
+       * @param PDO $pdo Conexión a la base de datos
+       * @param int $id Id del taller que se quiere rescatar
+       *
+       * @return object|int Un objecto de tipo Taller si tiene éxito y -1 en caso contrario
+       */
+      public static function rescatar(\PDO $pdo, int $id): object|int {
+          if ($pdo == null || !is_int($id)) return -1;
+
+          $sql = "SELECT id, nombre, descripcion, ubicacion, dia_semana, hora_inicio, hora_fin, cupo_maximo "
+                  . "FROM talleres WHERE id=:id";
+
+          try {
+              $query = $pdo->prepare($sql);
+              $query->setFetchMode(\PDO::FETCH_CLASS, Taller::class);
+              $query->bindParam("id", $id);
+
+              if ($query->execute()) {
+                  return $query->fetch() ? $query->fetch() : -1;
+              }
+          } catch (Exception $ex) {
+              error_log("Error: " . $ex->getMessage());
+              return -1;
+          }
       }
 
-      public function borrar(PDO $connection, string $id) {
-          return false;
+      /**
+       * Método de clase que elimina una fila de la base de datos con una id concreto.
+       *
+       * @param PDO $pdo Conexión a la base de datos
+       * @param int $id Id de la fila que se quiere eliminar
+       *
+       * @return int El número de filas afectadas o -1 en caso de error
+       */
+      public static function borrar(\PDO $pdo, int $id): int {
+          if ($pdo == null || !is_int($id)) return -1;
+
+          $sql = "DELETE FROM talleres WHERE id=:id";
+
+          try {
+              $query = $pdo->prepare($sql);
+              $query->bindParam("id", $id);
+
+              if ($query->execute()) {
+                  return $query->rowCount();
+              } else {
+                  return -1;
+              }
+          } catch (Exception $ex) {
+              error_log("Error: " . $ex->getMessage());
+              return -1;
+          }
       }
   }

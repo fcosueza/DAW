@@ -21,7 +21,7 @@
       public static function connect() {
           if (!static::$connection instanceof \PDO) {
               try {
-                  static::$connection = new \PDO(DB_DNS, DB_USER, DB_PASS, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
+                  static::$connection = new \PDO(\DB_DNS, \DB_USER, \DB_PASS, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
               } catch (\PDOException $ex) {
                   throw new \Exception("Error: " . $ex->getMessage());
               }
@@ -57,7 +57,7 @@
 
           // Comprobamos que existe la conexión a la BD
           if (!$pdo)
-              throw new \Exception("Error: No se puede conectar a la BD.");
+                  throw new \Exception("Error: No se puede conectar a la BD.");
 
 
           // Intentamos ejecutar la consulta y almacenamos el resultado según el tipo de consulta

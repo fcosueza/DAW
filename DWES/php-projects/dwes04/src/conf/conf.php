@@ -18,3 +18,15 @@
   define("TEMPLATE_DIR", "/app/templates");
   define("TEMPLATE_COMPILE_DIR", "/app/templates_build");
   define("CACHE_DIR", "/cache");
+
+  /*
+   * Constante con los días de la semana.
+   *
+   * En el enunciado se nos dice que los días tienen que ser en minúsculas,
+   * pero en la base de datos están almacenados con el primer carácter en mayusculas,
+   * por lo quedebe haber una errata en el enunciado.
+   *
+   * Se han especificado como se almacenan en la base de datos.
+   */
+
+  define("DIAS_SEMANA", array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes"));

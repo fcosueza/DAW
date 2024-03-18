@@ -8,9 +8,9 @@
    */
   interface IGuardable {
 
-      public function guardar(PDO $pdo): int;
+      public function guardar(\PDO $pdo): int;
 
-      public function rescatar(PDO $pdo, int $id): ?array;
+      public static function rescatar(\PDO $pdo, int $id): object|int;
 
-      public function borrar(PDO $pdo, int $id): int;
+      public static function borrar(\PDO $pdo, int $id): int;
   }
