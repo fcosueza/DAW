@@ -8,9 +8,9 @@
    */
   interface IGuardable {
 
-      public function guardar(PDO $connection);
+      public function guardar(PDO $connection): int;
 
-      public function rescatar(PDO $connection, Taller $id);
+      public function rescatar(PDO $connection, string $id);
 
-      public function borrar(PDO $connection, Taller $id);
+      public function borrar(PDO $connection, string $id);
   }

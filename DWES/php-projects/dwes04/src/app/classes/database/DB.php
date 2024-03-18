@@ -23,12 +23,19 @@
               try {
                   static::$connection = new \PDO(DB_DNS, DB_USER, DB_PASS, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
               } catch (\PDOException $ex) {
-                  static::$connection = false;
                   throw new \Exception("Error: " . $ex->getMessage());
               }
           }
 
           return static::$connection;
+      }
+
+      /**
+       * Método que elimina la conexión actual a la base de datos, estableciéndola
+       * al valor null.
+       */
+      public static function disconnect() {
+          static::$connection = null;
       }
 
       /**
@@ -53,6 +60,7 @@
               throw new \Exception("Error: No se puede conectar a la BD.");
 
 
+          // Intentamos ejecutar la consulta y almacenamos el resultado según el tipo de consulta
           try {
               $query = $pdo->prepare($sql);
 
@@ -68,13 +76,5 @@
           }
 
           return $result;
-      }
-
-      /**
-       * Método que elimina la conexión actual a la base de datos, estableciéndola
-       * al valor null.
-       */
-      public function closeConnection() {
-          static::$connection = null;
       }
   }
