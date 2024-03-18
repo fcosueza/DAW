@@ -2,8 +2,6 @@
 
   namespace app\classes\model;
 
-  use \app\classes\database\DB;
-
   /**
    * Clase que define el modelo de cada taller, estableciendo los atributos
    * de cada taller y definiendo el conjunto de operaciones que se pueden realizar
@@ -208,13 +206,20 @@
       }
 
       /**
+       * Método que crea o actializa un taller en la base de datos. Si la consulta
+       * se ejecuta adecuadamente el método devuelve el número de filas afectadas en la
+       * base de datos. El método devuelve -1, en caso de que se genere
+       * una excepción en el proceso de ejecución de la consulta.
        *
-       * @param PDO $pdo
-       * @return int
+       * @param PDO $pdo Conexión a la base de datos.
+       * @return int El número de filas afectadas o -1 si la consulta falla
        */
       public function guardar(PDO $pdo): int {
           $result = -1;
           $data = get_object_vars($this);
+
+          // Comprobamos que la conexión existe
+          if ($pdo == null) return $result;
 
           // Creamos la consulta SQL
           if ($this->id == null) {
@@ -227,21 +232,21 @@
                       . 'WHERE id=:id';
           }
 
-          // Ejecutamos la consulta y almacenamos el resultado
+          // Ejecutamos la consulta y devolvemos el resultado
           try {
               $query = $pdo->prepare($sql);
 
               if ($query->execute($data)) {
                   $result = $query->rowCount();
 
-                  if ($result > 0 && !isset($data['i'])) {
+                  if ($result > 0 && !isset($data['id'])) {
                       $this->id = $query->lastInsertId();
                   }
 
                   return $result;
               }
           } catch (\PDOException $ex) {
-              error_log("Error: " . $ex->getMessage());
+              error_log("Error: " . $ex->getMessage(), 0);
               return $result;
           }
       }
