@@ -115,7 +115,7 @@
       public function setDia(string $dia): bool {
           if ($dia == "" || !in_array($dia, \DIAS_SEMANA)) return false;
 
-          $this->dia = $dia;
+          $this->dia_semana = $dia;
           return true;
       }
 
@@ -220,7 +220,7 @@
                       . 'VALUES (:nombre, :descripcion, :ubicacion, :dia_semana, :hora_inicio, :hora_fin, :cupo_maximo)';
           } else {
               $sql = 'UPDATE talleres set nombre=:nombre, descripcion=:descripcion, ubicacion=:ubicacion, dia_semana=:dia_semana, '
-                      . 'hora_inicio=:hora_inicio, hora_final=:hora_final, cupo_maximo=:cupo_maximo '
+                      . 'hora_inicio=:hora_inicio, hora_fin=:hora_fin, cupo_maximo=:cupo_maximo '
                       . 'WHERE id=:id';
           }
 
@@ -231,8 +231,8 @@
               if ($query->execute($data)) {
                   $rowCount = $query->rowCount();
 
-                  if ($result > 0 && !isset($data['id'])) {
-                      $this->id = $query->lastInsertId();
+                  if ($rowCount > 0 && !isset($data['id'])) {
+                      $this->id = $pdo->lastInsertId();
                   }
 
                   return $rowCount;

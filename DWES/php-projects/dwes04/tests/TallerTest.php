@@ -3,6 +3,7 @@
   namespace tests;
 
   use app\classes\model\Taller as Taller;
+  use app\classes\database\DB as DB;
   use PHPUnit\Framework\TestCase;
 
   /**
@@ -133,7 +134,7 @@
       }
 
       // Test para establecer la hora de inicio con la hora fuera de rango
-      public function testSetHoraInicioWrongHour(): void {
+      public function testSetHoraInicioInvalidHour(): void {
           $hour = "24:00";
           $taller = new Taller;
 
@@ -141,7 +142,7 @@
       }
 
       // Test para establecer la hora de inicio con los minutos fuera de rango
-      public function testSetHoraInicioWrongMin(): void {
+      public function testSetHoraInicioInvalidMin(): void {
           $hour = "20:60";
           $taller = new Taller;
 
@@ -174,7 +175,7 @@
       }
 
       // Test para establecer la hora finalización con la hora fuera de rango
-      public function testSetHoraFinalWrongHour(): void {
+      public function testSetHoraFinalInvalidHour(): void {
           $hour = "24:00";
           $taller = new Taller;
 
@@ -182,7 +183,7 @@
       }
 
       // Test para establecer la hora de finacliación con los minutos fuera de rango
-      public function testSetHoraFinalWrongMin(): void {
+      public function testSetHoraFinalInvalidMin(): void {
           $hour = "01:60";
           $taller = new Taller;
 
@@ -196,5 +197,95 @@
 
           $taller->setHoraFinal($hour);
           $this->assertEquals($taller->getHoraFinal(), $hour);
+      }
+
+      // Test para establecer el cupo de forma correcta
+      public function testSetCupo(): void {
+          $quota = 6;
+          $taller = new Taller;
+
+          $this->assertTrue($taller->setCupo($quota));
+      }
+
+      // Test para establecer el cupo con un valor fuera de rango
+      public function testSetCupoInvalidRange(): void {
+          $quota = 1;
+          $taller = new Taller;
+
+          $this->assertFalse($taller->setCupo($quota));
+      }
+
+      // Test para guardar un taller que no existe y comprobar que se crea el Id
+      public function testGuardarInsert(): void {
+          $taller = new Taller;
+          $pdo = DB::connect();
+
+          $name = "Creación de Curriculums";
+          $descript = "Taller para la creación de currciulums laborales";
+          $place = "Sala Comun 5";
+          $day = "Lunes";
+          $hourIni = "10:50";
+          $hourEnd = "12:50";
+          $quota = 15;
+
+          $taller->setNombre($name);
+          $taller->setDescription($descript);
+          $taller->setUbicacion($place);
+          $taller->setDia($day);
+          $taller->setHoraInicio($hourIni);
+          $taller->setHoraFinal($hourEnd);
+          $taller->setCupo($quota);
+
+          $this->assertEquals($taller->guardar($pdo), 1);
+          $this->assertNotNull($taller->getId());
+      }
+
+      // Test para actualizar la información de un objeto despues de guardarlo  // Test para guardar un taller que no existe y comprobar que se crea el Id
+      public function testGuardarUpdate(): void {
+          $taller = new Taller;
+          $pdo = DB::connect();
+
+          $name = "La entrevista de trabajo";
+          $descript = "Taller con pautas para afrontar una entrevista de trabajo";
+          $place = "Auditorio 1";
+          $day = "Martes";
+          $hourIni = "12:00";
+          $hourEnd = "14:00";
+          $quota = 30;
+
+          $taller->setNombre($name);
+          $taller->setDescription($descript);
+          $taller->setUbicacion($place);
+          $taller->setDia($day);
+          $taller->setHoraInicio($hourIni);
+          $taller->setHoraFinal($hourEnd);
+          $taller->setCupo($quota);
+
+          $taller->guardar($pdo);
+          $taller->setUbicacion("Sala Común 2");
+
+          $this->assertEquals($taller->guardar($pdo), 1);
+      }
+
+      // Test para comprobar que se devuelve el código de error (-1)
+      public function testGuardarError(): void {
+          $taller = new Taller;
+          $pdo = DB::connect();
+
+          $name = "Creación de Curriculums";
+          $descript = "Taller para la creación de currciulums laborales";
+          $place = "Sala Comun 5";
+          $hourIni = "10:50";
+          $hourEnd = "12:50";
+          $quota = 15;
+
+          $taller->setNombre($name);
+          $taller->setDescription($descript);
+          $taller->setUbicacion($place);
+          $taller->setHoraInicio($hourIni);
+          $taller->setHoraFinal($hourEnd);
+          $taller->setCupo($quota);
+
+          $this->assertEquals($taller->guardar($pdo), -1);
       }
   }
