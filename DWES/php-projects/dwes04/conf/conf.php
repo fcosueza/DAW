@@ -9,14 +9,14 @@
 
   // Constantes de la base de datos
 
-  define("DB_DNS", "mysql=host:localhost;dbname=respira");
+  define("DB_DSN", "mysql:host=localhost;dbname=respira");
   define("DB_USER", "root");
   define("DB_PASS", "H0l0caust0");
 
   // Constantes para Smarty
 
-  define("TEMPLATE_DIR", "/app/templates");
-  define("TEMPLATE_COMPILE_DIR", "/app/templates_build");
+  define("TEMPLATE_DIR", "/templates");
+  define("TEMPLATE_COMPILE_DIR", "/templates_build");
   define("CACHE_DIR", "/cache");
 
   /*

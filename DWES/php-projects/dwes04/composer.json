@@ -5,8 +5,16 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "app\\": "src/"
+            "app\\": "app/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests/"
+        },
+        "files": [
+            "conf/conf.php"
+        ]
     },
     "authors": [
         {
@@ -15,7 +23,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "smarty/smarty": "5.0.x-dev"
+    "require-dev": {
+        "smarty/smarty": "5.0.x-dev",
+        "phpunit/phpunit": "10.5.x-dev",
+        "vitexsoftware/phpunit-skeleton-generator": "*"
     }
 }

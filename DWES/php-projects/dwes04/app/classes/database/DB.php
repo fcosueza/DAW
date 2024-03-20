@@ -18,10 +18,10 @@
        *
        * @throws \Exception Si ha habido algún error al realizar la conexión.
        */
-      public static function connect() {
+      public static function connect(): object {
           if (!static::$connection instanceof \PDO) {
               try {
-                  static::$connection = new \PDO(\DB_DNS, \DB_USER, \DB_PASS, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
+                  static::$connection = new \PDO(\DB_DSN, \DB_USER, \DB_PASS, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
               } catch (\PDOException $ex) {
                   throw new \Exception("Error: " . $ex->getMessage());
               }
@@ -34,7 +34,7 @@
        * Método que elimina la conexión actual a la base de datos, estableciéndola
        * al valor null.
        */
-      public static function disconnect() {
+      public static function disconnect(): void {
           static::$connection = null;
       }
 
@@ -51,7 +51,7 @@
        * @throws Exception Si la conexión no es correcta, la consulta no se ha podido
        *                   realizar o ha habido algún error en la ejecución de ésta.
        */
-      public static function exeSQL($sql, $data = []) {
+      public static function exeSQL($sql, $data = []): array|int {
           $pdo = self::connect();
           $result = false;
 

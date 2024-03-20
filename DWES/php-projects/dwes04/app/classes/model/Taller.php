@@ -204,11 +204,12 @@
        * @return int El número de filas afectadas o -1 si la consulta falla
        */
       public function guardar(\PDO $pdo): int {
-          $result = -1;
           $data = get_object_vars($this);
+          $rowCount = 0;
+          $error = -1;
 
           // Comprobamos que la conexión existe
-          if ($pdo == null) return $result;
+          if ($pdo == null) return $error;
 
           // Creamos la consulta SQL
           if ($this->id == null) {
@@ -226,17 +227,17 @@
               $query = $pdo->prepare($sql);
 
               if ($query->execute($data)) {
-                  $result = $query->rowCount();
+                  $rowCount = $query->rowCount();
 
                   if ($result > 0 && !isset($data['id'])) {
                       $this->id = $query->lastInsertId();
                   }
 
-                  return $result;
+                  return $rowCount;
               }
           } catch (\PDOException $ex) {
               error_log("Error: " . $ex->getMessage(), 0);
-              return $result;
+              return $error;
           }
       }
 
@@ -251,7 +252,9 @@
        * @return object|int Un objecto de tipo Taller si tiene éxito y -1 en caso contrario
        */
       public static function rescatar(\PDO $pdo, int $id): object|int {
-          if ($pdo == null || !is_int($id)) return -1;
+          $error = -1;
+
+          if ($pdo == null || !is_int($id)) return $error;
 
           $sql = "SELECT id, nombre, descripcion, ubicacion, dia_semana, hora_inicio, hora_fin, cupo_maximo "
                   . "FROM talleres WHERE id=:id";
@@ -262,11 +265,11 @@
               $query->bindParam("id", $id);
 
               if ($query->execute()) {
-                  return $query->fetch() ? $query->fetch() : -1;
+                  return $query->fetch() ? $query->fetch() : $error;
               }
           } catch (Exception $ex) {
               error_log("Error: " . $ex->getMessage());
-              return -1;
+              return $error;
           }
       }
 
@@ -279,7 +282,9 @@
        * @return int El número de filas afectadas o -1 en caso de error
        */
       public static function borrar(\PDO $pdo, int $id): int {
-          if ($pdo == null || !is_int($id)) return -1;
+          $error = -1;
+
+          if ($pdo == null || !is_int($id)) return $error;
 
           $sql = "DELETE FROM talleres WHERE id=:id";
 
@@ -290,11 +295,11 @@
               if ($query->execute()) {
                   return $query->rowCount();
               } else {
-                  return -1;
+                  return $error;
               }
           } catch (Exception $ex) {
               error_log("Error: " . $ex->getMessage());
-              return -1;
+              return $error;
           }
       }
   }
