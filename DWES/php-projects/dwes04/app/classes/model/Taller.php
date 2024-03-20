@@ -6,6 +6,8 @@
    * Clase que define el modelo de cada taller, estableciendo los atributos
    * de cada taller y definiendo el conjunto de operaciones que se pueden realizar
    * con estos, como inserciones, borrados y actualizaciones en la base de datos.
+   *
+   * @author Francisco Sueza Rodríguez
    */
   class Taller implements IGuardable {
 
@@ -138,9 +140,9 @@
 
           if ($hora == "") return false;
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
-          if ($arrayHora[1] < 0 || $arrayHora[1] > 23) return false;
+          if ($arrayHora[1] < 0 || $arrayHora[1] > 59) return false;
 
-          $this->hora_inicio = date(strtotime($hora));
+          $this->hora_inicio = $hora;
           return true;
       }
 
@@ -160,14 +162,14 @@
        * @param string $hora Hora de inicio del taller
        * @return bool false si la hora es incorrecta y true en caso contrario
        */
-      public function setHoraFin(string $hora): bool {
+      public function setHoraFinal(string $hora): bool {
           $arrayHora = explode(":", $hora);
 
           if ($hora == "") return false;
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
-          if ($arrayHora[1] < 0 || $arrayHora[1] > 23) return false;
+          if ($arrayHora[1] < 0 || $arrayHora[1] > 59) return false;
 
-          $this->hora_fin = date(strtotime($hora));
+          $this->hora_fin = $hora;
           return true;
       }
 
@@ -195,7 +197,7 @@
       }
 
       /**
-       * Método que crea o actializa un taller en la base de datos. Si la consulta
+       * Método que crea o actuializa un taller en la base de datos. Si la consulta
        * se ejecuta adecuadamente el método devuelve el número de filas afectadas en la
        * base de datos. El método devuelve -1, en caso de que se genere
        * una excepción en el proceso de ejecución de la consulta.
