@@ -263,11 +263,12 @@
 
           try {
               $query = $pdo->prepare($sql);
-              $query->setFetchMode(\PDO::FETCH_CLASS, Taller::class);
               $query->bindParam("id", $id);
 
+              $query->setFetchMode(\PDO::FETCH_CLASS, Taller::class);
+
               if ($query->execute()) {
-                  return $query->fetch() ? $query->fetch() : $error;
+                  return $query->rowCount() != 0 ? $query->fetch() : $error;
               }
           } catch (Exception $ex) {
               error_log("Error: " . $ex->getMessage());

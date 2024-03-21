@@ -11,6 +11,18 @@
    */
   final class TallerTest extends TestCase {
 
+      // Creamos una conexión e iniciamos una transacción antes de cada test
+      public function setUp(): void {
+          $pdo = DB::connect();
+          $pdo->beginTransaction();
+      }
+
+      // Hacemos rollBack a la transacción para que la base de datos quede inalterada
+      public function tearDown(): void {
+          $pdo = DB::connect();
+          $pdo->rollBack();
+      }
+
       // Test para obtener el id cuando no esta establecido
       public function testGetIdNull(): void {
           $taller = new Taller;
@@ -273,7 +285,7 @@
           $pdo = DB::connect();
 
           $name = "Creación de Curriculums";
-          $descript = "Taller para la creación de currciulums laborales";
+          $descript = "Taller para la creación de curriculums laborales";
           $place = "Sala Comun 5";
           $hourIni = "10:50";
           $hourEnd = "12:50";
@@ -287,5 +299,39 @@
           $taller->setCupo($quota);
 
           $this->assertEquals($taller->guardar($pdo), -1);
+      }
+
+      // Test para comprobar que se devuelve uns instancia de Taller con rescatar
+      public function testRescatar(): void {
+          $pdo = DB::connect();
+          $id = 1;
+          $result = Taller::rescatar($pdo, $id);
+
+          $this->assertInstanceOf(Taller::class, $result);
+      }
+
+      // Test para comprobar que se devuelve el código de error si no hay resultados
+      public function testRescatarError(): void {
+          $pdo = DB::connect();
+          $id = 100;
+          $result = Taller::rescatar($pdo, $id);
+
+          $this->assertEquals($result, -1);
+      }
+
+      // Test para comprobar que se elimina un taller correctamente
+      public function testBorrar(): void {
+          $pdo = DB::connect();
+          $id = 1;
+
+          $this->assertEquals(Taller::borrar($pdo, $id), 1);
+      }
+
+      // Tes para comprobar que se devuelve 0 cuando no existe la fila a eliminar
+      public function testBorrarError(): void {
+          $pdo = DB::connect();
+          $id = 30;
+
+          $this->assertEquals(Taller::borrar($pdo, $id), 0);
       }
   }
