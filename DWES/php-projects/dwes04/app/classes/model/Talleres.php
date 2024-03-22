@@ -50,10 +50,10 @@
        * @return array|int array con las instancias de Taller o -1 si ha ocurrido un error.
        */
       public static function listarPorDia(\PDO $pdo, string $dia): array|int {
-          if (!in_array(\DIAS_SEMANA, $dia)) return -1;
+          if (!in_array($dia, \DIAS_SEMANA)) return -1;
           if ($pdo == null) return -1;
 
-          $sql = "SELECT from talleres WHERE dia_semana=:dia_semana";
+          $sql = "SELECT * from talleres WHERE dia_semana=:dia_semana";
 
           try {
               $query = $pdo->prepare($sql);
@@ -68,6 +68,6 @@
               return -1;
           }
 
-          return $this->talleres;
+          return static::$talleres;
       }
   }
