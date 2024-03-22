@@ -8,7 +8,8 @@
 
         <<link rel="stylesheet" href="../../public/css/style.css" />
 
-        <title>Talleres Asociación Respira</title>
+        <title>{$title}</title>
     </head>
     <body>
+
 
