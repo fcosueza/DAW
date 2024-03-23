@@ -68,7 +68,7 @@
        * @param string $descripcion Descripción del taller.
        * @return bool false si la descripción esta vacía y true en caso contrario.
        */
-      public function setDescription(string $descripcion): bool {
+      public function setDescripcion(string $descripcion): bool {
           if ($descripcion == "") return false;
 
           $this->descripcion = $descripcion;

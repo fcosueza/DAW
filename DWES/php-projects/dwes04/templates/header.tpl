@@ -6,10 +6,9 @@
         <meta name="author" content="Francisco Sueza Rodríguez" />
         <meta name="description" content="Página con los talleres de la Asociación Respira" />
 
-        <<link rel="stylesheet" href="../../public/css/style.css" />
+        <link href="public/css/style.css" rel="stylesheet" type="text/css"/>
 
         <title>{$title}</title>
     </head>
-    <body>
-
+    <body class="flex center">
 
