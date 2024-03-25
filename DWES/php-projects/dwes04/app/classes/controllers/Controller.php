@@ -14,23 +14,24 @@
        * @param \Smarty $smarty Instancia de Smarty
        * @return int Devuelve 0 si se ha producido algún error o -1 en caso contrario
        */
-      public static function defaultController(\PDO $pdo, \Smarty $smarty): int {
+      public static function defaultController(\PDO $pdo, \Smarty $smarty): void {
           $day = "";
-          $errorMsg = "El día introducido no es correcto.";
+          $errorMsg = "Error: El día introducido no es correcto";
 
-          if (isset($_POST['day'])) {
+          if (isset($_POST['day']) && $_POST['day'] != "") {
               $day = filter_input(INPUT_POST, 'day');
 
               if (in_array($day, DIAS_SEMANA)) {
                   $talleres = Talleres::listarPorDia($pdo, $day);
               } else {
                   $talleres = Talleres::listar($pdo);
+                  $smarty->assign("error", $errorMsg);
               }
+          } else {
+              $talleres = Talleres::listar($pdo);
           }
 
           $smarty->assign("talleres", $talleres);
           $smarty->display("defaultView.tpl");
-
-          return 0;
       }
   }

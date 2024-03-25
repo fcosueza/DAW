@@ -92,7 +92,10 @@ body {
 .error {
     font-size: 1.6rem;
     font-weight: bold;
+    width: 100%;
+    text-align: left;
     color: red;
+
 }
 /*
  * Algunos estilos extra para la tabla
