@@ -88,6 +88,12 @@ body {
     border-radius: 0.5rem;
 
 }
+
+.error {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: red;
+}
 /*
  * Algunos estilos extra para la tabla
  */
