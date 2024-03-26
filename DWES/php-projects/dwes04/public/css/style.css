@@ -67,6 +67,10 @@ body {
 }
 
 .form {
+    width: 60%;
+}
+
+.searchForm {
     width: 30%;
 }
 

@@ -1,3 +1,3 @@
 <div class="error">
-    <p>{$errorMsg}</p>
+    <p><em>{$errorMsg}</em></p>
 </div>
