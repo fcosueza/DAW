@@ -11,4 +11,5 @@
         <title>{$title}</title>
     </head>
     <body class="flex center">
+        <h1 class="title">{$title}</h1>
 

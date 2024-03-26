@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-23 11:37:40
+/* Smarty version 4.3.1, created on 2024-03-26 10:35:22
   from '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_65feb0f4db82e5_96022097',
+  'unifunc' => 'content_660296da8dc758_59043189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd54ddc21a81fdb664a99fadd71f4fa7573959b7d' => 
     array (
       0 => '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/header.tpl',
-      1 => 1711190255,
+      1 => 1711445701,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65feb0f4db82e5_96022097 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660296da8dc758_59043189 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="es">
     <head>
@@ -35,6 +35,8 @@ function content_65feb0f4db82e5_96022097 (Smarty_Internal_Template $_smarty_tpl)
 </title>
     </head>
     <body class="flex center">
+        <h1 class="title"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h1>
 
 <?php }
 }

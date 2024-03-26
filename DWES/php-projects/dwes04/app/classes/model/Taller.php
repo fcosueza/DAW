@@ -169,6 +169,9 @@
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
           if ($arrayHora[1] < 0 || $arrayHora[1] > 59) return false;
 
+          // La hora de final no puede ser igual o menor que la de inicio
+          if (strtotime($this->hora_inicio) >= strtotime($hora)) return false;
+
           $this->hora_fin = $hora;
           return true;
       }
