@@ -24,9 +24,16 @@
    *
    * En el enunciado se nos dice que los días tienen que ser en minúsculas,
    * pero en la base de datos están almacenados con el primer carácter en mayusculas,
-   * por lo quedebe haber una errata en el enunciado.
+   * por lo quedebe haber una errata en el enunciado. Se ha includio un array
+   * asociativo porque así podemos usarlo también para las plantillas con smarty,
+   * y que genere automáticamente las opciones de los select.
    *
    * Se han especificado como se almacenan en la base de datos.
    */
 
-  define("DIAS_SEMANA", array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes"));
+  define("DIAS_SEMANA", array(
+      "Lunes" => "Lunes",
+      "Martes" => "Martes",
+      "Miércoles" => "Miércoles",
+      "Jueves" => "Jueves",
+      "Viernes" => "Viernes"));

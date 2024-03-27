@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 4.3.1, created on 2024-03-27 13:00:27
+  from '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/components/addTallerForm.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.1',
+  'unifunc' => 'content_66040a5b4ff958_62544500',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bc73ccfbdc6d048801b9d99699628c61253e065d' => 
+    array (
+      0 => '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/components/addTallerForm.tpl',
+      1 => 1711540819,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_66040a5b4ff958_62544500 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/vendor/smarty/smarty/libs/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
+?>
 <form  class="form flex center" action="?accion=crear_taller" method="post">
     <div class="form__header">
         <h2 class="form__title">Taller Nuevo</h2>
@@ -17,7 +42,8 @@
     <div class="form__control flex">
         <label class="form__label" for="dia">Dia de la Semana</label>
         <select class="form__select" id="dia" name="dia" required>
-            {html_options options=$options selected=$selected}
+            <?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['options']->value,'selected'=>$_smarty_tpl->tpl_vars['selected']->value),$_smarty_tpl);?>
+
         </select>
     </div>
     <div class="form__control flex">
@@ -34,4 +60,5 @@
     </div>
 
     <button class="form__button" type="submit">Enviar</button>
-</form>
+</form><?php }
+}

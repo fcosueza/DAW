@@ -15,6 +15,16 @@
   $smarty->compile_dir = __DIR__ . TEMPLATE_COMPILE_DIR;
   $smarty->cache_dir = __DIR__ . CACHE_DIR;
 
-  // Llamamos al controlador por defecto
-  Controller::defaultController($pdo, $smarty);
+  $accion = filter_input(INPUT_GET, "accion", FILTER_SANITIZE_SPECIAL_CHARS);
+
+  // Llamamos al controlar oportuno
+  if (strcmp($accion, "nuevo_taller_form") == 0) {
+      Controller::addTallerController($smarty);
+  } elseif (strcmp($accion, "crear_taller") == 0) {
+      Controller::createTallerController($pdo, $smarty);
+  } else {
+      Controller::defaultController($pdo, $smarty);
+  }
+
+
 

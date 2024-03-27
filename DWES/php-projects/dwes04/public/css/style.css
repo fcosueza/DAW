@@ -53,7 +53,7 @@ body {
     letter-spacing: 0.1rem;
     border-collapse: collapse;
     border: 0.1rem solid rgba(0, 0, 0, 0.5);
-    margin: 2rem;
+    margin: 5rem 0 2rem 0;
     box-shadow: 0.1rem 0.2rem 0.5rem 0.1rem rgba(0, 0, 0, 0.4);
 
 }
@@ -71,23 +71,49 @@ body {
 
 }
 
+
 .form {
-    width: 30%;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    border:  0.1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
+    overflow: hidden;
 }
 
-.form__add {
-    align-self: baseline;
-    margin-top: 2rem;
-    margin-left: 7%;
+.form__header {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 10rem;
+    width: 100%;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        lightblue;
+
 }
 
 
-.form__input {
+
+.form__control {
+    flex-direction: column;
+    width: 80%;
     font-size: 1.6rem;
-    width: 60%;
-    padding: 0.3rem 0.6rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
+}
 
+
+
+.form__input,
+.searchForm__input {
+    font-size: 1.6rem;
+    padding: 0.3rem 0.6rem;
+
+}
+
+.form__input,
+.form__select {
+    width: 100%;
 }
 
 .form__button {
@@ -101,6 +127,21 @@ body {
 
 }
 
+.form,
+.searchForm {
+    width: 30%;
+}
+
+.searchForm__input {
+    width: 70%;
+}
+
+.buttonForm {
+    align-self: baseline;
+    margin-top: 2rem;
+    margin-left: 7%;
+}
+
 .error {
     font-size: 1.6rem;
     font-weight: bold;
@@ -110,7 +151,7 @@ body {
 
 }
 /*
- * Algunos estilos extra para la tabla
+ * Algunos estilos extra
  */
 tbody tr:nth-child(even) {
     background-color: lightblue;
@@ -119,5 +160,6 @@ tbody tr:nth-child(even) {
 tbody td:last-child {
     text-align: center;
 }
+
 
 

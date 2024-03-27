@@ -47,7 +47,7 @@
        * @return bool false si el nombre esta vacío true en caso contrario
        */
       public function setNombre(string $nombre): bool {
-          if ($nombre == "") return false;
+          if (empty(trim($nombre))) return false;
 
           $this->nombre = $nombre;
           return true;
@@ -69,7 +69,7 @@
        * @return bool false si la descripción esta vacía y true en caso contrario.
        */
       public function setDescripcion(string $descripcion): bool {
-          if ($descripcion == "") return false;
+          if (empty(trim($descripcion))) return false;
 
           $this->descripcion = $descripcion;
           return true;
@@ -91,7 +91,7 @@
        * @return bool false si la ubicacion esta vacía o true en caso contrario.
        */
       public function setUbicacion(string $ubicacion): bool {
-          if ($ubicacion == "") return false;
+          if (empty(trim($ubicacion))) return false;
 
           $this->ubicacion = $ubicacion;
           return true;
@@ -113,7 +113,7 @@
        * @return bool false si el día esta vacío o true en caso contrario
        */
       public function setDia(string $dia): bool {
-          if ($dia == "" || !in_array($dia, \DIAS_SEMANA)) return false;
+          if (empty(trim($dia)) || !in_array($dia, \DIAS_SEMANA)) return false;
 
           $this->dia_semana = $dia;
           return true;
@@ -138,7 +138,7 @@
       public function setHoraInicio(string $hora): bool {
           $arrayHora = explode(":", $hora);
 
-          if ($hora == "") return false;
+          if (empty(trim($hora))) return false;
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
           if ($arrayHora[1] < 0 || $arrayHora[1] > 59) return false;
 
@@ -165,7 +165,7 @@
       public function setHoraFinal(string $hora): bool {
           $arrayHora = explode(":", $hora);
 
-          if ($hora == "") return false;
+          if (empty(trim($hora))) return false;
           if ($arrayHora[0] < 0 || $arrayHora[0] > 23) return false;
           if ($arrayHora[1] < 0 || $arrayHora[1] > 59) return false;
 
@@ -200,7 +200,7 @@
       }
 
       /**
-       * Método que crea o actuializa un taller en la base de datos. Si la consulta
+       * Método que crea o actualiza un taller en la base de datos. Si la consulta
        * se ejecuta adecuadamente el método devuelve el número de filas afectadas en la
        * base de datos. El método devuelve -1, en caso de que se genere
        * una excepción en el proceso de ejecución de la consulta.

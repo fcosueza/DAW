@@ -60,7 +60,7 @@
           $descript = "Taller para la realización de pruebas";
           $taller = new Taller;
 
-          $this->assertTrue($taller->setNombre($descript));
+          $this->assertTrue($taller->setDescripcion($descript));
       }
 
       // Test para establecer la descripción con una cadena vacía
@@ -68,16 +68,16 @@
           $descript = "";
           $taller = new Taller;
 
-          $this->assertFalse($taller->setNombre($descript));
+          $this->assertFalse($taller->setDescripcion($descript));
       }
 
       // Test para obtener la descripción una vez establecida
       public function testGetDescript(): void {
           $descript = "Taller para la realización de pruebas";
           $taller = new Taller;
-          $taller->setNombre($descript);
+          $taller->setDescripcion($descript);
 
-          $this->assertEquals($taller->setNombre($descript), $descript);
+          $this->assertEquals($taller->getDescripcion($descript), $descript);
       }
 
       // Test para establecer una ubicación correctamente
@@ -241,7 +241,7 @@
           $quota = 15;
 
           $taller->setNombre($name);
-          $taller->setDescription($descript);
+          $taller->setDescripcion($descript);
           $taller->setUbicacion($place);
           $taller->setDia($day);
           $taller->setHoraInicio($hourIni);
@@ -266,7 +266,7 @@
           $quota = 30;
 
           $taller->setNombre($name);
-          $taller->setDescription($descript);
+          $taller->setDescripcion($descript);
           $taller->setUbicacion($place);
           $taller->setDia($day);
           $taller->setHoraInicio($hourIni);
@@ -292,7 +292,7 @@
           $quota = 15;
 
           $taller->setNombre($name);
-          $taller->setDescription($descript);
+          $taller->setDescripcion($descript);
           $taller->setUbicacion($place);
           $taller->setHoraInicio($hourIni);
           $taller->setHoraFinal($hourEnd);
