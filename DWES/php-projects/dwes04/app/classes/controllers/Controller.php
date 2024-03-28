@@ -71,7 +71,6 @@
       public static function createTallerController(\PDO $pdo, \Smarty $smarty): void {
           $errorMsgs = array();
           $taller = new Taller;
-          $result = 0;
 
           // Variable donde mapeamos los atributos y sus métodos set
           $attriMap = array(
@@ -85,7 +84,7 @@
 
           // Comprobamos cada atributo e intentamos crear el taller
           foreach ($attriMap as $attri => $method) {
-              if (isset($_POST[$attri]) && (is_string($_POST[$attri]) || is_int($_POST[$attri]))) {
+              if (isset($_POST[$attri])) {
                   $value = filter_input(INPUT_POST, $attri, FILTER_SANITIZE_SPECIAL_CHARS);
 
                   if (!$taller->$method($value)) {
@@ -94,13 +93,14 @@
               }
           }
 
-          // Comprobamos si ha habido errores, y mostramos el ID del taller o los errores
+          // Comprobamos si ha habido errores y guardamos el taller
           if (count($errorMsgs) == 0) {
               $taller->guardar($pdo);
-              $smarty->display("createTallerResult.tpl");
+              $smarty->assign("id", $taller->getId());
           } else {
               $smarty->assign("errors", $errorMsgs);
-              $smarty->display("createTallerResult.tpl");
           }
+
+          $smarty->display("createTallerResult.tpl");
       }
   }
