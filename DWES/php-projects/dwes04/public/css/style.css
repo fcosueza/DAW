@@ -116,6 +116,10 @@ body {
     width: 100%;
 }
 
+.form__select {
+    padding-left: 0.8rem;
+}
+
 .form__button {
     font-size: 1.6rem;
     font-weight: bold;
@@ -142,13 +146,40 @@ body {
     margin-left: 7%;
 }
 
+.result {
+    width: 40%;
+    padding: 2rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.4);
+    border-radius: 2rem;
+    box-shadow: 0.1rem 0.2rem 0.5rem 0.1rem rgba(0, 0, 0, 0.4);
+
+}
+
+.result__title {
+    font-size: 3rem;
+}
+
+.result__text {
+    font-size: 1.6rem;
+    margin: 1rem 0 ;
+}
+
+.result__id {
+    text-align: center;
+    font-size: 4rem;
+    color: green;
+}
+
 .error {
     font-size: 1.6rem;
     font-weight: bold;
     width: 100%;
     text-align: left;
     color: red;
+}
 
+.errorList {
+    font-size: 1.6rem;
 }
 /*
  * Algunos estilos extra

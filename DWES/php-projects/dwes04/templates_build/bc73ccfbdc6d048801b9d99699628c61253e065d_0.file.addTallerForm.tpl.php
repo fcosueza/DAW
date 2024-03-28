@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-27 13:00:27
+/* Smarty version 4.3.1, created on 2024-03-28 10:38:02
   from '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/components/addTallerForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_66040a5b4ff958_62544500',
+  'unifunc' => 'content_66053a7ac45660_80135746',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bc73ccfbdc6d048801b9d99699628c61253e065d' => 
     array (
       0 => '/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/templates/components/addTallerForm.tpl',
-      1 => 1711540819,
+      1 => 1711618574,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66040a5b4ff958_62544500 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66053a7ac45660_80135746 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/fcosueza/Source/DAW/DWES/php-projects/dwes04/vendor/smarty/smarty/libs/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <form  class="form flex center" action="?accion=crear_taller" method="post">

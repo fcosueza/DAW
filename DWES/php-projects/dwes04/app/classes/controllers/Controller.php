@@ -101,6 +101,6 @@
               $smarty->assign("errors", $errorMsgs);
           }
 
-          $smarty->display("createTallerResult.tpl");
+          $smarty->display("resultTallerView.tpl");
       }
   }
