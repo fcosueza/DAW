@@ -3,6 +3,11 @@ package mobiliario;
 /**
  * Clase asbtracta que representa una entidad de tipo mueble.
  *
+ * Clase abstracta que sirve como base para la creación de muebles. Se encarga
+ * de almacenar el ID de cada mueble, el precio de este, comprobando que este
+ * dentro de unos limites, así como la descripción del mueble, proporcionando
+ * métodos get para obetener dicha información.
+ *
  * @author Francisco Sueza Rodríguez
  */
 public abstract class Mueble {
@@ -42,6 +47,10 @@ public abstract class Mueble {
      * precio pasado esta dentro del rango permititido y asignando un ID al
      * objeto creado. El precio introducido se redondeará a 2 digitos decimales
      * antes de almacenarlo.
+     *
+     * En caso de que el precio no este dentro del rango
+     * especifidado por MAX_PRECIO y MIN_PRECIO, se lanza una excepción de
+     * tipo IllegalArgumentException.
      *
      * @param precio Precio del mueble en euros
      * @param descripcion Cadena con la descripción detallada del mueble
@@ -94,6 +103,25 @@ public abstract class Mueble {
      */
     public String getDescripcion() {
         return this.descripcion;
+    }
+
+    /**
+     * Método que devuelve una cadena con la información del objeto.
+     *
+     * Este método devuelve una cadena formateada con la información del
+     * objeto en el formato <code>Tipo:XXX Id:YYY Precio:ZZZ,ZZ Descripción:VVV</code>
+     * donde XXX es el tipo de mueble, YYY su identificado, ZZZ.ZZ su precio con
+     * 2 decimales y VVV su descripción.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format("Tipo: %s Id: %d Precio: %f.2 Descripcion: %s",
+                this.getClass().getCanonicalName(),
+                this.muebleID,
+                this.precio,
+                this.descripcion);
     }
 
 }
