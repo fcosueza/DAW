@@ -113,7 +113,7 @@ public abstract class Mueble {
      * donde XXX es el tipo de mueble, YYY su identificado, ZZZ.ZZ su precio con
      * 2 decimales y VVV su descripción.
      *
-     * @return
+     * @return Cadena de caractéres con toda la información del objeto formateada
      */
     @Override
     public String toString() {
