@@ -27,9 +27,7 @@ public final class Silla extends Asiento implements Ajustable {
      */
     public static int MAX_POSICION = 4;
 
-    /**
-     * Posición actual de la silla.
-     */
+    // Entero con la posición actual de la silla.
     private int posicionRespaldo;
 
     /**
@@ -55,7 +53,7 @@ public final class Silla extends Asiento implements Ajustable {
      * Método que devuelve la posición de la silla.
      *
      * Implementación del método obtenerPosicion de la interfaz Ajustable. El
-     * método devuelve un enteor con la posición actual del respaldo de la silla
+     * método devuelve un entero con la posición actual del respaldo de la silla
      * que se encontrará entre los valores MIN_POSICION y MAX_POSICION.
      *
      * @return Entero con la posición actual de la silla

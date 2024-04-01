@@ -25,19 +25,13 @@ public abstract class Asiento extends Mueble {
      */
     public static final int MAX_PLAZAS = 9;
 
-    /**
-     * Número entero positivo con el número de plazas del asiento.
-     */
+    // Número entero positivo con el número de plazas del asiento.
     private final int numeroPlazas;
 
-    /**
-     * Cadena de caracteres que el tipo de tapicería del mueble.
-     */
+    // Cadena de caracteres que el tipo de tapicería del mueble.
     private String tapiceria;
 
-    /**
-     * Cadena de caracteres que representa el color del asiento.
-     */
+    // Cadena de caracteres que representa el color del asiento.
     private String color;
 
     /**
