@@ -57,7 +57,7 @@ public abstract class Mueble {
      * @throws IllegalArgumentException Se lanza si el precio no está dentro del
      * rango permitido
      */
-    public Mueble(int precio, String descripcion) throws IllegalArgumentException {
+    public Mueble(double precio, String descripcion) throws IllegalArgumentException {
         if (precio < MIN_PRECIO || precio > MAX_PRECIO) {
             throw new IllegalArgumentException(String.format("El precio no está dentro del rango permitido: %d.2", precio));
         }
@@ -78,7 +78,7 @@ public abstract class Mueble {
      * @return Valor entero con el ID del mueble
      */
     public int getId() {
-        return this.muebleID;
+        return muebleID;
     }
 
     /**
@@ -90,7 +90,7 @@ public abstract class Mueble {
      * @return Valor double con el precio del mueble
      */
     public double getPrecio() {
-        return this.precio;
+        return precio;
     }
 
     /**
@@ -102,7 +102,7 @@ public abstract class Mueble {
      * @return Cadena de carácteres con la descripción del mueble
      */
     public String getDescripcion() {
-        return this.descripcion;
+        return descripcion;
     }
 
     /**
