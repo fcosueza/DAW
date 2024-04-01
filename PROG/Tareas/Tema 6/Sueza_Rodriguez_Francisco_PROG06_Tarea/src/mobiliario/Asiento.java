@@ -9,7 +9,7 @@ package mobiliario;
  *
  * @author Francisco Sueza Rodríguez
  */
-public class Asiento extends Mueble {
+public abstract class Asiento extends Mueble {
 
     /**
      * Número minimo de plazas del asiento.
@@ -53,8 +53,9 @@ public class Asiento extends Mueble {
      * @param plazas Número de plazas del asiento
      * @param tapiceria Tipo de tapicería del asiento
      * @param color Color del asiento
+     * @throws IllegalArgumentException Si el número de plazas esta fuera de rango
      */
-    public Asiento(double precio, String descripcion, int plazas, String tapiceria, String color) {
+    public Asiento(double precio, String descripcion, int plazas, String tapiceria, String color) throws IllegalArgumentException {
         super(precio, descripcion);
 
         if (plazas < MIN_PLAZAS || plazas > MAX_PLAZAS) {
