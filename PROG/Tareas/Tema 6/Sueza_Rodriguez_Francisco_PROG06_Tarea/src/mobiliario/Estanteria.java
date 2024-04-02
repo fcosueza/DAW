@@ -40,7 +40,7 @@ public final class Estanteria extends Almacenaje {
      *
      * Este método crea una cadena formateada con información sobre la estanteria
      * donde se llama. Hace uso del método toString de la clase padre Almacenaje y añade
-     * información especifica de la estanteria, en concreto su tipo..
+     * información especifica de la estanteria, en concreto su tipo.
      *
      * @return Cadena formateada con información de la estanteria
      */
@@ -48,7 +48,7 @@ public final class Estanteria extends Almacenaje {
     public String toString() {
         String almacenString = super.toString();
 
-        return String.format("%s Tipo: %d",
+        return String.format("%s Tipo: %s",
                 almacenString,
                 this.tipoEstanteria);
     }
