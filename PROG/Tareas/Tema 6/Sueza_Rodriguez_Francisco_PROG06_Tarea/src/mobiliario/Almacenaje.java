@@ -224,8 +224,8 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
                     MIN_MODULOS));
         }
 
-        moduloExtraido = this.modulosInstalados[cantidadModulosInstalados];
-        this.modulosInstalados[cantidadModulosInstalados] = null;
+        moduloExtraido = this.modulosInstalados[cantidadModulosInstalados - 1];
+        this.modulosInstalados[cantidadModulosInstalados - 1] = null;
         this.cantidadModulosInstalados--;
 
         return moduloExtraido;
