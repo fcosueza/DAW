@@ -69,7 +69,7 @@ public abstract class Asiento extends Mueble {
      *
      * @return Entero positivo con el número de plazas del asiento
      */
-    public int getNumeroPlazas() {
+    public int getNumPlazas() {
         return numeroPlazas;
     }
 

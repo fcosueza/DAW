@@ -5,7 +5,6 @@ package mobiliario;
  * añadir a un mueble personalizable.
  *
  * @author profe
- * @author Francisco Sueza Rodríguez
  */
 public enum Modulo {
     BALDA,

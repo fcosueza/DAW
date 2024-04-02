@@ -47,6 +47,6 @@ public interface Personalizable {
      * @param modulo Elemento de tipo Modulo que queremos extraer del mueble
      * @throws IllegalStateException En caso de que el mueble se encuentre en un estado incorrecto
      */
-    public void extraerModulo(Modulo modulo) throws IllegalStateException;
+    public Modulo extraerModulo() throws IllegalStateException;
 
 }
