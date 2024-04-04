@@ -53,18 +53,28 @@ public final class Estanteria extends Almacenaje {
                 this.tipoEstanteria);
     }
 
+    /**
+     * Método que devuelve el tipo de estantería.
+     *
+     * Método que devuelve una cadena con el tipo de estantería del
+     * objeto donde se llama.
+     *
+     * @return Cadena con el tipo de estanteria
+     */
+    public String getTipo() {
+        return tipoEstanteria;
+    }
+
     @Override
     public void anyadirModulo(Modulo modulo) throws IllegalArgumentException {
+        if (modulo == null) {
+            throw new NullPointerException("El modulo a añadir no puede ser nulo.");
+        }
         if (modulo != Modulo.BALDA) {
             throw new IllegalArgumentException("Error: Las entanterias solo admiten modulos tipo BALDA");
         }
 
-        try {
-            super.anyadirModulo(modulo);
-        } catch (NullPointerException ex) {
-            throw new IllegalArgumentException(ex.getMessage());
-        } catch (IllegalStateException ex) {
-            throw new IllegalArgumentException(ex.getMessage());
-        }
+        super.anyadirModulo(modulo);
+
     }
 }

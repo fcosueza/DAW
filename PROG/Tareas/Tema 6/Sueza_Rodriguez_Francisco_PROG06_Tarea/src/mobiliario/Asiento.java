@@ -14,14 +14,14 @@ public abstract class Asiento extends Mueble {
     /**
      * Número minimo de plazas del asiento.
      *
-     * @value 1
+     * {@value}
      */
     public static final int MIN_PLAZAS = 1;
 
     /**
      * Número máximo de plazas del asiento.
      *
-     * @value 9
+     * {@value}
      */
     public static final int MAX_PLAZAS = 9;
 

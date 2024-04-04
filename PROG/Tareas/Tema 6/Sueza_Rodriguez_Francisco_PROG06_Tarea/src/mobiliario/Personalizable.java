@@ -44,8 +44,8 @@ public interface Personalizable {
      * mueble al que se le manda el mensaje. Puede devolver una excepcion dependiendo
      * de si el mueble se encuentra en un estado incorrecto.
      *
-     * @param modulo Elemento de tipo Modulo que queremos extraer del mueble
      * @throws IllegalStateException En caso de que el mueble se encuentre en un estado incorrecto
+     * @return Objeto de tipo Modulo con el modulo que se ha extraído.
      */
     public Modulo extraerModulo() throws IllegalStateException;
 

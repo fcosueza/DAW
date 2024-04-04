@@ -14,18 +14,18 @@ package mobiliario;
 public final class Silla extends Asiento implements Ajustable {
 
     /**
-     * Posicion mínima del respaldo la silla (posición por defecto).
+     * Posicion mínima del respaldo la silla (posición por defecto)
      *
-     * @value 1
+     * {@value}
      */
-    public static int MIN_POSICION = 1;
+    public final static int MIN_POSICION = 1;
 
     /**
-     * Posición máximas del respaldo de la silla.
+     * Posición máximas del respaldo de la silla
      *
-     * @value 4
+     * {@value}
      */
-    public static int MAX_POSICION = 4;
+    public final static int MAX_POSICION = 4;
 
     // Entero con la posición actual de la silla.
     private int posicionRespaldo;
@@ -46,7 +46,7 @@ public final class Silla extends Asiento implements Ajustable {
     public Silla(double precio, String descripcion, String tapiceria, String color) {
         super(precio, descripcion, Asiento.MIN_PLAZAS, tapiceria, color);
 
-        this.posicionRespaldo = MAX_POSICION;
+        this.posicionRespaldo = MIN_POSICION;
     }
 
     /**

@@ -1,6 +1,11 @@
 package mobiliario;
 
 /**
+ * Clase que define un elemento de tipo Armario.
+ *
+ * Se define la clase Armario que es un tipo de Almacenaje, que además
+ * de tener todos los atributos de un almacenaje añader los atributos para
+ * gestionar el número de puertas que puede tener.
  *
  * @author Francisco Sueza Rodríguez
  */
@@ -9,14 +14,14 @@ public final class Armario extends Almacenaje {
     /**
      * Numero mínimo de puertas que puede tener un armario.
      *
-     * @value 1
+     * {@value}
      */
     public static final int MIN_PUERTAS = 1;
 
     /**
      * Número máximo de puertas que puede tener un armario
      *
-     * @value 6
+     * {@value}
      */
     public static final int MAX_PUERTAS = 6;
 
@@ -50,6 +55,18 @@ public final class Armario extends Almacenaje {
         }
 
         this.numeroPuertas = numPuertas;
+    }
+
+    /**
+     * Método que devuelve el número de puertas.
+     *
+     * Método que devuelve el número de puertas que tiene el armario
+     * donde se llama el método.
+     *
+     * @return Entero con el número de puertas del armario
+     */
+    public int getNumPuertas() {
+        return numeroPuertas;
     }
 
     /**

@@ -18,14 +18,14 @@ public abstract class Mueble {
     /**
      * Precio mínimo que puede tener un mueble en euros
      *
-     * @value 0.01
+     * {@value}
      */
     public static final double MIN_PRECIO = 0.01;
 
     /**
      * Precio máximo que puede tener un mueble en euros
      *
-     * @value 10000.00
+     * {@value}
      */
     public static final double MAX_PRECIO = 10000.00;
 
@@ -59,7 +59,7 @@ public abstract class Mueble {
      */
     public Mueble(double precio, String descripcion) throws IllegalArgumentException {
         if (precio < MIN_PRECIO || precio > MAX_PRECIO) {
-            throw new IllegalArgumentException(String.format("El precio no está dentro del rango permitido: %d.2", precio));
+            throw new IllegalArgumentException(String.format("El precio no está dentro del rango permitido: %.2f", precio));
         }
 
         this.precio = Math.round(precio * 100) / 100;
@@ -117,7 +117,7 @@ public abstract class Mueble {
      */
     @Override
     public String toString() {
-        return String.format("Tipo: %s Id: %d Precio: %f.2 Descripcion: %s",
+        return String.format("Tipo: %s Id: %d Precio: %.2f Descripcion: %s",
                 this.getClass().getCanonicalName(),
                 this.muebleID,
                 this.precio,

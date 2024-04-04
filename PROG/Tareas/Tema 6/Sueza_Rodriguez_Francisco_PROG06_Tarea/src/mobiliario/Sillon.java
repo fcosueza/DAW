@@ -15,16 +15,16 @@ public final class Sillon extends Asiento implements Ajustable {
     /**
      * Atributo estático con el valor de la posición bajada
      *
-     * @value 0
+     * {@value}
      */
-    public static int POS_BAJADO = 0;
+    public final static int POS_BAJADO = 0;
 
     /**
      * Atributo estático con el valor de la posición subida
      *
-     * @value 1
+     * {@value}
      */
-    public static int POS_SUBIDO = 1;
+    public final static int POS_SUBIDO = 1;
 
     // Entero positivo con la posición de los pies
     private int posicionPies;

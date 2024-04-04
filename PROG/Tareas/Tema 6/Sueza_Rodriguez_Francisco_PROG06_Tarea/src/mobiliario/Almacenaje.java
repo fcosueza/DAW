@@ -19,14 +19,14 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
     /**
      * Número mínimo de modulos que debe tener un mueble
      *
-     * @value 1
+     * {@value}
      */
     public static final int MIN_MODULOS = 1;
 
     /**
      * Número máximo de modulos que puede tener un mueble
      *
-     * @value 20
+     * {@value}
      */
     public static final int MAX_MODULOS = 20;
 
@@ -127,7 +127,7 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
      *
      * @return Entero con la cantidad de modulos instalados en el mueble
      */
-    public int getModulosInstalados() {
+    public int getModulosAnyadidos() {
         return cantidadModulosInstalados;
     }
 
@@ -146,7 +146,7 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
         String parentString = super.toString();
         String modulosString = Arrays.toString(this.modulosInstalados);
 
-        return String.format("%s Anchura: %f.2 Altura: %f.2 Módulos Máximos: %d Módulos añadidos: %s",
+        return String.format("%s Anchura: %.2f Altura: %.2f Módulos Máximos: %d Módulos añadidos: %s",
                 parentString,
                 this.anchura,
                 this.altura,
