@@ -38,11 +38,9 @@ public class Ejercicio03 {
         do {
             planta = Utilidades.especiePlantaAleatoria();
 
-            if (!plantas.containsValue(planta)) {
-                plantas.put(fecha, planta);
+            if (plantas.put(fecha, planta) != null) {
                 fecha = fecha.plusDays(1);
             }
-
         } while (plantas.size() != CANTIDAD_ESPECIES_PLANTA);
 
         //----------------------------------------------
