@@ -6,13 +6,6 @@ import java.util.Set;
 /**
  * Ejercicio 1. Creando jardín botánico
  *
- * En este ejercio se van a crear dos conjuntos de elementos
- * de tipo String que representan a plantas y que se generará
- * de forma aleatoria haciendo uso de la clase Utilidades.
- *
- * Una vez creados los conjuntos, se realizarán varias operaciones
- * sobre ellos como la unión, intesercción y la diferencia.
- *
  * @author Francisco Sueza Rodríguez
  */
 public class Ejercicio01 {

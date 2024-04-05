@@ -6,7 +6,7 @@ import java.util.HashSet;
 /**
  * Ejercicio 2. Búsqueda de especies de plantas populares
  *
- * @author Profesor
+ * @author Francisco Sueza Rodríguez
  */
 public class Ejercicio02 {
 
