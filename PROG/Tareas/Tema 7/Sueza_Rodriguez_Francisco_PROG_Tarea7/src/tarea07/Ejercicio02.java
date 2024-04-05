@@ -58,7 +58,7 @@ public class Ejercicio02 {
         itLista1 = lista1.iterator();
         itLista2 = lista2.iterator();
 
-        // Recorremos las listas con los iteradores
+        // Recorremos las listas con los iteradores y comprobamos las coincidencias
         while (itLista1.hasNext() && itLista2.hasNext()) {
             String planta = itLista1.next();
 
