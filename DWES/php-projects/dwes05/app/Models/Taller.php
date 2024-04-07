@@ -10,7 +10,14 @@
       use HasFactory;
 
       protected $table = 'talleres';
-      protected $fillable = ['nombre', 'descripcion', 'dias'];
+      protected $fillable = [
+          'ubicacion_id',
+          'nombre',
+          'descripcion',
+          'dia_semana',
+          'hora_inicio',
+          'hora_fin',
+          'cupo_maximo'];
 
       /*
        * Méotodo para crear la relación uno a muchos inversa

@@ -10,19 +10,14 @@
       use HasFactory;
 
       protected $table = 'ubicaciones';
-      protected $fillable = [
-          'ubicacion_id',
-          'nombre',
-          'descripcion',
-          'dia_semana',
-          'hora_inicio',
-          'hora_fin',
-          'cupo_maximo'];
+      protected $fillable = ['nombre', 'descripcion', 'dias'];
 
-      /**
+      /*
        * Metodo para crear la relación 1 a muchos con taller
        */
+
       public function talleres() {
           return $this->hasMany(Taller::class);
       }
   }
+  
