@@ -3,6 +3,7 @@
   namespace App\Http\Controllers;
 
   use App\Models\Ubicacion;
+  use App\Models\Taller;
   use Illuminate\Http\Request;
 
   class UbicacionController extends Controller {
@@ -20,7 +21,7 @@
        * Show the form for creating a new resource.
        */
       public function create() {
-          return view('ubicaciones-create');
+          return view('ubicaciones.create');
       }
 
       /**
@@ -49,7 +50,19 @@
        * Display the specified resource.
        */
       public function show(Ubicacion $ubicacion) {
-          //
+          $talleres = $ubicacion->talleres;
+
+          /*
+           * Para poder llamar la plantilla con ubicaciones.detalleubicacion
+           * tiene que llamarse detalleubicacion.blade.php y estar dentro de un
+           * directorio llamado ubicaciones, ya el método view interpreta el .
+           * como si fuera la barra de un directorio. Me imagino que era la
+           * intención de obligar a que se llamara así, pero si hay otra forma
+           * de poder darle ese nombre a la plantilla la verdad que me gustaria saberlo,
+           * porque no he encontrado información por ningún lado.
+           *
+           */
+          return view('ubicaciones.detalleubicacion', ['ubicacion' => $ubicacion, 'talleres' => $talleres]);
       }
 
       /**

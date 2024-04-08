@@ -35,15 +35,15 @@
               $t->save();
           }
 
-          if (Taller::where('nombre', 'Uso Básico de Microsoft Office')->count() == 0) {
+          if (Taller::where('nombre', 'La Entrevista Laboral')->count() == 0) {
               $t = new Taller;
-              $t->ubicacion_id = 4;
-              $t->nombre = 'Uso Básico de Microsoft Office';
-              $t->descripcion = 'Taller donde aprenderemos a usar la suite de Microsoft';
-              $t->dia_semana = 'M';
-              $t->hora_inicio = '9:00';
+              $t->ubicacion_id = 3;
+              $t->nombre = 'La Entrevista Laboral';
+              $t->descripcion = 'Taller para preparanos al afrontar una entrevista laboral';
+              $t->dia_semana = 'J';
+              $t->hora_inicio = '11:00';
               $t->hora_fin = '12:00';
-              $t->cupo_maximo = '17';
+              $t->cupo_maximo = '20';
               $t->save();
           }
       }

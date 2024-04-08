@@ -24,7 +24,7 @@
         <div class="form__control">
             <label>Dias en los que está disponible: </label><br>
             @foreach(['L', 'M', 'X', 'J', 'V', 'S', 'D'] as $dia)
-                {{$dia}} <input type="checkbox" name="dias[]" value="{{$dia}}">
+                {{$dia}} <input class="form__check" type="checkbox" name="dias[]" value="{{$dia}}">
             @endforeach
         </div>
 

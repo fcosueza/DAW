@@ -14,10 +14,8 @@
     |
    */
 
-  // Main route
   Route::get('ubicaciones', [UbicacionController::class, 'index']);
-
   Route::get('ubicaciones/create', [UbicacionController::class, 'create']);
-
   Route::post('ubicaciones/store', [UbicacionController::class, 'store']);
+  Route::get('ubicaciones/{ubicacion}', [UbicacionController::class, 'show'])->whereNumber('ubicacion');
 

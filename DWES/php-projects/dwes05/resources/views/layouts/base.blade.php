@@ -11,7 +11,7 @@
         <title>@yield('titulo') - Asociación Respira</title>
     </head>
 
-    <body class="flex">
+    <body>
 
     <header class="flex center header">
         <form action="/ubicaciones/create" method="GET">
@@ -21,7 +21,7 @@
             <button class="button" >Lista de Ubicaciones</button>
         </form>
     </header>
-        
+
     @yield('content')
 </body>
 </html>
