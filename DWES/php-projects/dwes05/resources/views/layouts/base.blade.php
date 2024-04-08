@@ -8,12 +8,20 @@
 
         <link rel="stylesheet" href="{{asset('/assets/css/app.css')}}" />
 
-            <title>@yield('titulo') - Asociación Respira</title>
+        <title>@yield('titulo') - Asociación Respira</title>
     </head>
 
     <body class="flex">
-        <h1 class="title">@yield('titulo') - Asociación Respira</h1>
 
+    <header class="flex center header">
+        <form action="/ubicaciones/create" method="GET">
+            <button class="button">Crear Ubicación</button>
+        </form>
+        <form action="/ubicaciones" method="GET">
+            <button class="button" >Lista de Ubicaciones</button>
+        </form>
+    </header>
+        
     @yield('content')
-    </body>
+</body>
 </html>
