@@ -11,12 +11,9 @@
             <title>@yield('titulo') - Asociación Respira</title>
     </head>
 
-    <body>
+    <body class="flex">
         <h1 class="title">@yield('titulo') - Asociación Respira</h1>
 
     @yield('content')
-
-        <footer>Asociación Respira</footer>
-
     </body>
 </html>

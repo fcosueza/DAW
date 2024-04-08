@@ -65,3 +65,91 @@ body {
     padding: 0.8rem;
 
 }
+
+
+.form {
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    border:  0.1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.2rem 0.5rem 0.1rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.form__header {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 10rem;
+    width: 100%;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        lightblue;
+
+}
+
+.form__control {
+    flex-direction: column;
+    width: 80%;
+    font-size: 1.6rem;
+    margin: 1.5rem 0;
+}
+
+.form__input {
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 0.3rem 0.6rem;
+}
+
+
+
+.form__button {
+    font-size: 1.6rem;
+    font-weight: bold;
+    align-self: baseline;
+    padding: 0.5rem 1.5rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    background-color: lightblue;
+    border: 0.1rem solid rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+
+}
+
+.error__container {
+    width: 30%;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.error__title {
+    font-size: 2.2rem;
+    color: red;
+}
+
+.error__msg {
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    color: red;
+}
+
+.error__list {
+    font-size: 1.6rem;
+    list-style-type: square;
+    margin-top: 2rem;
+}
+
+/*
+ * Algunos estilos extra
+ */
+tbody tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+tbody td:last-child {
+    text-align: center;
+}

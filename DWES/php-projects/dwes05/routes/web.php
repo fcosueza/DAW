@@ -15,8 +15,9 @@
    */
 
   // Main route
-  Route::get('ubicaciones', [UbicacionController::class, 'index'])->name('ubicaciones.index');
+  Route::get('ubicaciones', [UbicacionController::class, 'index']);
 
-  Route::post('ubicaciones/store', [UbicacionController::class, 'store'])->name('ubicaciones.store');
+  Route::get('ubicaciones/create', [UbicacionController::class, 'create']);
 
-  
+  Route::post('ubicaciones/store', [UbicacionController::class, 'store']);
+

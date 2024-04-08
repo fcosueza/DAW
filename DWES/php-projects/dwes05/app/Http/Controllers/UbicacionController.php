@@ -20,7 +20,7 @@
        * Show the form for creating a new resource.
        */
       public function create() {
-
+          return view('ubicaciones-create');
       }
 
       /**
@@ -30,18 +30,19 @@
           $datosValidados = $request->validate([
               'nombre' => 'required|min:4|max:50',
               'descripcion' => 'required',
-              'dias.*' => ['required', 'distinc', 'in:L,M,X,J,V,S,D']
+              'dias' => 'required',
+              'dias.*' => ['required', 'distinct', 'in:L,M,X,J,V,S,D']
           ]);
 
-          if (Ubicacion::where($datosValidados['nombre'])->count() == 0) {
+          if (Ubicacion::where('nombre', $datosValidados['nombre'])->count() == 0) {
               $u = new Ubicacion;
               $u->nombre = $datosValidados['nombre'];
               $u->descripcion = $datosValidados['descripcion'];
-              $u->dias = implode($datosValidados['dias']);
+              $u->dias = implode(',', $datosValidados['dias']);
               $u->save();
           }
 
-          return redirect('ubicaciones.index');
+          return redirect('ubicaciones');
       }
 
       /**
