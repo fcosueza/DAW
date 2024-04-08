@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <h1 class="title">Asociación Respira</h1>
+        <h1 class="title">@yield('titulo') - Asociación Respira</h1>
 
     @yield('content')
 
@@ -20,7 +20,3 @@
 
     </body>
 </html>
-
-
-
-

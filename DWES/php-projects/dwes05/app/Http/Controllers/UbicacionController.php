@@ -20,14 +20,28 @@
        * Show the form for creating a new resource.
        */
       public function create() {
-          //
+
       }
 
       /**
        * Store a newly created resource in storage.
        */
       public function store(Request $request) {
-          //
+          $datosValidados = $request->validate([
+              'nombre' => 'required|min:4|max:50',
+              'descripcion' => 'required',
+              'dias.*' => ['required', 'distinc', 'in:L,M,X,J,V,S,D']
+          ]);
+
+          if (Ubicacion::where($datosValidados['nombre'])->count() == 0) {
+              $u = new Ubicacion;
+              $u->nombre = $datosValidados['nombre'];
+              $u->descripcion = $datosValidados['descripcion'];
+              $u->dias = implode($datosValidados['dias']);
+              $u->save();
+          }
+
+          return redirect('ubicaciones.index');
       }
 
       /**
