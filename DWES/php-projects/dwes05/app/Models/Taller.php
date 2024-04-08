@@ -23,7 +23,7 @@
        * Méotodo para crear la relación uno a muchos inversa
        */
 
-      public function ubicacion() {
+      public function ubicacion(): BelongsTo {
           return $this->belongsTo(Ubicacion::class);
       }
   }

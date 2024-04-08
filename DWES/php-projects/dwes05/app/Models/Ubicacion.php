@@ -16,7 +16,7 @@
        * Metodo para crear la relación 1 a muchos con taller
        */
 
-      public function talleres() {
+      public function talleres(): HasMany {
           return $this->hasMany(Taller::class);
       }
   }

@@ -1,0 +1,67 @@
+/* Reinicio básico CSS */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+ *  Elementos HTML y Body
+ */
+
+html {
+    font-size: 62.5%;
+    min-height: 100vh;
+}
+
+body {
+    height: 100%;
+    flex-direction: column;
+}
+
+/*
+ * Clases de utilidad
+ */
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 5rem;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.table {
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    border-collapse: collapse;
+    border: 0.1rem solid rgba(0, 0, 0, 0.5);
+    margin: 5rem auto;
+    box-shadow: 0.1rem 0.2rem 0.5rem 0.1rem rgba(0, 0, 0, 0.4);
+
+}
+
+.table__head {
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        lightblue;
+
+}
+
+.table__cell {
+    border: 0.1rem solid rgba(0, 0, 0, 0.5);
+    padding: 0.8rem;
+
+}
