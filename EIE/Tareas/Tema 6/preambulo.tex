@@ -1,0 +1,94 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%                                                                                     %
+% Short Sectioned Assignment LaTeX Template Version 1.0 (5/5/12)                      %
+% This template has been downloaded from: http://www.LaTeXTemplates.com               %
+%                                                                                     %
+% Original author:  Frits Wenneker (http://www.howtotex.com)                          %
+%                                                                                     %
+% Modified by: Fco Javier Sueza Rodríguez (fcosueza@disroot.org)                      %
+%                                                                                     %
+% Changes:                                                                            %
+%           - Document type scrarticle                                                %
+%           - Use babel-lang-spanish package and marvosym                             %
+%           - Use hyperref, enumitem and tcolorbox                                    %
+%           - Use fancyhdr package an configure it                                    %
+%           - Use Time New Roman (mathptmx), Helvetic and Courier fonts               %
+%                                                                                     %
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)        %
+%                                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+%-----------------------------------------------%
+%	              Packages                  %
+%-----------------------------------------------%
+
+\documentclass{scrarticle}
+
+% ---- Text Input/Output ----- %
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+\usepackage[indent=12pt]{parskip}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2.5cm,rmargin=2.5cm}
+
+% ---- Language ----- %
+
+\usepackage[spanish]{babel}
+\usepackage{marvosym}
+
+% ---- Another packages ---- %
+
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{graphics,graphicx}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+
+%--------------------------------------------------------------------%
+%                      Customizing Document                          %
+%--------------------------------------------------------------------%
+
+% -------------- Customize headers and footers---------------------- %
+
+\pagestyle{fancy}
+
+\fancyhead[]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+
+% Needed to get first page footer correctly
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[R]{\thepage}
+}
+
+% --------------------- Packages Configuration --------------------- %
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=magenta
+}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\graphicspath{{./images/}}
+
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\numberwithin{figure}{section} % Number figures within sections
+
+% ------------------------ New Commands ----------------------------- %
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command
