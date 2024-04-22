@@ -1,0 +1,19 @@
+;
+; BIND data file for revers fpad domain resolution
+;
+$TTL    604800
+@       IN      SOA     dns.fpad.com root.fpad.com (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN  NS      dns.fpad.com.
+@       IN  MX  10  mail.fpad.com.
+160 	IN  PTR     dns.fpad.com.
+161 	IN  PTR     mail.fpad.com.
+162 	IN  PTR     ftp.fpad.com.
+163     IN  PTR     www.fpad.com
+alumno  IN  CNAME   www
+

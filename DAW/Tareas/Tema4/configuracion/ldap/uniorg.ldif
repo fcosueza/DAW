@@ -1,0 +1,5 @@
+dn: ou=DAW,dc=distancia24,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: DAW
+description: Desarrollo de Aplicaciones Web

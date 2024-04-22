@@ -1,0 +1,12 @@
+dn: uid=fsueza,ou=DAW,dc=distancia24,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+cn: Francisco Sueza
+sn: Sueza
+loginShell: /bin/bash
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/fsueza
+gecos: Francisco SUeza
+userPassword: 123456
+mail: fsueza@distancia24.com

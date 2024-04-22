@@ -1,0 +1,6 @@
+dn: cn=Despliegue,ou=DAW,dc=distancia24,dc=com
+objectClass: top
+objectClass: posixGroup
+gidNumber: 1000
+cn: Despliegue
+description: Asignatura Despliegue de Aplicaciones
