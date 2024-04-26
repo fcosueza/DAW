@@ -76,7 +76,56 @@ En este apartado vamos a realizar alguna transformación en la composición crea
 \end{itemize}
 
 \section{Ejercicio 3: Audio}
+En este ejercicio se ha descargado una canción sin derechos de copyright. En nuestro caso, ha sido la canción \textbf{Sunset Cafe} de \textbf{La Repetición}. Esta canción esta en formato \textbf{MP3} y tiene las licencias \textbf{CC-By} y \textbf{CC-ND}.
 
+Se ha exportado la canción a dos formatos, aunque uno de ellos se ha mantenido como MP3 por el motivo que ahora vamos a explicar. Los formatos a los que se ha exportado son:
+
+\begin{itemize}
+    \item \textbf{Ogg Vorbis}: se ha elegido este formato porque con archivos con el mismo tamaño genera mayor calidad que MP3, además de que es un formato bien soportado en los navegadores.
+
+    \item \textbf{MP3}: se ha exportado el archivo a MP3. En original ya estaba en esto formato, pero al exportarlo se ha bajado un poco la calidad, para obtener un archivo que pese un poco menos. Se ha decidido mantener el formato MP3 ya que es el formato de audio digital más soportado por todos los navegadores y dispositivos, por lo que sería oportuno tener un audio en este formato como fallback, para el caso de dar con algún navegador o dispositivo que no soporte Ogg Vorbis.
+\end{itemize}
+
+\section{Ejercicio 4: Vídeo}
+En este apartado se va a realizar un vídeo explicativo sobre la extensión \textbf{rust-analyzer} de \textbf{VS Code}. Posteriormente, se realizará una composición con este vídeo con el software \textbf{Kdenlive} y se exportará a dos formatos aptos para web.
+
+En primer lugar, se ha posteado en el foro la extensión sobre la que se quiere realizar el vídeo. En un primer momento se pensó en realizarlo sobre \textbf{Emmet}, una extensión para expandir abreviaturas HTML y CSS muy útil para el desarrollo web. El problema, es que en las últimos versión de VS Code esta extensión ha dejado de existir, ya que Emmet viene incorporado por defecto, así que se decidió realizar el vídeo sobre \textbf{rust-analyzer}, una extensión que proporcionar soporte para el lenguaje de programación Rust. En la siguiente captura, podemos ver en mensaje dejado en el foro.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{foro.png}
+\end{figure}
+
+Se ha decidido, para mantener la uniformidad de licencias del proyecto, emplear la licencia \textbf{CC-Zero}, es decir, de dominio público, como el resto de imágenes y composiciones que se han realizado en esta tarea.
+
+Respecto a la \textbf{transición} utilizada, se ha empleado, en varios puntos del proyecto tanto las transiciones \textbf{fade-in} y \textbf{fade-out}, aunque la que se pedía en concreto entre la imagen de composición y el inicio del vídeo ha sido una transición \textbf{fade-in} con una duración de \textbf{4 segundos}.
+
+El vídeo se ha creado, como ya hemos comentado con \textbf{Kdenlive}, que también ha sido utilizado para su edición. En la siguiente imagen podemos ver la interfaz de Kdenlive con el proyecto finalizado.
+
+Respecto al \textbf{efecto}, se ha utilizado una \textbf{transformación} sobre el \textbf{logo del IES Aguadulce}, reduciendo su tamaño y situándola en la esquita superior izquierda, además de un \textbf{efecto de realce}, incremetando la gamma del logo. Estos efectos se pueden ver todo el tiempo que esta visible el logo, desde sel \textbf{segundo 20} al \textbf{40}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{captura-kden.png}
+\end{figure}
+
+Ya que en la captura anterior no se aprecia con claridad, se ha realizado una segunda captura mas detallada de la línea de tiempo del proyecto para que se puedan apreciar las diferentes transiciones, que podemos ver como \textbf{triángulos rojos} (fade-out) o \textbf{verdes} (fade-in) al inicio de cada segmento de vídeo. Si nos fijamos, después de la imagen de composición podemos ver el triángulo verde en el inicio del vídeo, así como el nombre del efecto aplicado al logo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.38]{captura-linea.png}
+\end{figure}
+
+
+El vídeo original se ha creado en formato \textbf{MP4}. Una vez editado, se ha exportado el proyecto a dos formatos:
+
+\begin{itemize}
+    \item \textbf{MP4}: en uno de los archivos se ha mantenido el mismo formato MP4, por lo ampliamente soportado y utilizado que ésta este formato. Además, tiene buena calidad de imagen.
+
+    \item \textbf{WebM}: es segundo formato ha sido WebM, que produce archivos de gran calidad, con tamaños reducidos usando para ello VP8 para codificación de vídeo y Ogg Vorbis para el audio.
+\end{itemize}
+
+\section{Ejercicio 6: Web}
 
 
 
