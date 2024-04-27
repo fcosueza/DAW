@@ -11,10 +11,10 @@
 /* Declaración de Variables */
 
 :root {
-  --color-main: rgb(241, 239, 239);
-  --color-secondary: rgba(25, 23, 23, 0.9);
-  --color-tertiary: rgba(204, 200, 170, 0.9);
-  --color-highlight: rgb(125, 124, 124);
+  --color-main: #F7DCB9;
+  --color-secondary: #DEAC80;
+  --color-tertiary: #B99470;
+  --color-highlight: #B5C18E;
 
 
   --color-font-main: black;
