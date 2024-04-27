@@ -20,25 +20,108 @@
     <title>DIW: Tarea 4</title>
   </head>
 
-  <body class="container">
+  <body class="flex flex--columns">
     <header class="header flex centered">
       <img class=" logo" src="../ut_04_01_img/07_logo.svg" alt="Logo de la Empresa">
       <h1 class="header__title">Multimedia: Imagen, Sonido y Vídeo</h1>
       <img class="logo" src="../ut_04_01_img/logo_ies_aguadulce.png" alt="">
     </header>
-    <nav class="nav">
+    <nav id="nav" class="nav">
       <ul class="nav__list flex">
-        <li class="nav__item"><a class="nav__link" href="#images" target="_blank" rel="noopener noreferrer">Imágenes</a></li>
+        <li class="nav__item"><a class="nav__link" href="#images" target="_blank" rel="noopener noreferrer">Imagen</a></li>
         <li class="nav__item"><a class="nav__link" href="#sound" target="_blank" rel="noopener noreferrer">Sonido</a></li>
         <li class="nav__item"><a class="nav__link" href="#video" target="_blank" rel="noopener noreferrer">Videos</a></li>
-        <li class="nav__item"><a class="nav__link" href="#footer" target="_blank" rel="noopener noreferrer">Pie de Página</a></li>
+        <li class="nav__item"><a class="nav__link" href="#footer" target="_blank" rel="noopener noreferrer">Footer</a></li>
       </ul>
     </nav>
 
     <main class="content">
-      <section id="images"></section>
-      <section id="sound"></section>
-      <section id="video"></section>
+      <section id="images" c>
+        <h2 class="content__title">Imagen</h2>
+        <hr class="hr">
+
+        <div class="gallery flex space">
+          <figure class="gallery__fig">
+            <img class="gallery__img" src="../ut_04_01_img/01_imagen.png" alt="Captura de Pantalla">
+            <figcaption class="gallery__caption">Imagen Original (Licencia: CC-Zero)</figcaption>
+          </figure>
+          <figure class="gallery__fig">
+            <img class="gallery__img" src="../ut_04_01_img/02_imagen.jpg" alt="Imagen de la Web">
+            <figcaption class="gallery__caption">Imagen Original (Licencia: CC-Zero)</figcaption>
+          </figure>
+        </div>
+
+
+        <div class="gallery flex">
+          <figure class="gallery__fig">
+            <img class="gallery__comp" src="../ut_04_01_img/04_composicion.webp" alt="Captura de Pantalla" />
+            <figcaption class="gallery__caption">Composición (Licencia: CC-Zero)</figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery flex centered">
+          <figure class="gallery__fig">
+            <picture>
+              <source media="(max-width: 1200px)" srcset="../ut_04_01_img/06_composicion_mejorada_dim_650.webp" sizes="80w">
+              <img class="gallery__comp" src="../ut_04_01_img/05_composicion_mejorada_dim_1100.webp" alt="Composición Mejorada" />
+            </picture>
+            <figcaption class="gallery__caption">Imagen Responsiva: Cambio de imagen a 1200px</figcaption>
+          </figure>
+        </div>
+
+        <div class="flex centered">
+          <a class="content__link" href="#nav">
+            <img class="content__icon" src="images/arrow.svg" alt=""> Menu Principal
+          </a>
+        </div>
+      </section>
+
+      <section id="sound">
+        <h2 class="content__title">Sonido</h2>
+        <hr class="hr">
+
+
+        <div class=" content__media flex flex--columns">
+          <img src="images/cover.jpeg" alt="">
+          <audio controls preload="metadata">
+            <source src="../ut_04_02_audio/01_audio.ogg" type="audio/ogg">
+            <source src="../ut_04_02_audio/02_audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="flex centered">
+          <a class="content__link" href="#nav">
+            <img class="content__icon" src="images/arrow.svg" alt=""> Menu Principal
+          </a>
+        </div>
+
+      </section>
+      <section id="video">
+        <h2 class="content__title">Video</h2>
+        <hr class="hr">
+
+
+        <div class=" content__media flex flex--columns">
+
+          <h3 class="content__text">
+            Rust-analyzer: Extensión de VS Code que proporcionar soporta para el lenguaje Rust
+          </h3>
+          <video id="video77" width=100% height=100% controls poster="../ut_04_01_img/04_composicion.webp" preload="metadata">
+            <source src="../ut_04_03_video/02_video.webm" type="video/webm" />
+            <source src="../ut_04_03_video/01_video.mp4" type="video/mpeg" />
+            Your browser does not support the video element.
+          </video>
+
+
+        </div>
+
+        <div class="flex centered">
+          <a class="content__link" href="#nav">
+            <img class="content__icon" src="images/arrow.svg" alt=""> Menu Principal
+          </a>
+        </div>
+      </section>
     </main>
     <footer id="footer" class="footer flex centered">
       <p class="footer__text flex">
