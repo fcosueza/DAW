@@ -31,7 +31,7 @@ html {
 body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  background-color: var(--color-tertiary);
+  background-color: var(--color-main);
 }
 
 /* Clases de Utilidad */
@@ -43,4 +43,89 @@ body {
 .centered {
   justify-content: center;
   align-items: center;
+}
+
+/* Clase grid para establecer el layout */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 6rem 20rem;
+  grid-template-areas:
+    "nav nav nav nav"
+    "header header header header"
+    "trans trans cssAnim cssAnim"
+    "canvas canvas svgAnim svgAnim"
+    "footer footer footer footer";
+}
+
+/* Elementos principales del layout */
+
+.nav {
+  position: sticky;
+  grid-area: nav;
+  background-color: var(--color-tertiary);
+  padding: 2rem;
+}
+
+.header {
+  grid-area: header;
+  background-color: var(--color-secondary);
+}
+
+.trans {
+  grid-area: trans;
+  background-color: var(--color-highlight);
+}
+
+.cssAnim {
+  grid-area: cssAnim;
+  background-color: var(--color-tertiary);
+}
+
+.canvas {
+  grid-area: canvas;
+  background-color: var(--color-secondary);
+}
+
+.svgAnim {
+  grid-area: svgAnim;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: var(--color-tertiary);
+}
+
+/* Elementos secundarios del layout */
+
+.nav__list {
+  margin: 0 auto;
+  width: 80%;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.nav__element {
+  text-align: center;
+  width: 30rem;
+  margin: 0 1rem;
+}
+
+.nav__link {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-font-seco);
+  transition: font-size .2s ease-in-out, color .2s ease-in;
+}
+
+/* Pseudo Elementos y Estado de los elementos */
+
+.nav__link:link {
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  color: var(--color-font-main);
+  font-size: 2rem;
 }
