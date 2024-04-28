@@ -50,10 +50,10 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 6rem 20rem;
+  grid-template-rows: 25rem 6rem 35rem 35rem 6rem;
   grid-template-areas:
-    "nav nav nav nav"
     "header header header header"
+    "nav nav nav nav"
     "trans trans cssAnim cssAnim"
     "canvas canvas svgAnim svgAnim"
     "footer footer footer footer";
@@ -61,35 +61,50 @@ body {
 
 /* Elementos principales del layout */
 
-.nav {
-  position: sticky;
-  grid-area: nav;
-  background-color: var(--color-tertiary);
-  padding: 2rem;
-}
 
 .header {
   grid-area: header;
-  background-color: var(--color-secondary);
+  background-color: var(--color-tertiary);
+}
+
+.nav {
+  position: sticky;
+  grid-area: nav;
+  padding: 2rem;
+  background-color: var(--color-highlight);
+}
+
+.trans,
+.cssAnim,
+.canvas,
+.svgAnim {
+  overflow: hidden;
+  padding: 3rem 0;
 }
 
 .trans {
   grid-area: trans;
-  background-color: var(--color-highlight);
+  justify-content: space-between;
+  background-color: var(--color-main);
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
 }
 
 .cssAnim {
   grid-area: cssAnim;
-  background-color: var(--color-tertiary);
+  background-color: var(--color-main);
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
 }
 
 .canvas {
   grid-area: canvas;
-  background-color: var(--color-secondary);
+  background-color: var(--color-main);
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
 }
 
 .svgAnim {
   grid-area: svgAnim;
+  background-color: var(--color-main);
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
 }
 
 .footer {
@@ -99,9 +114,28 @@ body {
 
 /* Elementos secundarios del layout */
 
+/* Cabecera */
+
+.header__title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 5rem;
+  font-weight: bold;
+  width: 20%;
+}
+
+.header__photo {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
+  margin: 3rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+}
+
+/* Menú */
+
 .nav__list {
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   list-style: none;
   justify-content: space-around;
 }
@@ -115,9 +149,60 @@ body {
 .nav__link {
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--color-font-seco);
+  color: var(--color-font-main);
   transition: font-size .2s ease-in-out, color .2s ease-in;
 }
+
+/* Transformación CSS */
+
+.trans__left,
+.trans__right {
+  height: 10rem;
+  width: 30rem;
+  justify-content: space-between;
+  border-radius: 10rem;
+  background-color: var(--color-highlight);
+  transition: transform 1s ease-in, background-color 1s ease-in;
+}
+
+.trans__left {
+  margin-left: -20rem;
+}
+
+.trans__right {
+  margin-right: -20rem;
+}
+
+.trans__cont {
+  padding: 1rem;
+  margin: 0 1.5rem;
+  background-color: var(--color-main);
+  border-radius: 10rem;
+  transition: background-color 1.1s step-end;
+}
+
+.text__left,
+.text__right {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--color-font-seco);
+  transition: color 1.1s ease-in, transform 1.1s ease-in;
+}
+
+.text__right {
+  margin-right: 8rem;
+}
+
+.text__left {
+  margin-left: 8rem;
+}
+
+.img__left,
+.img__right {
+  width: 5rem;
+  transition: transform 1s ease-in;
+}
+
 
 /* Pseudo Elementos y Estado de los elementos */
 
@@ -126,6 +211,42 @@ body {
 }
 
 .nav__link:hover {
-  color: var(--color-font-main);
+  color: var(--color-font-seco);
   font-size: 2rem;
+}
+
+.footer__text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Estado de los elementos y transformaciones */
+
+.trans__left:hover {
+  transform: translateX(15rem);
+}
+
+.trans__right:hover {
+  transform: translateX(-15rem);
+}
+
+.trans__right:hover,
+.trans__left:hover {
+  background-color: var(--color-secondary);
+}
+
+.trans__left:hover .text__left,
+.trans__right:hover .text__right {
+  color: var(--color-font-main);
+  transform: scale(1.2);
+}
+
+.trans__left:hover .trans__cont,
+.trans__right:hover .trans__cont {
+  background-color: var(--color-tertiary);
+}
+
+.trans__left:hover .trans__cont .img__left,
+.trans__right:hover .trans__cont .img__right {
+  transform: rotate(360deg);
 }
