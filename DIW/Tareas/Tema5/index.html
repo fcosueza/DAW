@@ -32,6 +32,7 @@
       <h1 class="header__title">Francisco Sueza Rodríguez</h1>
       <img class="header__photo" src="assets/images/photo.jpg" alt="Foto personal">
     </header>
+
     <div id="trans" class="trans flex centered">
       <div class="trans__left flex centered">
         <p class="text__left">User</p>
@@ -46,12 +47,35 @@
         <p class="text__right">User</p>
       </div>
     </div>
-    <div id="css" class="cssAnim"></div>
-    <div id="canvas" class="canvas"></div>
+
+    <div id="css" class="cssAnim flex centered">
+      <div class="flex controls">
+        <button id="buttonStartCSS" class="controls__button">Iniciar</button>
+        <button id="buttonPauseCSS" class="controls__button">Pausar</button>
+      </div>
+
+      <div class="battery">
+        <div id="batteryPole" class="battery__pole">
+          +
+        </div>
+        <div class="battery__body flex">
+          <div id="batteryBody" class="battery__charge"></div>
+        </div>
+      </div>
+      <p id="batteryText" class="battery__text">¡Carga Completada!</p>
+    </div>
+
+    <div id="canvas" class="canvas flex centered">
+      <canvas id="canvas__battery" width="200" height="250"></canvas>
+    </div>
+
     <div id="svg" class="svgAnim"></div>
+
     <footer class="footer flex centered ">
       <p class="footer__text">Hecho con &heartsuit; por Francisco Sueza Rodríguez</p>
     </footer>
+
+    <script type="module" src="script/main.js"></script>
   </body>
 
 </html>
