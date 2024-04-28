@@ -1,3 +1,5 @@
+import chargeCanvas from "./chargeCanvas.js";
+
 function toggleAnimation(event) {
   let currentNode = event.currentTarget;
 
@@ -9,6 +11,9 @@ function toggleAnimation(event) {
     poleNode = document.getElementById("batteryPole");
     bodyNode = document.getElementById("batteryBody");
     textNode = document.getElementById("batteryText");
+  }
+  if (currentNode.id == "buttonStartCanvas") {
+    chargeCanvas();
   }
 
   if (currentNode.id == "buttonStartCSS") {

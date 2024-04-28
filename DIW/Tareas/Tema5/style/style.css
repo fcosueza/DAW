@@ -11,10 +11,10 @@
 /* Declaración de Variables */
 
 :root {
-  --color-main: #F7DCB9;
-  --color-secondary: #DEAC80;
-  --color-tertiary: #B99470;
-  --color-highlight: #B5C18E;
+  --color-main: #E3FEF7;
+  --color-secondary: #003C43;
+  --color-tertiary: #135D66;
+  --color-highlight: #77B0AA;
 
 
   --color-font-main: black;
@@ -119,6 +119,7 @@ body {
   font-size: 5rem;
   font-weight: bold;
   width: 20%;
+  color: var(--color-font-seco);
 }
 
 .header__photo {
@@ -170,6 +171,7 @@ body {
 .footer__text {
   font-size: 2rem;
   font-weight: bold;
+  color: var(--color-font-seco);
 }
 
 /* Transformación CSS */
@@ -204,7 +206,7 @@ body {
 .text__right {
   font-size: 4rem;
   font-weight: bold;
-  color: var(--color-font-seco);
+  color: var(--color-font-main);
   transition: color 1.1s step-end, transform 1.1s ease-in;
 }
 
@@ -323,13 +325,13 @@ body {
 
 .trans__left:hover .text__left,
 .trans__right:hover .text__right {
-  color: var(--color-font-main);
+  color: var(--color-font-seco);
   transform: scale(1.2);
 }
 
 .trans__left:hover .trans__cont,
 .trans__right:hover .trans__cont {
-  background-color: var(--color-tertiary);
+  background-color: var(--color-highlight);
 }
 
 .trans__left:hover .trans__cont .img__left,
