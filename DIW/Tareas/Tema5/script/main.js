@@ -7,6 +7,8 @@ let buttonStartCanvas = document.getElementById("buttonStartCanvas");
 let canvas = document.getElementById("canvas__battery");
 let draw = canvas.getContext("2d");
 
+/* Añadimos los eventListeners */
+
 buttonStartCSS.addEventListener("click", toggleAnimation);
 buttonPauseCSS.addEventListener("click", toggleAnimation);
 buttonStartCanvas.addEventListener("click", toggleAnimation);
