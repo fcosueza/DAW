@@ -344,8 +344,44 @@ El \textbf{proceso de producción} será el siguiente:
     \item Una vez descompuesto el problema en partes más elementales se añadirán al \textbf{backlog} y se realizarán las primeras asignaciones de las tareas, siendo estas escogidas por los trabajadores en función de cuanto tiempo puede llevarles su realización.
 
     \item Se continuarán \textbf{asignando tareas} en cuanto se vayan acabando las que ya se han asignado hasta el completo desarrollo de la aplicación.
+
+    \item Una vez \textbf{acabado el proceso de desarrollo}, se realizará la presentación al cliente, y se desplegará la aplicación para que pueda ser utilizada.
 \end{enumerate}
 
+Cabe destacar algunos elementos sobre este proceso. Durante el mismo se emplearán \textbf{metodologías de desarrollo ágil}, siendo las escogidas \textbf{Scrum} y \textbf{Kanvas}, que ayudarán a un proceso de desarrollo rápido y a la entrega de productos funcionales frecuentemente.
+
+Respecto a los \textbf{medios de pago}, teniendo en cuenta el carácter de las interacciones con el cliente, que serán exclusivamente telemáticas, se \textbf{descarta el pago en efectivo}, por lo que se van a permitir otros medios de pago siendo estos: \textbf{transferencia bancaria}, \textbf{tarjeta de crédito} y \textbf{PayPal}.
+
+\subsection{Política de Calidad}
+La \textbf{calidad del software} va a ser una de nuestras señas de identificación, por lo que el proceso de calidad será parte del proceso de desarrollo y estará integrado en todas las etapas del proceso de desarrollo.
+
+Este proceso estará a cargo de \textbf{los desarrolladores} y constará de un conjunto de pruebas de software entre las que se encuentra:
+
+\begin{itemize}
+    \item \textbf{Test unitarios}: cada pieza de software deberá tener debidamente implementados los test unitarios, si es posible, antes de su implementación final, llevando a cabo una aproximación TDD (Test Driven Development) en el proceso de desarrollo.
+
+    \item \textbf{Tes de Integración}: estos test, los cuales se ejecutarán automáticamente cada vez que se actualice el repositorio, para asegurarse que las nuevas funcionalidades añadidas funcionan correctamente con el producto desarrollado hasta el momento.
+
+    \item \textbf{Test e2e}: estos test se realizarán sobre el producto desarrollado hasta el momento para poder detectar diferentes errores que puedan acontecer en al interacción de los usuarios con el producto.
+\end{itemize}
+
+Deberán usarse diferentes herramientas software para estos procesos, las cuales en parte dependerán de los lenguajes de programación que se vayan a emplear en el desarrollo de una aplicación concreta.
+
+\subsection{Organización de la Tecnologías de la Información}
+En este apartado se va a describir la infraestructura de software y hardware necesaria para el funcionamiento de la empresa. En nuestro caso, deberemos contar con una serie de elementos y tecnologías que aseguren el correcto funcionamiento, siendo estos los siguientes:
+
+\begin{itemize}
+    \item \textbf{Red Local}: se creará una red local mediante \textbf{cable UTP} y un \textbf{HUB} que conectará los equipos informáticos entre si y estos con el servidor.
+
+    \item \textbf{Red VPN}: se creará también una red VPN para que los programadoras puedan conectarse de forma segura a la red de la empresa fuera de las instalaciones, si se esta, por ejemplo, realizando teletrabajo.
+
+    \item Los equipos informáticos tendrán el \textbf{sistema operativo Linux}, que es gratuito, libre y ofrece mucha facilidad para su adaptación a los requisitos de cada programador.
+
+    \item \textbf{El servidor principal} se encargará de administrar la red, la base de datos, la realización de copias de seguridad y el repositorio de GIT. Se realizará la instalación del sistema operativo \textbf{FreeBSD} que ofrece un buen desempeño en este papel.
+\end{itemize}
+
+
+\section{El Equipo Humano}
 
 \section{Prevención de Riesgos Laborales}
 En este apartado vamos a ver la prevención de riesgos laborales que se va a aplicar al lugar de trabajo. Los programadores no ejercen una profesión catalogada de riesgo pero si hay varios riesgos laborales que les afectan y que podemos evitar.
