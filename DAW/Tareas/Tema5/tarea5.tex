@@ -39,10 +39,6 @@
 
 \newpage
 
-\listoffigures
-
-\newpage
-
 \section{Actividad 1: phpDocumentor}
 Este ejercicio relacionado con generación de documentación consistirá en los siguientes apartados :
 
@@ -59,7 +55,6 @@ Una vez descargada la versión simplemente le hemos \textbf{agregado permisos de
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{installDoc.png}
-\caption{Instalación de phpDocumentor}
 \end{figure}
 
 Actualmente, \textbf{phpDocumentor} es la aplicación más empleada para le \textbf{generación de documentación} en aplicaciones desarrolladas con PHP. Es el equivalente para PHP de \textbf{JavaDoc} para Java. Su instalación, como hemos visto, se hace de forma muy sencilla y su uso es igualmente sencillo, pudiendo ejecutarse desde la \textbf{línea de comandos}, la \textbf{interfaz web} o desde el \textbf{propio código PHP}.
@@ -108,7 +103,6 @@ En la siguiente captura, vemos la ejecución de phpDocumentor y la estructura de
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.50]{genDoc.png}
-    \caption{Generación de la documentación de phpDocumentor}
 \end{figure}
 
 Como podemos ver, se ha generado una estructura de directorios donde se almacenan diferentes elementos, en este caso que la salida ha sido en \textbf{HTML}, hay archivos de estilo CSS, archivos Javascript, etc...
@@ -118,13 +112,90 @@ En la siguiente captura, podemos ver la visualización del archivo principal de 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.40]{viewDoc.png}
-    \caption{Visualización de la documentación generada}
 \end{figure}
 
 \section{Ejercicio 2: Git y GitHub}
+Este ejercicio está relacionado con \textbf{Github}, se puede realizar en Windows, que consistirá en los siguientes apartados.
+
+\subsection{Ejercicio 2.1}
+Elabora un pequeño tutorial donde será necesario instalar git en Windows y configurarlo en tu computadora, donde se detallarán las explicaciones teóricas (¿Qué es Git? ¿Para qué sirve? ¿Última versión? etc..)y las capturas de pantallas que sean necesarias.
 
 
+\subsubsection{Solución}
+\textbf{Git} es un software de \textbf{control de versiones}  de versiones desarrollado por \textbf{Linus Torvalds} en 2005 como sustituto para Bitkeeper para el control del código del kernel de Linux. Desde entonces, se ha popularizado y es sistema de control de versiones más extendido en el desarrollo de aplicaciones.
 
+Algunas de las principales características de Git son las siguientes:
+
+\begin{itemize}
+    \item Buen \textbf{soporte} para el \textbf{desarrollo no lineal}, permitiendo la creación de ramas y su mergeado rápidamente, así como herramientas para la navegación sobre el historial de cambios.
+    \item Es un \textbf{sistema distribuido}. Cada desarrollador tiene una copia local del repositorio y los cambios se van propagando entre estos repositorios locales, agrupando los cambios en ramas y mergeándolos a la rama principal.
+    \item Los \textbf{repositorios} pueden ser \textbf{publicados} empleando protocolos existentes como \textbf{HTTP}, \textbf{HTTPS}, \textbf{FTP} o \textbf{SSH}.
+    \item Es \textbf{muy eficiente} en el \textbf{manejo de proyectos grandes}, siendo muy rápido y escalable.
+    \item Permite \textbf{autenticación criptográfica del historial} de cambios.
+\end{itemize}
+
+Actualmente, la \textbf{última versión} de Git es la \textbf{2.45.0} que fue lanzada el \textbf{29 de Abril de 2024}, y este puede ser instalados la mayoría de sistemas operativos, entre los que nos encontramos \textbf{Linux}, \textbf{Windows}, \textbf{MacOS} o \textbf{Solaris}.
+
+En nuestro caso, vamos a realizar su instalación en una \textbf{Kubuntu 22.04}, ya que Linux es uno de los sistemas operativos más empleado para el desarrollo de aplicaciones y uno de los que mejor integra Git.
+
+Para realizar la \textbf{instalación y configuración} de Git en Linux vamos a usar el gestor de paquetes \textbf{APT} para instalar la aplicación, empleando para ello el comando \textbf{\textit{apt-get install git}}, lo cual no solo nos realizará la instalación sino que nos dejará la aplicación con una configuración inicial lista para ser usada. En la siguiente captura podemos ver la ejecución de este comando en la consola de Linux.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{gitInstall.png}
+    \end{figure}
+
+
+\subsection{Ejercicio 2.2}
+Realiza la siguiente configuración:
+
+\begin{itemize}
+    \item Configura tu nombre, apellidos y cuenta de correo
+    \item Muestra la versión instalada.
+    \item Indica cuál es tu directorio de trabajo.
+\end{itemize}
+
+\subsubsection{Solución}
+Una vez realizada la instalación de Git, vamos a realizar una configuración básica y a mostrar información sobre la versión instalada y el directorio de trabajo.
+
+\begin{enumerate}
+    \item Primero vamos a configurar \textbf{nuestro usuario y correo electrónico}. Aunque se puede hacer de forma global, es recomendable hacerlo de forma local al usuario con el que vamos a usar Git. Para ello, debemos podemos crear el fichero \textbf{\textit{.gitconfig}} en nuestro \textbf{directorio Home} y añadir la información del usuario y el correo como vemos en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{gitConfig.png}
+    \end{figure}
+
+    \item A continuación, podemos emplear el comando \textbf{\textit{git --version}} para comprobar que la instalación se ha realizado correctamente y que versión es la que se instalado. En nuestro caso ha sido la \textbf{versión 2.34.1}, que no es la última versión de la aplicación ya que se ha descargado de los repositorios de Kubuntu y a veces tardan un poco en incluir las nuevas versiones en las ramas estables de la distribución.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{gitVersion.png}
+    \end{figure}
+
+    \item Ya tenemos git instalado y configurado. Ahora vamos a \textbf{crear un repositorio} en el proyecto PHP del apartado anterior. en nuestro caso el proyecto solo tiene un archivo PHP y la documentación generada con phpDocumentor.
+
+    Para crear el repositorio, usamos el comando \textbf{\textit{git init}}, que creará el repositorio git generando el directorio .git con toda la información del repositorio, como el indice, los objetos, las ramas que tiene, etc.
+
+    En la siguiente captura, podemos ver la creación del repositorio, donde además se nos muestra un \textbf{mensaje de warning}, ya que por defecto el nombre de la rama master esta configurado para que sea \textbf{master}, aunque esto no nos causara ningún problema ahora. Además podemos ver el \textbf{directorio de trabajo} donde se ha iniciado el repositorio.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{gitInit.png}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Ejercicio 2.3}
+En este apartado que se escogerá el fichero que hemos realizado en el apartado 1.2 y demostrar como funciona git en tal proyecto, por ejemplo subiendo a git todo el proyecto completo y posteriormente es necesario modificar algo para que se detecten los cambios. Es necesario realizarlo con NetBeans. Hay que darse de alta en la url \url{https://github.com/} y crear un repositorio llamado distanciadaw2324 para llevar los ficheros del proyecto php. Demostrarlo con capturas de pantalla.
+
+\subsubsection{Solución}
+En este apartado vamos a crear un repositorio en \textbf{GitHub}, y linkearlo con el que hemos creado en el punto anterior, para posteriormente subir todos los archivos del proyecto y realizar alguna modificación, para que quede constancia en el historial de commits. Los pasos que vamos a seguir son los siguientes:
+
+\begin{enumerate}
+    \item En primer lugar vamos a \textbf{crear el repositorio en GitHub}. La creación de la cuenta no se va a incluir en este punto, ya que tenemos una cuenta ya creada y funcional en la plataforma. Para crear el repositorio, desde la pantalla de \textbf{Your Repositories} en Github pulsamos en el botón \textbf{new} y nos aparecerá un formulario donde podremos introducir los datos del repositorio, como podemos ver en la siguiente captura.
+    \item
+    \item
+\end{enumerate}
 
 %\bibliographystyle{unsrt}
 
