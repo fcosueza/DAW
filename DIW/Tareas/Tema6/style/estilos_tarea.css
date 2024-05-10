@@ -100,6 +100,7 @@ button {
         "visual action"
         "visual action";
     align-content: center;
+    opacity: 1;
 
 }
 
@@ -223,6 +224,7 @@ button {
     justify-content: center;
     align-items: center;
     min-height: 15rem;
+    opacity: 1;
 
 }
 
@@ -309,3 +311,10 @@ button {
 /* Añade aquí tus estilos */
 /* --------------------------------------------------------*/
 /* --------------------------------------------------------*/
+
+
+/* Clase para las miniaturas seleccionadas */
+.img_miniaturas--selected {
+    transform: scale(1.1);
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+}
