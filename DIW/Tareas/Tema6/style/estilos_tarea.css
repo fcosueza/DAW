@@ -1,126 +1,150 @@
-
 /* Inicializacion */
-* { box-sizing: border-box;
-    margin: none;  
+* {
+    box-sizing: border-box;
+    margin: none;
 }
 
-body{
-     /* Definimos el contenedor principal como un grid */ 
-     display: grid;
-     /* Definimos la separación entre cada una de las zonas */
-     grid-gap: 5px;
-     /* Definimos el número de filas y columnas que conforman nuestra maqueta*/
-     grid-template-columns: 65% 35%;
-     grid-template-rows: 200px, auto ,auto, 100px;
-     
-     /* Definimos mediante areas nuestra maqueta*/
-     grid-template-areas:
-         "header nav"
-         "imagen imagen"
-         "texto texto"
-         "footer footer"; 
-      justify-content: center;
-   
-    }
+body {
+    /* Definimos el contenedor principal como un grid */
+    display: grid;
+    /* Definimos la separación entre cada una de las zonas */
+    grid-gap: 5px;
+    /* Definimos el número de filas y columnas que conforman nuestra maqueta*/
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 200px, auto, auto, 100px;
 
-/* Asignamos cada una de las areas definidas en el grid a un elemento del HTML */   
-header{grid-area:header;}
-.contenedor_imagen{grid-area:imagen;}
-.contenedor_texto{grid-area:texto;}
-footer{grid-area:footer;}
+    /* Definimos mediante areas nuestra maqueta*/
+    grid-template-areas:
+        "header nav"
+        "imagen imagen"
+        "texto texto"
+        "footer footer";
+    justify-content: center;
+
+}
+
+/* Asignamos cada una de las areas definidas en el grid a un elemento del HTML */
+header {
+    grid-area: header;
+}
+
+.contenedor_imagen {
+    grid-area: imagen;
+}
+
+.contenedor_texto {
+    grid-area: texto;
+}
+
+footer {
+    grid-area: footer;
+}
 
 /*Definiemos el borde de la cabecera, navegación y pie, y centramos todos los elementos tanto vertical como horizontalmente*/
- header,nav,footer { 
-     border: 2px solid black;
-     display: flex;
-     align-items: center;
-     justify-content: space-around;
- }
+header,
+nav,
+footer {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 /* Definimos dos secciones para la zona de texto y la zona de image */
-section{
+section {
     border: 2px solid black;
-    justify-content:center; 
+    justify-content: center;
     margin: 5px;
-   
-} 
+
+}
+
 /* Definimos una estructura de grid para la parte de de las imágenes */
 
 /* Ponemos borde redondeado a todos los div */
-div{
+div {
     border: 2px solid black;
     border-radius: 10px;
-    margin:10px;
+    margin: 10px;
 }
 
-button{
+button {
     width: 50%;
     border: 2px solid black;
-    border-radius: 10px; 
-    padding:5px 0px;   
-    margin:5px; 
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 5px;
     background-color: pink;
 }
 
 
-.logo_cabecera{ 
-    width:4rem;
+.logo_cabecera {
+    width: 4rem;
     border-radius: 50%;
-    border:blue double;
-    padding:5px;
+    border: blue double;
+    padding: 5px;
+    opacity: 1;
 }
 
-.contenedor_imagen{
-/* Definimos el contenedor como un grid */ 
+.contenedor_imagen {
+    /* Definimos el contenedor como un grid */
     display: grid;
-/* Definimos la separación entre cada una de las zonas */
+    /* Definimos la separación entre cada una de las zonas */
     grid-gap: 5px;
-/* Definimos el número de filas y columnas que conforman la zona*/
-grid-template-columns: 50% 50%;
-grid-template-rows: auto auto auto;
-     
-/* Definimos mediante areas nuestra zona*/
-grid-template-areas:
-    "visual mini"
-    "visual action"
-    "visual action";  
+    /* Definimos el número de filas y columnas que conforman la zona*/
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+
+    /* Definimos mediante areas nuestra zona*/
+    grid-template-areas:
+        "visual mini"
+        "visual action"
+        "visual action";
     align-content: center;
 
 }
 
-.contenedor_imagen>div{
-    margin:5px;
+.contenedor_imagen > div {
+    margin: 5px;
 }
-/* Asignamos cada una de las areas definidas en el grid a un elemento del HTML */   
-.visual_img{grid-area:visual;}
-.miniaturas{grid-area:mini;}
-.action_img{grid-area:action;}
+
+/* Asignamos cada una de las areas definidas en el grid a un elemento del HTML */
+.visual_img {
+    grid-area: visual;
+}
+
+.miniaturas {
+    grid-area: mini;
+}
+
+.action_img {
+    grid-area: action;
+}
 
 
 
 /*Definimos la zona de visualización de las imágenes grandes (3)*/
-.visual_img{
+.visual_img {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     background-color: gray;
 }
 
 /*Definimos la zona de visualización de las imágenes*/
-.div_img_grande{
-    display:flex;
+.div_img_grande {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 10rem;
     height: 10rem;
     background-color: white;
-    margin:10px 0px;
+    margin: 10px 0;
 }
 
-.div_img_grande img{
+.div_img_grande img {
     object-fit: cover;
-    width:100%;
+    width: 100%;
 }
 
 
@@ -132,28 +156,28 @@ grid-template-areas:
 }
 
 /* Definimos las imágenes de las miniaturas */
-.img_miniaturas{
-    border:2px solid black;
+.img_miniaturas {
+    border: 2px solid black;
     height: auto;
     width: 4rem;
     border-radius: 10px;
-    margin:10px;
+    margin: 10px;
     padding: 5px;
 }
 
 /*Definimos la zona de opciones sobre la imagen*/
-.action_img{
+.action_img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
 }
 
 /* Ponemos estilos a todos los div dentro de las opciones de imágenes */
-.action_img>div {
-    margin:5px 5px;
+.action_img > div {
+    margin: 5px 5px;
     width: 90%;
-    min-height:16rem;
+    min-height: 16rem;
     display: flex;
 
 }
@@ -165,61 +189,63 @@ grid-template-areas:
     justify-content: center;
 }
 
-.menu_img>div {
-    margin-left:10px;
+.menu_img > div {
+    margin-left: 10px;
     border: none;
 }
 
 
 /* Estilos de la zona de orígenes de la imagen */
-.origen_img{
+.origen_img {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-   
+
 }
-.origen_img>div{
-    width:90%;
+
+.origen_img > div {
+    width: 90%;
     height: 90%;
-    border:2px solid black;
+    border: 2px solid black;
 }
 
 
-.menu_img > *, .origen_img > *{
+.menu_img > *,
+.origen_img > * {
     margin: 2%;
 }
 
 
 /* Maquetación  contenedor de texto*/
-.contenedor_texto{
-    display:flex;
+.contenedor_texto {
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height:15rem;
-    
-}    
+    min-height: 15rem;
 
-.contenedor_texto>div{
-    height:90%;
-    margin:2px;
+}
+
+.contenedor_texto > div {
+    height: 90%;
+    margin: 2px;
     min-height: 14rem;
 }
 
 /* Se definen estilos de la zona de texto*/
 
 /* Texto visualizado */
-.visual_txt{
-    width:50%;
-	display:flex;
-	justify-content:center;
-	align-items:center;
+.visual_txt {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-}    
+}
 
 /* Acciones sobre el texto */
 .action_txt {
-    width:22%;
+    width: 22%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -227,54 +253,54 @@ grid-template-areas:
 }
 
 /* Eliminamos los bordes de los div de los campos */
-.action_txt>div {
-    border:none;
+.action_txt > div {
+    border: none;
 }
 
 /* Historial del texto */
 #historial {
-    width:30%;
+    width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    text-align: center;
     max-height: 10rem;
     text-align: left;
-    padding:0px 10px;
+    padding: 0 10px;
 }
 
 
 /* Estilos para los campos relacionados con el texto */
-.fuente{
-    margin: 5px 0px;
+.fuente {
+    margin: 5px 0;
 }
 
 /*Alineación del texto*/
-.visualizacion_txt { 
-     display: flex; 
-     flex-direction: column;
-     text-align: justify; 
-     align-items: center;  
-} 
+.visualizacion_txt {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
+}
 
-.velocidad,.fuente{
-    width:90%;
-    border:none;
+.velocidad,
+.fuente {
+    width: 90%;
+    border: none;
     text-align: center;
-    margin:5px;
+    margin: 5px;
 }
 
 
-.separador{
-    font-size:20px;
+.separador {
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    color:blue;
+    color: blue;
 }
 
-#historial{
+#historial {
     overflow-y: scroll;
-    overflow-y:scroll;
+    overflow-x: scroll;
 }
 
 
