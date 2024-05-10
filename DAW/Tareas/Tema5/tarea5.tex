@@ -189,12 +189,62 @@ Una vez realizada la instalación de Git, vamos a realizar una configuración b�
 En este apartado que se escogerá el fichero que hemos realizado en el apartado 1.2 y demostrar como funciona git en tal proyecto, por ejemplo subiendo a git todo el proyecto completo y posteriormente es necesario modificar algo para que se detecten los cambios. Es necesario realizarlo con NetBeans. Hay que darse de alta en la url \url{https://github.com/} y crear un repositorio llamado distanciadaw2324 para llevar los ficheros del proyecto php. Demostrarlo con capturas de pantalla.
 
 \subsubsection{Solución}
-En este apartado vamos a crear un repositorio en \textbf{GitHub}, y linkearlo con el que hemos creado en el punto anterior, para posteriormente subir todos los archivos del proyecto y realizar alguna modificación, para que quede constancia en el historial de commits. Los pasos que vamos a seguir son los siguientes:
+En este apartado vamos a crear un repositorio en \textbf{GitHub}, y linkearlo con el que hemos creado en el punto anterior, para posteriormente subir todos los archivos del proyecto y realizar alguna modificación.
 
 \begin{enumerate}
     \item En primer lugar vamos a \textbf{crear el repositorio en GitHub}. La creación de la cuenta no se va a incluir en este punto, ya que tenemos una cuenta ya creada y funcional en la plataforma. Para crear el repositorio, desde la pantalla de \textbf{Your Repositories} en Github pulsamos en el botón \textbf{new} y nos aparecerá un formulario donde podremos introducir los datos del repositorio, como podemos ver en la siguiente captura.
-    \item
-    \item
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.296]{githubNew.png}
+    \end{figure}
+
+    \item Una vez que hemos creado el repositorio en Github, vamos a \textbf{añadir} los cambios iniciales del repositorio que creamos en de forma local, mediante los comandos \textbf{\textit{git add -A}}, que añade todos los cambios realizados a la cabecera, en este caso, los archivos que ya estaban en el directorio que hemos creado, y a continuación realizar el commit con \textbf{\textit{git commit -m}}, para añadir finalmente los cambios, como vemos en la siguiente captura.
+
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{githubLocal.png}
+    \end{figure}
+
+    \item Una vez que tenemos nuestro repositorio local al día, vamos a enlazar nuestro repositorio local con el repositorio creado en GitHub. Para ello, vamos a usar el comando \textbf{\textit{git remote add origin git@github.com:fcosueza/distanciadaw2324.git}}, y después los comandos \textbf{\textit{git branch -M main}}, para establecer la rama principal y \textbf{\textit{git push -u origin main}} para subir los cambios al servidor de GitHub.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.40]{githubLink.png}
+    \end{figure}
+
+    Como podemos ver en la siguiente captura, nuestro repositorio de Github se ha actualizado con los archivos que teníamos en nuestro repositorio local.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.32]{githubUpdate.png}
+    \end{figure}
+
+    \item En el siguiente paso, vamos a \textbf{modificar el código} del archivo PHP que tenemos en el repositorio, cambiando el nombre que le pasamos como parámetro a la función \textbf{generarMensaje}, como podemos ver en la siguiente captura.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{githubChange.png}
+    \end{figure}
+
+     \item Ahora debemos actualizar el repositorio, para ellos, usaremos los comandos \textbf{\textit{git add -A}}, para añadir los cambios al stage, el comando \textbf{\textit{git commit -m}} para añadir los cambios al repositorio local, y por último \textbf{git push}, para enviar los cambios al repositorio remoto. En la siguiente captura, vemos la sucesión de comandos.
+
+     Como vemos, no hace falta indicar en el comando push el origen ni la rama ya que hemos establecido por defecto que se suba a la rama master \textbf{main}. Si no fuera el caso, deberíamos especificarlo en cada ejecución del comando push, o en el caso de que tuviéramos varias ramas y quisiéramos actualizar una concreta.
+
+         \begin{figure}[H]
+         \centering
+         \includegraphics[scale=0.45]{githunPush.png}
+     \end{figure}
+
+    \item Una vez realizado esto, nuestro repositorio de GitHub estará actualizado y todos nuestros archivos se habrán modificado. En la siguiente captura podemos ver el historial de modificaciones y los commits que se han realizado en el repositorio.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.45]{gitCommi.png}
+    \end{figure}
+
+
+    \item Por último, si queremos, podemos visitar el repositorio creado de GitHub en el siguiente enlace: \url{https://github.com/fcosueza/distanciadaw2324}.
 \end{enumerate}
 
 %\bibliographystyle{unsrt}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maqueta Tarea 06</title>
+
+        <link rel="stylesheet" href="style/estilos_tarea.css" media="screen">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Cabecera -->
+        <header>
+
+            <img class="logo_cabecera" src="images/pel_ani_01.png" alt="">
+
+            <h1>TAREA 06</h1>
+
+        </header>
+
+        <!-- Zona de navegación -->
+        <nav>
+            <fieldset class="menu">
+                <legend>Paneles visibles</legend>
+                <label for="imagen"><input type="checkbox" value="img" name="imagenes" id="imagen">Zona de Imagen</label>
+                <label for="texto"><input type="checkbox" value="txt" name="texto" id="texto">Zona de Texto </label>
+            </fieldset>
+
+            <button id="inicializar" class="boton" type="reset">Inicializar</button>
+        </nav>
+
+        <!--  --------------------------------------------------- -->
+        <!-- Zona contenedor de imagen -->
+        <!--  --------------------------------------------------- -->
+        <section class="contenedor_imagen">
+
+
+            <!--  --------------------------------------------------- -->
+            <!-- Composición de imágenes -->
+            <!--  --------------------------------------------------- -->
+
+
+            <div class="visual_img">
+                <div class="div_img_grande">
+                    <img id="img_1" class="img_grande" src="images/logo_ies_aguadulce.png" alt="Logotipo del IES AGUADULCE">
+                </div>
+                <div class="div_img_grande">
+
+                    <img id="img_1" class="img_grande" src="images/logo_ies_aguadulce.png" alt="Logotipo del IES AGUADULCE">
+                </div>
+                <div class="div_img_grande">
+                    <img id="img_1" class="img_grande" src="images/logo_ies_aguadulce.png" alt="Logotipo del IES AGUADULCE">
+                </div>
+
+            </div>
+
+            <!--  --------------------------------------------------- -->
+            <!-- Miniaturas -->
+            <!--  --------------------------------------------------- -->
+
+            <div class="miniaturas">
+                <img id="mini1" class="img_miniaturas" src="images/pel_ani_01.png" alt="Imagen de la cabeza de una chica">
+
+            </div>
+
+
+            <!--  --------------------------------------------------- -->
+            <!-- Opciones e historia -->
+            <!--  --------------------------------------------------- -->
+
+
+            <div class="action_img">
+                <!--  --------------------------------------------------- -->
+                <!-- Contenedor opciones de imagenes -->
+                <!--  --------------------------------------------------- -->
+
+                <div class="menu_img">
+                    <!-- Cada opción de menú se introduce dentro de un div -->
+                    <!-- Origen de las imágenes -->
+                    <p class="separador"> Sobre el panel de imágenes</p>
+                    <div>
+                        <p>Seleccione disposición de las imágenes:</p>
+                        <input type="radio" id="horizontal" name="alineacion" value="1">
+                        <label for="horizontal">Horizontal</label><br>
+                        <input type="radio" id="vertical" name="alineacion" value="2">
+                        <label for="vertical">Vertical</label><br>
+                    </div>
+                    <div>
+                        <label for="seleccion_color">Selecione el color de fondo: </label>
+                        <input type="color" id="seleccion_color" />
+                    </div>
+
+                    <p class="separador"> Sobre el contenedor de la imagen y la imagen seleccionada</p>
+                    <div>
+                        <!-- Filtro -->
+                        <label for="filtro"> Seleccione filtro: </label>
+
+                        <select id="filtro">
+
+                            <option>Filtro 1</option>
+                            <option>Filtro 2</option>
+                            <option>Filtro 3</option>
+                            <option>Filtro 4</option>
+
+                        </select>
+                    </div>
+                    <!-- Grosor -->
+                    <div>
+                        <label for="borde">Indique el grosor del borde: </label>
+                        <input type="number" id="borde" min="0" max="10" size="3">
+                    </div>
+                    <!-- Color -->
+                    <div>
+                        <label for="seleccion_color_borde">Seleccione el color del borde:</label>
+                        <input type="color" id="seleccion_color_borde" />
+                    </div>
+
+
+                </div>
+                <!--  --------------------------------------------------- -->
+                <!-- Contenedor origen de las imágenes -->
+                <!--  --------------------------------------------------- -->
+
+                <div class="origen_img">
+                    <button class="bot_origen"> Ver origen de las imágenes seleccionadas</button>
+                    <div>
+                        <p>Insertar orígenes de las imágenes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--  --------------------------------------------------- -->
+        <!-- Zona contenedor de texto -->
+        <!--  --------------------------------------------------- -->
+        <section class="contenedor_texto">
+
+            <!--  --------------------------------------------------- -->
+            <!-- Texto -->
+            <!--  --------------------------------------------------- -->
+
+            <div class="visual_txt">
+                <h1 id="titulo_1">DISEÑO DE INTERFACES WEB</h1>
+                <h2 id="titulo_2">UNIDAD DE TRABAJO 6</h2>
+            </div>
+
+            <!--  --------------------------------------------------- -->
+            <!-- Acciones -->
+            <!--  --------------------------------------------------- -->
+            <div class="action_txt">
+                <button id="mostrar_slide"> Mostrar / Ocultar con Efecto</button>
+
+                <div id="div_velocidad">
+                    <label for="velocidad"> Velocidad: </label>
+                    <input type="number" name="velocidad" id="velocidad" max="5000" min="0" step="100" size="6">
+                </div>
+                <div id="div_separacion">
+                    <label for="separacion"> Separación entre letras: </label>
+                    <input type="number" name="separacion" id="separacion" max="20" min="-10" size="3">
+                </div>
+                <div id="div_fuente">
+                    <label for="fuente"> Seleccione fuente: </label>
+                    <select id="fuente">
+                        <option>Fuente </option>
+                        <option>Fuente</option>
+                        <option>Fuente</option>
+                        <option>Fuente</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--  --------------------------------------------------- -->
+            <!-- Historial -->
+            <!--  --------------------------------------------------- -->
+            <div id="historial">
+                <p>Historial de acciones realizadas</p>
+            </div>
+        </section>
+
+
+        <footer>
+            <h2>PIE DE PÁGINA</h2>
+        </footer>
+    </body>
+
+</html>
