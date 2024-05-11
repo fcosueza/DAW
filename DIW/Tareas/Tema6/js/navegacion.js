@@ -8,11 +8,6 @@
  * alternan los estados entre visible y no visible de los elementos según su estado
  * actual.
  *
- * Teniendo en cuenta que las secciones se mostrarán por defecto, los checkbox
- * estarán marcados por defecto, por lo que no es necesario aplicar
- * mas comprobaciones ya que cada vez que se haga click en el checkbox se marcará o
- * desmarcará obligatoriamente, alternando correctamente entre un estado y otro.
- *
  * @param {*} e Objeto de tipo Event con información sobre el evento disparado
  */
 function sectionShow(e) {
