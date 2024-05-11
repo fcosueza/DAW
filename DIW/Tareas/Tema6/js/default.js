@@ -5,24 +5,26 @@
 
 // Valores por defectos de la cabecera
 
-export const DEFAULT_AVATAR_SRC = "images/logo_ies_aguadulce.png";
-export const DEFAULT_AVATAR_SIZE = "5rem";
+export const AVATAR_SRC = "images/pel_ani_01.png";
+export const AVATAR_SIZE = "4rem";
 
 // Valores por defecto de la zona de navegación
 
-export const DEFAULT_CHECKBOX_STATE = ":checked";
+export const CHECKBOX_CHECKED = "true";
 
 // Valores por defecto de la zona de imágenes
 
-export const DEFAULT_MINI_CLASS = ".img-miniaturas--selected";
-export const DEFAULT_RADIO_SELECTED = "#horizontal";
-export const DEFAULT_BG_COLOR = "#808080";
-export const DEFAULT_FILTER = "none";
-export const DEFAULT_BORDER_SIZE = "0";
+export const MINI_CLASS = ".img-miniaturas--selected";
+export const RADIO_SELECTED = "#horizontal";
+export const BG_COLOR = "#808080";
+export const FILTER = "none";
+export const BORDER_SIZE = "0";
+export const BORDER_COLOR = "#FFFFFF";
+export const IMG_SOURCE_MSG = "<p>Inserta orígenes de las imágenes</p>";
 
 // Valores por defecto para la zona de imágenes
 
-export const DEFAULT_SPEED = "100";
-export const DEFAULT_LETTER_SPACING = "1";
-export const DEFAULT_FONT = "Arial";
-export const DEFAULT_TEXT_STATE = "hidden";
+export const SPEED = "0";
+export const LETTER_SPACING = "0";
+export const FONT = "Arial";
+export const TEXT_STATE = "hidden";

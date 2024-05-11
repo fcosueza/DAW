@@ -8,6 +8,11 @@
  * alternan los estados entre visible y no visible de los elementos según su estado
  * actual.
  *
+ * Ya que por defecto los controles de navegación están marcados, para mostrar
+ * las 2 secciones, no es necesario comprobar si están marcados o no, ya que cada
+ * vez que se haga click en uno este se marcará o desmarcará y la sección pasará
+ * al estado adecuado.
+ *
  * @param {*} e Objeto de tipo Event con información sobre el evento disparado
  */
 function sectionShow(e) {

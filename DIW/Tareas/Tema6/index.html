@@ -92,7 +92,7 @@
                         <label for="vertical">Vertical</label><br>
                     </div>
                     <div>
-                        <label for="seleccion_color">Selecione el color de fondo: </label>
+                        <label for="seleccion_color">Seleccione el color de fondo: </label>
                         <input type="color" id="seleccion_color" />
                     </div>
 
@@ -102,10 +102,11 @@
                         <label for="filtro"> Seleccione filtro: </label>
 
                         <select id="filtro">
-                            <option>Ninguno</option>
-                            <option>Filtro 2</option>
-                            <option>Filtro 3</option>
-                            <option>Filtro 4</option>
+                            <option value="blur">Blur</option>
+                            <option value="saturation">Saturación</option>
+                            <option value="gray">Escala de Grises</option>
+                            <option value="sepia">Sepia</option>
+                            <option value="none">Ninguno</option>
                         </select>
                     </div>
                     <!-- Grosor -->
@@ -127,7 +128,7 @@
 
                 <div class="origen_img">
                     <button class="bot_origen"> Ver origen de las imágenes seleccionadas</button>
-                    <div>
+                    <div id="origen_cont">
                         <p>Insertar orígenes de las imágenes</p>
                     </div>
                 </div>
@@ -166,10 +167,10 @@
                 <div id="div_fuente">
                     <label for="fuente"> Seleccione fuente: </label>
                     <select id="fuente">
-                        <option>Fuente </option>
-                        <option>Fuente</option>
-                        <option>Fuente</option>
-                        <option>Fuente</option>
+                        <option value="Arial">Arial</option>
+                        <option>Helvetica</option>
+                        <option>Verdana</option>
+                        <option>Monospace</option>
                     </select>
                 </div>
             </div>
