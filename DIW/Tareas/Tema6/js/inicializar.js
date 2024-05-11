@@ -33,7 +33,7 @@ function inicializar() {
    * la función fadeIn
    */
 
-  $("section").fadeIn(1);
+  $("section").fadeIn(100);
 
   /*
    * Estado inicial de las miniaturas de imágenes

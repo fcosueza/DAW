@@ -27,4 +27,3 @@ export const IMG_SOURCE_MSG = "<p>Inserta orígenes de las imágenes</p>";
 export const SPEED = "0";
 export const LETTER_SPACING = "0";
 export const FONT = "Arial";
-export const TEXT_STATE = "hidden";
