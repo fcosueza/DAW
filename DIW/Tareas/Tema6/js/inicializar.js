@@ -39,23 +39,29 @@ function inicializar() {
    * Estado inicial de las miniaturas de imágenes
    *
    * Vamos a recorrer todas las miniaturas y eliminar la clase que se aplica
-   * cuando una de las miniaturas esta seleccionada.
+   * cuando una de las miniaturas esta seleccionada. Por defecto, se seleccionará
+   * la primera imagen.
    *
    * No es necesario usar el método each, ya que jQuery itera implícitamente sobre
    * la colección de objetos devueltos.
    */
 
-  $(".img-miniaturas").removeClass(defState.MINI_CLASS);
+  $(".img_miniaturas").removeClass(defState.MINI_CLASS);
+  $(".img_miniaturas").first().addClass(defState.MINI_CLASS);
 
   /*
    * Estado inicial de lo controles sobre el panel de imágenes
    *
    * Establecemos el botón radio horizontal como seleccionado por defecto y el color
    * seleccionado por defecto en el color picker.
+   *
+   * Para establecer el radio button, vamos a usar trigger, de esa forma,
+   * se colocará el panel en la orientación deseada, sin tener que establecerlo a parte.
    */
 
-  $(defState.RADIO_SELECTED).prop("checked", true);
+  $(defState.RADIO_SELECTED).trigger("click");
   $("#seleccion_color").val(defState.BG_COLOR);
+  $(".visual_img").css("background-color", defState.BG_COLOR);
 
   /* Estado inicial de los controles del contenedor de imagen e imagen seleccionada
    *
@@ -66,6 +72,19 @@ function inicializar() {
   $("#filtro").val(defState.FILTER);
   $("#borde").val(defState.BORDER_SIZE);
   $("#seleccion_color_borde").val(defState.BORDER_COLOR);
+
+  /*
+   * Estado inicial de las imágenes del collage.
+   *
+   * Cambiamos el src de la imagen al inicial y quitamos los filtros, además de establecer
+   * el color y tamaño del borde del contenedor a los valores por defecto.
+   */
+
+  $(".div_img_grande").find("img").css("filter", defState.FILTER);
+  $(".div_img_grande").find("img").attr("src", defState.SRC);
+
+  $(".div_img_grande").css("border-color", defState.BORDER_COLOR);
+  $(".div_img_grande").css("border-width", defState.BORDER_SIZE);
 
   /*
    * Estado inicial del contenedor de orígenes de las imágenes.
@@ -89,7 +108,7 @@ function inicializar() {
   $("#fuente").val(defState.FONT);
 
   /*
-   * Estado inicial de los titulos de texto
+   * Estado inicial de los títulos de texto
    *
    * Por defecto, el segundo título no se mostrará, utilizamos el método fadeOut
    * para ocultarlo.
