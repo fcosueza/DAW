@@ -90,7 +90,7 @@ function applyImageConfig(e) {
       filter = "none";
   }
 
-  // Aplicamos el efecto slideIn a la imagen y cambiamos dentro los valores CSS y atributos
+  // Aplicamos el efecto slideIn al contenedor y cambiamos dentro los valores CSS y atributos
   $(element).slideUp(500, function () {
     // Aplicamos los atributos al contenedor de la imagen
     $(element).css("border-width", borderWidth);

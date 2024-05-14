@@ -1,13 +1,13 @@
+import inicializar from "./inicializar.js";
 import headerChange from "./encabezado.js";
 import sectionShow from "./navegacion.js";
-import inicializar from "./inicializar.js";
 import { selectMini, panelDirection, backgroundColor, applyImageConfig } from "./imagenes.js";
 
 /*
  * Función a ejecutar cuando se carga la página.
  *
  * Desde la versión 3.0 de jQuery, es la sintaxis recomendada, estando
- * deprecadas el resto.
+ * marcadas como obsoletas el resto.
  */
 $(inicializar);
 
