@@ -1,7 +1,7 @@
 import inicializar from "./inicializar.js";
 import headerChange from "./encabezado.js";
 import sectionShow from "./navegacion.js";
-import { selectMini, panelDirection, backgroundColor, applyImageConfig } from "./imagenes.js";
+import { selectMini, panelDirection, backgroundColor, applyImageConfig, showSources } from "./imagenes.js";
 
 /*
  * Función a ejecutar cuando se carga la página.
@@ -32,3 +32,6 @@ $("#seleccion_color").on("change", backgroundColor);
 
 // Evento que maneja el click sobre una imagen del collage
 $(".div_img_grande").on("click", applyImageConfig);
+
+// Evento que para gestionar la visualización de las fuentes de las imágenes
+$(".bot_origen").on("click", showSources);

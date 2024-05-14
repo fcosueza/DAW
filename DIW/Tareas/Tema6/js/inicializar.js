@@ -90,11 +90,13 @@ function inicializar() {
    * Estado inicial del contenedor de orígenes de las imágenes.
    *
    * En este caso vamos a eliminar todos los párrafos que contenga el contenedor
-   * y a añadir el párrafo que se visualizará por defecto.
+   * y a añadir el párrafo que se visualizará por defecto. Por último mostramos el contenedor, que puede
+   * ser que este oculto, dependiendo de la última interacción con el antes de la inicialización.
    */
 
   $("#origen_cont p").remove();
   $("#origen_cont").append(defState.IMG_SOURCE_MSG);
+  $("#origen_cont").show();
 
   /*
    * Estado inicial de los controles de la zona de texto

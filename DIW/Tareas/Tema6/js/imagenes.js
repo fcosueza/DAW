@@ -108,4 +108,31 @@ function applyImageConfig(e) {
   $("#origen_cont").hide();
 }
 
-export { selectMini, panelDirection, backgroundColor, applyImageConfig };
+/**
+ * Función showSources
+ *
+ * Función que se encarga de mostrar las fuentes de las imágenes que hay cargadas en el
+ * collage.
+ *
+ * En primer lugar elimina todos los párrafos dentro del contenedor donde se mostrará
+ * el texto y muestra el contenedor, en caso de que estuviera oculto. A continuación itera
+ * por las 3 imágenes cargadas generando un párrafo HTML y añadiéndolo como hijo al contenedor.
+ *
+ * @param {*} e Objeto de tipo Event con información sobre el evento disparado
+ */
+
+function showSources(e) {
+  // Preparamos el contenedor para mostrar las imágenes
+  $("#origen_cont").find("p").remove();
+  $("#origen_cont").show();
+
+  // Iteramos por las imágenes generando el elemento HTML y añadiéndolo al contenedor
+  $(".img_grande").each(function (index) {
+    let para =
+      "<p><strong>Imagen - " + (index + 1) + ":</strong> Tiene como origen: <i>" + $(this).attr("src") + "</i></p>";
+
+    $("#origen_cont").append(para);
+  });
+}
+
+export { selectMini, panelDirection, backgroundColor, applyImageConfig, showSources };
