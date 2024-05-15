@@ -101,13 +101,17 @@ function inicializar() {
   /*
    * Estado inicial de los controles de la zona de texto
    *
-   * Establecemos la velocidad, el espacio entre y marcamos una fuente
+   * Establecemos la velocidad, el espacio entre letras y marcamos una fuente
    * por defecto.
    */
 
   $("#separacion").val(defState.LETTER_SPACING);
   $("#velocidad").val(defState.SPEED);
   $("#fuente").val(defState.FONT);
+
+  // Cargamos los valores por defecto en los títulos
+  $("#titulo_1").css({ "letter-spacing": defState.LETTER_SPACING, "font-family": defState.FONT });
+  $("#titulo_2").css({ "letter-spacing": defState.LETTER_SPACING, "font-family": defState.FONT });
 
   /*
    * Estado inicial de los títulos de texto
