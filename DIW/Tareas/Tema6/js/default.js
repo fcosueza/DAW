@@ -5,7 +5,7 @@
 
 // Valores por defectos de la cabecera
 
-export const AVATAR_SRC = "images/pel_ani_01.png";
+export const AVATAR_SRC = "images/waifu-1.jpeg";
 export const AVATAR_SIZE = "4rem";
 
 // Valores por defecto de la zona de navegación
@@ -31,5 +31,5 @@ export const IMG_SOURCE_MSG = "<p>Inserta orígenes de las imágenes</p>";
 
 // Valores por defecto para la zona de texto
 export const SPEED = "0";
-export const LETTER_SPACING = "0";
+export const LETTER_SPACING = "1";
 export const FONT = "Arial";
