@@ -1,8 +1,8 @@
 import inicializar from "./inicializar.js";
 import headerChange from "./encabezado.js";
 import sectionShow from "./navegacion.js";
+import { changeFont, changeLetterSpacing, showTitle } from "./texto.js";
 import { selectMini, panelDirection, backgroundColor, applyImageConfig, showSources } from "./imagenes.js";
-import { changeLetterSpacing } from "./texto.js";
 
 /*
  * Función a ejecutar cuando se carga la página.
@@ -39,3 +39,9 @@ $(".bot_origen").on("click", showSources);
 
 // Evento para gestionar el cambio de espaciado entre las letras en los títulos
 $("#separacion").on("change", changeLetterSpacing);
+
+// Evento para gestionar el cambio de la fuente en los títulos
+$("#fuente").on("change", changeFont);
+
+// Evento para procesador el cambio de titulo
+$("#mostrar_slide").on("click", showTitle);

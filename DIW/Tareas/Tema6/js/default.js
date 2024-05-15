@@ -33,3 +33,7 @@ export const IMG_SOURCE_MSG = "<p>Inserta orígenes de las imágenes</p>";
 export const SPEED = "0";
 export const LETTER_SPACING = "1";
 export const FONT = "Arial";
+
+// Valores por defecto del contenedor de texto y el texto
+export const TXT_COLOR = "black";
+export const TXT_BG = "white";

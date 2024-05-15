@@ -113,14 +113,23 @@ function inicializar() {
   $("#titulo_1").css({ "letter-spacing": defState.LETTER_SPACING, "font-family": defState.FONT });
   $("#titulo_2").css({ "letter-spacing": defState.LETTER_SPACING, "font-family": defState.FONT });
 
+  // Mostramos el botón y el input para la velocidad, por si estuvieran ocultos
+  $("#mostrar_slide").show();
+  $("#div_velocidad").show();
+
   /*
-   * Estado inicial de los títulos de texto
+   * Estado inicial de los títulos de texto y su contenedor
    *
-   * Por defecto, el segundo título no se mostrará, utilizamos el método fadeOut
-   * para ocultarlo.
+   * Por defecto, el segundo título no se mostrará, y el color de fuente será negro y el fondo
+   * del contenedor blanco.
    */
 
-  $("#titulo_2").fadeOut(1);
+  $("#titulo_1").show();
+  $("#titulo_2").hide();
+
+  $(".visual_txt").css("background-color", defState.TXT_BG);
+  $("#titulo_1").css("color", defState.TXT_COLOR);
+  $("#titulo_2").css("color", defState.TXT_COLOR);
 }
 
 export default inicializar;
