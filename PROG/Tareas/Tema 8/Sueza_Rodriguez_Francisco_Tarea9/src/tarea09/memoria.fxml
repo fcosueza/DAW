@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tarea09.MemoriaController">
    <children>
       <GridPane id="board" hgap="2.0" layoutX="29.0" layoutY="28.0" prefHeight="540.0" prefWidth="497.0" vgap="2.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
@@ -28,86 +27,159 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView id="cell1" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell2" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell3" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell4" fitHeight="143.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell5" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell6" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell7" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell8" fitHeight="143.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell9" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell10" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell11" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell12" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell13" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell14" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell15" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
-            <ImageView id="cell15" fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
-               <image>
-                  <Image url="@assets/interfaz/reversoCarta.png" />
-               </image>
-            </ImageView>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="3">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="122.0" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="127.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/interfaz/reversoCarta.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </GridPane>
       <VBox layoutX="541.0" layoutY="30.0" prefHeight="532.0" prefWidth="243.0">
