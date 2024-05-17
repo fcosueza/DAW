@@ -1,11 +1,63 @@
 .card {
-    /* define aquí los estilos
-       para el elemento card */
+    -fx-background-image: url("./assets/interfaz/reversoCarta.png");
+    -fx-background-size: 100%;
 }
 
 /* resto de estilos (define un mínmo de 15 reglas)*/
 
-.button {
-    -fx-padding: 0;
-    -fx-border: none;
+.container {
+    -fx-background-image: url("./assets/interfaz/fondo.jpg");
+    -fx-background-size: 100%;
 }
+
+.logo {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 2, 4.5, 2.5, 4.0);
+
+}
+
+.labelText {
+    -fx-font-family: "Helvetica";
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+    -fx-text-fill: white;
+}
+
+.labelIntentos {
+    -fx-effect: dropshadow(gaussian, #CD0101, 3, 1.5, 1.0, 1.0);
+}
+
+.labelContador {
+    -fx-effect: dropshadow(gaussian, #3399C9, 3, 1.5, 1.0, 1.0);
+}
+
+.labelNumber {
+    -fx-font-size: 70px;
+}
+
+.controlButton {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+.controlButton--Start {
+    -fx-background-color: #3399C9;
+}
+
+.controlButton-Exit {
+    -fx-background-color: #CD0101;
+}
+
+.controlButton:hover {
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5.5, 0, 2.0, 4.0);
+}
+
+.controlButton:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+    -fx-effect: null;
+}
+
+
+
