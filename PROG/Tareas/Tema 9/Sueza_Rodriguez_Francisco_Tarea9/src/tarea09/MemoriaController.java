@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -15,10 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -53,15 +48,21 @@ public class MemoriaController implements Initializable {
     private final File archivoFondo = new File("src/tarea09/assets/sonidos/musica.mp3");
     private final File archivoFallo = new File("src/tarea09/assets/sonidos/noPareja.mp3");
     private final File archivoAcierto = new File("src/tarea09/assets/sonidos/pareja.mp3");
+    private final File archivoVictoria = new File("src/tarea09/assets/sonidos/tada.mp3");
 
-    // Creamos los objetos Media con los archivo de los sonidos
+    // Objetos de tipo Media con los archivo de los sonidos
     private final Media sonidoFondo = new Media(archivoFondo.toURI().toString());
     private final Media sonidoFallo = new Media(archivoFallo.toURI().toString());
     private final Media sonidoAcierto = new Media(archivoAcierto.toURI().toString());
+    private final Media sonidoVictoria = new Media(archivoVictoria.toURI().toString());
 
     // Creamos dos media player, uno para la musica de fondo y otro para los efectos
     private final MediaPlayer playerFondo = new MediaPlayer(sonidoFondo);
     private MediaPlayer playerSonidos;
+
+    // Creamos el objeto Imagen con la imagen de final de partida
+    Image victoriaImg = new Image(getClass().getResourceAsStream("assets/interfaz/victoria.png"));
+    ImageView visorVictoria = new ImageView(victoriaImg);
 
     // Variables FXML de referencia a a elementos de la interfaz
     @FXML
@@ -137,8 +138,13 @@ public class MemoriaController implements Initializable {
             carta.setVisible(true);
             carta.setGraphic(null);
         }
+
+        // Eliminamos la imagen de final de partida
+        main.getChildren().remove(visorVictoria);
+
         // llamar al método initialize para terminar de configurar la nueva partida
         initialize(null, null);
+
     }
 
     /**
@@ -161,7 +167,10 @@ public class MemoriaController implements Initializable {
         Image carta = new Image(getClass().getResourceAsStream(rutaImagen));
         ImageView visorCarta = new ImageView(carta);
 
-        // Comprobamos si es la primera carta descubierta del intento o no
+        // Cuando un botón se pulsa, deshabilitamos el handler, para evitar comportamientos extraños
+        botonPulsado.setOnAction(null);
+
+        // Comprobamos si es la primera carta descubierta del intento o no, o si se intenta pulsar el mismo botón
         if (this.primerBotonPulsado) {
             this.segundoBotonPulsado = true;
             this.idBoton2 = indiceCarta;
@@ -187,7 +196,10 @@ public class MemoriaController implements Initializable {
                 playerSonidos = new MediaPlayer(sonidoFallo);
             }
 
+            // Reproducimos el sonido de fin de intengo adecuado
             playerSonidos.play();
+
+            // Ejecutamso el timeline finIntento
             finIntento.play();
         }
     }
@@ -223,8 +235,30 @@ public class MemoriaController implements Initializable {
             cartas.get(idBoton2).setVisible(false);
         }
 
-        // comprobar el final de partida
+        // Restablecemos los handlers en la propiedad onAction
+        cartas.get(idBoton1).setOnAction(e -> mostrarContenidoCasilla(e));
+        cartas.get(idBoton2).setOnAction(e -> mostrarContenidoCasilla(e));
+
         // si es final de partida mostra el mensaje de victoria y detener el temporizador y la música
+        if (juego.compruebaFin()) {
+
+            // Paramos la musica y el contador de tiempo
+            playerFondo.stop();
+            contadorTiempo.stop();
+
+            // Reproducimos el sonido de victoria
+            playerSonidos = new MediaPlayer(sonidoVictoria);
+            playerSonidos.play();
+
+            // Posicionamos la pantalla de victoria
+            visorVictoria.setFitWidth(600);
+            visorVictoria.setFitHeight(600);
+            visorVictoria.setLayoutX(35);
+            visorVictoria.setLayoutY(35);
+
+            // añadimos la pantalla de victoria al anchor panel principal
+            main.getChildren().add(visorVictoria);
+        }
     }
 
     /**
