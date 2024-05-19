@@ -1118,3 +1118,96 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 19 more
+2024-05-19 11:14:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+
+CREATE TABLE IF NOT EXISTS DISPONIBLE_EN (
+    CODPELICULA INT NOT NULL,
+    CODPLATAFORMA INT NOT NULL,
+    FDISPONIBILIDAD DATE NOT NULL,
+    FOREIGN KEY(CODPELICULA) REFERENCES PELICULAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(CODPLATAFORMA) REFERENCES PLATAFORMAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_DISPONIBLE PRIMARY KEY (CODPELICULA, CODPLATAFORMA, FDISPOB[*]¡NILIBILIDAD)
+
+)"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS DISPONIBLE_EN (
+    CODPELICULA INT NOT NULL,
+    CODPLATAFORMA INT NOT NULL,
+    FDISPONIBILIDAD DATE NOT NULL,
+    FOREIGN KEY(CODPELICULA) REFERENCES PELICULAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(CODPLATAFORMA) REFERENCES PLATAFORMAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_DISPONIBLE PRIMARY KEY (CODPELICULA, CODPLATAFORMA, FDISPOB[*]¡NILIBILIDAD)
+
+)"; SQL statement:
+
+
+CREATE TABLE IF NOT EXISTS Disponible_en (
+    codPelicula int NOT NULL,
+    codPlataforma INT NOT NULL,
+    fDisponibilidad DATE NOT NULL,
+    FOREIGN KEY(codPelicula) REFERENCES Peliculas(codigo) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(codPlataforma) REFERENCES Plataformas(codigo) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_Disponible PRIMARY KEY (codPelicula, codPlataforma, fDispob¡nilibilidad)
+
+) [42000-200]
+2024-05-19 11:15:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+
+CREATE TABLE IF NOT EXISTS DISPONIBLE_EN (
+    CODPELICULA INT NOT NULL,
+    CODPLATAFORMA INT NOT NULL,
+    FDISPONIBILIDAD DATE NOT NULL,
+    FOREIGN KEY(CODPELICULA) REFERENCES PUBLIC.PELICULAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(CODPLATAFORMA) REFERENCES PUBLIC.PLATAFORMAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_DISPONIBLE PRIMARY KEY (CODPELICULA, CODPLATAFORMA, FDISPOB[*]¡NILIBILIDAD)
+
+)"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS DISPONIBLE_EN (
+    CODPELICULA INT NOT NULL,
+    CODPLATAFORMA INT NOT NULL,
+    FDISPONIBILIDAD DATE NOT NULL,
+    FOREIGN KEY(CODPELICULA) REFERENCES PUBLIC.PELICULAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(CODPLATAFORMA) REFERENCES PUBLIC.PLATAFORMAS(CODIGO) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_DISPONIBLE PRIMARY KEY (CODPELICULA, CODPLATAFORMA, FDISPOB[*]¡NILIBILIDAD)
+
+)"; SQL statement:
+
+
+CREATE TABLE IF NOT EXISTS Disponible_en (
+    codPelicula int NOT NULL,
+    codPlataforma INT NOT NULL,
+    fDisponibilidad DATE NOT NULL,
+    FOREIGN KEY(codPelicula) REFERENCES PUBLIC.Peliculas(codigo) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(codPlataforma) REFERENCES PUBLIC.Plataformas(codigo) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT PK_Disponible PRIMARY KEY (codPelicula, codPlataforma, fDispob¡nilibilidad)
+
+) [42000-200]
+2024-05-19 11:15:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "FDISPONILIBILIDAD" no encontrada
+Column "FDISPONILIBILIDAD" not found; SQL statement:
+DROP TABLE IF EXISTS Disponible_en ; [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:115)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:123)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:133)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:50)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:183)
+	at ejemplo.Aplicacion.main(Aplicacion.java:108)
