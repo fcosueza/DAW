@@ -1,0 +1,1120 @@
+2021-10-02 23:44:58 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Desktop/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Desktop/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:75)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Desktop/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Desktop/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Desktop/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2021-10-02 23:45:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODUCTO" no encontrada
+Table "PRODUCTO" not found; SQL statement:
+SELECT id,nombre,precio FROM producto [42102-200]
+2021-10-02 23:48:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODUCTO" no encontrada
+Table "PRODUCTO" not found; SQL statement:
+SELECT id,nombre,precio FROM producto [42102-200]
+2021-10-03 18:48:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Cazarecompensas"
+Data conversion error converting "Cazarecompensas" [22018-200]
+2021-10-03 18:49:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "descripcion" no encontrada
+Column "descripcion" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getDouble(JdbcResultSet.java:752)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2021-10-05 09:47:32 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:81)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2021-10-05 10:02:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "UPDATE NAVE SET DESCRIPCION = 'CUCU' WHERE IDNAVE 1[*]"
+Syntax error in SQL statement "UPDATE NAVE SET DESCRIPCION = 'CUCU' WHERE IDNAVE 1[*]"; SQL statement:
+UPDATE NAVE SET DESCRIPCION = 'CUCU' WHERE IDNAVE 1 [42000-200]
+2021-10-05 10:04:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "descripcion" no encontrada
+Column "descripcion" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:316)
+	at ejemplo.Aplicacion.consultarPersonaje(Aplicacion.java:220)
+	at ejemplo.Aplicacion.main(Aplicacion.java:117)
+2021-10-05 10:05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "descripcion" no encontrada
+Column "descripcion" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:316)
+	at ejemplo.Aplicacion.consultarPersonaje(Aplicacion.java:220)
+	at ejemplo.Aplicacion.main(Aplicacion.java:117)
+2021-10-05 10:06:26 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:81)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2021-10-05 10:07:04 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:309)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:289)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:785)
+	at org.h2.server.web.WebApp.login(WebApp.java:1008)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:173)
+	at org.h2.server.web.WebThread.process(WebThread.java:139)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 21 more
+2021-10-19 19:12:39 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:85)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/profesorado/Dropbox/miParticularPROG/Tema10/UT10_ProyectoBaseH2/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2022-03-22 12:38:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Este metodo no esta permitido para una sentencia preparada; en su lugar use una sentencia regular.
+This method is not allowed for a prepared statement; use a regular statement instead. [90130-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:322)
+	at ejemplo.Aplicacion.borrarPersonaje(Aplicacion.java:327)
+	at ejemplo.Aplicacion.main(Aplicacion.java:145)
+2024-04-10 13:35:49 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:83)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-10 13:54:00 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:83)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/UT10_ProyectoBaseH2/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-12 12:16:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "NAVE[*]"
+Syntax error in SQL statement "NAVE[*]"; SQL statement:
+NAVE [42000-200]
+2024-04-12 12:20:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "2001/12/19"
+Cannot parse "DATE" constant "2001/12/19"; SQL statement:
+insert into Peliculas values ('111','El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001/12/19'); [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:74)
+	at org.h2.value.Value.convertToDate(Value.java:1093)
+	at org.h2.value.Value.convertTo(Value.java:816)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.insertarDatosTablas(Aplicacion.java:215)
+	at ejemplo.Aplicacion.main(Aplicacion.java:110)
+Caused by: java.lang.NumberFormatException: For input string: "2001/1"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:169)
+	at org.h2.value.ValueDate.parse(ValueDate.java:72)
+	... 16 more
+2024-04-12 12:22:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "2001/12/19"
+Cannot parse "DATE" constant "2001/12/19"; SQL statement:
+insert into Peliculas values ('111','El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001/12/19') [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:74)
+	at org.h2.value.Value.convertToDate(Value.java:1093)
+	at org.h2.value.Value.convertTo(Value.java:816)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NumberFormatException: For input string: "2001/1"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:169)
+	at org.h2.value.ValueDate.parse(ValueDate.java:72)
+	... 19 more
+2024-04-12 12:22:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "2002/12/18"
+Cannot parse "DATE" constant "2002/12/18"; SQL statement:
+insert into Peliculas values ('112','El señor de los anillos: Las dos torres','Frodo pasa entre dos torres', '2002/12/18') [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:74)
+	at org.h2.value.Value.convertToDate(Value.java:1093)
+	at org.h2.value.Value.convertTo(Value.java:816)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NumberFormatException: For input string: "2002/1"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:169)
+	at org.h2.value.ValueDate.parse(ValueDate.java:72)
+	... 19 more
+2024-04-12 12:22:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "2003/12/17"
+Cannot parse "DATE" constant "2003/12/17"; SQL statement:
+insert into Peliculas values ('113','El señor de los anillos: El retorno del rey','Frodo tira el anillo', '2003/12/17') [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:74)
+	at org.h2.value.Value.convertToDate(Value.java:1093)
+	at org.h2.value.Value.convertTo(Value.java:816)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NumberFormatException: For input string: "2003/1"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:169)
+	at org.h2.value.ValueDate.parse(ValueDate.java:72)
+	... 19 more
+2024-04-12 12:44:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59, CONSTRAINT_1BD" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59, CONSTRAINT_1BD" depends on it; SQL statement:
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 12:45:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59, CONSTRAINT_1BD" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59, CONSTRAINT_1BD" depends on it; SQL statement:
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 12:46:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59, CONSTRAINT_1BD" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59, CONSTRAINT_1BD" depends on it; SQL statement:
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 12:55:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59, CONSTRAINT_1BD" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59, CONSTRAINT_1BD" depends on it; SQL statement:
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 12:58:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59, CONSTRAINT_1BD" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59, CONSTRAINT_1BD" depends on it; SQL statement:
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 13:15:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP*[*] FROM PLATAFORMAS"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP*[*] FROM PLATAFORMAS"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+drop* FROM PLATAFORMAS [42001-200]
+2024-04-12 13:17:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PLATAFORMAS" debido a que "CONSTRAINT_1B" depende de él.
+Cannot drop "PLATAFORMAS" because "CONSTRAINT_1B" depends on it; SQL statement:
+DROP TABLE IF EXISTS Plataformas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:186)
+	at ejemplo.Aplicacion.main(Aplicacion.java:107)
+2024-04-12 13:37:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"
+Data conversion error converting "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"; SQL statement:
+
+
+insert into Peliculas values (111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22018-200]
+2024-04-12 13:38:32 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:83)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-12 13:38:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ABCD12345' (ACTUACION: ""CODACTOR"" INT NOT NULL)"
+Data conversion error converting "'ABCD12345' (ACTUACION: ""CODACTOR"" INT NOT NULL)"; SQL statement:
+
+
+insert into Peliculas values (111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22018-200]
+2024-04-12 14:18:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"
+Data conversion error converting "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"; SQL statement:
+insert into Peliculas values (111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22018-200]
+2024-04-12 14:19:47 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:83)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-12 14:20:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"
+Data conversion error converting "'ABCD12345' (ACTORES: ""CODIGO"" INT NOT NULL)"; SQL statement:
+insert into Peliculas values (111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22018-200]
+2024-04-15 12:46:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "PELICULAS" debido a que "CONSTRAINT_C59" depende de él.
+Cannot drop "PELICULAS" because "CONSTRAINT_C59" depends on it; SQL statement:
+
+
+DROP TABLE IF EXISTS Peliculas ; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:187)
+	at ejemplo.Aplicacion.main(Aplicacion.java:108)
+2024-04-15 12:49:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "CODPELICULA" no encontrada
+Column "CODPELICULA" not found; SQL statement:
+DELETE FROM Peliculas WHERE CODPELICULA=112 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:190)
+	at org.h2.command.dml.Delete.prepare(Delete.java:184)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-04-15 12:49:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "CODPELICULA" no encontrada
+Column "CODPELICULA" not found; SQL statement:
+DELETE FROM Peliculas WHERE CODPELICULA=113 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:190)
+	at org.h2.command.dml.Delete.prepare(Delete.java:184)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-04-15 13:22:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT CODPELICULA FROM DISPONIBLE_EN WHERE CODPLATAFORMA=%[*]D"; se esperaba "ALL, ANY, SOME"
+Syntax error in SQL statement "SELECT CODPELICULA FROM DISPONIBLE_EN WHERE CODPLATAFORMA=%[*]D"; expected "ALL, ANY, SOME"; SQL statement:
+SELECT codPelicula FROM Disponible_en WHERE codPlataforma=%d [42001-200]
+2024-04-15 13:25:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT CODPELICULA FROM DISPONIBLE_EN WHERE CODPLATAFORMA=%[*]D"; se esperaba "ALL, ANY, SOME"
+Syntax error in SQL statement "SELECT CODPELICULA FROM DISPONIBLE_EN WHERE CODPLATAFORMA=%[*]D"; expected "ALL, ANY, SOME"; SQL statement:
+SELECT codPelicula FROM Disponible_en WHERE codPlataforma=%d [42001-200]
+2024-04-15 13:26:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:350)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:28:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:350)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:31:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:350)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:34:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:350)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:35:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:351)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:37:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:351)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:42:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:351)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:49:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "codPelicula" no encontrada
+Column "codPelicula" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:352)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:351)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:50:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT CODIGO, NOMBRE FROM PELICULAS WHERE CODIGO=%[*]D"; se esperaba "ALL, ANY, SOME"
+Syntax error in SQL statement "SELECT CODIGO, NOMBRE FROM PELICULAS WHERE CODIGO=%[*]D"; expected "ALL, ANY, SOME"; SQL statement:
+SELECT codigo, nombre FROM Peliculas WHERE codigo=%d [42001-200]
+2024-04-15 13:51:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "NOMBRE" no encontrada
+Column "NOMBRE" not found; SQL statement:
+SELECT codigo, nombre FROM Peliculas WHERE codigo=111 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Select.prepare(Select.java:1206)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:355)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 13:52:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "titulo" no encontrada
+Column "titulo" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:316)
+	at ejemplo.Aplicacion.consultarPeliculasEnPlataformas(Aplicacion.java:359)
+	at ejemplo.Aplicacion.main(Aplicacion.java:140)
+2024-04-15 14:16:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "titulo" no encontrada
+Column "titulo" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3195)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:316)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:289)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:17:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "NAVE" no encontrada
+Table "NAVE" not found; SQL statement:
+UPDATE NAVE SET DESCRIPCION = 'HIPOPOTAMO' WHERE IDNAVE = ? [42102-200]
+2024-04-15 14:28:08 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-15 14:28:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TACHULON" no encontrada
+Column "TACHULON" not found; SQL statement:
+UPDATE Plataformas SET nombre = TAchulon WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:304)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:31:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TACHU" no encontrada
+Column "TACHU" not found; SQL statement:
+UPDATE Plataformas SET nombre = tachu WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:304)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:35:56 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-04-15 14:36:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "tachu" no encontrada
+Column "tachu" not found; SQL statement:
+UPDATE Plataformas SET nombre = "tachu" WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:304)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:36:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "tachu" no encontrada
+Column "tachu" not found; SQL statement:
+UPDATE Plataformas SET nombre = "tachu" WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:304)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:37:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "tachyu" no encontrada
+Column "tachyu" not found; SQL statement:
+UPDATE Plataformas SET nombre = "tachyu" WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at ejemplo.Aplicacion.modificarPlataforma(Aplicacion.java:304)
+	at ejemplo.Aplicacion.main(Aplicacion.java:141)
+2024-04-15 14:38:21 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "gfdgd" no encontrada
+Column "gfdgd" not found; SQL statement:
+UPDATE Plataformas SET nombre = "gfdgd" WHERE codigo = 333 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Update.prepare(Update.java:275)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-04-15 18:33:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "URLLOGOTIPO VARCHAR(200)": "'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FHBO&psig=AOvVaw1XhX5KDIxQgyRN1SjMka0H&ust=171328518... (214)"
+Value too long for column "URLLOGOTIPO VARCHAR(200)": "'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FHBO&psig=AOvVaw1XhX5KDIxQgyRN1SjMka0H&ust=171328518... (214)"; SQL statement:
+insert into Peliculas values (111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22001-200]
+2024-04-16 17:24:44 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:G:/Mi unidad/NetBeansProjects/PROG10_Tarea2023_24_Solucion/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
