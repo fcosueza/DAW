@@ -1211,3 +1211,391 @@ DROP TABLE IF EXISTS Disponible_en ; [42122-200]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
 	at ejemplo.Aplicacion.crearTablas(Aplicacion.java:183)
 	at ejemplo.Aplicacion.main(Aplicacion.java:108)
+2024-05-19 11:30:47 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-05-19 11:31:02 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-05-19 12:27:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "TITULO VARCHAR(30)": "STRINGDECODE('El se\u00f1or de los anillos: La comunidad del anillo') (48)"
+Value too long for column "TITULO VARCHAR(30)": "STRINGDECODE('El se\u00f1or de los anillos: La comunidad del anillo') (48)"; SQL statement:
+
+-- Datos para tabla Peliculas
+
+INSERT INTO Peliculas VALUES(111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22001-200]
+2024-05-19 12:29:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "TITULO VARCHAR(30)": "STRINGDECODE('El se\u00f1or de los anillos: La comunidad del anillo') (48)"
+Value too long for column "TITULO VARCHAR(30)": "STRINGDECODE('El se\u00f1or de los anillos: La comunidad del anillo') (48)"; SQL statement:
+INSERT INTO Peliculas VALUES(111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19') [22001-200]
+2024-05-19 12:30:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "URLLOGOTIPO VARCHAR(100)": "'https://store-images.s-microsoft.com/image/apps.14187.14495311847124170.7646206e-bd82-4cf0-8b8c-d06a67bc302c.2e474878-acb7-4afb... (145)"
+Value too long for column "URLLOGOTIPO VARCHAR(100)": "'https://store-images.s-microsoft.com/image/apps.14187.14495311847124170.7646206e-bd82-4cf0-8b8c-d06a67bc302c.2e474878-acb7-4afb... (145)"; SQL statement:
+
+-- Datos para tabla Peliculas
+
+INSERT INTO Peliculas VALUES(111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22001-200]
+2024-05-19 12:32:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "URLLOGOTIPO VARCHAR(100)": "'https://store-images.s-microsoft.com/image/apps.14187.14495311847124170.7646206e-bd82-4cf0-8b8c-d06a67bc302c.2e474878-acb7-4afb... (145)"
+Value too long for column "URLLOGOTIPO VARCHAR(100)": "'https://store-images.s-microsoft.com/image/apps.14187.14495311847124170.7646206e-bd82-4cf0-8b8c-d06a67bc302c.2e474878-acb7-4afb... (145)"; SQL statement:
+
+-- Datos para tabla Peliculas
+
+INSERT INTO Peliculas VALUES(111,'El señor de los anillos: La comunidad del anillo','Frodo recibe el anillo de poder', '2001-12-19'); [22001-200]
+2024-05-19 12:33:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+                                                                                                                                                            
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 115, '2018-03-14');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+                          
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');
+                        '"; se esperaba "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "
+                                                                                                                                                            
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 115, '2018-03-14');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+                          
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+                         
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');
+                        '"; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+
+--'336','HBO max','https://yt3.googleusercontent.com/bjkwQJm7D-ynsH_4ySvk-sqM802R1RYuYDqTazAF-g3gupsidu981t-uA3FFzlkdkK5txkXsLjg=s900-c-k-c0x00ffffff-no-rj'
+
+-- Datos para tabla Disponible_en
+
+INSERT INTO Disponible_en VALUE(333, 111, '2018-01-12');
+-- 333, 111, '2018-01-12'
+INSERT INTO Disponible_en VALUE(333, 112, '2018-02-13');
+-- 333, 112, '2018-02-13'
+INSERT INTO Disponible_en VALUE(333, 115, '2018-03-14');
+-- 333, 115, '2018-03-14'
+INSERT INTO Disponible_en VALUE(333, 116, '2018-04-15');
+-- 333, 116, '2018-04-15'
+INSERT INTO Disponible_en VALUE(334, 112, '2020-05-02');
+-- 334, 112, '2020-05-02'
+INSERT INTO Disponible_en VALUE(334, 113, '2020-06-02');
+-- 334, 113, '2020-06-02'
+INSERT INTO Disponible_en VALUE(334, 114, '2020-07-02');
+-- 334, 114, '2020-07-02'
+INSERT INTO Disponible_en VALUE(334, 115, '2021-08-02');
+-- 334, 115, '2021-08-02'ç
+INSERT INTO Disponible_en VALUE(334, 116, '2021-09-02');
+-- 334, 116, '2021-09-02'
+INSERT INTO Disponible_en VALUE(335, 117, '2022-01-10');
+-- 335, 117, '2022-01-10'
+INSERT INTO Disponible_en VALUE(335, 118, '2022-05-02');
+-- 335, 118, '2022-05-02' [42001-200]
+2024-05-19 12:37:42 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2024-05-19 12:37:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; se esperaba "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+
+
+-- Datos para tabla Disponible_en
+
+INSERT INTO Disponible_en VALUE(333, 111, '2018-01-12');
+INSERT INTO Disponible_en VALUE(333, 112, '2018-02-13');
+INSERT INTO Disponible_en VALUE(333, 116, '2018-04-15');
+INSERT INTO Disponible_en VALUE(334, 112, '2020-05-02');
+INSERT INTO Disponible_en VALUE(334, 113, '2020-06-02');
+INSERT INTO Disponible_en VALUE(334, 114, '2020-07-02');
+INSERT INTO Disponible_en VALUE(334, 115, '2021-08-02');
+INSERT INTO Disponible_en VALUE(334, 116, '2021-09-02');
+INSERT INTO Disponible_en VALUE(335, 117, '2022-01-10');
+INSERT INTO Disponible_en VALUE(335, 118, '2022-05-02'); [42001-200]
+2024-05-19 12:40:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; se esperaba "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+
+
+-- Datos para tabla Disponible_en
+
+INSERT INTO Disponible_en VALUE(333, 111, '2018-01-12');
+INSERT INTO Disponible_en VALUE(333, 112, '2018-02-13');
+INSERT INTO Disponible_en VALUE(333, 116, '2018-04-15');
+INSERT INTO Disponible_en VALUE(334, 112, '2020-05-02');
+INSERT INTO Disponible_en VALUE(334, 113, '2020-06-02');
+INSERT INTO Disponible_en VALUE(334, 114, '2020-07-02');
+INSERT INTO Disponible_en VALUE(334, 115, '2021-08-02');
+INSERT INTO Disponible_en VALUE(334, 116, '2021-09-02');
+INSERT INTO Disponible_en VALUE(335, 117, '2022-01-10');
+INSERT INTO Disponible_en VALUE(335, 118, '2022-05-02'); [42001-200]
+2024-05-19 12:42:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; se esperaba "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "
+
+                                 
+
+INSERT INTO DISPONIBLE_EN VALUE[*](333, 111, '2018-01-12');
+INSERT INTO DISPONIBLE_EN VALUE(333, 112, '2018-02-13');
+INSERT INTO DISPONIBLE_EN VALUE(333, 116, '2018-04-15');
+INSERT INTO DISPONIBLE_EN VALUE(334, 112, '2020-05-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 113, '2020-06-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 114, '2020-07-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 115, '2021-08-02');
+INSERT INTO DISPONIBLE_EN VALUE(334, 116, '2021-09-02');
+INSERT INTO DISPONIBLE_EN VALUE(335, 117, '2022-01-10');
+INSERT INTO DISPONIBLE_EN VALUE(335, 118, '2022-05-02');"; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+
+
+-- Datos para tabla Disponible_en
+
+INSERT INTO Disponible_en VALUE(333, 111, '2018-01-12');
+INSERT INTO Disponible_en VALUE(333, 112, '2018-02-13');
+INSERT INTO Disponible_en VALUE(333, 116, '2018-04-15');
+INSERT INTO Disponible_en VALUE(334, 112, '2020-05-02');
+INSERT INTO Disponible_en VALUE(334, 113, '2020-06-02');
+INSERT INTO Disponible_en VALUE(334, 114, '2020-07-02');
+INSERT INTO Disponible_en VALUE(334, 115, '2021-08-02');
+INSERT INTO Disponible_en VALUE(334, 116, '2021-09-02');
+INSERT INTO Disponible_en VALUE(335, 117, '2022-01-10');
+INSERT INTO Disponible_en VALUE(335, 118, '2022-05-02'); [42001-200]
+2024-05-19 12:45:44 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at ejemplo.Aplicacion.main(Aplicacion.java:84)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/fcosueza/Source/DAW/PROG/Tareas/Tema 10/Sueza_Rodriguez_Francisco_PROG_Tarea10/proyectobase.h2db.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
