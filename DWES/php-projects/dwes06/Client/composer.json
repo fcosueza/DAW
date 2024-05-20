@@ -1,0 +1,13 @@
+{
+    "name": "vendor/api-client",
+    "description": "Description of project ApiClient.",
+    "authors": [
+        {
+            "name": "fcosueza",
+            "email": "your@email.here"
+        }
+    ],
+    "require-dev": {
+        "guzzlehttp/guzzle": "8.0.x-dev"
+    }
+}
