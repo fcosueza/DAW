@@ -1,0 +1,13 @@
+{
+    "name": "vendor/ejercicio-r-e-s-t",
+    "description": "Description of project EjercicioREST.",
+    "authors": [
+        {
+            "name": "fcosueza",
+            "email": "your@email.here"
+        }
+    ],
+    "require-dev": {
+        "guzzlehttp/guzzle": "8.0.x-dev"
+    }
+}
