@@ -3,9 +3,12 @@
 
   $client = new GuzzleHttp\Client(["http_errors" => false]);
 
-  $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones');
+  $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones/5');
+
   $json = $response->getBody()->getContents();
   $data = json_decode($json, true);
+
+  print_r($response);
 ?>
 
 
@@ -19,7 +22,7 @@
 
         <link rel="stylesheet" href="style/style.css">
 
-        <title>Lista de Ubicaciones</title>
+        <title>API de la Asociación Respira</title>
 
     </head>
     <body>
@@ -41,7 +44,7 @@
                           print '<td>' . $ubicacion['id'] . '</td>';
                           print '<td>' . $ubicacion['nombre'] . '</td>';
                           print '<td>' . $ubicacion['ubicacion'] . '</td>';
-                          print '<td>' . $ubicacion['dias'] . '</td>';
+                          print '<td>' . $ubicacion['dia_semana'] . '</td>';
                           print '</tr>';
                       }
                   }
