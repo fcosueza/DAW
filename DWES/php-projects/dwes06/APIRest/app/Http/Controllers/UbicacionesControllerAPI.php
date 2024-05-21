@@ -11,67 +11,48 @@
       /**
        * Método listar
        *
-       * Método que realiza una petición al modelo ubicación, obteniendo todas
-       * las ubicaciones disponibles y generando un array de respuesta con
-       * todas ellas, incluyendo solo el id, nombre, ubicación y días en los
-       * que se celebra el taller.
+       * Método que realiza una consulta usando el modelo Ubicacion para obtener
+       * todas las ubicaciones. En la propia consulta se especifican los campos
+       * que queremos obtener, de forma que solo hay que pasar este resultado como
+       * respuesta.
        *
        * @return type Archivo Json con las ubicaciones
        */
       public function listar() {
-          $ubicaciones = Ubicacion::all();
-          $payLoad = array();
+          // Recuperamos todas las ubicaciones, pero solo las columnas que nos interesan
+          $ubicaciones = Ubicacion::all("id", "nombre", "descripcion", "dias");
 
-          // Seleccionamos los valores que queremos mostrar  de cada ubicacion
-          foreach ($ubicaciones as $ubicacion) {
-              $nuevaUbicacion = array();
-
-              $nuevaUbicacion["id"] = $ubicacion["id"];
-              $nuevaUbicacion["nombre"] = $ubicacion["nombre"];
-              $nuevaUbicacion["ubicacion"] = $ubicacion["descripcion"];
-              $nuevaUbicacion["dias"] = $ubicacion["dias"];
-
-              // Añadimos la ubicacion al payload
-              array_push($payLoad, $nuevaUbicacion);
-          }
-
-          // Enviamos la respuesta procesada
-          return response()->json($payLoad, 200);
+          // Enviamos la respuesta con las ubicaciones y el código 200
+          return response()->json($ubicaciones, 200);
       }
 
+      /**
+       * Método Taller
+       *
+       * Método que realizar una consulta para obtener todos los talleres que se
+       * imparten en una ubicación determinada. En primer lugar comprobamos en la
+       * tabla ubicaciones que existe el ID introducido. Si no existe, se responde
+       * con un mensaje de error y el código 404.
+       *
+       * Si la ubicación, existe, se realiza a consulta especificando los atributos que
+       * queremos obtener y devolviendo la respuesta. En caso de que no existan talleres
+       * el método get() devuelve un array vacío, por lo que no es necesario devolver 2 respuestas
+       * diferentes para los casos en los que haya o no talleres.
+       *
+       * @param int $idUbicacion Entero con el ID de la ubicación donde queremos buscar los talleres
+       * @return type Archivo JSON con los talleres que se han encontrado
+       */
       public function taller(int $idUbicacion) {
-          $talleres = null;
-          $payload = array();
-
-          // Si no existe el ID, devolvemos un mensaje de error con el códugo 404
-          if (is_null($talleres)) {
-              return response()->json(["Error:" => "La ubicación indicada no existe", 404);
+          // Si el ID de la ubicación no existe, mandamos un error y el código 404
+          if (count(Ubicacion::where("id", $idUbicacion)->get()) == 0) {
+              return response()->json(["error" => "La ubicación indicada no existe"], 404);
           }
 
-          // Comprobamos si hay talleres o no asociados a la ubicacion y creamos la respuesta
-          if (count($talleres == 0)) {
-              $response = response()->json($payload, 200);
-          } else {
-              foreach ($talleres as $taller) {
-                  $nuevoTaller = array();
+          // Realizamos la consulta indicando que atributos queremos obtener de cada taller
+          $talleres = Taller::where("ubicacion_id", $idUbicacion)->
+                  get(["id", "nombre", "descripcion", "dia_semana", "hora_inicio", "hora_fin", "cupo_maximo"]);
 
-                  $nuevoTaller["id"] = $taller["id"];
-                  $nuevoTaller["nombre"] = $taller["nombre"];
-                  $nuevoTaller["ubicacion"] = $taller["descripcion"];
-                  $nuevoTaller["dia_semana"] = $taller["dia_semana"];
-                  $nuevoTaller["hora_inicio"] = $taller["hora_inicio"];
-                  $nuevoTaller["hora_fin"] = $taller["hora_fin"];
-                  $nuevoTaller["cupo_maximo"] = $taller["cupo_maximo"];
-
-                  // Añadimos la ubicacion al payload
-                  array_push($payload, $nuevoTaller);
-              }
-
-              $response = response()->json($payload, 200);
-          }
-          $response = response()->json("La ubicación indicada no existe", 404);
-
-          return $response;
+          // Devolvemos los talleres encontrados, si los hay
+          return response()->json($talleres, 200);
       }
   }
-  
