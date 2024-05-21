@@ -34,7 +34,7 @@
        * Display the specified song
        */
       public function show(string $id) {
-          return Cancion::find();
+          return Cancion::find($id);
       }
 
       /**
@@ -51,16 +51,16 @@
           $cancion = Cancion::findOrFail($id);
           $cancion->update($request->all());
 
-          return response->json($cancion, 200);
+          return response()->json($cancion, 201);
       }
 
       /**
        * Remove the specified resource from storage.
        */
       public function destroy(string $id) {
-          $cancion = Cancion::findOrFail($id);
-          $cancion->delete();
+          Cancion::findOrFail($id)->delete();
 
-          return response->json($cancion, 200);
+          return response()->json("Canción eliminada correctamente.", 201);
       }
   }
+  
