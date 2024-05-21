@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+table {
+    font-family: helvetica;
+    border-spacing:0px;
+    width:80%;
+    margin: 0 auto;
+}
+
+td, th {
+    border:  1px solid black;
+    padding: 10px;
+    background: white;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+th {
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), lightblue;
+}
+
+tfoot {
+    bottom: 0;
+    z-index: 2;
+}
+
+
