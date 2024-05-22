@@ -6,7 +6,15 @@
 
   $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones');
   $json = $response->getBody()->getContents();
-  $data = json_decode($json, true);
+  $dataUbicaciones = json_decode($json, true);
+
+  // Utilización del endpoint /ubicaciones/{idUbicacion}/talleres
+
+  $ubicacionTaller = 2;
+
+  $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones/' . $ubicacionTaller . '/talleres');
+  $json = $response->getBody()->getContents();
+  $dataTalleres = json_decode($json, true);
 ?>
 
 
@@ -24,7 +32,9 @@
 
     </head>
     <body>
-        <h1>Ubicaciones Disponibles</h1>
+        <h1>Utilización API Respira</h1>
+        <h2> Todas las Ubicaciones</h2>
+
         <table>
             <thead>
                 <tr>
@@ -36,13 +46,49 @@
             </thead>
             <tbody>
                 <?php
-                  if (isset($data)) {
-                      foreach ($data as $ubicacion) {
+                  if (isset($dataUbicaciones)) {
+                      foreach ($dataUbicaciones as $ubicacion) {
                           print '<tr>';
                           print '<td>' . $ubicacion['id'] . '</td>';
                           print '<td>' . $ubicacion['nombre'] . '</td>';
                           print '<td>' . $ubicacion['descripcion'] . '</td>';
                           print '<td>' . $ubicacion['dias'] . '</td>';
+                          print '</tr>';
+                      }
+                  }
+                ?>
+            </tbody>
+        </table>
+
+        <h2> Talleres en una Ubicación</h2>
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Dia de la Semana</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de Fin</th>
+                    <th>Cupo Máximo</th>
+                    <th>ID Ubicación</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                  if (isset($dataTalleres)) {
+                      foreach ($dataTalleres as $taller) {
+                          print '<tr>';
+                          print '<td>' . $taller['id'] . '</td>';
+                          print '<td>' . $taller['nombre'] . '</td>';
+                          print '<td>' . $taller['descripcion'] . '</td>';
+                          print '<td>' . $taller['dia_semana'] . '</td>';
+                          print '<td>' . $taller['hora_inicio'] . '</td>';
+                          print '<td>' . $taller['hora_fin'] . '</td>';
+                          print '<td>' . $taller['cupo_maximo'] . '</td>';
+                          print '<td>' . $taller['ubicacion_id'] . '</td>';
                           print '</tr>';
                       }
                   }

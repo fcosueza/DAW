@@ -1,14 +1,15 @@
-h1 {
+h1, h2 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 50px;
 }
 
+
 table {
     font-family: helvetica;
     border-spacing:0px;
     width:80%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 td, th {

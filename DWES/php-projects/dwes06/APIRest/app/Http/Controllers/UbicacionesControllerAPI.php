@@ -50,7 +50,7 @@
 
           // Realizamos la consulta indicando que atributos queremos obtener de cada taller
           $talleres = Taller::where("ubicacion_id", $idUbicacion)->
-                  get(["id", "nombre", "descripcion", "dia_semana", "hora_inicio", "hora_fin", "cupo_maximo"]);
+                  get(["id", "nombre", "descripcion", "dia_semana", "hora_inicio", "hora_fin", "cupo_maximo", "ubicacion_id"]);
 
           // Devolvemos los talleres encontrados, si los hay
           return response()->json($talleres, 200);

@@ -16,7 +16,7 @@
               $t->ubicacion_id = 2;
               $t->nombre = 'Taller de Manualidades';
               $t->descripcion = 'Taller para la realización de manualidades';
-              $t->dia_semana = 'L';
+              $t->dia_semana = 'J';
               $t->hora_inicio = '10:00';
               $t->hora_fin = '12:00';
               $t->cupo_maximo = '15';
@@ -40,7 +40,7 @@
               $t->ubicacion_id = 3;
               $t->nombre = 'La Entrevista Laboral';
               $t->descripcion = 'Taller para preparanos al afrontar una entrevista laboral';
-              $t->dia_semana = 'J';
+              $t->dia_semana = 'M';
               $t->hora_inicio = '11:00';
               $t->hora_fin = '12:00';
               $t->cupo_maximo = '20';
