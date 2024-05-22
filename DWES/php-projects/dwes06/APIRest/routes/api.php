@@ -3,6 +3,7 @@
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Route;
   use App\Http\Controllers\UbicacionesControllerAPI;
+  use App\Http\Controllers\TalleresControllerAPI;
 
 /*
     |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@
 
   Route::get("ubicaciones", [UbicacionesControllerAPI::class, "listar"]);
   Route::get("ubicaciones/{idUbicacion}/talleres", [UbicacionesControllerAPI::class, "taller"])->whereNumber("idUbicacion");
+
   Route::post("ubicaciones/{idUbicacion}/creartaller", [TalleresControllerAPI::class, "store"])->whereNumber("idUbicacion");
 
   Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
