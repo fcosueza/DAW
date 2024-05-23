@@ -14,7 +14,7 @@
     <body>
         <h1>Formulario de Creación del Taller</h1>
 
-        <form class="form" method="POST" action="/crearTaller.php">
+        <form class="form" method="POST" action="./crearTaller.php">
             <div>
                 <label>Nombre del taller:</label>
                 <input type="text" name="nombre">
@@ -37,11 +37,11 @@
             </div>
             <div>
                 <label>Cupo Máximo (min: 5 max:30):</label>
-                <input type="text" name="cupo_maximo">
+                <input type="number" name="cupo_maximo" min="5" max="30">
             </div>
             <div>
                 <label>Id de la Ubicación:</label>
-                <input type="text" name="ubicacion_id">
+                <input type="number" name="ubicacion_id">
             </div>
 
             <button type="submit">Enviar</button>

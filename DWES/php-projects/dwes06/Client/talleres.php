@@ -1,17 +1,17 @@
 <?php
   require "vendor/autoload.php";
 
-  // Utilización del endpoint /ubicaciones
+  // Comprobamos el parametro GET
+
+  if (isset($_GET['ubicacion']) && is_numeric($_GET['ubicacion'])) {
+      $ubicacionTaller = $_GET['ubicacion'];
+  } else {
+      $ubicacionTaller = 2;
+  }
+
   $client = new GuzzleHttp\Client(["http_errors" => false]);
 
-  $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones');
-  $json = $response->getBody()->getContents();
-  $dataUbicaciones = json_decode($json, true);
-
   // Utilización del endpoint /ubicaciones/{idUbicacion}/talleres
-
-  $ubicacionTaller = 2;
-
   $response = $client->request('GET', 'http://localhost:8000/api/ubicaciones/' . $ubicacionTaller . '/talleres');
   $json = $response->getBody()->getContents();
   $dataTalleres = json_decode($json, true);
@@ -32,68 +32,39 @@
 
     </head>
     <body>
-        <h1>Utilización API Respira</h1>
-        <h2> Todas las Ubicaciones</h2>
+        <h1>Talleres de la Ubicación</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Dias</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                  if (isset($dataUbicaciones)) {
-                      foreach ($dataUbicaciones as $ubicacion) {
-                          print '<tr>';
-                          print '<td>' . $ubicacion['id'] . '</td>';
-                          print '<td>' . $ubicacion['nombre'] . '</td>';
-                          print '<td>' . $ubicacion['descripcion'] . '</td>';
-                          print '<td>' . $ubicacion['dias'] . '</td>';
-                          print '</tr>';
-                      }
-                  }
-                ?>
-            </tbody>
-        </table>
-
-        <h2> Talleres en una Ubicación</h2>
-        <table>
-
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Dia de la Semana</th>
-                    <th>Hora de Inicio</th>
-                    <th>Hora de Fin</th>
-                    <th>Cupo Máximo</th>
-                    <th>ID Ubicación</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                  if (isset($dataTalleres)) {
-                      foreach ($dataTalleres as $taller) {
-                          print '<tr>';
-                          print '<td>' . $taller['id'] . '</td>';
-                          print '<td>' . $taller['nombre'] . '</td>';
-                          print '<td>' . $taller['descripcion'] . '</td>';
-                          print '<td>' . $taller['dia_semana'] . '</td>';
-                          print '<td>' . $taller['hora_inicio'] . '</td>';
-                          print '<td>' . $taller['hora_fin'] . '</td>';
-                          print '<td>' . $taller['cupo_maximo'] . '</td>';
-                          print '<td>' . $taller['ubicacion_id'] . '</td>';
-                          print '</tr>';
-                      }
-                  }
-                ?>
-            </tbody>
-        </table>
+        <?php if (!isset($dataTalleres["error"])): ?>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Nombre</th>
+                          <th>Descripcion</th>
+                          <th>Dia de la Semana</th>
+                          <th>Hora de Inicio</th>
+                          <th>Hora de Fin</th>
+                          <th>Cupo Máximo</th>
+                          <th>ID Ubicación</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <?php foreach ($dataTalleres as $taller): ?>
+                          <tr>
+                              <td><?php echo $taller['id']; ?></td>
+                              <td><?php echo $taller['nombre']; ?></td>
+                              <td><?php echo $taller['descripcion']; ?></td>
+                              <td><?php echo $taller['dia_semana']; ?></td>
+                              <td><?php echo $taller['hora_inicio']; ?></td>
+                              <td><?php echo $taller['hora_fin']; ?></td>
+                              <td><?php echo $taller['cupo_maximo']; ?></td>
+                              <td><?php echo $taller['ubicacion_id']; ?></td>
+                          </tr>
+                      <?php endforeach; ?>
+                  </tbody>
+              </table>
+          <?php else: ?>
+              <h2>Error: La ubicación seleccionada no existe</h2>
+        <?php endif; ?>
     </body>
 </html>
