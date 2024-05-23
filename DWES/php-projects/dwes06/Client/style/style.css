@@ -1,9 +1,21 @@
+
+body {
+    background-color: lightblue;
+}
+
+/*
+ * Estilo Titulos
+ */
+
 h1, h2 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 50px;
 }
 
+/*
+ * Estilo Tablas
+ */
 
 table {
     font-family: helvetica;
@@ -28,6 +40,37 @@ th {
 tfoot {
     bottom: 0;
     z-index: 2;
+}
+
+/*
+ * Estilo Formularios
+ */
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px auto;
+}
+
+form button {
+    font-size: 20px;
+    width: 150px;
+    margin: 20px auto;
+    padding: 5px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 

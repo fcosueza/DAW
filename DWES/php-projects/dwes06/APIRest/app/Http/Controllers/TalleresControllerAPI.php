@@ -47,7 +47,7 @@
               return response()->json(["errores:" => $validador->messages()], 422);
           }
 
-          // Si los datos son correctos, ya podemso extraerlos con seguridad y añadir la ubicación
+          // Si los datos son correctos, ya podemos extraerlos con seguridad y añadir la ubicación
           $datos = request()->all();
           $datos["ubicacion_id"] = $idUbicacion;
 
