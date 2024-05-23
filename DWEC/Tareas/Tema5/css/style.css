@@ -1,0 +1,9 @@
+.casilla {
+  width: 128px;
+  height: 128px;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
