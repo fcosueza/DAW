@@ -1,0 +1,37 @@
+/* Reinicio básico CSS */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+ *  Elementos HTML y Body
+ */
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+  background-color: #535C91;
+}
+
+/*
+ * Clases de utilidad
+ */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
