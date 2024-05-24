@@ -14,12 +14,10 @@
 
 html {
   font-size: 62.5%;
-  min-height: 100vh;
 }
 
 body {
-  height: 100%;
-  background-color: #535C91;
+  min-height: 100vh;
 }
 
 /*
@@ -34,4 +32,44 @@ body {
 .center {
   align-items: center;
   justify-content: center;
+}
+
+/*
+ * Estilo de los elementos principales */
+.form {
+  width: 30%;
+  min-width: 20rem;
+}
+
+.form-input {
+  font-size: 1.8rem;
+}
+
+.controls {
+  flex-direction: column;
+}
+
+.controls-cont {
+  padding: 3rem;
+  justify-content: space-around;
+}
+
+.controls-button {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: lightblue;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.6);
+
+}
+
+/*
+ * Estado de los elementos
+ */
+
+.controls-button:active {
+  transform: scale(0.9);
+  box-shadow: none;
 }
