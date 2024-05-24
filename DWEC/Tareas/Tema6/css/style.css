@@ -35,7 +35,22 @@ body {
 }
 
 /*
- * Estilo de los elementos principales */
+ * Estilo de los elementos principales 
+ */
+
+.header {
+  height: 15rem;
+  background-color: lightblue;
+  padding: 4rem;
+  margin-bottom: 10rem;
+}
+
+.header-title {
+  font-size: 5rem;
+  text-align: center;
+  color: black;
+}
+
 .form {
   width: 30%;
   min-width: 20rem;
@@ -43,6 +58,9 @@ body {
 
 .form-input {
   font-size: 1.8rem;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
 }
 
 .controls {
@@ -63,6 +81,26 @@ body {
   border-radius: 1rem;
   box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.6);
 
+}
+
+.container-result {
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 10rem;
+}
+
+.smallForecast {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 2rem;
+  width: 15rem;
+  height: 25rem;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.6);
 }
 
 /*

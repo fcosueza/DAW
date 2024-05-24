@@ -14,21 +14,25 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
 
-  <body class="flex center">
-    <form class="form" action="#" method="POST">
-      <div class="controls flex">
-        <input class="form-input" type="text" title="Introduzca la localización">
-        <div class="controls-cont flex center">
-          <button id="btnActual" class="controls-button" type="button">Tiempo Actual</button>
-          <button id="btnDays" class="controls-button" type="button">Tiempo 10 Días</button>
-          <button id="btnLocal" class="controls-button" type="button">Localización</button>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Aplicación El Tiempo</h1>
+    </header>
+
+    <main class="flex center">
+      <form class="form" action="#" method="POST">
+        <div class="controls flex">
+          <input class="form-input" type="text" title="Introduzca la localización">
+          <div class="controls-cont flex center">
+            <button id="btnActual" class="controls-button" type="button">Tiempo Actual</button>
+            <button id="btnDays" class="controls-button" type="button">Tiempo 10 Días</button>
+            <button id="btnLocal" class="controls-button" type="button">Localización</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
 
-    <div class=".container-result">
-
-    </div>
+      <div class="container-result flex center"></div>
+    </main>
 
     <script src="js/main.js"></script>
   </body>
