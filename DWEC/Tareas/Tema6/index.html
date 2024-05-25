@@ -8,9 +8,11 @@
     <meta name="description" content="Tarea 6 la asignatura DWEC: Programacion AJAX Javascript">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <title>Programación AJAX Javascript</title>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
 
@@ -20,9 +22,11 @@
     </header>
 
     <main class="flex center">
+
+      <!-- Formulario para introducir los datos de la ubicación -->
       <form class="form" action="#" method="POST">
         <div class="controls flex">
-          <input class="form-input" type="text" title="Introduzca la localización">
+          <input class="form-input" type="text" placeholder="Introduzca la localización....  (Ej: Granada,ES)">
           <div class="controls-cont flex center">
             <button id="btnActual" class="controls-button" type="button">Tiempo Actual</button>
             <button id="btnDays" class="controls-button" type="button">Tiempo 10 Días</button>
@@ -31,7 +35,28 @@
         </div>
       </form>
 
-      <div class="container-result flex center"></div>
+      <!-- Contenedores para almacenar los diferentes resultados de la previsión -->
+      <div class="container flex center">
+
+        <!-- Contenedor para el resultado del día actual y localización -->
+        <div class="result-actual flex">
+          <img class="result-icon" src="" alt="">
+          <h3 class="result-temp"></h3>
+          <p class="result-descript"></p>
+          <ul class="result-data">
+            <li id="dataUV"></li>
+            <li id="dataPrec"></li>
+            <li id="dataWind"></li>
+            <li id="dataVisi"></li>
+            <li id="dataHumi"></li>
+          </ul>
+          <div class="result-stations"></div>
+        </div>
+
+        <div id="map" class="map"></div>
+        <!-- Contenedor para el resultado de la previsión a 10 días -->
+        <div class="result-days flex"></div>
+      </div>
     </main>
 
     <script src="js/main.js"></script>

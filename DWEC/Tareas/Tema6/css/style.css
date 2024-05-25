@@ -83,10 +83,25 @@ body {
 
 }
 
-.container-result {
+.container {
+  width: 100%;
+}
+
+.result-days {
   width: 100%;
   justify-content: space-around;
   margin-top: 10rem;
+}
+
+.result-data {
+  list-style: none;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  width: 80%;
+  padding: 1rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  background-color: white;
 }
 
 .smallForecast {
@@ -98,9 +113,57 @@ body {
   padding: 2rem;
   width: 15rem;
   height: 25rem;
+}
+
+.result-actual {
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 25%;
+  background-color: lightblue;
+  margin: 5rem;
+
+}
+
+.result-actual,
+.smallForecast {
   border: 0.2rem solid black;
   border-radius: 1rem;
   box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.6);
+}
+
+.result-icon {
+  width: 20rem;
+  height: 20rem;
+  margin-bottom: 2rem;
+}
+
+.result-temp {
+  font-size: 4rem;
+}
+
+.result-descript {
+  font-size: 1.8rem;
+  font-style: italic;
+  text-align: center;
+  width: 80%;
+  margin: 2rem 0;
+}
+
+.result-stations {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 2rem;
+  width: 80%;
+  text-align: left;
+}
+
+.map {
+  height: 60rem;
+  width: 70rem;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  margin: 2rem 5rem;
 }
 
 /*
