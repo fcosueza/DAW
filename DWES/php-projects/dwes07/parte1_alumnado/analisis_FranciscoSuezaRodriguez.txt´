@@ -1,0 +1,175 @@
+1 - ¿Qué fragmentos de código del formulario dado en el código de arranque permite subir archivos al servidor?
+    Comenta brevemente que lo hace diferente a un formulario normal.
+
+
+
+
+
+Respuesta:
+
+El fragmento de código que permite subir los archivos el el formularío que podemos encontrar abajo
+del todo en el archivo index.php. El código de este formulario es el siguiente:
+
+--------------------------------------------------------------------------------
+<form enctype="multipart/form-data" action="" method="POST">
+    <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+    Envia el fichero para analizar: <input name="fichero_usuario" type="file" />
+    <BR>
+    <input type="submit" value="Enviar fichero" />
+</form>
+--------------------------------------------------------------------------------
+
+Cabe destacar un par de elementos de este formulario. A diferencia de otros que hemos realizado
+este incluye el atributo enctype, que nos permite especificar el tipo de codificación con el que
+se va a enviar el archivo, especificando que es de tipo "multipart/form-data", que es uno de los
+tres métodos de codificación que permiten los formularios.
+
+Esto, unido a la especidifación en el input del "type=file", permite subir los archivos, los cuales
+se procesan en otras partes del código para almecenarlos correctamente y guardar un registro de ellos.
+
+
+
+
+
+
+2 - ¿Qué fragmentos de código permite saber y acceder a los archivos subidos por el usuario?
+    Explica su uso y que información se envía junto a cada archivo.
+
+
+
+
+
+
+Respuesta:
+
+
+Para esta funcionalidad, tenemos dos trozos de código, uno principalmente en HTML
+que crea una tabla donde se nos muestran los archivos, y otro en PHP que es el encargado de
+procesarlos y guardad la información sobre ellos.
+
+En primer lugar, tenemos la tabla, con el siguiente código en HTML y php:
+
+-----------------------------------------------------------------------------------------------
+<H2>Gestión de archivos</H2>
+<table border='1'>
+    <tr>
+        <th>Nombre del archivo</th>
+        <th>Tipo</th>
+        <th>Tamaño (en bytes)</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+    <?php foreach ($datos as $fila) : ?>
+        <tr>
+            <td><?= $fila['name'] ?></td>
+            <td><?= $fila['type'] ?></td>
+            <td><?= $fila['size'] ?></td>
+            <td><?= $fila['estado'] ?></td>
+            <td>
+                <form action="" method="POST">
+                    <input type="hidden" name="delete" value="<?= $fila['HASH256'] ?>">
+                    <input type="submit" value="Eliminar">
+                </form>
+                <form action="" method="POST">
+                    <input type="hidden" name="subirarchivo" value="<?= $fila['HASH256'] ?>">
+                    <input type="submit" value="Escanear">
+                </form>
+                <form action="" method="POST">
+                    <input type="hidden" name="resultadosEscaneo" value="<?= $fila['HASH256'] ?>">
+                    <input type="submit" value="Ver Resultados Escaneo">
+                </form>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+-------------------------------------------------------------------------------------------------------
+
+Esta tabla, nos permite gestionar los archivos, mostrandonos sus datos y proporionando
+tres botones para elimnarlos, enviarlos al servidor y mostrar el resultado de los análisis.
+Cabe destacar que aunque se encuentra en archivo mostrar_archivos.php, ésta se carga en el archivo
+index.php, donde manda todos los datos resultantes de la pulsación de botones mediante el método POST.
+
+Para su correcto funcionamiento, la tabla hace uso de la variable $datos, que contiene la información
+de todos los archivos que se han subido. Esta variable se genera y rellena en el siguiente trozo de código,
+que podemos encontrar en el archivo index.php:
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+  if (isset($_FILES['fichero_usuario'])) {
+      if ($_FILES['fichero_usuario']['error'] == UPLOAD_ERR_OK) {
+
+          if (count($datos) > 5) {
+              echo 'Ya se han subido 5 archivos. Debe eliminar alguno.';
+          } else {
+              $hash256 = hash_file('sha256', $_FILES['fichero_usuario']['tmp_name']);
+              if (in_array($hash256, array_column($datos, 'HASH256'))) {
+                  echo "<H2>Ya está el archivo subido.</H2>";
+              } else {
+                  $newtmpname = CARPETA_SUBIDAS . DIRECTORY_SEPARATOR . uniqid() . '-' . basename($_FILES['fichero_usuario']['tmp_name']);
+
+                  $resultado = move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $newtmpname);
+                  if ($resultado) {
+
+                      $datos_archivo = $_FILES['fichero_usuario'];
+                      $datos_archivo['tmp_name'] = $newtmpname;
+                      $datos_archivo['HASH256'] = $hash256;
+                      $datos_archivo['estado'] = 'no_enviado_a_virus_total';
+                      $datos[] = $datos_archivo;
+                  }
+              }
+          }
+      } else { // $_FILES['fichero_usuario']['error']!=UPLOAD_ERR_OK
+          echo 'Se ha producido un error al subir el archivo. Es posible qeu sea más grande que el tamaño máximo permitido';
+      }
+  }
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este trozo de código se procesa cada archivo y se va añadiendo información al registro
+que contiene la variable $datos. Se encarga de generar el hash con sha256 para su identificación,
+así como como de cambiar el nombre temporal de este, y guardar cierta información en el, como su
+hash o el estado del archivo. Una vez procesado el archivo, se añade al array $datos, que contiene el registro
+de todos los archivos y se serializa más adelante en el código.
+
+
+
+
+3 - ¿Qué función es utilizada para tratar de forma segura los archivos subidos? ¿Cuál es el objetivo de su uso? ¿Dónde se almacenan los archivos subidos?
+
+
+
+
+
+La función principal para tratar de forma segura los archivos que se emplea es has_file(),
+esta función genera un un hash sobre el archivo subido, de forma que si el archivo cambia, el hash
+no coincidirá y nos permite que cuando se acceda a los archivos lo hagamos de forma segura. Esto,
+unido a la serlización de la información de cada archivo mediante dicho hash, hace que se puedan
+procesar y manejar los archivos con seguridad.
+
+Respecto a donde se almacenan los archivo, esto vienen definido por la constante CARPETA_SUBIDAS,
+que se define en el archivo /etc/config.php. A efectos prácticos, esta constante crea una ruta hacia
+el directoiro subidas, que es donde se almacenan los archivos y los registros de estos.
+
+
+
+
+
+
+
+4 - ¿Qué información se almacena en el archivo serializado para cada archivo subido? ¿Cuántos archivos se pueden subir como máximo?
+
+
+
+
+
+
+Cuando se serilizan los archivos, además de la información que se incluye programáticamente, como hemos
+comentado antes (estado, hash..), hay ciertos datos que se generan durante la serilización y que son realmente
+de utilidad, siendos los principales los siguientes:
+
+    - name: nombre del archivo que se ha subido.
+    - fullpath: ruta completa a la ubicación del archivo.
+    - type: tipo MIME del archivo subido.
+    - size: tamaño del archivo expresado en bytes, si no me equivoco
+    - error: si ha habido algún error sobre su carga.
+
+El número máximo de archivos que se pueden subir son 5, como se especifica en la expresión
+"if (count($datos) > 5)" que podemos encontrar en el código que se encarga de procesarlos.
