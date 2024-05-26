@@ -57,3 +57,4 @@ nbdist/
 
 # PHP and Composer folders
 vendor/
+/DWES/php-projects/dwes06/RestAPI/node_modules/

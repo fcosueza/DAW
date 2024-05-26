@@ -78,4 +78,15 @@ form button {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), lightblue;
 }
 
+.result {
+    width: 40%;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 0 auto;
+}
+.errorList {
+    list-style: none;
+}
+
 

@@ -30,6 +30,12 @@
       $ubicacionID = htmlspecialchars($_POST["ubicacion_id"]);
   }
 
+  if (!isset($nombre) || !isset($descripcion) || !isset($diaSemana) || !isset($horaInicio) || !isset($horaFin) || !isset($cupoMaximo) || !isset($ubicacionID)) {
+      header("Location: nuevoTaller.php");
+      die();
+  }
+
+
   // Utilización del endpoint /ubicaciones
   $client = new GuzzleHttp\Client(["http_errors" => false]);
 
@@ -46,6 +52,7 @@
   ]);
 
   $json = $response->getBody()->getContents();
+  $statusCode = $response->getStatusCode();
   $payload = json_decode($json, true);
 ?>
 
@@ -65,8 +72,22 @@
     <body>
         <h1>Resultado Creación Taller</h1>
         <div>
-            <h2>Resultado de la creación del taller:</h2>
-            <?php print_r($payload); ?>
+            <div class="result">
+                <?php if ($statusCode == 200): ?>
+                      <h3> (<?php echo $statusCode; ?>) OK: El taller se ha creado correctamente </h3>
+                  <?php elseif ($statusCode == 404): ?>
+                      <h3>(<?php echo $statusCode; ?>) No Existe: La Ubicación indicada no existe </h3>
+                  <?php elseif ($statusCode == 422): ?>
+                      <h3>(<?php echo $statusCode; ?>) Error: Los datos indicados no son válidos: </h3>
+
+
+                      <ul class="errorList">
+                          <?php foreach ($payload["errores"] as $error => $msg): ?>
+                              <li> <?php echo $error . ": " . $msg[0]; ?>
+                              <?php endforeach; ?>
+                      </ul>
+                  <?php endif; ?>
+            </div>
         </div>
     </body>
 </html>
