@@ -1,0 +1,8 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "autoload":{
+        "files":["etc/config.php","funciones_acceso_servicio_web.php"]
+    }
+}
