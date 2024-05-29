@@ -58,3 +58,4 @@ nbdist/
 # PHP and Composer folders
 vendor/
 /DWES/php-projects/dwes06/RestAPI/node_modules/
+/PROG/Repaso/Ejercicio1/Ejercicio1/target/
