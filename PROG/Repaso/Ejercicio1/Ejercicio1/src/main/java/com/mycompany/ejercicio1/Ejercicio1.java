@@ -11,7 +11,7 @@ public class Ejercicio1 {
         Terreno terrenoPrueba;
 
         try {
-            terrenoPrueba = new Terreno(1000, "Armilla", 3, 1, 15);
+            terrenoPrueba = new Terreno(1000, "Armilla", 3, 3, 15);
 
             System.out.println(terrenoPrueba.toString());
             System.err.println(terrenoPrueba.representar());
