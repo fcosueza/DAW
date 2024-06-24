@@ -1,3 +1,0 @@
-Numero4: *
-Numero5: ***
-Numero90: ***
