@@ -1,3 +1,0 @@
-Archivos a modificar: 
-- index.php: gestionar la cookie de últios sitios visitados y su hash
-- footer.php: mostrar los últimos sitios visitados
