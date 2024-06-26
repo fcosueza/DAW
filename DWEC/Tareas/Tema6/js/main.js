@@ -1,5 +1,5 @@
 // Constante con la clave para la API de Visual Crossing
-const API_KEY_VC = "K8JKJB2DY35CGV24Y6QDXNGYL";
+const API_KEY_VC = "";
 
 // Parte constante de la URI de la API de Visual Crossing
 const BASE_URI_VC = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
