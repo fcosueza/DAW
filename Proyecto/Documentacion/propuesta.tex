@@ -133,13 +133,13 @@ La referencias, al igual que el glosario, tanto de esta sección como del resto 
 Esta sección se divide a su vez en 4 secciones, incluyendo la actual. Cada sección describe un aspecto diferentes de los requisitos del software y son las siguientes:
 
 \begin{itemize}
-	\item \textbf{Introducción} (Sección 2.1): en esta primera sección se realiza una introducción tanto al software como a este documento, explicando su propósito, alcance, etc...
+	\item \textbf{Introducción} (Sección 2.1): en este primer apartado se realiza una introducción tanto del software como de este documento, explicando su propósito, alcance, etc...
 	
-	\item \textbf{Descripción General} (Sección 2.2): en esta sección se realiza una descripción del software que se va a desarrollar, incluyendo su funcionalidad, restricciones, características de los usuarios potenciales, interfaces, etc. Nos sirve como base para especificar los requisitos en el siguiente apartado.
+	\item \textbf{Descripción General} (Sección 2.2): en el segundo apartado se realiza una descripción del software que se va a desarrollar, incluyendo su funcionalidad, restricciones, características de los usuarios potenciales, interfaces, etc. Nos sirve como base para especificar los requisitos en la siguiente sección.
 	
-	\item \textbf{Requerimientos Específicos} (Sección 2.3): en la tercera sección vamos a establecer los requisitos específicos del software, extraídos de la descripción general y separados en requisitos funcionales y no funcionales.
+	\item \textbf{Requerimientos Específicos} (Sección 2.3): aquí vamos a establecer los requisitos específicos del software, extraídos de la descripción general y separados en requisitos funcionales y no funcionales.
 	
-	\item \textbf{Requerimientos de Documentación} (Sección 2.4): en esta sección de la parte de requisitos se especifican los requisitos de documentación que va a tener el software, incluyendo manuales, ayuda en línea, instalación, etc.
+	\item \textbf{Requerimientos de Documentación} (Sección 2.4): por último se especifican los requisitos de documentación que va a tener el software, incluyendo manuales, ayuda en línea, instalación, etc.
 \end{itemize}
 
 \subsection{Descripción General}
@@ -728,33 +728,39 @@ En primer lugar se va a exponer el diseño de las diferentes páginas que compon
 	
 \section{Descripción de la Interfaz de Usuario}
 \label{sec:apenA}
-\textbf{SolucionesVecinales} es una aplicación web, por lo que tendrá una \textbf{interfaz web} que podrá ser accedida desde cualquier navegador y prácticamente desde cualquier dispositivo. La interfaz estará compuesta por un conjunto de páginas web que ayudarán a los usuarios a utilizar los diferentes servicios que ofrece la aplicación para gestionar la comunidad de vecinos. 
+\textbf{SolucionesVecinales} es una aplicación web, por lo que tendrá una \textbf{interfaz web} que estará compuesta por un conjunto de páginas que permitirán ofrecer los diferentes servicios de los que se compone la aplicación. Estás páginas serán accesibles desde cualquier dispositivo que tenga un navegador y es algo que se tendrá que tener en cuenta a la hora de realizar su diseño. 
 
 Las \textbf{páginas} de las que estará compuesta nuestra interfaz son las siguientes:
 
 \begin{itemize}
-	\item \textbf{Página Principal}: está es la página que se carga cuando cualquier usuario entra a nuestra aplicación. La función principal de esta pantalla es la de \textbf{ofrecer información sobre la aplicación}, así como proporcionar un\textbf{ menú con diferentes opciones} que, además de permitir la navegación por las diferentes secciones permita a un invitado \textbf{registrarse} o \textbf{realizar \gls{login}}.
+	\item \textbf{Página Principal}: está es la página de entrada a nuestra aplicación. Cualquier usuario puede acceder a ella y  su función principal es la de \textbf{ofrecer información sobre la aplicación}, exponiendo sus principales características, así como establecer un \textbf{canal de comunicación} con el equipo de desarrollo, consistente en un formulario de contacto.
+	  
+	Además, deberá tener un \textbf{menú} donde, además de enlaces a las diferentes secciones, deberá incluir enlaces hacia las páginas de login y registro.
 	
 	Las secciones de las que estará compuesta esta interfaz serán las siguientes:
 	
 	\begin{itemize}
-		\item \textbf{Cabecera}: aquí se mostrará una imagen con un eslogan, el nombre de la aplicación y un elemento \gls{CTA} para que los usuarios se registren o realicen login.
+		\item \textbf{Barra de Menú}: esta barra se sitúa en la parte superior de la pantalla principal y que estará siempre visible, incluirá un \textbf{logo de la aplicación} y un \textbf{menú} con enlaces a las diferentes secciones de la página principal así como a las páginas de login y registro.
 		
-		\item \textbf{Barra de Menú}: esta barra, que se sitúa inicialmente encima de la cabecera y que debe permanecer en todo momento en la parte superior de la pantalla, esta compuesta del \textbf{logo de la aplicación} en el lado izquierdo y de un \textbf{menú} en el lado derecho. El menú estará siempre presente en todas las páginas de la web, aunque dependiendo del contexto, la opción del menú pueden cambiar.
+		\item \textbf{Cabecera}: aquí se mostrará una imagen con un eslogan, el nombre de la aplicación y un elemento \gls{CTA} para que los usuarios se registren.
 		
 		\item \textbf{Secciones}: esta página contendrá, como mínimo, \textbf{3 secciones}, donde se explicará un poco el \textbf{propósito} del software, sus principales \textbf{características}, lo que nos diferencia de la competencia, etc. Las secciones deben ser \textbf{visualmente atractivas}, incluyendo imágenes e iconos y con una disposición adecuada. 
 		
 		Una sección que deberá ser \textbf{obligatoria}, es la sección ``\textbf{Contacta con nosotros}'', compuesta por un formulario y que permitirá a cualquier usuario, registrado o no, contactar con el equipo de desarrollo.
 		
-		\item \textbf{Pie de Página}: en el pie de página se añadirá una lista de enlaces con las diferentes secciones de la página, un mapa del sitio web y un conjunto de enlaces de redes sociales de la aplicación o en su defecto del equipo de desarrollo.
+		\item \textbf{Pie de Página}: en el pie de página se añadirá una lista de enlaces con las diferentes secciones de la página, un mapa del sitio web y enlaces a las diferentes redes sociales de la aplicación. Además se deben incluir enlaces a los documentos ó páginas con las políticas de privacidad, cookies, etc. También deberá incluir \textbf{información de copyright} sobre la página.
+		
 	\end{itemize}
 	
-	Tanto la \textbf{barra de menú} superior como el \textbf{pié de página} se mantendrán \textbf{visibles en todas las páginas} de la aplicación, cambiando en ciertos aspectos u ofreciendo diferentes opciones.
+	Cabe destacar que tanto el \textbf{pie de página} como la \textbf{barra de menú} son elementos comunes a todas la páginas. Dependiendo de la página en la que estemos, estos adaptarán su contenido.
 	
-	\item \textbf{Página de Login}: el propósito de esta página es permitir que los usuarios ingresen al sistema. La pantalla inicial esta compuesta por un \textbf{formulario}, que debe aceptar un \textbf{email} y una \textbf{contraseña} como entrada, con el botón enviar en la parte inferior. Además, incluirá un \textbf{enlace} debajo del botón, centrado, que permitirá al invitado \textbf{registrarse}, en caso de que no este registrado, desplegando un nuevo formulario que veremos en detalle a continuación. Solo el \textbf{administrador de la web} podrá realizar el ingreso al sistema empleando el \textbf{usuario WebAdmin}, el resto de usuarios deberán usar su correo.
+	\item \textbf{Página de Login}: el propósito de esta página es permitir que los usuarios puedan \textbf{entrar en al aplicación}. El elemento principal de la página será un \textbf{formulario} que permitirá introducir el correo y contraseña del usuario. En caso de que los datos sean erróneos, se mostrarán mensajes de error debajo de cada campo. Además, se incluirá un \textbf{enlace a la página de registro}, para usuarios que aún no estén registrados, debajo del formulario.
 	
-	\item \textbf{Página de Registro}: en esta pantalla, que se accede desde la pantalla de login, se muestra un formulario que \textbf{permitirá a un invitado registrarse} en el sistema. Este formulario estará compuesto por diferentes campos que permitirán al invitado introducir la información necesaria pare registrarse, como puede ser Nombre, Correo, Dirección, rol, etc. Debajo, aparecerá el \textbf{botón registrarse} que permitirá al invitado registrar todos sus datos.  
+	En está página, el \textbf{menú de la barra superior} solo contendrá 2 enlaces, uno a la página principal y otro a la de registro. La sección de \textbf{pie de página} solo deberá incluir al información de copyright.
+	
+	\item \textbf{Página de Registro}: esta página permitirá a los usuarios que no estén registrados \textbf{darse de alta} en el sistema. Constará de un formulario, donde el usuario deberá introducir los datos, así como seleccionar el rol que va a tener. En el caso de que los datos sean incorrectos, se mostrará un mensaje de error debajo de los campos afectados. Además, se incluirá un \textbf{enlace a la página de login}, debajo del formulario, para usuario que ya estén dados de alta.
 
+	En está página, el \textbf{menú de la barra superior} solo contendrá 2 enlaces, uno a la página principal y otro a la de login. La sección de \textbf{pie de página} solo deberá incluir al información de copyright.
 	
 	\item \textbf{Página Principal de Comunidad}: una vez que el usuario haya ingresado al sistema, se mostrará la pantalla de comunidad. El propósito de esta pantalla es servir como \textbf{puerta de entrada a la gestión de al comunidad} y como \textbf{punto de información} para el usuario. Esta interfaz estará compuesta por los siguientes elementos:
 	
