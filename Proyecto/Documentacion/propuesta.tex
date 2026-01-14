@@ -58,30 +58,30 @@
 \subsection{Presentación}
 En este documento se detalla el proyecto final desarrollado para el \textbf{CFGS Desarrollo de Aplicaciones Web} en el \textbf{IES Aguadulce}. El proyecto elegido ha sido una aplicación web para la \textbf{gestión y administración de comunidades de vecinos}, llamada \textbf{SolucionesVecinales}.
 
-El objetivo de esta aplicación es facilitar la \textbf{gestión de comunidades de vecinos} por parte tanto de los administradores de la propiedad como de los inquilinos o propietarios, ofreciéndose de \textbf{forma gratuita} y poniendo especial énfasis en las \textbf{accesibilidad} y \textbf{facilidad de uso}, con una interfaz web amigable y accesible desde cualquier dispositivo que disponga una navegador web.
+El objetivo de esta aplicación es facilitar la \textbf{gestión de comunidades de vecinos} por parte tanto de los administradores de la propiedad como de los inquilinos o propietarios. La aplicación se ofrece de forma \textbf{gratuita} y proporciona una interfaz sencilla e intuitiva, poniendo especial énfasis en la accesibilidad y facilidad de uso. 
 
-La aplicación trabaja con \textbf{3 tipos diferentes de usuarios}, incluyendo administradores, inquilinos y visitantes, siendo el público objetivo los administradores de propiedad y presidentes de comunidad así como todos los inquilinos y propietarios de las comunidades de vecinos. Los diferentes usuarios tendrán diferentes permisos y responsabilidades.
-
-A lo largo de este documento, desgranaremos todas los requisitos de la aplicación, el diseño elegido y todos los detalles del proceso de desarrollo y testeo.
+A lo largo de este documento, detallaremos todos los requisitos de la aplicación así como el diseño que se ha elegido y el proceso de desarrollo que va a emplear para llevar la creación de la aplicación a buen termino.
 
 \subsection{Contexto}
-Esta aplicación es un \textbf{proyecto personal} que se ha decidido realizar tras el análisis de diferentes aplicaciones similares y ver determinadas carencias que pueden dificultar la inclusión de todos los potenciales usuarios. Hay que tener en cuenta, que los usuarios objetivos son un grupo muy heterogéneo donde podemos encontrar personas con diferente formación, conocimientos sobre tecnologías o con problemas de accesibilidad, así como gente con dificultades económicas.
+Esta aplicación es un \textbf{proyecto personal} que se ha decidido desarrollar tras el análisis de diferentes aplicaciones del sector para la gestión vecinal y ver determinadas carencias, tanto en al accesibilidad como en una oferta completa de características que permite gestionar todos los aspectos de una comunidad bajo la misma aplicación.
 
-Por este motivo, se ha decidido realizar una \textbf{aplicación gratuita}, centrándonos en la \textbf{accesibilidad} y \textbf{facilidad de uso}, que ayude a cualquier potencial usuario a usar la aplicación e implicarse en la gestión de su comunidad de vecinos. 
+Hay que tener en cuenta, que los usuarios objetivos son un grupo muy heterogéneo donde podemos encontrar personas con diferente formación, conocimientos sobre tecnologías o con problemas de accesibilidad, así como gente con dificultades económicas. Por este motivo, se ha decidido realizar una \textbf{aplicación gratuita}, centrándonos en la \textbf{accesibilidad} y \textbf{facilidad de uso}, que ayude a cualquier potencial usuario a realizar la gestión de su comunidad de forma sencilla e intuitiva. 
 
 \subsection{Planteamiento del Problema}
-La gestión de comunidades de vecinos es una tarea compleja que requiere realizar un conjunto de gestiones administrativas asegurando la participación de los vecinos y de una forma transparente. En este aspecto, nuestra aplicación debería permitir que se realicen las siguientes tareas:
+La gestión de comunidades de vecinos es una tarea compleja que requiere realizar un conjunto de gestiones administrativas con la participación de los vecinos y de una forma transparente. En este aspecto, nuestra aplicación debería permitir que se realicen las siguientes tareas:
 
 \begin{itemize}
-	\item \textbf{Gestión de documentos}: gestión de los documentos generados en los diferentes procesos, como resolución de incidencias, documentos sobre juntas vecinales, etc. Permitiendo que estos puedan ser accedidos por todos los vecinos de la comunidad.
-	
-	\item \textbf{Reserva de espacios comunes}: automatizar la reserva y gestión de espacios comunes permitiendo a los vecinos reservar o cancelar reservas de dichos espacios, así como acceder a una lista con los espacios y el estado actual de reserva.
+	\item \textbf{Gestión de documentos}: permitir la inclusión de documentos relativos a la gestión de la comunidad de forma accesible y transparente para el resto de vecinos.
+		
+	\item \textbf{Reserva de espacios comunes}: automatizar la reserva y gestión de espacios comunes permitiendo a los vecinos reservar o cancelar reservas de dichos espacios, así como acceder a una lista con los diferentes espacios y el estado actual de reserva.
 	
 	\item \textbf{Gestión de Incidencias}: se debe permitir la creación de incidencias por parte de los vecinos así como su administración por parte del presidente de la comunidad o el administrador de fincas.
 	
 	\item \textbf{Gestión de Usuarios y Comunidades}: la aplicación debe permitir la creación, baja, actualización y consulta de usuarios con diferentes roles así como de comunidades de vecinos.
 	
-	\item \textbf{Gestión de Finanzas}: la aplicación debe realizar, de forma automática, cálculos para administrar económicamente la comunidad, calculando el balance anual a partir de las cuotas que se están pagando y las diferentes facturas que se han pagado.
+	\item \textbf{Gestión de Finanzas}: la aplicación debe realizar, de forma automática, cálculos para administrar económicamente la comunidad, calculando el balance anual a partir de las cuotas que se están pagando y de los diferentes gastos que está teniendo al comunidad.
+	
+	\item \textbf{Comunicación entre Usuarios}: la aplicación debe permitir el envío de mensajes entre los diferentes usuarios, habilitando la comunicación entre ellos de una forma sencilla.
 \end{itemize}
 
 Además de estas tareas, hay que garantizar la seguridad de la información almacenada, ya que es información sensible, así como que el proceso para realizar estas tareas sea sencillo e intuitivo, además de accesible. 
