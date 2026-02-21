@@ -63,9 +63,9 @@ El objetivo de esta aplicación es facilitar la \textbf{gestión de comunidades 
 A lo largo de este documento, detallaremos todos los requisitos de la aplicación así como el diseño que se ha elegido y el proceso de desarrollo que va a emplear para llevar la creación de la aplicación a buen termino.
 
 \subsection{Contexto}
-Esta aplicación es un \textbf{proyecto personal} que se ha decidido desarrollar tras el análisis de diferentes aplicaciones del sector para la gestión vecinal y ver determinadas carencias, tanto en al accesibilidad como en una oferta completa de características que permite gestionar todos los aspectos de una comunidad bajo la misma aplicación.
+Esta aplicación es un \textbf{proyecto personal} que se ha decidido desarrollar tras el análisis de diferentes aplicaciones del sector para la gestión vecinal y ver determinadas carencias, tanto en la accesibilidad como en una oferta completa de características que permite gestionar todos los aspectos de una comunidad bajo la misma aplicación.
 
-Hay que tener en cuenta, que los usuarios objetivo son un grupo muy heterogéneo donde podemos encontrar personas con diferente formación, conocimientos sobre tecnologías o con problemas de accesibilidad, así como gente con dificultades económicas. Por este motivo, se ha decidido realizar una \textbf{aplicación gratuita}, centrándonos en la \textbf{accesibilidad} y \textbf{facilidad de uso}, que ayude a cualquier potencial usuario a realizar la gestión de su comunidad de forma sencilla e intuitiva. 
+Hay que tener en cuenta, que los usuarios objetivo son un grupo muy heterogéneo donde podemos encontrar personas con diferente formación, conocimientos sobre tecnologías o con problemas de accesibilidad, así como con dificultades económicas. Por este motivo, se ha decidido realizar una \textbf{aplicación gratuita}, centrándonos en la \textbf{accesibilidad} y \textbf{facilidad de uso}, que ayude a cualquier potencial usuario a realizar la gestión de su comunidad de forma sencilla e intuitiva. 
 
 \subsection{Planteamiento del Problema}
 La gestión de comunidades de vecinos es una tarea compleja que requiere realizar un conjunto de gestiones administrativas con la participación de los vecinos y de una forma transparente. En este aspecto, nuestra aplicación debería permitir que se realicen las siguientes tareas:
@@ -79,7 +79,8 @@ La gestión de comunidades de vecinos es una tarea compleja que requiere realiza
 	
 	\item \textbf{Gestión de Usuarios y Comunidades}: la aplicación debe permitir la creación, baja, actualización y consulta de usuarios con diferentes roles así como de comunidades de vecinos.
 	
-	\item \textbf{Gestión de Finanzas}: la aplicación debe realizar, de forma automática, cálculos para administrar económicamente la comunidad, calculando el balance anual a partir de las cuotas que se están pagando y de los diferentes gastos que está teniendo al comunidad.
+	\item \textbf{Gestión de Finanzas}: la aplicación debe realizar, de forma automática, cálculos para mostrar el balance anual
+	de la comunidad.
 \end{itemize}
 
 Además, hay que garantizar que estas tareas se desarrollen de una forma \textbf{segura}, empleando una \textbf{interfaz simple e intuitiva} y que sea \textbf{accesible} para todo el mundo.
@@ -90,15 +91,16 @@ Este documento se compone de 6 secciones principales que tratan diferentes aspec
 \begin{itemize}
 	\item \textbf{Análisis de Requisitos}: en esta sección se especifican los requisitos, tanto funcionales como no funcionales de la aplicación, especificando que es lo que se quiere conseguir con este proyecto y cuales son las restricciones que vienen impuestas. bien por el problema a tratar o por los propios requisitos.
 	
-	\item \textbf{Hardware y Software Necesario.}: en esta sección se especifica el hardware necesarios para realizar el desarrollo y poner en funcionamiento la aplicación así como el software que se va a necesitar para este mismo propósito. También se especifica el presupuesto y los costes de hosting para la aplicación.
+	\item \textbf{Requerimientos de Hardware y Software}: en esta sección se especifica el hardware necesarios para realizar el desarrollo y poner en funcionamiento la aplicación así como el software que se va a necesitar para este mismo propósito. También se especifica el presupuesto y los costes de hosting para la aplicación.
 	
-	\item \textbf{Casos de Uso}: en esta sección se realiza un análisis de los principales casos de uso, empleando diferentes diagramas, así como una descripción más detalladas de los casos de uso generales.
+	\item \textbf{Casos de Uso}: aquí se realiza un análisis de los principales casos de uso, empleando diferentes diagramas, así como una descripción más detalladas de los casos de uso generales.
 	
 	\item \textbf{Diseño de la Interfaz}: en esta sección se especifica el diseño de la interfaz de usuario, mostrando todas las páginas de la aplicación así como la relación entre estas y sus diferentes elementos.
 	
 	\item \textbf{Diseño de la Base de Datos}: en este apartado se especifica el diseño de la base de datos, empleando un esquema Entidad-Relación así como el paso a tablas de ésta, explicando los puntos que sean oportunos sobre las decisiones de diseño tomadas. Además, se incluyen dos script, uno para la creación de la base de datos y otro para poblarla con datos.
 	
-	\item \textbf{Diagrama de Componentes}: en esta sección se muestra el diagrama de componentes de la aplicación, poniendo de relieve la arquitectura de la aplicación así como las interacción entre los diferentes elementos y sistemas.
+	\item \textbf{Seguridad}: por último, se van a explicar las medidas de seguridad que se van a tomar en la aplicación para
+	garantizar al integridad de los datos, contraseñas, etc...
 \end{itemize}
 
 
@@ -111,7 +113,7 @@ En esta sección se va definir la \textbf{especificación de requerimientos} que
 \subsubsection{Propósito}
 El propósito de esta sección es \textbf{establecer los requisitos}, tanto funcionales como no funcionales, de la aplicación que se va a desarrollar, realizando un \textbf{análisis exhaustivo de su funcionamiento} y estableciendo las restricciones necesarias para que la aplicación cumpla su funcionalidad de forma correcta, segura y eficiente. Estos requisitos nos ayudarán a planificar el proceso de desarrollo así como a tomar las decisiones oportunas durante el diseño de la aplicación.
 
-Esta sección va dirigida principalmente al \textbf{equipo de desarrollo}, que serán los encargados de diseñar la aplicación a partir de los requerimientos y restricciones establecidos en este documento, aunque teniendo en cuenta que también esta incluido en el documento del proyecto en general cabe la posibilidad de que tengan acceso a él otros interesados, como por ejemplo, posibles inversores.
+Esta sección va dirigida principalmente al \textbf{equipo de desarrollo}, que serán los encargados de diseñar la aplicación a partir de los requerimientos y restricciones establecidos en este documento, aunque teniendo en cuenta que también esta incluido en el documento del proyecto, cabe la posibilidad de que tengan acceso a él otros interesados, como por ejemplo, posibles inversores.
 
 \subsubsection{Alcance}
 Nuestro producto se llama \textbf{SolucionesVecinales} y es una aplicación web para la \textbf{gestión de comunidades de vecinos}. El fin de nuestra aplicación es ayudar a todos los integrantes en una comunidad de vecinos a realizar diferentes gestiones relacionadas con las administración de su comunidad, de forma simple y sencilla. 
@@ -124,7 +126,7 @@ Partiendo de esta base, la aplicación deberá \textbf{ayudar a realizar las tar
 Las definiciones, siglas y abreviaturas se incluyen al final del documento, dentro de un Glosario, donde se incluyen todos los términos tanto de esta sección como del resto de secciones.
 
 \subsubsection{Referencias}
-La referencias, al igual que el glosario, tanto de esta sección como del resto de secciones se incluyen al final de documento, para no duplicar secciones. Además, en cada texto que haga referencia a alguna página o documento, se incluirá la cita adecuada apunta a dicha referencia, para facilitar su acceso.
+La referencias, al igual que el glosario, tanto de esta sección como del resto de secciones se incluyen al final de documento, para no duplicar secciones. Además, en cada texto que haga referencia a alguna página o documento, se incluirá la cita adecuada apuntando a dicha referencia, para facilitar su acceso.
 
 
 \subsubsection{Visión General}
@@ -655,6 +657,8 @@ Hay que tener en cuenta que la \textbf{numeración de los casos de uso} que vemo
 	\caption{Caso de Uso - Añadir Registro}
 \end{figure}
 
+\section{Diseño de la Interfaz de Usuario}
+En esta sección se va incluir el diseño de la interfaz de la aplicación, especificando todas y cada una de las páginas que van a formar nuestra aplicación, así como la relación que existe entre estas. 
 
 \section{Base de Datos}
 En este apartado vamos a describir el \textbf{diseño de la base de datos} que vamos a emplear en nuestra aplicación, mostrando el \textbf{diagrama E/R}, así como su \textbf{paso a tablas}, explicado los puntos que sean necesarios. Además se creará un script para la creación de la base de datos y otro para poblarla con información.
@@ -712,11 +716,9 @@ Respecto al \textbf{tema de los roles}, aunque se han creado y usado, el control
 
 Por último, destacar que aunque se ha intentado realizar el diseño de la forma más eficiente, \textbf{puede que haya cambios} en la arquitectura de la base de datos. De ser así, \textbf{se documentará} cada cambio y \textbf{se explicará }el motivo de haberlo  realizado. 
 
-\section{Diseño de la Interfaz de Usuario}
-En esta sección se va incluir el diseño de la interfaz de la aplicación, especificando todas y cada una de las páginas que van a formar nuestra aplicación, así como la relación que existe entre estas. 
 
-\subsection{Diseño de las Páginas}
-En primer lugar se va a exponer el diseño de las diferentes páginas que componen nuestra aplicación en esta sección. Se van a definir todos los elementos de las páginas así como a establecer unas guías básicas sobre las fuentes que se van a emplear, la paleta de colores, etc..
+\section{Seguridad}
+
 
 \newpage
 
@@ -733,7 +735,7 @@ Las \textbf{páginas} de las que estará compuesta nuestra interfaz son las sigu
 \begin{itemize}
 	\item \textbf{Página Principal}: está es la página de entrada a nuestra aplicación. Cualquier usuario puede acceder a ella y  su función principal es la de \textbf{ofrecer información sobre la aplicación}, exponiendo sus principales características, así como establecer un \textbf{canal de comunicación} con el equipo de desarrollo, consistente en un formulario de contacto.
 	  
-	Además, deberá tener un \textbf{menú} donde, además de enlaces a las diferentes secciones, deberá incluir enlaces hacia las páginas de login y registro.
+	Además, deberá tener un \textbf{menú} donde se incluyan enlaces a las diferentes secciones, así como a las páginas de login y registro.
 	
 	Las secciones de las que estará compuesta esta interfaz serán las siguientes:
 	
@@ -754,16 +756,12 @@ Las \textbf{páginas} de las que estará compuesta nuestra interfaz son las sigu
 	
 	\item \textbf{Página de Login}: el propósito de esta página es permitir que los usuarios puedan \textbf{entrar en al aplicación}. El elemento principal de la página será un \textbf{formulario} que permitirá introducir el correo y contraseña del usuario. En caso de que los datos sean erróneos, se mostrarán mensajes de error debajo de cada campo. Además, se incluirá un \textbf{enlace a la página de registro}, para usuarios que aún no estén registrados, debajo del formulario.
 	
-	En está página, el \textbf{menú de la barra superior} solo contendrá 2 enlaces, uno a la página principal y otro a la de registro. La sección de \textbf{pie de página} solo deberá incluir al información de copyright.
-	
 	\item \textbf{Página de Registro}: esta página permitirá a los usuarios que no estén registrados \textbf{darse de alta} en el sistema. Constará de un formulario, donde el usuario deberá introducir los datos, así como seleccionar el rol que va a tener. En el caso de que los datos sean incorrectos, se mostrará un mensaje de error debajo de los campos afectados. Además, se incluirá un \textbf{enlace a la página de login}, debajo del formulario, para usuario que ya estén dados de alta.
-
-	En está página, el \textbf{menú de la barra superior} solo contendrá 2 enlaces, uno a la página principal y otro a la de login. La sección de \textbf{pie de página} solo deberá incluir al información de copyright.
 	
-	\item \textbf{Página Principal de Comunidad}: una vez que el usuario haya ingresado al sistema, se mostrará la pantalla de comunidad. El propósito de esta pantalla es servir como \textbf{puerta de entrada a la gestión de al comunidad} y como \textbf{punto de información} para el usuario. Esta interfaz estará compuesta por los siguientes elementos:
+	\item \textbf{Dashboard de Comunidad}: una vez que el usuario haya ingresado al sistema, se mostrará la pantalla de comunidad. El propósito de esta pantalla es servir como \textbf{puerta de entrada a la gestión de la comunidad} y como \textbf{punto de información} para el usuario. Esta interfaz estará compuesta por los siguientes elementos:
 	
 	\begin{itemize}
-		\item \textbf{Barra de Menú}: similar a la que vemos en la página principal, pero las opciones de menú ``Login/Registrarse''  habrá cambiado por el \textbf{icono de un usuario}. Este icono mostrará un \textbf{menú vertical} con las opciones ``\textbf{Perfil}'' y ``\textbf{Logout}'', que permitirán acceder a la información de perfil y hacer \gls{logout} respectivamente.
+		\item \textbf{Barra de Menú}: similar a la que vemos en la página principal, pero las opciones de menú ``Login/Registrarse''  habrá cambiado por el \textbf{icono de un usuario}. Este icono mostrará un \textbf{menú vertical} con las opciones ``\textbf{Perfil}'' y ``\textbf{Logout}'', que permitirán acceder a la información de perfil y hacer \gls{logout} respectivamente. Es probable que se añadan más opciones durante el proceso de desarrollo.
 		
 		\item \textbf{Menú Lateral}: un menú lateral, situado a la izquierda, que mostrará los diferentes servicios que ofrece al aplicación para gestionar la comunidad. Las opciones variarán según si el usuario tiene el rol de administrador o de inquilino, pero la opciones comunes a ambos son las siguientes: 
 		
@@ -779,7 +777,7 @@ Las \textbf{páginas} de las que estará compuesta nuestra interfaz son las sigu
 		 
 		 Adicionalmente, si el usuario tiene el \textbf{rol administrador}, se mostrará la opción ``\textbf{Administrar}''	, que permitirá al administrador gestionar los aspectos principales de la comunidad desde una misma pantalla. La cual se describirá más adelante.
 		 
-		El menú lateral se mostrará solo en caso de que el usuario, independientemente de su rol, este inscrito en una comunidad. En caso contrario no se mostrará. Si es un \textbf{administrador}, se mostrará en su lugar un \textbf{formulario para añadir una comunidad}. Si es un \textbf{inquilino}, se mostrará un \textbf{mensaje con el estado} de su solicitud de suscripción.
+		El menú lateral se mostrará solo en caso de que el usuario, independientemente de su rol, este inscrito en una comunidad. En caso contrario no se mostrará. Si es un \textbf{administrador}, se mostrará en su lugar un \textbf{formulario para añadir una comunidad}. Si es un \textbf{inquilino}, se mostrará un \textbf{mensaje con el estado} de su solicitud de suscripción o en caso de que no se halla podido efectuar, una barra de búsqueda, que permitirá mostrar las comunidades del sistema y enviar una solicitud.
 		
 		\item \textbf{Zona de Contenido}: en esta zona, que estará ubicada en el centro y es el elemento principal de ésta página. Cuando un \textbf{inquilino inscrito en una comunidad} acceda a la página principal de comunidad, aquí se mostrar la \textbf{información} de ésta, como nombre, dirección y una imagen. Además, se mostraran la actividad reciente del usuario, así como otros notificaciones, como las reservas realizadas o el estado de las incidencias creadas.
 		
@@ -841,7 +839,9 @@ Además de estas páginas, hay que tener en cuenta que la aplicación debe \text
 	\item \textbf{Menú Lateral}: el menú lateral se ocultará, mostrando la interfaz una flecha en la parte superior izquierda, donde debería estar el menú. Al pulsar esta flecha 
 \end{itemize}
 
-Más adelante, en la sección de adecuación al entorno y restricciones de diseño se proporcionará más información sobre el desempeño de la aplicación en dispositivos móviles y tablets.
+
+\textbf{NOTA}: cabe destacar que los diseños son susceptibles de pequeños (o no tan pequeños) cambios durante el proceso de desarrollo, ya sea para mejorar al experiencia de usuario, por razones de accesibilidad o por cambios en el diseño de la interfaz
+en general.
 
 \newpage
 
