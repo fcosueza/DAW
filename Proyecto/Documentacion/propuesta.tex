@@ -150,7 +150,7 @@ En primer lugar vamos a realizar una descripción del producto, especialmente de
 
 \paragraph{Interfaz de Usuario}
 ~\\\\
-\-\ \-\ \-\ Debido a que las especificaciones sobre al interfaz de usuario son más extensas, se han incluido como un anexo. Estas especificaciones se pueden consultar, en concreto, en el \hyperref[sec:apenA]{Anexo A}.
+\-\ \-\ \-\ Debido a que las especificaciones sobre al interfaz de usuario son más extensas, se han incluido como un anexo. Estas especificaciones se pueden consultar en el \hyperref[sec:apenA]{Anexo A}.
 
 
 \paragraph{Interfaces con Hardware}
@@ -166,8 +166,10 @@ Sí cabe destacar en esta sección, ya que no veo otra donde pueda incluir esta 
 
 La \textbf{única interacción} que cabe mencionar es la que realiza la parte de cliente de nuestra aplicación con el \textbf{navegador web} del usuario, aunque en este aspecto no se emplea ninguna interfaz específica para llevar a cabo esta interacción, si no que se realiza a través de los lenguajes empleados para desarrollar el propio cliente, como HTML, CSS, Javascript, etc.
 
-En el \textbf{lado del servidor}, nuestra aplicación se ejecutará en un servidor web, aunque como hemos comentado, no se va a emplear ninguna interfaz para comunicarse con el. Para ejecutar nuestra aplicación vale cualquier servidor web, aunque si hay que tener en cuenta un detalle, y es que cuando la aplicación se este \textbf{ejecutando en producción}, el servidor deberá tener soporte para \gls{SSL}, ya que nuestra aplicación va a emplear el protocolo \textbf{HTTPS} para comunicarse.
+En el \textbf{lado del servidor}, nuestra aplicación se ejecutará en un servidor web, aunque como hemos comentado, no se va a emplear ninguna interfaz para comunicarse con el. En concreto, nuestra aplicación se va a ejecutar en \textbf{Node}, por lo que no será necesaria ningún tipo de configuración previa salvo la instalación del propio Node.
 
+Cabe mencionar en este apartado, que la aplicación se va a "dockerizar", es decir, se va a desplegar usando el software \textbf{Docker} para que pueda ejecutarse en cualquier servidor de forma autónoma.
+t
 \paragraph{Interfaces de Comunicación}
 ~\\\\
 \-\ \-\ \-\ Para que nuestra aplicación funciones correctamente \textbf{necesita comunicarse mediante una red}, ya sea local o internet, realizando al comunicación entre nuestro cliente, con el navegador del usuario, y nuestro servidor. Para llevar a cabo esta comunicación, se va a emplear el protocolo \gls{HTTP}.
@@ -202,23 +204,25 @@ Para consultar con más detalle los diferentes códigos que podemos encontrar po
 ~\\\\
 \-\ \-\ \-\ La \textbf{restricciones de memoria} en nuestra aplicación son muy dispares, ya que las que se aplican al servidor no son las mismas que las que se aplican al cliente, por lo que vamos a tratarlas las dos de forma individual.
 
-En nuestro \textbf{servidor} las restricciones tanto en memoria primaria como secundaria son mínimas. La cantidad que se use de ambas va a estar estrechamente \textbf{relacionada con el número de usuarios} que tenga nuestra aplicación, ya que el principal uso de memoria principal va ser ocupado por las peticiones de los usuarios y las acciones que tenga que llevar, en consecuencia, el servidor sobre el sistema. Por otro lado, nuestra aplicación debe almacenar una gran cantidad de datos por cada comunidad, incluyendo archivos multimedia como es el caso de imágenes, por lo que la cantidad almacenamiento secundario que necesitaremos también va a depender en gran medido del número de usuarios que tengamos.
+En nuestro \textbf{servidor} las restricciones tanto en memoria primaria como secundaria son mínimas. La cantidad que se use de ambas va a estar estrechamente \textbf{relacionada con el número de usuarios} que tenga nuestra aplicación, ya que el uso de memoria principal va ser ocupado por las peticiones de los usuarios y las acciones que tenga que llevar, en consecuencia, el servidor sobre el sistema. Por otro lado, nuestra aplicación debe almacenar una gran cantidad de datos por cada comunidad, incluyendo archivos multimedia como es el caso de imágenes, por lo que la cantidad almacenamiento secundario que necesitaremos también va a depender en gran medido del número de usuarios que tengamos.
 
 Por otro lado, nuestro \textbf{cliente} si va a tener \textbf{fuertes restricciones}, especialmente en el uso de\textbf{ memoria principal}, ya que no se espera uso de memoria secundaria más de lo que puedan ocupar las cookies y otros elementos de este tipo. Pero en la memoria principal si tendremos restricciones, ya que hay que tener en cuenta que nuestra aplicación debe ejecutarse en muchos dispositivos que tienen recursos muy limitados, como pueden ser los dispositivos móviles, especialmente los más antiguos. En este aspecto \textbf{deberá minimizarse} el uso de \textbf{memoria principal}, evitando efectos indeseados como excesivos renderizados o utilizando imágenes comprimidas.
 
 \paragraph{Requerimientos de Adecuación al Entorno}
 ~\\\\
-\-\ \-\ \-\ La aplicación \textbf{no tiene requerimientos especiales} para su ejecución en diferentes entornos, ya que esta se va a ejecutar en cualquier servidor web que tenga soporte para SSL. Respecto a la \textbf{visualización en diferentes tipos de dispositivos}, en la \textbf{sección de restricciones de diseño} se añadirán detalles sobre como afrontar esta situación.
+\-\ \-\ \-\ La aplicación no va ha necesitar ningún tipo de adecuación al entorno ya que al usar Docker, más en concreto, \textbf{docker-compose}, simplemente desplegando el container la aplicación tendrá todo el software que necesita encapsulado. Si acaso, el único requisito, sería tener instalado Docker en el servidor.
 
 \subsubsection{Funciones del Producto}
 A lo largo de este documento ya hemos comentado que nuestro software, \textbf{SolucionesVecinales}, es una aplicación de \textbf{gestión de comunidades de vecinos}, pero no hemos especificado cual es su funcionamiento, así que en esta sección vamos a realizar una descripción general del funcionamiento de la aplicación.
 
 \begin{itemize}
-	\item La aplicación deberá \textbf{gestionar los diferentes usuarios} permitiendo que éstos se registren en el sistema como inquilinos o administradores y que accedan a las diferentes herramientas para gestionar su comunidad, así como a la modificación de su perfil o su eliminación.
+	\item La aplicación deberá \textbf{gestionar los diferentes usuarios} permitiendo que éstos se registren en el sistema como inquilinos o administradores y que accedan a las diferentes herramientas para gestionar su comunidad, así como a la modificación de su perfil o su eliminación. También permitirá iniciar sesión como webAdmin.
 	
  	\item Los \textbf{administradores} podrán añadir nuevas comunidades, donde los usuarios podrán inscribirse. El \textbf{sistema generará automáticamente} una \textbf{solicitud de inscripción}, cuando se registre un inquilino, a la comunidad con la misma dirección del inquilino. El \textbf{administrador deberá aprobar} la solicitud para que el inquilino quede inscrito.
  	
  	\item Una vez que los \textbf{inquilinos o administradores} estén inscritos en una comunidad, tendrán acceso al sistema de gestión de comunidades, donde podrán realizar diferentes acciones en su comunidad, además de tener la opción de editar su perfil o eliminar su usuario desde su página de perfil. 
+ 	
+ 	\item El \textbf{webAdmin} será un usuario especial que tendrá acceso al Backoffice y podrá crear, editar o eliminar los diferentes servicios que ofrece la plataforma.
  	
  	\item Dentro de las \textbf{herramientas} que provee nuestro software para \textbf{gestionar la comunidad}, tenemos las siguientes:
  	
@@ -263,15 +267,18 @@ En este apartado vamos a realizar una lista con todas las restricciones de dise�
 \-\ \-\ \-\ Para el desarrollo de la aplicación se usarán diferentes \gls{librerías}, \textbf{entornos de ejecución}, etc. En nuestro caso, se va a especificar el software que es de obligatorio uso para el desarrollo de nuestra aplicación. 
 
 \begin{itemize}
-	\item \textbf{FrontEnd}: en esta parte se va a emplear \textbf{React.js} para desarrollar el cliente empleando componentes. Además se debe emplear el preprocesador de CSS \textbf{SASS}, para crear archivos CSS modulares y reutilizables. 
+	\item \textbf{Front/Backend}: después de analizar las características de la aplicación y su complejidad, se ha decidido emplear
+	el \textbf{Next.js} para el desarrollo del frontend y del backend. Se ha preferido respecto a React y Node ya que nos va a 
+	facilitar el desarrollo de al aplicación.
 	
-	Después de una análisis más profundo de la aplicación \textbf{se ha descartado el uso de Redux}, ya que con \textbf{Context} de React se podrá realizar la misma funcionalidad disminuyendo la complejidad.
-	
-	\item \textbf{BackEnd}: en la parte de backend se va a emplear \textbf{Node}, para poder ejecutar Typescript en el lado del servidor junto con \textbf{Express}, que nos facilitara la creación de la API. Además, se empleará para la base de datos \textbf{Postgresql}, junto con \textbf{Prisma}, un \gls{ORM} que facilitará el trabajo con la base de datos.
+	\item \textbf{Base de Datos}: para la base de datos se ha elegido \textbf{PostgreSQL}, ya que es una de las bases de datos más
+	rápidas y flexibles, perfecta para nuestra aplicación. Como ORM nos vamos a decantar por \textbf{Prisma}, por sus sencillez y 
+	por la sintaxis tan intuitiva que tiene.
 	
 	\item \textbf{Herramientas de Desarrollo}: cada programador podrá usar el editor o IDE que sea de su preferencia, pero si se deberá usar \textbf{Prettier}, para establecer una estándar en el estilo código y \textbf{Eslint}, para detectar errores y adherirse a buenas prácticas.	
 	
-	\item \textbf{Gestión del Proyecto}: para la gestión del proyecto se van a emplear \textbf{Github}, como repositorio de software y \textbf{Trello}, que se empleará para la gestión de las tareas que hay que realizar a modo de tablero Kanban.
+	\item \textbf{Gestión del Proyecto}: para la gestión del proyecto se van a emplear \textbf{Github}, como repositorio de software y \textbf{Trello}, que se empleará para la gestión de las tareas que hay que realizar a modo de tablero Kanban. 
+	También se empleará Clickup para llevar el control de las tareas.
 \end{itemize}
 
 No se va a especificar el software para el testing ni el control de calidad, ya que este se especificará en su respectiva restricción.
@@ -280,7 +287,6 @@ No se va a especificar el software para el testing ni el control de calidad, ya 
 \paragraph{Control de Calidad y Testeo}
 ~\\\\
 \-\ \-\ \-\ Se tiene que implementar una \textbf{política de control de calidad} que incluya el testeo continuo de la aplicación a varios niveles, para segurar su calidad y localizar errores de forma más rápida. Esta política consiste en los siguientes puntos:
-
 \begin{itemize}
 	\item El desarrollo de cada módulo de software se realizará empleando la metodología \textbf{TDD}, \textbf{implementando primeramente los test} con la funcionalidad básica y desarrollando posteriormente el código que cumpla con dicha funcionalidad. Posteriormente se \textbf{refactorizará} teniendo en cuenta otros aspectos como la performance, la eficiencia, seguridad, etc..
 	
@@ -288,48 +294,12 @@ No se va a especificar el software para el testing ni el control de calidad, ya 
 	
 	\item Se realizarán un proceso de \textbf{integración continua} empleando para ello \textbf{Github Actions}, siendo prioridad que un trozo de software que se ha desarrollado pase todos los test y haya una \textbf{cobertura del 100\%} del código con los test creados.
 	
-	\item Se integrará \textbf{Cypress} en este proceso integración continua para la realización de los \gls{e2e}.
+	\item Se integrará \textbf{Playwright} en este proceso integración continua para la realización de los \gls{e2e}.
 	
 	\item El código de la aplicación estará incluida en \textbf{Code Climate}, donde se deberá revisar periódicamente y realizar los cambios indicados por este software para tener un código de calidad. Esto será complementario, como se ha comentado en otro punto, con el uso de \textbf{linters} como \textbf{Eslint}.
 	
 	\item Se seguirán las \textbf{buenas prácticas} tanto en el desarrollo del cliente como del servidor, siguiendo los estándares y recomendaciones de la \textbf{W3C}.
 \end{itemize}
-
-\paragraph{Seguridad de la Aplicación}
-~\\\\
-\-\ \-\ \-\ A la hora de tratar con los datos de los usuarios y las comunidades hay que ser extra precavido, y tener en cuenta unas restricciones para garantizar la seguridad de dichos datos. Estas restricciones son:
-
-\begin{itemize}
-	\item Los \textbf{datos que se obtenga de formularios} deben ser \textbf{doblemente validados}. Por un lado, se procesarán en el cliente, comprobando que tienen el formato correcto y eliminando aquellos que tengan ciertas palabras que pueden considerarse maliciosas, especialmente para ataques de \textbf{inyección SQL}. En una segunda parte se \textbf{volverán a validar en el servidor} antes de incluirlos en la base de datos.
-	
-	\item \textbf{Nunca} se \textbf{almacenarán las contraseñas} en \textbf{texto plano} en la base de datos. Para su almacenamiento, se empleará alguna función de \gls{hashing}´ como \textbf{bcrypt}, almacenando el resultado en vez de la contraseña.
-	
-	\item Las \textbf{contraseña de los usuarios} deberán tener un \textbf{longitud de 12 caracteres o más}, e incluir algún \textbf{número} y \textbf{signo de puntuación}.
-	
-	\item Nuestra base de datos, que estará físicamente en el mismo servidor que el servidor web, \textbf{solo debe aceptar consultar locales}, para evitar determinados tipos de ataques. 
-	
-	\item Las \textbf{peticiones por segundo} al servidor \textbf{estarán limitadas}, para evitar ataques de tipo \gls{DOS}.
-	
-	\item El \textbf{software} que se emplee en el desarrollo y necesario para la ejecución de la aplicación deben estar siempre \textbf{actualizado a la última última versión}.
-	
-	\item Solo se permitirán conexiones \textbf{HTTPS} con la aplicación.
-	
-	\item Los usuarios deberán \textbf{ingresar al sistem}a empleando su \textbf{correo y contraseña}, salvo el \textbf{administrador web}, que podrá usar el \textbf{usuario WebAdmin} y su contraseña.
-\end{itemize}
-
-\paragraph{Ley de Protección de Datos}
-~\\\\
-\-\ \-\ \-\ A la hora de implementar nuestra aplicación hay que tener en cuenta la \textbf{leyes de protección de datos} aplicables. En nuestro caso, son la \textbf{LOPD} (Ley Organica de Protección de Datos) y la \textbf{RGPD} (Reglamente General de Protección de Datos) de la Unión Europea. En este aspecto, y teniendo en cuenta los datos que trata nuestra web, debemos incluir en esta \cite{lopd}:
-
-\begin{itemize}
-	\item \textbf{Política de Privacidad}: texto legal para informar a los interesados toda la información sobre el tratamiento de sus datos.
-	
-	\item \textbf{Política de Cookies}: texto legal donde se informa de la política de cookies a los usuarios, donde además se pedirá su consentimiento para el almacenamiento de cookies en el sistema.
-	
-	\item \textbf{Cesión de Datos a Terceros}: si se decide la utilización de software de terceros (alto que aún no esta decidido) para obtener métricas del acceso a la web, como puede ser Google Analytics, se deberá firmar un acuerdo en que se establecerán las obligaciones para el encargado.
-\end{itemize}
-
-En principio estos son los puntos más importantes que se deben cumplir de las \textbf{leyes de protección de datos}, aunque deberemos estar pendientes si se añaden nuevas funcionalidades, o anuncios, para aplicar nuevas medidas.
 
 \paragraph{Accesibilidad}
 ~\\\\ Uno de los puntos más importantes de nuestra aplicación es la \textbf{accesibilidad} y \textbf{facilidad de uso}, por lo que en este aspecto se deben aplicar ciertas restricciones para garantizar que todo el mundo puede emplear nuestra aplicación con eficiencia. 
@@ -444,16 +414,10 @@ En esta sección se va a describir la documentación que va a emplear nuestro so
 En nuestro caso, no se necesita una manual de usuario para nuestra aplicación, ya que los usuarios van a acceder a ella de forma online y se va a emplear ayuda online.
 
 \subsubsection{Ayuda en Línea}
-Nuestra aplicación ofrecerá una \textbf{extensa ayuda en línea} que se encargará de explicar como realizar los diferentes procedimientos que pueden llevar a cabo los usuarios en nuestra aplicación.
-
-En cada página, aparecerá un \textbf{icono con el signo de interrogación}, cerca de las opciones de menú y los elementos interactivos, como formularios y espacios donde se visualiza información sobre la comunidad. Al pulsar este botón, se \textbf{desplegará una ventana popup} con la ayuda en línea. 
-
-En primer lugar, la ventana deberá contener una \textbf{captura de pantalla de la interfaz} donde se resalte y expliquen los elementos que la componen y su uso. Además, en el caso de que se tengan que realizar más acciones, como por ejemplo, en el momento de crear una incidencia o realizar una reserva, \textbf{debajo de la explicación de la interfaz} deberá explicarse el procedimiento, paso a paso y acompañado con imágenes de todas las pantallas por las que vamos a pasar y los diferentes resultados que podemos obtener. 
-
-El posicionamiento del icono de ayuda deberá realizarse de \textbf{forma visible} e \textbf{intuitiva}, añadiendo además textos alternativo al elemento así como un mensaje que se mostrará al pasar el botón por encima indicando que es al ayuda de la página. 																																					
+Nuestra aplicación ofrecerá una \textbf{extensa ayuda en línea} que se encargará de explicar como realizar los diferentes procedimientos que pueden llevar a cabo los usuarios en nuestra aplicación. Aún queda por determinar el formato que se empleará para mostrar esta ayuda. 																																					
 
 \subsubsection{Guía de Instalación, Configuración y Archivo Léeme} 
-Se incluirá una \textbf{guía de instalación en un entorno local} en el que se especificará como se instala el software en un servidor Apache 2.0 y la configuración que se debe realizar, si es necesario. La guía lo explicará paso a paso 
+Se incluirá una \textbf{guía de instalación en un entorno local} en el que se especificará como se instala el software mediante la instalación de Node y NPM, así como todas las dependencias necesarias para ejecutar al aplicación. 
 
 Respecto al archivo Léeme, se incluirá un archivo \textbf{README} en formado \gls{Markdown} en el \textbf{repositorio de Github} de nuestra aplicación, en el que se explicará un poco el propósito de nuestro software, como ejecutarlo de forma local, tecnologías empleadas, forma de contribuir al proyecto, etc. Este archivo, probablemente, sea más interesante para otros desarrolladores que para la mayoría de usuarios de nuestra aplicación.
 
@@ -473,7 +437,7 @@ El proyecto que vamos a desarrollar se llama \textbf{SolucionesVecinales}, y con
 
 Nuestro \textbf{objetivo}, es crear un \textbf{software} que proporcione las herramientas para \textbf{gestionar los principales aspectos} de una \textbf{comunidad de vecinos}. El software ofrecerá herramientas para la gestión de incidencias, reserva de espacios comunes, gestión de documentos, tablón de anuncios y consulta de la finanzas de la comunidad. Todo eso, poniendo especial énfasis en la facilidad de uso y la accesibilidad.
 
-El \textbf{plazo de entrega} de entrega del proyecto es, como máximo, del \textbf{5 de Mayo de 2025}, por lo que en el momento de escribir estas líneas hay un plazo de 2 meses para el desarrollo de la aplicación. Por lo que vamos a establecer un \textbf{conjunto de entregas} que se deberán respetar, no solo para llevar el proyecto a buen termino en el tiempo especificado, sino para dejar claro que esta, también, fuera del alcance de este proyecto.
+El \textbf{plazo de entrega} de entrega del proyecto es, como máximo, del \textbf{5 de Mayo de 2026}, por lo que en el momento de escribir estas líneas hay un plazo de 2 meses para el desarrollo de la aplicación. Por lo que vamos a establecer un \textbf{conjunto de entregas} que se deberán respetar, no solo para llevar el proyecto a buen termino en el tiempo especificado, sino para dejar claro que esta, también, fuera del alcance de este proyecto.
 
 Las \textbf{entregas} que se han planificado son:
 
@@ -529,9 +493,7 @@ Todo el software que se va a emplear en el proceso de desarrollo es software lib
 
 El sistema operativo elegido para el equipo donde se va a desarrollar el software es \textbf{Kubuntu 24.04LTS}. Se ha elegido Linux, y en concreto está distribución, porque es un sistema muy estable, con una gran cantidad de herramientas para el desarrollo de aplicaciones y que se actualiza frecuentemente. Además es gratuito y de código abierto.
 
-Para la parte de \textbf{frontend} se ha decidido emplear \textbf{React.js}, en concreto la \textbf{versión 19}, que ha sido publicada el 5 de Diciembre de 2024. \cite{github01} Esta librería de Javascript o Typescript esta enfocado en el desarrollo \textbf{orientado a componentes}, lo que nos va a permitir desarrollar un cliente modular, con componentes altamente reutilizables. Actualmente es una de las librerías más ampliamente utilizas en el desarrollo frontend.
-
-Para pa parte de \textbf{backend} se va a emplear \textbf{Node 22.14LTS}, que es un \textbf{entorno de ejecución para Javascript} que nos va a permitir desarrollar nuestra aplicación en el servidor empleando este lenguaje o, como es nuestro caso, Typescript. Junto con Node, emplearemos \textbf{Express 4.21}, un framework para node que permite el desarrollo de aplicaciones web en la parte del servidor de forma, rápida y segura, motivo por el que se ha elegido para el desarrollo. Tanto Node como Express tienen un enfoque modular lo que va a proporcionarnos gran versatilidad y alta performance en nuestra aplicación.
+Para el desarrollo principal de la aplicación se usará \textbf{Next.js 16} como framework de desarrollo, empleando como lenguaje de programación \textbf{Typescript}.
 
 Además de este software, como \textbf{base de datos} se va a emplear \textbf{PostgreSQL}, ya que aporta más flexibilidad en cuanto a tipos de datos, escalabilidad, simultaneidad e integridad de los datos que otras bases de datos basadas en SQL. Es además una base de datos de código abierto y gratuita.
 
@@ -658,7 +620,33 @@ Hay que tener en cuenta que la \textbf{numeración de los casos de uso} que vemo
 \end{figure}
 
 \section{Diseño de la Interfaz de Usuario}
-En esta sección se va incluir el diseño de la interfaz de la aplicación, especificando todas y cada una de las páginas que van a formar nuestra aplicación, así como la relación que existe entre estas. 
+En esta sección se va incluir el diseño de la interfaz de la aplicación, especificando todas y cada una de las páginas que van a formar nuestra aplicación, así como la relación que existe entre estas. Como ya se ha comentado, hay una descripción detallada de la interfaz también incluida en el Anexo A.
+
+\subsection{Pantallas de Login y Registro}
+En estas pantallas se podrán introducir los datos de acceso, en caso de que ya se tenga un usuario, o en su defecto, se podrá registras uno nuevo introduciendo los datos requeridos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{login.png}
+	\caption{Página de login}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{registro.png}
+	\caption{Página de registro}
+\end{figure}
+
+\subsection{Pantalla Principal}
+La pantalla principal será la página de acceso de al aplicación, y se detalla en en el anexo ya comentado. En este apartado se incluye una captura, aunque hay que tener en cuenta que puede sufrir modificaciones durante el proceso de desarrollo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.10]{main.png}
+	\caption{Página principal}
+\end{figure}
+
+
 
 \section{Base de Datos}
 En este apartado vamos a describir el \textbf{diseño de la base de datos} que vamos a emplear en nuestra aplicación, mostrando el \textbf{diagrama E/R}, así como su \textbf{paso a tablas}, explicado los puntos que sean necesarios. Además se creará un script para la creación de la base de datos y otro para poblarla con información.
@@ -684,7 +672,7 @@ Como vemos, es un diagrama sencillo, donde se ha intentado \textbf{atomizar cada
 En primer lugar, vamos a pasar las tablas principales, que en nuestro caso serían \textbf{Comunidad} y \textbf{Usuario}, que no dependen de ninguna otra tabla.
 
 \begin{itemize}
-	\item \textbf{Comunidad}(\underline{id\_comunidad}, nombre, calle, numero, provincia, país)
+	\item \textbf{Comunidad}(\underline{id\_comunidad}, nombre, calle, numero, localidad, provincia, pais)
 	\item \textbf{Usuario}(\underline{correo}, rol, nombre\_usuario, nombre, apellidos, calle, número, piso, letra, localidad)
 \end{itemize}
 
@@ -700,7 +688,7 @@ A continuación, vamos a pasar las tablas que dependen de estas para identificar
 Por último, vamos a pasar la tablas que se han generado con relaciones, en concreto, con relaciones M:N entre dos tablas. Estas tablas son \textbf{	inscripción}, \textbf{solicitud} y \textbf{reserva}.
 
 \begin{itemize}
-	\item \textbf{inscripción}(\uline{\dashuline{usuario, comunidad}})
+	\item \textbf{inscripción}(\uline{\dashuline{usuario, comunidad}}, fecha)
 	\item \textbf{solicitud}(\uline{\dashuline{usuario, comunidad}}, estado)
 	\item \textbf{reserva}(\uline{\dashuline{usuario, comunidad, zona}}, fecha\_reserva, hora\_inicio, hora\_fin)
 \end{itemize} 
@@ -718,7 +706,41 @@ Por último, destacar que aunque se ha intentado realizar el diseño de la forma
 
 
 \section{Seguridad}
+En esta sección vamos a comentar las medidas de seguridad que se van a adoptar en al aplicación.
 
+\subsection{Seguridad de la Aplicación}
+A la hora de tratar con los datos de los usuarios y las comunidades hay que ser extra precavido, y tener en cuenta unas restricciones para garantizar la seguridad de dichos datos. Estas restricciones son:
+
+\begin{itemize}
+	\item Los \textbf{datos que se obtenga de formularios} deben ser \textbf{doblemente validados}. Por un lado, se procesarán en el cliente, comprobando que tienen el formato correcto y eliminando aquellos que tengan ciertas palabras que pueden considerarse maliciosas, especialmente para ataques de \textbf{inyección SQL}. En una segunda parte se \textbf{volverán a validar en el servidor} antes de incluirlos en la base de datos.
+	
+	\item \textbf{Nunca} se \textbf{almacenarán las contraseñas} en \textbf{texto plano} en la base de datos. Para su almacenamiento, se empleará alguna función de \gls{hashing}´ como \textbf{bcrypt}, almacenando el resultado en vez de la contraseña.
+	
+	\item Las \textbf{contraseña de los usuarios} deberán tener un \textbf{longitud de 12 caracteres o más}, e incluir algún \textbf{número} y \textbf{signo de puntuación}.
+	
+	\item Nuestra base de datos, que estará físicamente en el mismo servidor que el servidor web, \textbf{solo debe aceptar consultar locales}, para evitar determinados tipos de ataques. 
+	
+	\item Las \textbf{peticiones por segundo} al servidor \textbf{estarán limitadas}, para evitar ataques de tipo \gls{DOS}.
+	
+	\item El \textbf{software} que se emplee en el desarrollo y necesario para la ejecución de la aplicación deben estar siempre \textbf{actualizado a la última última versión}.
+	
+	\item Solo se permitirán conexiones \textbf{HTTPS} con la aplicación.
+	
+	\item Los usuarios deberán \textbf{ingresar al sistem}a empleando su \textbf{correo y contraseña}, salvo el \textbf{administrador web}, que podrá usar el \textbf{usuario WebAdmin} y su contraseña.
+\end{itemize}
+
+\subsection{Ley de Protección de Datos
+}A la hora de implementar nuestra aplicación hay que tener en cuenta la \textbf{leyes de protección de datos} aplicables. En nuestro caso, son la \textbf{LOPD} (Ley Organica de Protección de Datos) y la \textbf{RGPD} (Reglamente General de Protección de Datos) de la Unión Europea. En este aspecto, y teniendo en cuenta los datos que trata nuestra web, debemos incluir en esta \cite{lopd}:
+
+\begin{itemize}
+	\item \textbf{Política de Privacidad}: texto legal para informar a los interesados toda la información sobre el tratamiento de sus datos.
+	
+	\item \textbf{Política de Cookies}: texto legal donde se informa de la política de cookies a los usuarios, donde además se pedirá su consentimiento para el almacenamiento de cookies en el sistema.
+	
+	\item \textbf{Cesión de Datos a Terceros}: si se decide la utilización de software de terceros (alto que aún no esta decidido) para obtener métricas del acceso a la web, como puede ser Google Analytics, se deberá firmar un acuerdo en que se establecerán las obligaciones para el encargado.
+\end{itemize}
+
+En principio estos son los puntos más importantes que se deben cumplir de las \textbf{leyes de protección de datos}, aunque deberemos estar pendientes si se añaden nuevas funcionalidades, o anuncios, para aplicar nuevas medidas.
 
 \newpage
 
