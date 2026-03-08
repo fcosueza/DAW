@@ -680,7 +680,7 @@ Cabe destacar que el orden de algunos campos de las tablas se ha alterado, míni
 
 \subsection{Roles}
 
-En la aplicación se van a definir 3 roles que nos van a ayudar a limitar los permisos que van a tener los diferentes usuarios. Estos roles, aunque estarán definidos en la base de datos, van a gestionarse de forma programática desde la aplicación, ya que se puede aplicar de forma más granular el control de acceso. Los roles que se han creado son:
+En la aplicación se van a definir 3 roles que nos van a ayudar a limitar los permisos que van a tener los diferentes usuarios. Los roles que se van a definir son:
 
 \begin{itemize}
 	\item \textbf{Inquilino}: los inquilinos son los usuarios con menos privilegios y los más numerosos. Este rol esta pensado para los vecinos y vecinas de una comunidad que no se encarguen de realizar tareas administrativas. El acceso que tendrán es será el siguiente:
@@ -703,13 +703,12 @@ En la aplicación se van a definir 3 roles que nos van a ayudar a limitar los pe
 		\end{itemize}
 \end{itemize}
 
+Estos roles se van a \textbf{gestionar programáticamente} desde la \textbf{aplicación} y \textbf{no estarán} implementados en al\textbf{ base de datos} ya que el acceso a la base de datos desde la aplicación se va a realizar empleando un solo usuario que tendrá todos los permisos para crear, actualizar o borrar registros en cualquier tabla, y será desde la aplicación, tanto desde el frontend como desde el backend, desde donde se gestionará que pueden o no hacer los diferentes usuarios del sistema. 
+
 \subsection{Scripts de la Base de Datos}
 Acompañando a este documento se han incluido 2 script, en \textbf{SQL}, para crear la base de datos y poblarla con datos, para poder realizar algunas consulta u operaciones de prueba.
 
 Hay que tener en cuenta, que la base de datos que se va a emplear en la aplicación es \textbf{PostgreSQL}, por lo que aunque la mayoría de sentencias van a ser totalmente compatibles con SQL, puede ser que haya algunos \textbf{tipos de datos}, o algunas \textbf{sentencias}, como por ejemplo, para generar campos de id de forma aleatoria, que \textbf{no estén soportadas} en MySQL ú Oracle. Por eso, para la correcta creación de la base de datos será \textbf{necesario el uso de PostgreSQL}.
-
-Destacar que aunque se ha intentado realizar el diseño de la forma más eficiente, \textbf{puede que haya cambios} en la arquitectura de la base de datos. De ser así, \textbf{se documentará} cada cambio y \textbf{se explicará }el motivo de haberlo  realizado. 
-
 
 \section{Seguridad}
 En esta sección vamos a comentar las medidas de seguridad que se van a adoptar en al aplicación.

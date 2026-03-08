@@ -1,8 +1,8 @@
-DROP DATABASE soluciones_vecinales;
+DROP DATABASE soluciones_vecinales_test;
 
-CREATE DATABASE soluciones_vecinales;
+CREATE DATABASE soluciones_vecinales_test;
 
-\c soluciones_vecinales
+\c soluciones_vecinales_test
 
 CREATE TYPE estado_solicitud AS ENUM ('pendiente', 'aprobada', 'denegada');
 CREATE TYPE estado_incidencia AS ENUM ('creada', 'procesandose', 'solucionada');
