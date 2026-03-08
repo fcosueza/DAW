@@ -669,40 +669,46 @@ Se ha intentado crear la base de datos de la forma más simple posible, \textbf{
 Como vemos, es un diagrama sencillo, donde se ha intentado \textbf{atomizar cada atributo}, además de evitar las referencias circulares. En la siguiente sección veremos el paso a tablas, aunque con este diagrama, donde ya se incluyen como tablas las relaciones, el paso va a ser más directo aún.
 
 \subsection{Paso a Tablas}
-En primer lugar, vamos a pasar las tablas principales, que en nuestro caso serían \textbf{Comunidad} y \textbf{Usuario}, que no dependen de ninguna otra tabla.
+En esta sección se muestra el paso a tablas de base de datos, indicando las tablas y las relaciones que estas tienen con otras mediante flechas.  
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.50]{tablas.png}
+\end{figure}
+
+Cabe destacar que el orden de algunos campos de las tablas se ha alterado, mínimamente, para que las flechas de las relaciones no se vieran muy juntas. Aún así, esto no afecta a las tablas ni a sus relaciones.
+
+\subsection{Roles}
+
+En la aplicación se van a definir 3 roles que nos van a ayudar a limitar los permisos que van a tener los diferentes usuarios. Estos roles, aunque estarán definidos en la base de datos, van a gestionarse de forma programática desde la aplicación, ya que se puede aplicar de forma más granular el control de acceso. Los roles que se han creado son:
 
 \begin{itemize}
-	\item \textbf{Comunidad}(\underline{id\_comunidad}, nombre, calle, numero, localidad, provincia, pais)
-	\item \textbf{Usuario}(\underline{correo}, rol, nombre\_usuario, nombre, apellidos, calle, número, piso, letra, localidad)
+	\item \textbf{Inquilino}: los inquilinos son los usuarios con menos privilegios y los más numerosos. Este rol esta pensado para los vecinos y vecinas de una comunidad que no se encarguen de realizar tareas administrativas. El acceso que tendrán es será el siguiente:
+	\begin{itemize}
+		\item \textbf{Lectura}: estos usuarios podrán leer los datos de la comunidad, los mensajes y las zonas comunes en sus respectivas tablas.
+		\item \textbf{Inserciones}: estos usuarios podrán leer y escribir en sus datos de usuario y en los diferentes elementos creados por sí mismos en las tablas de incidencias y reservas. No tendrán permisos para modificar los elementos creados por otros usuarios.
+		\item \textbf{Borrado}: estos usuarios solo podrán borrar elementos creados por sí mismos en las tablas de incidencias y reservas, así como la actualización de sus datos de usuario.
+	\end{itemize}
+	
+	\item \textbf{Admin}: los administradores son los usuarios encargados de la administración de la comunidad, por lo que habrá 1 por cada comunidad. Son los usuarios con más permisos dentro de una comunidad (a excepción del webAdmi). El acceso que tendrán es el siguiente: 
+		\begin{itemize}
+		\item \textbf{Lectura}: estos usuarios podrán leer en todas las tablas que estén relacionadas con al comunidad que gestionan.
+		\item \textbf{Inserciones}: al igual que la lectura, los administradores podrán realizar inserciones en todas las tablas que estén relacionadas con la comunidad que gestionan. También podrán realizar inserciones en la tabla de comunidades para añadir nuevas comunidades de las que serán administradores.
+		\item \textbf{Borrado}: los administradores podrán borrar registros de todas las tablas relacionadas con las comunidades que han creado, así como las comunidades creadas por sí mismos en al tabla comunidad.
+	\end{itemize}
+	
+	\item \textbf{WebAdmin}: el webadmin, que se correspondería con el propietario de la aplicación, es un usuario único que tendrá acceso al \textbf{Backoffice} de la aplicación. Los permisos que tiene son:
+		\begin{itemize}
+			\item \textbf{Lectura, Inserción y Borrado}: este usuario podrá leer, insertar o borrar registros de cualquier tabla de la aplicación y de cualquier comunidad, lo que le permitirá gestionar cualquier servicio de la aplicación.
+		\end{itemize}
 \end{itemize}
-
-A continuación, vamos a pasar las tablas que dependen de estas para identificarse, y que son \textbf{Credenciales}, \textbf{Zona\_Comun}, \textbf{Mensaje} y \textbf{Incidencia}. En estas tablas hay una relación de M:1 o 1:1 con las tablas principales, por lo que la clave principal se cede desde las tablas principales a éstas.
-
-\begin{itemize}
-	\item \textbf{Credenciales}(\uline{\dashuline{correo\_usuario}}, password)
-	\item \textbf{Mensaje}(\uline{fecha, \dashuline{comunidad}}, texto)
-	\item \textbf{Zona\_Comun}(\uline{nombre, \dashuline{comunidad}}, descripción, imagen, horario\_inicio, horario\_fin)
-	\item \textbf{Incidencia}(\uline{fecha, \dashuline{comunidad, usuario}}, descripción, estado)
-\end{itemize}
-
-Por último, vamos a pasar la tablas que se han generado con relaciones, en concreto, con relaciones M:N entre dos tablas. Estas tablas son \textbf{	inscripción}, \textbf{solicitud} y \textbf{reserva}.
-
-\begin{itemize}
-	\item \textbf{inscripción}(\uline{\dashuline{usuario, comunidad}}, fecha)
-	\item \textbf{solicitud}(\uline{\dashuline{usuario, comunidad}}, estado)
-	\item \textbf{reserva}(\uline{\dashuline{usuario, comunidad, zona}}, fecha\_reserva, hora\_inicio, hora\_fin)
-\end{itemize} 
-
-Como vemos, el paso a tablas ha sido prácticamente directo, ya que en el diagrama las relaciones ya se han procesado y se han generado las tablas o los movimientos de claves necesario.
 
 \subsection{Scripts de la Base de Datos}
 Acompañando a este documento se han incluido 2 script, en \textbf{SQL}, para crear la base de datos y poblarla con datos, para poder realizar algunas consulta u operaciones de prueba.
 
 Hay que tener en cuenta, que la base de datos que se va a emplear en la aplicación es \textbf{PostgreSQL}, por lo que aunque la mayoría de sentencias van a ser totalmente compatibles con SQL, puede ser que haya algunos \textbf{tipos de datos}, o algunas \textbf{sentencias}, como por ejemplo, para generar campos de id de forma aleatoria, que \textbf{no estén soportadas} en MySQL ú Oracle. Por eso, para la correcta creación de la base de datos será \textbf{necesario el uso de PostgreSQL}.
 
-Respecto al \textbf{tema de los roles}, aunque se han creado y usado, el control de los roles se va a \textbf{implementar en la aplicación} propiamente dicha, en el backend y frontend, por lo que no tiene mucha relevancia si solo se utilizan en la base de datos de forma manual.
-
-Por último, destacar que aunque se ha intentado realizar el diseño de la forma más eficiente, \textbf{puede que haya cambios} en la arquitectura de la base de datos. De ser así, \textbf{se documentará} cada cambio y \textbf{se explicará }el motivo de haberlo  realizado. 
+Destacar que aunque se ha intentado realizar el diseño de la forma más eficiente, \textbf{puede que haya cambios} en la arquitectura de la base de datos. De ser así, \textbf{se documentará} cada cambio y \textbf{se explicará }el motivo de haberlo  realizado. 
 
 
 \section{Seguridad}
